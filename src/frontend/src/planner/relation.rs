@@ -493,6 +493,7 @@ source: {:?}",
             mr.after_match_skip,
             mr.pattern,
             mr.defines,
+            mr.within,
         )
         .into())
     }
