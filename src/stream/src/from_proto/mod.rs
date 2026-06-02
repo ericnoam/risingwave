@@ -28,6 +28,7 @@ mod eowc_over_window;
 mod expand;
 mod filter;
 mod gap_fill;
+mod match_recognize;
 mod group_top_n;
 mod hash_agg;
 mod hash_join;
@@ -88,6 +89,7 @@ use self::eowc_over_window::*;
 use self::expand::*;
 use self::filter::*;
 use self::gap_fill::GapFillExecutorBuilder;
+use self::match_recognize::MatchRecognizeExecutorBuilder;
 use self::group_top_n::GroupTopNExecutorBuilder;
 use self::hash_agg::*;
 use self::hash_join::*;
@@ -214,6 +216,7 @@ pub async fn create_executor(
         NodeBody::LocalityProvider => LocalityProviderBuilder,
         NodeBody::EowcGapFill => EowcGapFillExecutorBuilder,
         NodeBody::GapFill => GapFillExecutorBuilder,
+        NodeBody::MatchRecognize => MatchRecognizeExecutorBuilder,
         NodeBody::VectorIndexLookupJoin => VectorIndexLookupJoinBuilder,
         NodeBody::IcebergWithPkIndexWriter => IcebergWithPkIndexWriterExecutorBuilder,
         NodeBody::IcebergWithPkIndexDvMerger => IcebergWithPkIndexDvMergerExecutorBuilder,
