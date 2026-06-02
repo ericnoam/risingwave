@@ -626,6 +626,7 @@ impl Binder {
                 rows_per_match,
                 after_match_skip,
                 pattern,
+                subsets,
                 symbols,
                 alias,
             } => Ok(Relation::MatchRecognize(Box::new(
@@ -637,6 +638,7 @@ impl Binder {
                     rows_per_match,
                     after_match_skip,
                     pattern,
+                    subsets,
                     symbols,
                     alias.as_ref(),
                 )?,
