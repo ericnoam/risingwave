@@ -60,6 +60,12 @@ impl ExecutorBuilder for MatchRecognizeExecutorBuilder {
             _ => SkipMode::PastLastRow,
         };
 
+        let classifier_measure_indices = node
+            .classifier_measure_indices
+            .iter()
+            .map(|&i| i as usize)
+            .collect();
+
         let state_table =
             StateTableBuilder::new(node.get_state_table().as_ref().unwrap(), store, None)
                 .forbid_preload_all_rows()
@@ -78,6 +84,7 @@ impl ExecutorBuilder for MatchRecognizeExecutorBuilder {
             define_exprs,
             nfa,
             skip,
+            classifier_measure_indices,
             state_table,
         });
 
