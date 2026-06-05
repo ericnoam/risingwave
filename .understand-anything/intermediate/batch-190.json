@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/debezium-sqlserver/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/debezium-sqlserver/create_mv.sql",
+      "summary": "Creates RisingWave materialized views over SQL Server CDC source tables for integration test validation.",
+      "tags": ["database", "integration-test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/debezium-sqlserver/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/debezium-sqlserver/create_source.sql",
+      "summary": "Declares two RisingWave CDC source tables (`orders` and `sqlserver_all_data_types`) backed by Debezium SQL Server change events.",
+      "tags": ["database", "integration-test", "schema-definition", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/debezium-sqlserver/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/debezium-sqlserver/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the Debezium-SQL Server integration test, starting SQL Server, Kafka, Zookeeper, Debezium Connect, and RisingWave containers.",
+      "tags": ["infrastructure", "orchestration", "integration-test", "containerization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/debezium-sqlserver/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/debezium-sqlserver/prepare.sh",
+      "summary": "Shell script that initializes the SQL Server test environment, waits for services to be ready, runs DDL preparation SQL, and registers the Debezium SQL Server connector.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/debezium-sqlserver/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/debezium-sqlserver/query.sql",
+      "summary": "Verification query to validate that CDC data from SQL Server was correctly ingested into RisingWave materialized views.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/debezium-sqlserver/sqlserver_prepare.sql",
+      "type": "file",
+      "name": "sqlserver_prepare.sql",
+      "filePath": "integration_tests/debezium-sqlserver/sqlserver_prepare.sql",
+      "summary": "Prepares the SQL Server source database by creating `orders` and `sqlserver_all_data_types` tables with comprehensive data type coverage and enabling CDC on the database.",
+      "tags": ["database", "integration-test", "migration", "test"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/debezium-sqlserver/create_source.sql",
+      "target": "file:integration_tests/debezium-sqlserver/sqlserver_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-sqlserver/create_mv.sql",
+      "target": "file:integration_tests/debezium-sqlserver/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-sqlserver/query.sql",
+      "target": "file:integration_tests/debezium-sqlserver/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-sqlserver/prepare.sh",
+      "target": "service:integration_tests/debezium-sqlserver/docker-compose.yml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/debezium-sqlserver/prepare.sh",
+      "target": "file:integration_tests/debezium-sqlserver/sqlserver_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

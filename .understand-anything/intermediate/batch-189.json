@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/debezium-postgres/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/debezium-postgres/create_mv.sql",
+      "summary": "Creates RisingWave materialized views over PostgreSQL CDC source tables for use in integration test validation queries.",
+      "tags": ["database", "integration-test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/debezium-postgres/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/debezium-postgres/create_source.sql",
+      "summary": "Declares four RisingWave CDC source tables (`orders`, `pg_all_data_types`, `pg_types2`, `pg_types3`) backed by Debezium PostgreSQL change events.",
+      "tags": ["database", "integration-test", "schema-definition", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/debezium-postgres/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/debezium-postgres/docker-compose.yml",
+      "summary": "Docker Compose configuration for the Debezium-PostgreSQL integration test, orchestrating PostgreSQL, Kafka, Zookeeper, Debezium Connect, and RisingWave containers.",
+      "tags": ["infrastructure", "orchestration", "integration-test", "containerization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/debezium-postgres/postgres_prepare.sql",
+      "type": "file",
+      "name": "postgres_prepare.sql",
+      "filePath": "integration_tests/debezium-postgres/postgres_prepare.sql",
+      "summary": "Creates and seeds the PostgreSQL source database with `orders`, `pg_types2`, `pg_types3`, and `pg_all_data_types` tables covering a comprehensive set of Postgres data types including arrays and JSONB.",
+      "tags": ["database", "integration-test", "migration", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/debezium-postgres/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/debezium-postgres/prepare.sh",
+      "summary": "Shell script that initializes the Debezium-PostgreSQL test environment by waiting for services, executing PostgreSQL preparation SQL, and configuring the Debezium connector.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/debezium-postgres/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/debezium-postgres/query.sql",
+      "summary": "Verification query executed against RisingWave to confirm that CDC data from PostgreSQL was ingested correctly through the materialized views.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/debezium-postgres/create_source.sql",
+      "target": "file:integration_tests/debezium-postgres/postgres_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-postgres/create_mv.sql",
+      "target": "file:integration_tests/debezium-postgres/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-postgres/query.sql",
+      "target": "file:integration_tests/debezium-postgres/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-postgres/prepare.sh",
+      "target": "service:integration_tests/debezium-postgres/docker-compose.yml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/debezium-postgres/prepare.sh",
+      "target": "file:integration_tests/debezium-postgres/postgres_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

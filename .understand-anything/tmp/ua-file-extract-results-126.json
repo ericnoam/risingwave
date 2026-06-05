@@ -1,0 +1,452 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/meta/dashboard/src/embed.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "router",
+          "startLine": 24,
+          "endLine": 26,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Assets",
+          "startLine": 21,
+          "endLine": 21,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "router",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "router",
+          "callee": "Router::new().fallback_service",
+          "lineNumber": 25
+        },
+        {
+          "caller": "router",
+          "callee": "Router::new",
+          "lineNumber": 25
+        },
+        {
+          "caller": "router",
+          "callee": "ServeEmbed::<Assets>::new",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/meta/dashboard/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "router",
+          "startLine": 40,
+          "endLine": 50,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "router",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "router",
+          "callee": "embed::router",
+          "lineNumber": 45
+        },
+        {
+          "caller": "router",
+          "callee": "proxy::router",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/meta/dashboard/src/proxy.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 114,
+      "nonEmptyLines": 99,
+      "functions": [
+        {
+          "name": "into_response",
+          "startLine": 35,
+          "endLine": 58,
+          "params": []
+        },
+        {
+          "name": "proxy",
+          "startLine": 61,
+          "endLine": 97,
+          "params": [
+            "uri",
+            "cache"
+          ]
+        },
+        {
+          "name": "router",
+          "startLine": 100,
+          "endLine": 114,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CachedResponse",
+          "startLine": 27,
+          "endLine": 32,
+          "methods": [
+            "into_response"
+          ],
+          "properties": [
+            "code",
+            "body",
+            "headers",
+            "uri"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CachedResponse",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "router",
+          "line": 100,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "into_response",
+          "callee": "mime_guess::from_path",
+          "lineNumber": 36
+        },
+        {
+          "caller": "into_response",
+          "callee": "self.uri.path",
+          "lineNumber": 36
+        },
+        {
+          "caller": "into_response",
+          "callee": "HeaderMap::new",
+          "lineNumber": 37
+        },
+        {
+          "caller": "into_response",
+          "callee": "self.headers.get",
+          "lineNumber": 38
+        },
+        {
+          "caller": "into_response",
+          "callee": "headers.insert",
+          "lineNumber": 39
+        },
+        {
+          "caller": "into_response",
+          "callee": "x.clone",
+          "lineNumber": 39
+        },
+        {
+          "caller": "into_response",
+          "callee": "self.headers.get",
+          "lineNumber": 41
+        },
+        {
+          "caller": "into_response",
+          "callee": "headers.insert",
+          "lineNumber": 42
+        },
+        {
+          "caller": "into_response",
+          "callee": "x.clone",
+          "lineNumber": 42
+        },
+        {
+          "caller": "into_response",
+          "callee": "self.headers.get",
+          "lineNumber": 44
+        },
+        {
+          "caller": "into_response",
+          "callee": "headers.insert",
+          "lineNumber": 45
+        },
+        {
+          "caller": "into_response",
+          "callee": "x.clone",
+          "lineNumber": 45
+        },
+        {
+          "caller": "into_response",
+          "callee": "guess.first",
+          "lineNumber": 47
+        },
+        {
+          "caller": "into_response",
+          "callee": "x.type_",
+          "lineNumber": 48
+        },
+        {
+          "caller": "into_response",
+          "callee": "x.subtype",
+          "lineNumber": 48
+        },
+        {
+          "caller": "into_response",
+          "callee": "headers.insert",
+          "lineNumber": 49
+        },
+        {
+          "caller": "into_response",
+          "callee": "\"image/svg+xml\".parse().unwrap",
+          "lineNumber": 49
+        },
+        {
+          "caller": "into_response",
+          "callee": "\"image/svg+xml\".parse",
+          "lineNumber": 49
+        },
+        {
+          "caller": "into_response",
+          "callee": "headers.insert",
+          "lineNumber": 51
+        },
+        {
+          "caller": "into_response",
+          "callee": "format!(\"{}/{}\", x.type_(), x.subtype()).parse().unwrap",
+          "lineNumber": 53
+        },
+        {
+          "caller": "into_response",
+          "callee": "format!(\"{}/{}\", x.type_(), x.subtype()).parse",
+          "lineNumber": 53
+        },
+        {
+          "caller": "into_response",
+          "callee": "(self.code, headers, self.body).into_response",
+          "lineNumber": 57
+        },
+        {
+          "caller": "proxy",
+          "callee": "uri.path().to_owned",
+          "lineNumber": 65
+        },
+        {
+          "caller": "proxy",
+          "callee": "uri.path",
+          "lineNumber": 65
+        },
+        {
+          "caller": "proxy",
+          "callee": "path.ends_with",
+          "lineNumber": 66
+        },
+        {
+          "caller": "proxy",
+          "callee": "cache.lock().unwrap().get",
+          "lineNumber": 70
+        },
+        {
+          "caller": "proxy",
+          "callee": "cache.lock().unwrap",
+          "lineNumber": 70
+        },
+        {
+          "caller": "proxy",
+          "callee": "cache.lock",
+          "lineNumber": 70
+        },
+        {
+          "caller": "proxy",
+          "callee": "Ok",
+          "lineNumber": 71
+        },
+        {
+          "caller": "proxy",
+          "callee": "resp.clone().into_response",
+          "lineNumber": 71
+        },
+        {
+          "caller": "proxy",
+          "callee": "resp.clone",
+          "lineNumber": 71
+        },
+        {
+          "caller": "proxy",
+          "callee": "Url::parse",
+          "lineNumber": 78
+        },
+        {
+          "caller": "proxy",
+          "callee": "url.to_string",
+          "lineNumber": 79
+        },
+        {
+          "caller": "proxy",
+          "callee": "Err",
+          "lineNumber": 80
+        },
+        {
+          "caller": "proxy",
+          "callee": "reqwest::get",
+          "lineNumber": 85
+        },
+        {
+          "caller": "proxy",
+          "callee": "url.clone",
+          "lineNumber": 85
+        },
+        {
+          "caller": "proxy",
+          "callee": "content.status",
+          "lineNumber": 88
+        },
+        {
+          "caller": "proxy",
+          "callee": "content.headers().clone",
+          "lineNumber": 89
+        },
+        {
+          "caller": "proxy",
+          "callee": "content.headers",
+          "lineNumber": 89
+        },
+        {
+          "caller": "proxy",
+          "callee": "content.bytes",
+          "lineNumber": 90
+        },
+        {
+          "caller": "proxy",
+          "callee": "cache.lock().unwrap().insert",
+          "lineNumber": 94
+        },
+        {
+          "caller": "proxy",
+          "callee": "cache.lock().unwrap",
+          "lineNumber": 94
+        },
+        {
+          "caller": "proxy",
+          "callee": "cache.lock",
+          "lineNumber": 94
+        },
+        {
+          "caller": "proxy",
+          "callee": "resp.clone",
+          "lineNumber": 94
+        },
+        {
+          "caller": "proxy",
+          "callee": "Ok",
+          "lineNumber": 96
+        },
+        {
+          "caller": "proxy",
+          "callee": "resp.into_response",
+          "lineNumber": 96
+        },
+        {
+          "caller": "router",
+          "callee": "Arc::new",
+          "lineNumber": 101
+        },
+        {
+          "caller": "router",
+          "callee": "Mutex::new",
+          "lineNumber": 101
+        },
+        {
+          "caller": "router",
+          "callee": "HashMap::new",
+          "lineNumber": 101
+        },
+        {
+          "caller": "router",
+          "callee": "proxy(uri, cache.clone()).await.unwrap_or_else",
+          "lineNumber": 104
+        },
+        {
+          "caller": "router",
+          "callee": "proxy",
+          "lineNumber": 104
+        },
+        {
+          "caller": "router",
+          "callee": "cache.clone",
+          "lineNumber": 104
+        },
+        {
+          "caller": "router",
+          "callee": "(\n                StatusCode::INTERNAL_SERVER_ERROR,\n                err.context(\"Unhandled internal error\").to_report_string(),\n            ).into_response",
+          "lineNumber": 105
+        },
+        {
+          "caller": "router",
+          "callee": "err.context(\"Unhandled internal error\").to_report_string",
+          "lineNumber": 107
+        },
+        {
+          "caller": "router",
+          "callee": "err.context",
+          "lineNumber": 107
+        },
+        {
+          "caller": "router",
+          "callee": "Router::new().fallback",
+          "lineNumber": 113
+        },
+        {
+          "caller": "router",
+          "callee": "Router::new",
+          "lineNumber": 113
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

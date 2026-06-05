@@ -1,0 +1,841 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/common/common_service/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 25,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/common_service/src/metrics_manager.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 125,
+      "nonEmptyLines": 114,
+      "functions": [
+        {
+          "name": "boot_metrics_service",
+          "startLine": 45,
+          "endLine": 78,
+          "params": [
+            "listen_addr"
+          ]
+        },
+        {
+          "name": "metrics",
+          "startLine": 97,
+          "endLine": 124,
+          "params": [
+            "ExtraQuery(Filter { include, exclude })",
+            "Extension(registry)"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Filter",
+          "startLine": 35,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "include",
+            "exclude"
+          ]
+        },
+        {
+          "name": "MetricsManager",
+          "startLine": 42,
+          "endLine": 42,
+          "methods": [
+            "boot_metrics_service",
+            "metrics"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MetricsManager",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "boot_metrics_service",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "boot_metrics_service",
+          "callee": "OnceLock::new",
+          "lineNumber": 46
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "listen_addr.clone",
+          "lineNumber": 47
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "METRICS_SERVICE_LISTEN_ADDR.get_or_init",
+          "lineNumber": 48
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "listen_addr.clone",
+          "lineNumber": 49
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "tokio::spawn",
+          "lineNumber": 51
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "Self::metrics\n                    .layer(AddExtensionLayer::new(\n                        GLOBAL_METRICS_REGISTRY.deref().clone(),\n                    ))\n                    .layer(CompressionLayer::new()).into_make_service",
+          "lineNumber": 57
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "Self::metrics\n                    .layer(AddExtensionLayer::new(\n                        GLOBAL_METRICS_REGISTRY.deref().clone(),\n                    )).layer",
+          "lineNumber": 57
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "Self::metrics.layer",
+          "lineNumber": 57
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "AddExtensionLayer::new",
+          "lineNumber": 58
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "GLOBAL_METRICS_REGISTRY.deref().clone",
+          "lineNumber": 59
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "GLOBAL_METRICS_REGISTRY.deref",
+          "lineNumber": 59
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "CompressionLayer::new",
+          "lineNumber": 61
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "axum::serve",
+          "lineNumber": 65
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "TcpListener::bind(&listen_addr).await.unwrap",
+          "lineNumber": 65
+        },
+        {
+          "caller": "boot_metrics_service",
+          "callee": "TcpListener::bind",
+          "lineNumber": 65
+        },
+        {
+          "caller": "metrics",
+          "callee": "registry.gather",
+          "lineNumber": 101
+        },
+        {
+          "caller": "metrics",
+          "callee": "include.is_empty",
+          "lineNumber": 105
+        },
+        {
+          "caller": "metrics",
+          "callee": "exclude.is_empty",
+          "lineNumber": 105
+        },
+        {
+          "caller": "metrics",
+          "callee": "Response::builder()\n                .status(400)\n                .body(\"should not specify both include and exclude\".into()).unwrap",
+          "lineNumber": 106
+        },
+        {
+          "caller": "metrics",
+          "callee": "Response::builder()\n                .status(400).body",
+          "lineNumber": 106
+        },
+        {
+          "caller": "metrics",
+          "callee": "Response::builder().status",
+          "lineNumber": 106
+        },
+        {
+          "caller": "metrics",
+          "callee": "Response::builder",
+          "lineNumber": 106
+        },
+        {
+          "caller": "metrics",
+          "callee": "\"should not specify both include and exclude\".into",
+          "lineNumber": 108
+        },
+        {
+          "caller": "metrics",
+          "callee": "include.is_empty",
+          "lineNumber": 110
+        },
+        {
+          "caller": "metrics",
+          "callee": "mf.retain",
+          "lineNumber": 111
+        },
+        {
+          "caller": "metrics",
+          "callee": "include.contains",
+          "lineNumber": 111
+        },
+        {
+          "caller": "metrics",
+          "callee": "fam.name",
+          "lineNumber": 111
+        },
+        {
+          "caller": "metrics",
+          "callee": "exclude.is_empty",
+          "lineNumber": 112
+        },
+        {
+          "caller": "metrics",
+          "callee": "mf.retain",
+          "lineNumber": 113
+        },
+        {
+          "caller": "metrics",
+          "callee": "exclude.contains",
+          "lineNumber": 113
+        },
+        {
+          "caller": "metrics",
+          "callee": "fam.name",
+          "lineNumber": 113
+        },
+        {
+          "caller": "metrics",
+          "callee": "TextEncoder::new",
+          "lineNumber": 116
+        },
+        {
+          "caller": "metrics",
+          "callee": "encoder.encode(&mf, &mut buffer).unwrap",
+          "lineNumber": 118
+        },
+        {
+          "caller": "metrics",
+          "callee": "encoder.encode",
+          "lineNumber": 118
+        },
+        {
+          "caller": "metrics",
+          "callee": "Response::builder()\n            .header(axum::http::header::CONTENT_TYPE, encoder.format_type())\n            .body(Body::from(buffer)).unwrap",
+          "lineNumber": 120
+        },
+        {
+          "caller": "metrics",
+          "callee": "Response::builder()\n            .header(axum::http::header::CONTENT_TYPE, encoder.format_type()).body",
+          "lineNumber": 120
+        },
+        {
+          "caller": "metrics",
+          "callee": "Response::builder().header",
+          "lineNumber": 120
+        },
+        {
+          "caller": "metrics",
+          "callee": "Response::builder",
+          "lineNumber": 120
+        },
+        {
+          "caller": "metrics",
+          "callee": "encoder.format_type",
+          "lineNumber": 121
+        },
+        {
+          "caller": "metrics",
+          "callee": "Body::from",
+          "lineNumber": 122
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/common/common_service/src/observer_manager.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 250,
+      "nonEmptyLines": 222,
+      "functions": [
+        {
+          "name": "new_with_meta_client",
+          "startLine": 44,
+          "endLine": 47,
+          "params": [
+            "meta_client",
+            "observer_states"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 65,
+          "endLine": 67,
+          "params": [
+            "status"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 75,
+          "endLine": 82,
+          "params": [
+            "client",
+            "observer_states"
+          ]
+        },
+        {
+          "name": "wait_init_notification",
+          "startLine": 84,
+          "endLine": 145,
+          "params": []
+        },
+        {
+          "name": "start",
+          "startLine": 149,
+          "endLine": 173,
+          "params": []
+        },
+        {
+          "name": "re_subscribe",
+          "startLine": 176,
+          "endLine": 198,
+          "params": []
+        },
+        {
+          "name": "message",
+          "startLine": 213,
+          "endLine": 215,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 232,
+          "endLine": 234,
+          "params": [
+            "meta_client"
+          ]
+        },
+        {
+          "name": "subscribe",
+          "startLine": 241,
+          "endLine": 249,
+          "params": [
+            "subscribe_type"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ObserverManager",
+          "startLine": 28,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "rx",
+            "client",
+            "observer_states"
+          ]
+        },
+        {
+          "name": "ObserverState",
+          "startLine": 34,
+          "endLine": 41,
+          "methods": [
+            "subscribe_type",
+            "handle_notification",
+            "handle_initialization_notification"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ObserverError",
+          "startLine": 52,
+          "endLine": 62,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "ChannelClosed",
+            "Rpc"
+          ]
+        },
+        {
+          "name": "Channel",
+          "startLine": 204,
+          "endLine": 207,
+          "methods": [
+            "message"
+          ],
+          "properties": []
+        },
+        {
+          "name": "NotificationClient",
+          "startLine": 219,
+          "endLine": 225,
+          "methods": [
+            "subscribe"
+          ],
+          "properties": []
+        },
+        {
+          "name": "RpcNotificationClient",
+          "startLine": 227,
+          "endLine": 229,
+          "methods": [
+            "new",
+            "subscribe"
+          ],
+          "properties": [
+            "meta_client"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ObserverManager",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "ObserverState",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "new_with_meta_client",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "ObserverError",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "Channel",
+          "line": 204,
+          "isDefault": false
+        },
+        {
+          "name": "NotificationClient",
+          "line": 219,
+          "isDefault": false
+        },
+        {
+          "name": "RpcNotificationClient",
+          "line": 227,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 232,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_with_meta_client",
+          "callee": "Self::new",
+          "lineNumber": 46
+        },
+        {
+          "caller": "from",
+          "callee": "Self::Rpc",
+          "lineNumber": 66
+        },
+        {
+          "caller": "from",
+          "callee": "RpcError::from_meta_status",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new",
+          "callee": "client.subscribe(S::subscribe_type()).await.unwrap",
+          "lineNumber": 76
+        },
+        {
+          "caller": "new",
+          "callee": "client.subscribe",
+          "lineNumber": 76
+        },
+        {
+          "caller": "new",
+          "callee": "S::subscribe_type",
+          "lineNumber": 76
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "Vec::new",
+          "lineNumber": 85
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "self.rx.message",
+          "lineNumber": 88
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "notification_vec.push",
+          "lineNumber": 91
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "Err",
+          "lineNumber": 96
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "init_notification.info.as_ref().unwrap",
+          "lineNumber": 100
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "init_notification.info.as_ref",
+          "lineNumber": 100
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "notification_vec.retain_mut",
+          "lineNumber": 104
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "notification.info.as_ref().unwrap",
+          "lineNumber": 104
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "notification.info.as_ref",
+          "lineNumber": 104
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "info.version.as_ref().unwrap",
+          "lineNumber": 112
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "info.version.as_ref",
+          "lineNumber": 112
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "info.version.as_ref().unwrap",
+          "lineNumber": 115
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "info.version.as_ref",
+          "lineNumber": 115
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "info.hummock_version.as_ref().unwrap",
+          "lineNumber": 118
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "info.hummock_version.as_ref",
+          "lineNumber": 118
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "info\n                        .version\n                        .as_ref().unwrap",
+          "lineNumber": 128
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "info\n                        .version.as_ref",
+          "lineNumber": 128
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "self.observer_states.handle_initialization_notification",
+          "lineNumber": 137
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "self.observer_states.handle_notification",
+          "lineNumber": 141
+        },
+        {
+          "caller": "wait_init_notification",
+          "callee": "Ok",
+          "lineNumber": 144
+        },
+        {
+          "caller": "start",
+          "callee": "self.wait_init_notification",
+          "lineNumber": 150
+        },
+        {
+          "caller": "start",
+          "callee": "self.re_subscribe",
+          "lineNumber": 152
+        },
+        {
+          "caller": "start",
+          "callee": "tokio::spawn",
+          "lineNumber": 155
+        },
+        {
+          "caller": "start",
+          "callee": "self.rx.message",
+          "lineNumber": 157
+        },
+        {
+          "caller": "start",
+          "callee": "resp.is_none",
+          "lineNumber": 159
+        },
+        {
+          "caller": "start",
+          "callee": "self.re_subscribe",
+          "lineNumber": 161
+        },
+        {
+          "caller": "start",
+          "callee": "self.observer_states.handle_notification",
+          "lineNumber": 164
+        },
+        {
+          "caller": "start",
+          "callee": "resp.unwrap",
+          "lineNumber": 164
+        },
+        {
+          "caller": "start",
+          "callee": "self.re_subscribe",
+          "lineNumber": 168
+        },
+        {
+          "caller": "re_subscribe",
+          "callee": "self.client.subscribe",
+          "lineNumber": 178
+        },
+        {
+          "caller": "re_subscribe",
+          "callee": "S::subscribe_type",
+          "lineNumber": 178
+        },
+        {
+          "caller": "re_subscribe",
+          "callee": "self.wait_init_notification",
+          "lineNumber": 182
+        },
+        {
+          "caller": "re_subscribe",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 185
+        },
+        {
+          "caller": "re_subscribe",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 194
+        },
+        {
+          "caller": "message",
+          "callee": "self.message",
+          "lineNumber": 214
+        },
+        {
+          "caller": "subscribe",
+          "callee": "self.meta_client\n            .subscribe(subscribe_type)\n            .await.map_err",
+          "lineNumber": 245
+        },
+        {
+          "caller": "subscribe",
+          "callee": "self.meta_client.subscribe",
+          "lineNumber": 245
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 9,
+        "classCount": 6
+      }
+    },
+    {
+      "path": "src/common/common_service/src/tracing.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 91,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 30,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "layer",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "service"
+          ]
+        },
+        {
+          "name": "poll_ready",
+          "startLine": 62,
+          "endLine": 64,
+          "params": [
+            "cx"
+          ]
+        },
+        {
+          "name": "call",
+          "startLine": 66,
+          "endLine": 90,
+          "params": [
+            "req"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TracingExtractLayer",
+          "startLine": 25,
+          "endLine": 27,
+          "methods": [
+            "new",
+            "layer"
+          ],
+          "properties": [
+            "_private"
+          ]
+        },
+        {
+          "name": "TracingExtract",
+          "startLine": 48,
+          "endLine": 50,
+          "methods": [],
+          "properties": [
+            "inner"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TracingExtractLayer",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "TracingExtract",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Self::default",
+          "lineNumber": 31
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "self.inner.poll_ready",
+          "lineNumber": 63
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 70
+        },
+        {
+          "caller": "call",
+          "callee": "std::mem::replace",
+          "lineNumber": 71
+        },
+        {
+          "caller": "call",
+          "callee": "TracingContext::from_http_headers",
+          "lineNumber": 74
+        },
+        {
+          "caller": "call",
+          "callee": "req.headers",
+          "lineNumber": 74
+        },
+        {
+          "caller": "call",
+          "callee": "tracing_context.attach",
+          "lineNumber": 81
+        },
+        {
+          "caller": "call",
+          "callee": "tracing::Span::none",
+          "lineNumber": 84
+        },
+        {
+          "caller": "call",
+          "callee": "inner.call(req).instrument",
+          "lineNumber": 88
+        },
+        {
+          "caller": "call",
+          "callee": "inner.call",
+          "lineNumber": 88
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    }
+  ]
+}

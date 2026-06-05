@@ -1,0 +1,1873 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/feature-store/simulator/src/entities.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 84,
+      "functions": [
+        {
+          "name": "mock_act",
+          "startLine": 37,
+          "endLine": 67,
+          "params": [
+            "client"
+          ]
+        },
+        {
+          "name": "mock_get_feature",
+          "startLine": 70,
+          "endLine": 80,
+          "params": [
+            "client"
+          ]
+        },
+        {
+          "name": "read_users_json",
+          "startLine": 84,
+          "endLine": 89,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "parse_user_metadata",
+          "startLine": 91,
+          "endLine": 97,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "User",
+          "startLine": 14,
+          "endLine": 22,
+          "methods": [
+            "mock_act",
+            "mock_get_feature"
+          ],
+          "properties": [
+            "userid",
+            "address_lat",
+            "address_long",
+            "activeness",
+            "age_approx",
+            "gender",
+            "occupation"
+          ]
+        },
+        {
+          "name": "ActionHistory",
+          "startLine": 25,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "userid",
+            "event_type",
+            "changenum",
+            "timestamp"
+          ]
+        },
+        {
+          "name": "UpdatableContext",
+          "startLine": 32,
+          "endLine": 34,
+          "methods": [
+            "update"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "User",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "ActionHistory",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "UpdatableContext",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "mock_act",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "mock_get_feature",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "read_users_json",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "parse_user_metadata",
+          "line": 91,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "mock_act",
+          "callee": "rand::thread_rng().gen_range",
+          "lineNumber": 41
+        },
+        {
+          "caller": "mock_act",
+          "callee": "rand::thread_rng",
+          "lineNumber": 41
+        },
+        {
+          "caller": "mock_act",
+          "callee": "client\n            .report_action(tonic::Request::new(ReportActionRequest {\n                userid: self.userid.clone(),\n                eventtype: event_type.to_string(),\n                changenum,\n            }))\n            .await.unwrap",
+          "lineNumber": 51
+        },
+        {
+          "caller": "mock_act",
+          "callee": "client.report_action",
+          "lineNumber": 51
+        },
+        {
+          "caller": "mock_act",
+          "callee": "tonic::Request::new",
+          "lineNumber": 52
+        },
+        {
+          "caller": "mock_act",
+          "callee": "self.userid.clone",
+          "lineNumber": 53
+        },
+        {
+          "caller": "mock_act",
+          "callee": "event_type.to_string",
+          "lineNumber": 54
+        },
+        {
+          "caller": "mock_act",
+          "callee": "response.into_inner",
+          "lineNumber": 59
+        },
+        {
+          "caller": "mock_act",
+          "callee": "Ok",
+          "lineNumber": 61
+        },
+        {
+          "caller": "mock_act",
+          "callee": "self.userid.clone",
+          "lineNumber": 62
+        },
+        {
+          "caller": "mock_act",
+          "callee": "event_type.to_string",
+          "lineNumber": 64
+        },
+        {
+          "caller": "mock_get_feature",
+          "callee": "client\n            .get_feature(GetFeatureRequest {\n                userid: self.userid.clone(),\n            })\n            .await.unwrap",
+          "lineNumber": 71
+        },
+        {
+          "caller": "mock_get_feature",
+          "callee": "client.get_feature",
+          "lineNumber": 71
+        },
+        {
+          "caller": "mock_get_feature",
+          "callee": "self.userid.clone",
+          "lineNumber": 73
+        },
+        {
+          "caller": "mock_get_feature",
+          "callee": "response.into_inner",
+          "lineNumber": 78
+        },
+        {
+          "caller": "read_users_json",
+          "callee": "File::open",
+          "lineNumber": 85
+        },
+        {
+          "caller": "read_users_json",
+          "callee": "BufReader::new",
+          "lineNumber": 86
+        },
+        {
+          "caller": "read_users_json",
+          "callee": "serde_json::from_reader",
+          "lineNumber": 87
+        },
+        {
+          "caller": "read_users_json",
+          "callee": "Ok",
+          "lineNumber": 88
+        },
+        {
+          "caller": "parse_user_metadata",
+          "callee": "std::env::var(\"GENERATOR_PATH\").unwrap_or",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_user_metadata",
+          "callee": "std::env::var",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_user_metadata",
+          "callee": "\"../generator\".to_string",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_user_metadata",
+          "callee": "read_users_json(Path::new(&*generator_path).join(\"users.json\")).unwrap",
+          "lineNumber": 94
+        },
+        {
+          "caller": "parse_user_metadata",
+          "callee": "read_users_json",
+          "lineNumber": 94
+        },
+        {
+          "caller": "parse_user_metadata",
+          "callee": "Path::new(&*generator_path).join",
+          "lineNumber": 94
+        },
+        {
+          "caller": "parse_user_metadata",
+          "callee": "Path::new",
+          "lineNumber": 94
+        },
+        {
+          "caller": "parse_user_metadata",
+          "callee": "Ok",
+          "lineNumber": 96
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 4,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 128,
+      "nonEmptyLines": 118,
+      "functions": [
+        {
+          "name": "read_feature_for_csv",
+          "startLine": 62,
+          "endLine": 72,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "parse_taxi_metadata",
+          "startLine": 74,
+          "endLine": 81,
+          "params": []
+        },
+        {
+          "name": "mock_act",
+          "startLine": 84,
+          "endLine": 114,
+          "params": [
+            "client"
+          ]
+        },
+        {
+          "name": "mock_get_amount",
+          "startLine": 116,
+          "endLine": 127,
+          "params": [
+            "client"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TaxiFeature",
+          "startLine": 13,
+          "endLine": 60,
+          "methods": [
+            "mock_act",
+            "mock_get_amount"
+          ],
+          "properties": [
+            "vendor_id",
+            "lpep_pickup_datetime",
+            "lpep_dropoff_datetime",
+            "store_and_fwd_flag",
+            "ratecode_id",
+            "pulocation_id",
+            "dolocation_id",
+            "pickup_longitude",
+            "pickup_latitude",
+            "dropoff_longitude",
+            "dropoff_latitude",
+            "passenger_count",
+            "trip_distance",
+            "fare_amount",
+            "extra",
+            "mta_tax",
+            "tip_amount",
+            "tolls_amount",
+            "ehail_fee",
+            "improvement_surcharge",
+            "total_amount",
+            "payment_type",
+            "trip_type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TaxiFeature",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "read_feature_for_csv",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "parse_taxi_metadata",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "mock_act",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "mock_get_amount",
+          "line": 116,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "read_feature_for_csv",
+          "callee": "File::open",
+          "lineNumber": 63
+        },
+        {
+          "caller": "read_feature_for_csv",
+          "callee": "BufReader::new",
+          "lineNumber": 64
+        },
+        {
+          "caller": "read_feature_for_csv",
+          "callee": "csv::Reader::from_reader",
+          "lineNumber": 65
+        },
+        {
+          "caller": "read_feature_for_csv",
+          "callee": "reader.deserialize",
+          "lineNumber": 67
+        },
+        {
+          "caller": "read_feature_for_csv",
+          "callee": "record.unwrap",
+          "lineNumber": 68
+        },
+        {
+          "caller": "read_feature_for_csv",
+          "callee": "records.push",
+          "lineNumber": 69
+        },
+        {
+          "caller": "read_feature_for_csv",
+          "callee": "Ok",
+          "lineNumber": 71
+        },
+        {
+          "caller": "parse_taxi_metadata",
+          "callee": "std::env::var(\"WORK_DIR\").unwrap_or",
+          "lineNumber": 75
+        },
+        {
+          "caller": "parse_taxi_metadata",
+          "callee": "std::env::var",
+          "lineNumber": 75
+        },
+        {
+          "caller": "parse_taxi_metadata",
+          "callee": "\"/opt/feature-store/\".to_string",
+          "lineNumber": 75
+        },
+        {
+          "caller": "parse_taxi_metadata",
+          "callee": "read_feature_for_csv(Path::new(&*path).join(\"parquet_data.csv\")).unwrap",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse_taxi_metadata",
+          "callee": "read_feature_for_csv",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse_taxi_metadata",
+          "callee": "Path::new(&*path).join",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse_taxi_metadata",
+          "callee": "Path::new",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse_taxi_metadata",
+          "callee": "offlines.split_off",
+          "lineNumber": 78
+        },
+        {
+          "caller": "parse_taxi_metadata",
+          "callee": "offlines.len",
+          "lineNumber": 78
+        },
+        {
+          "caller": "mock_act",
+          "callee": "client\n            .report_taxi_action(tonic::Request::new(ReportTaxiActionRequest {\n                vendor_id: self.vendor_id,\n                lpep_pickup_datetime: self.lpep_pickup_datetime.clone(),\n                lpep_dropoff_datetime: self.lpep_dropoff_datetime.clone(),\n                store_and_fwd_flag: self.store_and_fwd_flag.eq(\"N\"),\n                ratecode_id: self.ratecode_id,\n                pu_location_id: self.pulocation_id,\n                do_location_id: self.dolocation_id,\n                passenger_count: self.passenger_count,\n                trip_distance: self.trip_distance,\n                fare_amount: self.fare_amount,\n                extra: self.extra,\n                mta_tax: self.mta_tax,\n                tip_amount: self.tip_amount,\n                tolls_amount: self.tolls_amount,\n                ehail_fee: self.ehail_fee.unwrap_or(0.0),\n                improvement_surcharge: self.improvement_surcharge,\n                total_amount: self.total_amount,\n                payment_type: self.payment_type,\n                trip_type: self.trip_type,\n                congestion_surcharge: 0.0,\n            }))\n            .await.unwrap",
+          "lineNumber": 88
+        },
+        {
+          "caller": "mock_act",
+          "callee": "client.report_taxi_action",
+          "lineNumber": 88
+        },
+        {
+          "caller": "mock_act",
+          "callee": "tonic::Request::new",
+          "lineNumber": 89
+        },
+        {
+          "caller": "mock_act",
+          "callee": "self.lpep_pickup_datetime.clone",
+          "lineNumber": 91
+        },
+        {
+          "caller": "mock_act",
+          "callee": "self.lpep_dropoff_datetime.clone",
+          "lineNumber": 92
+        },
+        {
+          "caller": "mock_act",
+          "callee": "self.store_and_fwd_flag.eq",
+          "lineNumber": 93
+        },
+        {
+          "caller": "mock_act",
+          "callee": "self.ehail_fee.unwrap_or",
+          "lineNumber": 104
+        },
+        {
+          "caller": "mock_act",
+          "callee": "Ok",
+          "lineNumber": 113
+        },
+        {
+          "caller": "mock_get_amount",
+          "callee": "client\n            .get_taxi_amount(GetTaxiAmountRequest {\n                do_location_id: self.dolocation_id,\n                pu_location_id: self.pulocation_id,\n            })\n            .await.unwrap",
+          "lineNumber": 117
+        },
+        {
+          "caller": "mock_get_amount",
+          "callee": "client.get_taxi_amount",
+          "lineNumber": 117
+        },
+        {
+          "caller": "mock_get_amount",
+          "callee": "response.into_inner",
+          "lineNumber": 125
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/simulator/src/main.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 9,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "get_args",
+          "startLine": 19,
+          "endLine": 31,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "get_args",
+          "lineNumber": 10
+        },
+        {
+          "caller": "main",
+          "callee": "simulation::main_loop",
+          "lineNumber": 11
+        },
+        {
+          "caller": "main",
+          "callee": "args.get_one::<String>(\"types\")\n            .expect(\"failed to decode brokers\").to_string",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "args.get_one::<String>(\"types\").expect",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "args.get_one::<String>",
+          "lineNumber": 12
+        },
+        {
+          "caller": "get_args",
+          "callee": "Command::new(\"simulator\")\n        .about(\"The simulator\")\n        .arg(\n            Arg::new(\"types\")\n                .short('t')\n                .long(\"types\")\n                .help(\"mfa or taxi\")\n                .num_args(1)\n                .default_value(\"taxi\"),\n        ).get_matches",
+          "lineNumber": 20
+        },
+        {
+          "caller": "get_args",
+          "callee": "Command::new(\"simulator\")\n        .about(\"The simulator\").arg",
+          "lineNumber": 20
+        },
+        {
+          "caller": "get_args",
+          "callee": "Command::new(\"simulator\").about",
+          "lineNumber": 20
+        },
+        {
+          "caller": "get_args",
+          "callee": "Command::new",
+          "lineNumber": 20
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"types\")\n                .short('t')\n                .long(\"types\")\n                .help(\"mfa or taxi\")\n                .num_args(1).default_value",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"types\")\n                .short('t')\n                .long(\"types\")\n                .help(\"mfa or taxi\").num_args",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"types\")\n                .short('t')\n                .long(\"types\").help",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"types\")\n                .short('t').long",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"types\").short",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/simulator/src/server_pb.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 700,
+      "nonEmptyLines": 700,
+      "classes": [
+        {
+          "name": "ReportActionRequest",
+          "startLine": 3,
+          "endLine": 10,
+          "methods": [],
+          "properties": [
+            "userid",
+            "eventtype",
+            "changenum"
+          ]
+        },
+        {
+          "name": "ReportActionResponse",
+          "startLine": 13,
+          "endLine": 16,
+          "methods": [],
+          "properties": [
+            "timestamp"
+          ]
+        },
+        {
+          "name": "GetFeatureRequest",
+          "startLine": 19,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "userid"
+          ]
+        },
+        {
+          "name": "GetFeatureResponse",
+          "startLine": 25,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "count",
+            "sum"
+          ]
+        },
+        {
+          "name": "ReportTaxiActionRequest",
+          "startLine": 33,
+          "endLine": 74,
+          "methods": [],
+          "properties": [
+            "vendor_id",
+            "lpep_pickup_datetime",
+            "lpep_dropoff_datetime",
+            "store_and_fwd_flag",
+            "ratecode_id",
+            "pu_location_id",
+            "do_location_id",
+            "passenger_count",
+            "trip_distance",
+            "fare_amount",
+            "extra",
+            "mta_tax",
+            "tip_amount",
+            "tolls_amount",
+            "ehail_fee",
+            "improvement_surcharge",
+            "total_amount",
+            "payment_type",
+            "trip_type",
+            "congestion_surcharge"
+          ]
+        },
+        {
+          "name": "ReportTaxiActionResponse",
+          "startLine": 77,
+          "endLine": 77,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "GetTaxiAmountRequest",
+          "startLine": 80,
+          "endLine": 85,
+          "methods": [],
+          "properties": [
+            "do_location_id",
+            "pu_location_id"
+          ]
+        },
+        {
+          "name": "GetTaxiAmountResponse",
+          "startLine": 88,
+          "endLine": 91,
+          "methods": [],
+          "properties": [
+            "fare_amount"
+          ]
+        },
+        {
+          "name": "StartTrainingRequest",
+          "startLine": 94,
+          "endLine": 94,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "StartTrainingResponse",
+          "startLine": 97,
+          "endLine": 97,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ReportActionRequest",
+          "line": 3,
+          "isDefault": false
+        },
+        {
+          "name": "ReportActionResponse",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "GetFeatureRequest",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "GetFeatureResponse",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "ReportTaxiActionRequest",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "ReportTaxiActionResponse",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "GetTaxiAmountRequest",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "GetTaxiAmountResponse",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "StartTrainingRequest",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "StartTrainingResponse",
+          "line": 97,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "connect",
+          "callee": "tonic::transport::Endpoint::new(dst)?.connect",
+          "lineNumber": 114
+        },
+        {
+          "caller": "connect",
+          "callee": "tonic::transport::Endpoint::new",
+          "lineNumber": 114
+        },
+        {
+          "caller": "connect",
+          "callee": "Ok",
+          "lineNumber": 115
+        },
+        {
+          "caller": "connect",
+          "callee": "Self::new",
+          "lineNumber": 115
+        },
+        {
+          "caller": "new",
+          "callee": "tonic::client::Grpc::new",
+          "lineNumber": 126
+        },
+        {
+          "caller": "with_origin",
+          "callee": "tonic::client::Grpc::with_origin",
+          "lineNumber": 130
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "ServerClient::new",
+          "lineNumber": 150
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "InterceptedService::new",
+          "lineNumber": 150
+        },
+        {
+          "caller": "send_compressed",
+          "callee": "self.inner.send_compressed",
+          "lineNumber": 158
+        },
+        {
+          "caller": "accept_compressed",
+          "callee": "self.inner.accept_compressed",
+          "lineNumber": 164
+        },
+        {
+          "caller": "max_decoding_message_size",
+          "callee": "self.inner.max_decoding_message_size",
+          "lineNumber": 172
+        },
+        {
+          "caller": "max_encoding_message_size",
+          "callee": "self.inner.max_encoding_message_size",
+          "lineNumber": 180
+        },
+        {
+          "caller": "get_feature",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 190
+        },
+        {
+          "caller": "get_feature",
+          "callee": "self.inner.ready",
+          "lineNumber": 190
+        },
+        {
+          "caller": "get_feature",
+          "callee": "tonic::Status::new",
+          "lineNumber": 194
+        },
+        {
+          "caller": "get_feature",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 199
+        },
+        {
+          "caller": "get_feature",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 200
+        },
+        {
+          "caller": "get_feature",
+          "callee": "request.into_request",
+          "lineNumber": 203
+        },
+        {
+          "caller": "get_feature",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 204
+        },
+        {
+          "caller": "get_feature",
+          "callee": "req.extensions_mut",
+          "lineNumber": 204
+        },
+        {
+          "caller": "get_feature",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 205
+        },
+        {
+          "caller": "get_feature",
+          "callee": "self.inner.unary",
+          "lineNumber": 206
+        },
+        {
+          "caller": "report_action",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 215
+        },
+        {
+          "caller": "report_action",
+          "callee": "self.inner.ready",
+          "lineNumber": 215
+        },
+        {
+          "caller": "report_action",
+          "callee": "tonic::Status::new",
+          "lineNumber": 219
+        },
+        {
+          "caller": "report_action",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 224
+        },
+        {
+          "caller": "report_action",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 225
+        },
+        {
+          "caller": "report_action",
+          "callee": "request.into_request",
+          "lineNumber": 228
+        },
+        {
+          "caller": "report_action",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 229
+        },
+        {
+          "caller": "report_action",
+          "callee": "req.extensions_mut",
+          "lineNumber": 229
+        },
+        {
+          "caller": "report_action",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 230
+        },
+        {
+          "caller": "report_action",
+          "callee": "self.inner.unary",
+          "lineNumber": 231
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 240
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "self.inner.ready",
+          "lineNumber": 240
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "tonic::Status::new",
+          "lineNumber": 244
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 249
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 250
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "request.into_request",
+          "lineNumber": 253
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 254
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "req.extensions_mut",
+          "lineNumber": 254
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 255
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "self.inner.unary",
+          "lineNumber": 256
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 265
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "self.inner.ready",
+          "lineNumber": 265
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "tonic::Status::new",
+          "lineNumber": 269
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 274
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 275
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "request.into_request",
+          "lineNumber": 278
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 279
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "req.extensions_mut",
+          "lineNumber": 279
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 280
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "self.inner.unary",
+          "lineNumber": 281
+        },
+        {
+          "caller": "start_training",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 290
+        },
+        {
+          "caller": "start_training",
+          "callee": "self.inner.ready",
+          "lineNumber": 290
+        },
+        {
+          "caller": "start_training",
+          "callee": "tonic::Status::new",
+          "lineNumber": 294
+        },
+        {
+          "caller": "start_training",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 299
+        },
+        {
+          "caller": "start_training",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 300
+        },
+        {
+          "caller": "start_training",
+          "callee": "request.into_request",
+          "lineNumber": 303
+        },
+        {
+          "caller": "start_training",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 304
+        },
+        {
+          "caller": "start_training",
+          "callee": "req.extensions_mut",
+          "lineNumber": 304
+        },
+        {
+          "caller": "start_training",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 305
+        },
+        {
+          "caller": "start_training",
+          "callee": "self.inner.unary",
+          "lineNumber": 306
+        },
+        {
+          "caller": "new",
+          "callee": "Self::from_arc",
+          "lineNumber": 364
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 364
+        },
+        {
+          "caller": "from_arc",
+          "callee": "_Inner",
+          "lineNumber": 367
+        },
+        {
+          "caller": "from_arc",
+          "callee": "Default::default",
+          "lineNumber": 370
+        },
+        {
+          "caller": "from_arc",
+          "callee": "Default::default",
+          "lineNumber": 371
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "InterceptedService::new",
+          "lineNumber": 383
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "Self::new",
+          "lineNumber": 383
+        },
+        {
+          "caller": "accept_compressed",
+          "callee": "self.accept_compression_encodings.enable",
+          "lineNumber": 388
+        },
+        {
+          "caller": "send_compressed",
+          "callee": "self.send_compression_encodings.enable",
+          "lineNumber": 394
+        },
+        {
+          "caller": "max_decoding_message_size",
+          "callee": "Some",
+          "lineNumber": 402
+        },
+        {
+          "caller": "max_encoding_message_size",
+          "callee": "Some",
+          "lineNumber": 410
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "Poll::Ready",
+          "lineNumber": 427
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "Ok",
+          "lineNumber": 427
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 430
+        },
+        {
+          "caller": "call",
+          "callee": "req.uri().path",
+          "lineNumber": 431
+        },
+        {
+          "caller": "call",
+          "callee": "req.uri",
+          "lineNumber": 431
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 446
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Server>::get_feature",
+          "lineNumber": 448
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 450
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 457
+        },
+        {
+          "caller": "call",
+          "callee": "GetFeatureSvc",
+          "lineNumber": 460
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 461
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 462
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 462
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 462
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 471
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 472
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 474
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 492
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Server>::report_action",
+          "lineNumber": 494
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 496
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 503
+        },
+        {
+          "caller": "call",
+          "callee": "ReportActionSvc",
+          "lineNumber": 506
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 507
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 508
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 508
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 508
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 517
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 518
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 520
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 538
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Server>::report_taxi_action",
+          "lineNumber": 540
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 542
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 549
+        },
+        {
+          "caller": "call",
+          "callee": "ReportTaxiActionSvc",
+          "lineNumber": 552
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 553
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 554
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 554
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 554
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 563
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 564
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 566
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 584
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Server>::get_taxi_amount",
+          "lineNumber": 586
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 588
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 595
+        },
+        {
+          "caller": "call",
+          "callee": "GetTaxiAmountSvc",
+          "lineNumber": 598
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 599
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 600
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 600
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 600
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 609
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 610
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 612
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 630
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Server>::start_training",
+          "lineNumber": 632
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 634
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 641
+        },
+        {
+          "caller": "call",
+          "callee": "StartTrainingSvc",
+          "lineNumber": 644
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 645
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 646
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 646
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 646
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 655
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 656
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 658
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 661
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 662
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200)\n                                .header(\"grpc-status\", \"12\")\n                                .header(\"content-type\", \"application/grpc\")\n                                .body(empty_body()).unwrap",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200)\n                                .header(\"grpc-status\", \"12\")\n                                .header(\"content-type\", \"application/grpc\").body",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200)\n                                .header(\"grpc-status\", \"12\").header",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200).header",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder().status",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "empty_body",
+          "lineNumber": 667
+        },
+        {
+          "caller": "clone",
+          "callee": "self.inner.clone",
+          "lineNumber": 677
+        },
+        {
+          "caller": "clone",
+          "callee": "Self",
+          "lineNumber": 689
+        },
+        {
+          "caller": "clone",
+          "callee": "Arc::clone",
+          "lineNumber": 689
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 0,
+        "classCount": 10
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/simulator/src/simulation.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 117,
+      "nonEmptyLines": 106,
+      "functions": [
+        {
+          "name": "get_delay_mills",
+          "startLine": 15,
+          "endLine": 18,
+          "params": [
+            "delay_val"
+          ]
+        },
+        {
+          "name": "main_loop",
+          "startLine": 20,
+          "endLine": 32,
+          "params": [
+            "simulator_type"
+          ]
+        },
+        {
+          "name": "mock_taxi",
+          "startLine": 34,
+          "endLine": 85,
+          "params": [
+            "client"
+          ]
+        },
+        {
+          "name": "mock_user_mfa",
+          "startLine": 88,
+          "endLine": 117,
+          "params": [
+            "client"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main_loop",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_delay_mills",
+          "callee": "rand::thread_rng().gen_range",
+          "lineNumber": 16
+        },
+        {
+          "caller": "get_delay_mills",
+          "callee": "rand::thread_rng",
+          "lineNumber": 16
+        },
+        {
+          "caller": "main_loop",
+          "callee": "Arc::new",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main_loop",
+          "callee": "Mutex::new",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main_loop",
+          "callee": "ServerClient::connect(\"https://localhost:2666\")\n            .await.expect",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main_loop",
+          "callee": "ServerClient::connect",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main_loop",
+          "callee": "simulator_type.as_str",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main_loop",
+          "callee": "mock_taxi",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main_loop",
+          "callee": "mock_user_mfa",
+          "lineNumber": 29
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "entities_taxi::parse_taxi_metadata",
+          "lineNumber": 35
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client.clone",
+          "lineNumber": 39
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "tokio::spawn",
+          "lineNumber": 40
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "fea.mock_act(client_mutex.lock().await.deref_mut())\n                .await.unwrap",
+          "lineNumber": 41
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "fea.mock_act",
+          "lineNumber": 41
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client_mutex.lock().await.deref_mut",
+          "lineNumber": 41
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client_mutex.lock",
+          "lineNumber": 41
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "threads.push",
+          "lineNumber": 45
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "join_all",
+          "lineNumber": 47
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "sleep",
+          "lineNumber": 51
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "Duration::from_millis",
+          "lineNumber": 51
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client\n        .lock()\n        .await\n        .deref_mut()\n        .start_training(StartTrainingRequest {})\n        .await.unwrap",
+          "lineNumber": 53
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client\n        .lock()\n        .await\n        .deref_mut().start_training",
+          "lineNumber": 53
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client\n        .lock()\n        .await.deref_mut",
+          "lineNumber": 53
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client.lock",
+          "lineNumber": 53
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client.clone",
+          "lineNumber": 64
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "tokio::spawn",
+          "lineNumber": 65
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "fea.mock_act(client_mutex.lock().await.deref_mut())\n                .await.unwrap",
+          "lineNumber": 66
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "fea.mock_act",
+          "lineNumber": 66
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client_mutex.lock().await.deref_mut",
+          "lineNumber": 66
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client_mutex.lock",
+          "lineNumber": 66
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 73
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "Duration::from_millis",
+          "lineNumber": 73
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "fea.mock_get_amount",
+          "lineNumber": 74
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client_mutex.lock().await.deref_mut",
+          "lineNumber": 75
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "client_mutex.lock",
+          "lineNumber": 75
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "threads.push",
+          "lineNumber": 82
+        },
+        {
+          "caller": "mock_taxi",
+          "callee": "join_all",
+          "lineNumber": 84
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "entities::parse_user_metadata().unwrap",
+          "lineNumber": 89
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "entities::parse_user_metadata",
+          "lineNumber": 89
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "client.clone",
+          "lineNumber": 92
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "tokio::spawn",
+          "lineNumber": 93
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "sleep",
+          "lineNumber": 95
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "Duration::from_millis",
+          "lineNumber": 95
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "get_delay_mills",
+          "lineNumber": 95
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "user\n                    .mock_act(client_mutex.lock().await.deref_mut())\n                    .await.unwrap",
+          "lineNumber": 98
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "user.mock_act",
+          "lineNumber": 98
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "client_mutex.lock().await.deref_mut",
+          "lineNumber": 99
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "client_mutex.lock",
+          "lineNumber": 99
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "sleep",
+          "lineNumber": 107
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "Duration::from_millis",
+          "lineNumber": 107
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "user.mock_get_feature",
+          "lineNumber": 108
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "client_mutex.lock().await.deref_mut",
+          "lineNumber": 109
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "client_mutex.lock",
+          "lineNumber": 109
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "threads.push",
+          "lineNumber": 114
+        },
+        {
+          "caller": "mock_user_mfa",
+          "callee": "join_all",
+          "lineNumber": 116
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    }
+  ]
+}

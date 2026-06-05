@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/presto-trino/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/presto-trino/README.md",
+      "summary": "Guide for querying RisingWave from Presto and Trino using the PostgreSQL connector, covering demo setup steps and sample queries.",
+      "tags": ["documentation", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/presto-trino/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/presto-trino/create_source.sql",
+      "summary": "Creates a RisingWave `data_types` table with standard SQL type columns to be queried from Presto/Trino via the PostgreSQL protocol compatibility layer.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/presto-trino/create_source.sql:data_types",
+      "type": "table",
+      "name": "data_types",
+      "filePath": "integration_tests/presto-trino/create_source.sql",
+      "lineRange": [1, 18],
+      "summary": "RisingWave table with varchar, text, integer, smallint, bigint, double, boolean, date/time, timestamp, jsonb, and bytea columns for Presto/Trino query compatibility testing.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/presto-trino/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/presto-trino/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the presto-trino integration test, running Presto/Trino and RisingWave together to test PostgreSQL-compatible query execution.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/presto-trino/create_source.sql",
+      "target": "table:integration_tests/presto-trino/create_source.sql:data_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "document:integration_tests/presto-trino/README.md",
+      "target": "service:integration_tests/presto-trino/docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:integration_tests/presto-trino/README.md",
+      "target": "file:integration_tests/presto-trino/create_source.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/presto-trino/docker-compose.yml",
+      "target": "file:integration_tests/presto-trino/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

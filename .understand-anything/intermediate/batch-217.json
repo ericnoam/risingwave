@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "table:integration_tests/pubsub/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/pubsub/create_source.sql",
+      "summary": "Defines the RisingWave source table for the Google Cloud PubSub integration test, backed by a PubSub subscription.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/pubsub/create_sink.sql",
+      "type": "table",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/pubsub/create_sink.sql",
+      "summary": "Creates a RisingWave sink that writes streaming data to a Google Cloud PubSub topic, used in the PubSub connector integration test.",
+      "tags": ["database", "integration-test", "sink"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/pubsub/query.sql",
+      "type": "table",
+      "name": "query.sql",
+      "filePath": "integration_tests/pubsub/query.sql",
+      "summary": "Validation queries for the PubSub integration test, verifying that data sunk to PubSub and re-ingested matches expectations.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/pubsub/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/pubsub/docker-compose.yml",
+      "summary": "Docker Compose file orchestrating RisingWave and a PubSub emulator for the Google Cloud PubSub connector integration test.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/pubsub/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/pubsub/prepare.sh",
+      "summary": "Shell script that sets up the PubSub emulator environment, creating topics and subscriptions needed before the integration test runs.",
+      "tags": ["script", "integration-test", "setup"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:integration_tests/pubsub/docker-compose.yml",
+      "target": "table:integration_tests/pubsub/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/pubsub/docker-compose.yml",
+      "target": "table:integration_tests/pubsub/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/pubsub/prepare.sh",
+      "target": "service:integration_tests/pubsub/docker-compose.yml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

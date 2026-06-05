@@ -1,0 +1,219 @@
+{
+  "nodes": [
+    {
+      "id": "file:ci/scripts/e2e-cassandra-sink-test.sh",
+      "type": "file",
+      "name": "e2e-cassandra-sink-test.sh",
+      "filePath": "ci/scripts/e2e-cassandra-sink-test.sh",
+      "summary": "CI e2e test script that starts a Cassandra container and runs SLT tests verifying RisingWave's Cassandra sink connector functionality.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-clickhouse-sink-test.sh",
+      "type": "file",
+      "name": "e2e-clickhouse-sink-test.sh",
+      "filePath": "ci/scripts/e2e-clickhouse-sink-test.sh",
+      "summary": "CI e2e test script that starts a ClickHouse container and runs SLT tests verifying RisingWave's ClickHouse sink connector.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-deltalake-sink-rust-test.sh",
+      "type": "file",
+      "name": "e2e-deltalake-sink-rust-test.sh",
+      "filePath": "ci/scripts/e2e-deltalake-sink-rust-test.sh",
+      "summary": "CI e2e test script that starts a MinIO/S3 environment and runs SLT tests for the native Rust Delta Lake sink connector, verifying written Parquet files.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/e2e-deltalake-sink-rust-test.sh:check_delta_table",
+      "type": "function",
+      "name": "check_delta_table",
+      "filePath": "ci/scripts/e2e-deltalake-sink-rust-test.sh",
+      "lineRange": [43, 66],
+      "summary": "Verifies Delta Lake table contents using the deltalake Python CLI after a sink test run, asserting row counts and data correctness.",
+      "tags": ["script", "test", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-doris-sink-test.sh",
+      "type": "file",
+      "name": "e2e-doris-sink-test.sh",
+      "filePath": "ci/scripts/e2e-doris-sink-test.sh",
+      "summary": "CI e2e test script that starts an Apache Doris container and runs SLT tests verifying RisingWave's Doris sink connector.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/e2e-doris-sink-test.sh:create_doris_table",
+      "type": "function",
+      "name": "create_doris_table",
+      "filePath": "ci/scripts/e2e-doris-sink-test.sh",
+      "lineRange": [26, 50],
+      "summary": "Creates the target Doris table and database for sink testing using the Doris MySQL-compatible HTTP API.",
+      "tags": ["script", "test", "database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-elasticsearch-sink-ci-test.sh",
+      "type": "file",
+      "name": "e2e-elasticsearch-sink-ci-test.sh",
+      "filePath": "ci/scripts/e2e-elasticsearch-sink-ci-test.sh",
+      "summary": "CI e2e test script for Elasticsearch sink that runs only the CI-specific subset of tests (skipping tests requiring external auth).",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-elasticsearch-sink-test.sh",
+      "type": "file",
+      "name": "e2e-elasticsearch-sink-test.sh",
+      "filePath": "ci/scripts/e2e-elasticsearch-sink-test.sh",
+      "summary": "CI e2e test script that starts an Elasticsearch container and runs SLT tests verifying RisingWave's Elasticsearch sink connector.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-iceberg-sink-cdc-test.sh",
+      "type": "file",
+      "name": "e2e-iceberg-sink-cdc-test.sh",
+      "filePath": "ci/scripts/e2e-iceberg-sink-cdc-test.sh",
+      "summary": "CI e2e test script that tests the Iceberg sink with CDC sources, starting Kafka and MinIO/Lakekeeper and verifying data written to Iceberg tables.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/e2e-iceberg-sink-cdc-test.sh:verify_iceberg_source",
+      "type": "function",
+      "name": "verify_iceberg_source",
+      "filePath": "ci/scripts/e2e-iceberg-sink-cdc-test.sh",
+      "lineRange": [15, 81],
+      "summary": "Verifies Iceberg sink data by reading back from the Iceberg table as a source and comparing results against expected values.",
+      "tags": ["script", "test", "validation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ci/scripts/e2e-iceberg-test.sh",
+      "type": "file",
+      "name": "e2e-iceberg-test.sh",
+      "filePath": "ci/scripts/e2e-iceberg-test.sh",
+      "summary": "CI e2e test script for Iceberg sink and source functionality, running SLT tests against a MinIO-backed Iceberg catalog.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-jdbc-sink-test.sh",
+      "type": "file",
+      "name": "e2e-jdbc-sink-test.sh",
+      "filePath": "ci/scripts/e2e-jdbc-sink-test.sh",
+      "summary": "CI e2e test script for JDBC sink connector, starting a PostgreSQL container and running SLT tests through the Java connector node.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-kafka-sink-test.sh",
+      "type": "file",
+      "name": "e2e-kafka-sink-test.sh",
+      "filePath": "ci/scripts/e2e-kafka-sink-test.sh",
+      "summary": "CI e2e test script for Kafka sink connector, starting Kafka and running comprehensive SLT tests covering upsert, append, and schema registry modes.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ci/scripts/e2e-ldap-test.sh",
+      "type": "file",
+      "name": "e2e-ldap-test.sh",
+      "filePath": "ci/scripts/e2e-ldap-test.sh",
+      "summary": "CI e2e test script for LDAP authentication in RisingWave, starting an OpenLDAP container and verifying user authentication and authorization.",
+      "tags": ["script", "ci-cd", "test", "security"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ci/scripts/e2e-mongodb-sink-test.sh",
+      "type": "file",
+      "name": "e2e-mongodb-sink-test.sh",
+      "filePath": "ci/scripts/e2e-mongodb-sink-test.sh",
+      "summary": "CI e2e test script that starts a MongoDB container and runs SLT tests verifying RisingWave's MongoDB sink connector.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-monitoring-tests.sh",
+      "type": "file",
+      "name": "e2e-monitoring-tests.sh",
+      "filePath": "ci/scripts/e2e-monitoring-tests.sh",
+      "summary": "CI e2e test script that runs monitoring-specific tests verifying Prometheus metrics are correctly exported and Grafana dashboards load.",
+      "tags": ["script", "ci-cd", "test", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-mqtt-sink-test.sh",
+      "type": "file",
+      "name": "e2e-mqtt-sink-test.sh",
+      "filePath": "ci/scripts/e2e-mqtt-sink-test.sh",
+      "summary": "CI e2e test script that starts an MQTT broker container and runs SLT tests verifying RisingWave's MQTT sink connector.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-postgres-sink-test.sh",
+      "type": "file",
+      "name": "e2e-postgres-sink-test.sh",
+      "filePath": "ci/scripts/e2e-postgres-sink-test.sh",
+      "summary": "CI e2e test script that starts a PostgreSQL container and runs SLT tests verifying the native Postgres sink connector.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-pulsar-sink-test.sh",
+      "type": "file",
+      "name": "e2e-pulsar-sink-test.sh",
+      "filePath": "ci/scripts/e2e-pulsar-sink-test.sh",
+      "summary": "CI e2e test script that starts an Apache Pulsar container and runs SLT tests verifying the Pulsar sink connector.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-redis-sink-test.sh",
+      "type": "file",
+      "name": "e2e-redis-sink-test.sh",
+      "filePath": "ci/scripts/e2e-redis-sink-test.sh",
+      "summary": "CI e2e test script that starts a Redis container and runs SLT tests verifying RisingWave's Redis sink connector, including upsert and append modes.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-sink-test.sh",
+      "type": "file",
+      "name": "e2e-sink-test.sh",
+      "filePath": "ci/scripts/e2e-sink-test.sh",
+      "summary": "Generic CI e2e sink test script that runs sink-related SLT tests for connectors not requiring dedicated external services.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-source-cdc-test.sh",
+      "type": "file",
+      "name": "e2e-source-cdc-test.sh",
+      "filePath": "ci/scripts/e2e-source-cdc-test.sh",
+      "summary": "CI e2e test script for CDC (Change Data Capture) source connectors, running SLT tests for MySQL and PostgreSQL CDC sources.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-source-cron-only-test.sh",
+      "type": "file",
+      "name": "e2e-source-cron-only-test.sh",
+      "filePath": "ci/scripts/e2e-source-cron-only-test.sh",
+      "summary": "CI e2e test script for cron-triggered source tests that only run on the nightly schedule, not on every PR.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:ci/scripts/e2e-deltalake-sink-rust-test.sh", "target": "function:ci/scripts/e2e-deltalake-sink-rust-test.sh:check_delta_table", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/e2e-doris-sink-test.sh", "target": "function:ci/scripts/e2e-doris-sink-test.sh:create_doris_table", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/e2e-iceberg-sink-cdc-test.sh", "target": "function:ci/scripts/e2e-iceberg-sink-cdc-test.sh:verify_iceberg_source", "type": "contains", "direction": "forward", "weight": 1.0}
+  ]
+}

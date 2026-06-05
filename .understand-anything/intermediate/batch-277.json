@@ -1,0 +1,351 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/PR_LABELING.md",
+      "type": "document",
+      "name": "PR_LABELING.md",
+      "filePath": ".agents/PR_LABELING.md",
+      "summary": "Agent guide for applying PR labels in RisingWave, covering required sources of truth, label operation sequence, CI coverage labels, and test-area labels across 9 sections.",
+      "tags": ["documentation", "ci-cd", "development", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.agents/skills/fix-buildkite-ci/agents/openai.yaml",
+      "type": "config",
+      "name": "openai.yaml",
+      "filePath": ".agents/skills/fix-buildkite-ci/agents/openai.yaml",
+      "summary": "OpenAI agent interface configuration for the fix-buildkite-ci skill, specifying model and interface parameters.",
+      "tags": ["configuration", "ci-cd", "agent"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/fix-buildkite-ci/references/buildkite-ci-triage.md",
+      "type": "document",
+      "name": "buildkite-ci-triage.md",
+      "filePath": ".agents/skills/fix-buildkite-ci/references/buildkite-ci-triage.md",
+      "summary": "Reference guide for triaging Buildkite CI failures, with 9 sections covering prerequisites, fetching build JSON, listing failed jobs, fetching logs, inspecting artifacts, common pitfalls, and exit code hints.",
+      "tags": ["documentation", "ci-cd", "development"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/fix-buildkite-ci/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/fix-buildkite-ci/SKILL.md",
+      "summary": "Skill definition for the fix-buildkite-ci agent, outlining a 6-step workflow: identify failing checks, pull build JSON, extract failures, fall back to artifacts, apply fixes, and verify.",
+      "tags": ["documentation", "ci-cd", "agent"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.agents/skills/risingwave-rust-analyzer/agents/openai.yaml",
+      "type": "config",
+      "name": "openai.yaml",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/agents/openai.yaml",
+      "summary": "OpenAI agent interface configuration for the risingwave-rust-analyzer skill, specifying model and interface parameters.",
+      "tags": ["configuration", "agent"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/risingwave-rust-analyzer/references/rust-analyzer-cli.md",
+      "type": "document",
+      "name": "rust-analyzer-cli.md",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/references/rust-analyzer-cli.md",
+      "summary": "Reference documentation for using the rust-analyzer CLI with RisingWave, covering commands, RisingWave defaults, feature flag strategies, and a verification pattern.",
+      "tags": ["documentation", "development", "rust"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "type": "file",
+      "name": "list-crate-features.sh",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "summary": "Shell script that inspects and lists Rust crate feature flags for RisingWave, supporting package filtering, feature flag printing, and summary reporting for rust-analyzer configuration.",
+      "tags": ["script", "rust", "development", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:usage",
+      "type": "function",
+      "name": "usage",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "lineRange": [5, 20],
+      "summary": "Prints usage/help text for the list-crate-features.sh script.",
+      "tags": ["utility", "script"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:emit_package_list",
+      "type": "function",
+      "name": "emit_package_list",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "lineRange": [78, 87],
+      "summary": "Outputs a list of all packages in the workspace matching the current filter criteria.",
+      "tags": ["utility", "script"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:matched_packages_json",
+      "type": "function",
+      "name": "matched_packages_json",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "lineRange": [89, 103],
+      "summary": "Returns JSON representation of matched packages from the workspace metadata, used for feature flag inspection.",
+      "tags": ["utility", "script"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:print_feature_lines",
+      "type": "function",
+      "name": "print_feature_lines",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "lineRange": [105, 125],
+      "summary": "Iterates over matched packages and prints their feature flag definitions in a readable format.",
+      "tags": ["utility", "script"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:build_cargo_command",
+      "type": "function",
+      "name": "build_cargo_command",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "lineRange": [127, 139],
+      "summary": "Constructs the cargo command string to be used when querying feature flags for a given crate.",
+      "tags": ["utility", "script"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:build_override_command",
+      "type": "function",
+      "name": "build_override_command",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "lineRange": [141, 160],
+      "summary": "Builds the rust-analyzer override command needed to activate specific features for a crate.",
+      "tags": ["utility", "script"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:print_package_summary",
+      "type": "function",
+      "name": "print_package_summary",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "lineRange": [162, 181],
+      "summary": "Prints a human-readable summary of all matched packages along with their available features.",
+      "tags": ["utility", "script"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/risingwave-rust-analyzer/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/risingwave-rust-analyzer/SKILL.md",
+      "summary": "Skill definition for the RisingWave rust-analyzer agent, with a 4-step workflow covering analysis root confirmation, crate/feature resolution, CLI usage, and LSP configuration.",
+      "tags": ["documentation", "rust", "development", "agent"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/risingwave-slt-authoring/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/risingwave-slt-authoring/SKILL.md",
+      "summary": "Skill definition for SLT test authoring in RisingWave, covering grounding sources, authoring workflow, system ok substitution rules, SLT syntax, query assertion rules, and validation checklist.",
+      "tags": ["documentation", "test", "development", "agent"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.cargo/audit.toml",
+      "type": "config",
+      "name": "audit.toml",
+      "filePath": ".cargo/audit.toml",
+      "summary": "Cargo audit configuration specifying ignored security advisory IDs and audit policy for the RisingWave workspace.",
+      "tags": ["configuration", "security", "rust"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.cargo/config.toml",
+      "type": "config",
+      "name": "config.toml",
+      "filePath": ".cargo/config.toml",
+      "summary": "Cargo workspace configuration specifying platform-specific linker settings (mold on Linux, lld on macOS), rustflags, build target, and unstable git features.",
+      "tags": ["configuration", "build-system", "rust"],
+      "complexity": "moderate",
+      "languageNotes": "Uses platform-cfg targets to set different linkers per OS and architecture, enabling faster incremental builds."
+    },
+    {
+      "id": "config:.config/hakari.toml",
+      "type": "config",
+      "name": "hakari.toml",
+      "filePath": ".config/hakari.toml",
+      "summary": "Hakari workspace hack configuration for RisingWave, specifying traversal exclusions to manage unified feature resolution across the Cargo workspace.",
+      "tags": ["configuration", "build-system", "rust"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.config/nextest.toml",
+      "type": "config",
+      "name": "nextest.toml",
+      "filePath": ".config/nextest.toml",
+      "summary": "Nextest test runner configuration defining default, ci, and ci-sim profiles with test timeouts, thread counts, JUnit output, and test group overrides.",
+      "tags": ["configuration", "test", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.gemini/config.yaml",
+      "type": "config",
+      "name": "config.yaml",
+      "filePath": ".gemini/config.yaml",
+      "summary": "Gemini AI assistant configuration for the RisingWave project, specifying code review settings and behavior.",
+      "tags": ["configuration", "agent"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.git-blame-ignore-revs",
+      "type": "file",
+      "name": ".git-blame-ignore-revs",
+      "filePath": ".git-blame-ignore-revs",
+      "summary": "Git blame ignore revisions file listing bulk formatting/refactoring commits that should be skipped in git blame output.",
+      "tags": ["configuration", "development"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.gitattributes",
+      "type": "file",
+      "name": ".gitattributes",
+      "filePath": ".gitattributes",
+      "summary": "Git attributes file configuring language detection and diff settings for the RisingWave repository.",
+      "tags": ["configuration", "development"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.project-memory/store.db",
+      "type": "file",
+      "name": "store.db",
+      "filePath": ".project-memory/store.db",
+      "summary": "SQLite database file storing project memory/context for AI assistant tools working with the RisingWave codebase.",
+      "tags": ["data", "agent"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.project-memory/store.db-wal",
+      "type": "file",
+      "name": "store.db-wal",
+      "filePath": ".project-memory/store.db-wal",
+      "summary": "SQLite write-ahead log for the project memory store, containing pending transactions not yet checkpointed to store.db.",
+      "tags": ["data", "agent"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "Ignore file for the understand-anything tool, listing file patterns and paths to exclude from project analysis.",
+      "tags": ["configuration", "agent"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/ldap-test/ldif/01-users.ldif",
+      "type": "file",
+      "name": "01-users.ldif",
+      "filePath": "ci/ldap-test/ldif/01-users.ldif",
+      "summary": "LDAP Data Interchange Format file defining test user entries for LDAP authentication E2E tests in RisingWave CI.",
+      "tags": ["test", "infrastructure", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:ci/ldap-test/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "ci/ldap-test/README.md",
+      "summary": "Comprehensive guide (16 sections) for LDAP authentication E2E tests, covering directory structure, test users, certificate generation, test execution, RisingWave TLS configuration, and local development setup.",
+      "tags": ["documentation", "test", "security", "infrastructure"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ci/ldap-test/setup-ldap-certs.sh",
+      "type": "file",
+      "name": "setup-ldap-certs.sh",
+      "filePath": "ci/ldap-test/setup-ldap-certs.sh",
+      "summary": "Shell script that generates TLS certificates and keys for the LDAP test server, setting up the CA, server certificate, and client certificates for secure LDAP CI tests.",
+      "tags": ["script", "security", "infrastructure", "test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ci/mongodb/config-replica.js",
+      "type": "file",
+      "name": "config-replica.js",
+      "filePath": "ci/mongodb/config-replica.js",
+      "summary": "MongoDB replica set initialization script that configures a single-node replica set for CI integration testing.",
+      "tags": ["infrastructure", "test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/plugins/docker-compose-logs/hooks/post-command",
+      "type": "file",
+      "name": "post-command",
+      "filePath": "ci/plugins/docker-compose-logs/hooks/post-command",
+      "summary": "Buildkite plugin post-command hook that collects and uploads docker-compose service logs after a CI build step completes.",
+      "tags": ["ci-cd", "infrastructure", "script"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/plugins/swapfile/hooks/pre-command",
+      "type": "file",
+      "name": "pre-command",
+      "filePath": "ci/plugins/swapfile/hooks/pre-command",
+      "summary": "Buildkite plugin pre-command hook that creates a swap file on the CI agent to prevent OOM failures during large builds.",
+      "tags": ["ci-cd", "infrastructure", "script"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "target": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:usage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "target": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:emit_package_list",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "target": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:matched_packages_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "target": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:print_feature_lines",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "target": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:build_cargo_command",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "target": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:build_override_command",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh",
+      "target": "function:.agents/skills/risingwave-rust-analyzer/scripts/list-crate-features.sh:print_package_summary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

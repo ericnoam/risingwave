@@ -1,0 +1,50 @@
+{
+  "nodes": [
+    {
+      "id": "table:ci/scripts/sql/backfill/replication_with_column_pruning/create_base_table.sql",
+      "type": "table",
+      "name": "create_base_table.sql",
+      "filePath": "ci/scripts/sql/backfill/replication_with_column_pruning/create_base_table.sql",
+      "summary": "Creates the base table `t1` with columns `x`, `y`, `z` used to test backfill with column pruning in replication scenarios.",
+      "tags": ["database", "schema-definition", "test", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/backfill/replication_with_column_pruning/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "ci/scripts/sql/backfill/replication_with_column_pruning/create_mv.sql",
+      "summary": "Creates a materialized view that selects a subset of columns from `t1` to test column pruning during backfill replication.",
+      "tags": ["database", "schema-definition", "test", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/backfill/replication_with_column_pruning/drop.sql",
+      "type": "table",
+      "name": "drop.sql",
+      "filePath": "ci/scripts/sql/backfill/replication_with_column_pruning/drop.sql",
+      "summary": "Drops the materialized view and base table used in the column-pruning backfill replication test.",
+      "tags": ["database", "test", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/backfill/replication_with_column_pruning/insert.sql",
+      "type": "table",
+      "name": "insert.sql",
+      "filePath": "ci/scripts/sql/backfill/replication_with_column_pruning/insert.sql",
+      "summary": "Inserts sample rows into the `t1` table to seed data for the column-pruning backfill replication test.",
+      "tags": ["database", "test", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/backfill/replication_with_column_pruning/select.sql",
+      "type": "table",
+      "name": "select.sql",
+      "filePath": "ci/scripts/sql/backfill/replication_with_column_pruning/select.sql",
+      "summary": "Placeholder select script for the column-pruning backfill replication test suite (empty file).",
+      "tags": ["database", "test", "backfill"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,266 @@
+{
+  "nodes": [
+    {
+      "id": "pipeline:.github/workflows/assign-issue-milestone.yml",
+      "type": "pipeline",
+      "name": "assign-issue-milestone.yml",
+      "filePath": ".github/workflows/assign-issue-milestone.yml",
+      "summary": "GitHub Actions workflow that automatically assigns milestones to newly opened issues based on configured rules.",
+      "tags": ["ci-cd", "github", "automation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/audit.yml",
+      "type": "pipeline",
+      "name": "audit.yml",
+      "filePath": ".github/workflows/audit.yml",
+      "summary": "GitHub Actions workflow running `cargo audit` to detect security vulnerabilities in Rust dependencies on a scheduled basis.",
+      "tags": ["ci-cd", "security", "dependency-management"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/auto-create-doc-issue-by-issue.yml",
+      "type": "pipeline",
+      "name": "auto-create-doc-issue-by-issue.yml",
+      "filePath": ".github/workflows/auto-create-doc-issue-by-issue.yml",
+      "summary": "GitHub Actions workflow that automatically creates a documentation tracking issue when a new issue is opened with specific labels.",
+      "tags": ["ci-cd", "automation", "documentation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/auto-create-doc-issue-by-pr.yml",
+      "type": "pipeline",
+      "name": "auto-create-doc-issue-by-pr.yml",
+      "filePath": ".github/workflows/auto-create-doc-issue-by-pr.yml",
+      "summary": "GitHub Actions workflow that automatically creates a documentation tracking issue when a PR is merged if it carries documentation-affecting labels.",
+      "tags": ["ci-cd", "automation", "documentation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/auto-update-helm-and-operator-version-by-release.yml",
+      "type": "pipeline",
+      "name": "auto-update-helm-and-operator-version-by-release.yml",
+      "filePath": ".github/workflows/auto-update-helm-and-operator-version-by-release.yml",
+      "summary": "GitHub Actions workflow that automatically opens PRs to update RisingWave version references in the Helm chart and Kubernetes operator repositories when a new release is published.",
+      "tags": ["ci-cd", "deployment", "release-automation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/build-docker-image-on-demand-ec2.yml",
+      "type": "pipeline",
+      "name": "build-docker-image-on-demand-ec2.yml",
+      "filePath": ".github/workflows/build-docker-image-on-demand-ec2.yml",
+      "summary": "GitHub Actions workflow for on-demand Docker image builds running on EC2 instances, triggered by workflow dispatch with configurable parameters.",
+      "tags": ["ci-cd", "deployment", "containerization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/build-docker-image.yml",
+      "type": "pipeline",
+      "name": "build-docker-image.yml",
+      "filePath": ".github/workflows/build-docker-image.yml",
+      "summary": "GitHub Actions workflow that builds and publishes RisingWave Docker images to container registries, triggered by releases or manual dispatch.",
+      "tags": ["ci-cd", "deployment", "containerization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/bump-main.yml",
+      "type": "pipeline",
+      "name": "bump-main.yml",
+      "filePath": ".github/workflows/bump-main.yml",
+      "summary": "GitHub Actions workflow that bumps the version on the main branch after a release, updating Cargo.toml and related files.",
+      "tags": ["ci-cd", "release-automation", "versioning"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/cherry-pick-since-release-branch.yml",
+      "type": "pipeline",
+      "name": "cherry-pick-since-release-branch.yml",
+      "filePath": ".github/workflows/cherry-pick-since-release-branch.yml",
+      "summary": "GitHub Actions workflow that cherry-picks all qualifying commits to the latest release branch since a specified point, automating the backport process.",
+      "tags": ["ci-cd", "release-automation", "git"],
+      "complexity": "complex"
+    },
+    {
+      "id": "pipeline:.github/workflows/cherry-pick-to-release-branch.yml",
+      "type": "pipeline",
+      "name": "cherry-pick-to-release-branch.yml",
+      "filePath": ".github/workflows/cherry-pick-to-release-branch.yml",
+      "summary": "GitHub Actions workflow that cherry-picks a specific commit to a target release branch when triggered manually.",
+      "tags": ["ci-cd", "release-automation", "git"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/connector-node-integration.yml",
+      "type": "pipeline",
+      "name": "connector-node-integration.yml",
+      "filePath": ".github/workflows/connector-node-integration.yml",
+      "summary": "GitHub Actions workflow running connector node integration tests against the Java connector service on PRs and pushes.",
+      "tags": ["ci-cd", "integration-test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/copilot-setup-steps.yml",
+      "type": "pipeline",
+      "name": "copilot-setup-steps.yml",
+      "filePath": ".github/workflows/copilot-setup-steps.yml",
+      "summary": "GitHub Actions workflow defining Copilot workspace environment setup steps, installing Rust, dependencies, and project tooling.",
+      "tags": ["ci-cd", "development", "tooling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/dashboard.yml",
+      "type": "pipeline",
+      "name": "dashboard.yml",
+      "filePath": ".github/workflows/dashboard.yml",
+      "summary": "GitHub Actions workflow that builds and deploys the RisingWave web dashboard to GitHub Pages on merge to main.",
+      "tags": ["ci-cd", "deployment", "dashboard"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/doc.yml",
+      "type": "pipeline",
+      "name": "doc.yml",
+      "filePath": ".github/workflows/doc.yml",
+      "summary": "GitHub Actions workflow that builds and publishes Rust API documentation to GitHub Pages, triggered on push to main and release tags.",
+      "tags": ["ci-cd", "documentation", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/grafana-generate-check.yml",
+      "type": "pipeline",
+      "name": "grafana-generate-check.yml",
+      "filePath": ".github/workflows/grafana-generate-check.yml",
+      "summary": "GitHub Actions workflow that validates Grafana dashboard JSON files can be regenerated cleanly from their source templates in PRs.",
+      "tags": ["ci-cd", "monitoring", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/grafana-generate-prod.yml",
+      "type": "pipeline",
+      "name": "grafana-generate-prod.yml",
+      "filePath": ".github/workflows/grafana-generate-prod.yml",
+      "summary": "GitHub Actions workflow that regenerates and commits updated Grafana dashboard JSON files to the repository when source templates change.",
+      "tags": ["ci-cd", "monitoring", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/labeler.yml",
+      "type": "pipeline",
+      "name": "labeler.yml",
+      "filePath": ".github/workflows/labeler.yml",
+      "summary": "GitHub Actions workflow that runs the GitHub labeler action to automatically apply labels to pull requests based on changed file paths.",
+      "tags": ["ci-cd", "automation", "github"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/license_check.yml",
+      "type": "pipeline",
+      "name": "license_check.yml",
+      "filePath": ".github/workflows/license_check.yml",
+      "summary": "GitHub Actions workflow that checks all source files have valid license headers using hawkeye/licenserc tooling on PRs and pushes.",
+      "tags": ["ci-cd", "compliance", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/nightly-rust.yml",
+      "type": "pipeline",
+      "name": "nightly-rust.yml",
+      "filePath": ".github/workflows/nightly-rust.yml",
+      "summary": "GitHub Actions workflow that compiles RisingWave with the nightly Rust toolchain on a schedule to detect compatibility issues early.",
+      "tags": ["ci-cd", "build-system", "rust"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/package_version_check.yml",
+      "type": "pipeline",
+      "name": "package_version_check.yml",
+      "filePath": ".github/workflows/package_version_check.yml",
+      "summary": "GitHub Actions workflow that runs version consistency checks across Cargo, npm, and other package manifests on PRs.",
+      "tags": ["ci-cd", "validation", "versioning"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/pr-auto-update-with-rebase.yml",
+      "type": "pipeline",
+      "name": "pr-auto-update-with-rebase.yml",
+      "filePath": ".github/workflows/pr-auto-update-with-rebase.yml",
+      "summary": "GitHub Actions workflow that automatically rebases PRs with the main branch when triggered by a label or comment, using concurrency controls to prevent races.",
+      "tags": ["ci-cd", "automation", "git"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/pr-title-checker.yml",
+      "type": "pipeline",
+      "name": "pr-title-checker.yml",
+      "filePath": ".github/workflows/pr-title-checker.yml",
+      "summary": "GitHub Actions workflow that validates PR titles conform to the project's conventional commit format using the pr-title-checker action.",
+      "tags": ["ci-cd", "validation", "github"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/protobuf-breaking.yml",
+      "type": "pipeline",
+      "name": "protobuf-breaking.yml",
+      "filePath": ".github/workflows/protobuf-breaking.yml",
+      "summary": "GitHub Actions workflow that detects breaking changes in protobuf schema definitions using buf CLI on PRs that modify `.proto` files.",
+      "tags": ["ci-cd", "validation", "protobuf"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/run-main-cron.yml",
+      "type": "pipeline",
+      "name": "run-main-cron.yml",
+      "filePath": ".github/workflows/run-main-cron.yml",
+      "summary": "GitHub Actions workflow that triggers the main Buildkite CI pipeline on a nightly cron schedule to run comprehensive test suites.",
+      "tags": ["ci-cd", "test", "scheduling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "pipeline:.github/workflows/run-perf-test.yml",
+      "type": "pipeline",
+      "name": "run-perf-test.yml",
+      "filePath": ".github/workflows/run-perf-test.yml",
+      "summary": "GitHub Actions workflow that triggers performance benchmark tests on dedicated infrastructure when manually dispatched or on schedule.",
+      "tags": ["ci-cd", "performance", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/slt-coverage-check.yml",
+      "type": "pipeline",
+      "name": "slt-coverage-check.yml",
+      "filePath": ".github/workflows/slt-coverage-check.yml",
+      "summary": "GitHub Actions workflow that checks SQLLogicTest (SLT) coverage, verifying that new SQL features have corresponding test files.",
+      "tags": ["ci-cd", "test", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/stale.yml",
+      "type": "pipeline",
+      "name": "stale.yml",
+      "filePath": ".github/workflows/stale.yml",
+      "summary": "GitHub Actions workflow that automatically marks and closes stale issues and PRs after configurable periods of inactivity.",
+      "tags": ["ci-cd", "automation", "github"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/trigger-homebrew-bump.yml",
+      "type": "pipeline",
+      "name": "trigger-homebrew-bump.yml",
+      "filePath": ".github/workflows/trigger-homebrew-bump.yml",
+      "summary": "GitHub Actions workflow that triggers a Homebrew formula update for RisingWave when a new release is published, keeping the brew tap in sync.",
+      "tags": ["ci-cd", "release-automation", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/typo.yml",
+      "type": "pipeline",
+      "name": "typo.yml",
+      "filePath": ".github/workflows/typo.yml",
+      "summary": "GitHub Actions workflow that scans the codebase for typos using the `typos` tool on PRs and pushes, enforcing the project allowlist from `.typos.toml`.",
+      "tags": ["ci-cd", "validation", "code-quality"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

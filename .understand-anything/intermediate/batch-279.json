@@ -1,0 +1,329 @@
+{
+  "nodes": [
+    {
+      "id": "file:dashboard/next-env.d.ts",
+      "type": "file",
+      "name": "next-env.d.ts",
+      "filePath": "dashboard/next-env.d.ts",
+      "summary": "Next.js TypeScript environment type reference file that includes Next.js type declarations for the dashboard project.",
+      "tags": ["type-definition", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/next.config.js",
+      "type": "file",
+      "name": "next.config.js",
+      "filePath": "dashboard/next.config.js",
+      "summary": "Next.js configuration file for the RisingWave dashboard, specifying rewrites for API proxying to a backend RisingWave meta server.",
+      "tags": ["configuration", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/scripts/generate_proto.sh",
+      "type": "file",
+      "name": "generate_proto.sh",
+      "filePath": "dashboard/scripts/generate_proto.sh",
+      "summary": "Shell script that compiles protobuf definitions from the proto/ directory into TypeScript code for use in the RisingWave dashboard.",
+      "tags": ["script", "build-system", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/styles/global.css",
+      "type": "file",
+      "name": "global.css",
+      "filePath": "dashboard/styles/global.css",
+      "summary": "Global CSS stylesheet for the RisingWave dashboard, applying base styles and Tailwind CSS resets.",
+      "tags": ["markup", "styling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:develop/nix/devshell.nix",
+      "type": "file",
+      "name": "devshell.nix",
+      "filePath": "develop/nix/devshell.nix",
+      "summary": "Nix development shell configuration providing all required tools and environment variables for RisingWave development via nix-shell or nix develop.",
+      "tags": ["infrastructure", "build-system", "development"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:develop/nix/flake.nix",
+      "type": "file",
+      "name": "flake.nix",
+      "filePath": "develop/nix/flake.nix",
+      "summary": "Nix flake definition for the RisingWave development environment, specifying inputs (nixpkgs, flake-utils) and outputs including the devShell.",
+      "tags": ["infrastructure", "build-system", "development"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:develop/nix/overlays.nix",
+      "type": "file",
+      "name": "overlays.nix",
+      "filePath": "develop/nix/overlays.nix",
+      "summary": "Nix overlays file providing custom package overrides used by the RisingWave development flake.",
+      "tags": ["infrastructure", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:develop/sql_bench/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "develop/sql_bench/main.py",
+      "summary": "Python CLI tool for running SQL benchmarks against RisingWave, supporting init and run subcommands that generate Python benchmark scripts from YAML configs and execute them.",
+      "tags": ["script", "benchmark", "utility", "entry-point"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:develop/sql_bench/main.py:create_benchmark_script",
+      "type": "function",
+      "name": "create_benchmark_script",
+      "filePath": "develop/sql_bench/main.py",
+      "lineRange": [46, 122],
+      "summary": "Reads a YAML benchmark definition and generates an executable Python script that runs the defined SQL queries against a target database.",
+      "tags": ["utility", "benchmark"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:develop/sql_bench/main.py:init_benchmark",
+      "type": "function",
+      "name": "init_benchmark",
+      "filePath": "develop/sql_bench/main.py",
+      "lineRange": [124, 135],
+      "summary": "Initializes a new benchmark directory and creates a YAML template file for the given benchmark name.",
+      "tags": ["utility", "benchmark"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:develop/sql_bench/main.py:run_benchmark",
+      "type": "function",
+      "name": "run_benchmark",
+      "filePath": "develop/sql_bench/main.py",
+      "lineRange": [137, 199],
+      "summary": "Executes a named benchmark by generating its script, running it against a Postgres URL with the specified profile, and reporting results.",
+      "tags": ["utility", "benchmark"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:develop/sql_bench/main.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "develop/sql_bench/main.py",
+      "lineRange": [201, 224],
+      "summary": "CLI entry point using argparse to dispatch between init and run subcommands for the sql_bench tool.",
+      "tags": ["entry-point", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:develop/sql_bench/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "develop/sql_bench/README.md",
+      "summary": "Documentation for the sql_bench tool covering background, overview, prerequisites, creating benchmarks, running benchmarks, debugging, and directory structure across 8 sections.",
+      "tags": ["documentation", "benchmark", "development"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:develop/sql_bench/requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "develop/sql_bench/requirements.txt",
+      "summary": "Python package requirements file for the sql_bench tool listing its external dependencies.",
+      "tags": ["configuration", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:docker/aws/aws-build.sh",
+      "type": "file",
+      "name": "aws-build.sh",
+      "filePath": "docker/aws/aws-build.sh",
+      "summary": "Shell script that builds and pushes the RisingWave Docker image to AWS ECR for deployment.",
+      "tags": ["script", "infrastructure", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:docker/dashboards/risingwave-dev-dashboard.json",
+      "type": "config",
+      "name": "risingwave-dev-dashboard.json",
+      "filePath": "docker/dashboards/risingwave-dev-dashboard.json",
+      "summary": "Grafana dashboard JSON definition for the RisingWave developer dashboard, providing metrics panels for internal development monitoring.",
+      "tags": ["configuration", "monitoring", "infrastructure"],
+      "complexity": "complex",
+      "languageNotes": "Minified single-line JSON file representing a complete Grafana dashboard definition."
+    },
+    {
+      "id": "config:docker/dashboards/risingwave-user-dashboard.json",
+      "type": "config",
+      "name": "risingwave-user-dashboard.json",
+      "filePath": "docker/dashboards/risingwave-user-dashboard.json",
+      "summary": "Grafana dashboard JSON definition for the RisingWave user-facing dashboard, providing metrics panels for end-user monitoring of streaming jobs.",
+      "tags": ["configuration", "monitoring", "infrastructure"],
+      "complexity": "complex",
+      "languageNotes": "Minified single-line JSON file representing a complete Grafana dashboard definition."
+    },
+    {
+      "id": "config:docker/risingwave.toml",
+      "type": "config",
+      "name": "risingwave.toml",
+      "filePath": "docker/risingwave.toml",
+      "summary": "Minimal RisingWave runtime configuration for the Docker deployment, setting essential server parameters.",
+      "tags": ["configuration", "deployment", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:docs/dev/book.toml",
+      "type": "config",
+      "name": "book.toml",
+      "filePath": "docs/dev/book.toml",
+      "summary": "mdBook configuration for the RisingWave developer guide, specifying book metadata, table-of-contents preprocessor, HTML output, and link checker settings.",
+      "tags": ["configuration", "documentation", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:docs/dev/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "docs/dev/README.md",
+      "summary": "Entry point for the RisingWave developer guide mdBook, describing how to build the book, view the table of contents, and validate links.",
+      "tags": ["documentation", "entry-point", "development"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:docs/dev/src/build-and-run/intro.md",
+      "type": "document",
+      "name": "intro.md",
+      "filePath": "docs/dev/src/build-and-run/intro.md",
+      "summary": "Developer guide for building and running RisingWave covering environment setup on macOS/Linux/nix, starting a dev cluster with risedev, compilation tips, and configuring components and system variables across 10 sections.",
+      "tags": ["documentation", "development", "build-system"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:docs/dev/src/build-and-run/profiles.md",
+      "type": "document",
+      "name": "profiles.md",
+      "filePath": "docs/dev/src/build-and-run/profiles.md",
+      "summary": "Documentation for RisingWave build profiles, describing built-in profiles, custom profile creation, performance comparisons, and guidance on choosing a profile.",
+      "tags": ["documentation", "build-system", "development"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:docs/dev/src/connector/intro.md",
+      "type": "document",
+      "name": "intro.md",
+      "filePath": "docs/dev/src/connector/intro.md",
+      "summary": "Comprehensive connector development guide covering environment setup, user-managed mode, end-to-end tests, system command tips, and adding new connectors to the development framework across 6 sections.",
+      "tags": ["documentation", "development", "infrastructure"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:docs/dev/src/connector/source.md",
+      "type": "document",
+      "name": "source.md",
+      "filePath": "docs/dev/src/connector/source.md",
+      "summary": "Documentation of the source connector architecture describing connectors, enumerators, ConnectorSource, and SourceExecutor components and how they work together.",
+      "tags": ["documentation", "development"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:docs/dev/src/tests/intro.md",
+      "type": "document",
+      "name": "intro.md",
+      "filePath": "docs/dev/src/tests/intro.md",
+      "summary": "Comprehensive testing guide covering lint, unit/integration tests, planner tests, e2e tests, fuzzing tests (SqlSmith), DocSlt tests, deterministic simulation tests, and backward compatibility tests across 12 sections.",
+      "tags": ["documentation", "test", "development"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:docs/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "docs/README.md",
+      "summary": "Top-level docs overview providing a brief pointer to the RisingWave documentation resources.",
+      "tags": ["documentation", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:e2e_test/.coverageignore",
+      "type": "file",
+      "name": ".coverageignore",
+      "filePath": "e2e_test/.coverageignore",
+      "summary": "Coverage ignore file for the e2e_test directory listing SQL test files and directories to exclude from coverage reporting.",
+      "tags": ["configuration", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:e2e_test/backfill/backfill_order_control_recovery_progress.slt",
+      "type": "file",
+      "name": "backfill_order_control_recovery_progress.slt",
+      "filePath": "e2e_test/backfill/backfill_order_control_recovery_progress.slt",
+      "summary": "SQLLogicTest end-to-end test verifying backfill order control with recovery, checking that streaming backfill progress is correctly tracked and recoverable.",
+      "tags": ["test", "backfill", "streaming"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:e2e_test/backfill/backfill_order_control_recovery.slt",
+      "type": "file",
+      "name": "backfill_order_control_recovery.slt",
+      "filePath": "e2e_test/backfill/backfill_order_control_recovery.slt",
+      "summary": "SQLLogicTest end-to-end test verifying that backfill with order control correctly recovers after a node failure or restart.",
+      "tags": ["test", "backfill", "streaming"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:develop/sql_bench/main.py",
+      "target": "function:develop/sql_bench/main.py:create_benchmark_script",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:develop/sql_bench/main.py",
+      "target": "function:develop/sql_bench/main.py:create_benchmark_script",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:develop/sql_bench/main.py",
+      "target": "function:develop/sql_bench/main.py:init_benchmark",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:develop/sql_bench/main.py",
+      "target": "function:develop/sql_bench/main.py:init_benchmark",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:develop/sql_bench/main.py",
+      "target": "function:develop/sql_bench/main.py:run_benchmark",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:develop/sql_bench/main.py",
+      "target": "function:develop/sql_bench/main.py:run_benchmark",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:develop/sql_bench/main.py",
+      "target": "function:develop/sql_bench/main.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:develop/sql_bench/main.py",
+      "target": "function:develop/sql_bench/main.py:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

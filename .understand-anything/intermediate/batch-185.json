@@ -1,0 +1,162 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/cockroach-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/cockroach-sink/README.md",
+      "summary": "Brief how-to guide for the CockroachDB sink integration test, listing the commands to start services and run the test.",
+      "tags": ["documentation", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/cockroach-sink/cockroach_prepare.sql",
+      "type": "table",
+      "name": "cockroach_prepare.sql",
+      "filePath": "integration_tests/cockroach-sink/cockroach_prepare.sql",
+      "summary": "Creates CockroachDB destination tables (target_count, data_types, cock_all_data_types) for the CockroachDB sink integration test with comprehensive type coverage.",
+      "tags": ["database", "test", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/cockroach-sink/cockroach_prepare.sql:target_count",
+      "type": "table",
+      "name": "target_count",
+      "filePath": "integration_tests/cockroach-sink/cockroach_prepare.sql",
+      "lineRange": [1, 4],
+      "summary": "CockroachDB table counting target interactions, used as a sink destination in the integration test.",
+      "tags": ["database", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/cockroach-sink/cockroach_prepare.sql:data_types",
+      "type": "table",
+      "name": "data_types",
+      "filePath": "integration_tests/cockroach-sink/cockroach_prepare.sql",
+      "lineRange": [6, 25],
+      "summary": "CockroachDB general data types table covering varchar, numeric, boolean, date/time, jsonb, bytea, and array columns.",
+      "tags": ["database", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/cockroach-sink/cockroach_prepare.sql:cock_all_data_types",
+      "type": "table",
+      "name": "cock_all_data_types",
+      "filePath": "integration_tests/cockroach-sink/cockroach_prepare.sql",
+      "lineRange": [27, 50],
+      "summary": "Comprehensive CockroachDB type coverage table including boolean, numeric, varchar, and array types for sink type-mapping validation.",
+      "tags": ["database", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/cockroach-sink/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/cockroach-sink/create_mv.sql",
+      "summary": "Creates RisingWave materialized views over the user_behaviors and data_types sources for the CockroachDB sink integration test.",
+      "tags": ["test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/cockroach-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/cockroach-sink/create_sink.sql",
+      "summary": "Defines RisingWave JDBC sink connectors targeting CockroachDB, writing materialized view data to the prepared destination tables.",
+      "tags": ["test", "database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/cockroach-sink/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/cockroach-sink/create_source.sql",
+      "summary": "Defines RisingWave Kafka sources (user_behaviors, data_types, cock_all_data_types) with comprehensive column schemas for the CockroachDB sink integration test.",
+      "tags": ["test", "database", "schema-definition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:integration_tests/cockroach-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/cockroach-sink/docker-compose.yml",
+      "summary": "Docker Compose configuration for the CockroachDB sink integration test, orchestrating RisingWave, Kafka, and CockroachDB containers.",
+      "tags": ["infrastructure", "orchestration", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/cockroach-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/cockroach-sink/prepare.sh",
+      "summary": "Shell script that executes cockroach_prepare.sql against the CockroachDB instance to create destination tables before the integration test.",
+      "tags": ["script", "test", "infrastructure"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "table:integration_tests/cockroach-sink/cockroach_prepare.sql",
+      "target": "table:integration_tests/cockroach-sink/cockroach_prepare.sql:target_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:integration_tests/cockroach-sink/cockroach_prepare.sql",
+      "target": "table:integration_tests/cockroach-sink/cockroach_prepare.sql:data_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:integration_tests/cockroach-sink/cockroach_prepare.sql",
+      "target": "table:integration_tests/cockroach-sink/cockroach_prepare.sql:cock_all_data_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/cockroach-sink/create_mv.sql",
+      "target": "table:integration_tests/cockroach-sink/create_source.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/cockroach-sink/create_sink.sql",
+      "target": "file:integration_tests/cockroach-sink/create_mv.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/cockroach-sink/create_sink.sql",
+      "target": "table:integration_tests/cockroach-sink/cockroach_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/cockroach-sink/prepare.sh",
+      "target": "table:integration_tests/cockroach-sink/cockroach_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/cockroach-sink/docker-compose.yml",
+      "target": "table:integration_tests/cockroach-sink/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:integration_tests/cockroach-sink/README.md",
+      "target": "file:integration_tests/cockroach-sink/prepare.sh",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

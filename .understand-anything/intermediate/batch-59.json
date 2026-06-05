@@ -1,0 +1,712 @@
+{
+  "nodes": [
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/TestUtils.java",
+      "type": "file",
+      "name": "TestUtils.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/TestUtils.java",
+      "summary": "Test utilities providing mock TableSchema and proto objects for connector unit tests.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "file",
+      "name": "TableSchema.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "summary": "TableSchema class representing column definitions and primary key layout for connector sink/source tables.",
+      "tags": [
+        "data-model",
+        "connector"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/ArraySinkRow.java",
+      "type": "file",
+      "name": "ArraySinkRow.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/ArraySinkRow.java",
+      "summary": "Array-backed SinkRow implementation for testing and simple row access.",
+      "tags": [
+        "connector",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/CloseableIterable.java",
+      "type": "file",
+      "name": "CloseableIterable.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/CloseableIterable.java",
+      "summary": "Closeable iterable interface for iterating sink rows with resource cleanup.",
+      "tags": [
+        "connector",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/CommonSinkConfig.java",
+      "type": "file",
+      "name": "CommonSinkConfig.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/CommonSinkConfig.java",
+      "summary": "Common configuration base class for all sink connector implementations.",
+      "tags": [
+        "connector",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/Deserializer.java",
+      "type": "file",
+      "name": "Deserializer.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/Deserializer.java",
+      "summary": "Deserializer interface for converting binary stream chunks to SinkRow iterables.",
+      "tags": [
+        "connector",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkCoordinator.java",
+      "type": "file",
+      "name": "SinkCoordinator.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkCoordinator.java",
+      "summary": "SinkCoordinator interface for epoch-based coordination of distributed sinks.",
+      "tags": [
+        "connector",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "type": "file",
+      "name": "SinkFactory.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "summary": "SinkFactory interface for validating and creating sink writers and coordinators.",
+      "tags": [
+        "connector",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "file",
+      "name": "SinkRow.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "summary": "SinkRow interface representing a single row of data to be written to an external sink.",
+      "tags": [
+        "connector",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "type": "file",
+      "name": "SinkWriter.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "summary": "SinkWriter interface for writing batches of rows and syncing epochs.",
+      "tags": [
+        "connector",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterBase.java",
+      "type": "file",
+      "name": "SinkWriterBase.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterBase.java",
+      "summary": "Abstract base class for sink writers providing TableSchema access.",
+      "tags": [
+        "connector",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterV1.java",
+      "type": "file",
+      "name": "SinkWriterV1.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterV1.java",
+      "summary": "SinkWriterV1 interface extending SinkWriter with V1 protocol methods.",
+      "tags": [
+        "connector",
+        "type-definition"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceHandler.java",
+      "type": "file",
+      "name": "SourceHandler.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceHandler.java",
+      "summary": "Source handler interface for CDC source request processing.",
+      "tags": [
+        "connector",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "file",
+      "name": "SourceTypeE.java",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "summary": "Enum defining supported CDC source types (MySQL, Postgres, Citus, SQL Server).",
+      "tags": [
+        "connector",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorService.java",
+      "type": "file",
+      "name": "ConnectorService.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorService.java",
+      "summary": "gRPC connector service entry point starting the server and registering sink/source handlers.",
+      "tags": [
+        "connector",
+        "entry-point",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java",
+      "type": "file",
+      "name": "ConnectorServiceImpl.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java",
+      "summary": "gRPC connector service implementation delegating source and sink stream requests to handlers.",
+      "tags": [
+        "connector",
+        "api-handler",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSink.java",
+      "type": "file",
+      "name": "FileSink.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSink.java",
+      "summary": "File system sink implementation writing rows to local files for testing and debugging.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSinkConfig.java",
+      "type": "file",
+      "name": "FileSinkConfig.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSinkConfig.java",
+      "summary": "Configuration class for the file sink connector.",
+      "tags": [
+        "connector",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSinkFactory.java",
+      "type": "file",
+      "name": "FileSinkFactory.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSinkFactory.java",
+      "summary": "Factory for creating FileSink instances with validation.",
+      "tags": [
+        "connector",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/JniSinkValidationHandler.java",
+      "type": "file",
+      "name": "JniSinkValidationHandler.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/JniSinkValidationHandler.java",
+      "summary": "JNI-based sink validation handler invoked from native Rust code.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkCoordinatorStreamObserver.java",
+      "type": "file",
+      "name": "SinkCoordinatorStreamObserver.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkCoordinatorStreamObserver.java",
+      "summary": "gRPC stream observer managing sink coordinator epoch coordination protocol.",
+      "tags": [
+        "connector",
+        "api-handler",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkUtils.java",
+      "type": "file",
+      "name": "SinkUtils.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkUtils.java",
+      "summary": "Utility class for loading sink factory implementations by connector type.",
+      "tags": [
+        "connector",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkValidationHandler.java",
+      "type": "file",
+      "name": "SinkValidationHandler.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkValidationHandler.java",
+      "summary": "Sink validation handler checking sink configuration and schema compatibility.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java",
+      "type": "file",
+      "name": "SinkWriterStreamObserver.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java",
+      "summary": "gRPC stream observer managing sink writer epoch lifecycle and row delivery.",
+      "tags": [
+        "connector",
+        "api-handler",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java",
+      "type": "file",
+      "name": "StreamChunkDeserializer.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java",
+      "summary": "Deserializes RisingWave stream chunk binary format into SinkRow iterables for Java sinks.",
+      "tags": [
+        "connector",
+        "serialization"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/SourceRequestHandler.java",
+      "type": "file",
+      "name": "SourceRequestHandler.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/SourceRequestHandler.java",
+      "summary": "Handles CDC source stream requests routing to appropriate CDC engine handler.",
+      "tags": [
+        "connector",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java:TableSchema",
+      "type": "class",
+      "name": "TableSchema",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "lineRange": [
+        33,
+        124
+      ],
+      "summary": "Table column and PK schema for connector data mapping.",
+      "tags": [
+        "connector",
+        "data-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java:SinkFactory",
+      "type": "class",
+      "name": "SinkFactory",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "lineRange": [
+        23,
+        32
+      ],
+      "summary": "Interface for sink factory implementations.",
+      "tags": [
+        "connector",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java:SinkWriter",
+      "type": "class",
+      "name": "SinkWriter",
+      "filePath": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "lineRange": [
+        22,
+        50
+      ],
+      "summary": "Interface for writing rows to external sinks.",
+      "tags": [
+        "connector",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java:ConnectorServiceImpl",
+      "type": "class",
+      "name": "ConnectorServiceImpl",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java",
+      "lineRange": [
+        25,
+        59
+      ],
+      "summary": "gRPC connector service routing source and sink stream calls.",
+      "tags": [
+        "connector",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java:SinkWriterStreamObserver",
+      "type": "class",
+      "name": "SinkWriterStreamObserver",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java",
+      "lineRange": [
+        33,
+        215
+      ],
+      "summary": "Manages streaming sink writer protocol with epoch and row delivery.",
+      "tags": [
+        "connector",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java:StreamChunkDeserializer",
+      "type": "class",
+      "name": "StreamChunkDeserializer",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java",
+      "lineRange": [
+        33,
+        364
+      ],
+      "summary": "Deserializes stream chunks into Java-compatible row iterables.",
+      "tags": [
+        "connector",
+        "serialization"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/TestUtils.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterBase.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorService.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/SourceRequestHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/SourceValidateHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSinkConfig.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/CommonSinkConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSinkFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSinkFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSinkFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterV1.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/JniSinkValidationHandler.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/JniSinkValidationHandler.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkCoordinatorStreamObserver.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkCoordinator.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkCoordinatorStreamObserver.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkCoordinatorStreamObserver.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkUtils.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkValidationHandler.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkValidationHandler.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/CloseableIterable.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/Deserializer.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/SourceRequestHandler.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/SourceRequestHandler.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/SourceHandlerFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "target": "class:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java:TableSchema",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "target": "class:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java:TableSchema",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "target": "class:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java:SinkFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "target": "class:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java:SinkFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "target": "class:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java:SinkWriter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "target": "class:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java:SinkWriter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java:ConnectorServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java:ConnectorServiceImpl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java:SinkWriterStreamObserver",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java:SinkWriterStreamObserver",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java:StreamChunkDeserializer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/deserializer/StreamChunkDeserializer.java:StreamChunkDeserializer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

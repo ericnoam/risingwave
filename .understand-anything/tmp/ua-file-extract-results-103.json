@@ -1,0 +1,2422 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/storage/backup/src/error.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 59,
+      "classes": [
+        {
+          "name": "BackupError",
+          "startLine": 21,
+          "endLine": 62,
+          "methods": [],
+          "properties": [
+            "BackupStorage",
+            "MetaStorage",
+            "StateStorage",
+            "Encoding",
+            "Decoding",
+            "ChecksumMismatch",
+            "NonemptyMetaStorage",
+            "Other"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BackupError",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/storage/backup/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 136,
+      "nonEmptyLines": 123,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 62,
+          "endLine": 87,
+          "params": [
+            "id",
+            "v",
+            "format_version",
+            "remarks",
+            "table_change_log_object_ids"
+          ]
+        },
+        {
+          "name": "xxhash64_checksum",
+          "startLine": 97,
+          "endLine": 99,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "xxhash64_verify",
+          "startLine": 101,
+          "endLine": 110,
+          "params": [
+            "data",
+            "checksum"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 113,
+          "endLine": 126,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 130,
+          "endLine": 135,
+          "params": [
+            "m"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MetaSnapshotMetadata",
+          "startLine": 47,
+          "endLine": 59,
+          "methods": [
+            "new"
+          ],
+          "properties": [
+            "id",
+            "hummock_version_id",
+            "objects",
+            "format_version",
+            "remarks",
+            "state_table_info",
+            "rw_version"
+          ]
+        },
+        {
+          "name": "MetaSnapshotManifest",
+          "startLine": 92,
+          "endLine": 95,
+          "methods": [],
+          "properties": [
+            "manifest_id",
+            "snapshot_metadata"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MetaSnapshotMetadata",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "MetaSnapshotManifest",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "xxhash64_checksum",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "xxhash64_verify",
+          "line": 101,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "v\n                .get_object_ids()\n                .map(|object_id| object_id.as_raw())\n                .chain(table_change_log_object_ids).collect",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new",
+          "callee": "v\n                .get_object_ids()\n                .map(|object_id| object_id.as_raw()).chain",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new",
+          "callee": "v\n                .get_object_ids().map",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new",
+          "callee": "v.get_object_ids",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new",
+          "callee": "object_id.as_raw",
+          "lineNumber": 74
+        },
+        {
+          "caller": "new",
+          "callee": "v\n                .state_table_info\n                .info()\n                .iter()\n                .map(|(id, info)| (*id, info.into())).collect",
+          "lineNumber": 79
+        },
+        {
+          "caller": "new",
+          "callee": "v\n                .state_table_info\n                .info()\n                .iter().map",
+          "lineNumber": 79
+        },
+        {
+          "caller": "new",
+          "callee": "v\n                .state_table_info\n                .info().iter",
+          "lineNumber": 79
+        },
+        {
+          "caller": "new",
+          "callee": "v\n                .state_table_info.info",
+          "lineNumber": 79
+        },
+        {
+          "caller": "new",
+          "callee": "info.into",
+          "lineNumber": 83
+        },
+        {
+          "caller": "new",
+          "callee": "Some",
+          "lineNumber": 85
+        },
+        {
+          "caller": "new",
+          "callee": "RW_VERSION.to_owned",
+          "lineNumber": 85
+        },
+        {
+          "caller": "xxhash64_checksum",
+          "callee": "twox_hash::XxHash64::oneshot",
+          "lineNumber": 98
+        },
+        {
+          "caller": "xxhash64_verify",
+          "callee": "xxhash64_checksum",
+          "lineNumber": 102
+        },
+        {
+          "caller": "xxhash64_verify",
+          "callee": "Err",
+          "lineNumber": 104
+        },
+        {
+          "caller": "xxhash64_verify",
+          "callee": "Ok",
+          "lineNumber": 109
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 117
+        },
+        {
+          "caller": "from",
+          "callee": "m.remarks.clone",
+          "lineNumber": 118
+        },
+        {
+          "caller": "from",
+          "callee": "m\n                .state_table_info\n                .iter()\n                .map(|(t, i)| ((*t), i.into())).collect",
+          "lineNumber": 119
+        },
+        {
+          "caller": "from",
+          "callee": "m\n                .state_table_info\n                .iter().map",
+          "lineNumber": 119
+        },
+        {
+          "caller": "from",
+          "callee": "m\n                .state_table_info.iter",
+          "lineNumber": 119
+        },
+        {
+          "caller": "from",
+          "callee": "i.into",
+          "lineNumber": 122
+        },
+        {
+          "caller": "from",
+          "callee": "m.rw_version.clone",
+          "lineNumber": 124
+        },
+        {
+          "caller": "from",
+          "callee": "m.snapshot_metadata.iter().map_into().collect_vec",
+          "lineNumber": 133
+        },
+        {
+          "caller": "from",
+          "callee": "m.snapshot_metadata.iter().map_into",
+          "lineNumber": 133
+        },
+        {
+          "caller": "from",
+          "callee": "m.snapshot_metadata.iter",
+          "lineNumber": 133
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/storage/backup/src/meta_snapshot.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 90,
+      "nonEmptyLines": 75,
+      "functions": [
+        {
+          "name": "encode",
+          "startLine": 52,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "decode",
+          "startLine": 62,
+          "endLine": 73,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "decode_format_version",
+          "startLine": 75,
+          "endLine": 80,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 84,
+          "endLine": 89,
+          "params": [
+            "f"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Metadata",
+          "startLine": 25,
+          "endLine": 41,
+          "methods": [
+            "encode_to",
+            "decode",
+            "hummock_version_ref",
+            "hummock_version",
+            "storage_url",
+            "storage_directory",
+            "table_change_log_object_ids"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MetaSnapshot",
+          "startLine": 44,
+          "endLine": 49,
+          "methods": [],
+          "properties": [
+            "format_version",
+            "id",
+            "metadata"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Metadata",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "MetaSnapshot",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "encode",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "decode",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "decode_format_version",
+          "line": 75,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "encode",
+          "callee": "buf.put_u32_le",
+          "lineNumber": 54
+        },
+        {
+          "caller": "encode",
+          "callee": "buf.put_u64_le",
+          "lineNumber": 55
+        },
+        {
+          "caller": "encode",
+          "callee": "self.metadata.encode_to",
+          "lineNumber": 56
+        },
+        {
+          "caller": "encode",
+          "callee": "xxhash64_checksum",
+          "lineNumber": 57
+        },
+        {
+          "caller": "encode",
+          "callee": "buf.put_u64_le",
+          "lineNumber": 58
+        },
+        {
+          "caller": "encode",
+          "callee": "Ok",
+          "lineNumber": 59
+        },
+        {
+          "caller": "decode",
+          "callee": "(&buf[buf.len() - 8..]).get_u64_le",
+          "lineNumber": 63
+        },
+        {
+          "caller": "decode",
+          "callee": "buf.len",
+          "lineNumber": 63
+        },
+        {
+          "caller": "decode",
+          "callee": "xxhash64_verify",
+          "lineNumber": 64
+        },
+        {
+          "caller": "decode",
+          "callee": "buf.len",
+          "lineNumber": 64
+        },
+        {
+          "caller": "decode",
+          "callee": "buf.get_u32_le",
+          "lineNumber": 65
+        },
+        {
+          "caller": "decode",
+          "callee": "buf.get_u64_le",
+          "lineNumber": 66
+        },
+        {
+          "caller": "decode",
+          "callee": "T::decode",
+          "lineNumber": 67
+        },
+        {
+          "caller": "decode",
+          "callee": "Ok",
+          "lineNumber": 68
+        },
+        {
+          "caller": "decode_format_version",
+          "callee": "(&buf[buf.len() - 8..]).get_u64_le",
+          "lineNumber": 76
+        },
+        {
+          "caller": "decode_format_version",
+          "callee": "buf.len",
+          "lineNumber": 76
+        },
+        {
+          "caller": "decode_format_version",
+          "callee": "xxhash64_verify",
+          "lineNumber": 77
+        },
+        {
+          "caller": "decode_format_version",
+          "callee": "buf.len",
+          "lineNumber": 77
+        },
+        {
+          "caller": "decode_format_version",
+          "callee": "buf.get_u32_le",
+          "lineNumber": 78
+        },
+        {
+          "caller": "decode_format_version",
+          "callee": "Ok",
+          "lineNumber": 79
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 88
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/storage/backup/src/meta_snapshot_v1.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 314,
+      "nonEmptyLines": 288,
+      "functions": [
+        {
+          "name": "fmt",
+          "startLine": 37,
+          "endLine": 80,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "encode_to",
+          "startLine": 84,
+          "endLine": 86,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "decode",
+          "startLine": 88,
+          "endLine": 93,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "hummock_version_ref",
+          "startLine": 95,
+          "endLine": 97,
+          "params": []
+        },
+        {
+          "name": "hummock_version",
+          "startLine": 99,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "storage_url",
+          "startLine": 103,
+          "endLine": 105,
+          "params": []
+        },
+        {
+          "name": "storage_directory",
+          "startLine": 107,
+          "endLine": 109,
+          "params": []
+        },
+        {
+          "name": "table_change_log_object_ids",
+          "startLine": 111,
+          "endLine": 113,
+          "params": []
+        },
+        {
+          "name": "encode_to",
+          "startLine": 144,
+          "endLine": 168,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "decode",
+          "startLine": 170,
+          "endLine": 220,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "encode_prost_message",
+          "startLine": 222,
+          "endLine": 226,
+          "params": [
+            "message",
+            "buf"
+          ]
+        },
+        {
+          "name": "decode_prost_message",
+          "startLine": 228,
+          "endLine": 236,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "encode_prost_message_list",
+          "startLine": 238,
+          "endLine": 243,
+          "params": [
+            "messages",
+            "buf"
+          ]
+        },
+        {
+          "name": "decode_prost_message_list",
+          "startLine": 245,
+          "endLine": 256,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "try_decode_prost_message_list",
+          "startLine": 258,
+          "endLine": 266,
+          "params": [
+            "buf"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ClusterMetadata",
+          "startLine": 118,
+          "endLine": 141,
+          "methods": [
+            "fmt",
+            "encode_to",
+            "decode",
+            "hummock_version_ref",
+            "hummock_version",
+            "storage_url",
+            "storage_directory",
+            "table_change_log_object_ids",
+            "encode_to",
+            "decode",
+            "encode_prost_message",
+            "decode_prost_message",
+            "encode_prost_message_list",
+            "decode_prost_message_list",
+            "try_decode_prost_message_list"
+          ],
+          "properties": [
+            "default_cf",
+            "hummock_version",
+            "version_stats",
+            "compaction_groups",
+            "database",
+            "schema",
+            "table",
+            "index",
+            "sink",
+            "source",
+            "view",
+            "table_fragments",
+            "user_info",
+            "function",
+            "connection",
+            "system_param",
+            "cluster_id",
+            "subscription",
+            "secret"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ClusterMetadata",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "encode_to",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "decode",
+          "line": 170,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fmt",
+          "callee": "String::from_utf8(k.clone()).unwrap",
+          "lineNumber": 40
+        },
+        {
+          "caller": "fmt",
+          "callee": "String::from_utf8",
+          "lineNumber": 40
+        },
+        {
+          "caller": "fmt",
+          "callee": "k.clone",
+          "lineNumber": 40
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 79
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.encode_to",
+          "lineNumber": 85
+        },
+        {
+          "caller": "decode",
+          "callee": "ClusterMetadata::decode",
+          "lineNumber": 92
+        },
+        {
+          "caller": "table_change_log_object_ids",
+          "callee": "HashSet::default",
+          "lineNumber": 112
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.default_cf.keys().collect_vec",
+          "lineNumber": 145
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.default_cf.keys",
+          "lineNumber": 145
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.default_cf.values().collect_vec",
+          "lineNumber": 146
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.default_cf.values",
+          "lineNumber": 146
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 147
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 148
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message",
+          "lineNumber": 149
+        },
+        {
+          "caller": "encode_to",
+          "callee": "PbHummockVersion::from",
+          "lineNumber": 149
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message",
+          "lineNumber": 150
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 151
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.compaction_groups.iter().collect_vec",
+          "lineNumber": 151
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.compaction_groups.iter",
+          "lineNumber": 151
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 152
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.table_fragments.iter().collect_vec",
+          "lineNumber": 152
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.table_fragments.iter",
+          "lineNumber": 152
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 153
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.user_info.iter().collect_vec",
+          "lineNumber": 153
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.user_info.iter",
+          "lineNumber": 153
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 154
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.database.iter().collect_vec",
+          "lineNumber": 154
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.database.iter",
+          "lineNumber": 154
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 155
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.schema.iter().collect_vec",
+          "lineNumber": 155
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.schema.iter",
+          "lineNumber": 155
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 156
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.table.iter().collect_vec",
+          "lineNumber": 156
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.table.iter",
+          "lineNumber": 156
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 157
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.index.iter().collect_vec",
+          "lineNumber": 157
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.index.iter",
+          "lineNumber": 157
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 158
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.sink.iter().collect_vec",
+          "lineNumber": 158
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.sink.iter",
+          "lineNumber": 158
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 159
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.source.iter().collect_vec",
+          "lineNumber": 159
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.source.iter",
+          "lineNumber": 159
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 160
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.view.iter().collect_vec",
+          "lineNumber": 160
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.view.iter",
+          "lineNumber": 160
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 161
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.function.iter().collect_vec",
+          "lineNumber": 161
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.function.iter",
+          "lineNumber": 161
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 162
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.connection.iter().collect_vec",
+          "lineNumber": 162
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.connection.iter",
+          "lineNumber": 162
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message",
+          "lineNumber": 163
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message",
+          "lineNumber": 164
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 165
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.subscription.iter().collect_vec",
+          "lineNumber": 165
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.subscription.iter",
+          "lineNumber": 165
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Self::encode_prost_message_list",
+          "lineNumber": 166
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.secret.iter().collect_vec",
+          "lineNumber": 166
+        },
+        {
+          "caller": "encode_to",
+          "callee": "self.secret.iter",
+          "lineNumber": 166
+        },
+        {
+          "caller": "encode_to",
+          "callee": "Ok",
+          "lineNumber": 167
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 171
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 172
+        },
+        {
+          "caller": "decode",
+          "callee": "default_cf_keys\n            .into_iter()\n            .zip_eq_fast(default_cf_values.into_iter()).collect",
+          "lineNumber": 173
+        },
+        {
+          "caller": "decode",
+          "callee": "default_cf_keys\n            .into_iter().zip_eq_fast",
+          "lineNumber": 173
+        },
+        {
+          "caller": "decode",
+          "callee": "default_cf_keys.into_iter",
+          "lineNumber": 173
+        },
+        {
+          "caller": "decode",
+          "callee": "default_cf_values.into_iter",
+          "lineNumber": 175
+        },
+        {
+          "caller": "decode",
+          "callee": "HummockVersion::from_persisted_protobuf_owned",
+          "lineNumber": 178
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message",
+          "lineNumber": 178
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message",
+          "lineNumber": 179
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 180
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 181
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 182
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 183
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 184
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 185
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 186
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 187
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 188
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 189
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 190
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 191
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message",
+          "lineNumber": 192
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::decode_prost_message",
+          "lineNumber": 193
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::try_decode_prost_message_list(&mut buf).unwrap_or_else",
+          "lineNumber": 195
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::try_decode_prost_message_list",
+          "lineNumber": 195
+        },
+        {
+          "caller": "decode",
+          "callee": "Ok",
+          "lineNumber": 195
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::try_decode_prost_message_list(&mut buf).unwrap_or_else",
+          "lineNumber": 197
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::try_decode_prost_message_list",
+          "lineNumber": 197
+        },
+        {
+          "caller": "decode",
+          "callee": "Ok",
+          "lineNumber": 197
+        },
+        {
+          "caller": "decode",
+          "callee": "Ok",
+          "lineNumber": 199
+        },
+        {
+          "caller": "encode_prost_message",
+          "callee": "message.encode_to_vec",
+          "lineNumber": 223
+        },
+        {
+          "caller": "encode_prost_message",
+          "callee": "buf.put_u32_le",
+          "lineNumber": 224
+        },
+        {
+          "caller": "encode_prost_message",
+          "callee": "encoded_message.len",
+          "lineNumber": 224
+        },
+        {
+          "caller": "encode_prost_message",
+          "callee": "buf.put_slice",
+          "lineNumber": 225
+        },
+        {
+          "caller": "decode_prost_message",
+          "callee": "buf.get_u32_le",
+          "lineNumber": 232
+        },
+        {
+          "caller": "decode_prost_message",
+          "callee": "buf[..len].to_vec",
+          "lineNumber": 233
+        },
+        {
+          "caller": "decode_prost_message",
+          "callee": "buf.advance",
+          "lineNumber": 234
+        },
+        {
+          "caller": "decode_prost_message",
+          "callee": "T::decode(v.as_slice()).map_err",
+          "lineNumber": 235
+        },
+        {
+          "caller": "decode_prost_message",
+          "callee": "T::decode",
+          "lineNumber": 235
+        },
+        {
+          "caller": "decode_prost_message",
+          "callee": "v.as_slice",
+          "lineNumber": 235
+        },
+        {
+          "caller": "decode_prost_message",
+          "callee": "BackupError::Decoding",
+          "lineNumber": 235
+        },
+        {
+          "caller": "decode_prost_message",
+          "callee": "e.into",
+          "lineNumber": 235
+        },
+        {
+          "caller": "encode_prost_message_list",
+          "callee": "buf.put_u32_le",
+          "lineNumber": 239
+        },
+        {
+          "caller": "encode_prost_message_list",
+          "callee": "messages.len",
+          "lineNumber": 239
+        },
+        {
+          "caller": "encode_prost_message_list",
+          "callee": "Self::encode_prost_message",
+          "lineNumber": 241
+        },
+        {
+          "caller": "decode_prost_message_list",
+          "callee": "buf.get_u32_le",
+          "lineNumber": 249
+        },
+        {
+          "caller": "decode_prost_message_list",
+          "callee": "Self::decode_prost_message",
+          "lineNumber": 252
+        },
+        {
+          "caller": "decode_prost_message_list",
+          "callee": "result.push",
+          "lineNumber": 253
+        },
+        {
+          "caller": "decode_prost_message_list",
+          "callee": "Ok",
+          "lineNumber": 255
+        },
+        {
+          "caller": "try_decode_prost_message_list",
+          "callee": "buf.is_empty",
+          "lineNumber": 262
+        },
+        {
+          "caller": "try_decode_prost_message_list",
+          "callee": "Some",
+          "lineNumber": 265
+        },
+        {
+          "caller": "try_decode_prost_message_list",
+          "callee": "Self::decode_prost_message_list",
+          "lineNumber": 265
+        },
+        {
+          "caller": "test_snapshot_encoding_decoding",
+          "callee": "ClusterMetadata::default",
+          "lineNumber": 280
+        },
+        {
+          "caller": "test_snapshot_encoding_decoding",
+          "callee": "HummockVersionId::new",
+          "lineNumber": 281
+        },
+        {
+          "caller": "test_snapshot_encoding_decoding",
+          "callee": "raw.encode().unwrap",
+          "lineNumber": 287
+        },
+        {
+          "caller": "test_snapshot_encoding_decoding",
+          "callee": "raw.encode",
+          "lineNumber": 287
+        },
+        {
+          "caller": "test_snapshot_encoding_decoding",
+          "callee": "MetaSnapshot::decode(&encoded).unwrap",
+          "lineNumber": 288
+        },
+        {
+          "caller": "test_snapshot_encoding_decoding",
+          "callee": "MetaSnapshot::decode",
+          "lineNumber": 288
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "ClusterMetadata::default",
+          "lineNumber": 295
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "raw.default_cf.insert",
+          "lineNumber": 296
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "HummockVersionId::new",
+          "lineNumber": 297
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "10.into",
+          "lineNumber": 298
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "raw.version_stats.table_stats.insert",
+          "lineNumber": 299
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "200.into",
+          "lineNumber": 300
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "Default::default",
+          "lineNumber": 303
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "raw.compaction_groups.push",
+          "lineNumber": 306
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "3000.into",
+          "lineNumber": 307
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "Default::default",
+          "lineNumber": 308
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "raw.encode_to(&mut buf).unwrap",
+          "lineNumber": 310
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "raw.encode_to",
+          "lineNumber": 310
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "ClusterMetadata::decode(buf.as_slice()).unwrap",
+          "lineNumber": 311
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "ClusterMetadata::decode",
+          "lineNumber": 311
+        },
+        {
+          "caller": "test_metadata_encoding_decoding",
+          "callee": "buf.as_slice",
+          "lineNumber": 311
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 15,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/storage/backup/src/meta_snapshot_v2.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 302,
+      "nonEmptyLines": 276,
+      "functions": [
+        {
+          "name": "from",
+          "startLine": 31,
+          "endLine": 33,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 139,
+          "endLine": 149,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "encode_to",
+          "startLine": 153,
+          "endLine": 155,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "decode",
+          "startLine": 157,
+          "endLine": 164,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "hummock_version_ref",
+          "startLine": 166,
+          "endLine": 168,
+          "params": []
+        },
+        {
+          "name": "hummock_version",
+          "startLine": 170,
+          "endLine": 172,
+          "params": []
+        },
+        {
+          "name": "storage_url",
+          "startLine": 174,
+          "endLine": 195,
+          "params": []
+        },
+        {
+          "name": "storage_directory",
+          "startLine": 197,
+          "endLine": 208,
+          "params": []
+        },
+        {
+          "name": "table_change_log_object_ids",
+          "startLine": 210,
+          "endLine": 226,
+          "params": []
+        },
+        {
+          "name": "to_table_change_log",
+          "startLine": 229,
+          "endLine": 253,
+          "params": [
+            "change_log"
+          ]
+        },
+        {
+          "name": "put_n",
+          "startLine": 255,
+          "endLine": 265,
+          "params": [
+            "buf",
+            "data"
+          ]
+        },
+        {
+          "name": "put_1",
+          "startLine": 267,
+          "endLine": 269,
+          "params": [
+            "buf",
+            "data"
+          ]
+        },
+        {
+          "name": "get_n",
+          "startLine": 271,
+          "endLine": 278,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "get_1",
+          "startLine": 280,
+          "endLine": 284,
+          "params": [
+            "buf"
+          ]
+        },
+        {
+          "name": "put_with_len_prefix",
+          "startLine": 286,
+          "endLine": 295,
+          "params": [
+            "buf",
+            "data"
+          ]
+        },
+        {
+          "name": "get_with_len_prefix",
+          "startLine": 297,
+          "endLine": 302,
+          "params": [
+            "buf"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from",
+          "callee": "BackupError::Other",
+          "lineNumber": 32
+        },
+        {
+          "caller": "from",
+          "callee": "value.into",
+          "lineNumber": 32
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 148
+        },
+        {
+          "caller": "encode_to",
+          "callee": "encode_metadata",
+          "lineNumber": 154
+        },
+        {
+          "caller": "decode",
+          "callee": "Self::default",
+          "lineNumber": 161
+        },
+        {
+          "caller": "decode",
+          "callee": "decode_metadata",
+          "lineNumber": 162
+        },
+        {
+          "caller": "decode",
+          "callee": "Ok",
+          "lineNumber": 163
+        },
+        {
+          "caller": "storage_url",
+          "callee": "self\n            .system_parameters\n            .iter()\n            .filter_map(|m| {\n                if m.name == \"state_store\" {\n                    return Some(m.value.clone());\n                }\n                None\n            })\n            .exactly_one().map_err",
+          "lineNumber": 175
+        },
+        {
+          "caller": "storage_url",
+          "callee": "self\n            .system_parameters\n            .iter()\n            .filter_map(|m| {\n                if m.name == \"state_store\" {\n                    return Some(m.value.clone());\n                }\n                None\n            }).exactly_one",
+          "lineNumber": 175
+        },
+        {
+          "caller": "storage_url",
+          "callee": "self\n            .system_parameters\n            .iter().filter_map",
+          "lineNumber": 175
+        },
+        {
+          "caller": "storage_url",
+          "callee": "self\n            .system_parameters.iter",
+          "lineNumber": 175
+        },
+        {
+          "caller": "storage_url",
+          "callee": "Some",
+          "lineNumber": 180
+        },
+        {
+          "caller": "storage_url",
+          "callee": "m.value.clone",
+          "lineNumber": 180
+        },
+        {
+          "caller": "storage_url",
+          "callee": "BackupError::Other",
+          "lineNumber": 185
+        },
+        {
+          "caller": "storage_url",
+          "callee": "storage_url_from_snapshot\n            .strip_prefix(\"hummock+\")\n            .map(|s| s.to_owned()).ok_or_else",
+          "lineNumber": 186
+        },
+        {
+          "caller": "storage_url",
+          "callee": "storage_url_from_snapshot\n            .strip_prefix(\"hummock+\").map",
+          "lineNumber": 186
+        },
+        {
+          "caller": "storage_url",
+          "callee": "storage_url_from_snapshot.strip_prefix",
+          "lineNumber": 186
+        },
+        {
+          "caller": "storage_url",
+          "callee": "s.to_owned",
+          "lineNumber": 188
+        },
+        {
+          "caller": "storage_url",
+          "callee": "BackupError::Other",
+          "lineNumber": 190
+        },
+        {
+          "caller": "storage_directory",
+          "callee": "self.system_parameters\n            .iter()\n            .filter_map(|m| {\n                if m.name == \"data_directory\" {\n                    return Some(m.value.clone());\n                }\n                None\n            })\n            .exactly_one().map_err",
+          "lineNumber": 198
+        },
+        {
+          "caller": "storage_directory",
+          "callee": "self.system_parameters\n            .iter()\n            .filter_map(|m| {\n                if m.name == \"data_directory\" {\n                    return Some(m.value.clone());\n                }\n                None\n            }).exactly_one",
+          "lineNumber": 198
+        },
+        {
+          "caller": "storage_directory",
+          "callee": "self.system_parameters\n            .iter().filter_map",
+          "lineNumber": 198
+        },
+        {
+          "caller": "storage_directory",
+          "callee": "self.system_parameters.iter",
+          "lineNumber": 198
+        },
+        {
+          "caller": "storage_directory",
+          "callee": "Some",
+          "lineNumber": 202
+        },
+        {
+          "caller": "storage_directory",
+          "callee": "m.value.clone",
+          "lineNumber": 202
+        },
+        {
+          "caller": "storage_directory",
+          "callee": "BackupError::Other",
+          "lineNumber": 207
+        },
+        {
+          "caller": "table_change_log_object_ids",
+          "callee": "self.hummock_table_change_logs\n            .iter()\n            .flat_map(|m| {\n                // We cannot use `change_log_ssts` here because `to_table_change_log` returns an owned value, not a reference.\n                let EpochNewChangeLog {\n                    new_value,\n                    old_value,\n                    ..\n                } = to_table_change_log(m);\n                new_value\n                    .into_iter()\n                    .chain(old_value)\n                    .map(|t| t.object_id.as_raw())\n            }).collect",
+          "lineNumber": 211
+        },
+        {
+          "caller": "table_change_log_object_ids",
+          "callee": "self.hummock_table_change_logs\n            .iter().flat_map",
+          "lineNumber": 211
+        },
+        {
+          "caller": "table_change_log_object_ids",
+          "callee": "self.hummock_table_change_logs.iter",
+          "lineNumber": 211
+        },
+        {
+          "caller": "table_change_log_object_ids",
+          "callee": "to_table_change_log",
+          "lineNumber": 219
+        },
+        {
+          "caller": "table_change_log_object_ids",
+          "callee": "new_value\n                    .into_iter()\n                    .chain(old_value).map",
+          "lineNumber": 220
+        },
+        {
+          "caller": "table_change_log_object_ids",
+          "callee": "new_value\n                    .into_iter().chain",
+          "lineNumber": 220
+        },
+        {
+          "caller": "table_change_log_object_ids",
+          "callee": "new_value.into_iter",
+          "lineNumber": 220
+        },
+        {
+          "caller": "table_change_log_object_ids",
+          "callee": "t.object_id.as_raw",
+          "lineNumber": 223
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .new_value_sst\n            .to_protobuf()\n            .into_iter()\n            .map(Into::into).collect",
+          "lineNumber": 233
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .new_value_sst\n            .to_protobuf()\n            .into_iter().map",
+          "lineNumber": 233
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .new_value_sst\n            .to_protobuf().into_iter",
+          "lineNumber": 233
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .new_value_sst.to_protobuf",
+          "lineNumber": 233
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .old_value_sst\n            .to_protobuf()\n            .into_iter()\n            .map(Into::into).collect",
+          "lineNumber": 239
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .old_value_sst\n            .to_protobuf()\n            .into_iter().map",
+          "lineNumber": 239
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .old_value_sst\n            .to_protobuf().into_iter",
+          "lineNumber": 239
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .old_value_sst.to_protobuf",
+          "lineNumber": 239
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .non_checkpoint_epochs\n            .0\n            .iter()\n            .map(|e| *e as _).collect",
+          "lineNumber": 245
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .non_checkpoint_epochs\n            .0\n            .iter().map",
+          "lineNumber": 245
+        },
+        {
+          "caller": "to_table_change_log",
+          "callee": "change_log\n            .non_checkpoint_epochs\n            .0.iter",
+          "lineNumber": 245
+        },
+        {
+          "caller": "put_n",
+          "callee": "buf.put_u32_le",
+          "lineNumber": 256
+        },
+        {
+          "caller": "put_n",
+          "callee": "data.len()\n            .try_into().unwrap_or_else",
+          "lineNumber": 257
+        },
+        {
+          "caller": "put_n",
+          "callee": "data.len().try_into",
+          "lineNumber": 257
+        },
+        {
+          "caller": "put_n",
+          "callee": "data.len",
+          "lineNumber": 257
+        },
+        {
+          "caller": "put_n",
+          "callee": "put_with_len_prefix",
+          "lineNumber": 262
+        },
+        {
+          "caller": "put_n",
+          "callee": "Ok",
+          "lineNumber": 264
+        },
+        {
+          "caller": "put_1",
+          "callee": "put_n",
+          "lineNumber": 268
+        },
+        {
+          "caller": "get_n",
+          "callee": "buf.get_u32_le",
+          "lineNumber": 272
+        },
+        {
+          "caller": "get_n",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 273
+        },
+        {
+          "caller": "get_n",
+          "callee": "elements.push",
+          "lineNumber": 275
+        },
+        {
+          "caller": "get_n",
+          "callee": "get_with_len_prefix",
+          "lineNumber": 275
+        },
+        {
+          "caller": "get_n",
+          "callee": "Ok",
+          "lineNumber": 277
+        },
+        {
+          "caller": "get_1",
+          "callee": "get_n",
+          "lineNumber": 281
+        },
+        {
+          "caller": "get_1",
+          "callee": "Ok",
+          "lineNumber": 283
+        },
+        {
+          "caller": "get_1",
+          "callee": "elements.into_iter().next().unwrap",
+          "lineNumber": 283
+        },
+        {
+          "caller": "get_1",
+          "callee": "elements.into_iter().next",
+          "lineNumber": 283
+        },
+        {
+          "caller": "get_1",
+          "callee": "elements.into_iter",
+          "lineNumber": 283
+        },
+        {
+          "caller": "put_with_len_prefix",
+          "callee": "serde_json::to_vec",
+          "lineNumber": 287
+        },
+        {
+          "caller": "put_with_len_prefix",
+          "callee": "buf.put_u32_le",
+          "lineNumber": 288
+        },
+        {
+          "caller": "put_with_len_prefix",
+          "callee": "b.len()\n            .try_into().unwrap_or_else",
+          "lineNumber": 289
+        },
+        {
+          "caller": "put_with_len_prefix",
+          "callee": "b.len().try_into",
+          "lineNumber": 289
+        },
+        {
+          "caller": "put_with_len_prefix",
+          "callee": "b.len",
+          "lineNumber": 289
+        },
+        {
+          "caller": "put_with_len_prefix",
+          "callee": "buf.put_slice",
+          "lineNumber": 293
+        },
+        {
+          "caller": "put_with_len_prefix",
+          "callee": "Ok",
+          "lineNumber": 294
+        },
+        {
+          "caller": "get_with_len_prefix",
+          "callee": "buf.get_u32_le",
+          "lineNumber": 298
+        },
+        {
+          "caller": "get_with_len_prefix",
+          "callee": "serde_json::from_slice",
+          "lineNumber": 299
+        },
+        {
+          "caller": "get_with_len_prefix",
+          "callee": "buf.advance",
+          "lineNumber": 300
+        },
+        {
+          "caller": "get_with_len_prefix",
+          "callee": "Ok",
+          "lineNumber": 301
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 16,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/storage/backup/src/storage.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 205,
+      "nonEmptyLines": 182,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 64,
+          "endLine": 72,
+          "params": [
+            "path",
+            "store"
+          ]
+        },
+        {
+          "name": "update_manifest",
+          "startLine": 74,
+          "endLine": 87,
+          "params": [
+            "update"
+          ]
+        },
+        {
+          "name": "get_manifest",
+          "startLine": 89,
+          "endLine": 103,
+          "params": []
+        },
+        {
+          "name": "get_manifest_path",
+          "startLine": 105,
+          "endLine": 107,
+          "params": []
+        },
+        {
+          "name": "get_snapshot_path",
+          "startLine": 109,
+          "endLine": 111,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "get_snapshot_id_from_path",
+          "startLine": 114,
+          "endLine": 121,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "create",
+          "startLine": 126,
+          "endLine": 146,
+          "params": [
+            "snapshot",
+            "remarks"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 148,
+          "endLine": 152,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "manifest",
+          "startLine": 154,
+          "endLine": 156,
+          "params": []
+        },
+        {
+          "name": "refresh_manifest",
+          "startLine": 158,
+          "endLine": 166,
+          "params": []
+        },
+        {
+          "name": "delete",
+          "startLine": 168,
+          "endLine": 184,
+          "params": [
+            "ids"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 188,
+          "endLine": 190,
+          "params": [
+            "e"
+          ]
+        },
+        {
+          "name": "unused",
+          "startLine": 194,
+          "endLine": 205,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MetaSnapshotStorage",
+          "startLine": 34,
+          "endLine": 53,
+          "methods": [
+            "create",
+            "get",
+            "manifest",
+            "refresh_manifest",
+            "delete"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ObjectStoreMetaSnapshotStorage",
+          "startLine": 56,
+          "endLine": 60,
+          "methods": [
+            "new",
+            "update_manifest",
+            "get_manifest",
+            "get_manifest_path",
+            "get_snapshot_path",
+            "get_snapshot_id_from_path",
+            "create",
+            "get",
+            "manifest",
+            "refresh_manifest",
+            "delete"
+          ],
+          "properties": [
+            "path",
+            "store",
+            "manifest"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MetaSnapshotStorage",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "ObjectStoreMetaSnapshotStorage",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "unused",
+          "line": 194,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "path.to_owned",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new",
+          "callee": "Default::default",
+          "lineNumber": 68
+        },
+        {
+          "caller": "new",
+          "callee": "instance.refresh_manifest",
+          "lineNumber": 70
+        },
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 71
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "self.manifest.write",
+          "lineNumber": 78
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "update",
+          "lineNumber": 79
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "(**guard).clone",
+          "lineNumber": 79
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "serde_json::to_vec(&new_manifest).map_err",
+          "lineNumber": 81
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "serde_json::to_vec",
+          "lineNumber": 81
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "BackupError::Encoding",
+          "lineNumber": 81
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "e.into",
+          "lineNumber": 81
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "self.store.upload",
+          "lineNumber": 82
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "self.get_manifest_path",
+          "lineNumber": 83
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "bytes.into",
+          "lineNumber": 83
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "Arc::new",
+          "lineNumber": 85
+        },
+        {
+          "caller": "update_manifest",
+          "callee": "Ok",
+          "lineNumber": 86
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "self.get_manifest_path",
+          "lineNumber": 90
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "self.store.read",
+          "lineNumber": 91
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "e.is_object_not_found_error",
+          "lineNumber": 94
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "Ok",
+          "lineNumber": 95
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "Err",
+          "lineNumber": 97
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "e.into",
+          "lineNumber": 97
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "serde_json::from_slice(&bytes).map_err",
+          "lineNumber": 101
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "serde_json::from_slice",
+          "lineNumber": 101
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "BackupError::Encoding",
+          "lineNumber": 101
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "e.into",
+          "lineNumber": 101
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "Ok",
+          "lineNumber": 102
+        },
+        {
+          "caller": "get_manifest",
+          "callee": "Some",
+          "lineNumber": 102
+        },
+        {
+          "caller": "get_snapshot_id_from_path",
+          "callee": "path.split(&['/', '.']).collect_vec",
+          "lineNumber": 115
+        },
+        {
+          "caller": "get_snapshot_id_from_path",
+          "callee": "path.split",
+          "lineNumber": 115
+        },
+        {
+          "caller": "get_snapshot_id_from_path",
+          "callee": "split[split.len() - 2]\n            .parse::<MetaSnapshotId>().expect",
+          "lineNumber": 118
+        },
+        {
+          "caller": "get_snapshot_id_from_path",
+          "callee": "split[split.len() - 2]\n            .parse::<MetaSnapshotId>",
+          "lineNumber": 118
+        },
+        {
+          "caller": "get_snapshot_id_from_path",
+          "callee": "split.len",
+          "lineNumber": 118
+        },
+        {
+          "caller": "create",
+          "callee": "self.get_snapshot_path",
+          "lineNumber": 131
+        },
+        {
+          "caller": "create",
+          "callee": "self.store.upload",
+          "lineNumber": 132
+        },
+        {
+          "caller": "create",
+          "callee": "snapshot.encode()?.into",
+          "lineNumber": 132
+        },
+        {
+          "caller": "create",
+          "callee": "snapshot.encode",
+          "lineNumber": 132
+        },
+        {
+          "caller": "create",
+          "callee": "self.update_manifest",
+          "lineNumber": 133
+        },
+        {
+          "caller": "create",
+          "callee": "manifest.snapshot_metadata.push",
+          "lineNumber": 135
+        },
+        {
+          "caller": "create",
+          "callee": "MetaSnapshotMetadata::new",
+          "lineNumber": 135
+        },
+        {
+          "caller": "create",
+          "callee": "snapshot.metadata.hummock_version_ref",
+          "lineNumber": 137
+        },
+        {
+          "caller": "create",
+          "callee": "snapshot.metadata.table_change_log_object_ids().into_iter",
+          "lineNumber": 140
+        },
+        {
+          "caller": "create",
+          "callee": "snapshot.metadata.table_change_log_object_ids",
+          "lineNumber": 140
+        },
+        {
+          "caller": "create",
+          "callee": "Ok",
+          "lineNumber": 145
+        },
+        {
+          "caller": "get",
+          "callee": "self.get_snapshot_path",
+          "lineNumber": 149
+        },
+        {
+          "caller": "get",
+          "callee": "self.store.read",
+          "lineNumber": 150
+        },
+        {
+          "caller": "get",
+          "callee": "MetaSnapshot::decode",
+          "lineNumber": 151
+        },
+        {
+          "caller": "manifest",
+          "callee": "self.manifest.read().await.clone",
+          "lineNumber": 155
+        },
+        {
+          "caller": "manifest",
+          "callee": "self.manifest.read",
+          "lineNumber": 155
+        },
+        {
+          "caller": "refresh_manifest",
+          "callee": "self.get_manifest",
+          "lineNumber": 159
+        },
+        {
+          "caller": "refresh_manifest",
+          "callee": "self.manifest.write",
+          "lineNumber": 160
+        },
+        {
+          "caller": "refresh_manifest",
+          "callee": "Arc::new",
+          "lineNumber": 162
+        },
+        {
+          "caller": "refresh_manifest",
+          "callee": "Ok",
+          "lineNumber": 165
+        },
+        {
+          "caller": "delete",
+          "callee": "HashSet::from_iter",
+          "lineNumber": 169
+        },
+        {
+          "caller": "delete",
+          "callee": "ids.iter().cloned",
+          "lineNumber": 169
+        },
+        {
+          "caller": "delete",
+          "callee": "ids.iter",
+          "lineNumber": 169
+        },
+        {
+          "caller": "delete",
+          "callee": "self.update_manifest",
+          "lineNumber": 170
+        },
+        {
+          "caller": "delete",
+          "callee": "manifest\n                .snapshot_metadata.retain",
+          "lineNumber": 172
+        },
+        {
+          "caller": "delete",
+          "callee": "to_delete.contains",
+          "lineNumber": 174
+        },
+        {
+          "caller": "delete",
+          "callee": "ids\n            .iter()\n            .map(|id| self.get_snapshot_path(*id)).collect_vec",
+          "lineNumber": 178
+        },
+        {
+          "caller": "delete",
+          "callee": "ids\n            .iter().map",
+          "lineNumber": 178
+        },
+        {
+          "caller": "delete",
+          "callee": "ids.iter",
+          "lineNumber": 178
+        },
+        {
+          "caller": "delete",
+          "callee": "self.get_snapshot_path",
+          "lineNumber": 180
+        },
+        {
+          "caller": "delete",
+          "callee": "self.store.delete_objects",
+          "lineNumber": 182
+        },
+        {
+          "caller": "delete",
+          "callee": "Ok",
+          "lineNumber": 183
+        },
+        {
+          "caller": "from",
+          "callee": "BackupError::BackupStorage",
+          "lineNumber": 189
+        },
+        {
+          "caller": "from",
+          "callee": "e.into",
+          "lineNumber": 189
+        },
+        {
+          "caller": "unused",
+          "callee": "ObjectStoreMetaSnapshotStorage::new(\n        \"\",\n        Arc::new(ObjectStoreImpl::InMem(MonitoredObjectStore::new(\n            InMemObjectStore::for_test(),\n            Arc::new(ObjectStoreMetrics::unused()),\n            Arc::new(ObjectStoreConfig::default()),\n        ))),\n    )\n    .await.unwrap",
+          "lineNumber": 195
+        },
+        {
+          "caller": "unused",
+          "callee": "ObjectStoreMetaSnapshotStorage::new",
+          "lineNumber": 195
+        },
+        {
+          "caller": "unused",
+          "callee": "Arc::new",
+          "lineNumber": 197
+        },
+        {
+          "caller": "unused",
+          "callee": "ObjectStoreImpl::InMem",
+          "lineNumber": 197
+        },
+        {
+          "caller": "unused",
+          "callee": "MonitoredObjectStore::new",
+          "lineNumber": 197
+        },
+        {
+          "caller": "unused",
+          "callee": "InMemObjectStore::for_test",
+          "lineNumber": 198
+        },
+        {
+          "caller": "unused",
+          "callee": "Arc::new",
+          "lineNumber": 199
+        },
+        {
+          "caller": "unused",
+          "callee": "ObjectStoreMetrics::unused",
+          "lineNumber": 199
+        },
+        {
+          "caller": "unused",
+          "callee": "Arc::new",
+          "lineNumber": 200
+        },
+        {
+          "caller": "unused",
+          "callee": "ObjectStoreConfig::default",
+          "lineNumber": 200
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 13,
+        "classCount": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/dml/src/dml_manager.rs",
+      "type": "file",
+      "name": "dml_manager.rs",
+      "filePath": "src/dml/src/dml_manager.rs",
+      "summary": "Implements `DmlManager`, a central registry that maps table IDs to `TableDmlHandle` weak references, managing version-aware DML channel allocation for concurrent INSERT/UPDATE/DELETE operations.",
+      "tags": ["service", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/dml/src/error.rs",
+      "type": "file",
+      "name": "error.rs",
+      "filePath": "src/dml/src/error.rs",
+      "summary": "Defines `DmlError`, a thiserror error enum covering schema-changed, no-reader, and reader-closed failure cases in the DML subsystem.",
+      "tags": ["data-model", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/dml/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/dml/src/lib.rs",
+      "summary": "Root library file for the `risingwave_dml` crate, re-exporting all public types from dml_manager, error, table, and txn_channel submodules.",
+      "tags": ["entry-point", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/dml/src/table.rs",
+      "type": "file",
+      "name": "table.rs",
+      "filePath": "src/dml/src/table.rs",
+      "summary": "Implements `TableDmlHandle` for fan-out DML write handles, `WriteHandle` for transactional chunk writes with rollback-on-drop semantics, and `TableStreamReader` for streaming DML change events.",
+      "tags": ["service", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/dml/src/txn_channel.rs",
+      "type": "file",
+      "name": "txn_channel.rs",
+      "filePath": "src/dml/src/txn_channel.rs",
+      "summary": "Implements a semaphore-backed DML transaction channel (`Sender`/`Receiver`) that provides back-pressure by counting row cardinality permits, preventing memory overload from unconstrained DML ingestion.",
+      "tags": ["service", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/dml/src/dml_manager.rs:DmlManager",
+      "type": "class",
+      "name": "DmlManager",
+      "filePath": "src/dml/src/dml_manager.rs",
+      "lineRange": [42, 46],
+      "summary": "Thread-safe DML registry holding weak references to per-table `TableDmlHandle` instances, supporting version-aware reader registration and handle lookup.",
+      "tags": ["service", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/dml/src/error.rs:DmlError",
+      "type": "class",
+      "name": "DmlError",
+      "filePath": "src/dml/src/error.rs",
+      "lineRange": [17, 28],
+      "summary": "Error enum for the DML subsystem covering schema version mismatch, missing reader, and closed reader channel conditions.",
+      "tags": ["data-model", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/dml/src/table.rs:TableDmlHandle",
+      "type": "class",
+      "name": "TableDmlHandle",
+      "filePath": "src/dml/src/table.rs",
+      "lineRange": [47, 55],
+      "summary": "Manages a set of DML write channels for a single table; provides stream readers for each compute node and write handles for DML operators with schema validation.",
+      "tags": ["service", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/dml/src/table.rs:WriteHandle",
+      "type": "class",
+      "name": "WriteHandle",
+      "filePath": "src/dml/src/table.rs",
+      "lineRange": [148, 153],
+      "summary": "Represents a transactional DML write session: supports begin, write_chunk, end, end_wait_persistence, and rollback operations with automatic rollback on drop.",
+      "tags": ["service", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/dml/src/table.rs:TableStreamReader",
+      "type": "class",
+      "name": "TableStreamReader",
+      "filePath": "src/dml/src/table.rs",
+      "lineRange": [260, 263],
+      "summary": "Wraps the DML channel receiver and converts the stream of `TxnMsg` messages into a `StreamChunk` stream for consumption by the DML source executor.",
+      "tags": ["service", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/dml/src/txn_channel.rs:Sender",
+      "type": "class",
+      "name": "Sender",
+      "filePath": "src/dml/src/txn_channel.rs",
+      "lineRange": [65, 72],
+      "summary": "Back-pressured sender for the DML transaction channel: acquires row-cardinality semaphore permits before sending data messages, but sends control messages immediately.",
+      "tags": ["service", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/dml/src/txn_channel.rs:Receiver",
+      "type": "class",
+      "name": "Receiver",
+      "filePath": "src/dml/src/txn_channel.rs",
+      "lineRange": [135, 138],
+      "summary": "Receiver end of the DML transaction channel that dequeues `TxnMsgWithPermits` and releases row-cardinality permits back to the semaphore after processing.",
+      "tags": ["service", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/dml/src/dml_manager.rs:register_reader",
+      "type": "function",
+      "name": "register_reader",
+      "filePath": "src/dml/src/dml_manager.rs",
+      "lineRange": [64, 130],
+      "summary": "Registers a new DML reader for a table version: evicts stale handles, handles version ordering (upgrade, replace, or error on schema conflict), and creates a new `TableDmlHandle` if needed.",
+      "tags": ["service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/dml/src/dml_manager.rs:table_dml_handle",
+      "type": "function",
+      "name": "table_dml_handle",
+      "filePath": "src/dml/src/dml_manager.rs",
+      "lineRange": [132, 165],
+      "summary": "Retrieves a strong reference to the `TableDmlHandle` for a given table and version, returning errors for old-version DML requests or missing readers.",
+      "tags": ["service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/dml/src/table.rs:write_handle",
+      "type": "function",
+      "name": "write_handle",
+      "filePath": "src/dml/src/table.rs",
+      "lineRange": [80, 114],
+      "summary": "Allocates a `WriteHandle` for a DML session by selecting a tx channel shard based on session ID, evicting closed channels, and erroring if no readers are active.",
+      "tags": ["service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/dml/src/table.rs:end_wait_persistence",
+      "type": "function",
+      "name": "end_wait_persistence",
+      "filePath": "src/dml/src/table.rs",
+      "lineRange": [200, 211],
+      "summary": "Commits the DML transaction and waits for the compute node to acknowledge persistence before returning, providing sync write semantics.",
+      "tags": ["service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/dml/src/txn_channel.rs:send",
+      "type": "function",
+      "name": "send",
+      "filePath": "src/dml/src/txn_channel.rs",
+      "lineRange": [79, 112],
+      "summary": "Sends a DML data message through the channel, acquiring one semaphore permit per row in the chunk to apply back-pressure before forwarding to the receiver.",
+      "tags": ["service", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/dml/src/txn_channel.rs:txn_channel",
+      "type": "function",
+      "name": "txn_channel",
+      "filePath": "src/dml/src/txn_channel.rs",
+      "lineRange": [30, 45],
+      "summary": "Factory function that creates a matched `(Sender, Receiver)` pair backed by an unbounded MPSC channel and a shared semaphore limiting total buffered row cardinality.",
+      "tags": ["factory", "utility"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/dml/src/dml_manager.rs",
+      "target": "file:src/dml/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/dml/src/lib.rs",
+      "target": "file:src/dml/src/dml_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/dml/src/lib.rs",
+      "target": "file:src/dml/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/dml/src/lib.rs",
+      "target": "file:src/dml/src/table.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/dml/src/lib.rs",
+      "target": "file:src/dml/src/txn_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/dml/src/table.rs",
+      "target": "file:src/dml/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/dml/src/table.rs",
+      "target": "file:src/dml/src/txn_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/dml/src/dml_manager.rs",
+      "target": "class:src/dml/src/dml_manager.rs:DmlManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/dml_manager.rs",
+      "target": "class:src/dml/src/dml_manager.rs:DmlManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/dml/src/dml_manager.rs",
+      "target": "function:src/dml/src/dml_manager.rs:register_reader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/dml_manager.rs",
+      "target": "function:src/dml/src/dml_manager.rs:table_dml_handle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/error.rs",
+      "target": "class:src/dml/src/error.rs:DmlError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/error.rs",
+      "target": "class:src/dml/src/error.rs:DmlError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/dml/src/table.rs",
+      "target": "class:src/dml/src/table.rs:TableDmlHandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/table.rs",
+      "target": "class:src/dml/src/table.rs:TableDmlHandle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/dml/src/table.rs",
+      "target": "class:src/dml/src/table.rs:WriteHandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/table.rs",
+      "target": "class:src/dml/src/table.rs:WriteHandle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/dml/src/table.rs",
+      "target": "class:src/dml/src/table.rs:TableStreamReader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/table.rs",
+      "target": "class:src/dml/src/table.rs:TableStreamReader",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/dml/src/table.rs",
+      "target": "function:src/dml/src/table.rs:write_handle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/table.rs",
+      "target": "function:src/dml/src/table.rs:end_wait_persistence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/txn_channel.rs",
+      "target": "class:src/dml/src/txn_channel.rs:Sender",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/txn_channel.rs",
+      "target": "class:src/dml/src/txn_channel.rs:Sender",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/dml/src/txn_channel.rs",
+      "target": "class:src/dml/src/txn_channel.rs:Receiver",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/txn_channel.rs",
+      "target": "class:src/dml/src/txn_channel.rs:Receiver",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/dml/src/txn_channel.rs",
+      "target": "function:src/dml/src/txn_channel.rs:send",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/txn_channel.rs",
+      "target": "function:src/dml/src/txn_channel.rs:txn_channel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/dml/src/txn_channel.rs",
+      "target": "function:src/dml/src/txn_channel.rs:txn_channel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

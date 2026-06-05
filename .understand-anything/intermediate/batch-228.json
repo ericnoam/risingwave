@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "table:integration_tests/upsert-avro/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/upsert-avro/create_source.sql",
+      "summary": "Defines the items source table using Avro encoding with upsert semantics, demonstrating the Avro upsert connector in RisingWave.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/upsert-avro/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/upsert-avro/create_mv.sql",
+      "summary": "Creates a materialized view over the Avro upsert source to allow querying the latest state of each keyed record.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/upsert-avro/query.sql",
+      "type": "table",
+      "name": "query.sql",
+      "filePath": "integration_tests/upsert-avro/query.sql",
+      "summary": "Validation queries that verify upsert semantics are correctly handled when reading Avro-encoded records from the source.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/upsert-avro/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/upsert-avro/docker-compose.yml",
+      "summary": "Docker Compose file orchestrating Kafka with Schema Registry and RisingWave for the Avro upsert connector integration test.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:integration_tests/upsert-avro/docker-compose.yml",
+      "target": "table:integration_tests/upsert-avro/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/upsert-avro/docker-compose.yml",
+      "target": "table:integration_tests/upsert-avro/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "table:integration_tests/upsert-avro/create_mv.sql",
+      "target": "table:integration_tests/upsert-avro/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

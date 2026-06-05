@@ -1,0 +1,143 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/ctl/src/common/context.rs",
+      "type": "file",
+      "name": "context.rs",
+      "filePath": "src/ctl/src/common/context.rs",
+      "summary": "Defines the CtlContext struct that lazily initializes and caches meta and Hummock service clients used by risingwave-ctl subcommands.",
+      "tags": ["utility", "cli", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/ctl/src/common/hummock_service.rs",
+      "type": "file",
+      "name": "hummock_service.rs",
+      "filePath": "src/ctl/src/common/hummock_service.rs",
+      "summary": "Provides HummockServiceOpts for connecting to a Hummock storage node and helper functions for creating a configured Hummock store with metrics for ctl inspection commands.",
+      "tags": ["utility", "cli", "storage"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/ctl/src/common/meta_service.rs",
+      "type": "file",
+      "name": "meta_service.rs",
+      "filePath": "src/ctl/src/common/meta_service.rs",
+      "summary": "Provides MetaServiceOpts for configuring the meta service gRPC address and a `get_meta_client` helper for establishing a MetaClient connection from ctl commands.",
+      "tags": ["utility", "cli", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/ctl/src/common/context.rs:CtlContext",
+      "type": "class",
+      "name": "CtlContext",
+      "filePath": "src/ctl/src/common/context.rs",
+      "lineRange": [1, 69],
+      "summary": "Lazy context struct for risingwave-ctl that caches initialized meta and Hummock clients, avoiding repeated connection setup across subcommand handlers.",
+      "tags": ["cli", "utility", "singleton"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/ctl/src/common/hummock_service.rs:HummockServiceOpts",
+      "type": "class",
+      "name": "HummockServiceOpts",
+      "filePath": "src/ctl/src/common/hummock_service.rs",
+      "lineRange": [1, 80],
+      "summary": "Clap-derived options for Hummock service connection, including the data directory and meta address, with methods to create a configured HummockStorage instance.",
+      "tags": ["cli", "configuration", "storage"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/ctl/src/common/meta_service.rs:MetaServiceOpts",
+      "type": "class",
+      "name": "MetaServiceOpts",
+      "filePath": "src/ctl/src/common/meta_service.rs",
+      "lineRange": [1, 50],
+      "summary": "CLI options for the meta service endpoint, providing a `get_meta_client` method to establish an authenticated gRPC MetaClient connection.",
+      "tags": ["cli", "configuration", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/ctl/src/common/hummock_service.rs:create_hummock_store_with_metrics",
+      "type": "function",
+      "name": "create_hummock_store_with_metrics",
+      "filePath": "src/ctl/src/common/hummock_service.rs",
+      "lineRange": [120, 168],
+      "summary": "Constructs a HummockStorage instance wired with a Prometheus metrics registry and a meta client, used by ctl inspection commands to read Hummock SST data.",
+      "tags": ["factory", "storage", "utility"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/ctl/src/common/context.rs",
+      "target": "file:src/ctl/src/common/hummock_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/ctl/src/common/context.rs",
+      "target": "file:src/ctl/src/common/meta_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/ctl/src/common/context.rs",
+      "target": "class:src/ctl/src/common/context.rs:CtlContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/ctl/src/common/context.rs",
+      "target": "class:src/ctl/src/common/context.rs:CtlContext",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ctl/src/common/hummock_service.rs",
+      "target": "class:src/ctl/src/common/hummock_service.rs:HummockServiceOpts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/ctl/src/common/hummock_service.rs",
+      "target": "function:src/ctl/src/common/hummock_service.rs:create_hummock_store_with_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/ctl/src/common/hummock_service.rs",
+      "target": "class:src/ctl/src/common/hummock_service.rs:HummockServiceOpts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ctl/src/common/hummock_service.rs",
+      "target": "function:src/ctl/src/common/hummock_service.rs:create_hummock_store_with_metrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/ctl/src/common/meta_service.rs",
+      "target": "class:src/ctl/src/common/meta_service.rs:MetaServiceOpts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/ctl/src/common/meta_service.rs",
+      "target": "class:src/ctl/src/common/meta_service.rs:MetaServiceOpts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/client-library/php/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 12,
+      "nonEmptyLines": 9,
+      "services": [
+        {
+          "name": "php",
+          "image": "php:cli-bullseye",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 13
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM php:cli-bullseye",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "RUN curl -fsSL -o /usr/local/bin/phpunit https://phar.phpunit.de",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "RUN apt-get update && \\",
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "CMD [\"php\", \"-a\"]",
+          "startLine": 12,
+          "endLine": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 4
+      }
+    }
+  ]
+}

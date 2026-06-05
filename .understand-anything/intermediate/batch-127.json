@@ -1,0 +1,405 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "type": "file",
+      "name": "sqlparser_common.rs",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "summary": "Comprehensive SQL parser test suite with 149 test functions covering SELECT, INSERT, UPDATE, DELETE, DDL, DML, window functions, CTEs, transactions, GRANT/REVOKE, and RisingWave-specific extensions like materialized views and compaction groups.",
+      "tags": ["test", "validation", "sql"],
+      "complexity": "complex",
+      "languageNotes": "All functions are Rust `#[test]` items; helpers like `verified_stmt` and `parse_sql_statements` come from the shared test_utils module."
+    },
+    {
+      "id": "file:src/sqlparser/tests/sqlparser_postgres.rs",
+      "type": "file",
+      "name": "sqlparser_postgres.rs",
+      "filePath": "src/sqlparser/tests/sqlparser_postgres.rs",
+      "summary": "PostgreSQL-dialect SQL parser tests covering CREATE TABLE defaults, CREATE FUNCTION, arrays, dollar-quoted strings, PREPARE/EXECUTE, pg-specific operators, and parameter symbols.",
+      "tags": ["test", "validation", "sql"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/sqlparser/tests/test_utils/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/sqlparser/tests/test_utils/mod.rs",
+      "summary": "Shared test utility module providing helper functions such as `verified_stmt`, `verified_query`, `verified_only_select`, `one_statement_parses_to`, and `parse_sql_statements` used across all SQL parser test files.",
+      "tags": ["test", "utility", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_create_table",
+      "type": "function",
+      "name": "parse_create_table",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [1287, 1458],
+      "summary": "Tests CREATE TABLE parsing including column types, constraints, foreign keys, and table options across many SQL variants.",
+      "tags": ["test", "sql"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_grant",
+      "type": "function",
+      "name": "parse_grant",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [3980, 4137],
+      "summary": "Tests GRANT statement parsing for tables, sequences, schemas, databases, sources, sinks, and connections with various privilege combinations.",
+      "tags": ["test", "sql"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_alter_compaction_group",
+      "type": "function",
+      "name": "parse_alter_compaction_group",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [4271, 4401],
+      "summary": "Tests ALTER COMPACTION GROUP statement parsing with various options for table group membership and compaction configuration.",
+      "tags": ["test", "sql"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_window_functions",
+      "type": "function",
+      "name": "parse_window_functions",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [2021, 2137],
+      "summary": "Tests window function SQL parsing with OVER clauses including PARTITION BY, ORDER BY, and various frame specifications.",
+      "tags": ["test", "sql"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_literal_interval",
+      "type": "function",
+      "name": "parse_literal_interval",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [2326, 2432],
+      "summary": "Tests INTERVAL literal parsing covering all field qualifiers (YEAR, MONTH, DAY, HOUR, MINUTE, SECOND) and precision specifications.",
+      "tags": ["test", "sql"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_explain_analyze_with_simple_select",
+      "type": "function",
+      "name": "parse_explain_analyze_with_simple_select",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [1875, 1964],
+      "summary": "Tests EXPLAIN and EXPLAIN ANALYZE statement parsing with various option combinations (verbose, trace, distsql formats).",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_not_precedence",
+      "type": "function",
+      "name": "parse_not_precedence",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [578, 649],
+      "summary": "Tests operator precedence rules for NOT in expressions involving IN, BETWEEN, LIKE, IS NULL, and other predicates.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_fetch",
+      "type": "function",
+      "name": "parse_fetch",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [3647, 3712],
+      "summary": "Tests FETCH FIRST/NEXT clause parsing with various row count and percentage combinations in SELECT statements.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_ctes",
+      "type": "function",
+      "name": "parse_ctes",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [2885, 2948],
+      "summary": "Tests Common Table Expression (WITH clause) parsing including multiple CTEs, nested CTEs, and correlated subqueries.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_alter_fragment_set_parallelism",
+      "type": "function",
+      "name": "parse_alter_fragment_set_parallelism",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [4201, 4259],
+      "summary": "Tests ALTER FRAGMENT SET PARALLELISM parsing for RisingWave-specific streaming fragment parallelism configuration.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_start_transaction",
+      "type": "function",
+      "name": "parse_start_transaction",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [3790, 3846],
+      "summary": "Tests START TRANSACTION and BEGIN statement parsing with isolation levels, access modes, and error cases.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_alter_table_alter_column",
+      "type": "function",
+      "name": "parse_alter_table_alter_column",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [1739, 1795],
+      "summary": "Tests ALTER TABLE ALTER COLUMN statement parsing for SET DEFAULT, DROP DEFAULT, SET NOT NULL, DROP NOT NULL, and type changes.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_create_index",
+      "type": "function",
+      "name": "parse_create_index",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [3924, 3977],
+      "summary": "Tests CREATE INDEX and CREATE UNIQUE INDEX parsing with various column orderings, include clauses, and distributed-by options.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_common.rs:parse_insert_values",
+      "type": "function",
+      "name": "parse_insert_values",
+      "filePath": "src/sqlparser/tests/sqlparser_common.rs",
+      "lineRange": [30, 90],
+      "summary": "Tests INSERT INTO ... VALUES statement parsing with single and multiple rows, column lists, and subquery inserts.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_create_table_with_defaults",
+      "type": "function",
+      "name": "parse_create_table_with_defaults",
+      "filePath": "src/sqlparser/tests/sqlparser_postgres.rs",
+      "lineRange": [22, 177],
+      "summary": "Tests CREATE TABLE parsing with PostgreSQL default value expressions, constraints, and various column type definitions.",
+      "tags": ["test", "sql"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_create_function",
+      "type": "function",
+      "name": "parse_create_function",
+      "filePath": "src/sqlparser/tests/sqlparser_postgres.rs",
+      "lineRange": [762, 922],
+      "summary": "Tests CREATE FUNCTION and CREATE OR REPLACE FUNCTION parsing for SQL, Python, JavaScript, and other language bodies with various return types and options.",
+      "tags": ["test", "sql"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_array",
+      "type": "function",
+      "name": "parse_array",
+      "filePath": "src/sqlparser/tests/sqlparser_postgres.rs",
+      "lineRange": [1038, 1179],
+      "summary": "Tests PostgreSQL array syntax parsing including ARRAY[] constructors, array subscripting, and multi-dimensional arrays.",
+      "tags": ["test", "sql"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_set",
+      "type": "function",
+      "name": "parse_set",
+      "filePath": "src/sqlparser/tests/sqlparser_postgres.rs",
+      "lineRange": [391, 477],
+      "summary": "Tests SET statement parsing for session variables with various value types and SET LOCAL / SET SESSION qualifiers.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_drop_function",
+      "type": "function",
+      "name": "parse_drop_function",
+      "filePath": "src/sqlparser/tests/sqlparser_postgres.rs",
+      "lineRange": [966, 1035],
+      "summary": "Tests DROP FUNCTION statement parsing with various combinations of argument types, CASCADE/RESTRICT, and IF EXISTS.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_prepare",
+      "type": "function",
+      "name": "parse_prepare",
+      "filePath": "src/sqlparser/tests/sqlparser_postgres.rs",
+      "lineRange": [565, 626],
+      "summary": "Tests PREPARE statement parsing with typed parameter lists and various prepared statement body types.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_dollar_quoted_string",
+      "type": "function",
+      "name": "parse_dollar_quoted_string",
+      "filePath": "src/sqlparser/tests/sqlparser_postgres.rs",
+      "lineRange": [1232, 1295],
+      "summary": "Tests PostgreSQL dollar-quoted string literal parsing including nested dollar quotes and tag-based quoting.",
+      "tags": ["test", "sql"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "file:src/sqlparser/tests/test_utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_postgres.rs",
+      "target": "file:src/sqlparser/tests/test_utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_create_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_grant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_alter_compaction_group",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_window_functions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_literal_interval",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_explain_analyze_with_simple_select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_not_precedence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_fetch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_ctes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_alter_fragment_set_parallelism",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_start_transaction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_alter_table_alter_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_create_index",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_common.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_common.rs:parse_insert_values",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_postgres.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_create_table_with_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_postgres.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_create_function",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_postgres.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_array",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_postgres.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_set",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_postgres.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_drop_function",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_postgres.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_prepare",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/sqlparser/tests/sqlparser_postgres.rs",
+      "target": "function:src/sqlparser/tests/sqlparser_postgres.rs:parse_dollar_quoted_string",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

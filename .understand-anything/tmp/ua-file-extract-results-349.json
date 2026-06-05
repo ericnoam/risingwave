@@ -1,0 +1,3360 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/connector/codec/tests/test_data/all-types.pb",
+      "language": "pb",
+      "fileCategory": "code",
+      "totalLines": 102,
+      "nonEmptyLines": 94,
+      "metrics": {}
+    },
+    {
+      "path": "src/connector/src/sink/iceberg/prometheus/monitored_partition_writer.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 84,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 32,
+          "endLine": 40,
+          "params": [
+            "inner",
+            "partition_num"
+          ]
+        },
+        {
+          "name": "build",
+          "startLine": 47,
+          "endLine": 54,
+          "params": [
+            "partition_key"
+          ]
+        },
+        {
+          "name": "update_metrics",
+          "startLine": 64,
+          "endLine": 69,
+          "params": []
+        },
+        {
+          "name": "write",
+          "startLine": 74,
+          "endLine": 78,
+          "params": [
+            "batch"
+          ]
+        },
+        {
+          "name": "write_with_position",
+          "startLine": 80,
+          "endLine": 87,
+          "params": [
+            "batch"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 89,
+          "endLine": 93,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MonitoredFanoutPartitionedWriterBuilder",
+          "startLine": 25,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "inner",
+            "partition_num_metrics"
+          ]
+        },
+        {
+          "name": "MonitoredFanoutPartitionedWriter",
+          "startLine": 57,
+          "endLine": 61,
+          "methods": [],
+          "properties": [
+            "inner",
+            "partition_num_metrics",
+            "last_partition_num"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MonitoredFanoutPartitionedWriterBuilder",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "MonitoredFanoutPartitionedWriter",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "update_metrics",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build",
+          "callee": "self.inner.build",
+          "lineNumber": 48
+        },
+        {
+          "caller": "build",
+          "callee": "Ok",
+          "lineNumber": 49
+        },
+        {
+          "caller": "update_metrics",
+          "callee": "self.inner.partition_num",
+          "lineNumber": 65
+        },
+        {
+          "caller": "update_metrics",
+          "callee": "self.partition_num_metrics.add",
+          "lineNumber": 67
+        },
+        {
+          "caller": "write",
+          "callee": "self.inner.write",
+          "lineNumber": 75
+        },
+        {
+          "caller": "write",
+          "callee": "self.update_metrics",
+          "lineNumber": 76
+        },
+        {
+          "caller": "write",
+          "callee": "Ok",
+          "lineNumber": 77
+        },
+        {
+          "caller": "write_with_position",
+          "callee": "self.inner.write_with_position",
+          "lineNumber": 84
+        },
+        {
+          "caller": "write_with_position",
+          "callee": "self.update_metrics",
+          "lineNumber": 85
+        },
+        {
+          "caller": "write_with_position",
+          "callee": "Ok",
+          "lineNumber": 86
+        },
+        {
+          "caller": "close",
+          "callee": "self.update_metrics",
+          "lineNumber": 90
+        },
+        {
+          "caller": "close",
+          "callee": "self.inner.close",
+          "lineNumber": 91
+        },
+        {
+          "caller": "close",
+          "callee": "Ok",
+          "lineNumber": 92
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 6,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/connector/src/sink/iceberg/prometheus/monitored_position_delete_writer.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 31,
+          "endLine": 39,
+          "params": [
+            "inner",
+            "cache_row_metrics"
+          ]
+        },
+        {
+          "name": "build",
+          "startLine": 48,
+          "endLine": 55,
+          "params": [
+            "partition_key"
+          ]
+        },
+        {
+          "name": "update_metrics",
+          "startLine": 67,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "write",
+          "startLine": 76,
+          "endLine": 80,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 82,
+          "endLine": 86,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MonitoredPositionDeleteWriterBuilder",
+          "startLine": 25,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "cache_row_metrics",
+            "inner"
+          ]
+        },
+        {
+          "name": "MonitoredPositionDeleteWriter",
+          "startLine": 58,
+          "endLine": 64,
+          "methods": [],
+          "properties": [
+            "writer",
+            "cache_row_metrics",
+            "last_cache_row"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MonitoredPositionDeleteWriterBuilder",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "MonitoredPositionDeleteWriter",
+          "line": 58,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build",
+          "callee": "self.inner.build",
+          "lineNumber": 49
+        },
+        {
+          "caller": "build",
+          "callee": "Ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "update_metrics",
+          "callee": "self.cache_row_metrics.add",
+          "lineNumber": 68
+        },
+        {
+          "caller": "update_metrics",
+          "callee": "self.writer.current_cache_number",
+          "lineNumber": 69
+        },
+        {
+          "caller": "update_metrics",
+          "callee": "self.writer.current_cache_number",
+          "lineNumber": 70
+        },
+        {
+          "caller": "write",
+          "callee": "self.writer.write",
+          "lineNumber": 77
+        },
+        {
+          "caller": "write",
+          "callee": "self.update_metrics",
+          "lineNumber": 78
+        },
+        {
+          "caller": "write",
+          "callee": "Ok",
+          "lineNumber": 79
+        },
+        {
+          "caller": "close",
+          "callee": "self.update_metrics",
+          "lineNumber": 83
+        },
+        {
+          "caller": "close",
+          "callee": "self.writer.close",
+          "lineNumber": 84
+        },
+        {
+          "caller": "close",
+          "callee": "Ok",
+          "lineNumber": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/connector/src/test_data/all-types.avsc",
+      "language": "avsc",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 63,
+      "metrics": {}
+    },
+    {
+      "path": "src/connector/src/test_data/complex-schema.avsc",
+      "language": "avsc",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 88,
+      "metrics": {}
+    },
+    {
+      "path": "src/connector/src/test_data/complex-schema.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 47,
+      "nonEmptyLines": 47,
+      "sections": [
+        {
+          "heading": "$schema",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "$id",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "title",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "type",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "properties",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "required",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "src/connector/src/test_data/debezium_avro_msg_schema.avsc",
+      "language": "avsc",
+      "fileCategory": "code",
+      "totalLines": 190,
+      "nonEmptyLines": 190,
+      "metrics": {}
+    },
+    {
+      "path": "src/connector/src/test_data/simple-schema.avsc",
+      "language": "avsc",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 67,
+      "metrics": {}
+    },
+    {
+      "path": "src/connector/src/test_data/test-index-array.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 39,
+      "nonEmptyLines": 33,
+      "definitions": [
+        {
+          "name": "MessageA",
+          "kind": "message",
+          "fields": [
+            "field_a",
+            "field_b",
+            "field_c",
+            "field_d",
+            "field_e",
+            "field_f",
+            "field_g"
+          ],
+          "startLine": 9,
+          "endLine": 32
+        },
+        {
+          "name": "MessageH",
+          "kind": "message",
+          "fields": [
+            "field_h",
+            "field_i"
+          ],
+          "startLine": 33,
+          "endLine": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2,
+        "endpointCount": 0
+      }
+    },
+    {
+      "path": "src/connector/with_options/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 20,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lib",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "dev-dependencies",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "src/connector/with_options/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 96,
+      "functions": [
+        {
+          "name": "derive_helper_attr",
+          "startLine": 60,
+          "endLine": 103,
+          "params": [
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "derive_helper_attr",
+          "line": 60,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "derive_helper_attr",
+          "callee": "quote! { compile_error!(\"WithOptions can only be derived for structs with named fields\"); }.into",
+          "lineNumber": 66
+        },
+        {
+          "caller": "derive_helper_attr",
+          "callee": "quote! { compile_error!(\"WithOptions can only be derived for structs\"); }.into",
+          "lineNumber": 68
+        },
+        {
+          "caller": "derive_helper_attr",
+          "callee": "field.ident.as_ref().unwrap",
+          "lineNumber": 74
+        },
+        {
+          "caller": "derive_helper_attr",
+          "callee": "field.ident.as_ref",
+          "lineNumber": 74
+        },
+        {
+          "caller": "derive_helper_attr",
+          "callee": "assert_impls.push",
+          "lineNumber": 76
+        },
+        {
+          "caller": "derive_helper_attr",
+          "callee": "input.generics.params.is_empty",
+          "lineNumber": 83
+        },
+        {
+          "caller": "derive_helper_attr",
+          "callee": "quote! {\n            impl crate::with_options::WithOptions for #struct_name {\n                fn assert_receiver_is_with_options(&self) {\n                    #(#assert_impls)*\n                }\n            }\n        }.into",
+          "lineNumber": 84
+        },
+        {
+          "caller": "derive_helper_attr",
+          "callee": "input.generics.split_for_impl",
+          "lineNumber": 94
+        },
+        {
+          "caller": "derive_helper_attr",
+          "callee": "quote! {\n            impl #impl_generics crate::with_options::WithOptions for #struct_name #ty_generics #where_clause {\n                fn assert_receiver_is_with_options(&self) {\n                    #(#assert_impls)*\n                }\n            }\n        }.into",
+          "lineNumber": 95
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 55,
+      "nonEmptyLines": 50,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lib",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "target.'cfg(not(madsim))'.dependencies",
+          "level": 3,
+          "line": 48
+        },
+        {
+          "heading": "dev-dependencies",
+          "level": 1,
+          "line": 51
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/await_tree.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 92,
+      "functions": [
+        {
+          "name": "dump",
+          "startLine": 26,
+          "endLine": 49,
+          "params": [
+            "context",
+            "actor_traces_format"
+          ]
+        },
+        {
+          "name": "bottleneck_detect",
+          "startLine": 51,
+          "endLine": 59,
+          "params": [
+            "context",
+            "path"
+          ]
+        },
+        {
+          "name": "bottleneck_detect_real_time",
+          "startLine": 61,
+          "endLine": 106,
+          "params": [
+            "context"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "dump",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "bottleneck_detect",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "dump",
+          "callee": "actor_traces_format.as_deref",
+          "lineNumber": 27
+        },
+        {
+          "caller": "dump",
+          "callee": "Err",
+          "lineNumber": 30
+        },
+        {
+          "caller": "dump",
+          "callee": "context.meta_client",
+          "lineNumber": 34
+        },
+        {
+          "caller": "dump",
+          "callee": "meta_client.get_cluster_stack_trace",
+          "lineNumber": 35
+        },
+        {
+          "caller": "dump",
+          "callee": "all.actor_traces.is_empty",
+          "lineNumber": 39
+        },
+        {
+          "caller": "dump",
+          "callee": "all.rpc_traces.is_empty",
+          "lineNumber": 40
+        },
+        {
+          "caller": "dump",
+          "callee": "all.compaction_task_traces.is_empty",
+          "lineNumber": 41
+        },
+        {
+          "caller": "dump",
+          "callee": "all.inflight_barrier_traces.is_empty",
+          "lineNumber": 42
+        },
+        {
+          "caller": "dump",
+          "callee": "Ok",
+          "lineNumber": 48
+        },
+        {
+          "caller": "bottleneck_detect",
+          "callee": "rw_diagnose_tools::await_tree::bottleneck_detect_from_file",
+          "lineNumber": 53
+        },
+        {
+          "caller": "bottleneck_detect",
+          "callee": "bottleneck_detect_real_time",
+          "lineNumber": 55
+        },
+        {
+          "caller": "bottleneck_detect",
+          "callee": "Ok",
+          "lineNumber": 58
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "context.meta_client",
+          "lineNumber": 62
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "meta_client.list_worker_nodes",
+          "lineNumber": 64
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "Some",
+          "lineNumber": 65
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "MonitorClientPool::adhoc",
+          "lineNumber": 67
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "StackTraceRequest::default",
+          "lineNumber": 70
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "AnalyzeSummary::new",
+          "lineNumber": 72
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "Vec::new",
+          "lineNumber": 73
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "clients.get",
+          "lineNumber": 77
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "errors.push",
+          "lineNumber": 80
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "client.await_tree",
+          "lineNumber": 85
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "errors.push",
+          "lineNumber": 88
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "AnalyzeSummary::from_traces",
+          "lineNumber": 96
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "summary.merge_other",
+          "lineNumber": 97
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "errors.is_empty",
+          "lineNumber": 99
+        },
+        {
+          "caller": "bottleneck_detect_real_time",
+          "callee": "Ok",
+          "lineNumber": 105
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/compute.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "show_config",
+          "startLine": 19,
+          "endLine": 28,
+          "params": [
+            "host"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "show_config",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "show_config",
+          "callee": "HostAddr::try_from",
+          "lineNumber": 20
+        },
+        {
+          "caller": "show_config",
+          "callee": "ComputeClient::new",
+          "lineNumber": 21
+        },
+        {
+          "caller": "show_config",
+          "callee": "RpcClientConfig::default",
+          "lineNumber": 21
+        },
+        {
+          "caller": "show_config",
+          "callee": "client.show_config",
+          "lineNumber": 22
+        },
+        {
+          "caller": "show_config",
+          "callee": "serde_json::from_str",
+          "lineNumber": 23
+        },
+        {
+          "caller": "show_config",
+          "callee": "serde_json::from_str",
+          "lineNumber": 24
+        },
+        {
+          "caller": "show_config",
+          "callee": "Ok",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/compaction_group.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 349,
+      "nonEmptyLines": 334,
+      "functions": [
+        {
+          "name": "list_compaction_group",
+          "startLine": 29,
+          "endLine": 34,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "update_compaction_config",
+          "startLine": 36,
+          "endLine": 50,
+          "params": [
+            "context",
+            "ids",
+            "configs"
+          ]
+        },
+        {
+          "name": "build_compaction_config_vec",
+          "startLine": 53,
+          "endLine": 178,
+          "params": [
+            "max_bytes_for_level_base",
+            "max_bytes_for_level_multiplier",
+            "max_compaction_bytes",
+            "sub_level_max_compaction_bytes",
+            "level0_tier_compact_file_number",
+            "target_file_size_base",
+            "compaction_filter_mask",
+            "max_sub_compaction",
+            "level0_stop_write_threshold_sub_level_number",
+            "level0_sub_level_compact_level_count",
+            "max_space_reclaim_bytes",
+            "level0_max_compact_file_number",
+            "level0_overlapping_sub_level_compact_level_count",
+            "enable_emergency_picker",
+            "tombstone_reclaim_ratio",
+            "compress_algorithm",
+            "sstable_filter_kind",
+            "sstable_filter_layout",
+            "max_l0_compact_level",
+            "sst_allowed_trivial_move_min_size",
+            "disable_auto_group_scheduling",
+            "max_overlapping_level_size",
+            "sst_allowed_trivial_move_max_count",
+            "emergency_level0_sst_file_count",
+            "emergency_level0_sub_level_partition",
+            "level0_stop_write_threshold_max_sst_count",
+            "level0_stop_write_threshold_max_size",
+            "enable_optimize_l0_interval_selection",
+            "blocked_xor_filter_kv_count_threshold",
+            "max_vnode_key_range_bytes"
+          ]
+        },
+        {
+          "name": "split_compaction_group",
+          "startLine": 180,
+          "endLine": 195,
+          "params": [
+            "context",
+            "group_id",
+            "table_ids_to_new_group",
+            "partition_vnode_count"
+          ]
+        },
+        {
+          "name": "list_compaction_status",
+          "startLine": 197,
+          "endLine": 296,
+          "params": [
+            "context",
+            "verbose"
+          ]
+        },
+        {
+          "name": "get_compaction_score",
+          "startLine": 298,
+          "endLine": 327,
+          "params": [
+            "context",
+            "id"
+          ]
+        },
+        {
+          "name": "cancel_compact_task",
+          "startLine": 329,
+          "endLine": 337,
+          "params": [
+            "context",
+            "task_id"
+          ]
+        },
+        {
+          "name": "merge_compaction_group",
+          "startLine": 339,
+          "endLine": 349,
+          "params": [
+            "context",
+            "left_group_id",
+            "right_group_id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "list_compaction_group",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "update_compaction_config",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "build_compaction_config_vec",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "split_compaction_group",
+          "line": 180,
+          "isDefault": false
+        },
+        {
+          "name": "list_compaction_status",
+          "line": 197,
+          "isDefault": false
+        },
+        {
+          "name": "get_compaction_score",
+          "line": 298,
+          "isDefault": false
+        },
+        {
+          "name": "cancel_compact_task",
+          "line": 329,
+          "isDefault": false
+        },
+        {
+          "name": "merge_compaction_group",
+          "line": 339,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "list_compaction_group",
+          "callee": "context.meta_client",
+          "lineNumber": 30
+        },
+        {
+          "caller": "list_compaction_group",
+          "callee": "meta_client.risectl_list_compaction_group",
+          "lineNumber": 31
+        },
+        {
+          "caller": "list_compaction_group",
+          "callee": "Ok",
+          "lineNumber": 33
+        },
+        {
+          "caller": "update_compaction_config",
+          "callee": "context.meta_client",
+          "lineNumber": 41
+        },
+        {
+          "caller": "update_compaction_config",
+          "callee": "meta_client.risectl_update_compaction_config",
+          "lineNumber": 42
+        },
+        {
+          "caller": "update_compaction_config",
+          "callee": "ids.as_slice",
+          "lineNumber": 43
+        },
+        {
+          "caller": "update_compaction_config",
+          "callee": "configs.as_slice",
+          "lineNumber": 43
+        },
+        {
+          "caller": "update_compaction_config",
+          "callee": "Ok",
+          "lineNumber": 49
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 87
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::MaxBytesForLevelBase",
+          "lineNumber": 87
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 90
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::MaxBytesForLevelMultiplier",
+          "lineNumber": 90
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 93
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::MaxCompactionBytes",
+          "lineNumber": 93
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::SubLevelMaxCompactionBytes",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 99
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::Level0TierCompactFileNumber",
+          "lineNumber": 99
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 102
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::TargetFileSizeBase",
+          "lineNumber": 102
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 105
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::CompactionFilterMask",
+          "lineNumber": 105
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 108
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::MaxSubCompaction",
+          "lineNumber": 108
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 111
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::Level0StopWriteThresholdSubLevelNumber",
+          "lineNumber": 111
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 114
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::Level0SubLevelCompactLevelCount",
+          "lineNumber": 114
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 117
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::MaxSpaceReclaimBytes",
+          "lineNumber": 117
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 120
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::Level0MaxCompactFileNumber",
+          "lineNumber": 120
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 123
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::Level0OverlappingSubLevelCompactLevelCount",
+          "lineNumber": 123
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 126
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::EnableEmergencyPicker",
+          "lineNumber": 126
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 129
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::TombstoneReclaimRatio",
+          "lineNumber": 129
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 132
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::CompressionAlgorithm",
+          "lineNumber": 132
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 135
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::SstableFilterKind",
+          "lineNumber": 135
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 138
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::SstableFilterLayout",
+          "lineNumber": 138
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 141
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::MaxL0CompactLevelCount",
+          "lineNumber": 141
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 144
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::SstAllowedTrivialMoveMinSize",
+          "lineNumber": 144
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 147
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::DisableAutoGroupScheduling",
+          "lineNumber": 147
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 150
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::MaxOverlappingLevelSize",
+          "lineNumber": 150
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 153
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::SstAllowedTrivialMoveMaxCount",
+          "lineNumber": 153
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 156
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::EmergencyLevel0SstFileCount",
+          "lineNumber": 156
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 159
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::EmergencyLevel0SubLevelPartition",
+          "lineNumber": 159
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 162
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::Level0StopWriteThresholdMaxSstCount",
+          "lineNumber": 162
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 165
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::Level0StopWriteThresholdMaxSize",
+          "lineNumber": 165
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 168
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::EnableOptimizeL0IntervalSelection",
+          "lineNumber": 168
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 171
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::MaxKvCountForXor16",
+          "lineNumber": 171
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "configs.push",
+          "lineNumber": 174
+        },
+        {
+          "caller": "build_compaction_config_vec",
+          "callee": "MutableConfig::MaxVnodeKeyRangeBytes",
+          "lineNumber": 174
+        },
+        {
+          "caller": "split_compaction_group",
+          "callee": "context.meta_client",
+          "lineNumber": 186
+        },
+        {
+          "caller": "split_compaction_group",
+          "callee": "meta_client.split_compaction_group",
+          "lineNumber": 187
+        },
+        {
+          "caller": "split_compaction_group",
+          "callee": "Ok",
+          "lineNumber": 194
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "context.meta_client",
+          "lineNumber": 198
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "meta_client.risectl_list_compaction_status",
+          "lineNumber": 199
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "Table::new",
+          "lineNumber": 201
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "table.set_header",
+          "lineNumber": 202
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "Row::new",
+          "lineNumber": 203
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 204
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Compaction Group\".into",
+          "lineNumber": 204
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 205
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Level\".into",
+          "lineNumber": 205
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 206
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Task Count\".into",
+          "lineNumber": 206
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 207
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Tasks\".into",
+          "lineNumber": 207
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "HashSet::new",
+          "lineNumber": 214
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "task_ids.insert",
+          "lineNumber": 216
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "Row::new",
+          "lineNumber": 218
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 219
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "cg_id.into",
+          "lineNumber": 219
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 220
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "level.into",
+          "lineNumber": 220
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 221
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "task_ids.len().into",
+          "lineNumber": 221
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "task_ids.len",
+          "lineNumber": 221
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 222
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "task_ids\n                        .into_iter()\n                        .sorted()\n                        .map(|t| t.to_string())\n                        .join(\",\").into",
+          "lineNumber": 223
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "task_ids\n                        .into_iter()\n                        .sorted()\n                        .map(|t| t.to_string()).join",
+          "lineNumber": 223
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "task_ids\n                        .into_iter()\n                        .sorted().map",
+          "lineNumber": 223
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "task_ids\n                        .into_iter().sorted",
+          "lineNumber": 223
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "task_ids.into_iter",
+          "lineNumber": 223
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "t.to_string",
+          "lineNumber": 226
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "table.add_row",
+          "lineNumber": 230
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "Table::new",
+          "lineNumber": 235
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "table.set_header",
+          "lineNumber": 236
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "Row::new",
+          "lineNumber": 237
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 238
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Hummock Context\".into",
+          "lineNumber": 238
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 239
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Task Count\".into",
+          "lineNumber": 239
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 240
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Tasks\".into",
+          "lineNumber": 240
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "HashMap::new",
+          "lineNumber": 243
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "assignment_lite\n                .entry(a.context_id)\n                .or_default().push",
+          "lineNumber": 245
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "assignment_lite\n                .entry(a.context_id).or_default",
+          "lineNumber": 245
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "assignment_lite.entry",
+          "lineNumber": 245
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "a.compact_task.unwrap",
+          "lineNumber": 248
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "Row::new",
+          "lineNumber": 251
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 252
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "k.into",
+          "lineNumber": 252
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 253
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "v.len().into",
+          "lineNumber": 253
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "v.len",
+          "lineNumber": 253
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 254
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "v.into_iter()\n                    .sorted()\n                    .map(|t| t.to_string())\n                    .join(\",\").into",
+          "lineNumber": 255
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "v.into_iter()\n                    .sorted()\n                    .map(|t| t.to_string()).join",
+          "lineNumber": 255
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "v.into_iter()\n                    .sorted().map",
+          "lineNumber": 255
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "v.into_iter().sorted",
+          "lineNumber": 255
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "v.into_iter",
+          "lineNumber": 255
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "t.to_string",
+          "lineNumber": 257
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "table.add_row",
+          "lineNumber": 261
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "Table::new",
+          "lineNumber": 265
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "table.set_header",
+          "lineNumber": 266
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "Row::new",
+          "lineNumber": 267
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 268
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Task\".into",
+          "lineNumber": 268
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 269
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Num SSTs Sealed\".into",
+          "lineNumber": 269
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 270
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Num SSTs Uploaded\".into",
+          "lineNumber": 270
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 271
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Num Progress Key\".into",
+          "lineNumber": 271
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 272
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Num Pending Read IO\".into",
+          "lineNumber": 272
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 273
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "\"Num Pending Write IO\".into",
+          "lineNumber": 273
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "Row::new",
+          "lineNumber": 277
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 278
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "p.task_id.into",
+          "lineNumber": 278
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 279
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "p.num_ssts_sealed.into",
+          "lineNumber": 279
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 280
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "p.num_ssts_uploaded.into",
+          "lineNumber": 280
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 281
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "p.num_progress_key.into",
+          "lineNumber": 281
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 282
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "p.num_pending_read_io.into",
+          "lineNumber": 282
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "row.add_cell",
+          "lineNumber": 283
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "p.num_pending_write_io.into",
+          "lineNumber": 283
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "table.add_row",
+          "lineNumber": 284
+        },
+        {
+          "caller": "list_compaction_status",
+          "callee": "Ok",
+          "lineNumber": 295
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "context.meta_client",
+          "lineNumber": 302
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "meta_client.get_compaction_score",
+          "lineNumber": 303
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "Table::new",
+          "lineNumber": 304
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "table.set_header",
+          "lineNumber": 305
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "Row::new",
+          "lineNumber": 306
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "row.add_cell",
+          "lineNumber": 307
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "\"Select Level\".into",
+          "lineNumber": 307
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "row.add_cell",
+          "lineNumber": 308
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "\"Target Level\".into",
+          "lineNumber": 308
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "row.add_cell",
+          "lineNumber": 309
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "\"Type\".into",
+          "lineNumber": 309
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "row.add_cell",
+          "lineNumber": 310
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "\"Score\".into",
+          "lineNumber": 310
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "scores.into_iter().sorted_by",
+          "lineNumber": 313
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "scores.into_iter",
+          "lineNumber": 313
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "a.select_level\n            .cmp(&b.select_level).then_with",
+          "lineNumber": 314
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "a.select_level.cmp",
+          "lineNumber": 314
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "a.target_level.cmp",
+          "lineNumber": 316
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "Row::new",
+          "lineNumber": 318
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "row.add_cell",
+          "lineNumber": 319
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "s.select_level.into",
+          "lineNumber": 319
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "row.add_cell",
+          "lineNumber": 320
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "s.target_level.into",
+          "lineNumber": 320
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "row.add_cell",
+          "lineNumber": 321
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "s.picker_type.into",
+          "lineNumber": 321
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "row.add_cell",
+          "lineNumber": 322
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "s.score.into",
+          "lineNumber": 322
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "table.add_row",
+          "lineNumber": 323
+        },
+        {
+          "caller": "get_compaction_score",
+          "callee": "Ok",
+          "lineNumber": 326
+        },
+        {
+          "caller": "cancel_compact_task",
+          "callee": "context.meta_client",
+          "lineNumber": 330
+        },
+        {
+          "caller": "cancel_compact_task",
+          "callee": "meta_client.cancel_compact_task",
+          "lineNumber": 331
+        },
+        {
+          "caller": "cancel_compact_task",
+          "callee": "Ok",
+          "lineNumber": 336
+        },
+        {
+          "caller": "merge_compaction_group",
+          "callee": "context.meta_client",
+          "lineNumber": 344
+        },
+        {
+          "caller": "merge_compaction_group",
+          "callee": "meta_client.merge_compaction_group",
+          "lineNumber": 345
+        },
+        {
+          "caller": "merge_compaction_group",
+          "callee": "Ok",
+          "lineNumber": 348
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/list_version_deltas.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "list_version_deltas",
+          "startLine": 19,
+          "endLine": 30,
+          "params": [
+            "context",
+            "start_id",
+            "num_epochs"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "list_version_deltas",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "list_version_deltas",
+          "callee": "context.meta_client",
+          "lineNumber": 24
+        },
+        {
+          "caller": "list_version_deltas",
+          "callee": "meta_client.list_version_deltas",
+          "lineNumber": 25
+        },
+        {
+          "caller": "list_version_deltas",
+          "callee": "Ok",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/list_version.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 121,
+      "nonEmptyLines": 109,
+      "functions": [
+        {
+          "name": "list_version",
+          "startLine": 20,
+          "endLine": 83,
+          "params": [
+            "context",
+            "verbose",
+            "verbose_key_range"
+          ]
+        },
+        {
+          "name": "list_pinned_versions",
+          "startLine": 85,
+          "endLine": 115,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "rebuild_table_stats",
+          "startLine": 117,
+          "endLine": 121,
+          "params": [
+            "context"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "list_version",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "list_pinned_versions",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "rebuild_table_stats",
+          "line": 117,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "list_version",
+          "callee": "context.meta_client",
+          "lineNumber": 25
+        },
+        {
+          "caller": "list_version",
+          "callee": "meta_client.get_current_version",
+          "lineNumber": 26
+        },
+        {
+          "caller": "list_version",
+          "callee": "version.levels.iter_mut().for_each",
+          "lineNumber": 31
+        },
+        {
+          "caller": "list_version",
+          "callee": "version.levels.iter_mut",
+          "lineNumber": 31
+        },
+        {
+          "caller": "list_version",
+          "callee": "t.remove_key_range",
+          "lineNumber": 37
+        },
+        {
+          "caller": "list_version",
+          "callee": "t.remove_key_range",
+          "lineNumber": 45
+        },
+        {
+          "caller": "list_version",
+          "callee": "levels.l0.sub_levels.iter().rev",
+          "lineNumber": 59
+        },
+        {
+          "caller": "list_version",
+          "callee": "levels.l0.sub_levels.iter",
+          "lineNumber": 59
+        },
+        {
+          "caller": "list_version",
+          "callee": "Ok",
+          "lineNumber": 82
+        },
+        {
+          "caller": "list_pinned_versions",
+          "callee": "context.meta_client",
+          "lineNumber": 86
+        },
+        {
+          "caller": "list_pinned_versions",
+          "callee": "meta_client\n        .risectl_get_pinned_versions_summary()\n        .await?\n        .summary.unwrap",
+          "lineNumber": 90
+        },
+        {
+          "caller": "list_pinned_versions",
+          "callee": "meta_client.risectl_get_pinned_versions_summary",
+          "lineNumber": 90
+        },
+        {
+          "caller": "list_pinned_versions",
+          "callee": "pinned_versions.sort_by_key",
+          "lineNumber": 95
+        },
+        {
+          "caller": "list_pinned_versions",
+          "callee": "workers.get",
+          "lineNumber": 97
+        },
+        {
+          "caller": "list_pinned_versions",
+          "callee": "Ok",
+          "lineNumber": 114
+        },
+        {
+          "caller": "rebuild_table_stats",
+          "callee": "context.meta_client",
+          "lineNumber": 118
+        },
+        {
+          "caller": "rebuild_table_stats",
+          "callee": "meta_client.risectl_rebuild_table_stats",
+          "lineNumber": 119
+        },
+        {
+          "caller": "rebuild_table_stats",
+          "callee": "Ok",
+          "lineNumber": 120
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/migrate_legacy_object.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 124,
+      "nonEmptyLines": 120,
+      "functions": [
+        {
+          "name": "migrate_legacy_object",
+          "startLine": 30,
+          "endLine": 112,
+          "params": [
+            "url",
+            "source_dir",
+            "target_dir",
+            "concurrency"
+          ]
+        },
+        {
+          "name": "copy",
+          "startLine": 114,
+          "endLine": 124,
+          "params": [
+            "from_to",
+            "opendal"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "migrate_legacy_object",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "source_dir.trim_end_matches",
+          "lineNumber": 36
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "target_dir.trim_end_matches",
+          "lineNumber": 37
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "source_dir.is_empty",
+          "lineNumber": 40
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "target_dir.is_empty",
+          "lineNumber": 40
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "Err",
+          "lineNumber": 41
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "target_dir.starts_with",
+          "lineNumber": 43
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "Err",
+          "lineNumber": 44
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "ObjectStoreConfig::default",
+          "lineNumber": 46
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "build_remote_object_store",
+          "lineNumber": 48
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "ObjectStoreMetrics::unused().into",
+          "lineNumber": 50
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "ObjectStoreMetrics::unused",
+          "lineNumber": 50
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "config.into",
+          "lineNumber": 52
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "Err",
+          "lineNumber": 56
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "opendal.list",
+          "lineNumber": 58
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 61
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "Instant::now",
+          "lineNumber": 62
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "iter.next",
+          "lineNumber": 63
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "VALID_OBJECT_ID_SUFFIXES\n            .iter().any",
+          "lineNumber": 65
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "VALID_OBJECT_ID_SUFFIXES.iter",
+          "lineNumber": 65
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "object.key.ends_with",
+          "lineNumber": 67
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "legacy_path.ends_with",
+          "lineNumber": 75
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "from_to.push",
+          "lineNumber": 80
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "get_object_id_from_path",
+          "lineNumber": 82
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "get_object_prefix",
+          "lineNumber": 83
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "object_id.as_raw().as_raw_id",
+          "lineNumber": 83
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "object_id.as_raw",
+          "lineNumber": 83
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "get_object_data_path",
+          "lineNumber": 84
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "Err",
+          "lineNumber": 86
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "get_object_data_path",
+          "lineNumber": 91
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "get_object_prefix",
+          "lineNumber": 92
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "object_id.as_raw().as_raw_id",
+          "lineNumber": 92
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "object_id.as_raw",
+          "lineNumber": 92
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "from_to.push",
+          "lineNumber": 96
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "from_to.len",
+          "lineNumber": 99
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "copy",
+          "lineNumber": 100
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "std::mem::take(&mut from_to).into_iter",
+          "lineNumber": 100
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "std::mem::take",
+          "lineNumber": 100
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "opendal.inner",
+          "lineNumber": 100
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "from_to.is_empty",
+          "lineNumber": 103
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "copy",
+          "lineNumber": 104
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "from_to.into_iter",
+          "lineNumber": 104
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "opendal.inner",
+          "lineNumber": 104
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "timer.elapsed",
+          "lineNumber": 106
+        },
+        {
+          "caller": "migrate_legacy_object",
+          "callee": "Ok",
+          "lineNumber": 111
+        },
+        {
+          "caller": "copy",
+          "callee": "from_to.map",
+          "lineNumber": 118
+        },
+        {
+          "caller": "copy",
+          "callee": "opendal.copy",
+          "lineNumber": 120
+        },
+        {
+          "caller": "copy",
+          "callee": "try_join_all",
+          "lineNumber": 122
+        },
+        {
+          "caller": "copy",
+          "callee": "Ok",
+          "lineNumber": 123
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/pause_resume.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 85,
+      "nonEmptyLines": 79,
+      "functions": [
+        {
+          "name": "disable_commit_epoch",
+          "startLine": 20,
+          "endLine": 29,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "pause_version_checkpoint",
+          "startLine": 31,
+          "endLine": 38,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "resume_version_checkpoint",
+          "startLine": 40,
+          "endLine": 47,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "replay_version",
+          "startLine": 52,
+          "endLine": 85,
+          "params": [
+            "context"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "disable_commit_epoch",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "pause_version_checkpoint",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "resume_version_checkpoint",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "replay_version",
+          "line": 52,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "disable_commit_epoch",
+          "callee": "context.meta_client",
+          "lineNumber": 21
+        },
+        {
+          "caller": "disable_commit_epoch",
+          "callee": "meta_client.disable_commit_epoch",
+          "lineNumber": 22
+        },
+        {
+          "caller": "disable_commit_epoch",
+          "callee": "Ok",
+          "lineNumber": 28
+        },
+        {
+          "caller": "pause_version_checkpoint",
+          "callee": "context.meta_client",
+          "lineNumber": 32
+        },
+        {
+          "caller": "pause_version_checkpoint",
+          "callee": "meta_client.risectl_pause_hummock_version_checkpoint",
+          "lineNumber": 33
+        },
+        {
+          "caller": "pause_version_checkpoint",
+          "callee": "Ok",
+          "lineNumber": 37
+        },
+        {
+          "caller": "resume_version_checkpoint",
+          "callee": "context.meta_client",
+          "lineNumber": 41
+        },
+        {
+          "caller": "resume_version_checkpoint",
+          "callee": "meta_client.risectl_resume_hummock_version_checkpoint",
+          "lineNumber": 42
+        },
+        {
+          "caller": "resume_version_checkpoint",
+          "callee": "Ok",
+          "lineNumber": 46
+        },
+        {
+          "caller": "replay_version",
+          "callee": "context.meta_client",
+          "lineNumber": 53
+        },
+        {
+          "caller": "replay_version",
+          "callee": "HummockVersion::from_rpc_protobuf",
+          "lineNumber": 54
+        },
+        {
+          "caller": "replay_version",
+          "callee": "meta_client\n            .risectl_get_checkpoint_hummock_version()\n            .await?\n            .checkpoint_version.unwrap",
+          "lineNumber": 55
+        },
+        {
+          "caller": "replay_version",
+          "callee": "meta_client.risectl_get_checkpoint_hummock_version",
+          "lineNumber": 55
+        },
+        {
+          "caller": "replay_version",
+          "callee": "base_version.next_version_id",
+          "lineNumber": 64
+        },
+        {
+          "caller": "replay_version",
+          "callee": "meta_client\n            .list_version_deltas(current_delta_id, delta_fetch_size, HummockEpoch::MAX)\n            .await.unwrap",
+          "lineNumber": 66
+        },
+        {
+          "caller": "replay_version",
+          "callee": "meta_client.list_version_deltas",
+          "lineNumber": 66
+        },
+        {
+          "caller": "replay_version",
+          "callee": "deltas.is_empty",
+          "lineNumber": 70
+        },
+        {
+          "caller": "replay_version",
+          "callee": "base_version.apply_version_delta",
+          "lineNumber": 78
+        },
+        {
+          "caller": "replay_version",
+          "callee": "base_version.next_version_id",
+          "lineNumber": 81
+        },
+        {
+          "caller": "replay_version",
+          "callee": "Ok",
+          "lineNumber": 84
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/trigger_full_gc.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "trigger_full_gc",
+          "startLine": 19,
+          "endLine": 30,
+          "params": [
+            "context",
+            "sst_retention_time_sec",
+            "prefix"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "trigger_full_gc",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "trigger_full_gc",
+          "callee": "context.meta_client",
+          "lineNumber": 24
+        },
+        {
+          "caller": "trigger_full_gc",
+          "callee": "meta_client.trigger_full_gc",
+          "lineNumber": 25
+        },
+        {
+          "caller": "trigger_full_gc",
+          "callee": "Ok",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/trigger_manual_compaction.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 68,
+      "functions": [
+        {
+          "name": "trigger_manual_compaction",
+          "startLine": 22,
+          "endLine": 71,
+          "params": [
+            "context",
+            "compaction_group_id",
+            "table_id",
+            "levels",
+            "target_level",
+            "sst_ids",
+            "exclusive",
+            "retry_interval_ms"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "trigger_manual_compaction",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "trigger_manual_compaction",
+          "callee": "context.meta_client",
+          "lineNumber": 32
+        },
+        {
+          "caller": "trigger_manual_compaction",
+          "callee": "meta_client.trigger_manual_compaction",
+          "lineNumber": 36
+        },
+        {
+          "caller": "trigger_manual_compaction",
+          "callee": "sst_ids.clone",
+          "lineNumber": 42
+        },
+        {
+          "caller": "trigger_manual_compaction",
+          "callee": "sleep",
+          "lineNumber": 53
+        },
+        {
+          "caller": "trigger_manual_compaction",
+          "callee": "Duration::from_millis",
+          "lineNumber": 53
+        },
+        {
+          "caller": "trigger_manual_compaction",
+          "callee": "Ok",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/meta.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 29,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/meta/backup_meta.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 60,
+      "functions": [
+        {
+          "name": "backup_meta",
+          "startLine": 22,
+          "endLine": 55,
+          "params": [
+            "context",
+            "remarks"
+          ]
+        },
+        {
+          "name": "delete_meta_snapshots",
+          "startLine": 57,
+          "endLine": 65,
+          "params": [
+            "context",
+            "snapshot_ids"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "backup_meta",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "delete_meta_snapshots",
+          "line": 57,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "backup_meta",
+          "callee": "context.meta_client",
+          "lineNumber": 23
+        },
+        {
+          "caller": "backup_meta",
+          "callee": "meta_client.backup_meta",
+          "lineNumber": 24
+        },
+        {
+          "caller": "backup_meta",
+          "callee": "meta_client.get_backup_job_status",
+          "lineNumber": 26
+        },
+        {
+          "caller": "backup_meta",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 30
+        },
+        {
+          "caller": "backup_meta",
+          "callee": "Duration::from_secs",
+          "lineNumber": 30
+        },
+        {
+          "caller": "backup_meta",
+          "callee": "Err",
+          "lineNumber": 38
+        },
+        {
+          "caller": "backup_meta",
+          "callee": "Err",
+          "lineNumber": 45
+        },
+        {
+          "caller": "backup_meta",
+          "callee": "Ok",
+          "lineNumber": 54
+        },
+        {
+          "caller": "delete_meta_snapshots",
+          "callee": "context.meta_client",
+          "lineNumber": 61
+        },
+        {
+          "caller": "delete_meta_snapshots",
+          "callee": "meta_client.delete_meta_snapshot",
+          "lineNumber": 62
+        },
+        {
+          "caller": "delete_meta_snapshots",
+          "callee": "Ok",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/meta/cluster_info.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 229,
+      "nonEmptyLines": 208,
+      "functions": [
+        {
+          "name": "get_cluster_info",
+          "startLine": 29,
+          "endLine": 33,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "source_split_info",
+          "startLine": 35,
+          "endLine": 136,
+          "params": [
+            "context",
+            "ignore_id"
+          ]
+        },
+        {
+          "name": "cluster_info",
+          "startLine": 138,
+          "endLine": 229,
+          "params": [
+            "context"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_cluster_info",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "source_split_info",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "cluster_info",
+          "line": 138,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_cluster_info",
+          "callee": "context.meta_client",
+          "lineNumber": 30
+        },
+        {
+          "caller": "get_cluster_info",
+          "callee": "meta_client.get_cluster_info",
+          "lineNumber": 31
+        },
+        {
+          "caller": "get_cluster_info",
+          "callee": "Ok",
+          "lineNumber": 32
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "get_cluster_info",
+          "lineNumber": 42
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "BTreeMap::new",
+          "lineNumber": 44
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "table_fragment.fragments.values",
+          "lineNumber": 48
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "actor_splits.remove",
+          "lineNumber": 62
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "splits.len",
+          "lineNumber": 63
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "splits\n                        .iter()\n                        .map(|split| SplitImpl::try_from(split).unwrap())\n                        .map(|split| split.id())\n                        .collect_vec().join",
+          "lineNumber": 64
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "splits\n                        .iter()\n                        .map(|split| SplitImpl::try_from(split).unwrap())\n                        .map(|split| split.id()).collect_vec",
+          "lineNumber": 64
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "splits\n                        .iter()\n                        .map(|split| SplitImpl::try_from(split).unwrap()).map",
+          "lineNumber": 64
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "splits\n                        .iter().map",
+          "lineNumber": 64
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "splits.iter",
+          "lineNumber": 64
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "SplitImpl::try_from(split).unwrap",
+          "lineNumber": 66
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "SplitImpl::try_from",
+          "lineNumber": 66
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "split.id",
+          "lineNumber": 67
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "actor_splits_map.insert",
+          "lineNumber": 70
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "table_fragment\n            .fragments\n            .values().sorted_by_key",
+          "lineNumber": 83
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "table_fragment\n            .fragments.values",
+          "lineNumber": 83
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "fragment.actors.iter().sorted_by_key",
+          "lineNumber": 113
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "fragment.actors.iter",
+          "lineNumber": 113
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "actor_splits_map.get",
+          "lineNumber": 114
+        },
+        {
+          "caller": "source_split_info",
+          "callee": "Ok",
+          "lineNumber": 135
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "get_cluster_info",
+          "lineNumber": 145
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "BTreeMap::new",
+          "lineNumber": 148
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "HashMap::new",
+          "lineNumber": 150
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "table_fragment\n                    .actor_status\n                    .get(&actor.actor_id)\n                    .unwrap().worker_id",
+          "lineNumber": 155
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "table_fragment\n                    .actor_status\n                    .get(&actor.actor_id).unwrap",
+          "lineNumber": 155
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "table_fragment\n                    .actor_status.get",
+          "lineNumber": 155
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "fragments\n                    .entry(id)\n                    .or_insert_with(BTreeMap::new)\n                    .entry(worker_id)\n                    .or_insert(BTreeSet::new()).insert",
+          "lineNumber": 161
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "fragments\n                    .entry(id)\n                    .or_insert_with(BTreeMap::new)\n                    .entry(worker_id).or_insert",
+          "lineNumber": 161
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "fragments\n                    .entry(id)\n                    .or_insert_with(BTreeMap::new).entry",
+          "lineNumber": 161
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "fragments\n                    .entry(id).or_insert_with",
+          "lineNumber": 161
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "fragments.entry",
+          "lineNumber": 161
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "BTreeSet::new",
+          "lineNumber": 165
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "fragment_states.insert",
+          "lineNumber": 168
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "table_fragment.state",
+          "lineNumber": 168
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "Table::new",
+          "lineNumber": 172
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "cell.add_attribute",
+          "lineNumber": 177
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "table.set_header",
+          "lineNumber": 183
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "Row::new",
+          "lineNumber": 184
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "row.add_cell",
+          "lineNumber": 185
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "\"Compute Node\".into",
+          "lineNumber": 185
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "fragments.keys",
+          "lineNumber": 186
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "Cell::new",
+          "lineNumber": 187
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "cross_out_if_creating",
+          "lineNumber": 188
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "row.add_cell",
+          "lineNumber": 189
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "Row::new",
+          "lineNumber": 197
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "row.add_cell",
+          "lineNumber": 198
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "Some",
+          "lineNumber": 198
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "\"\".into",
+          "lineNumber": 199
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "Some",
+          "lineNumber": 201
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "Cell::new(format!(\n                \"{}@{}\",\n                worker.id,\n                HostAddr::from(worker.get_host().unwrap()),\n            )).add_attribute",
+          "lineNumber": 202
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "Cell::new",
+          "lineNumber": 202
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "worker_actors.get",
+          "lineNumber": 210
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "actors\n                    .iter()\n                    .map(|actor| format!(\"{}\", actor))\n                    .join(\",\").into",
+          "lineNumber": 211
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "actors\n                    .iter()\n                    .map(|actor| format!(\"{}\", actor)).join",
+          "lineNumber": 211
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "actors\n                    .iter().map",
+          "lineNumber": 211
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "actors.iter",
+          "lineNumber": 211
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "\"-\".into",
+          "lineNumber": 217
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "cross_out_if_creating",
+          "lineNumber": 219
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "row.add_cell",
+          "lineNumber": 220
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "table.add_row",
+          "lineNumber": 222
+        },
+        {
+          "caller": "cluster_info",
+          "callee": "Ok",
+          "lineNumber": 228
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/meta/pause_resume.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "pause",
+          "startLine": 17,
+          "endLine": 25,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "resume",
+          "startLine": 27,
+          "endLine": 35,
+          "params": [
+            "context"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "pause",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "resume",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pause",
+          "callee": "context.meta_client",
+          "lineNumber": 18
+        },
+        {
+          "caller": "pause",
+          "callee": "meta_client.pause",
+          "lineNumber": 20
+        },
+        {
+          "caller": "pause",
+          "callee": "Ok",
+          "lineNumber": 24
+        },
+        {
+          "caller": "resume",
+          "callee": "context.meta_client",
+          "lineNumber": 28
+        },
+        {
+          "caller": "resume",
+          "callee": "meta_client.resume",
+          "lineNumber": 30
+        },
+        {
+          "caller": "resume",
+          "callee": "Ok",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

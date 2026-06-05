@@ -1,0 +1,37 @@
+{
+  "nodes": [
+    {"id":"file:src/ctl/src/cmd_impl.rs","type":"file","name":"cmd_impl.rs","filePath":"src/ctl/src/cmd_impl.rs","summary":"Barrel module that organizes all ctl command implementation submodules (hummock, meta, bench, scale, throttle, etc.).","tags":["barrel","entry-point"],"complexity":"simple"},
+    {"id":"file:src/ctl/src/cmd_impl/bench.rs","type":"file","name":"bench.rs","filePath":"src/ctl/src/cmd_impl/bench.rs","summary":"Implements the bench subcommand of risingwave-ctl, running Hummock storage and other micro-benchmarks against a live cluster.","tags":["utility","benchmark"],"complexity":"moderate"},
+    {"id":"file:src/ctl/src/cmd_impl/hummock.rs","type":"file","name":"hummock.rs","filePath":"src/ctl/src/cmd_impl/hummock.rs","summary":"Barrel module aggregating Hummock-specific ctl subcommands: list-kv, resize-cache, sst-dump, tiered-cache-tracing, and validate-version.","tags":["barrel","entry-point"],"complexity":"simple"},
+    {"id":"file:src/ctl/src/cmd_impl/hummock/list_kv.rs","type":"file","name":"list_kv.rs","filePath":"src/ctl/src/cmd_impl/hummock/list_kv.rs","summary":"Implements the list-kv ctl command that scans Hummock SST files and prints key-value pairs for debugging storage contents.","tags":["utility","debug"],"complexity":"simple"},
+    {"id":"file:src/ctl/src/cmd_impl/hummock/resize_cache.rs","type":"file","name":"resize_cache.rs","filePath":"src/ctl/src/cmd_impl/hummock/resize_cache.rs","summary":"Implements the resize-cache ctl command to dynamically adjust Hummock block cache capacity at runtime via meta RPC.","tags":["utility","configuration"],"complexity":"simple"},
+    {"id":"file:src/ctl/src/cmd_impl/hummock/sst_dump.rs","type":"file","name":"sst_dump.rs","filePath":"src/ctl/src/cmd_impl/hummock/sst_dump.rs","summary":"Implements the sst-dump ctl command that reads and pretty-prints the contents of Hummock SST files for debugging and validation.","tags":["utility","debug"],"complexity":"complex"},
+    {"id":"file:src/ctl/src/cmd_impl/hummock/tiered_cache_tracing.rs","type":"file","name":"tiered_cache_tracing.rs","filePath":"src/ctl/src/cmd_impl/hummock/tiered_cache_tracing.rs","summary":"Implements the tiered-cache-tracing ctl command to enable/disable tracing of Hummock file cache I/O operations for performance analysis.","tags":["utility","debug"],"complexity":"simple"},
+    {"id":"file:src/ctl/src/cmd_impl/hummock/validate_version.rs","type":"file","name":"validate_version.rs","filePath":"src/ctl/src/cmd_impl/hummock/validate_version.rs","summary":"Implements the validate-version ctl command that checks Hummock version consistency by verifying SST file presence and data integrity.","tags":["utility","validation"],"complexity":"moderate"},
+    {"id":"file:src/ctl/src/cmd_impl/meta/connection.rs","type":"file","name":"connection.rs","filePath":"src/ctl/src/cmd_impl/meta/connection.rs","summary":"Implements meta connection management ctl commands (list/create/delete connections) for managing external system connections.","tags":["utility","api-handler"],"complexity":"simple"},
+    {"id":"file:src/ctl/src/cmd_impl/profile.rs","type":"file","name":"profile.rs","filePath":"src/ctl/src/cmd_impl/profile.rs","summary":"Implements the profile ctl command that triggers CPU and heap profiling on a running compute node via the monitor gRPC service.","tags":["utility","debug"],"complexity":"moderate"},
+    {"id":"file:src/ctl/src/cmd_impl/scale.rs","type":"file","name":"scale.rs","filePath":"src/ctl/src/cmd_impl/scale.rs","summary":"Implements the scale ctl command to horizontally scale the streaming engine by adjusting actor placements across worker nodes.","tags":["utility","service"],"complexity":"simple"},
+    {"id":"file:src/ctl/src/cmd_impl/table/scan.rs","type":"file","name":"scan.rs","filePath":"src/ctl/src/cmd_impl/table/scan.rs","summary":"Implements the table-scan ctl command that directly reads a materialized view's state table for debugging without going through SQL.","tags":["utility","debug"],"complexity":"moderate"},
+    {"id":"file:src/ctl/src/cmd_impl/throttle.rs","type":"file","name":"throttle.rs","filePath":"src/ctl/src/cmd_impl/throttle.rs","summary":"Implements the throttle ctl command to limit source consumption rate on streaming sources for backpressure management.","tags":["utility","service"],"complexity":"simple"},
+    {"id":"file:src/ctl/src/common.rs","type":"file","name":"common.rs","filePath":"src/ctl/src/common.rs","summary":"Provides common utilities for ctl commands: gRPC client creation helpers for meta, compute, and monitor services.","tags":["utility","factory"],"complexity":"simple"},
+    {"id":"file:src/ctl/src/lib.rs","type":"file","name":"lib.rs","filePath":"src/ctl/src/lib.rs","summary":"Main ctl library entry point: defines the full CLI command structure using clap and dispatches each subcommand to its implementation module.","tags":["entry-point","api-handler","cli"],"complexity":"complex"}
+  ],
+  "edges": [
+    {"source":"file:src/ctl/src/cmd_impl/bench.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/cmd_impl/hummock/list_kv.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/cmd_impl/hummock/resize_cache.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/cmd_impl/hummock/sst_dump.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/cmd_impl/hummock/tiered_cache_tracing.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/cmd_impl/hummock/validate_version.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/cmd_impl/meta/connection.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/cmd_impl/scale.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/cmd_impl/table/scan.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/cmd_impl/throttle.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/lib.rs","target":"file:src/ctl/src/cmd_impl.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/lib.rs","target":"file:src/ctl/src/cmd_impl/hummock.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/lib.rs","target":"file:src/ctl/src/cmd_impl/profile.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/lib.rs","target":"file:src/ctl/src/cmd_impl/scale.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/lib.rs","target":"file:src/ctl/src/cmd_impl/throttle.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/ctl/src/lib.rs","target":"file:src/ctl/src/common.rs","type":"imports","direction":"forward","weight":0.7}
+  ]
+}

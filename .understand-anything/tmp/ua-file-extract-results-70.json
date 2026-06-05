@@ -1,0 +1,5100 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 22,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "dashboard/components/CatalogModal.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 81,
+      "functions": [
+        {
+          "name": "useCatalogModal",
+          "startLine": 38,
+          "endLine": 43,
+          "params": [
+            "relationList"
+          ]
+        },
+        {
+          "name": "CatalogModal",
+          "startLine": 45,
+          "endLine": 87,
+          "params": [
+            "{\n  modalData,\n  onClose,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "useCatalogModal",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "CatalogModal",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useCatalogModal",
+          "callee": "useQueryState",
+          "lineNumber": 39
+        },
+        {
+          "caller": "useCatalogModal",
+          "callee": "relationList?.find",
+          "lineNumber": 40
+        },
+        {
+          "caller": "CatalogModal",
+          "callee": "relationTypeTitleCase",
+          "lineNumber": 57
+        },
+        {
+          "caller": "CatalogModal",
+          "callee": "relationIsStreamingJob",
+          "lineNumber": 73
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/FragmentDependencyGraph.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 211,
+      "nonEmptyLines": 190,
+      "functions": [
+        {
+          "name": "FragmentDependencyGraph",
+          "startLine": 11,
+          "endLine": 211,
+          "params": [
+            "{\n  fragmentDependency,\n  svgWidth,\n  selectedId,\n  onSelectedIdChange,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FragmentDependencyGraph",
+          "line": 11,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "useRef",
+          "lineNumber": 22
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "useState",
+          "lineNumber": 23
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "useCallback",
+          "lineNumber": 27
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "zherebko().nodeSize",
+          "lineNumber": 28
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "zherebko",
+          "lineNumber": 28
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "cloneDeep",
+          "lineNumber": 33
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "layout",
+          "lineNumber": 34
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "fragmentDependencyDagCallback",
+          "lineNumber": 38
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "useEffect",
+          "lineNumber": 40
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "d3.select",
+          "lineNumber": 46
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "d3\n      .line<Position>()\n      .curve(curveStyle)\n      .x(({ x }) => x + MARGIN_X)\n      .y",
+          "lineNumber": 50
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "d3\n      .line<Position>()\n      .curve(curveStyle)\n      .x",
+          "lineNumber": 50
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "d3\n      .line<Position>()\n      .curve",
+          "lineNumber": 50
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "d3\n      .line",
+          "lineNumber": 50
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select(\".edges\")\n      .selectAll<SVGPathElement, null>(\".edge\")\n      .data",
+          "lineNumber": 58
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select(\".edges\")\n      .selectAll",
+          "lineNumber": 58
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select",
+          "lineNumber": 58
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "dag.links",
+          "lineNumber": 61
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .attr(\"d\", ({ points }: DagLink) => line(points))\n        .attr(\"fill\", \"none\")\n        .attr(\"stroke-width\", (d) =>\n          isSelected(d.source) || isSelected(d.target) ? 2 : 1\n        )\n        .attr",
+          "lineNumber": 65
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .attr(\"d\", ({ points }: DagLink) => line(points))\n        .attr(\"fill\", \"none\")\n        .attr",
+          "lineNumber": 65
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .attr(\"d\", ({ points }: DagLink) => line(points))\n        .attr",
+          "lineNumber": 65
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .attr",
+          "lineNumber": 65
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "line",
+          "lineNumber": 66
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "isSelected",
+          "lineNumber": 69
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "isSelected",
+          "lineNumber": 69
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "isSelected",
+          "lineNumber": 72
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "isSelected",
+          "lineNumber": 72
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel.append(\"path\").attr(\"class\", \"edge\").call",
+          "lineNumber": 77
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel.append(\"path\").attr",
+          "lineNumber": 77
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel.append",
+          "lineNumber": 77
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "edgeSelection.exit().remove",
+          "lineNumber": 78
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "edgeSelection.exit",
+          "lineNumber": 78
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "edgeSelection.enter().call",
+          "lineNumber": 79
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "edgeSelection.enter",
+          "lineNumber": 79
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "edgeSelection.call",
+          "lineNumber": 80
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select(\".nodes\")\n      .selectAll<SVGCircleElement, null>(\".node\")\n      .data",
+          "lineNumber": 83
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select(\".nodes\")\n      .selectAll",
+          "lineNumber": 83
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select",
+          "lineNumber": 83
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "dag.descendants",
+          "lineNumber": 86
+        },
+        {
+          "caller": "applyNode",
+          "callee": "sel\n        .attr(\"transform\", (d) => `translate(${d.x! + MARGIN_X}, ${d.y})`)\n        .attr",
+          "lineNumber": 90
+        },
+        {
+          "caller": "applyNode",
+          "callee": "sel\n        .attr",
+          "lineNumber": 90
+        },
+        {
+          "caller": "applyNode",
+          "callee": "isSelected",
+          "lineNumber": 93
+        },
+        {
+          "caller": "createNode",
+          "callee": "sel\n        .append(\"circle\")\n        .attr(\"class\", \"node\")\n        .attr(\"r\", nodeRadius)\n        .call",
+          "lineNumber": 97
+        },
+        {
+          "caller": "createNode",
+          "callee": "sel\n        .append(\"circle\")\n        .attr(\"class\", \"node\")\n        .attr",
+          "lineNumber": 97
+        },
+        {
+          "caller": "createNode",
+          "callee": "sel\n        .append(\"circle\")\n        .attr",
+          "lineNumber": 97
+        },
+        {
+          "caller": "createNode",
+          "callee": "sel\n        .append",
+          "lineNumber": 97
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "nodeSelection.exit().remove",
+          "lineNumber": 102
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "nodeSelection.exit",
+          "lineNumber": 102
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "nodeSelection.enter().call",
+          "lineNumber": 103
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "nodeSelection.enter",
+          "lineNumber": 103
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "nodeSelection.call",
+          "lineNumber": 104
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select(\".labels\")\n      .selectAll<SVGTextElement, null>(\".label\")\n      .data",
+          "lineNumber": 107
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select(\".labels\")\n      .selectAll",
+          "lineNumber": 107
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select",
+          "lineNumber": 107
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "dag.descendants",
+          "lineNumber": 110
+        },
+        {
+          "caller": "applyLabel",
+          "callee": "sel\n        .text((d) => d.data.name)\n        .attr(\"x\", svgWidth - MARGIN_X)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"text-anchor\", \"end\")\n        .attr(\"alignment-baseline\", \"middle\")\n        .attr(\"y\", (d) => d.y!)\n        .attr(\"fill\", (d) =>\n          isSelected(d) ? theme.colors.black[\"500\"] : theme.colors.gray[\"500\"]\n        )\n        .attr",
+          "lineNumber": 114
+        },
+        {
+          "caller": "applyLabel",
+          "callee": "sel\n        .text((d) => d.data.name)\n        .attr(\"x\", svgWidth - MARGIN_X)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"text-anchor\", \"end\")\n        .attr(\"alignment-baseline\", \"middle\")\n        .attr(\"y\", (d) => d.y!)\n        .attr",
+          "lineNumber": 114
+        },
+        {
+          "caller": "applyLabel",
+          "callee": "sel\n        .text((d) => d.data.name)\n        .attr(\"x\", svgWidth - MARGIN_X)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"text-anchor\", \"end\")\n        .attr(\"alignment-baseline\", \"middle\")\n        .attr",
+          "lineNumber": 114
+        },
+        {
+          "caller": "applyLabel",
+          "callee": "sel\n        .text((d) => d.data.name)\n        .attr(\"x\", svgWidth - MARGIN_X)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"text-anchor\", \"end\")\n        .attr",
+          "lineNumber": 114
+        },
+        {
+          "caller": "applyLabel",
+          "callee": "sel\n        .text((d) => d.data.name)\n        .attr(\"x\", svgWidth - MARGIN_X)\n        .attr(\"font-family\", \"inherit\")\n        .attr",
+          "lineNumber": 114
+        },
+        {
+          "caller": "applyLabel",
+          "callee": "sel\n        .text((d) => d.data.name)\n        .attr(\"x\", svgWidth - MARGIN_X)\n        .attr",
+          "lineNumber": 114
+        },
+        {
+          "caller": "applyLabel",
+          "callee": "sel\n        .text((d) => d.data.name)\n        .attr",
+          "lineNumber": 114
+        },
+        {
+          "caller": "applyLabel",
+          "callee": "sel\n        .text",
+          "lineNumber": 114
+        },
+        {
+          "caller": "applyLabel",
+          "callee": "isSelected",
+          "lineNumber": 122
+        },
+        {
+          "caller": "createLabel",
+          "callee": "sel.append(\"text\").attr(\"class\", \"label\").call",
+          "lineNumber": 126
+        },
+        {
+          "caller": "createLabel",
+          "callee": "sel.append(\"text\").attr",
+          "lineNumber": 126
+        },
+        {
+          "caller": "createLabel",
+          "callee": "sel.append",
+          "lineNumber": 126
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "labelSelection.exit().remove",
+          "lineNumber": 127
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "labelSelection.exit",
+          "lineNumber": 127
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "labelSelection.enter().call",
+          "lineNumber": 128
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "labelSelection.enter",
+          "lineNumber": 128
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "labelSelection.call",
+          "lineNumber": 129
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select(\".overlays\")\n      .selectAll<SVGRectElement, null>(\".overlay\")\n      .data",
+          "lineNumber": 132
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select(\".overlays\")\n      .selectAll",
+          "lineNumber": 132
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "svgSelection\n      .select",
+          "lineNumber": 132
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "dag.descendants",
+          "lineNumber": 135
+        },
+        {
+          "caller": "applyOverlay",
+          "callee": "sel\n        .attr(\"x\", STROKE_WIDTH)\n        .attr(\n          \"height\",\n          nodeRadius * 2 + edgeRadius * 2 - MARGIN_Y * 2 - STROKE_WIDTH * 2\n        )\n        .attr(\"width\", svgWidth - STROKE_WIDTH * 2)\n        .attr(\n          \"y\",\n          (d) => d.y! - nodeRadius - edgeRadius + MARGIN_Y + STROKE_WIDTH\n        )\n        .attr(\"rx\", 5)\n        .attr(\"fill\", theme.colors.gray[\"500\"])\n        .attr(\"opacity\", 0)\n        .style",
+          "lineNumber": 140
+        },
+        {
+          "caller": "applyOverlay",
+          "callee": "sel\n        .attr(\"x\", STROKE_WIDTH)\n        .attr(\n          \"height\",\n          nodeRadius * 2 + edgeRadius * 2 - MARGIN_Y * 2 - STROKE_WIDTH * 2\n        )\n        .attr(\"width\", svgWidth - STROKE_WIDTH * 2)\n        .attr(\n          \"y\",\n          (d) => d.y! - nodeRadius - edgeRadius + MARGIN_Y + STROKE_WIDTH\n        )\n        .attr(\"rx\", 5)\n        .attr(\"fill\", theme.colors.gray[\"500\"])\n        .attr",
+          "lineNumber": 140
+        },
+        {
+          "caller": "applyOverlay",
+          "callee": "sel\n        .attr(\"x\", STROKE_WIDTH)\n        .attr(\n          \"height\",\n          nodeRadius * 2 + edgeRadius * 2 - MARGIN_Y * 2 - STROKE_WIDTH * 2\n        )\n        .attr(\"width\", svgWidth - STROKE_WIDTH * 2)\n        .attr(\n          \"y\",\n          (d) => d.y! - nodeRadius - edgeRadius + MARGIN_Y + STROKE_WIDTH\n        )\n        .attr(\"rx\", 5)\n        .attr",
+          "lineNumber": 140
+        },
+        {
+          "caller": "applyOverlay",
+          "callee": "sel\n        .attr(\"x\", STROKE_WIDTH)\n        .attr(\n          \"height\",\n          nodeRadius * 2 + edgeRadius * 2 - MARGIN_Y * 2 - STROKE_WIDTH * 2\n        )\n        .attr(\"width\", svgWidth - STROKE_WIDTH * 2)\n        .attr(\n          \"y\",\n          (d) => d.y! - nodeRadius - edgeRadius + MARGIN_Y + STROKE_WIDTH\n        )\n        .attr",
+          "lineNumber": 140
+        },
+        {
+          "caller": "applyOverlay",
+          "callee": "sel\n        .attr(\"x\", STROKE_WIDTH)\n        .attr(\n          \"height\",\n          nodeRadius * 2 + edgeRadius * 2 - MARGIN_Y * 2 - STROKE_WIDTH * 2\n        )\n        .attr(\"width\", svgWidth - STROKE_WIDTH * 2)\n        .attr",
+          "lineNumber": 140
+        },
+        {
+          "caller": "applyOverlay",
+          "callee": "sel\n        .attr(\"x\", STROKE_WIDTH)\n        .attr(\n          \"height\",\n          nodeRadius * 2 + edgeRadius * 2 - MARGIN_Y * 2 - STROKE_WIDTH * 2\n        )\n        .attr",
+          "lineNumber": 140
+        },
+        {
+          "caller": "applyOverlay",
+          "callee": "sel\n        .attr(\"x\", STROKE_WIDTH)\n        .attr",
+          "lineNumber": 140
+        },
+        {
+          "caller": "applyOverlay",
+          "callee": "sel\n        .attr",
+          "lineNumber": 140
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "sel\n        .append(\"rect\")\n        .attr(\"class\", \"overlay\")\n        .call(applyOverlay)\n        .on(\"mouseover\", function (d, i) {\n          d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr(\"opacity\", \".10\")\n        })\n        .on(\"mouseout\", function (d, i) {\n          d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr(\"opacity\", \"0\")\n        })\n        .on(\"mousedown\", function (d, i) {\n          d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr(\"opacity\", \".20\")\n        })\n        .on(\"mouseup\", function (d, i) {\n          d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr(\"opacity\", \".10\")\n        })\n        .on",
+          "lineNumber": 156
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "sel\n        .append(\"rect\")\n        .attr(\"class\", \"overlay\")\n        .call(applyOverlay)\n        .on(\"mouseover\", function (d, i) {\n          d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr(\"opacity\", \".10\")\n        })\n        .on(\"mouseout\", function (d, i) {\n          d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr(\"opacity\", \"0\")\n        })\n        .on(\"mousedown\", function (d, i) {\n          d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr(\"opacity\", \".20\")\n        })\n        .on",
+          "lineNumber": 156
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "sel\n        .append(\"rect\")\n        .attr(\"class\", \"overlay\")\n        .call(applyOverlay)\n        .on(\"mouseover\", function (d, i) {\n          d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr(\"opacity\", \".10\")\n        })\n        .on(\"mouseout\", function (d, i) {\n          d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr(\"opacity\", \"0\")\n        })\n        .on",
+          "lineNumber": 156
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "sel\n        .append(\"rect\")\n        .attr(\"class\", \"overlay\")\n        .call(applyOverlay)\n        .on(\"mouseover\", function (d, i) {\n          d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr(\"opacity\", \".10\")\n        })\n        .on",
+          "lineNumber": 156
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "sel\n        .append(\"rect\")\n        .attr(\"class\", \"overlay\")\n        .call(applyOverlay)\n        .on",
+          "lineNumber": 156
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "sel\n        .append(\"rect\")\n        .attr(\"class\", \"overlay\")\n        .call",
+          "lineNumber": 156
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "sel\n        .append(\"rect\")\n        .attr",
+          "lineNumber": 156
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "sel\n        .append",
+          "lineNumber": 156
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr",
+          "lineNumber": 161
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition()\n            .duration",
+          "lineNumber": 161
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition",
+          "lineNumber": 161
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select",
+          "lineNumber": 161
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "parseInt",
+          "lineNumber": 163
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr",
+          "lineNumber": 167
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition()\n            .duration",
+          "lineNumber": 167
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition",
+          "lineNumber": 167
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select",
+          "lineNumber": 167
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "parseInt",
+          "lineNumber": 169
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr",
+          "lineNumber": 173
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition()\n            .duration",
+          "lineNumber": 173
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition",
+          "lineNumber": 173
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select",
+          "lineNumber": 173
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "parseInt",
+          "lineNumber": 175
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition()\n            .duration(parseInt(theme.transition.duration.normal))\n            .attr",
+          "lineNumber": 179
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition()\n            .duration",
+          "lineNumber": 179
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select(this)\n            .transition",
+          "lineNumber": 179
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "d3.select",
+          "lineNumber": 179
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "parseInt",
+          "lineNumber": 181
+        },
+        {
+          "caller": "createOverlay",
+          "callee": "onSelectedIdChange",
+          "lineNumber": 186
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "overlaySelection.exit().remove",
+          "lineNumber": 190
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "overlaySelection.exit",
+          "lineNumber": 190
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "overlaySelection.enter().call",
+          "lineNumber": 191
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "overlaySelection.enter",
+          "lineNumber": 191
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "overlaySelection.call",
+          "lineNumber": 192
+        },
+        {
+          "caller": "FragmentDependencyGraph",
+          "callee": "setSvgHeight",
+          "lineNumber": 194
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/FragmentGraph.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 610,
+      "nonEmptyLines": 531,
+      "functions": [
+        {
+          "name": "treeLayoutFlip",
+          "startLine": 39,
+          "endLine": 55,
+          "params": [
+            "root",
+            "{ dx, dy }"
+          ]
+        },
+        {
+          "name": "boundBox",
+          "startLine": 57,
+          "endLine": 82,
+          "params": [
+            "root",
+            "{\n    margin: { top, bottom, left, right },\n  }"
+          ]
+        },
+        {
+          "name": "FragmentGraph",
+          "startLine": 92,
+          "endLine": 610,
+          "params": [
+            "{\n  planNodeDependencies,\n  fragmentDependency,\n  selectedFragmentId,\n  channelStats,\n  fragmentStats,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FragmentGraph",
+          "line": 92,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "treeLayoutFlip",
+          "callee": "d3.tree<Datum>().nodeSize",
+          "lineNumber": 43
+        },
+        {
+          "caller": "treeLayoutFlip",
+          "callee": "d3.tree",
+          "lineNumber": 43
+        },
+        {
+          "caller": "treeLayoutFlip",
+          "callee": "tree",
+          "lineNumber": 46
+        },
+        {
+          "caller": "treeLayoutFlip",
+          "callee": "treeRoot.each",
+          "lineNumber": 49
+        },
+        {
+          "caller": "treeLayoutFlip",
+          "callee": "treeRoot.each",
+          "lineNumber": 52
+        },
+        {
+          "caller": "boundBox",
+          "callee": "root.each",
+          "lineNumber": 68
+        },
+        {
+          "caller": "boundBox",
+          "callee": "root.each",
+          "lineNumber": 69
+        },
+        {
+          "caller": "boundBox",
+          "callee": "root.each",
+          "lineNumber": 70
+        },
+        {
+          "caller": "boundBox",
+          "callee": "root.each",
+          "lineNumber": 71
+        },
+        {
+          "caller": "boundBox",
+          "callee": "root.each",
+          "lineNumber": 78
+        },
+        {
+          "caller": "boundBox",
+          "callee": "root.each",
+          "lineNumber": 79
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "useRef",
+          "lineNumber": 105
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "useDisclosure",
+          "lineNumber": 107
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "useState",
+          "lineNumber": 108
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "useCallback",
+          "lineNumber": 110
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "setCurrentStreamNode",
+          "lineNumber": 112
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "onOpen",
+          "lineNumber": 113
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "useCallback",
+          "lineNumber": 118
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "cloneDeep",
+          "lineNumber": 119
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "cloneDeep",
+          "lineNumber": 120
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "treeLayoutFlip",
+          "lineNumber": 126
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "boundBox",
+          "lineNumber": 130
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "layoutFragmentResult.set",
+          "lineNumber": 138
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "includedFragmentIds.add",
+          "lineNumber": 144
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "g.setGraph",
+          "lineNumber": 151
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "g.setDefaultEdgeLabel",
+          "lineNumber": 160
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "fragmentDependencyDag.forEach",
+          "lineNumber": 163
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "layoutFragmentResult.get",
+          "lineNumber": 164
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "g.setNode",
+          "lineNumber": 165
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "fragmentDependencyDag.forEach",
+          "lineNumber": 169
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "parentIds?.forEach",
+          "lineNumber": 170
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "g.setEdge",
+          "lineNumber": 171
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "dagre.layout",
+          "lineNumber": 176
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "g.nodes().map",
+          "lineNumber": 179
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "g.nodes",
+          "lineNumber": 179
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "g.node",
+          "lineNumber": 180
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "g.edges().map",
+          "lineNumber": 193
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "g.edges",
+          "lineNumber": 193
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "g.edge",
+          "lineNumber": 194
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "layoutResult.forEach",
+          "lineNumber": 205
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "Math.max",
+          "lineNumber": 206
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "Math.max",
+          "lineNumber": 207
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "planNodeDependencyDagCallback",
+          "lineNumber": 225
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "useEffect",
+          "lineNumber": 227
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "Date.now",
+          "lineNumber": 229
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "d3.select",
+          "lineNumber": 231
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "d3\n        .linkHorizontal<any, Position>()\n        .x((d: Position) => d.x)\n        .y",
+          "lineNumber": 234
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "d3\n        .linkHorizontal<any, Position>()\n        .x",
+          "lineNumber": 234
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "d3\n        .linkHorizontal",
+          "lineNumber": 234
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.attr",
+          "lineNumber": 243
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.select",
+          "lineNumber": 246
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text.empty",
+          "lineNumber": 247
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.append(\"text\").attr",
+          "lineNumber": 248
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.append",
+          "lineNumber": 248
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text\n          .attr(\"fill\", \"black\")\n          .text(({ id }) => `Fragment ${id}`)\n          .attr(\"font-family\", \"inherit\")\n          .attr(\"text-anchor\", \"end\")\n          .attr(\"dy\", ({ height }) => height + 12)\n          .attr(\"dx\", ({ width }) => width)\n          .attr(\"fill\", \"black\")\n          .attr",
+          "lineNumber": 251
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text\n          .attr(\"fill\", \"black\")\n          .text(({ id }) => `Fragment ${id}`)\n          .attr(\"font-family\", \"inherit\")\n          .attr(\"text-anchor\", \"end\")\n          .attr(\"dy\", ({ height }) => height + 12)\n          .attr(\"dx\", ({ width }) => width)\n          .attr",
+          "lineNumber": 251
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text\n          .attr(\"fill\", \"black\")\n          .text(({ id }) => `Fragment ${id}`)\n          .attr(\"font-family\", \"inherit\")\n          .attr(\"text-anchor\", \"end\")\n          .attr(\"dy\", ({ height }) => height + 12)\n          .attr",
+          "lineNumber": 251
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text\n          .attr(\"fill\", \"black\")\n          .text(({ id }) => `Fragment ${id}`)\n          .attr(\"font-family\", \"inherit\")\n          .attr(\"text-anchor\", \"end\")\n          .attr",
+          "lineNumber": 251
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text\n          .attr(\"fill\", \"black\")\n          .text(({ id }) => `Fragment ${id}`)\n          .attr(\"font-family\", \"inherit\")\n          .attr",
+          "lineNumber": 251
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text\n          .attr(\"fill\", \"black\")\n          .text(({ id }) => `Fragment ${id}`)\n          .attr",
+          "lineNumber": 251
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text\n          .attr(\"fill\", \"black\")\n          .text",
+          "lineNumber": 251
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text\n          .attr",
+          "lineNumber": 251
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.select",
+          "lineNumber": 262
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text2.empty",
+          "lineNumber": 263
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.append(\"text\").attr",
+          "lineNumber": 264
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.append",
+          "lineNumber": 264
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text2\n          .attr(\"fill\", \"black\")\n          .text(({ actorIds }) => `Actor ${actorIds.join(\", \")}`)\n          .attr(\"font-family\", \"inherit\")\n          .attr(\"text-anchor\", \"end\")\n          .attr(\"dy\", ({ height }) => height + 24)\n          .attr(\"dx\", ({ width }) => width)\n          .attr(\"fill\", \"black\")\n          .attr",
+          "lineNumber": 267
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text2\n          .attr(\"fill\", \"black\")\n          .text(({ actorIds }) => `Actor ${actorIds.join(\", \")}`)\n          .attr(\"font-family\", \"inherit\")\n          .attr(\"text-anchor\", \"end\")\n          .attr(\"dy\", ({ height }) => height + 24)\n          .attr(\"dx\", ({ width }) => width)\n          .attr",
+          "lineNumber": 267
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text2\n          .attr(\"fill\", \"black\")\n          .text(({ actorIds }) => `Actor ${actorIds.join(\", \")}`)\n          .attr(\"font-family\", \"inherit\")\n          .attr(\"text-anchor\", \"end\")\n          .attr(\"dy\", ({ height }) => height + 24)\n          .attr",
+          "lineNumber": 267
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text2\n          .attr(\"fill\", \"black\")\n          .text(({ actorIds }) => `Actor ${actorIds.join(\", \")}`)\n          .attr(\"font-family\", \"inherit\")\n          .attr(\"text-anchor\", \"end\")\n          .attr",
+          "lineNumber": 267
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text2\n          .attr(\"fill\", \"black\")\n          .text(({ actorIds }) => `Actor ${actorIds.join(\", \")}`)\n          .attr(\"font-family\", \"inherit\")\n          .attr",
+          "lineNumber": 267
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text2\n          .attr(\"fill\", \"black\")\n          .text(({ actorIds }) => `Actor ${actorIds.join(\", \")}`)\n          .attr",
+          "lineNumber": 267
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text2\n          .attr(\"fill\", \"black\")\n          .text",
+          "lineNumber": 267
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "text2\n          .attr",
+          "lineNumber": 267
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "actorIds.join",
+          "lineNumber": 269
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.select",
+          "lineNumber": 278
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox.empty",
+          "lineNumber": 279
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.append(\"rect\").attr",
+          "lineNumber": 280
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.append",
+          "lineNumber": 280
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .attr(\"width\", ({ width }) => width)\n          .attr(\"height\", ({ height }) => height)\n          .attr(\"x\", 0)\n          .attr(\"y\", 0)\n          .attr(\n            \"fill\",\n            fragmentStats\n              ? ({ id }) => {\n                  const fragmentId = parseInt(id)\n                  if (isNaN(fragmentId) || !fragmentStats[fragmentId]) {\n                    return \"white\"\n                  }\n                  let currentMs = epochToUnixMillis(\n                    fragmentStats[fragmentId].currentEpoch\n                  )\n                  return latencyToColor(now_ms - currentMs, \"white\")\n                }\n              : \"white\"\n          )\n          .attr(\"stroke-width\", ({ id }) => (isSelected(id) ? 3 : 1))\n          .attr(\"rx\", 5)\n          .attr",
+          "lineNumber": 283
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .attr(\"width\", ({ width }) => width)\n          .attr(\"height\", ({ height }) => height)\n          .attr(\"x\", 0)\n          .attr(\"y\", 0)\n          .attr(\n            \"fill\",\n            fragmentStats\n              ? ({ id }) => {\n                  const fragmentId = parseInt(id)\n                  if (isNaN(fragmentId) || !fragmentStats[fragmentId]) {\n                    return \"white\"\n                  }\n                  let currentMs = epochToUnixMillis(\n                    fragmentStats[fragmentId].currentEpoch\n                  )\n                  return latencyToColor(now_ms - currentMs, \"white\")\n                }\n              : \"white\"\n          )\n          .attr(\"stroke-width\", ({ id }) => (isSelected(id) ? 3 : 1))\n          .attr",
+          "lineNumber": 283
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .attr(\"width\", ({ width }) => width)\n          .attr(\"height\", ({ height }) => height)\n          .attr(\"x\", 0)\n          .attr(\"y\", 0)\n          .attr(\n            \"fill\",\n            fragmentStats\n              ? ({ id }) => {\n                  const fragmentId = parseInt(id)\n                  if (isNaN(fragmentId) || !fragmentStats[fragmentId]) {\n                    return \"white\"\n                  }\n                  let currentMs = epochToUnixMillis(\n                    fragmentStats[fragmentId].currentEpoch\n                  )\n                  return latencyToColor(now_ms - currentMs, \"white\")\n                }\n              : \"white\"\n          )\n          .attr",
+          "lineNumber": 283
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .attr(\"width\", ({ width }) => width)\n          .attr(\"height\", ({ height }) => height)\n          .attr(\"x\", 0)\n          .attr(\"y\", 0)\n          .attr",
+          "lineNumber": 283
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .attr(\"width\", ({ width }) => width)\n          .attr(\"height\", ({ height }) => height)\n          .attr(\"x\", 0)\n          .attr",
+          "lineNumber": 283
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .attr(\"width\", ({ width }) => width)\n          .attr(\"height\", ({ height }) => height)\n          .attr",
+          "lineNumber": 283
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .attr(\"width\", ({ width }) => width)\n          .attr",
+          "lineNumber": 283
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .attr",
+          "lineNumber": 283
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "parseInt",
+          "lineNumber": 292
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "isNaN",
+          "lineNumber": 293
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "epochToUnixMillis",
+          "lineNumber": 296
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "latencyToColor",
+          "lineNumber": 299
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "isSelected",
+          "lineNumber": 303
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "isSelected",
+          "lineNumber": 306
+        },
+        {
+          "caller": "getTooltipContent",
+          "callee": "parseInt",
+          "lineNumber": 310
+        },
+        {
+          "caller": "getTooltipContent",
+          "callee": "((now_ms - epochToUnixMillis(stats.currentEpoch)) / 1000).toFixed",
+          "lineNumber": 313
+        },
+        {
+          "caller": "getTooltipContent",
+          "callee": "epochToUnixMillis",
+          "lineNumber": 313
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .on(\"mouseover\", (event, { id }) => {\n            // Remove existing tooltip if any\n            d3.selectAll(\".tooltip\").remove()\n\n            // Create new tooltip\n            d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style(\"top\", event.pageY + 10 + \"px\")\n              .style(\"font-size\", \"12px\")\n              .html(getTooltipContent(id))\n          })\n          .on(\"mousemove\", (event) => {\n            d3.select(\".tooltip\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style(\"top\", event.pageY + 10 + \"px\")\n          })\n          .on",
+          "lineNumber": 322
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .on(\"mouseover\", (event, { id }) => {\n            // Remove existing tooltip if any\n            d3.selectAll(\".tooltip\").remove()\n\n            // Create new tooltip\n            d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style(\"top\", event.pageY + 10 + \"px\")\n              .style(\"font-size\", \"12px\")\n              .html(getTooltipContent(id))\n          })\n          .on",
+          "lineNumber": 322
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "boundingBox\n          .on",
+          "lineNumber": 322
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.selectAll(\".tooltip\").remove",
+          "lineNumber": 325
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.selectAll",
+          "lineNumber": 325
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style(\"top\", event.pageY + 10 + \"px\")\n              .style(\"font-size\", \"12px\")\n              .html",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style(\"top\", event.pageY + 10 + \"px\")\n              .style",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\"body\")\n              .append",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select",
+          "lineNumber": 328
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "getTooltipContent",
+          "lineNumber": 340
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\".tooltip\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style",
+          "lineNumber": 343
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select(\".tooltip\")\n              .style",
+          "lineNumber": 343
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.select",
+          "lineNumber": 343
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.selectAll(\".tooltip\").remove",
+          "lineNumber": 348
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "d3.selectAll",
+          "lineNumber": 348
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.select",
+          "lineNumber": 352
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "edgeSelection.empty",
+          "lineNumber": 353
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.append(\"g\").attr",
+          "lineNumber": 354
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.append",
+          "lineNumber": 354
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel.attr",
+          "lineNumber": 357
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel\n            .append(\"path\")\n            .attr(\"fill\", \"none\")\n            .attr(\"stroke\", theme.colors.gray[700])\n            .attr(\"stroke-width\", 1.5)\n            .call",
+          "lineNumber": 360
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel\n            .append(\"path\")\n            .attr(\"fill\", \"none\")\n            .attr(\"stroke\", theme.colors.gray[700])\n            .attr",
+          "lineNumber": 360
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel\n            .append(\"path\")\n            .attr(\"fill\", \"none\")\n            .attr",
+          "lineNumber": 360
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel\n            .append(\"path\")\n            .attr",
+          "lineNumber": 360
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel\n            .append",
+          "lineNumber": 360
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "edgeSelection\n          .selectAll<SVGPathElement, null>(\"path\")\n          .data",
+          "lineNumber": 369
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "edgeSelection\n          .selectAll",
+          "lineNumber": 369
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "layoutRoot.links",
+          "lineNumber": 371
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "edges.enter().call",
+          "lineNumber": 374
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "edges.enter",
+          "lineNumber": 374
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "edges.call",
+          "lineNumber": 375
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "edges.exit().remove",
+          "lineNumber": 376
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "edges.exit",
+          "lineNumber": 376
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.select",
+          "lineNumber": 379
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "nodes.empty",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.append(\"g\").attr",
+          "lineNumber": 381
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "gSel.append",
+          "lineNumber": 381
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "g.attr",
+          "lineNumber": 385
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "g.select",
+          "lineNumber": 388
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "circle.empty",
+          "lineNumber": 389
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "g.append",
+          "lineNumber": 390
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "circle\n            .attr(\"fill\", theme.colors.blue[500])\n            .attr(\"r\", nodeRadius)\n            .style(\"cursor\", \"pointer\")\n            .on",
+          "lineNumber": 393
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "circle\n            .attr(\"fill\", theme.colors.blue[500])\n            .attr(\"r\", nodeRadius)\n            .style",
+          "lineNumber": 393
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "circle\n            .attr(\"fill\", theme.colors.blue[500])\n            .attr",
+          "lineNumber": 393
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "circle\n            .attr",
+          "lineNumber": 393
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "openPlanNodeDetail",
+          "lineNumber": 397
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "g.select",
+          "lineNumber": 400
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "text.empty",
+          "lineNumber": 401
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "g.append",
+          "lineNumber": 402
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "text\n            .attr(\"fill\", \"black\")\n            .text((d) => d.data.name)\n            .attr(\"font-family\", \"inherit\")\n            .attr(\"text-anchor\", \"middle\")\n            .attr(\"dy\", nodeRadius * 1.8)\n            .attr(\"fill\", \"black\")\n            .attr(\"font-size\", 12)\n            .attr",
+          "lineNumber": 405
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "text\n            .attr(\"fill\", \"black\")\n            .text((d) => d.data.name)\n            .attr(\"font-family\", \"inherit\")\n            .attr(\"text-anchor\", \"middle\")\n            .attr(\"dy\", nodeRadius * 1.8)\n            .attr(\"fill\", \"black\")\n            .attr",
+          "lineNumber": 405
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "text\n            .attr(\"fill\", \"black\")\n            .text((d) => d.data.name)\n            .attr(\"font-family\", \"inherit\")\n            .attr(\"text-anchor\", \"middle\")\n            .attr(\"dy\", nodeRadius * 1.8)\n            .attr",
+          "lineNumber": 405
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "text\n            .attr(\"fill\", \"black\")\n            .text((d) => d.data.name)\n            .attr(\"font-family\", \"inherit\")\n            .attr(\"text-anchor\", \"middle\")\n            .attr",
+          "lineNumber": 405
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "text\n            .attr(\"fill\", \"black\")\n            .text((d) => d.data.name)\n            .attr(\"font-family\", \"inherit\")\n            .attr",
+          "lineNumber": 405
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "text\n            .attr(\"fill\", \"black\")\n            .text((d) => d.data.name)\n            .attr",
+          "lineNumber": 405
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "text\n            .attr(\"fill\", \"black\")\n            .text",
+          "lineNumber": 405
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "text\n            .attr",
+          "lineNumber": 405
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "g.select",
+          "lineNumber": 416
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "title.empty",
+          "lineNumber": 417
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "g.append",
+          "lineNumber": 418
+        },
+        {
+          "caller": "applyStreamNode",
+          "callee": "title.text",
+          "lineNumber": 421
+        },
+        {
+          "caller": "createStreamNode",
+          "callee": "sel.append(\"g\").attr(\"class\", \"stream-node\").call",
+          "lineNumber": 427
+        },
+        {
+          "caller": "createStreamNode",
+          "callee": "sel.append(\"g\").attr",
+          "lineNumber": 427
+        },
+        {
+          "caller": "createStreamNode",
+          "callee": "sel.append",
+          "lineNumber": 427
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "nodes\n          .selectAll<SVGGElement, null>(\".stream-node\")\n          .data",
+          "lineNumber": 429
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "nodes\n          .selectAll",
+          "lineNumber": 429
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "layoutRoot.descendants",
+          "lineNumber": 431
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "streamNodeSelection.exit().remove",
+          "lineNumber": 434
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "streamNodeSelection.exit",
+          "lineNumber": 434
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "streamNodeSelection.enter().call",
+          "lineNumber": 435
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "streamNodeSelection.enter",
+          "lineNumber": 435
+        },
+        {
+          "caller": "applyFragment",
+          "callee": "streamNodeSelection.call",
+          "lineNumber": 436
+        },
+        {
+          "caller": "createFragment",
+          "callee": "sel.append(\"g\").attr(\"class\", \"fragment\").call",
+          "lineNumber": 440
+        },
+        {
+          "caller": "createFragment",
+          "callee": "sel.append(\"g\").attr",
+          "lineNumber": 440
+        },
+        {
+          "caller": "createFragment",
+          "callee": "sel.append",
+          "lineNumber": 440
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "svgSelection\n        .select<SVGGElement>(\".fragments\")\n        .selectAll<SVGGElement, null>(\".fragment\")\n        .data",
+          "lineNumber": 442
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "svgSelection\n        .select<SVGGElement>(\".fragments\")\n        .selectAll",
+          "lineNumber": 442
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "svgSelection\n        .select",
+          "lineNumber": 442
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "fragmentSelection.enter().call",
+          "lineNumber": 448
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "fragmentSelection.enter",
+          "lineNumber": 448
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "fragmentSelection.call",
+          "lineNumber": 449
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "fragmentSelection.exit().remove",
+          "lineNumber": 450
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "fragmentSelection.exit",
+          "lineNumber": 450
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "svgSelection\n        .select<SVGGElement>(\".fragment-edges\")\n        .selectAll<SVGGElement, null>(\".fragment-edge\")\n        .data",
+          "lineNumber": 453
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "svgSelection\n        .select<SVGGElement>(\".fragment-edges\")\n        .selectAll",
+          "lineNumber": 453
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "svgSelection\n        .select",
+          "lineNumber": 453
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "d3\n        .line<Position>()\n        .curve(curveStyle)\n        .x(({ x }) => x)\n        .y",
+          "lineNumber": 461
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "d3\n        .line<Position>()\n        .curve(curveStyle)\n        .x",
+          "lineNumber": 461
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "d3\n        .line<Position>()\n        .curve",
+          "lineNumber": 461
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "d3\n        .line",
+          "lineNumber": 461
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "gSel.select",
+          "lineNumber": 469
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "path.empty",
+          "lineNumber": 470
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "gSel.append",
+          "lineNumber": 471
+        },
+        {
+          "caller": "isEdgeSelected",
+          "callee": "isSelected",
+          "lineNumber": 475
+        },
+        {
+          "caller": "isEdgeSelected",
+          "callee": "isSelected",
+          "lineNumber": 475
+        },
+        {
+          "caller": "color",
+          "callee": "channelStats.get",
+          "lineNumber": 479
+        },
+        {
+          "caller": "color",
+          "callee": "backPressureColor",
+          "lineNumber": 483
+        },
+        {
+          "caller": "color",
+          "callee": "isEdgeSelected",
+          "lineNumber": 487
+        },
+        {
+          "caller": "width",
+          "callee": "channelStats.get",
+          "lineNumber": 494
+        },
+        {
+          "caller": "width",
+          "callee": "backPressureWidth",
+          "lineNumber": 498
+        },
+        {
+          "caller": "width",
+          "callee": "isEdgeSelected",
+          "lineNumber": 502
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "path\n          .attr(\"d\", ({ points }) => line(points))\n          .attr(\"fill\", \"none\")\n          .attr(\"stroke-width\", width)\n          .attr",
+          "lineNumber": 505
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "path\n          .attr(\"d\", ({ points }) => line(points))\n          .attr(\"fill\", \"none\")\n          .attr",
+          "lineNumber": 505
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "path\n          .attr(\"d\", ({ points }) => line(points))\n          .attr",
+          "lineNumber": 505
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "path\n          .attr",
+          "lineNumber": 505
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "line",
+          "lineNumber": 506
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "path\n          .on(\"mouseover\", (event, d) => {\n            // Remove existing tooltip if any\n            d3.selectAll(\".tooltip\").remove()\n\n            // Create new tooltip\n            const stats = channelStats?.get(`${d.source}_${d.target}`)\n            const tooltipText = `<b>Fragment ${d.source} → ${\n              d.target\n            }</b><br>Backpressure: ${\n              stats?.backpressureRate != null\n                ? `${(stats.backpressureRate * 100).toFixed(2)}%`\n                : \"N/A\"\n            }<br>Recv Throughput: ${\n              stats?.recvThroughput != null\n                ? `${stats.recvThroughput.toFixed(2)} rows/s`\n                : \"N/A\"\n            }<br>Send Throughput: ${\n              stats?.sendThroughput != null\n                ? `${stats.sendThroughput.toFixed(2)} rows/s`\n                : \"N/A\"\n            }`\n            d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style(\"top\", event.pageY + 10 + \"px\")\n              .style(\"font-size\", \"12px\")\n              .html(tooltipText)\n          })\n          .on(\"mousemove\", (event) => {\n            d3.select(\".tooltip\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style(\"top\", event.pageY + 10 + \"px\")\n          })\n          .on",
+          "lineNumber": 511
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "path\n          .on(\"mouseover\", (event, d) => {\n            // Remove existing tooltip if any\n            d3.selectAll(\".tooltip\").remove()\n\n            // Create new tooltip\n            const stats = channelStats?.get(`${d.source}_${d.target}`)\n            const tooltipText = `<b>Fragment ${d.source} → ${\n              d.target\n            }</b><br>Backpressure: ${\n              stats?.backpressureRate != null\n                ? `${(stats.backpressureRate * 100).toFixed(2)}%`\n                : \"N/A\"\n            }<br>Recv Throughput: ${\n              stats?.recvThroughput != null\n                ? `${stats.recvThroughput.toFixed(2)} rows/s`\n                : \"N/A\"\n            }<br>Send Throughput: ${\n              stats?.sendThroughput != null\n                ? `${stats.sendThroughput.toFixed(2)} rows/s`\n                : \"N/A\"\n            }`\n            d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style(\"top\", event.pageY + 10 + \"px\")\n              .style(\"font-size\", \"12px\")\n              .html(tooltipText)\n          })\n          .on",
+          "lineNumber": 511
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "path\n          .on",
+          "lineNumber": 511
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.selectAll(\".tooltip\").remove",
+          "lineNumber": 514
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.selectAll",
+          "lineNumber": 514
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "channelStats?.get",
+          "lineNumber": 517
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "(stats.backpressureRate * 100).toFixed",
+          "lineNumber": 522
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "stats.recvThroughput.toFixed",
+          "lineNumber": 526
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "stats.sendThroughput.toFixed",
+          "lineNumber": 530
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style(\"top\", event.pageY + 10 + \"px\")\n              .style(\"font-size\", \"12px\")\n              .html",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style(\"top\", event.pageY + 10 + \"px\")\n              .style",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style(\"pointer-events\", \"none\")\n              .style",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style(\"border-radius\", \"4px\")\n              .style",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style(\"border\", \"1px solid #ddd\")\n              .style",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style(\"padding\", \"10px\")\n              .style",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style(\"background\", \"white\")\n              .style",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style(\"position\", \"absolute\")\n              .style",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr(\"class\", \"tooltip\")\n              .style",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append(\"div\")\n              .attr",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n              .append",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select",
+          "lineNumber": 533
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\".tooltip\")\n              .style(\"left\", event.pageX + 10 + \"px\")\n              .style",
+          "lineNumber": 548
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\".tooltip\")\n              .style",
+          "lineNumber": 548
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select",
+          "lineNumber": 548
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.selectAll(\".tooltip\").remove",
+          "lineNumber": 553
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.selectAll",
+          "lineNumber": 553
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel.append(\"g\").attr(\"class\", \"fragment-edge\").call",
+          "lineNumber": 559
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel.append(\"g\").attr",
+          "lineNumber": 559
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel.append",
+          "lineNumber": 559
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "edgeSelection.enter().call",
+          "lineNumber": 561
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "edgeSelection.enter",
+          "lineNumber": 561
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "edgeSelection.call",
+          "lineNumber": 562
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "edgeSelection.exit().remove",
+          "lineNumber": 563
+        },
+        {
+          "caller": "FragmentGraph",
+          "callee": "edgeSelection.exit",
+          "lineNumber": 563
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/GraphvizComponent.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "GraphvizComponent",
+          "startLine": 10,
+          "endLine": 48,
+          "params": [
+            "{\n  dot,\n  width = 1200,\n  height = 800,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "GraphvizComponent",
+          "line": 10,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "GraphvizComponent",
+          "callee": "useRef",
+          "lineNumber": 15
+        },
+        {
+          "caller": "GraphvizComponent",
+          "callee": "useState",
+          "lineNumber": 16
+        },
+        {
+          "caller": "GraphvizComponent",
+          "callee": "useEffect",
+          "lineNumber": 19
+        },
+        {
+          "caller": "GraphvizComponent",
+          "callee": "Graphviz.load().then",
+          "lineNumber": 20
+        },
+        {
+          "caller": "GraphvizComponent",
+          "callee": "Graphviz.load",
+          "lineNumber": 20
+        },
+        {
+          "caller": "GraphvizComponent",
+          "callee": "useEffect",
+          "lineNumber": 24
+        },
+        {
+          "caller": "GraphvizComponent",
+          "callee": "graphviz.dot",
+          "lineNumber": 28
+        },
+        {
+          "caller": "GraphvizComponent",
+          "callee": "console.error",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/Layout.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 183,
+      "nonEmptyLines": 173,
+      "functions": [
+        {
+          "name": "NavButton",
+          "startLine": 40,
+          "endLine": 82,
+          "params": [
+            "{\n  href,\n  children,\n  leftIcon,\n  leftIconActive,\n  external,\n}"
+          ]
+        },
+        {
+          "name": "NavTitle",
+          "startLine": 84,
+          "endLine": 90,
+          "params": [
+            "{ children }"
+          ]
+        },
+        {
+          "name": "Section",
+          "startLine": 92,
+          "endLine": 98,
+          "params": [
+            "{ children }"
+          ]
+        },
+        {
+          "name": "Layout",
+          "startLine": 100,
+          "endLine": 181,
+          "params": [
+            "{ children }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NAVBAR_WIDTH",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NavButton",
+          "callee": "useRouter",
+          "lineNumber": 53
+        },
+        {
+          "caller": "NavButton",
+          "callee": "useState",
+          "lineNumber": 54
+        },
+        {
+          "caller": "NavButton",
+          "callee": "useEffect",
+          "lineNumber": 56
+        },
+        {
+          "caller": "NavButton",
+          "callee": "setMatch",
+          "lineNumber": 57
+        },
+        {
+          "caller": "NavButton",
+          "callee": "router.asPath.startsWith",
+          "lineNumber": 57
+        },
+        {
+          "caller": "NavButton",
+          "callee": "href.toString",
+          "lineNumber": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/NoData.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "NoData",
+          "startLine": 20,
+          "endLine": 26,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/RelationGraph.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 443,
+      "nonEmptyLines": 391,
+      "functions": [
+        {
+          "name": "boundBox",
+          "startLine": 60,
+          "endLine": 71,
+          "params": [
+            "relationPosition"
+          ]
+        },
+        {
+          "name": "RelationGraph",
+          "startLine": 73,
+          "endLine": 443,
+          "params": [
+            "{\n  nodes,\n  selectedId,\n  setSelectedId,\n  channelStats,\n  relationStats,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "boxWidth",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "boxHeight",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "RelationGraph",
+          "line": 73,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "boundBox",
+          "callee": "Math.max",
+          "lineNumber": 67
+        },
+        {
+          "caller": "boundBox",
+          "callee": "Math.max",
+          "lineNumber": 68
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "useCatalogModal",
+          "lineNumber": 86
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "nodes.map",
+          "lineNumber": 86
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "useRef",
+          "lineNumber": 88
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "useCallback",
+          "lineNumber": 90
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g.setGraph",
+          "lineNumber": 95
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g.setDefaultEdgeLabel",
+          "lineNumber": 104
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "nodes.forEach",
+          "lineNumber": 107
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g.setNode",
+          "lineNumber": 108
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "nodes.forEach",
+          "lineNumber": 112
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "node.parentIds?.forEach",
+          "lineNumber": 113
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g.setEdge",
+          "lineNumber": 114
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "dagre.layout",
+          "lineNumber": 119
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g.nodes().map",
+          "lineNumber": 122
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g.nodes",
+          "lineNumber": 122
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g.node",
+          "lineNumber": 123
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g.edges().map",
+          "lineNumber": 131
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g.edges",
+          "lineNumber": 131
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g.edge",
+          "lineNumber": 132
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "boundBox",
+          "lineNumber": 141
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "layoutMapCallback",
+          "lineNumber": 151
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "useEffect",
+          "lineNumber": 153
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "Date.now",
+          "lineNumber": 154
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "d3.select",
+          "lineNumber": 156
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "d3\n      .line<Position>()\n      .curve(curveStyle)\n      .x(({ x }) => x)\n      .y",
+          "lineNumber": 160
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "d3\n      .line<Position>()\n      .curve(curveStyle)\n      .x",
+          "lineNumber": 160
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "d3\n      .line<Position>()\n      .curve",
+          "lineNumber": 160
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "d3\n      .line",
+          "lineNumber": 160
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "svgSelection\n      .select(\".edges\")\n      .selectAll<SVGPathElement, null>(\".edge\")\n      .data",
+          "lineNumber": 166
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "svgSelection\n      .select(\".edges\")\n      .selectAll",
+          "lineNumber": 166
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "svgSelection\n      .select",
+          "lineNumber": 166
+        },
+        {
+          "caller": "color",
+          "callee": "channelStats.get",
+          "lineNumber": 177
+        },
+        {
+          "caller": "color",
+          "callee": "backPressureColor",
+          "lineNumber": 179
+        },
+        {
+          "caller": "width",
+          "callee": "channelStats.get",
+          "lineNumber": 188
+        },
+        {
+          "caller": "width",
+          "callee": "backPressureWidth",
+          "lineNumber": 190
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .attr(\"d\", ({ points }) => line(points))\n        .attr(\"fill\", \"none\")\n        .attr(\"stroke-width\", width)\n        .attr(\"stroke\", color)\n        .attr",
+          "lineNumber": 196
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .attr(\"d\", ({ points }) => line(points))\n        .attr(\"fill\", \"none\")\n        .attr(\"stroke-width\", width)\n        .attr",
+          "lineNumber": 196
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .attr(\"d\", ({ points }) => line(points))\n        .attr(\"fill\", \"none\")\n        .attr",
+          "lineNumber": 196
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .attr(\"d\", ({ points }) => line(points))\n        .attr",
+          "lineNumber": 196
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .attr",
+          "lineNumber": 196
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "line",
+          "lineNumber": 197
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "isSelected",
+          "lineNumber": 202
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "isSelected",
+          "lineNumber": 202
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .on(\"mouseover\", (event, d) => {\n          // Remove existing tooltip if any\n          d3.selectAll(\".tooltip\").remove()\n\n          // Create new tooltip\n          const stats = channelStats?.get(`${d.source}_${d.target}`)\n          const tooltipText = `<b>Relation ${d.source} → ${\n            d.target\n          }</b><br>Backpressure: ${\n            stats != null\n              ? `${(stats.backpressureRate * 100).toFixed(2)}%`\n              : \"N/A\"\n          }<br>Recv Throughput: ${\n            stats != null ? `${stats.recvThroughput.toFixed(2)} rows/s` : \"N/A\"\n          }<br>Send Throughput: ${\n            stats != null ? `${stats.sendThroughput.toFixed(2)} rows/s` : \"N/A\"\n          }`\n          d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style(\"background\", \"white\")\n            .style(\"padding\", \"10px\")\n            .style(\"border\", \"1px solid #ddd\")\n            .style(\"border-radius\", \"4px\")\n            .style(\"pointer-events\", \"none\")\n            .style(\"left\", event.pageX + 10 + \"px\")\n            .style(\"top\", event.pageY + 10 + \"px\")\n            .style(\"font-size\", \"12px\")\n            .html(tooltipText)\n        })\n        .on(\"mousemove\", (event) => {\n          d3.select(\".tooltip\")\n            .style(\"left\", event.pageX + 10 + \"px\")\n            .style(\"top\", event.pageY + 10 + \"px\")\n        })\n        .on",
+          "lineNumber": 205
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .on(\"mouseover\", (event, d) => {\n          // Remove existing tooltip if any\n          d3.selectAll(\".tooltip\").remove()\n\n          // Create new tooltip\n          const stats = channelStats?.get(`${d.source}_${d.target}`)\n          const tooltipText = `<b>Relation ${d.source} → ${\n            d.target\n          }</b><br>Backpressure: ${\n            stats != null\n              ? `${(stats.backpressureRate * 100).toFixed(2)}%`\n              : \"N/A\"\n          }<br>Recv Throughput: ${\n            stats != null ? `${stats.recvThroughput.toFixed(2)} rows/s` : \"N/A\"\n          }<br>Send Throughput: ${\n            stats != null ? `${stats.sendThroughput.toFixed(2)} rows/s` : \"N/A\"\n          }`\n          d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style(\"background\", \"white\")\n            .style(\"padding\", \"10px\")\n            .style(\"border\", \"1px solid #ddd\")\n            .style(\"border-radius\", \"4px\")\n            .style(\"pointer-events\", \"none\")\n            .style(\"left\", event.pageX + 10 + \"px\")\n            .style(\"top\", event.pageY + 10 + \"px\")\n            .style(\"font-size\", \"12px\")\n            .html(tooltipText)\n        })\n        .on",
+          "lineNumber": 205
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "sel\n        .on",
+          "lineNumber": 205
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.selectAll(\".tooltip\").remove",
+          "lineNumber": 208
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.selectAll",
+          "lineNumber": 208
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "channelStats?.get",
+          "lineNumber": 211
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "(stats.backpressureRate * 100).toFixed",
+          "lineNumber": 216
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "stats.recvThroughput.toFixed",
+          "lineNumber": 219
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "stats.sendThroughput.toFixed",
+          "lineNumber": 221
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style(\"background\", \"white\")\n            .style(\"padding\", \"10px\")\n            .style(\"border\", \"1px solid #ddd\")\n            .style(\"border-radius\", \"4px\")\n            .style(\"pointer-events\", \"none\")\n            .style(\"left\", event.pageX + 10 + \"px\")\n            .style(\"top\", event.pageY + 10 + \"px\")\n            .style(\"font-size\", \"12px\")\n            .html",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style(\"background\", \"white\")\n            .style(\"padding\", \"10px\")\n            .style(\"border\", \"1px solid #ddd\")\n            .style(\"border-radius\", \"4px\")\n            .style(\"pointer-events\", \"none\")\n            .style(\"left\", event.pageX + 10 + \"px\")\n            .style(\"top\", event.pageY + 10 + \"px\")\n            .style",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style(\"background\", \"white\")\n            .style(\"padding\", \"10px\")\n            .style(\"border\", \"1px solid #ddd\")\n            .style(\"border-radius\", \"4px\")\n            .style(\"pointer-events\", \"none\")\n            .style(\"left\", event.pageX + 10 + \"px\")\n            .style",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style(\"background\", \"white\")\n            .style(\"padding\", \"10px\")\n            .style(\"border\", \"1px solid #ddd\")\n            .style(\"border-radius\", \"4px\")\n            .style(\"pointer-events\", \"none\")\n            .style",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style(\"background\", \"white\")\n            .style(\"padding\", \"10px\")\n            .style(\"border\", \"1px solid #ddd\")\n            .style(\"border-radius\", \"4px\")\n            .style",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style(\"background\", \"white\")\n            .style(\"padding\", \"10px\")\n            .style(\"border\", \"1px solid #ddd\")\n            .style",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style(\"background\", \"white\")\n            .style(\"padding\", \"10px\")\n            .style",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style(\"background\", \"white\")\n            .style",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style(\"position\", \"absolute\")\n            .style",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr(\"class\", \"tooltip\")\n            .style",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append(\"div\")\n            .attr",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\"body\")\n            .append",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select",
+          "lineNumber": 223
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\".tooltip\")\n            .style(\"left\", event.pageX + 10 + \"px\")\n            .style",
+          "lineNumber": 238
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select(\".tooltip\")\n            .style",
+          "lineNumber": 238
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.select",
+          "lineNumber": 238
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.selectAll(\".tooltip\").remove",
+          "lineNumber": 243
+        },
+        {
+          "caller": "applyEdge",
+          "callee": "d3.selectAll",
+          "lineNumber": 243
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel.append(\"path\").attr(\"class\", \"edge\").call",
+          "lineNumber": 250
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel.append(\"path\").attr",
+          "lineNumber": 250
+        },
+        {
+          "caller": "createEdge",
+          "callee": "sel.append",
+          "lineNumber": 250
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "edgeSelection.exit().remove",
+          "lineNumber": 251
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "edgeSelection.exit",
+          "lineNumber": 251
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "edgeSelection.enter().call",
+          "lineNumber": 252
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "edgeSelection.enter",
+          "lineNumber": 252
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "edgeSelection.call",
+          "lineNumber": 253
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.attr",
+          "lineNumber": 256
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.select",
+          "lineNumber": 259
+        },
+        {
+          "caller": "applyNode",
+          "callee": "rect.empty",
+          "lineNumber": 260
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.append",
+          "lineNumber": 261
+        },
+        {
+          "caller": "applyNode",
+          "callee": "rect\n        .attr(\"width\", boxWidth)\n        .attr(\"height\", boxHeight)\n        .attr(\"rx\", 6) // rounded corners\n        .attr(\"ry\", 6)\n        .attr(\"fill\", \"white\")\n        .attr(\"stroke\", ({ id }) =>\n          isSelected(id) ? theme.colors.blue[\"500\"] : theme.colors.gray[\"200\"]\n        )\n        .attr",
+          "lineNumber": 263
+        },
+        {
+          "caller": "applyNode",
+          "callee": "rect\n        .attr(\"width\", boxWidth)\n        .attr(\"height\", boxHeight)\n        .attr(\"rx\", 6) // rounded corners\n        .attr(\"ry\", 6)\n        .attr(\"fill\", \"white\")\n        .attr",
+          "lineNumber": 263
+        },
+        {
+          "caller": "applyNode",
+          "callee": "rect\n        .attr(\"width\", boxWidth)\n        .attr(\"height\", boxHeight)\n        .attr(\"rx\", 6) // rounded corners\n        .attr(\"ry\", 6)\n        .attr",
+          "lineNumber": 263
+        },
+        {
+          "caller": "applyNode",
+          "callee": "rect\n        .attr(\"width\", boxWidth)\n        .attr(\"height\", boxHeight)\n        .attr(\"rx\", 6) // rounded corners\n        .attr",
+          "lineNumber": 263
+        },
+        {
+          "caller": "applyNode",
+          "callee": "rect\n        .attr(\"width\", boxWidth)\n        .attr(\"height\", boxHeight)\n        .attr",
+          "lineNumber": 263
+        },
+        {
+          "caller": "applyNode",
+          "callee": "rect\n        .attr(\"width\", boxWidth)\n        .attr",
+          "lineNumber": 263
+        },
+        {
+          "caller": "applyNode",
+          "callee": "rect\n        .attr",
+          "lineNumber": 263
+        },
+        {
+          "caller": "applyNode",
+          "callee": "isSelected",
+          "lineNumber": 270
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.select",
+          "lineNumber": 275
+        },
+        {
+          "caller": "applyNode",
+          "callee": "circle.empty",
+          "lineNumber": 276
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.append",
+          "lineNumber": 277
+        },
+        {
+          "caller": "applyNode",
+          "callee": "circle\n        .attr(\"cx\", iconRadius + 10) // position circle in left part of box\n        .attr(\"cy\", boxHeight / 2)\n        .attr(\"r\", iconRadius)\n        .attr",
+          "lineNumber": 279
+        },
+        {
+          "caller": "applyNode",
+          "callee": "circle\n        .attr(\"cx\", iconRadius + 10) // position circle in left part of box\n        .attr(\"cy\", boxHeight / 2)\n        .attr",
+          "lineNumber": 279
+        },
+        {
+          "caller": "applyNode",
+          "callee": "circle\n        .attr(\"cx\", iconRadius + 10) // position circle in left part of box\n        .attr",
+          "lineNumber": 279
+        },
+        {
+          "caller": "applyNode",
+          "callee": "circle\n        .attr",
+          "lineNumber": 279
+        },
+        {
+          "caller": "applyNode",
+          "callee": "relationIsStreamingJob",
+          "lineNumber": 284
+        },
+        {
+          "caller": "applyNode",
+          "callee": "isSelected",
+          "lineNumber": 285
+        },
+        {
+          "caller": "applyNode",
+          "callee": "parseInt",
+          "lineNumber": 289
+        },
+        {
+          "caller": "applyNode",
+          "callee": "isNaN",
+          "lineNumber": 290
+        },
+        {
+          "caller": "applyNode",
+          "callee": "epochToUnixMillis",
+          "lineNumber": 291
+        },
+        {
+          "caller": "applyNode",
+          "callee": "latencyToColor",
+          "lineNumber": 294
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.select",
+          "lineNumber": 301
+        },
+        {
+          "caller": "applyNode",
+          "callee": "typeText.empty",
+          "lineNumber": 302
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.append(\"text\").attr",
+          "lineNumber": 303
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.append",
+          "lineNumber": 303
+        },
+        {
+          "caller": "relationTypeAbbr",
+          "callee": "relationType",
+          "lineNumber": 307
+        },
+        {
+          "caller": "relationTypeAbbr",
+          "callee": "type.charAt",
+          "lineNumber": 311
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.select",
+          "lineNumber": 316
+        },
+        {
+          "caller": "applyNode",
+          "callee": "clipPath.empty",
+          "lineNumber": 317
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g\n          .append(\"clipPath\")\n          .attr(\"class\", \"clip-path\")\n          .attr",
+          "lineNumber": 318
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g\n          .append(\"clipPath\")\n          .attr",
+          "lineNumber": 318
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g\n          .append",
+          "lineNumber": 318
+        },
+        {
+          "caller": "applyNode",
+          "callee": "clipPath.append",
+          "lineNumber": 322
+        },
+        {
+          "caller": "applyNode",
+          "callee": "clipPath\n        .select(\"rect\")\n        .attr(\"width\", boxWidth - (iconRadius * 2 + 20)) // Leave space for icon\n        .attr(\"height\", boxHeight)\n        .attr(\"x\", iconRadius * 2 + 15)\n        .attr",
+          "lineNumber": 324
+        },
+        {
+          "caller": "applyNode",
+          "callee": "clipPath\n        .select(\"rect\")\n        .attr(\"width\", boxWidth - (iconRadius * 2 + 20)) // Leave space for icon\n        .attr(\"height\", boxHeight)\n        .attr",
+          "lineNumber": 324
+        },
+        {
+          "caller": "applyNode",
+          "callee": "clipPath\n        .select(\"rect\")\n        .attr(\"width\", boxWidth - (iconRadius * 2 + 20)) // Leave space for icon\n        .attr",
+          "lineNumber": 324
+        },
+        {
+          "caller": "applyNode",
+          "callee": "clipPath\n        .select(\"rect\")\n        .attr",
+          "lineNumber": 324
+        },
+        {
+          "caller": "applyNode",
+          "callee": "clipPath\n        .select",
+          "lineNumber": 324
+        },
+        {
+          "caller": "applyNode",
+          "callee": "typeText\n        .attr(\"fill\", \"white\")\n        .text(({ relation }) => `${relationTypeAbbr(relation)}`)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"text-anchor\", \"middle\")\n        .attr(\"x\", iconRadius + 10)\n        .attr(\"y\", boxHeight / 2)\n        .attr(\"dy\", \"0.35em\") // vertical alignment\n        .attr(\"font-size\", 16)\n        .attr",
+          "lineNumber": 331
+        },
+        {
+          "caller": "applyNode",
+          "callee": "typeText\n        .attr(\"fill\", \"white\")\n        .text(({ relation }) => `${relationTypeAbbr(relation)}`)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"text-anchor\", \"middle\")\n        .attr(\"x\", iconRadius + 10)\n        .attr(\"y\", boxHeight / 2)\n        .attr(\"dy\", \"0.35em\") // vertical alignment\n        .attr",
+          "lineNumber": 331
+        },
+        {
+          "caller": "applyNode",
+          "callee": "typeText\n        .attr(\"fill\", \"white\")\n        .text(({ relation }) => `${relationTypeAbbr(relation)}`)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"text-anchor\", \"middle\")\n        .attr(\"x\", iconRadius + 10)\n        .attr(\"y\", boxHeight / 2)\n        .attr",
+          "lineNumber": 331
+        },
+        {
+          "caller": "applyNode",
+          "callee": "typeText\n        .attr(\"fill\", \"white\")\n        .text(({ relation }) => `${relationTypeAbbr(relation)}`)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"text-anchor\", \"middle\")\n        .attr(\"x\", iconRadius + 10)\n        .attr",
+          "lineNumber": 331
+        },
+        {
+          "caller": "applyNode",
+          "callee": "typeText\n        .attr(\"fill\", \"white\")\n        .text(({ relation }) => `${relationTypeAbbr(relation)}`)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"text-anchor\", \"middle\")\n        .attr",
+          "lineNumber": 331
+        },
+        {
+          "caller": "applyNode",
+          "callee": "typeText\n        .attr(\"fill\", \"white\")\n        .text(({ relation }) => `${relationTypeAbbr(relation)}`)\n        .attr(\"font-family\", \"inherit\")\n        .attr",
+          "lineNumber": 331
+        },
+        {
+          "caller": "applyNode",
+          "callee": "typeText\n        .attr(\"fill\", \"white\")\n        .text(({ relation }) => `${relationTypeAbbr(relation)}`)\n        .attr",
+          "lineNumber": 331
+        },
+        {
+          "caller": "applyNode",
+          "callee": "typeText\n        .attr(\"fill\", \"white\")\n        .text",
+          "lineNumber": 331
+        },
+        {
+          "caller": "applyNode",
+          "callee": "typeText\n        .attr",
+          "lineNumber": 331
+        },
+        {
+          "caller": "applyNode",
+          "callee": "relationTypeAbbr",
+          "lineNumber": 333
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.select",
+          "lineNumber": 343
+        },
+        {
+          "caller": "applyNode",
+          "callee": "text.empty",
+          "lineNumber": 344
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.append(\"text\").attr",
+          "lineNumber": 345
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.append",
+          "lineNumber": 345
+        },
+        {
+          "caller": "applyNode",
+          "callee": "text\n        .attr(\"fill\", \"black\")\n        .text(({ name }) => name)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"x\", iconRadius * 2 + 15) // position text right of circle\n        .attr(\"y\", boxHeight / 2)\n        .attr(\"dy\", \"0.35em\")\n        .attr(\"font-size\", 14)\n        .attr",
+          "lineNumber": 348
+        },
+        {
+          "caller": "applyNode",
+          "callee": "text\n        .attr(\"fill\", \"black\")\n        .text(({ name }) => name)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"x\", iconRadius * 2 + 15) // position text right of circle\n        .attr(\"y\", boxHeight / 2)\n        .attr(\"dy\", \"0.35em\")\n        .attr",
+          "lineNumber": 348
+        },
+        {
+          "caller": "applyNode",
+          "callee": "text\n        .attr(\"fill\", \"black\")\n        .text(({ name }) => name)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"x\", iconRadius * 2 + 15) // position text right of circle\n        .attr(\"y\", boxHeight / 2)\n        .attr",
+          "lineNumber": 348
+        },
+        {
+          "caller": "applyNode",
+          "callee": "text\n        .attr(\"fill\", \"black\")\n        .text(({ name }) => name)\n        .attr(\"font-family\", \"inherit\")\n        .attr(\"x\", iconRadius * 2 + 15) // position text right of circle\n        .attr",
+          "lineNumber": 348
+        },
+        {
+          "caller": "applyNode",
+          "callee": "text\n        .attr(\"fill\", \"black\")\n        .text(({ name }) => name)\n        .attr(\"font-family\", \"inherit\")\n        .attr",
+          "lineNumber": 348
+        },
+        {
+          "caller": "applyNode",
+          "callee": "text\n        .attr(\"fill\", \"black\")\n        .text(({ name }) => name)\n        .attr",
+          "lineNumber": 348
+        },
+        {
+          "caller": "applyNode",
+          "callee": "text\n        .attr(\"fill\", \"black\")\n        .text",
+          "lineNumber": 348
+        },
+        {
+          "caller": "applyNode",
+          "callee": "text\n        .attr",
+          "lineNumber": 348
+        },
+        {
+          "caller": "getTooltipContent",
+          "callee": "parseInt",
+          "lineNumber": 360
+        },
+        {
+          "caller": "getTooltipContent",
+          "callee": "(\n              (Date.now() - epochToUnixMillis(stats.currentEpoch)) /\n              1000\n            ).toFixed",
+          "lineNumber": 363
+        },
+        {
+          "caller": "getTooltipContent",
+          "callee": "Date.now",
+          "lineNumber": 364
+        },
+        {
+          "caller": "getTooltipContent",
+          "callee": "epochToUnixMillis",
+          "lineNumber": 364
+        },
+        {
+          "caller": "getTooltipContent",
+          "callee": "relationTypeTitleCase",
+          "lineNumber": 370
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.on(\"mouseover\", (event, { relation, id }) => {\n        // Remove existing tooltip if any\n        d3.selectAll(\".tooltip\").remove()\n\n        // Create new tooltip\n        d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style(\"background\", \"white\")\n          .style(\"padding\", \"10px\")\n          .style(\"border\", \"1px solid #ddd\")\n          .style(\"border-radius\", \"4px\")\n          .style(\"pointer-events\", \"none\")\n          .style(\"left\", event.pageX + 10 + \"px\")\n          .style(\"top\", event.pageY + 10 + \"px\")\n          .style(\"font-size\", \"12px\")\n          .html(getTooltipContent(relation, id))\n      })\n        .on(\"mousemove\", (event) => {\n          d3.select(\".tooltip\")\n            .style(\"left\", event.pageX + 10 + \"px\")\n            .style(\"top\", event.pageY + 10 + \"px\")\n        })\n        .on",
+          "lineNumber": 375
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.on(\"mouseover\", (event, { relation, id }) => {\n        // Remove existing tooltip if any\n        d3.selectAll(\".tooltip\").remove()\n\n        // Create new tooltip\n        d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style(\"background\", \"white\")\n          .style(\"padding\", \"10px\")\n          .style(\"border\", \"1px solid #ddd\")\n          .style(\"border-radius\", \"4px\")\n          .style(\"pointer-events\", \"none\")\n          .style(\"left\", event.pageX + 10 + \"px\")\n          .style(\"top\", event.pageY + 10 + \"px\")\n          .style(\"font-size\", \"12px\")\n          .html(getTooltipContent(relation, id))\n      })\n        .on",
+          "lineNumber": 375
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.on",
+          "lineNumber": 375
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.selectAll(\".tooltip\").remove",
+          "lineNumber": 377
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.selectAll",
+          "lineNumber": 377
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style(\"background\", \"white\")\n          .style(\"padding\", \"10px\")\n          .style(\"border\", \"1px solid #ddd\")\n          .style(\"border-radius\", \"4px\")\n          .style(\"pointer-events\", \"none\")\n          .style(\"left\", event.pageX + 10 + \"px\")\n          .style(\"top\", event.pageY + 10 + \"px\")\n          .style(\"font-size\", \"12px\")\n          .html",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style(\"background\", \"white\")\n          .style(\"padding\", \"10px\")\n          .style(\"border\", \"1px solid #ddd\")\n          .style(\"border-radius\", \"4px\")\n          .style(\"pointer-events\", \"none\")\n          .style(\"left\", event.pageX + 10 + \"px\")\n          .style(\"top\", event.pageY + 10 + \"px\")\n          .style",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style(\"background\", \"white\")\n          .style(\"padding\", \"10px\")\n          .style(\"border\", \"1px solid #ddd\")\n          .style(\"border-radius\", \"4px\")\n          .style(\"pointer-events\", \"none\")\n          .style(\"left\", event.pageX + 10 + \"px\")\n          .style",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style(\"background\", \"white\")\n          .style(\"padding\", \"10px\")\n          .style(\"border\", \"1px solid #ddd\")\n          .style(\"border-radius\", \"4px\")\n          .style(\"pointer-events\", \"none\")\n          .style",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style(\"background\", \"white\")\n          .style(\"padding\", \"10px\")\n          .style(\"border\", \"1px solid #ddd\")\n          .style(\"border-radius\", \"4px\")\n          .style",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style(\"background\", \"white\")\n          .style(\"padding\", \"10px\")\n          .style(\"border\", \"1px solid #ddd\")\n          .style",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style(\"background\", \"white\")\n          .style(\"padding\", \"10px\")\n          .style",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style(\"background\", \"white\")\n          .style",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style(\"position\", \"absolute\")\n          .style",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr(\"class\", \"tooltip\")\n          .style",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append(\"div\")\n          .attr",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\"body\")\n          .append",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select",
+          "lineNumber": 380
+        },
+        {
+          "caller": "applyNode",
+          "callee": "getTooltipContent",
+          "lineNumber": 392
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\".tooltip\")\n            .style(\"left\", event.pageX + 10 + \"px\")\n            .style",
+          "lineNumber": 395
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select(\".tooltip\")\n            .style",
+          "lineNumber": 395
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.select",
+          "lineNumber": 395
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.selectAll(\".tooltip\").remove",
+          "lineNumber": 400
+        },
+        {
+          "caller": "applyNode",
+          "callee": "d3.selectAll",
+          "lineNumber": 400
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.style(\"cursor\", \"pointer\").on",
+          "lineNumber": 404
+        },
+        {
+          "caller": "applyNode",
+          "callee": "g.style",
+          "lineNumber": 404
+        },
+        {
+          "caller": "applyNode",
+          "callee": "setSelectedId",
+          "lineNumber": 405
+        },
+        {
+          "caller": "applyNode",
+          "callee": "setModalId",
+          "lineNumber": 406
+        },
+        {
+          "caller": "createNode",
+          "callee": "sel.append(\"g\").attr(\"class\", \"node\").call",
+          "lineNumber": 413
+        },
+        {
+          "caller": "createNode",
+          "callee": "sel.append(\"g\").attr",
+          "lineNumber": 413
+        },
+        {
+          "caller": "createNode",
+          "callee": "sel.append",
+          "lineNumber": 413
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "svgSelection.select",
+          "lineNumber": 415
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g\n      .selectAll<SVGGElement, null>(\".node\")\n      .data",
+          "lineNumber": 416
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "g\n      .selectAll",
+          "lineNumber": 416
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "nodeSelection.enter().call",
+          "lineNumber": 421
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "nodeSelection.enter",
+          "lineNumber": 421
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "nodeSelection.call",
+          "lineNumber": 422
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "nodeSelection.exit().remove",
+          "lineNumber": 423
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "nodeSelection.exit",
+          "lineNumber": 423
+        },
+        {
+          "caller": "RelationGraph",
+          "callee": "setModalId",
+          "lineNumber": 440
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/Relations.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 304,
+      "nonEmptyLines": 284,
+      "functions": [
+        {
+          "name": "formatBytes",
+          "startLine": 121,
+          "endLine": 128,
+          "params": [
+            "bytes"
+          ]
+        },
+        {
+          "name": "Relations",
+          "startLine": 183,
+          "endLine": 304,
+          "params": [
+            "title",
+            "getRelations",
+            "extraColumns",
+            "options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ReactJson",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "dependentsColumn",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "fragmentsColumn",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "primaryKeyColumn",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "vnodeCountColumn",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "dataSizeColumn",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "tableColumns",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "connectorColumnSource",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "connectorColumnSink",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "configOverrideColumn",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "streamingJobColumns",
+          "line": 177,
+          "isDefault": false
+        },
+        {
+          "name": "Relations",
+          "line": 183,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "formatBytes",
+          "callee": "Math.floor",
+          "lineNumber": 126
+        },
+        {
+          "caller": "formatBytes",
+          "callee": "Math.log",
+          "lineNumber": 126
+        },
+        {
+          "caller": "formatBytes",
+          "callee": "Math.log",
+          "lineNumber": 126
+        },
+        {
+          "caller": "formatBytes",
+          "callee": "Math.round",
+          "lineNumber": 127
+        },
+        {
+          "caller": "formatBytes",
+          "callee": "Math.pow",
+          "lineNumber": 127
+        },
+        {
+          "caller": "Relations",
+          "callee": "useFetch",
+          "lineNumber": 191
+        },
+        {
+          "caller": "Relations",
+          "callee": "getStreamingJobs",
+          "lineNumber": 193
+        },
+        {
+          "caller": "Relations",
+          "callee": "Promise.all",
+          "lineNumber": 195
+        },
+        {
+          "caller": "Relations",
+          "callee": "getRelations",
+          "lineNumber": 196
+        },
+        {
+          "caller": "Relations",
+          "callee": "getUsers",
+          "lineNumber": 197
+        },
+        {
+          "caller": "Relations",
+          "callee": "getDatabases",
+          "lineNumber": 198
+        },
+        {
+          "caller": "Relations",
+          "callee": "getSchemas",
+          "lineNumber": 199
+        },
+        {
+          "caller": "Relations",
+          "callee": "streamingJobs?.reduce",
+          "lineNumber": 204
+        },
+        {
+          "caller": "Relations",
+          "callee": "acc.set",
+          "lineNumber": 206
+        },
+        {
+          "caller": "Relations",
+          "callee": "relations.map",
+          "lineNumber": 212
+        },
+        {
+          "caller": "Relations",
+          "callee": "users.find",
+          "lineNumber": 214
+        },
+        {
+          "caller": "Relations",
+          "callee": "schemas.find",
+          "lineNumber": 216
+        },
+        {
+          "caller": "Relations",
+          "callee": "databases.find",
+          "lineNumber": 218
+        },
+        {
+          "caller": "Relations",
+          "callee": "streamingJobMap?.get",
+          "lineNumber": 220
+        },
+        {
+          "caller": "Relations",
+          "callee": "useCatalogModal",
+          "lineNumber": 224
+        },
+        {
+          "caller": "Relations",
+          "callee": "setModalId",
+          "lineNumber": 227
+        },
+        {
+          "caller": "Relations",
+          "callee": "extraColumns.map",
+          "lineNumber": 248
+        },
+        {
+          "caller": "Relations",
+          "callee": "relationList?.map",
+          "lineNumber": 257
+        },
+        {
+          "caller": "Relations",
+          "callee": "setModalId",
+          "lineNumber": 265
+        },
+        {
+          "caller": "Relations",
+          "callee": "extraColumns.map",
+          "lineNumber": 274
+        },
+        {
+          "caller": "Relations",
+          "callee": "c.content",
+          "lineNumber": 275
+        },
+        {
+          "caller": "Relations",
+          "callee": "r.columns\n                      .filter((col) =>\n                        \"isHidden\" in col ? !col.isHidden : true\n                      )\n                      .map((col) => extractColumnInfo(col))\n                      .join",
+          "lineNumber": 279
+        },
+        {
+          "caller": "Relations",
+          "callee": "r.columns\n                      .filter((col) =>\n                        \"isHidden\" in col ? !col.isHidden : true\n                      )\n                      .map",
+          "lineNumber": 279
+        },
+        {
+          "caller": "Relations",
+          "callee": "r.columns\n                      .filter",
+          "lineNumber": 279
+        },
+        {
+          "caller": "Relations",
+          "callee": "extractColumnInfo",
+          "lineNumber": 283
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 12,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/SpinnerOverlay.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "SpinnerOverlay",
+          "startLine": 20,
+          "endLine": 37,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/TimeControls.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 174,
+      "nonEmptyLines": 162,
+      "functions": [
+        {
+          "name": "TimeControls",
+          "startLine": 40,
+          "endLine": 174,
+          "params": [
+            "{\n  onApply,\n  title = \"Time Controls\",\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TimeControls",
+          "line": 40,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TimeControls",
+          "callee": "useState",
+          "lineNumber": 44
+        },
+        {
+          "caller": "TimeControls",
+          "callee": "useState",
+          "lineNumber": 45
+        },
+        {
+          "caller": "TimeControls",
+          "callee": "useState",
+          "lineNumber": 46
+        },
+        {
+          "caller": "TimeControls",
+          "callee": "useState",
+          "lineNumber": 47
+        },
+        {
+          "caller": "TimeControls",
+          "callee": "useState",
+          "lineNumber": 48
+        },
+        {
+          "caller": "TimeControls",
+          "callee": "useState",
+          "lineNumber": 49
+        },
+        {
+          "caller": "handleApply",
+          "callee": "timestampInput.trim",
+          "lineNumber": 56
+        },
+        {
+          "caller": "handleApply",
+          "callee": "parseTimestampToUnixEpoch",
+          "lineNumber": 58
+        },
+        {
+          "caller": "handleApply",
+          "callee": "setDisplayTimestamp",
+          "lineNumber": 59
+        },
+        {
+          "caller": "handleApply",
+          "callee": "new Date(timestamp * 1000).toISOString",
+          "lineNumber": 59
+        },
+        {
+          "caller": "handleApply",
+          "callee": "setTimestampError",
+          "lineNumber": 60
+        },
+        {
+          "caller": "handleApply",
+          "callee": "setTimestampError",
+          "lineNumber": 62
+        },
+        {
+          "caller": "handleApply",
+          "callee": "setDisplayTimestamp",
+          "lineNumber": 66
+        },
+        {
+          "caller": "handleApply",
+          "callee": "offsetInput.trim",
+          "lineNumber": 70
+        },
+        {
+          "caller": "handleApply",
+          "callee": "parseDuration",
+          "lineNumber": 72
+        },
+        {
+          "caller": "handleApply",
+          "callee": "setDisplayOffset",
+          "lineNumber": 73
+        },
+        {
+          "caller": "handleApply",
+          "callee": "setOffsetError",
+          "lineNumber": 74
+        },
+        {
+          "caller": "handleApply",
+          "callee": "setOffsetError",
+          "lineNumber": 76
+        },
+        {
+          "caller": "handleApply",
+          "callee": "setDisplayOffset",
+          "lineNumber": 80
+        },
+        {
+          "caller": "handleApply",
+          "callee": "onApply",
+          "lineNumber": 83
+        },
+        {
+          "caller": "handleReset",
+          "callee": "setTimestampInput",
+          "lineNumber": 87
+        },
+        {
+          "caller": "handleReset",
+          "callee": "setOffsetInput",
+          "lineNumber": 88
+        },
+        {
+          "caller": "handleReset",
+          "callee": "setDisplayTimestamp",
+          "lineNumber": 89
+        },
+        {
+          "caller": "handleReset",
+          "callee": "setDisplayOffset",
+          "lineNumber": 90
+        },
+        {
+          "caller": "handleReset",
+          "callee": "setTimestampError",
+          "lineNumber": 91
+        },
+        {
+          "caller": "handleReset",
+          "callee": "setOffsetError",
+          "lineNumber": 92
+        },
+        {
+          "caller": "handleReset",
+          "callee": "onApply",
+          "lineNumber": 93
+        },
+        {
+          "caller": "TimeControls",
+          "callee": "setTimestampInput",
+          "lineNumber": 109
+        },
+        {
+          "caller": "TimeControls",
+          "callee": "getCurrentTimeInSystemTimezone",
+          "lineNumber": 115
+        },
+        {
+          "caller": "TimeControls",
+          "callee": "setTimestampInput",
+          "lineNumber": 116
+        },
+        {
+          "caller": "TimeControls",
+          "callee": "setTimestampError",
+          "lineNumber": 117
+        },
+        {
+          "caller": "TimeControls",
+          "callee": "setOffsetInput",
+          "lineNumber": 136
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/Title.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "Title",
+          "startLine": 21,
+          "endLine": 27,
+          "params": [
+            "{ children }"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/metrics.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 28,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/utils/backPressure.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 71,
+      "functions": [
+        {
+          "name": "backPressureColor",
+          "startLine": 9,
+          "endLine": 31,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "backPressureWidth",
+          "startLine": 38,
+          "endLine": 43,
+          "params": [
+            "value",
+            "scale"
+          ]
+        },
+        {
+          "name": "epochToUnixMillis",
+          "startLine": 45,
+          "endLine": 48,
+          "params": [
+            "epoch"
+          ]
+        },
+        {
+          "name": "latencyToColor",
+          "startLine": 50,
+          "endLine": 87,
+          "params": [
+            "latency_ms",
+            "baseColor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "backPressureColor",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "backPressureWidth",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "epochToUnixMillis",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "latencyToColor",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "backPressureColor",
+          "callee": "[\n    theme.colors.green[\"100\"],\n    theme.colors.green[\"300\"],\n    theme.colors.yellow[\"400\"],\n    theme.colors.orange[\"500\"],\n    theme.colors.red[\"700\"],\n  ].map",
+          "lineNumber": 10
+        },
+        {
+          "caller": "backPressureColor",
+          "callee": "tinycolor",
+          "lineNumber": 16
+        },
+        {
+          "caller": "backPressureColor",
+          "callee": "Math.max",
+          "lineNumber": 18
+        },
+        {
+          "caller": "backPressureColor",
+          "callee": "Math.min",
+          "lineNumber": 19
+        },
+        {
+          "caller": "backPressureColor",
+          "callee": "Math.floor",
+          "lineNumber": 23
+        },
+        {
+          "caller": "backPressureColor",
+          "callee": "Math.ceil",
+          "lineNumber": 24
+        },
+        {
+          "caller": "backPressureColor",
+          "callee": "tinycolor(colorRange[floor])\n    .mix(tinycolor(colorRange[ceil]), (pos - floor) * 100)\n    .toHexString",
+          "lineNumber": 26
+        },
+        {
+          "caller": "backPressureColor",
+          "callee": "tinycolor(colorRange[floor])\n    .mix",
+          "lineNumber": 26
+        },
+        {
+          "caller": "backPressureColor",
+          "callee": "tinycolor",
+          "lineNumber": 26
+        },
+        {
+          "caller": "backPressureColor",
+          "callee": "tinycolor",
+          "lineNumber": 27
+        },
+        {
+          "caller": "backPressureWidth",
+          "callee": "Math.max",
+          "lineNumber": 39
+        },
+        {
+          "caller": "backPressureWidth",
+          "callee": "Math.min",
+          "lineNumber": 40
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "[\n    baseColor,\n    theme.colors.yellow[\"200\"],\n    theme.colors.orange[\"300\"],\n    theme.colors.red[\"400\"],\n  ].map",
+          "lineNumber": 54
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "tinycolor",
+          "lineNumber": 59
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "Math.log",
+          "lineNumber": 70
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "Math.log",
+          "lineNumber": 71
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "Math.log",
+          "lineNumber": 72
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "Math.floor",
+          "lineNumber": 78
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "Math.ceil",
+          "lineNumber": 79
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "tinycolor(colorRange[floor])\n    .mix(tinycolor(colorRange[ceil]), (pos - floor) * 100)\n    .toHexString",
+          "lineNumber": 82
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "tinycolor(colorRange[floor])\n    .mix",
+          "lineNumber": 82
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "tinycolor",
+          "lineNumber": 82
+        },
+        {
+          "caller": "latencyToColor",
+          "callee": "tinycolor",
+          "lineNumber": 83
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/components/utils/icons.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "IconServer",
+          "startLine": 18,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "IconArrowRightCircle",
+          "startLine": 22,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "IconArrowRightCircleFill",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "IconBoxArrowUpRight",
+          "startLine": 30,
+          "endLine": 32,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IconServer",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "IconArrowRightCircle",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "IconArrowRightCircleFill",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "IconBoxArrowUpRight",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/hook/useErrorToast.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "useErrorToast",
+          "startLine": 20,
+          "endLine": 45,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "useErrorToast",
+          "line": 20,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useErrorToast",
+          "callee": "useToast",
+          "lineNumber": 21
+        },
+        {
+          "caller": "useErrorToast",
+          "callee": "useCallback",
+          "lineNumber": 23
+        },
+        {
+          "caller": "useErrorToast",
+          "callee": "e.cause?.toString",
+          "lineNumber": 30
+        },
+        {
+          "caller": "useErrorToast",
+          "callee": "e.toString",
+          "lineNumber": 32
+        },
+        {
+          "caller": "useErrorToast",
+          "callee": "toast",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/lib/api/api.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 59,
+      "classes": [
+        {
+          "name": "Api",
+          "startLine": 34,
+          "endLine": 66,
+          "methods": [
+            "urlFor",
+            "get"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PREDEFINED_API_ENDPOINTS",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "DEFAULT_API_ENDPOINT",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "API_ENDPOINT_KEY",
+          "line": 32,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "urlFor",
+          "callee": "(\n      JSON.parse(localStorage.getItem(API_ENDPOINT_KEY) || \"null\") ||\n      DEFAULT_API_ENDPOINT\n    ).replace",
+          "lineNumber": 36
+        },
+        {
+          "caller": "urlFor",
+          "callee": "JSON.parse",
+          "lineNumber": 37
+        },
+        {
+          "caller": "urlFor",
+          "callee": "localStorage.getItem",
+          "lineNumber": 37
+        },
+        {
+          "caller": "get",
+          "callee": "this.urlFor",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get",
+          "callee": "fetch",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get",
+          "callee": "res.json",
+          "lineNumber": 49
+        },
+        {
+          "caller": "get",
+          "callee": "console.error",
+          "lineNumber": 60
+        },
+        {
+          "caller": "get",
+          "callee": "Error",
+          "lineNumber": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "dashboard/lib/api/cluster.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "getClusterMetrics",
+          "startLine": 20,
+          "endLine": 23,
+          "params": []
+        },
+        {
+          "name": "getClusterInfoFrontend",
+          "startLine": 25,
+          "endLine": 30,
+          "params": []
+        },
+        {
+          "name": "getClusterInfoComputeNode",
+          "startLine": 32,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "getClusterInfoCompactor",
+          "startLine": 39,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "getClusterInfoProfileWorkers",
+          "startLine": 46,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "getClusterVersion",
+          "startLine": 55,
+          "endLine": 58,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getClusterMetrics",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "getClusterInfoFrontend",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "getClusterInfoComputeNode",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "getClusterInfoCompactor",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "getClusterInfoProfileWorkers",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "getClusterVersion",
+          "line": 55,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getClusterMetrics",
+          "callee": "api.get",
+          "lineNumber": 21
+        },
+        {
+          "caller": "getClusterInfoFrontend",
+          "callee": "(await api.get(\"/clusters/1\")).map",
+          "lineNumber": 26
+        },
+        {
+          "caller": "getClusterInfoFrontend",
+          "callee": "api.get",
+          "lineNumber": 26
+        },
+        {
+          "caller": "getClusterInfoComputeNode",
+          "callee": "(await api.get(\"/clusters/2\")).map",
+          "lineNumber": 33
+        },
+        {
+          "caller": "getClusterInfoComputeNode",
+          "callee": "api.get",
+          "lineNumber": 33
+        },
+        {
+          "caller": "getClusterInfoCompactor",
+          "callee": "(await api.get(\"/clusters/4\")).map",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getClusterInfoCompactor",
+          "callee": "api.get",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getClusterInfoProfileWorkers",
+          "callee": "Promise.all",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getClusterInfoProfileWorkers",
+          "callee": "getClusterInfoComputeNode",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getClusterInfoProfileWorkers",
+          "callee": "getClusterInfoFrontend",
+          "lineNumber": 49
+        },
+        {
+          "caller": "getClusterInfoProfileWorkers",
+          "callee": "getClusterInfoCompactor",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getClusterVersion",
+          "callee": "api.get",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/lib/api/fetch.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 61,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "useFetch",
+          "startLine": 27,
+          "endLine": 61,
+          "params": [
+            "fetchFn",
+            "intervalMs",
+            "when"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "useFetch",
+          "line": 27,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "useFetch",
+          "callee": "useState",
+          "lineNumber": 32
+        },
+        {
+          "caller": "useFetch",
+          "callee": "useErrorToast",
+          "lineNumber": 33
+        },
+        {
+          "caller": "useFetch",
+          "callee": "useEffect",
+          "lineNumber": 35
+        },
+        {
+          "caller": "fetchData",
+          "callee": "fetchFn",
+          "lineNumber": 39
+        },
+        {
+          "caller": "fetchData",
+          "callee": "setResponse",
+          "lineNumber": 40
+        },
+        {
+          "caller": "fetchData",
+          "callee": "toast",
+          "lineNumber": 42
+        },
+        {
+          "caller": "useFetch",
+          "callee": "fetchData",
+          "lineNumber": 46
+        },
+        {
+          "caller": "useFetch",
+          "callee": "setInterval",
+          "lineNumber": 52
+        },
+        {
+          "caller": "useFetch",
+          "callee": "clearInterval",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/lib/api/streaming.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 289,
+      "nonEmptyLines": 256,
+      "functions": [
+        {
+          "name": "getFragmentsByJobId",
+          "startLine": 42,
+          "endLine": 50,
+          "params": [
+            "jobId"
+          ]
+        },
+        {
+          "name": "getRelationIdInfos",
+          "startLine": 52,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "relationType",
+          "startLine": 110,
+          "endLine": 124,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "relationTypeTitleCase",
+          "startLine": 127,
+          "endLine": 129,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "relationIsStreamingJob",
+          "startLine": 131,
+          "endLine": 134,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "getStreamingJobs",
+          "startLine": 136,
+          "endLine": 143,
+          "params": []
+        },
+        {
+          "name": "getRelations",
+          "startLine": 145,
+          "endLine": 156,
+          "params": []
+        },
+        {
+          "name": "getRelationDependencies",
+          "startLine": 158,
+          "endLine": 160,
+          "params": []
+        },
+        {
+          "name": "getFragmentToRelationMap",
+          "startLine": 162,
+          "endLine": 167,
+          "params": []
+        },
+        {
+          "name": "extendedTableFromJSON",
+          "startLine": 174,
+          "endLine": 180,
+          "params": [
+            "json"
+          ]
+        },
+        {
+          "name": "getTableCatalogsInner",
+          "startLine": 182,
+          "endLine": 188,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "getMaterializedViews",
+          "startLine": 190,
+          "endLine": 192,
+          "params": []
+        },
+        {
+          "name": "getTables",
+          "startLine": 194,
+          "endLine": 196,
+          "params": []
+        },
+        {
+          "name": "getIndexes",
+          "startLine": 198,
+          "endLine": 211,
+          "params": []
+        },
+        {
+          "name": "getInternalTables",
+          "startLine": 213,
+          "endLine": 215,
+          "params": []
+        },
+        {
+          "name": "getSinks",
+          "startLine": 217,
+          "endLine": 221,
+          "params": []
+        },
+        {
+          "name": "getSources",
+          "startLine": 223,
+          "endLine": 227,
+          "params": []
+        },
+        {
+          "name": "getViews",
+          "startLine": 229,
+          "endLine": 233,
+          "params": []
+        },
+        {
+          "name": "getFunctions",
+          "startLine": 235,
+          "endLine": 241,
+          "params": []
+        },
+        {
+          "name": "getSubscriptions",
+          "startLine": 243,
+          "endLine": 249,
+          "params": []
+        },
+        {
+          "name": "getUsers",
+          "startLine": 251,
+          "endLine": 255,
+          "params": []
+        },
+        {
+          "name": "getDatabases",
+          "startLine": 257,
+          "endLine": 263,
+          "params": []
+        },
+        {
+          "name": "getSchemas",
+          "startLine": 265,
+          "endLine": 269,
+          "params": []
+        },
+        {
+          "name": "getObjectDependencies",
+          "startLine": 272,
+          "endLine": 289,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "StreamingJob",
+          "startLine": 73,
+          "endLine": 108,
+          "methods": [
+            "parallelism",
+            "type"
+          ],
+          "properties": [
+            "id",
+            "_objType",
+            "name",
+            "jobStatus",
+            "_parallelism",
+            "maxParallelism",
+            "configOverride"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getFragmentsByJobId",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "getRelationIdInfos",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "StreamingJob",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "relationType",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "relationTypeTitleCase",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "relationIsStreamingJob",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "getStreamingJobs",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "getRelations",
+          "line": 145,
+          "isDefault": false
+        },
+        {
+          "name": "getRelationDependencies",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "getFragmentToRelationMap",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "getMaterializedViews",
+          "line": 190,
+          "isDefault": false
+        },
+        {
+          "name": "getTables",
+          "line": 194,
+          "isDefault": false
+        },
+        {
+          "name": "getIndexes",
+          "line": 198,
+          "isDefault": false
+        },
+        {
+          "name": "getInternalTables",
+          "line": 213,
+          "isDefault": false
+        },
+        {
+          "name": "getSinks",
+          "line": 217,
+          "isDefault": false
+        },
+        {
+          "name": "getSources",
+          "line": 223,
+          "isDefault": false
+        },
+        {
+          "name": "getViews",
+          "line": 229,
+          "isDefault": false
+        },
+        {
+          "name": "getFunctions",
+          "line": 235,
+          "isDefault": false
+        },
+        {
+          "name": "getSubscriptions",
+          "line": 243,
+          "isDefault": false
+        },
+        {
+          "name": "getUsers",
+          "line": 251,
+          "isDefault": false
+        },
+        {
+          "name": "getDatabases",
+          "line": 257,
+          "isDefault": false
+        },
+        {
+          "name": "getSchemas",
+          "line": 265,
+          "isDefault": false
+        },
+        {
+          "name": "getObjectDependencies",
+          "line": 272,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getFragmentsByJobId",
+          "callee": "jobId.toString",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getFragmentsByJobId",
+          "callee": "TableFragments.fromJSON",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getFragmentsByJobId",
+          "callee": "api.get",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getRelationIdInfos",
+          "callee": "api.get",
+          "lineNumber": 53
+        },
+        {
+          "caller": "parallelism",
+          "callee": "Object.keys",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parallelism",
+          "callee": "JSON.stringify",
+          "lineNumber": 97
+        },
+        {
+          "caller": "relationTypeTitleCase",
+          "callee": "_.startCase",
+          "lineNumber": 128
+        },
+        {
+          "caller": "relationTypeTitleCase",
+          "callee": "_.toLower",
+          "lineNumber": 128
+        },
+        {
+          "caller": "relationTypeTitleCase",
+          "callee": "relationType",
+          "lineNumber": 128
+        },
+        {
+          "caller": "relationIsStreamingJob",
+          "callee": "relationType",
+          "lineNumber": 132
+        },
+        {
+          "caller": "getStreamingJobs",
+          "callee": "plainToInstance",
+          "lineNumber": 137
+        },
+        {
+          "caller": "getStreamingJobs",
+          "callee": "api.get",
+          "lineNumber": 139
+        },
+        {
+          "caller": "getStreamingJobs",
+          "callee": "sortBy",
+          "lineNumber": 141
+        },
+        {
+          "caller": "getRelations",
+          "callee": "_.concat",
+          "lineNumber": 146
+        },
+        {
+          "caller": "getRelations",
+          "callee": "getMaterializedViews",
+          "lineNumber": 147
+        },
+        {
+          "caller": "getRelations",
+          "callee": "getTables",
+          "lineNumber": 148
+        },
+        {
+          "caller": "getRelations",
+          "callee": "getIndexes",
+          "lineNumber": 149
+        },
+        {
+          "caller": "getRelations",
+          "callee": "getSinks",
+          "lineNumber": 150
+        },
+        {
+          "caller": "getRelations",
+          "callee": "getSources",
+          "lineNumber": 151
+        },
+        {
+          "caller": "getRelations",
+          "callee": "getSubscriptions",
+          "lineNumber": 152
+        },
+        {
+          "caller": "getRelations",
+          "callee": "sortBy",
+          "lineNumber": 154
+        },
+        {
+          "caller": "getRelationDependencies",
+          "callee": "getObjectDependencies",
+          "lineNumber": 159
+        },
+        {
+          "caller": "getFragmentToRelationMap",
+          "callee": "api.get",
+          "lineNumber": 163
+        },
+        {
+          "caller": "getFragmentToRelationMap",
+          "callee": "FragmentToRelationMap.fromJSON",
+          "lineNumber": 165
+        },
+        {
+          "caller": "extendedTableFromJSON",
+          "callee": "Table.fromJSON",
+          "lineNumber": 175
+        },
+        {
+          "caller": "getTableCatalogsInner",
+          "callee": "(await api.get(`/${path}`)).map",
+          "lineNumber": 185
+        },
+        {
+          "caller": "getTableCatalogsInner",
+          "callee": "api.get",
+          "lineNumber": 185
+        },
+        {
+          "caller": "getTableCatalogsInner",
+          "callee": "sortBy",
+          "lineNumber": 186
+        },
+        {
+          "caller": "getMaterializedViews",
+          "callee": "getTableCatalogsInner",
+          "lineNumber": 191
+        },
+        {
+          "caller": "getTables",
+          "callee": "getTableCatalogsInner",
+          "lineNumber": 195
+        },
+        {
+          "caller": "getIndexes",
+          "callee": "getTableCatalogsInner",
+          "lineNumber": 199
+        },
+        {
+          "caller": "getIndexes",
+          "callee": "(await api.get(\"/index_items\")).map",
+          "lineNumber": 200
+        },
+        {
+          "caller": "getIndexes",
+          "callee": "api.get",
+          "lineNumber": 200
+        },
+        {
+          "caller": "getIndexes",
+          "callee": "index_tables.flatMap",
+          "lineNumber": 203
+        },
+        {
+          "caller": "getIndexes",
+          "callee": "index_items.find",
+          "lineNumber": 204
+        },
+        {
+          "caller": "getInternalTables",
+          "callee": "getTableCatalogsInner",
+          "lineNumber": 214
+        },
+        {
+          "caller": "getSinks",
+          "callee": "(await api.get(\"/sinks\")).map",
+          "lineNumber": 218
+        },
+        {
+          "caller": "getSinks",
+          "callee": "api.get",
+          "lineNumber": 218
+        },
+        {
+          "caller": "getSinks",
+          "callee": "sortBy",
+          "lineNumber": 219
+        },
+        {
+          "caller": "getSources",
+          "callee": "(await api.get(\"/sources\")).map",
+          "lineNumber": 224
+        },
+        {
+          "caller": "getSources",
+          "callee": "api.get",
+          "lineNumber": 224
+        },
+        {
+          "caller": "getSources",
+          "callee": "sortBy",
+          "lineNumber": 225
+        },
+        {
+          "caller": "getViews",
+          "callee": "(await api.get(\"/views\")).map",
+          "lineNumber": 230
+        },
+        {
+          "caller": "getViews",
+          "callee": "api.get",
+          "lineNumber": 230
+        },
+        {
+          "caller": "getViews",
+          "callee": "sortBy",
+          "lineNumber": 231
+        },
+        {
+          "caller": "getFunctions",
+          "callee": "(await api.get(\"/functions\")).map",
+          "lineNumber": 236
+        },
+        {
+          "caller": "getFunctions",
+          "callee": "api.get",
+          "lineNumber": 236
+        },
+        {
+          "caller": "getFunctions",
+          "callee": "sortBy",
+          "lineNumber": 239
+        },
+        {
+          "caller": "getSubscriptions",
+          "callee": "(await api.get(\"/subscriptions\")).map",
+          "lineNumber": 244
+        },
+        {
+          "caller": "getSubscriptions",
+          "callee": "api.get",
+          "lineNumber": 244
+        },
+        {
+          "caller": "getSubscriptions",
+          "callee": "sortBy",
+          "lineNumber": 247
+        },
+        {
+          "caller": "getUsers",
+          "callee": "(await api.get(\"/users\")).map",
+          "lineNumber": 252
+        },
+        {
+          "caller": "getUsers",
+          "callee": "api.get",
+          "lineNumber": 252
+        },
+        {
+          "caller": "getUsers",
+          "callee": "sortBy",
+          "lineNumber": 253
+        },
+        {
+          "caller": "getDatabases",
+          "callee": "(await api.get(\"/databases\")).map",
+          "lineNumber": 258
+        },
+        {
+          "caller": "getDatabases",
+          "callee": "api.get",
+          "lineNumber": 258
+        },
+        {
+          "caller": "getDatabases",
+          "callee": "sortBy",
+          "lineNumber": 261
+        },
+        {
+          "caller": "getSchemas",
+          "callee": "(await api.get(\"/schemas\")).map",
+          "lineNumber": 266
+        },
+        {
+          "caller": "getSchemas",
+          "callee": "api.get",
+          "lineNumber": 266
+        },
+        {
+          "caller": "getSchemas",
+          "callee": "sortBy",
+          "lineNumber": 267
+        },
+        {
+          "caller": "getObjectDependencies",
+          "callee": "api.get",
+          "lineNumber": 277
+        },
+        {
+          "caller": "getObjectDependencies",
+          "callee": "objDependencies.forEach",
+          "lineNumber": 281
+        },
+        {
+          "caller": "getObjectDependencies",
+          "callee": "objDependencyGroup.has",
+          "lineNumber": 282
+        },
+        {
+          "caller": "getObjectDependencies",
+          "callee": "objDependencyGroup.set",
+          "lineNumber": 283
+        },
+        {
+          "caller": "getObjectDependencies",
+          "callee": "objDependencyGroup.get(x.objectId)?.push",
+          "lineNumber": 285
+        },
+        {
+          "caller": "getObjectDependencies",
+          "callee": "objDependencyGroup.get",
+          "lineNumber": 285
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 23,
+        "functionCount": 24,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "dashboard/lib/api/streamingStats.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 143,
+      "nonEmptyLines": 133,
+      "functions": [
+        {
+          "name": "createStreamingStatsRefresh",
+          "startLine": 48,
+          "endLine": 143,
+          "params": [
+            "callbacks",
+            "initialSnapshot",
+            "statsType",
+            "timeParams"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "createStreamingStatsRefresh",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "queryParams.append",
+          "lineNumber": 58
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "timeParams.at.toString",
+          "lineNumber": 58
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "queryParams.append",
+          "lineNumber": 61
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "timeParams.timeOffset.toString",
+          "lineNumber": 61
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "queryParams.toString",
+          "lineNumber": 64
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "api.get(`/metrics/streaming_stats_prometheus${urlSuffix}`).then",
+          "lineNumber": 68
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "api.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "GetStreamingPrometheusStatsResponse.fromJSON",
+          "lineNumber": 70
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "Object.entries",
+          "lineNumber": 72
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "result.set",
+          "lineNumber": 73
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "callbacks.setChannelStats",
+          "lineNumber": 80
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "callbacks.setRelationStats",
+          "lineNumber": 88
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "callbacks.setFragmentStats",
+          "lineNumber": 94
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "console.error",
+          "lineNumber": 98
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "api.get(`/metrics/streaming_stats${urlSuffix}`).then",
+          "lineNumber": 103
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "api.get",
+          "lineNumber": 103
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "GetStreamingStatsResponse.fromJSON",
+          "lineNumber": 105
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "Object.entries",
+          "lineNumber": 107
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "Date.now",
+          "lineNumber": 108
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "callbacks.setChannelStats",
+          "lineNumber": 114
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "snapshot.getRate",
+          "lineNumber": 114
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "callbacks.setRelationStats",
+          "lineNumber": 123
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "callbacks.setFragmentStats",
+          "lineNumber": 129
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "console.error",
+          "lineNumber": 133
+        },
+        {
+          "caller": "createStreamingStatsRefresh",
+          "callee": "callbacks.toast",
+          "lineNumber": 137
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/lib/extractInfo.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "extractColumnInfo",
+          "startLine": 19,
+          "endLine": 27,
+          "params": [
+            "col"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "extractColumnInfo",
+          "line": 19,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/lib/layout.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 58,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

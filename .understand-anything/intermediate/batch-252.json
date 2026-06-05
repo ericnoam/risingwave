@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "config:src/java_binding/Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "src/java_binding/Cargo.toml",
+      "summary": "Cargo manifest for the java_binding crate, which exposes RisingWave's Row/StreamChunk API as a JNI library and provides a demo binary for the Java binding.",
+      "tags": ["configuration", "build-system", "jni", "rust-crate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/java_binding/make-java-binding.toml",
+      "type": "config",
+      "name": "make-java-binding.toml",
+      "filePath": "src/java_binding/make-java-binding.toml",
+      "summary": "Cargo Make task file defining build and demo tasks for the Java binding: generating JNI headers, building the shared library, starting/stopping the demo cluster, ingesting data, and running demo benchmarks.",
+      "tags": ["configuration", "build-system", "jni", "automation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/java_binding/run_demo.sh",
+      "type": "file",
+      "name": "run_demo.sh",
+      "filePath": "src/java_binding/run_demo.sh",
+      "summary": "Shell script that runs the Java binding demo by invoking the risingwave Java demo binary with the required JNI native library and Kafka connector JARs.",
+      "tags": ["script", "jni", "demo", "shell"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

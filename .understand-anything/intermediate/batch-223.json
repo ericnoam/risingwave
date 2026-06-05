@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "config:integration_tests/superset/docker/.env-non-dev",
+      "type": "config",
+      "name": ".env-non-dev",
+      "filePath": "integration_tests/superset/docker/.env-non-dev",
+      "summary": "Environment variable configuration for the non-development Superset Docker deployment, setting database URLs, secret keys, and Superset initialization flags.",
+      "tags": ["configuration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/superset/docker/docker-bootstrap.sh",
+      "type": "file",
+      "name": "docker-bootstrap.sh",
+      "filePath": "integration_tests/superset/docker/docker-bootstrap.sh",
+      "summary": "Bootstrap script that selects and launches the appropriate Superset service role (worker, beat, or app) inside the Docker container.",
+      "tags": ["script", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/superset/docker/docker-init.sh",
+      "type": "file",
+      "name": "docker-init.sh",
+      "filePath": "integration_tests/superset/docker/docker-init.sh",
+      "summary": "Initialization script that runs database upgrades, creates the Superset admin user, loads example data, and initializes Superset before starting the server.",
+      "tags": ["script", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:integration_tests/superset/docker/requirements-local.txt",
+      "type": "document",
+      "name": "requirements-local.txt",
+      "filePath": "integration_tests/superset/docker/requirements-local.txt",
+      "summary": "Local Python requirements file for the Superset Docker environment, listing any additional pip packages to install beyond the base Superset image.",
+      "tags": ["documentation", "configuration", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/superset/docker/run-server.sh",
+      "type": "file",
+      "name": "run-server.sh",
+      "filePath": "integration_tests/superset/docker/run-server.sh",
+      "summary": "Script that starts the Superset web server using Gunicorn with configurable worker count and timeout, used as the container entrypoint.",
+      "tags": ["script", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/superset/docker/docker-bootstrap.sh",
+      "target": "config:integration_tests/superset/docker/.env-non-dev",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/superset/docker/docker-init.sh",
+      "target": "config:integration_tests/superset/docker/.env-non-dev",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/superset/docker/docker-bootstrap.sh",
+      "target": "file:integration_tests/superset/docker/docker-init.sh",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/superset/docker/docker-bootstrap.sh",
+      "target": "file:integration_tests/superset/docker/run-server.sh",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

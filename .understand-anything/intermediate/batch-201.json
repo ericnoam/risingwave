@@ -1,0 +1,64 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/iceberg-sink/spark-script/create-table.sql",
+      "type": "file",
+      "name": "create-table.sql",
+      "filePath": "integration_tests/iceberg-sink/spark-script/create-table.sql",
+      "summary": "Creates the Iceberg `demo` table with user_id, target_id, and event_timestamp columns used in the iceberg-sink integration test via Spark.",
+      "tags": ["database", "schema-definition", "integration-test", "iceberg"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/iceberg-sink/spark-script/create-table.sql:demo",
+      "type": "table",
+      "name": "demo",
+      "filePath": "integration_tests/iceberg-sink/spark-script/create-table.sql",
+      "lineRange": [3, 8],
+      "summary": "Iceberg demo table storing user activity events with user_id, target_id, and event_timestamp fields.",
+      "tags": ["database", "iceberg", "event-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/iceberg-sink/spark-script/query-table.sql",
+      "type": "file",
+      "name": "query-table.sql",
+      "filePath": "integration_tests/iceberg-sink/spark-script/query-table.sql",
+      "summary": "SQL query script for reading data from the Iceberg demo table to verify sink results in the iceberg-sink integration test.",
+      "tags": ["database", "query", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/iceberg-sink/spark-script/run-sql-file.sh",
+      "type": "file",
+      "name": "run-sql-file.sh",
+      "filePath": "integration_tests/iceberg-sink/spark-script/run-sql-file.sh",
+      "summary": "Shell script that executes a given SQL file against a Spark/Iceberg environment for the iceberg-sink integration test.",
+      "tags": ["script", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/iceberg-sink/spark-script/create-table.sql",
+      "target": "table:integration_tests/iceberg-sink/spark-script/create-table.sql:demo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/iceberg-sink/spark-script/query-table.sql",
+      "target": "file:integration_tests/iceberg-sink/spark-script/create-table.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/iceberg-sink/spark-script/run-sql-file.sh",
+      "target": "file:integration_tests/iceberg-sink/spark-script/create-table.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

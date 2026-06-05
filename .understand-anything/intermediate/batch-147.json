@@ -1,0 +1,296 @@
+{
+  "nodes": [
+    {
+      "id": "file:ci/scripts/backfill-test.sh",
+      "type": "file",
+      "name": "backfill-test.sh",
+      "filePath": "ci/scripts/backfill-test.sh",
+      "summary": "Shell script that starts a RisingWave cluster, runs the backfill test suite using risedev slt, and shuts down the cluster after completion.",
+      "tags": ["script", "ci-cd", "test", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/backwards-compat-test.sh",
+      "type": "file",
+      "name": "backwards-compat-test.sh",
+      "filePath": "ci/scripts/backwards-compat-test.sh",
+      "summary": "Shell script that validates backwards compatibility by spinning up an old RisingWave cluster, creating tables and sinks, then upgrading to the new version and verifying data integrity.",
+      "tags": ["script", "ci-cd", "test", "backwards-compatibility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/backwards-compat-test.sh:configure_rw",
+      "type": "function",
+      "name": "configure_rw",
+      "filePath": "ci/scripts/backwards-compat-test.sh",
+      "lineRange": [40, 100],
+      "summary": "Configures the risedev environment files for the old and new RisingWave versions to prepare for the backwards compatibility test run.",
+      "tags": ["script", "ci-cd", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/backwards-compat-test.sh:download_old_connector_artifact",
+      "type": "function",
+      "name": "download_old_connector_artifact",
+      "filePath": "ci/scripts/backwards-compat-test.sh",
+      "lineRange": [105, 120],
+      "summary": "Downloads the connector node JAR artifact from the old RisingWave release for use in the backwards compatibility test.",
+      "tags": ["script", "ci-cd", "artifact"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:ci/scripts/backwards-compat-test.sh:setup_old_cluster",
+      "type": "function",
+      "name": "setup_old_cluster",
+      "filePath": "ci/scripts/backwards-compat-test.sh",
+      "lineRange": [122, 164],
+      "summary": "Starts an old-version RisingWave cluster and runs SQL scripts to create tables, materialized views, and sinks before the upgrade.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/backwards-compat-test.sh:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "ci/scripts/backwards-compat-test.sh",
+      "lineRange": [177, 192],
+      "summary": "Orchestrates the backwards compatibility test sequence: configure, set up old cluster, upgrade to new cluster, and verify results.",
+      "tags": ["script", "ci-cd", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/build-other.sh",
+      "type": "file",
+      "name": "build-other.sh",
+      "filePath": "ci/scripts/build-other.sh",
+      "summary": "CI script that builds ancillary binaries outside the main RisingWave binary set, such as the sqlsmith fuzzer and other utility tools.",
+      "tags": ["script", "ci-cd", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/build-simulation.sh",
+      "type": "file",
+      "name": "build-simulation.sh",
+      "filePath": "ci/scripts/build-simulation.sh",
+      "summary": "CI script that compiles RisingWave in the madsim simulation mode used for deterministic integration testing.",
+      "tags": ["script", "ci-cd", "build-system", "simulation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/build.sh",
+      "type": "file",
+      "name": "build.sh",
+      "filePath": "ci/scripts/build.sh",
+      "summary": "Main CI build script that compiles the RisingWave binary and all related tools with the CI-optimized build profile, then uploads artifacts.",
+      "tags": ["script", "ci-cd", "build-system"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/check-dylint.sh",
+      "type": "file",
+      "name": "check-dylint.sh",
+      "filePath": "ci/scripts/check-dylint.sh",
+      "summary": "CI script that runs dylint custom lints against the workspace to enforce project-specific Rust code quality rules.",
+      "tags": ["script", "ci-cd", "code-quality", "rust"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/check.sh",
+      "type": "file",
+      "name": "check.sh",
+      "filePath": "ci/scripts/check.sh",
+      "summary": "CI linting script that runs Clippy, rustfmt, license header checks, typos, dependency sorts, and other code quality checks.",
+      "tags": ["script", "ci-cd", "code-quality"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/common.sh",
+      "type": "file",
+      "name": "common.sh",
+      "filePath": "ci/scripts/common.sh",
+      "summary": "Shared utility library sourced by most CI scripts, providing functions for artifact download, coverage reporting, test environment setup, connector installation, and log filtering.",
+      "tags": ["script", "ci-cd", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/common.sh:generate_and_upload_coverage_report",
+      "type": "function",
+      "name": "generate_and_upload_coverage_report",
+      "filePath": "ci/scripts/common.sh",
+      "lineRange": [33, 64],
+      "summary": "Generates LCOV coverage reports from llvm-profdata and uploads them to Codecov with retry logic.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/common.sh:exit_hook",
+      "type": "function",
+      "name": "exit_hook",
+      "filePath": "ci/scripts/common.sh",
+      "lineRange": [67, 82],
+      "summary": "Bash EXIT trap that collects logs, optionally generates a coverage report, and uploads artifacts on CI failure.",
+      "tags": ["script", "ci-cd", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:ci/scripts/common.sh:download_and_prepare_rw",
+      "type": "function",
+      "name": "download_and_prepare_rw",
+      "filePath": "ci/scripts/common.sh",
+      "lineRange": [113, 160],
+      "summary": "Downloads a RisingWave release artifact from S3/GCS, extracts the binary, and places it in the PATH for use by subsequent test commands.",
+      "tags": ["script", "ci-cd", "artifact"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/common.sh:source_test_env_setup",
+      "type": "function",
+      "name": "source_test_env_setup",
+      "filePath": "ci/scripts/common.sh",
+      "lineRange": [184, 231],
+      "summary": "Sets up the full source connector test environment including Kafka, Zookeeper, MySQL, Postgres, and other data source containers needed for source integration tests.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/common.sh:filter_stack_trace",
+      "type": "function",
+      "name": "filter_stack_trace",
+      "filePath": "ci/scripts/common.sh",
+      "lineRange": [233, 243],
+      "summary": "Filters and formats stack traces from RisingWave logs to make CI failure output more readable.",
+      "tags": ["script", "ci-cd", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:ci/scripts/common.sh:sink_test_env_setup",
+      "type": "function",
+      "name": "sink_test_env_setup",
+      "filePath": "ci/scripts/common.sh",
+      "lineRange": [297, 335],
+      "summary": "Sets up the sink connector test environment by starting required external services (Kafka, Redis, Cassandra, etc.) via Docker Compose.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/connector-node-integration-test.sh",
+      "type": "file",
+      "name": "connector-node-integration-test.sh",
+      "filePath": "ci/scripts/connector-node-integration-test.sh",
+      "summary": "CI script that runs end-to-end integration tests for the Java connector node service, starting the service and running SLT test suites against it.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/cron-fuzz-test.sh",
+      "type": "file",
+      "name": "cron-fuzz-test.sh",
+      "filePath": "ci/scripts/cron-fuzz-test.sh",
+      "summary": "Short CI script that triggers the nightly fuzz testing run via sqlsmith differential testing.",
+      "tags": ["script", "ci-cd", "test", "fuzzing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/deterministic-e2e-test.sh",
+      "type": "file",
+      "name": "deterministic-e2e-test.sh",
+      "filePath": "ci/scripts/deterministic-e2e-test.sh",
+      "summary": "CI script that runs end-to-end SLT tests under the madsim deterministic simulation framework to catch non-deterministic behavior.",
+      "tags": ["script", "ci-cd", "test", "simulation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/deterministic-it-test.sh",
+      "type": "file",
+      "name": "deterministic-it-test.sh",
+      "filePath": "ci/scripts/deterministic-it-test.sh",
+      "summary": "CI script that runs integration tests under the madsim deterministic simulation framework for reproducible fault-injection testing.",
+      "tags": ["script", "ci-cd", "test", "simulation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/deterministic-recovery-test.sh",
+      "type": "file",
+      "name": "deterministic-recovery-test.sh",
+      "filePath": "ci/scripts/deterministic-recovery-test.sh",
+      "summary": "CI script that runs recovery and fault-tolerance tests under the madsim deterministic simulation, injecting crashes and verifying correct recovery.",
+      "tags": ["script", "ci-cd", "test", "simulation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/deterministic-unit-test.sh",
+      "type": "file",
+      "name": "deterministic-unit-test.sh",
+      "filePath": "ci/scripts/deterministic-unit-test.sh",
+      "summary": "CI script that runs unit tests compiled with the madsim simulator for deterministic execution.",
+      "tags": ["script", "ci-cd", "test", "simulation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/doc.sh",
+      "type": "file",
+      "name": "doc.sh",
+      "filePath": "ci/scripts/doc.sh",
+      "summary": "CI script that builds Rust API documentation using `cargo doc` and checks for broken doc links.",
+      "tags": ["script", "ci-cd", "documentation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/docker-hdfs.sh",
+      "type": "file",
+      "name": "docker-hdfs.sh",
+      "filePath": "ci/scripts/docker-hdfs.sh",
+      "summary": "CI script that starts a Hadoop HDFS container environment used for testing HDFS-backed storage in RisingWave.",
+      "tags": ["script", "ci-cd", "test", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/docker-scout-notify.sh",
+      "type": "file",
+      "name": "docker-scout-notify.sh",
+      "filePath": "ci/scripts/docker-scout-notify.sh",
+      "summary": "CI script that sends Docker Scout security scan results to a Slack notification channel after image publication.",
+      "tags": ["script", "ci-cd", "security", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/docker-scout.sh",
+      "type": "file",
+      "name": "docker-scout.sh",
+      "filePath": "ci/scripts/docker-scout.sh",
+      "summary": "CI script that runs Docker Scout vulnerability scanning on RisingWave container images and outputs CVE reports.",
+      "tags": ["script", "ci-cd", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/docker.sh",
+      "type": "file",
+      "name": "docker.sh",
+      "filePath": "ci/scripts/docker.sh",
+      "summary": "CI script that builds the RisingWave production Docker image and pushes it to Docker Hub and GitHub Container Registry.",
+      "tags": ["script", "ci-cd", "containerization", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/docslt.sh",
+      "type": "file",
+      "name": "docslt.sh",
+      "filePath": "ci/scripts/docslt.sh",
+      "summary": "CI script that runs documentation SQLLogicTest (docslt) validation to ensure SQL examples in documentation are correct.",
+      "tags": ["script", "ci-cd", "test", "documentation"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:ci/scripts/backwards-compat-test.sh", "target": "function:ci/scripts/backwards-compat-test.sh:configure_rw", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/backwards-compat-test.sh", "target": "function:ci/scripts/backwards-compat-test.sh:download_old_connector_artifact", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/backwards-compat-test.sh", "target": "function:ci/scripts/backwards-compat-test.sh:setup_old_cluster", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/backwards-compat-test.sh", "target": "function:ci/scripts/backwards-compat-test.sh:main", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/common.sh", "target": "function:ci/scripts/common.sh:generate_and_upload_coverage_report", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/common.sh", "target": "function:ci/scripts/common.sh:exit_hook", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/common.sh", "target": "function:ci/scripts/common.sh:download_and_prepare_rw", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/common.sh", "target": "function:ci/scripts/common.sh:source_test_env_setup", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/common.sh", "target": "function:ci/scripts/common.sh:filter_stack_trace", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/common.sh", "target": "function:ci/scripts/common.sh:sink_test_env_setup", "type": "contains", "direction": "forward", "weight": 1.0}
+  ]
+}

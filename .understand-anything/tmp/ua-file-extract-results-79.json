@@ -1,0 +1,3736 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/risedevtool/src/task/mysql_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "id",
+          "startLine": 19,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "is_user_managed",
+          "startLine": 23,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "image",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "envs",
+          "startLine": 31,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "ports",
+          "startLine": 49,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "data_path",
+          "startLine": 53,
+          "endLine": 55,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "id",
+          "callee": "self.id.clone",
+          "lineNumber": 20
+        },
+        {
+          "caller": "image",
+          "callee": "self.image.clone",
+          "lineNumber": 28
+        },
+        {
+          "caller": "envs",
+          "callee": "self.password.is_empty",
+          "lineNumber": 34
+        },
+        {
+          "caller": "envs",
+          "callee": "envs.push",
+          "lineNumber": 35
+        },
+        {
+          "caller": "envs",
+          "callee": "\"MYSQL_ALLOW_EMPTY_PASSWORD\".to_owned",
+          "lineNumber": 35
+        },
+        {
+          "caller": "envs",
+          "callee": "\"1\".to_owned",
+          "lineNumber": 35
+        },
+        {
+          "caller": "envs",
+          "callee": "envs.push",
+          "lineNumber": 37
+        },
+        {
+          "caller": "envs",
+          "callee": "\"MYSQL_ROOT_PASSWORD\".to_owned",
+          "lineNumber": 37
+        },
+        {
+          "caller": "envs",
+          "callee": "self.password.clone",
+          "lineNumber": 37
+        },
+        {
+          "caller": "envs",
+          "callee": "envs.extend",
+          "lineNumber": 40
+        },
+        {
+          "caller": "envs",
+          "callee": "\"MYSQL_ALLOW_EMPTY_PASSWORD\".to_owned",
+          "lineNumber": 41
+        },
+        {
+          "caller": "envs",
+          "callee": "\"1\".to_owned",
+          "lineNumber": 41
+        },
+        {
+          "caller": "envs",
+          "callee": "\"MYSQL_USER\".to_owned",
+          "lineNumber": 42
+        },
+        {
+          "caller": "envs",
+          "callee": "self.user.clone",
+          "lineNumber": 42
+        },
+        {
+          "caller": "envs",
+          "callee": "\"MYSQL_PASSWORD\".to_owned",
+          "lineNumber": 43
+        },
+        {
+          "caller": "envs",
+          "callee": "self.password.clone",
+          "lineNumber": 43
+        },
+        {
+          "caller": "data_path",
+          "callee": "self.persist_data.then",
+          "lineNumber": 54
+        },
+        {
+          "caller": "data_path",
+          "callee": "\"/var/lib/mysql\".to_owned",
+          "lineNumber": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/nats_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "id",
+          "startLine": 19,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "is_user_managed",
+          "startLine": 23,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "image",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "args",
+          "startLine": 31,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "ports",
+          "startLine": 41,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "data_path",
+          "startLine": 48,
+          "endLine": 50,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "id",
+          "callee": "self.id.clone",
+          "lineNumber": 20
+        },
+        {
+          "caller": "image",
+          "callee": "self.image.clone",
+          "lineNumber": 28
+        },
+        {
+          "caller": "data_path",
+          "callee": "self.persist_data.then",
+          "lineNumber": 49
+        },
+        {
+          "caller": "data_path",
+          "callee": "\"/data\".to_owned",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/postgres_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "id",
+          "startLine": 19,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "is_user_managed",
+          "startLine": 23,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "image",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "args",
+          "startLine": 31,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "envs",
+          "startLine": 45,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "ports",
+          "startLine": 58,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "data_path",
+          "startLine": 62,
+          "endLine": 65,
+          "params": []
+        },
+        {
+          "name": "latency_ms",
+          "startLine": 67,
+          "endLine": 69,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "id",
+          "callee": "self.id.clone",
+          "lineNumber": 20
+        },
+        {
+          "caller": "image",
+          "callee": "self.image.clone",
+          "lineNumber": 28
+        },
+        {
+          "caller": "args",
+          "callee": "[\n            \"-c\",\n            \"wal_level=logical\",\n            \"-c\",\n            \"max_replication_slots=30\",\n            \"-c\",\n            \"log_statement=all\",\n        ]\n        .map(String::from).to_vec",
+          "lineNumber": 33
+        },
+        {
+          "caller": "args",
+          "callee": "[\n            \"-c\",\n            \"wal_level=logical\",\n            \"-c\",\n            \"max_replication_slots=30\",\n            \"-c\",\n            \"log_statement=all\",\n        ].map",
+          "lineNumber": 33
+        },
+        {
+          "caller": "data_path",
+          "callee": "self.persist_data.then",
+          "lineNumber": 63
+        },
+        {
+          "caller": "data_path",
+          "callee": "\"/var/lib/postgresql/data\".to_owned",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/prometheus_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 82,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "prometheus_path",
+          "startLine": 34,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "prometheus",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "apply_command_args",
+          "startLine": 44,
+          "endLine": 51,
+          "params": [
+            "cmd",
+            "config"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 55,
+          "endLine": 96,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "id",
+          "startLine": 98,
+          "endLine": 100,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PrometheusService",
+          "startLine": 25,
+          "endLine": 27,
+          "methods": [
+            "new",
+            "prometheus_path",
+            "prometheus",
+            "apply_command_args",
+            "execute",
+            "id"
+          ],
+          "properties": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PrometheusService",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "apply_command_args",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 31
+        },
+        {
+          "caller": "prometheus_path",
+          "callee": "env::var",
+          "lineNumber": 35
+        },
+        {
+          "caller": "prometheus_path",
+          "callee": "Ok",
+          "lineNumber": 36
+        },
+        {
+          "caller": "prometheus_path",
+          "callee": "Path::new(&prefix_bin).join(\"prometheus\").join",
+          "lineNumber": 36
+        },
+        {
+          "caller": "prometheus_path",
+          "callee": "Path::new(&prefix_bin).join",
+          "lineNumber": 36
+        },
+        {
+          "caller": "prometheus_path",
+          "callee": "Path::new",
+          "lineNumber": 36
+        },
+        {
+          "caller": "prometheus",
+          "callee": "Ok",
+          "lineNumber": 40
+        },
+        {
+          "caller": "prometheus",
+          "callee": "Command::new",
+          "lineNumber": 40
+        },
+        {
+          "caller": "prometheus",
+          "callee": "self.prometheus_path",
+          "lineNumber": 40
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "cmd.arg",
+          "lineNumber": 45
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "cmd.arg",
+          "lineNumber": 49
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "Ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.service",
+          "lineNumber": 56
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 57
+        },
+        {
+          "caller": "execute",
+          "callee": "self.prometheus_path",
+          "lineNumber": 59
+        },
+        {
+          "caller": "execute",
+          "callee": "path.exists",
+          "lineNumber": 60
+        },
+        {
+          "caller": "execute",
+          "callee": "Err",
+          "lineNumber": 61
+        },
+        {
+          "caller": "execute",
+          "callee": "env::var",
+          "lineNumber": 68
+        },
+        {
+          "caller": "execute",
+          "callee": "env::var",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "fs_err::write",
+          "lineNumber": 71
+        },
+        {
+          "caller": "execute",
+          "callee": "Path::new(&prefix_config).join",
+          "lineNumber": 72
+        },
+        {
+          "caller": "execute",
+          "callee": "Path::new",
+          "lineNumber": 72
+        },
+        {
+          "caller": "execute",
+          "callee": "PrometheusGen.gen_prometheus_yml",
+          "lineNumber": 73
+        },
+        {
+          "caller": "execute",
+          "callee": "self.prometheus",
+          "lineNumber": 76
+        },
+        {
+          "caller": "execute",
+          "callee": "Self::apply_command_args",
+          "lineNumber": 78
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(format!(\n            \"--config.file={}\",\n            Path::new(&prefix_config)\n                .join(\"prometheus.yml\")\n                .to_string_lossy()\n        )).arg",
+          "lineNumber": 80
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg",
+          "lineNumber": 80
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.run_command",
+          "lineNumber": 91
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.tmux_run",
+          "lineNumber": 91
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 93
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 95
+        },
+        {
+          "caller": "id",
+          "callee": "self.config.id.clone",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/pubsub_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "gcloud_path",
+          "startLine": 34,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "gcloud",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "execute",
+          "startLine": 47,
+          "endLine": 72,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "id",
+          "startLine": 74,
+          "endLine": 76,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PubsubService",
+          "startLine": 25,
+          "endLine": 27,
+          "methods": [
+            "new",
+            "gcloud_path",
+            "gcloud",
+            "execute",
+            "id"
+          ],
+          "properties": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PubsubService",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 31
+        },
+        {
+          "caller": "gcloud_path",
+          "callee": "env::var",
+          "lineNumber": 35
+        },
+        {
+          "caller": "gcloud_path",
+          "callee": "Ok",
+          "lineNumber": 36
+        },
+        {
+          "caller": "gcloud_path",
+          "callee": "Path::new(&prefix_bin)\n            .join(\"gcloud\").join",
+          "lineNumber": 36
+        },
+        {
+          "caller": "gcloud_path",
+          "callee": "Path::new(&prefix_bin).join",
+          "lineNumber": 36
+        },
+        {
+          "caller": "gcloud_path",
+          "callee": "Path::new",
+          "lineNumber": 36
+        },
+        {
+          "caller": "gcloud",
+          "callee": "Ok",
+          "lineNumber": 42
+        },
+        {
+          "caller": "gcloud",
+          "callee": "Command::new",
+          "lineNumber": 42
+        },
+        {
+          "caller": "gcloud",
+          "callee": "self.gcloud_path",
+          "lineNumber": 42
+        },
+        {
+          "caller": "execute",
+          "callee": "DummyService::new(&self.id()).execute",
+          "lineNumber": 49
+        },
+        {
+          "caller": "execute",
+          "callee": "DummyService::new",
+          "lineNumber": 49
+        },
+        {
+          "caller": "execute",
+          "callee": "self.id",
+          "lineNumber": 49
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.service",
+          "lineNumber": 52
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 53
+        },
+        {
+          "caller": "execute",
+          "callee": "self.gcloud_path",
+          "lineNumber": 55
+        },
+        {
+          "caller": "execute",
+          "callee": "path.exists",
+          "lineNumber": 56
+        },
+        {
+          "caller": "execute",
+          "callee": "Err",
+          "lineNumber": 57
+        },
+        {
+          "caller": "execute",
+          "callee": "self.gcloud",
+          "lineNumber": 64
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg",
+          "lineNumber": 65
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.run_command",
+          "lineNumber": 67
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.tmux_run",
+          "lineNumber": 67
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 71
+        },
+        {
+          "caller": "id",
+          "callee": "self.config.id.clone",
+          "lineNumber": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/pulsar_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "id",
+          "startLine": 19,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "is_user_managed",
+          "startLine": 23,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "image",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "args",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "ports",
+          "startLine": 35,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "data_path",
+          "startLine": 42,
+          "endLine": 44,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "id",
+          "callee": "self.id.clone",
+          "lineNumber": 20
+        },
+        {
+          "caller": "image",
+          "callee": "self.image.clone",
+          "lineNumber": 28
+        },
+        {
+          "caller": "data_path",
+          "callee": "self.persist_data.then",
+          "lineNumber": 43
+        },
+        {
+          "caller": "data_path",
+          "callee": "\"/pulsar/data\".to_owned",
+          "lineNumber": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/redis_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "redis_path",
+          "startLine": 34,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "redis",
+          "startLine": 42,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "execute",
+          "startLine": 48,
+          "endLine": 72,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "id",
+          "startLine": 74,
+          "endLine": 76,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedisService",
+          "startLine": 25,
+          "endLine": 27,
+          "methods": [
+            "new",
+            "redis_path",
+            "redis",
+            "execute",
+            "id"
+          ],
+          "properties": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RedisService",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 31
+        },
+        {
+          "caller": "redis_path",
+          "callee": "env::var",
+          "lineNumber": 35
+        },
+        {
+          "caller": "redis_path",
+          "callee": "Ok",
+          "lineNumber": 36
+        },
+        {
+          "caller": "redis_path",
+          "callee": "Path::new(&prefix_bin)\n            .join(\"redis\")\n            .join(\"src\").join",
+          "lineNumber": 36
+        },
+        {
+          "caller": "redis_path",
+          "callee": "Path::new(&prefix_bin)\n            .join(\"redis\").join",
+          "lineNumber": 36
+        },
+        {
+          "caller": "redis_path",
+          "callee": "Path::new(&prefix_bin).join",
+          "lineNumber": 36
+        },
+        {
+          "caller": "redis_path",
+          "callee": "Path::new",
+          "lineNumber": 36
+        },
+        {
+          "caller": "redis",
+          "callee": "Ok",
+          "lineNumber": 43
+        },
+        {
+          "caller": "redis",
+          "callee": "Command::new",
+          "lineNumber": 43
+        },
+        {
+          "caller": "redis",
+          "callee": "self.redis_path",
+          "lineNumber": 43
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.service",
+          "lineNumber": 49
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 50
+        },
+        {
+          "caller": "execute",
+          "callee": "self.redis_path",
+          "lineNumber": 51
+        },
+        {
+          "caller": "execute",
+          "callee": "path.exists",
+          "lineNumber": 52
+        },
+        {
+          "caller": "execute",
+          "callee": "Err",
+          "lineNumber": 53
+        },
+        {
+          "caller": "execute",
+          "callee": "self.redis",
+          "lineNumber": 60
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"--bind\")\n            .arg(&self.config.address)\n            .arg(\"--port\")\n            .arg(self.config.port.to_string())\n            .arg(\"--shutdown-on-sigint\").arg",
+          "lineNumber": 61
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"--bind\")\n            .arg(&self.config.address)\n            .arg(\"--port\")\n            .arg(self.config.port.to_string()).arg",
+          "lineNumber": 61
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"--bind\")\n            .arg(&self.config.address)\n            .arg(\"--port\").arg",
+          "lineNumber": 61
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"--bind\")\n            .arg(&self.config.address).arg",
+          "lineNumber": 61
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"--bind\").arg",
+          "lineNumber": 61
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg",
+          "lineNumber": 61
+        },
+        {
+          "caller": "execute",
+          "callee": "self.config.port.to_string",
+          "lineNumber": 64
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.run_command",
+          "lineNumber": 68
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.tmux_run",
+          "lineNumber": 68
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 71
+        },
+        {
+          "caller": "id",
+          "callee": "self.config.id.clone",
+          "lineNumber": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/schema_registry_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 76,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "id",
+          "startLine": 22,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "is_user_managed",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "image",
+          "startLine": 30,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "envs",
+          "startLine": 34,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "ports",
+          "startLine": 63,
+          "endLine": 68,
+          "params": []
+        },
+        {
+          "name": "data_path",
+          "startLine": 70,
+          "endLine": 72,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "id",
+          "callee": "self.id.clone",
+          "lineNumber": 23
+        },
+        {
+          "caller": "image",
+          "callee": "self.image.clone",
+          "lineNumber": 31
+        },
+        {
+          "caller": "envs",
+          "callee": "self\n            .provide_kafka\n            .as_ref().expect",
+          "lineNumber": 37
+        },
+        {
+          "caller": "envs",
+          "callee": "self\n            .provide_kafka.as_ref",
+          "lineNumber": 37
+        },
+        {
+          "caller": "envs",
+          "callee": "kafka.len",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/sql_server_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "id",
+          "startLine": 19,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "is_user_managed",
+          "startLine": 23,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "image",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "envs",
+          "startLine": 31,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "ports",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "data_path",
+          "startLine": 43,
+          "endLine": 46,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "id",
+          "callee": "self.id.clone",
+          "lineNumber": 20
+        },
+        {
+          "caller": "image",
+          "callee": "self.image.clone",
+          "lineNumber": 28
+        },
+        {
+          "caller": "data_path",
+          "callee": "self.persist_data.then",
+          "lineNumber": 44
+        },
+        {
+          "caller": "data_path",
+          "callee": "\"/var/lib/sqlserver/data\".to_owned",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/task_configure_minio.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 123,
+      "nonEmptyLines": 101,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 33,
+          "endLine": 41,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "mcli",
+          "startLine": 43,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "execute",
+          "startLine": 51,
+          "endLine": 122,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ConfigureMinioTask",
+          "startLine": 26,
+          "endLine": 30,
+          "methods": [
+            "new",
+            "mcli",
+            "execute"
+          ],
+          "properties": [
+            "mcli_path",
+            "mcli_config_path",
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ConfigureMinioTask",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "env::var",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new",
+          "callee": "env::var",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 36
+        },
+        {
+          "caller": "mcli",
+          "callee": "Command::new",
+          "lineNumber": 44
+        },
+        {
+          "caller": "mcli",
+          "callee": "self.mcli_path.clone",
+          "lineNumber": 44
+        },
+        {
+          "caller": "mcli",
+          "callee": "cmd.arg(\"-C\").arg",
+          "lineNumber": 45
+        },
+        {
+          "caller": "mcli",
+          "callee": "cmd.arg",
+          "lineNumber": 45
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 52
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.wait_http",
+          "lineNumber": 59
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 61
+        },
+        {
+          "caller": "execute",
+          "callee": "Err",
+          "lineNumber": 63
+        },
+        {
+          "caller": "execute",
+          "callee": "self.mcli",
+          "lineNumber": 68
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"alias\")\n                .arg(\"set\")\n                .arg(HUMMOCK_REMOTE_NAME)\n                .arg(format!(\"http://{}\", minio_address))\n                .arg(&self.config.root_user).arg",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"alias\")\n                .arg(\"set\")\n                .arg(HUMMOCK_REMOTE_NAME)\n                .arg(format!(\"http://{}\", minio_address)).arg",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"alias\")\n                .arg(\"set\")\n                .arg(HUMMOCK_REMOTE_NAME).arg",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"alias\")\n                .arg(\"set\").arg",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"alias\").arg",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.run_command",
+          "lineNumber": 76
+        },
+        {
+          "caller": "execute",
+          "callee": "last_result.is_ok",
+          "lineNumber": 77
+        },
+        {
+          "caller": "execute",
+          "callee": "std::thread::sleep",
+          "lineNumber": 81
+        },
+        {
+          "caller": "execute",
+          "callee": "Duration::from_millis",
+          "lineNumber": 81
+        },
+        {
+          "caller": "execute",
+          "callee": "self.mcli",
+          "lineNumber": 107
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg(\"mb\").arg",
+          "lineNumber": 108
+        },
+        {
+          "caller": "execute",
+          "callee": "cmd.arg",
+          "lineNumber": 108
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.run_command(cmd).ok",
+          "lineNumber": 112
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.run_command",
+          "lineNumber": 112
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.complete_spin",
+          "lineNumber": 114
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 116
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 121
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/task_db_ready_check.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 29,
+          "endLine": 31,
+          "params": [
+            "options"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 39,
+          "endLine": 74,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DbReadyCheckTask",
+          "startLine": 24,
+          "endLine": 26,
+          "methods": [],
+          "properties": [
+            "options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DbReadyCheckTask",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "execute",
+          "callee": "ctx.id.clone",
+          "lineNumber": 40
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 44
+        },
+        {
+          "caller": "execute",
+          "callee": "wait(\n            || {\n                let options = self.options.clone();\n\n                let rt = tokio::runtime::Builder::new_current_thread()\n                    .enable_all()\n                    .build()?;\n\n                rt.block_on(async move {\n                    let mut conn = options\n                        .connect()\n                        .await\n                        .context(\"failed to connect to database\")?;\n                    conn.ping().await.context(\"failed to ping database\")?;\n                    Ok(())\n                })\n            },\n            &mut ctx.log,\n            ctx.status_file.as_ref().unwrap(),\n            &id,\n            Some(Duration::from_secs(20)),\n            true,\n        ).with_context",
+          "lineNumber": 46
+        },
+        {
+          "caller": "execute",
+          "callee": "wait",
+          "lineNumber": 46
+        },
+        {
+          "caller": "execute",
+          "callee": "self.options.clone",
+          "lineNumber": 48
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread()\n                    .enable_all().build",
+          "lineNumber": 50
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread().enable_all",
+          "lineNumber": 50
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread",
+          "lineNumber": 50
+        },
+        {
+          "caller": "execute",
+          "callee": "rt.block_on",
+          "lineNumber": 54
+        },
+        {
+          "caller": "execute",
+          "callee": "options\n                        .connect()\n                        .await.context",
+          "lineNumber": 55
+        },
+        {
+          "caller": "execute",
+          "callee": "options.connect",
+          "lineNumber": 55
+        },
+        {
+          "caller": "execute",
+          "callee": "conn.ping().await.context",
+          "lineNumber": 59
+        },
+        {
+          "caller": "execute",
+          "callee": "conn.ping",
+          "lineNumber": 59
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 60
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.status_file.as_ref().unwrap",
+          "lineNumber": 64
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.status_file.as_ref",
+          "lineNumber": 64
+        },
+        {
+          "caller": "execute",
+          "callee": "Some",
+          "lineNumber": 66
+        },
+        {
+          "caller": "execute",
+          "callee": "Duration::from_secs",
+          "lineNumber": 66
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.complete_spin",
+          "lineNumber": 71
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 73
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/task_kafka_ready_check.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 29,
+          "endLine": 31,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 35,
+          "endLine": 71,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "KafkaReadyCheckTask",
+          "startLine": 24,
+          "endLine": 26,
+          "methods": [
+            "new",
+            "execute"
+          ],
+          "properties": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "KafkaReadyCheckTask",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 30
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 37
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 40
+        },
+        {
+          "caller": "execute",
+          "callee": "ClientConfig::new",
+          "lineNumber": 42
+        },
+        {
+          "caller": "execute",
+          "callee": "config.set",
+          "lineNumber": 43
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread()\n            .enable_time()\n            .enable_io().build",
+          "lineNumber": 48
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread()\n            .enable_time().enable_io",
+          "lineNumber": 48
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread().enable_time",
+          "lineNumber": 48
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread",
+          "lineNumber": 48
+        },
+        {
+          "caller": "execute",
+          "callee": "rt.block_on",
+          "lineNumber": 52
+        },
+        {
+          "caller": "execute",
+          "callee": "BaseConsumer::from_config(&config)\n                .await.context",
+          "lineNumber": 53
+        },
+        {
+          "caller": "execute",
+          "callee": "BaseConsumer::from_config",
+          "lineNumber": 53
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.wait",
+          "lineNumber": 58
+        },
+        {
+          "caller": "execute",
+          "callee": "rt.block_on",
+          "lineNumber": 59
+        },
+        {
+          "caller": "execute",
+          "callee": "consumer\n                    .fetch_metadata(None, Duration::from_secs(1))\n                    .await.context",
+          "lineNumber": 60
+        },
+        {
+          "caller": "execute",
+          "callee": "consumer.fetch_metadata",
+          "lineNumber": 60
+        },
+        {
+          "caller": "execute",
+          "callee": "Duration::from_secs",
+          "lineNumber": 61
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 64
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.complete_spin",
+          "lineNumber": 68
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/task_log_ready_check.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 93,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 30,
+          "endLine": 34,
+          "params": [
+            "pattern"
+          ]
+        },
+        {
+          "name": "new_all",
+          "startLine": 36,
+          "endLine": 40,
+          "params": [
+            "patterns"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 44,
+          "endLine": 56,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "wait_log_contains",
+          "startLine": 63,
+          "endLine": 92,
+          "params": [
+            "patterns"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LogReadyCheckTask",
+          "startLine": 25,
+          "endLine": 27,
+          "methods": [
+            "new",
+            "new_all",
+            "execute"
+          ],
+          "properties": [
+            "patterns"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LogReadyCheckTask",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "new_all",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 31
+        },
+        {
+          "caller": "new_all",
+          "callee": "Ok",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_all",
+          "callee": "patterns.into_iter().map(Into::into).collect",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_all",
+          "callee": "patterns.into_iter().map",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_all",
+          "callee": "patterns.into_iter",
+          "lineNumber": 38
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.id.clone",
+          "lineNumber": 45
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 49
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.wait_log_contains(&self.patterns).with_context",
+          "lineNumber": 50
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.wait_log_contains",
+          "lineNumber": 50
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.complete_spin",
+          "lineNumber": 53
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 55
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "self.log_path().to_path_buf",
+          "lineNumber": 64
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "self.log_path",
+          "lineNumber": 64
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "String::new",
+          "lineNumber": 66
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "wait",
+          "lineNumber": 69
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "File::open(&log_path).context",
+          "lineNumber": 71
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "File::open",
+          "lineNumber": 71
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "file.seek",
+          "lineNumber": 72
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "SeekFrom::Start",
+          "lineNumber": 72
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "file.read_to_string",
+          "lineNumber": 73
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "content.contains",
+          "lineNumber": 77
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "Ok",
+          "lineNumber": 82
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "self.status_file.as_ref().unwrap",
+          "lineNumber": 85
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "self.status_file.as_ref",
+          "lineNumber": 85
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "self.id.as_ref().unwrap",
+          "lineNumber": 86
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "self.id.as_ref",
+          "lineNumber": 86
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "Some",
+          "lineNumber": 87
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "Duration::from_secs",
+          "lineNumber": 87
+        },
+        {
+          "caller": "wait_log_contains",
+          "callee": "Ok",
+          "lineNumber": 91
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/task_pubsub_emu_ready_check.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 28,
+          "endLine": 30,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 35,
+          "endLine": 65,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PubsubReadyTaskCheck",
+          "startLine": 23,
+          "endLine": 25,
+          "methods": [
+            "new",
+            "execute"
+          ],
+          "properties": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PubsubReadyTaskCheck",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 29
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 36
+        },
+        {
+          "caller": "execute",
+          "callee": "std::env::set_var",
+          "lineNumber": 41
+        },
+        {
+          "caller": "execute",
+          "callee": "thread::sleep",
+          "lineNumber": 47
+        },
+        {
+          "caller": "execute",
+          "callee": "Duration::from_secs",
+          "lineNumber": 47
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread()\n            .enable_time()\n            .enable_io().build",
+          "lineNumber": 48
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread()\n            .enable_time().enable_io",
+          "lineNumber": 48
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread().enable_time",
+          "lineNumber": 48
+        },
+        {
+          "caller": "execute",
+          "callee": "tokio::runtime::Builder::new_current_thread",
+          "lineNumber": 48
+        },
+        {
+          "caller": "execute",
+          "callee": "async_runtime.block_on",
+          "lineNumber": 53
+        },
+        {
+          "caller": "execute",
+          "callee": "Client::new",
+          "lineNumber": 53
+        },
+        {
+          "caller": "execute",
+          "callee": "Default::default",
+          "lineNumber": 53
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.wait",
+          "lineNumber": 55
+        },
+        {
+          "caller": "execute",
+          "callee": "async_runtime\n                .block_on(client.get_subscriptions(None)).map_err",
+          "lineNumber": 56
+        },
+        {
+          "caller": "execute",
+          "callee": "async_runtime.block_on",
+          "lineNumber": 56
+        },
+        {
+          "caller": "execute",
+          "callee": "client.get_subscriptions",
+          "lineNumber": 57
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 59
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.complete_spin",
+          "lineNumber": 62
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/task_redis_ready_check.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 26,
+          "endLine": 28,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 32,
+          "endLine": 45,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedisReadyCheckTask",
+          "startLine": 21,
+          "endLine": 23,
+          "methods": [
+            "new",
+            "execute"
+          ],
+          "properties": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RedisReadyCheckTask",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 27
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 33
+        },
+        {
+          "caller": "execute",
+          "callee": "redis::Client::open",
+          "lineNumber": 34
+        },
+        {
+          "caller": "execute",
+          "callee": "\"redis://\".to_owned",
+          "lineNumber": 35
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.wait",
+          "lineNumber": 38
+        },
+        {
+          "caller": "execute",
+          "callee": "client.get_connection",
+          "lineNumber": 39
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 40
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.complete_spin",
+          "lineNumber": 43
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/task_tcp_ready_check.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 29,
+          "endLine": 35,
+          "params": [
+            "advertise_address",
+            "port",
+            "user_managed"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 39,
+          "endLine": 61,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TcpReadyCheckTask",
+          "startLine": 22,
+          "endLine": 26,
+          "methods": [
+            "new",
+            "execute"
+          ],
+          "properties": [
+            "advertise_address",
+            "port",
+            "user_managed"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TcpReadyCheckTask",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 30
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.id.clone",
+          "lineNumber": 40
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 46
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.wait_tcp_user(&address).with_context",
+          "lineNumber": 49
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.wait_tcp_user",
+          "lineNumber": 49
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 53
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.wait_tcp(&address).with_context",
+          "lineNumber": 54
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.wait_tcp",
+          "lineNumber": 54
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.complete_spin",
+          "lineNumber": 58
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 60
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/tempo_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "tempo_path",
+          "startLine": 34,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "tempo",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "apply_command_args",
+          "startLine": 43,
+          "endLine": 57,
+          "params": [
+            "cmd",
+            "data_path",
+            "config_file_path"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 61,
+          "endLine": 91,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "id",
+          "startLine": 93,
+          "endLine": 95,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TempoService",
+          "startLine": 25,
+          "endLine": 27,
+          "methods": [
+            "new",
+            "tempo_path",
+            "tempo",
+            "apply_command_args",
+            "execute",
+            "id"
+          ],
+          "properties": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TempoService",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "apply_command_args",
+          "line": 43,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 31
+        },
+        {
+          "caller": "tempo_path",
+          "callee": "env::var",
+          "lineNumber": 35
+        },
+        {
+          "caller": "tempo_path",
+          "callee": "Ok",
+          "lineNumber": 36
+        },
+        {
+          "caller": "tempo_path",
+          "callee": "Path::new(&prefix_bin).join(\"tempo\").join",
+          "lineNumber": 36
+        },
+        {
+          "caller": "tempo_path",
+          "callee": "Path::new(&prefix_bin).join",
+          "lineNumber": 36
+        },
+        {
+          "caller": "tempo_path",
+          "callee": "Path::new",
+          "lineNumber": 36
+        },
+        {
+          "caller": "tempo",
+          "callee": "Ok",
+          "lineNumber": 40
+        },
+        {
+          "caller": "tempo",
+          "callee": "Command::new",
+          "lineNumber": 40
+        },
+        {
+          "caller": "tempo",
+          "callee": "self.tempo_path",
+          "lineNumber": 40
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "cmd.arg(\"--storage.trace.backend\")\n            .arg(\"local\")\n            .arg(\"--storage.trace.local.path\")\n            .arg(data_path.as_ref().join(\"blocks\"))\n            .arg(\"--storage.trace.wal.path\")\n            .arg(data_path.as_ref().join(\"wal\"))\n            .arg(\"--config.file\").arg",
+          "lineNumber": 48
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "cmd.arg(\"--storage.trace.backend\")\n            .arg(\"local\")\n            .arg(\"--storage.trace.local.path\")\n            .arg(data_path.as_ref().join(\"blocks\"))\n            .arg(\"--storage.trace.wal.path\")\n            .arg(data_path.as_ref().join(\"wal\")).arg",
+          "lineNumber": 48
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "cmd.arg(\"--storage.trace.backend\")\n            .arg(\"local\")\n            .arg(\"--storage.trace.local.path\")\n            .arg(data_path.as_ref().join(\"blocks\"))\n            .arg(\"--storage.trace.wal.path\").arg",
+          "lineNumber": 48
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "cmd.arg(\"--storage.trace.backend\")\n            .arg(\"local\")\n            .arg(\"--storage.trace.local.path\")\n            .arg(data_path.as_ref().join(\"blocks\")).arg",
+          "lineNumber": 48
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "cmd.arg(\"--storage.trace.backend\")\n            .arg(\"local\")\n            .arg(\"--storage.trace.local.path\").arg",
+          "lineNumber": 48
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "cmd.arg(\"--storage.trace.backend\")\n            .arg(\"local\").arg",
+          "lineNumber": 48
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "cmd.arg(\"--storage.trace.backend\").arg",
+          "lineNumber": 48
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "cmd.arg",
+          "lineNumber": 48
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "data_path.as_ref().join",
+          "lineNumber": 51
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "data_path.as_ref",
+          "lineNumber": 51
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "data_path.as_ref().join",
+          "lineNumber": 53
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "data_path.as_ref",
+          "lineNumber": 53
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "config_file_path.as_ref",
+          "lineNumber": 55
+        },
+        {
+          "caller": "apply_command_args",
+          "callee": "Ok",
+          "lineNumber": 56
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.service",
+          "lineNumber": 62
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 63
+        },
+        {
+          "caller": "execute",
+          "callee": "self.tempo_path",
+          "lineNumber": 65
+        },
+        {
+          "caller": "execute",
+          "callee": "path.exists",
+          "lineNumber": 66
+        },
+        {
+          "caller": "execute",
+          "callee": "Err",
+          "lineNumber": 67
+        },
+        {
+          "caller": "execute",
+          "callee": "env::var",
+          "lineNumber": 74
+        },
+        {
+          "caller": "execute",
+          "callee": "env::var",
+          "lineNumber": 75
+        },
+        {
+          "caller": "execute",
+          "callee": "Path::new(&prefix_config).join",
+          "lineNumber": 77
+        },
+        {
+          "caller": "execute",
+          "callee": "Path::new",
+          "lineNumber": 77
+        },
+        {
+          "caller": "execute",
+          "callee": "fs_err::write",
+          "lineNumber": 78
+        },
+        {
+          "caller": "execute",
+          "callee": "TempoGen.gen_tempo_yml",
+          "lineNumber": 78
+        },
+        {
+          "caller": "execute",
+          "callee": "Path::new(&prefix_data).join",
+          "lineNumber": 80
+        },
+        {
+          "caller": "execute",
+          "callee": "Path::new",
+          "lineNumber": 80
+        },
+        {
+          "caller": "execute",
+          "callee": "self.id",
+          "lineNumber": 80
+        },
+        {
+          "caller": "execute",
+          "callee": "fs_err::create_dir_all",
+          "lineNumber": 81
+        },
+        {
+          "caller": "execute",
+          "callee": "self.tempo",
+          "lineNumber": 83
+        },
+        {
+          "caller": "execute",
+          "callee": "Self::apply_command_args",
+          "lineNumber": 84
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.run_command",
+          "lineNumber": 86
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.tmux_run",
+          "lineNumber": 86
+        },
+        {
+          "caller": "execute",
+          "callee": "ctx.pb.set_message",
+          "lineNumber": 88
+        },
+        {
+          "caller": "execute",
+          "callee": "Ok",
+          "lineNumber": 90
+        },
+        {
+          "caller": "id",
+          "callee": "self.config.id.clone",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/task/utils.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 249,
+      "nonEmptyLines": 231,
+      "functions": [
+        {
+          "name": "risingwave_cmd",
+          "startLine": 32,
+          "endLine": 103,
+          "params": [
+            "component"
+          ]
+        },
+        {
+          "name": "add_meta_node",
+          "startLine": 107,
+          "endLine": 125,
+          "params": [
+            "provide_meta_node",
+            "cmd"
+          ]
+        },
+        {
+          "name": "add_tempo_endpoint",
+          "startLine": 128,
+          "endLine": 146,
+          "params": [
+            "provide_tempo",
+            "cmd"
+          ]
+        },
+        {
+          "name": "add_hummock_backend",
+          "startLine": 157,
+          "endLine": 249,
+          "params": [
+            "id",
+            "provide_opendal",
+            "provide_minio",
+            "provide_aws_s3",
+            "provide_moat",
+            "hummock_in_memory_strategy",
+            "cmd"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "HummockInMemoryStrategy",
+          "startLine": 149,
+          "endLine": 154,
+          "methods": [],
+          "properties": [
+            "Allowed",
+            "Disallowed"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "risingwave_cmd",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "add_meta_node",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "add_tempo_endpoint",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "HummockInMemoryStrategy",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "add_hummock_backend",
+          "line": 157,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "risingwave_cmd",
+          "callee": "env::var",
+          "lineNumber": 33
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "tag.strip_prefix",
+          "lineNumber": 34
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "self.pb.set_message",
+          "lineNumber": 39
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Once::new",
+          "lineNumber": 41
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "DOCKER_PULL.call_once",
+          "lineNumber": 42
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Command::new",
+          "lineNumber": 43
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "pull_cmd.arg(\"pull\").arg",
+          "lineNumber": 44
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "pull_cmd.arg",
+          "lineNumber": 44
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "pull_cmd.output().expect",
+          "lineNumber": 45
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "pull_cmd.output",
+          "lineNumber": 45
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "output.status.exit_ok().unwrap_or_else",
+          "lineNumber": 46
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "output.status.exit_ok",
+          "lineNumber": 46
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "env::var",
+          "lineNumber": 54
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Command::new",
+          "lineNumber": 57
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\")\n                .arg(&name)\n                .arg(\"--network\")\n                .arg(\"host\")\n                // Release build has a premium license working with <= 4 RWUs, i.e.,\n                // 4 CPUs and 16 GiB of memory.\n                .arg(\"--cpus\")\n                .arg(\"4\")\n                .arg(\"--memory\")\n                .arg(\"16g\")\n                .arg(\"-v\")\n                .arg(format!(\"{wd}:{wd}\"))\n                .arg(&image).arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\")\n                .arg(&name)\n                .arg(\"--network\")\n                .arg(\"host\")\n                // Release build has a premium license working with <= 4 RWUs, i.e.,\n                // 4 CPUs and 16 GiB of memory.\n                .arg(\"--cpus\")\n                .arg(\"4\")\n                .arg(\"--memory\")\n                .arg(\"16g\")\n                .arg(\"-v\")\n                .arg(format!(\"{wd}:{wd}\")).arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\")\n                .arg(&name)\n                .arg(\"--network\")\n                .arg(\"host\")\n                // Release build has a premium license working with <= 4 RWUs, i.e.,\n                // 4 CPUs and 16 GiB of memory.\n                .arg(\"--cpus\")\n                .arg(\"4\")\n                .arg(\"--memory\")\n                .arg(\"16g\")\n                .arg(\"-v\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\")\n                .arg(&name)\n                .arg(\"--network\")\n                .arg(\"host\")\n                // Release build has a premium license working with <= 4 RWUs, i.e.,\n                // 4 CPUs and 16 GiB of memory.\n                .arg(\"--cpus\")\n                .arg(\"4\")\n                .arg(\"--memory\")\n                .arg(\"16g\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\")\n                .arg(&name)\n                .arg(\"--network\")\n                .arg(\"host\")\n                // Release build has a premium license working with <= 4 RWUs, i.e.,\n                // 4 CPUs and 16 GiB of memory.\n                .arg(\"--cpus\")\n                .arg(\"4\")\n                .arg(\"--memory\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\")\n                .arg(&name)\n                .arg(\"--network\")\n                .arg(\"host\")\n                // Release build has a premium license working with <= 4 RWUs, i.e.,\n                // 4 CPUs and 16 GiB of memory.\n                .arg(\"--cpus\")\n                .arg(\"4\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\")\n                .arg(&name)\n                .arg(\"--network\")\n                .arg(\"host\")\n                // Release build has a premium license working with <= 4 RWUs, i.e.,\n                // 4 CPUs and 16 GiB of memory.\n                .arg(\"--cpus\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\")\n                .arg(&name)\n                .arg(\"--network\")\n                .arg(\"host\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\")\n                .arg(&name)\n                .arg(\"--network\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\")\n                .arg(&name).arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\")\n                .arg(\"--name\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\")\n                .arg(\"--rm\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\")\n                .arg(\"-it\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"run\").arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg",
+          "lineNumber": 58
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "is_env_set",
+          "lineNumber": 76
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Command::new",
+          "lineNumber": 77
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg",
+          "lineNumber": 78
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "std::env::var",
+          "lineNumber": 81
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Path::new(&prefix_bin).join(\"risingwave\").join",
+          "lineNumber": 82
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Path::new(&prefix_bin).join",
+          "lineNumber": 82
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Path::new",
+          "lineNumber": 82
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Command::new",
+          "lineNumber": 83
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "crate::util::is_enable_backtrace",
+          "lineNumber": 86
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.env",
+          "lineNumber": 87
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "crate::util::is_env_set",
+          "lineNumber": 90
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "env::var",
+          "lineNumber": 91
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.env",
+          "lineNumber": 92
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Path::new(&prefix_bin).join",
+          "lineNumber": 94
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Path::new",
+          "lineNumber": 94
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "env::var",
+          "lineNumber": 98
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg(\"--config-path\").arg",
+          "lineNumber": 99
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "cmd.arg",
+          "lineNumber": 99
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Path::new(&prefix_config).join",
+          "lineNumber": 100
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Path::new",
+          "lineNumber": 100
+        },
+        {
+          "caller": "risingwave_cmd",
+          "callee": "Ok",
+          "lineNumber": 102
+        },
+        {
+          "caller": "add_meta_node",
+          "callee": "Err",
+          "lineNumber": 110
+        },
+        {
+          "caller": "add_meta_node",
+          "callee": "cmd.arg(\"--meta-address\").arg",
+          "lineNumber": 115
+        },
+        {
+          "caller": "add_meta_node",
+          "callee": "cmd.arg",
+          "lineNumber": 115
+        },
+        {
+          "caller": "add_meta_node",
+          "callee": "meta_nodes\n                    .iter()\n                    .map(|meta_node| format!(\"http://{}:{}\", meta_node.address, meta_node.port)).join",
+          "lineNumber": 116
+        },
+        {
+          "caller": "add_meta_node",
+          "callee": "meta_nodes\n                    .iter().map",
+          "lineNumber": 116
+        },
+        {
+          "caller": "add_meta_node",
+          "callee": "meta_nodes.iter",
+          "lineNumber": 116
+        },
+        {
+          "caller": "add_meta_node",
+          "callee": "Ok",
+          "lineNumber": 124
+        },
+        {
+          "caller": "add_tempo_endpoint",
+          "callee": "cmd.env",
+          "lineNumber": 132
+        },
+        {
+          "caller": "add_tempo_endpoint",
+          "callee": "Err",
+          "lineNumber": 138
+        },
+        {
+          "caller": "add_tempo_endpoint",
+          "callee": "Ok",
+          "lineNumber": 145
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 174
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 174
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "Err",
+          "lineNumber": 178
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 185
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 185
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 196
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 196
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 202
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 202
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 205
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 205
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 208
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 208
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 211
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 211
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 214
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 214
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 217
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 217
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 221
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 221
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg(\"--state-store\").arg",
+          "lineNumber": 229
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "cmd.arg",
+          "lineNumber": 229
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "Err",
+          "lineNumber": 240
+        },
+        {
+          "caller": "add_hummock_backend",
+          "callee": "Ok",
+          "lineNumber": 248
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/risedevtool/src/util.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 113,
+      "nonEmptyLines": 99,
+      "functions": [
+        {
+          "name": "get_program_name",
+          "startLine": 22,
+          "endLine": 28,
+          "params": [
+            "cmd"
+          ]
+        },
+        {
+          "name": "get_program_args",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "cmd"
+          ]
+        },
+        {
+          "name": "get_program_env_cmd",
+          "startLine": 34,
+          "endLine": 44,
+          "params": [
+            "cmd"
+          ]
+        },
+        {
+          "name": "new_spinner",
+          "startLine": 46,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "begin_spin",
+          "startLine": 56,
+          "endLine": 62,
+          "params": [
+            "pb"
+          ]
+        },
+        {
+          "name": "complete_spin",
+          "startLine": 64,
+          "endLine": 70,
+          "params": [
+            "pb"
+          ]
+        },
+        {
+          "name": "fail_spin",
+          "startLine": 72,
+          "endLine": 78,
+          "params": [
+            "pb"
+          ]
+        },
+        {
+          "name": "is_env_set",
+          "startLine": 80,
+          "endLine": 91,
+          "params": [
+            "var"
+          ]
+        },
+        {
+          "name": "is_enable_backtrace",
+          "startLine": 93,
+          "endLine": 95,
+          "params": []
+        },
+        {
+          "name": "risedev_cmd",
+          "startLine": 97,
+          "endLine": 107,
+          "params": []
+        },
+        {
+          "name": "stylized_risedev_subcmd",
+          "startLine": 109,
+          "endLine": 113,
+          "params": [
+            "subcmd"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_program_name",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "get_program_args",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "get_program_env_cmd",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "new_spinner",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "begin_spin",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "complete_spin",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "fail_spin",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "is_env_set",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "is_enable_backtrace",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "risedev_cmd",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "stylized_risedev_subcmd",
+          "line": 109,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_program_name",
+          "callee": "cmd.get_program().to_string_lossy",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_program_name",
+          "callee": "cmd.get_program",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_program_name",
+          "callee": "program_path.rsplit_once",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_program_name",
+          "callee": "rest.to_owned",
+          "lineNumber": 25
+        },
+        {
+          "caller": "get_program_name",
+          "callee": "program_path.to_string",
+          "lineNumber": 26
+        },
+        {
+          "caller": "get_program_args",
+          "callee": "cmd.get_args().map(|x| x.to_string_lossy()).join",
+          "lineNumber": 31
+        },
+        {
+          "caller": "get_program_args",
+          "callee": "cmd.get_args().map",
+          "lineNumber": 31
+        },
+        {
+          "caller": "get_program_args",
+          "callee": "cmd.get_args",
+          "lineNumber": 31
+        },
+        {
+          "caller": "get_program_args",
+          "callee": "x.to_string_lossy",
+          "lineNumber": 31
+        },
+        {
+          "caller": "get_program_env_cmd",
+          "callee": "cmd.get_envs()\n        .map(|(k, v)| {\n            format!(\n                \"export {}={}\",\n                k.to_string_lossy(),\n                v.map(|v| v.to_string_lossy()).unwrap_or_default()\n            )\n        }).join",
+          "lineNumber": 35
+        },
+        {
+          "caller": "get_program_env_cmd",
+          "callee": "cmd.get_envs().map",
+          "lineNumber": 35
+        },
+        {
+          "caller": "get_program_env_cmd",
+          "callee": "cmd.get_envs",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_spinner",
+          "callee": "ProgressBar::new",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_spinner",
+          "callee": "pb.set_style",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_spinner",
+          "callee": "ProgressStyle::default_spinner()\n            .template(\"🟡 {prefix}: {msg}\").unwrap",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_spinner",
+          "callee": "ProgressStyle::default_spinner().template",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_spinner",
+          "callee": "ProgressStyle::default_spinner",
+          "lineNumber": 49
+        },
+        {
+          "caller": "begin_spin",
+          "callee": "pb.set_style",
+          "lineNumber": 57
+        },
+        {
+          "caller": "begin_spin",
+          "callee": "ProgressStyle::default_spinner()\n            .template(\"{spinner} {prefix}: {msg}\").unwrap",
+          "lineNumber": 58
+        },
+        {
+          "caller": "begin_spin",
+          "callee": "ProgressStyle::default_spinner().template",
+          "lineNumber": 58
+        },
+        {
+          "caller": "begin_spin",
+          "callee": "ProgressStyle::default_spinner",
+          "lineNumber": 58
+        },
+        {
+          "caller": "complete_spin",
+          "callee": "pb.set_style",
+          "lineNumber": 65
+        },
+        {
+          "caller": "complete_spin",
+          "callee": "ProgressStyle::default_spinner()\n            .template(\"✅ {prefix}: {msg}\").unwrap",
+          "lineNumber": 66
+        },
+        {
+          "caller": "complete_spin",
+          "callee": "ProgressStyle::default_spinner().template",
+          "lineNumber": 66
+        },
+        {
+          "caller": "complete_spin",
+          "callee": "ProgressStyle::default_spinner",
+          "lineNumber": 66
+        },
+        {
+          "caller": "fail_spin",
+          "callee": "pb.set_style",
+          "lineNumber": 73
+        },
+        {
+          "caller": "fail_spin",
+          "callee": "ProgressStyle::default_spinner()\n            .template(\"❗ {prefix}: {msg}\").unwrap",
+          "lineNumber": 74
+        },
+        {
+          "caller": "fail_spin",
+          "callee": "ProgressStyle::default_spinner().template",
+          "lineNumber": 74
+        },
+        {
+          "caller": "fail_spin",
+          "callee": "ProgressStyle::default_spinner",
+          "lineNumber": 74
+        },
+        {
+          "caller": "is_env_set",
+          "callee": "std::env::var",
+          "lineNumber": 81
+        },
+        {
+          "caller": "is_env_set",
+          "callee": "val.parse",
+          "lineNumber": 82
+        },
+        {
+          "caller": "is_env_set",
+          "callee": "val.parse::<usize>",
+          "lineNumber": 84
+        },
+        {
+          "caller": "is_enable_backtrace",
+          "callee": "is_env_set",
+          "lineNumber": 94
+        },
+        {
+          "caller": "risedev_cmd",
+          "callee": "LazyLock::new",
+          "lineNumber": 98
+        },
+        {
+          "caller": "risedev_cmd",
+          "callee": "std::env::var",
+          "lineNumber": 99
+        },
+        {
+          "caller": "risedev_cmd",
+          "callee": "\"./risedev\".to_owned",
+          "lineNumber": 102
+        },
+        {
+          "caller": "risedev_cmd",
+          "callee": "RISEDEV_CMD.as_str",
+          "lineNumber": 106
+        },
+        {
+          "caller": "stylized_risedev_subcmd",
+          "callee": "console::style(format!(\"{} {}\", risedev_cmd(), subcmd))\n        .blue().bold",
+          "lineNumber": 110
+        },
+        {
+          "caller": "stylized_risedev_subcmd",
+          "callee": "console::style(format!(\"{} {}\", risedev_cmd(), subcmd)).blue",
+          "lineNumber": 110
+        },
+        {
+          "caller": "stylized_risedev_subcmd",
+          "callee": "console::style",
+          "lineNumber": 110
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 11,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/risedevtool/src/wait.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 112,
+      "nonEmptyLines": 96,
+      "functions": [
+        {
+          "name": "wait",
+          "startLine": 24,
+          "endLine": 80,
+          "params": [
+            "wait_func",
+            "f",
+            "p",
+            "id",
+            "timeout",
+            "detect_failure"
+          ]
+        },
+        {
+          "name": "wait_tcp_available",
+          "startLine": 82,
+          "endLine": 112,
+          "params": [
+            "server",
+            "timeout"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "wait",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "wait_tcp_available",
+          "line": 82,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "wait",
+          "callee": "p.as_ref",
+          "lineNumber": 32
+        },
+        {
+          "caller": "wait",
+          "callee": "std::time::Instant::now",
+          "lineNumber": 33
+        },
+        {
+          "caller": "wait",
+          "callee": "wait_func",
+          "lineNumber": 40
+        },
+        {
+          "caller": "wait",
+          "callee": "Ok",
+          "lineNumber": 42
+        },
+        {
+          "caller": "wait",
+          "callee": "Some",
+          "lineNumber": 45
+        },
+        {
+          "caller": "wait",
+          "callee": "std::time::Instant::now",
+          "lineNumber": 50
+        },
+        {
+          "caller": "wait",
+          "callee": "Err",
+          "lineNumber": 54
+        },
+        {
+          "caller": "wait",
+          "callee": "last_error.context",
+          "lineNumber": 55
+        },
+        {
+          "caller": "wait",
+          "callee": "p.exists",
+          "lineNumber": 61
+        },
+        {
+          "caller": "wait",
+          "callee": "String::new",
+          "lineNumber": 62
+        },
+        {
+          "caller": "wait",
+          "callee": "fs_err::File::open(p)?.read_to_string",
+          "lineNumber": 63
+        },
+        {
+          "caller": "wait",
+          "callee": "fs_err::File::open",
+          "lineNumber": 63
+        },
+        {
+          "caller": "wait",
+          "callee": "Err",
+          "lineNumber": 71
+        },
+        {
+          "caller": "wait",
+          "callee": "last_error.context",
+          "lineNumber": 72
+        },
+        {
+          "caller": "wait",
+          "callee": "sleep",
+          "lineNumber": 78
+        },
+        {
+          "caller": "wait",
+          "callee": "Duration::from_millis",
+          "lineNumber": 78
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "server.as_ref",
+          "lineNumber": 86
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "server\n        .to_socket_addrs()?\n        .next().with_context",
+          "lineNumber": 87
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "server\n        .to_socket_addrs()?.next",
+          "lineNumber": 87
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "server.to_socket_addrs",
+          "lineNumber": 87
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "std::time::Instant::now",
+          "lineNumber": 91
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "TcpStream::connect_timeout",
+          "lineNumber": 94
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "Duration::from_secs",
+          "lineNumber": 94
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "Ok",
+          "lineNumber": 97
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "std::time::Instant::now",
+          "lineNumber": 102
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "Err",
+          "lineNumber": 104
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "sleep",
+          "lineNumber": 110
+        },
+        {
+          "caller": "wait_tcp_available",
+          "callee": "Duration::from_millis",
+          "lineNumber": 110
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

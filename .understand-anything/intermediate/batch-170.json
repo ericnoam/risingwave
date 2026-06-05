@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    {"id": "file:e2e_test/iceberg/test_case/cdc/mysql_cdc.sql", "type": "file", "name": "mysql_cdc.sql", "filePath": "e2e_test/iceberg/test_case/cdc/mysql_cdc.sql", "summary": "SQL script for the Iceberg CDC e2e test that creates a MySQL CDC source, a RisingWave products table, and a CDC-sourced materialized view for streaming MySQL changes into Iceberg.", "tags": ["database", "test", "cdc", "streaming"], "complexity": "simple"},
+    {"id": "table:e2e_test/iceberg/test_case/cdc/mysql_cdc.sql:products", "type": "table", "name": "products", "filePath": "e2e_test/iceberg/test_case/cdc/mysql_cdc.sql", "lineRange": [6, 10], "summary": "Products table definition used in the MySQL CDC Iceberg e2e test, containing id, name, and description columns for CDC change capture.", "tags": ["database", "test", "data-model"], "complexity": "simple"},
+    {"id": "file:e2e_test/iceberg/test_case/cdc/mysql_cdc_insert.sql", "type": "file", "name": "mysql_cdc_insert.sql", "filePath": "e2e_test/iceberg/test_case/cdc/mysql_cdc_insert.sql", "summary": "SQL script that inserts test data rows into the MySQL products table to seed the CDC Iceberg e2e test.", "tags": ["database", "test", "cdc"], "complexity": "simple"},
+    {"id": "config:e2e_test/iceberg/test_case/cdc/no_partition_cdc.toml", "type": "config", "name": "no_partition_cdc.toml", "filePath": "e2e_test/iceberg/test_case/cdc/no_partition_cdc.toml", "summary": "Iceberg e2e test case configuration for CDC-based upsert sink to a non-partitioned Iceberg table, specifying MySQL source setup and verification queries.", "tags": ["configuration", "test", "iceberg", "cdc"], "complexity": "simple"}
+  ],
+  "edges": [
+    {"source": "file:e2e_test/iceberg/test_case/cdc/mysql_cdc.sql", "target": "table:e2e_test/iceberg/test_case/cdc/mysql_cdc.sql:products", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "config:e2e_test/iceberg/test_case/cdc/no_partition_cdc.toml", "target": "file:e2e_test/iceberg/test_case/cdc/mysql_cdc.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "config:e2e_test/iceberg/test_case/cdc/no_partition_cdc.toml", "target": "file:e2e_test/iceberg/test_case/cdc/mysql_cdc_insert.sql", "type": "depends_on", "direction": "forward", "weight": 0.6}
+  ]
+}

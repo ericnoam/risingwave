@@ -1,0 +1,96 @@
+{
+  "nodes": [
+    {
+      "id": "service:integration_tests/mindsdb/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/mindsdb/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the MindsDB integration test, running RisingWave alongside a MindsDB instance with shared volumes for configuration.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:integration_tests/mindsdb/mdb_config.json",
+      "type": "config",
+      "name": "mdb_config.json",
+      "filePath": "integration_tests/mindsdb/mdb_config.json",
+      "summary": "MindsDB server configuration specifying storage directory, logging settings, API endpoints, and authentication for the integration test environment.",
+      "tags": ["configuration", "integration-test", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mindsdb/prepare_data.sh",
+      "type": "file",
+      "name": "prepare_data.sh",
+      "filePath": "integration_tests/mindsdb/prepare_data.sh",
+      "summary": "Shell script that seeds RisingWave with home rental data and configures MindsDB connections for the MindsDB integration test.",
+      "tags": ["script", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mindsdb/prepare_mindsdb.sql",
+      "type": "file",
+      "name": "prepare_mindsdb.sql",
+      "filePath": "integration_tests/mindsdb/prepare_mindsdb.sql",
+      "summary": "SQL commands to configure MindsDB with a RisingWave data source and create an ML predictor for home rental price prediction.",
+      "tags": ["database", "integration-test", "machine-learning"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mindsdb/prepare_risingwave.sql",
+      "type": "file",
+      "name": "prepare_risingwave.sql",
+      "filePath": "integration_tests/mindsdb/prepare_risingwave.sql",
+      "summary": "Large SQL script that creates the `home_rentals` table schema in RisingWave and inserts several hundred rows of home rental training data for the MindsDB ML integration test.",
+      "tags": ["database", "schema-definition", "integration-test", "data-pipeline"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:integration_tests/mindsdb/prepare_risingwave.sql:home_rentals",
+      "type": "table",
+      "name": "home_rentals",
+      "filePath": "integration_tests/mindsdb/prepare_risingwave.sql",
+      "lineRange": [15, 23],
+      "summary": "RisingWave table storing home rental records with attributes including room count, bathroom count, square footage, location, days on market, neighborhood, and rental price.",
+      "tags": ["database", "integration-test", "machine-learning"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/mindsdb/prepare_risingwave.sql",
+      "target": "table:integration_tests/mindsdb/prepare_risingwave.sql:home_rentals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "service:integration_tests/mindsdb/docker-compose.yml",
+      "target": "config:integration_tests/mindsdb/mdb_config.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/mindsdb/prepare_data.sh",
+      "target": "file:integration_tests/mindsdb/prepare_risingwave.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/mindsdb/prepare_data.sh",
+      "target": "file:integration_tests/mindsdb/prepare_mindsdb.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/mindsdb/prepare_mindsdb.sql",
+      "target": "file:integration_tests/mindsdb/prepare_risingwave.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

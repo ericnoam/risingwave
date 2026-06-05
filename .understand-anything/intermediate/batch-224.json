@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "config:integration_tests/tidb-cdc-sink/config/changefeed.toml",
+      "type": "config",
+      "name": "changefeed.toml",
+      "filePath": "integration_tests/tidb-cdc-sink/config/changefeed.toml",
+      "summary": "TiCDC changefeed configuration specifying the sink URI and downstream target for streaming TiDB CDC events into the integration test pipeline.",
+      "tags": ["configuration", "integration-test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:integration_tests/tidb-cdc-sink/config/pd.toml",
+      "type": "config",
+      "name": "pd.toml",
+      "filePath": "integration_tests/tidb-cdc-sink/config/pd.toml",
+      "summary": "PD (Placement Driver) configuration for the TiDB cluster in the integration test, tuning security, logging, scheduling, and replication settings.",
+      "tags": ["configuration", "integration-test", "database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:integration_tests/tidb-cdc-sink/config/tidb.toml",
+      "type": "config",
+      "name": "tidb.toml",
+      "filePath": "integration_tests/tidb-cdc-sink/config/tidb.toml",
+      "summary": "TiDB server configuration for the integration test environment, covering logging, security, performance, plan cache, OpenTracing, and TiKV client settings.",
+      "tags": ["configuration", "integration-test", "database"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:integration_tests/tidb-cdc-sink/config/tikv.toml",
+      "type": "config",
+      "name": "tikv.toml",
+      "filePath": "integration_tests/tidb-cdc-sink/config/tikv.toml",
+      "summary": "TiKV storage engine configuration for the integration test, with detailed RocksDB column family tuning, raftstore settings, coprocessor limits, and read pool sizing.",
+      "tags": ["configuration", "integration-test", "database"],
+      "complexity": "complex",
+      "languageNotes": "Extensive RocksDB tuning with separate defaultcf, writecf, and lockcf column family configurations for the TiKV storage layer."
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:integration_tests/tidb-cdc-sink/config/changefeed.toml",
+      "target": "config:integration_tests/tidb-cdc-sink/config/tidb.toml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:integration_tests/tidb-cdc-sink/config/tikv.toml",
+      "target": "config:integration_tests/tidb-cdc-sink/config/pd.toml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

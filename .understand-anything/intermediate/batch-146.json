@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "id": "config:ci/.env",
+      "type": "config",
+      "name": ".env",
+      "filePath": "ci/.env",
+      "summary": "CI environment file setting the `BUILD_ENV_VERSION` variable that pins the CI Docker image version used by Buildkite pipelines.",
+      "tags": ["configuration", "ci-cd", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:ci/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "ci/README.md",
+      "summary": "Brief CI workflow documentation describing how the Buildkite CI pipeline is structured and noting the sqlsmith differential testing approach.",
+      "tags": ["documentation", "ci-cd"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/build-ci-image.sh",
+      "type": "file",
+      "name": "build-ci-image.sh",
+      "filePath": "ci/build-ci-image.sh",
+      "summary": "Shell script that builds the CI Docker image used by Buildkite, tagging it with the version from `ci/.env` and pushing it to the container registry.",
+      "tags": ["script", "ci-cd", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:ci/license-header.txt",
+      "type": "document",
+      "name": "license-header.txt",
+      "filePath": "ci/license-header.txt",
+      "summary": "Apache-2.0 license header template text used by the license header checker and fixer tools to stamp source files.",
+      "tags": ["documentation", "compliance", "legal"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:ci/risedev-components.ci.benchmark.env",
+      "type": "config",
+      "name": "risedev-components.ci.benchmark.env",
+      "filePath": "ci/risedev-components.ci.benchmark.env",
+      "summary": "CI environment config for benchmark runs, enabling MinIO storage, release-profile builds, and Prometheus/Grafana monitoring while disabling telemetry.",
+      "tags": ["configuration", "ci-cd", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:ci/risedev-components.ci.env",
+      "type": "config",
+      "name": "risedev-components.ci.env",
+      "filePath": "ci/risedev-components.ci.env",
+      "summary": "Base CI environment config enabling MinIO storage and disabling telemetry for standard CI test runs.",
+      "tags": ["configuration", "ci-cd", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:ci/risedev-components.ci.iceberg.env",
+      "type": "config",
+      "name": "risedev-components.ci.iceberg.env",
+      "filePath": "ci/risedev-components.ci.iceberg.env",
+      "summary": "CI environment config for Iceberg test runs, enabling MinIO and the Lakekeeper catalog service alongside standard settings.",
+      "tags": ["configuration", "ci-cd", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:ci/risedev-components.ci.monitoring.env",
+      "type": "config",
+      "name": "risedev-components.ci.monitoring.env",
+      "filePath": "ci/risedev-components.ci.monitoring.env",
+      "summary": "CI environment config for monitoring test runs, enabling MinIO, Prometheus, and Grafana alongside standard settings.",
+      "tags": ["configuration", "ci-cd", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:ci/risedev-components.ci.source.env",
+      "type": "config",
+      "name": "risedev-components.ci.source.env",
+      "filePath": "ci/risedev-components.ci.source.env",
+      "summary": "CI environment config for source connector test runs, enabling MinIO storage and disabling telemetry.",
+      "tags": ["configuration", "ci-cd", "infrastructure"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

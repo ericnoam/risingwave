@@ -1,0 +1,415 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/connector/benches/debezium_json_parser.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "generate_debezium_json_row",
+          "startLine": 27,
+          "endLine": 39,
+          "params": [
+            "rng",
+            "change_event"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generate_debezium_json_row",
+          "callee": "\"null\".to_owned",
+          "lineNumber": 30
+        },
+        {
+          "caller": "generate_debezium_json_row",
+          "callee": "generate_json_row",
+          "lineNumber": 30
+        },
+        {
+          "caller": "generate_debezium_json_row",
+          "callee": "\"null\".to_owned",
+          "lineNumber": 31
+        },
+        {
+          "caller": "generate_debezium_json_row",
+          "callee": "generate_json_row",
+          "lineNumber": 31
+        },
+        {
+          "caller": "generate_debezium_json_row",
+          "callee": "generate_json_row",
+          "lineNumber": 32
+        },
+        {
+          "caller": "generate_debezium_json_row",
+          "callee": "generate_json_row",
+          "lineNumber": 32
+        },
+        {
+          "caller": "generate_debezium_json_row",
+          "callee": "generate_json_row",
+          "lineNumber": 33
+        },
+        {
+          "caller": "generate_debezium_json_row",
+          "callee": "\"null\".to_owned",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/connector/benches/json_common/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "generate_json_row",
+          "startLine": 25,
+          "endLine": 45,
+          "params": [
+            "rng"
+          ]
+        },
+        {
+          "name": "get_descs",
+          "startLine": 47,
+          "endLine": 59,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "generate_json_row",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "get_descs",
+          "line": 47,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/connector/benches/json_vs_plain_parser.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 183,
+      "nonEmptyLines": 166,
+      "functions": [
+        {
+          "name": "generate_json_rows",
+          "startLine": 105,
+          "endLine": 112,
+          "params": []
+        },
+        {
+          "name": "bench_plain_parser_and_json_parser",
+          "startLine": 114,
+          "endLine": 180,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 62
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "simd_json::to_borrowed_value(&mut payload[self.payload_start_idx..]).context",
+          "lineNumber": 74
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "simd_json::to_borrowed_value",
+          "lineNumber": 74
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "Either::Left",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "arr.into_iter",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "Either::Right",
+          "lineNumber": 79
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "std::iter::once",
+          "lineNumber": 79
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "Vec::new",
+          "lineNumber": 82
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "JsonAccess::new",
+          "lineNumber": 84
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "writer.do_insert",
+          "lineNumber": 85
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "accessor.access",
+          "lineNumber": 85
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "errors.push",
+          "lineNumber": 88
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "errors.is_empty",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_inner",
+          "callee": "Ok",
+          "lineNumber": 93
+        },
+        {
+          "caller": "generate_json_rows",
+          "callee": "rand::rng",
+          "lineNumber": 106
+        },
+        {
+          "caller": "generate_json_rows",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 107
+        },
+        {
+          "caller": "generate_json_rows",
+          "callee": "records.push",
+          "lineNumber": 109
+        },
+        {
+          "caller": "generate_json_rows",
+          "callee": "generate_json_row(&mut rng).into_bytes",
+          "lineNumber": 109
+        },
+        {
+          "caller": "generate_json_rows",
+          "callee": "generate_json_row",
+          "lineNumber": 109
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "tokio::runtime::Runtime::new().unwrap",
+          "lineNumber": 115
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "tokio::runtime::Runtime::new",
+          "lineNumber": 115
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "generate_json_rows",
+          "lineNumber": 116
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "c.benchmark_group",
+          "lineNumber": 118
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "group.bench_function",
+          "lineNumber": 120
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "b.to_async(&rt).iter_batched",
+          "lineNumber": 121
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "b.to_async",
+          "lineNumber": 121
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "block_on(PlainParser::new(\n                    SpecificParserConfig::DEFAULT_PLAIN_JSON,\n                    get_descs(),\n                    SourceContext::dummy().into(),\n                )).unwrap",
+          "lineNumber": 123
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "block_on",
+          "lineNumber": 123
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "PlainParser::new",
+          "lineNumber": 123
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "get_descs",
+          "lineNumber": 125
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "SourceContext::dummy().into",
+          "lineNumber": 126
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "SourceContext::dummy",
+          "lineNumber": 126
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "records.clone",
+          "lineNumber": 129
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "SourceStreamChunkBuilder::new",
+          "lineNumber": 132
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "get_descs",
+          "lineNumber": 133
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "builder.row_writer",
+          "lineNumber": 140
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "parser\n                        .parse_inner(None, Some(record), writer)\n                        .await.unwrap",
+          "lineNumber": 141
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "parser.parse_inner",
+          "lineNumber": 141
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "Some",
+          "lineNumber": 142
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "group.bench_function",
+          "lineNumber": 151
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "b.to_async(&rt).iter_batched",
+          "lineNumber": 152
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "b.to_async",
+          "lineNumber": 152
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "JsonParser::new(\n                    SpecificParserConfig::DEFAULT_PLAIN_JSON,\n                    get_descs(),\n                    SourceContext::dummy().into(),\n                ).unwrap",
+          "lineNumber": 154
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "JsonParser::new",
+          "lineNumber": 154
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "get_descs",
+          "lineNumber": 156
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "SourceContext::dummy().into",
+          "lineNumber": 157
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "SourceContext::dummy",
+          "lineNumber": 157
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "records.clone",
+          "lineNumber": 160
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "SourceStreamChunkBuilder::new",
+          "lineNumber": 163
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "get_descs",
+          "lineNumber": 164
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "builder.row_writer",
+          "lineNumber": 171
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "parser.parse_inner(record, writer).unwrap",
+          "lineNumber": 172
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "parser.parse_inner",
+          "lineNumber": 172
+        },
+        {
+          "caller": "bench_plain_parser_and_json_parser",
+          "callee": "group.finish",
+          "lineNumber": 179
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

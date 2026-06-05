@@ -1,0 +1,1636 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/JniSinkCoordinatorHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "runJniSinkCoordinatorThread",
+          "startLine": 27,
+          "endLine": 48,
+          "params": [
+            "requestRxPtr",
+            "responseTxPtr"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JniSinkCoordinatorHandler",
+          "startLine": 24,
+          "endLine": 49,
+          "methods": [
+            "runJniSinkCoordinatorThread"
+          ],
+          "properties": [
+            "LOG"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "runJniSinkCoordinatorThread",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "JniSinkCoordinatorHandler",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "runJniSinkCoordinatorThread",
+          "callee": "new JniSinkCoordinatorResponseObserver",
+          "lineNumber": 29
+        },
+        {
+          "caller": "runJniSinkCoordinatorThread",
+          "callee": "new SinkCoordinatorStreamObserver",
+          "lineNumber": 31
+        },
+        {
+          "caller": "runJniSinkCoordinatorThread",
+          "callee": "Binding.recvSinkCoordinatorRequestFromChannel",
+          "lineNumber": 34
+        },
+        {
+          "caller": "runJniSinkCoordinatorThread",
+          "callee": "ConnectorServiceProto.SinkCoordinatorStreamRequest.parseFrom",
+          "lineNumber": 37
+        },
+        {
+          "caller": "runJniSinkCoordinatorThread",
+          "callee": "sinkCoordinatorStreamObserver.onNext",
+          "lineNumber": 38
+        },
+        {
+          "caller": "runJniSinkCoordinatorThread",
+          "callee": "responseObserver.isSuccess",
+          "lineNumber": 39
+        },
+        {
+          "caller": "runJniSinkCoordinatorThread",
+          "callee": "new RuntimeException",
+          "lineNumber": 40
+        },
+        {
+          "caller": "runJniSinkCoordinatorThread",
+          "callee": "sinkCoordinatorStreamObserver.onCompleted",
+          "lineNumber": 43
+        },
+        {
+          "caller": "runJniSinkCoordinatorThread",
+          "callee": "sinkCoordinatorStreamObserver.onError",
+          "lineNumber": 45
+        },
+        {
+          "caller": "runJniSinkCoordinatorThread",
+          "callee": "LOG.info",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/JniSinkCoordinatorResponseObserver.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "JniSinkCoordinatorResponseObserver",
+          "startLine": 34,
+          "endLine": 36,
+          "params": [
+            "responseTxPtr"
+          ]
+        },
+        {
+          "name": "onNext",
+          "startLine": 38,
+          "endLine": 44,
+          "params": [
+            "response"
+          ]
+        },
+        {
+          "name": "onError",
+          "startLine": 46,
+          "endLine": 50,
+          "params": [
+            "throwable"
+          ]
+        },
+        {
+          "name": "onCompleted",
+          "startLine": 52,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "isSuccess",
+          "startLine": 57,
+          "endLine": 59,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "JniSinkCoordinatorResponseObserver",
+          "startLine": 26,
+          "endLine": 60,
+          "methods": [
+            "JniSinkCoordinatorResponseObserver",
+            "onNext",
+            "onError",
+            "onCompleted",
+            "isSuccess"
+          ],
+          "properties": [
+            "LOG",
+            "responseTxPtr",
+            "success"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "JniSinkCoordinatorResponseObserver",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "onNext",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "onError",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "onCompleted",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "isSuccess",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "JniSinkCoordinatorResponseObserver",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "onNext",
+          "callee": "Binding.sendSinkCoordinatorResponseToChannel",
+          "lineNumber": 40
+        },
+        {
+          "caller": "onNext",
+          "callee": "response.toByteArray",
+          "lineNumber": 41
+        },
+        {
+          "caller": "onNext",
+          "callee": "Status.INTERNAL.withDescription(\"unable to send response\").asRuntimeException",
+          "lineNumber": 42
+        },
+        {
+          "caller": "onNext",
+          "callee": "Status.INTERNAL.withDescription",
+          "lineNumber": 42
+        },
+        {
+          "caller": "onError",
+          "callee": "LOG.error",
+          "lineNumber": 49
+        },
+        {
+          "caller": "onCompleted",
+          "callee": "LOG.info",
+          "lineNumber": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/JniSinkWriterHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 47,
+      "functions": [
+        {
+          "name": "runJniSinkWriterThread",
+          "startLine": 27,
+          "endLine": 50,
+          "params": [
+            "requestRxPtr",
+            "responseTxPtr"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JniSinkWriterHandler",
+          "startLine": 24,
+          "endLine": 51,
+          "methods": [
+            "runJniSinkWriterThread"
+          ],
+          "properties": [
+            "LOG"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "runJniSinkWriterThread",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "JniSinkWriterHandler",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "runJniSinkWriterThread",
+          "callee": "new JniSinkWriterResponseObserver",
+          "lineNumber": 29
+        },
+        {
+          "caller": "runJniSinkWriterThread",
+          "callee": "new SinkWriterStreamObserver",
+          "lineNumber": 31
+        },
+        {
+          "caller": "runJniSinkWriterThread",
+          "callee": "Binding.recvSinkWriterRequestFromChannel",
+          "lineNumber": 35
+        },
+        {
+          "caller": "runJniSinkWriterThread",
+          "callee": "sinkWriterStreamObserver.onNext",
+          "lineNumber": 39
+        },
+        {
+          "caller": "runJniSinkWriterThread",
+          "callee": "request.asPbRequest",
+          "lineNumber": 39
+        },
+        {
+          "caller": "runJniSinkWriterThread",
+          "callee": "responseObserver.isSuccess",
+          "lineNumber": 41
+        },
+        {
+          "caller": "runJniSinkWriterThread",
+          "callee": "new RuntimeException",
+          "lineNumber": 42
+        },
+        {
+          "caller": "runJniSinkWriterThread",
+          "callee": "sinkWriterStreamObserver.onCompleted",
+          "lineNumber": 45
+        },
+        {
+          "caller": "runJniSinkWriterThread",
+          "callee": "sinkWriterStreamObserver.onError",
+          "lineNumber": 47
+        },
+        {
+          "caller": "runJniSinkWriterThread",
+          "callee": "LOG.debug",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/JniSinkWriterResponseObserver.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "JniSinkWriterResponseObserver",
+          "startLine": 33,
+          "endLine": 35,
+          "params": [
+            "responseTxPtr"
+          ]
+        },
+        {
+          "name": "onNext",
+          "startLine": 37,
+          "endLine": 42,
+          "params": [
+            "response"
+          ]
+        },
+        {
+          "name": "onError",
+          "startLine": 44,
+          "endLine": 52,
+          "params": [
+            "throwable"
+          ]
+        },
+        {
+          "name": "onCompleted",
+          "startLine": 54,
+          "endLine": 57,
+          "params": []
+        },
+        {
+          "name": "isSuccess",
+          "startLine": 59,
+          "endLine": 61,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "JniSinkWriterResponseObserver",
+          "startLine": 26,
+          "endLine": 62,
+          "methods": [
+            "JniSinkWriterResponseObserver",
+            "onNext",
+            "onError",
+            "onCompleted",
+            "isSuccess"
+          ],
+          "properties": [
+            "LOG",
+            "responseTxPtr",
+            "success"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "JniSinkWriterResponseObserver",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "onNext",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "onError",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "onCompleted",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "isSuccess",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "JniSinkWriterResponseObserver",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "onNext",
+          "callee": "Binding.sendSinkWriterResponseToChannel",
+          "lineNumber": 39
+        },
+        {
+          "caller": "onNext",
+          "callee": "response.toByteArray",
+          "lineNumber": 39
+        },
+        {
+          "caller": "onNext",
+          "callee": "Status.INTERNAL.withDescription(\"unable to send response\").asRuntimeException",
+          "lineNumber": 40
+        },
+        {
+          "caller": "onNext",
+          "callee": "Status.INTERNAL.withDescription",
+          "lineNumber": 40
+        },
+        {
+          "caller": "onError",
+          "callee": "LOG.error",
+          "lineNumber": 46
+        },
+        {
+          "caller": "onError",
+          "callee": "throwable.getMessage",
+          "lineNumber": 47
+        },
+        {
+          "caller": "onError",
+          "callee": "throwable.getMessage",
+          "lineNumber": 47
+        },
+        {
+          "caller": "onError",
+          "callee": "Binding.sendSinkWriterErrorToChannel",
+          "lineNumber": 48
+        },
+        {
+          "caller": "onError",
+          "callee": "LOG.warn",
+          "lineNumber": 49
+        },
+        {
+          "caller": "onError",
+          "callee": "throwable.getMessage",
+          "lineNumber": 49
+        },
+        {
+          "caller": "onCompleted",
+          "callee": "LOG.debug",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/tracing/src/main/java/com/risingwave/tracing/TracingSlf4jImpl.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 267,
+      "nonEmptyLines": 240,
+      "functions": [
+        {
+          "name": "levelToBinding",
+          "startLine": 64,
+          "endLine": 79,
+          "params": [
+            "level"
+          ]
+        },
+        {
+          "name": "event",
+          "startLine": 81,
+          "endLine": 84,
+          "params": [
+            "name",
+            "level",
+            "message",
+            "stackTrace"
+          ]
+        },
+        {
+          "name": "isEnabled",
+          "startLine": 96,
+          "endLine": 109,
+          "params": [
+            "loggerName",
+            "level"
+          ]
+        },
+        {
+          "name": "isEnabled",
+          "startLine": 111,
+          "endLine": 126,
+          "params": [
+            "level"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TracingSlf4jImpl",
+          "startLine": 31,
+          "endLine": 267,
+          "methods": [
+            "levelToBinding",
+            "event",
+            "isEnabled",
+            "isEnabled"
+          ],
+          "properties": [
+            "BINDING_ERROR",
+            "BINDING_WARN",
+            "BINDING_INFO",
+            "BINDING_DEBUG",
+            "BINDING_TRACE",
+            "isErrorEnabled",
+            "isWarnEnabled",
+            "isInfoEnabled",
+            "isDebugEnabled",
+            "isTraceEnabled",
+            "javaLoggerLevelOverrides"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "event",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "isEnabled",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "isEnabled",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "TracingSlf4jImpl",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "event",
+          "callee": "Binding.tracingSlf4jEvent",
+          "lineNumber": 82
+        },
+        {
+          "caller": "event",
+          "callee": "Thread.currentThread().getName",
+          "lineNumber": 83
+        },
+        {
+          "caller": "event",
+          "callee": "Thread.currentThread",
+          "lineNumber": 83
+        },
+        {
+          "caller": "event",
+          "callee": "levelToBinding",
+          "lineNumber": 83
+        },
+        {
+          "caller": "isEnabled",
+          "callee": "levelToBinding",
+          "lineNumber": 97
+        },
+        {
+          "caller": "isEnabled",
+          "callee": "Binding.tracingSlf4jEventEnabled",
+          "lineNumber": 103
+        },
+        {
+          "caller": "isEnabled",
+          "callee": "javaLoggerLevelOverrides.isEnabled",
+          "lineNumber": 108
+        },
+        {
+          "caller": "fromEnv",
+          "callee": "System.getenv",
+          "lineNumber": 139
+        },
+        {
+          "caller": "fromEnv",
+          "callee": "raw.trim().isEmpty",
+          "lineNumber": 140
+        },
+        {
+          "caller": "fromEnv",
+          "callee": "raw.trim",
+          "lineNumber": 140
+        },
+        {
+          "caller": "fromEnv",
+          "callee": "new JavaLoggerLevelOverrides",
+          "lineNumber": 142
+        },
+        {
+          "caller": "fromEnv",
+          "callee": "List.of",
+          "lineNumber": 142
+        },
+        {
+          "caller": "fromEnv",
+          "callee": "parse",
+          "lineNumber": 144
+        },
+        {
+          "caller": "isEnabled",
+          "callee": "loggerName.isEmpty",
+          "lineNumber": 152
+        },
+        {
+          "caller": "isEnabled",
+          "callee": "loggerName.startsWith",
+          "lineNumber": 154
+        },
+        {
+          "caller": "parse",
+          "callee": "new ArrayList<>",
+          "lineNumber": 165
+        },
+        {
+          "caller": "parse",
+          "callee": "new ArrayList<>",
+          "lineNumber": 166
+        },
+        {
+          "caller": "parse",
+          "callee": "raw.split",
+          "lineNumber": 168
+        },
+        {
+          "caller": "parse",
+          "callee": "part.trim",
+          "lineNumber": 169
+        },
+        {
+          "caller": "parse",
+          "callee": "token.isEmpty",
+          "lineNumber": 170
+        },
+        {
+          "caller": "parse",
+          "callee": "token.indexOf",
+          "lineNumber": 174
+        },
+        {
+          "caller": "parse",
+          "callee": "parseMaxBindingLevel",
+          "lineNumber": 177
+        },
+        {
+          "caller": "parse",
+          "callee": "lvl.isPresent",
+          "lineNumber": 178
+        },
+        {
+          "caller": "parse",
+          "callee": "lvl.get",
+          "lineNumber": 179
+        },
+        {
+          "caller": "parse",
+          "callee": "invalidTokens.add",
+          "lineNumber": 181
+        },
+        {
+          "caller": "parse",
+          "callee": "token.substring(0, eq).trim",
+          "lineNumber": 186
+        },
+        {
+          "caller": "parse",
+          "callee": "token.substring",
+          "lineNumber": 186
+        },
+        {
+          "caller": "parse",
+          "callee": "token.substring(eq + 1).trim",
+          "lineNumber": 187
+        },
+        {
+          "caller": "parse",
+          "callee": "token.substring",
+          "lineNumber": 187
+        },
+        {
+          "caller": "parse",
+          "callee": "prefix.isEmpty",
+          "lineNumber": 188
+        },
+        {
+          "caller": "parse",
+          "callee": "invalidTokens.add",
+          "lineNumber": 189
+        },
+        {
+          "caller": "parse",
+          "callee": "prefix.equals",
+          "lineNumber": 194
+        },
+        {
+          "caller": "parse",
+          "callee": "prefix.equalsIgnoreCase",
+          "lineNumber": 194
+        },
+        {
+          "caller": "parse",
+          "callee": "parseMaxBindingLevel",
+          "lineNumber": 195
+        },
+        {
+          "caller": "parse",
+          "callee": "lvl.isPresent",
+          "lineNumber": 196
+        },
+        {
+          "caller": "parse",
+          "callee": "lvl.get",
+          "lineNumber": 197
+        },
+        {
+          "caller": "parse",
+          "callee": "invalidTokens.add",
+          "lineNumber": 199
+        },
+        {
+          "caller": "parse",
+          "callee": "parseMaxBindingLevel",
+          "lineNumber": 204
+        },
+        {
+          "caller": "parse",
+          "callee": "lvl.isPresent",
+          "lineNumber": 205
+        },
+        {
+          "caller": "parse",
+          "callee": "rules.add",
+          "lineNumber": 206
+        },
+        {
+          "caller": "parse",
+          "callee": "new Rule",
+          "lineNumber": 206
+        },
+        {
+          "caller": "parse",
+          "callee": "lvl.get",
+          "lineNumber": 206
+        },
+        {
+          "caller": "parse",
+          "callee": "invalidTokens.add",
+          "lineNumber": 208
+        },
+        {
+          "caller": "parse",
+          "callee": "warnInvalidRwJavaLogOnce",
+          "lineNumber": 212
+        },
+        {
+          "caller": "parse",
+          "callee": "rules.sort",
+          "lineNumber": 214
+        },
+        {
+          "caller": "parse",
+          "callee": "Comparator.comparingInt((Rule r) -> r.prefix.length()).reversed",
+          "lineNumber": 214
+        },
+        {
+          "caller": "parse",
+          "callee": "Comparator.comparingInt",
+          "lineNumber": 214
+        },
+        {
+          "caller": "parse",
+          "callee": "r.prefix.length",
+          "lineNumber": 214
+        },
+        {
+          "caller": "parse",
+          "callee": "new JavaLoggerLevelOverrides",
+          "lineNumber": 215
+        },
+        {
+          "caller": "parse",
+          "callee": "List.copyOf",
+          "lineNumber": 215
+        },
+        {
+          "caller": "warnInvalidRwJavaLogOnce",
+          "callee": "invalidTokens.isEmpty",
+          "lineNumber": 219
+        },
+        {
+          "caller": "warnInvalidRwJavaLogOnce",
+          "callee": "warnedInvalidRwJavaLog.compareAndSet",
+          "lineNumber": 222
+        },
+        {
+          "caller": "warnInvalidRwJavaLogOnce",
+          "callee": "System.err.println",
+          "lineNumber": 225
+        },
+        {
+          "caller": "parseMaxBindingLevel",
+          "callee": "Optional.empty",
+          "lineNumber": 235
+        },
+        {
+          "caller": "parseMaxBindingLevel",
+          "callee": "rawLevel.trim().toLowerCase",
+          "lineNumber": 237
+        },
+        {
+          "caller": "parseMaxBindingLevel",
+          "callee": "rawLevel.trim",
+          "lineNumber": 237
+        },
+        {
+          "caller": "parseMaxBindingLevel",
+          "callee": "Optional.of",
+          "lineNumber": 240
+        },
+        {
+          "caller": "parseMaxBindingLevel",
+          "callee": "Optional.of",
+          "lineNumber": 242
+        },
+        {
+          "caller": "parseMaxBindingLevel",
+          "callee": "Optional.of",
+          "lineNumber": 245
+        },
+        {
+          "caller": "parseMaxBindingLevel",
+          "callee": "Optional.of",
+          "lineNumber": 247
+        },
+        {
+          "caller": "parseMaxBindingLevel",
+          "callee": "Optional.of",
+          "lineNumber": 249
+        },
+        {
+          "caller": "parseMaxBindingLevel",
+          "callee": "Optional.of",
+          "lineNumber": 251
+        },
+        {
+          "caller": "parseMaxBindingLevel",
+          "callee": "Optional.empty",
+          "lineNumber": 253
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding/src/main/java/com/risingwave/java/binding/Binding.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 130,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "ensureInitialized",
+          "startLine": 31,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "tracingSlf4jEvent",
+          "startLine": 33,
+          "endLine": 34,
+          "params": [
+            "threadName",
+            "name",
+            "level",
+            "message",
+            "stackTrace"
+          ]
+        },
+        {
+          "name": "tracingSlf4jEventEnabled",
+          "startLine": 36,
+          "endLine": 36,
+          "params": [
+            "level"
+          ]
+        },
+        {
+          "name": "defaultVnodeCount",
+          "startLine": 42,
+          "endLine": 42,
+          "params": []
+        },
+        {
+          "name": "iteratorNewStreamChunk",
+          "startLine": 44,
+          "endLine": 44,
+          "params": [
+            "pointer"
+          ]
+        },
+        {
+          "name": "iteratorNext",
+          "startLine": 46,
+          "endLine": 46,
+          "params": [
+            "pointer"
+          ]
+        },
+        {
+          "name": "initObjectStoreForTest",
+          "startLine": 55,
+          "endLine": 55,
+          "params": [
+            "stateStoreUrl",
+            "dataDirectory"
+          ]
+        },
+        {
+          "name": "putObject",
+          "startLine": 57,
+          "endLine": 57,
+          "params": [
+            "object",
+            "data"
+          ]
+        },
+        {
+          "name": "getObjectStoreType",
+          "startLine": 59,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "deleteObjects",
+          "startLine": 61,
+          "endLine": 61,
+          "params": [
+            "dir"
+          ]
+        },
+        {
+          "name": "getObject",
+          "startLine": 63,
+          "endLine": 63,
+          "params": [
+            "object"
+          ]
+        },
+        {
+          "name": "listObject",
+          "startLine": 65,
+          "endLine": 65,
+          "params": [
+            "dir"
+          ]
+        },
+        {
+          "name": "iteratorClose",
+          "startLine": 67,
+          "endLine": 67,
+          "params": [
+            "pointer"
+          ]
+        },
+        {
+          "name": "newStreamChunkFromPayload",
+          "startLine": 69,
+          "endLine": 69,
+          "params": [
+            "streamChunkPayload"
+          ]
+        },
+        {
+          "name": "newStreamChunkFromPretty",
+          "startLine": 71,
+          "endLine": 71,
+          "params": [
+            "str"
+          ]
+        },
+        {
+          "name": "streamChunkClose",
+          "startLine": 73,
+          "endLine": 73,
+          "params": [
+            "pointer"
+          ]
+        },
+        {
+          "name": "iteratorGetKey",
+          "startLine": 75,
+          "endLine": 75,
+          "params": [
+            "pointer"
+          ]
+        },
+        {
+          "name": "iteratorGetOp",
+          "startLine": 77,
+          "endLine": 77,
+          "params": [
+            "pointer"
+          ]
+        },
+        {
+          "name": "iteratorIsNull",
+          "startLine": 79,
+          "endLine": 79,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetInt16Value",
+          "startLine": 81,
+          "endLine": 81,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetInt32Value",
+          "startLine": 83,
+          "endLine": 83,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetInt64Value",
+          "startLine": 85,
+          "endLine": 85,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetFloatValue",
+          "startLine": 87,
+          "endLine": 87,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetDoubleValue",
+          "startLine": 89,
+          "endLine": 89,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetBooleanValue",
+          "startLine": 91,
+          "endLine": 91,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetStringValue",
+          "startLine": 93,
+          "endLine": 93,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetTimestampValue",
+          "startLine": 95,
+          "endLine": 95,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetTimestamptzValue",
+          "startLine": 97,
+          "endLine": 97,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetDecimalValue",
+          "startLine": 99,
+          "endLine": 99,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetTimeValue",
+          "startLine": 101,
+          "endLine": 101,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetDateValue",
+          "startLine": 103,
+          "endLine": 103,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetIntervalValue",
+          "startLine": 105,
+          "endLine": 105,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetJsonbValue",
+          "startLine": 107,
+          "endLine": 107,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetByteaValue",
+          "startLine": 109,
+          "endLine": 109,
+          "params": [
+            "pointer",
+            "index"
+          ]
+        },
+        {
+          "name": "iteratorGetArrayValue",
+          "startLine": 112,
+          "endLine": 112,
+          "params": [
+            "pointer",
+            "index",
+            "clazz"
+          ]
+        },
+        {
+          "name": "sendCdcSourceMsgToChannel",
+          "startLine": 114,
+          "endLine": 114,
+          "params": [
+            "channelPtr",
+            "msg"
+          ]
+        },
+        {
+          "name": "sendCdcSourceErrorToChannel",
+          "startLine": 116,
+          "endLine": 116,
+          "params": [
+            "channelPtr",
+            "errorMsg"
+          ]
+        },
+        {
+          "name": "cdcSourceSenderClose",
+          "startLine": 118,
+          "endLine": 118,
+          "params": [
+            "channelPtr"
+          ]
+        },
+        {
+          "name": "recvSinkWriterRequestFromChannel",
+          "startLine": 120,
+          "endLine": 121,
+          "params": [
+            "channelPtr"
+          ]
+        },
+        {
+          "name": "sendSinkWriterResponseToChannel",
+          "startLine": 123,
+          "endLine": 123,
+          "params": [
+            "channelPtr",
+            "msg"
+          ]
+        },
+        {
+          "name": "sendSinkWriterErrorToChannel",
+          "startLine": 125,
+          "endLine": 125,
+          "params": [
+            "channelPtr",
+            "msg"
+          ]
+        },
+        {
+          "name": "recvSinkCoordinatorRequestFromChannel",
+          "startLine": 127,
+          "endLine": 127,
+          "params": [
+            "channelPtr"
+          ]
+        },
+        {
+          "name": "sendSinkCoordinatorResponseToChannel",
+          "startLine": 129,
+          "endLine": 129,
+          "params": [
+            "channelPtr",
+            "msg"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Binding",
+          "startLine": 21,
+          "endLine": 130,
+          "methods": [
+            "ensureInitialized",
+            "tracingSlf4jEvent",
+            "tracingSlf4jEventEnabled",
+            "defaultVnodeCount",
+            "iteratorNewStreamChunk",
+            "iteratorNext",
+            "initObjectStoreForTest",
+            "putObject",
+            "getObjectStoreType",
+            "deleteObjects",
+            "getObject",
+            "listObject",
+            "iteratorClose",
+            "newStreamChunkFromPayload",
+            "newStreamChunkFromPretty",
+            "streamChunkClose",
+            "iteratorGetKey",
+            "iteratorGetOp",
+            "iteratorIsNull",
+            "iteratorGetInt16Value",
+            "iteratorGetInt32Value",
+            "iteratorGetInt64Value",
+            "iteratorGetFloatValue",
+            "iteratorGetDoubleValue",
+            "iteratorGetBooleanValue",
+            "iteratorGetStringValue",
+            "iteratorGetTimestampValue",
+            "iteratorGetTimestamptzValue",
+            "iteratorGetDecimalValue",
+            "iteratorGetTimeValue",
+            "iteratorGetDateValue",
+            "iteratorGetIntervalValue",
+            "iteratorGetJsonbValue",
+            "iteratorGetByteaValue",
+            "iteratorGetArrayValue",
+            "sendCdcSourceMsgToChannel",
+            "sendCdcSourceErrorToChannel",
+            "cdcSourceSenderClose",
+            "recvSinkWriterRequestFromChannel",
+            "sendSinkWriterResponseToChannel",
+            "sendSinkWriterErrorToChannel",
+            "recvSinkCoordinatorRequestFromChannel",
+            "sendSinkCoordinatorResponseToChannel"
+          ],
+          "properties": [
+            "IS_EMBEDDED_CONNECTOR"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "tracingSlf4jEvent",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "tracingSlf4jEventEnabled",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "defaultVnodeCount",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "initObjectStoreForTest",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "putObject",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "getObjectStoreType",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "deleteObjects",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "getObject",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "listObject",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "sendCdcSourceMsgToChannel",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "sendCdcSourceErrorToChannel",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "cdcSourceSenderClose",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "recvSinkWriterRequestFromChannel",
+          "line": 120,
+          "isDefault": false
+        },
+        {
+          "name": "sendSinkWriterResponseToChannel",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "sendSinkWriterErrorToChannel",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "recvSinkCoordinatorRequestFromChannel",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "sendSinkCoordinatorResponseToChannel",
+          "line": 129,
+          "isDefault": false
+        },
+        {
+          "name": "Binding",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 18,
+        "functionCount": 43,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding/src/main/java/com/risingwave/java/binding/JniSinkWriterStreamRequest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 72,
+      "functions": [
+        {
+          "name": "JniSinkWriterStreamRequest",
+          "startLine": 29,
+          "endLine": 35,
+          "params": [
+            "pbRequest"
+          ]
+        },
+        {
+          "name": "JniSinkWriterStreamRequest",
+          "startLine": 37,
+          "endLine": 43,
+          "params": [
+            "chunk",
+            "epoch",
+            "batchId"
+          ]
+        },
+        {
+          "name": "fromSerializedPayload",
+          "startLine": 45,
+          "endLine": 52,
+          "params": [
+            "payload"
+          ]
+        },
+        {
+          "name": "fromStreamChunkOwnedPointer",
+          "startLine": 54,
+          "endLine": 58,
+          "params": [
+            "pointer",
+            "epoch",
+            "batchId"
+          ]
+        },
+        {
+          "name": "asPbRequest",
+          "startLine": 60,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "close",
+          "startLine": 75,
+          "endLine": 80,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "JniSinkWriterStreamRequest",
+          "startLine": 22,
+          "endLine": 81,
+          "methods": [
+            "JniSinkWriterStreamRequest",
+            "JniSinkWriterStreamRequest",
+            "fromSerializedPayload",
+            "fromStreamChunkOwnedPointer",
+            "asPbRequest",
+            "close"
+          ],
+          "properties": [
+            "pbRequest",
+            "chunk",
+            "epoch",
+            "batchId",
+            "isPb"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "fromSerializedPayload",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "fromStreamChunkOwnedPointer",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "asPbRequest",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "JniSinkWriterStreamRequest",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fromSerializedPayload",
+          "callee": "new JniSinkWriterStreamRequest",
+          "lineNumber": 47
+        },
+        {
+          "caller": "fromSerializedPayload",
+          "callee": "ConnectorServiceProto.SinkWriterStreamRequest.parseFrom",
+          "lineNumber": 48
+        },
+        {
+          "caller": "fromSerializedPayload",
+          "callee": "new RuntimeException",
+          "lineNumber": 50
+        },
+        {
+          "caller": "fromStreamChunkOwnedPointer",
+          "callee": "new JniSinkWriterStreamRequest",
+          "lineNumber": 56
+        },
+        {
+          "caller": "fromStreamChunkOwnedPointer",
+          "callee": "StreamChunk.fromOwnedPointer",
+          "lineNumber": 57
+        },
+        {
+          "caller": "asPbRequest",
+          "callee": "ConnectorServiceProto.SinkWriterStreamRequest.newBuilder()\n                    .setWriteBatch(\n                            ConnectorServiceProto.SinkWriterStreamRequest.WriteBatch.newBuilder()\n                                    .setEpoch(epoch)\n                                    .setBatchId(batchId)\n                                    .setStreamChunkRefPointer(chunk.getPointer())\n                                    .build()).build",
+          "lineNumber": 64
+        },
+        {
+          "caller": "asPbRequest",
+          "callee": "ConnectorServiceProto.SinkWriterStreamRequest.newBuilder().setWriteBatch",
+          "lineNumber": 64
+        },
+        {
+          "caller": "asPbRequest",
+          "callee": "ConnectorServiceProto.SinkWriterStreamRequest.newBuilder",
+          "lineNumber": 64
+        },
+        {
+          "caller": "asPbRequest",
+          "callee": "ConnectorServiceProto.SinkWriterStreamRequest.WriteBatch.newBuilder()\n                                    .setEpoch(epoch)\n                                    .setBatchId(batchId)\n                                    .setStreamChunkRefPointer(chunk.getPointer()).build",
+          "lineNumber": 66
+        },
+        {
+          "caller": "asPbRequest",
+          "callee": "ConnectorServiceProto.SinkWriterStreamRequest.WriteBatch.newBuilder()\n                                    .setEpoch(epoch)\n                                    .setBatchId(batchId).setStreamChunkRefPointer",
+          "lineNumber": 66
+        },
+        {
+          "caller": "asPbRequest",
+          "callee": "ConnectorServiceProto.SinkWriterStreamRequest.WriteBatch.newBuilder()\n                                    .setEpoch(epoch).setBatchId",
+          "lineNumber": 66
+        },
+        {
+          "caller": "asPbRequest",
+          "callee": "ConnectorServiceProto.SinkWriterStreamRequest.WriteBatch.newBuilder().setEpoch",
+          "lineNumber": 66
+        },
+        {
+          "caller": "asPbRequest",
+          "callee": "ConnectorServiceProto.SinkWriterStreamRequest.WriteBatch.newBuilder",
+          "lineNumber": 66
+        },
+        {
+          "caller": "asPbRequest",
+          "callee": "chunk.getPointer",
+          "lineNumber": 69
+        },
+        {
+          "caller": "close",
+          "callee": "this.chunk.close",
+          "lineNumber": 78
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    }
+  ]
+}

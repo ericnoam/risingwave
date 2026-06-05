@@ -1,0 +1,1827 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/utils/runtime/src/deadlock.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "enable_parking_lot_deadlock_detection",
+          "startLine": 18,
+          "endLine": 39,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "enable_parking_lot_deadlock_detection",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "enable_parking_lot_deadlock_detection",
+          "callee": "std::thread::spawn",
+          "lineNumber": 21
+        },
+        {
+          "caller": "enable_parking_lot_deadlock_detection",
+          "callee": "std::thread::sleep",
+          "lineNumber": 23
+        },
+        {
+          "caller": "enable_parking_lot_deadlock_detection",
+          "callee": "Duration::from_secs",
+          "lineNumber": 23
+        },
+        {
+          "caller": "enable_parking_lot_deadlock_detection",
+          "callee": "parking_lot::deadlock::check_deadlock",
+          "lineNumber": 24
+        },
+        {
+          "caller": "enable_parking_lot_deadlock_detection",
+          "callee": "deadlocks.is_empty",
+          "lineNumber": 25
+        },
+        {
+          "caller": "enable_parking_lot_deadlock_detection",
+          "callee": "deadlocks.iter().enumerate",
+          "lineNumber": 30
+        },
+        {
+          "caller": "enable_parking_lot_deadlock_detection",
+          "callee": "deadlocks.iter",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/utils/runtime/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 184,
+      "nonEmptyLines": 161,
+      "functions": [
+        {
+          "name": "main_okk",
+          "startLine": 69,
+          "endLine": 184,
+          "params": [
+            "f"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main_okk",
+          "line": 69,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main_okk",
+          "callee": "set_panic_hook",
+          "lineNumber": 74
+        },
+        {
+          "caller": "main_okk",
+          "callee": "rustls::crypto::ring::default_provider()\n        .install_default()\n        .inspect_err(|e| {\n            tracing::error!(?e, \"Failed to install default crypto provider.\");\n        }).unwrap",
+          "lineNumber": 76
+        },
+        {
+          "caller": "main_okk",
+          "callee": "rustls::crypto::ring::default_provider()\n        .install_default().inspect_err",
+          "lineNumber": 76
+        },
+        {
+          "caller": "main_okk",
+          "callee": "rustls::crypto::ring::default_provider().install_default",
+          "lineNumber": 76
+        },
+        {
+          "caller": "main_okk",
+          "callee": "rustls::crypto::ring::default_provider",
+          "lineNumber": 76
+        },
+        {
+          "caller": "main_okk",
+          "callee": "risingwave_variables::init_server_start_time",
+          "lineNumber": 82
+        },
+        {
+          "caller": "main_okk",
+          "callee": "std::env::var_os",
+          "lineNumber": 85
+        },
+        {
+          "caller": "main_okk",
+          "callee": "std::env::set_var",
+          "lineNumber": 87
+        },
+        {
+          "caller": "main_okk",
+          "callee": "std::env::var",
+          "lineNumber": 92
+        },
+        {
+          "caller": "main_okk",
+          "callee": "v\n                .parse::<usize>().expect",
+          "lineNumber": 93
+        },
+        {
+          "caller": "main_okk",
+          "callee": "v\n                .parse::<usize>",
+          "lineNumber": 93
+        },
+        {
+          "caller": "main_okk",
+          "callee": "std::thread::available_parallelism()\n                .expect(\"Failed to get available parallelism\").get",
+          "lineNumber": 96
+        },
+        {
+          "caller": "main_okk",
+          "callee": "std::thread::available_parallelism().expect",
+          "lineNumber": 96
+        },
+        {
+          "caller": "main_okk",
+          "callee": "std::thread::available_parallelism",
+          "lineNumber": 96
+        },
+        {
+          "caller": "main_okk",
+          "callee": "std::env::set_var",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main_okk",
+          "callee": "MIN_WORKER_THREADS.to_string",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main_okk",
+          "callee": "std::env::var",
+          "lineNumber": 110
+        },
+        {
+          "caller": "main_okk",
+          "callee": "enable_deadlock_detection\n            .parse().expect",
+          "lineNumber": 111
+        },
+        {
+          "caller": "main_okk",
+          "callee": "enable_deadlock_detection.parse",
+          "lineNumber": 111
+        },
+        {
+          "caller": "main_okk",
+          "callee": "enable_parking_lot_deadlock_detection",
+          "lineNumber": 115
+        },
+        {
+          "caller": "main_okk",
+          "callee": "enable_parking_lot_deadlock_detection",
+          "lineNumber": 120
+        },
+        {
+          "caller": "main_okk",
+          "callee": "std::env::var",
+          "lineNumber": 124
+        },
+        {
+          "caller": "main_okk",
+          "callee": "spawn_prof_thread",
+          "lineNumber": 125
+        },
+        {
+          "caller": "main_okk",
+          "callee": "CancellationToken::new",
+          "lineNumber": 129
+        },
+        {
+          "caller": "main_okk",
+          "callee": "tokio::signal::unix::signal(SignalKind::interrupt()).unwrap",
+          "lineNumber": 132
+        },
+        {
+          "caller": "main_okk",
+          "callee": "tokio::signal::unix::signal",
+          "lineNumber": 132
+        },
+        {
+          "caller": "main_okk",
+          "callee": "SignalKind::interrupt",
+          "lineNumber": 132
+        },
+        {
+          "caller": "main_okk",
+          "callee": "tokio::signal::unix::signal(SignalKind::terminate()).unwrap",
+          "lineNumber": 133
+        },
+        {
+          "caller": "main_okk",
+          "callee": "tokio::signal::unix::signal",
+          "lineNumber": 133
+        },
+        {
+          "caller": "main_okk",
+          "callee": "SignalKind::terminate",
+          "lineNumber": 133
+        },
+        {
+          "caller": "main_okk",
+          "callee": "tokio::runtime::Builder::new_multi_thread()\n        .thread_name(\"rw-main\")\n        .enable_all()\n        .build().unwrap",
+          "lineNumber": 171
+        },
+        {
+          "caller": "main_okk",
+          "callee": "tokio::runtime::Builder::new_multi_thread()\n        .thread_name(\"rw-main\")\n        .enable_all().build",
+          "lineNumber": 171
+        },
+        {
+          "caller": "main_okk",
+          "callee": "tokio::runtime::Builder::new_multi_thread()\n        .thread_name(\"rw-main\").enable_all",
+          "lineNumber": 171
+        },
+        {
+          "caller": "main_okk",
+          "callee": "tokio::runtime::Builder::new_multi_thread().thread_name",
+          "lineNumber": 171
+        },
+        {
+          "caller": "main_okk",
+          "callee": "tokio::runtime::Builder::new_multi_thread",
+          "lineNumber": 171
+        },
+        {
+          "caller": "main_okk",
+          "callee": "runtime.block_on",
+          "lineNumber": 177
+        },
+        {
+          "caller": "main_okk",
+          "callee": "runtime.shutdown_background",
+          "lineNumber": 182
+        },
+        {
+          "caller": "main_okk",
+          "callee": "ExitCode::SUCCESS.exit_process",
+          "lineNumber": 183
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/utils/runtime/src/logger.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 683,
+      "nonEmptyLines": 614,
+      "functions": [
+        {
+          "name": "parse_extra_tracing_attributes",
+          "startLine": 48,
+          "endLine": 76,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "default",
+          "startLine": 100,
+          "endLine": 102,
+          "params": []
+        },
+        {
+          "name": "from_opts",
+          "startLine": 111,
+          "endLine": 123,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 126,
+          "endLine": 141,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "tokio_console",
+          "startLine": 144,
+          "endLine": 147,
+          "params": [
+            "enabled"
+          ]
+        },
+        {
+          "name": "stderr",
+          "startLine": 150,
+          "endLine": 153,
+          "params": [
+            "enabled"
+          ]
+        },
+        {
+          "name": "with_thread_name",
+          "startLine": 156,
+          "endLine": 159,
+          "params": [
+            "enabled"
+          ]
+        },
+        {
+          "name": "with_target",
+          "startLine": 162,
+          "endLine": 169,
+          "params": [
+            "target",
+            "level"
+          ]
+        },
+        {
+          "name": "with_default",
+          "startLine": 172,
+          "endLine": 175,
+          "params": [
+            "level"
+          ]
+        },
+        {
+          "name": "with_tracing_endpoint",
+          "startLine": 178,
+          "endLine": 181,
+          "params": [
+            "endpoint"
+          ]
+        },
+        {
+          "name": "disabled_filter",
+          "startLine": 185,
+          "endLine": 187,
+          "params": []
+        },
+        {
+          "name": "init_risingwave_logger",
+          "startLine": 235,
+          "endLine": 609,
+          "params": [
+            "settings"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LoggerSettings",
+          "startLine": 78,
+          "endLine": 97,
+          "methods": [
+            "default",
+            "from_opts",
+            "new",
+            "tokio_console",
+            "stderr",
+            "with_thread_name",
+            "with_target",
+            "with_default",
+            "with_tracing_endpoint"
+          ],
+          "properties": [
+            "name",
+            "enable_tokio_console",
+            "colorful",
+            "stderr",
+            "with_thread_name",
+            "targets",
+            "default_level",
+            "tracing_endpoint",
+            "extra_tracing_attributes"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LoggerSettings",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "from_opts",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "tokio_console",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "stderr",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "with_thread_name",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "with_target",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "with_default",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "with_tracing_endpoint",
+          "line": 178,
+          "isDefault": false
+        },
+        {
+          "name": "init_risingwave_logger",
+          "line": 235,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "input.trim().is_empty",
+          "lineNumber": 51
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "input.trim",
+          "lineNumber": 51
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "input\n        .split(',')\n        .filter_map(|pair| {\n            let pair = pair.trim();\n            if pair.is_empty() {\n                return None;\n            }\n            let parts: Vec<&str> = pair.splitn(2, '=').collect();\n            if parts.len() != 2 {\n                eprintln!(\"warning: ignoring invalid tracing attribute pair (no '='): {pair:?}\");\n                return None;\n            }\n            let key = parts[0].trim();\n            let value = parts[1].trim();\n            if key.is_empty() {\n                eprintln!(\"warning: ignoring tracing attribute with empty key: {pair:?}\");\n                return None;\n            }\n            Some(KeyValue::new(key.to_owned(), value.to_owned()))\n        }).collect",
+          "lineNumber": 55
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "input\n        .split(',').filter_map",
+          "lineNumber": 55
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "input.split",
+          "lineNumber": 55
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "pair.trim",
+          "lineNumber": 58
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "pair.is_empty",
+          "lineNumber": 59
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "pair.splitn(2, '=').collect",
+          "lineNumber": 62
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "pair.splitn",
+          "lineNumber": 62
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "parts.len",
+          "lineNumber": 63
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "parts[0].trim",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "parts[1].trim",
+          "lineNumber": 68
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "key.is_empty",
+          "lineNumber": 69
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "Some",
+          "lineNumber": 73
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "KeyValue::new",
+          "lineNumber": 73
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "key.to_owned",
+          "lineNumber": 73
+        },
+        {
+          "caller": "parse_extra_tracing_attributes",
+          "callee": "value.to_owned",
+          "lineNumber": 73
+        },
+        {
+          "caller": "default",
+          "callee": "Self::new",
+          "lineNumber": 101
+        },
+        {
+          "caller": "from_opts",
+          "callee": "Self::new",
+          "lineNumber": 112
+        },
+        {
+          "caller": "from_opts",
+          "callee": "O::name",
+          "lineNumber": 112
+        },
+        {
+          "caller": "from_opts",
+          "callee": "settings.tracing_endpoint.is_none",
+          "lineNumber": 113
+        },
+        {
+          "caller": "from_opts",
+          "callee": "opts.meta_addr().exactly_one",
+          "lineNumber": 114
+        },
+        {
+          "caller": "from_opts",
+          "callee": "opts.meta_addr",
+          "lineNumber": 114
+        },
+        {
+          "caller": "from_opts",
+          "callee": "Some",
+          "lineNumber": 120
+        },
+        {
+          "caller": "from_opts",
+          "callee": "addr.to_string",
+          "lineNumber": 120
+        },
+        {
+          "caller": "new",
+          "callee": "name.into",
+          "lineNumber": 128
+        },
+        {
+          "caller": "new",
+          "callee": "console::colors_enabled_stderr",
+          "lineNumber": 130
+        },
+        {
+          "caller": "new",
+          "callee": "console::colors_enabled",
+          "lineNumber": 130
+        },
+        {
+          "caller": "new",
+          "callee": "std::env::var(\"RW_TRACING_ENDPOINT\").ok",
+          "lineNumber": 135
+        },
+        {
+          "caller": "new",
+          "callee": "std::env::var",
+          "lineNumber": 135
+        },
+        {
+          "caller": "new",
+          "callee": "std::env::var(\"RW_TRACING_EXTRA_ATTRIBUTES\")\n                .ok()\n                .map(|v| parse_extra_tracing_attributes(&v)).unwrap_or_default",
+          "lineNumber": 136
+        },
+        {
+          "caller": "new",
+          "callee": "std::env::var(\"RW_TRACING_EXTRA_ATTRIBUTES\")\n                .ok().map",
+          "lineNumber": 136
+        },
+        {
+          "caller": "new",
+          "callee": "std::env::var(\"RW_TRACING_EXTRA_ATTRIBUTES\").ok",
+          "lineNumber": 136
+        },
+        {
+          "caller": "new",
+          "callee": "std::env::var",
+          "lineNumber": 136
+        },
+        {
+          "caller": "new",
+          "callee": "parse_extra_tracing_attributes",
+          "lineNumber": 138
+        },
+        {
+          "caller": "with_target",
+          "callee": "self.targets.push",
+          "lineNumber": 167
+        },
+        {
+          "caller": "with_target",
+          "callee": "target.into",
+          "lineNumber": 167
+        },
+        {
+          "caller": "with_target",
+          "callee": "level.into",
+          "lineNumber": 167
+        },
+        {
+          "caller": "with_default",
+          "callee": "Some",
+          "lineNumber": 173
+        },
+        {
+          "caller": "with_default",
+          "callee": "level.into",
+          "lineNumber": 173
+        },
+        {
+          "caller": "with_tracing_endpoint",
+          "callee": "Some",
+          "lineNumber": 179
+        },
+        {
+          "caller": "with_tracing_endpoint",
+          "callee": "endpoint.into",
+          "lineNumber": 179
+        },
+        {
+          "caller": "disabled_filter",
+          "callee": "filter::Targets::new",
+          "lineNumber": 186
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Deployment::current",
+          "lineNumber": 236
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "OffsetTime::local_rfc_3339().unwrap_or_else",
+          "lineNumber": 239
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "OffsetTime::local_rfc_3339",
+          "lineNumber": 239
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "OffsetTime::new",
+          "lineNumber": 244
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter::Targets::new",
+          "lineNumber": 252
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"auto_schema_change\", Level::INFO)\n            .with_target(\"risingwave_sqlparser\", Level::INFO)\n            .with_target(\"risingwave_connector_node\", Level::INFO)\n            .with_target(\"pgwire\", Level::INFO)\n            .with_target(PGWIRE_QUERY_LOG, Level::OFF).with_target",
+          "lineNumber": 256
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"auto_schema_change\", Level::INFO)\n            .with_target(\"risingwave_sqlparser\", Level::INFO)\n            .with_target(\"risingwave_connector_node\", Level::INFO)\n            .with_target(\"pgwire\", Level::INFO).with_target",
+          "lineNumber": 256
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"auto_schema_change\", Level::INFO)\n            .with_target(\"risingwave_sqlparser\", Level::INFO)\n            .with_target(\"risingwave_connector_node\", Level::INFO).with_target",
+          "lineNumber": 256
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"auto_schema_change\", Level::INFO)\n            .with_target(\"risingwave_sqlparser\", Level::INFO).with_target",
+          "lineNumber": 256
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"auto_schema_change\", Level::INFO).with_target",
+          "lineNumber": 256
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter.with_target",
+          "lineNumber": 256
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN)\n            .with_target(\"isahc\", Level::WARN)\n            .with_target(\"console_subscriber\", Level::WARN)\n            .with_target(\"reqwest\", Level::WARN)\n            .with_target(\"sled\", Level::INFO)\n            .with_target(\"cranelift\", Level::INFO)\n            .with_target(\"wasmtime\", Level::INFO)\n            .with_target(\"sqlx\", Level::WARN)\n            .with_target(\"opendal\", Level::INFO)\n            .with_target(\"reqsign\", Level::INFO)\n            .with_target(\"jni\", Level::INFO).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN)\n            .with_target(\"isahc\", Level::WARN)\n            .with_target(\"console_subscriber\", Level::WARN)\n            .with_target(\"reqwest\", Level::WARN)\n            .with_target(\"sled\", Level::INFO)\n            .with_target(\"cranelift\", Level::INFO)\n            .with_target(\"wasmtime\", Level::INFO)\n            .with_target(\"sqlx\", Level::WARN)\n            .with_target(\"opendal\", Level::INFO)\n            .with_target(\"reqsign\", Level::INFO).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN)\n            .with_target(\"isahc\", Level::WARN)\n            .with_target(\"console_subscriber\", Level::WARN)\n            .with_target(\"reqwest\", Level::WARN)\n            .with_target(\"sled\", Level::INFO)\n            .with_target(\"cranelift\", Level::INFO)\n            .with_target(\"wasmtime\", Level::INFO)\n            .with_target(\"sqlx\", Level::WARN)\n            .with_target(\"opendal\", Level::INFO).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN)\n            .with_target(\"isahc\", Level::WARN)\n            .with_target(\"console_subscriber\", Level::WARN)\n            .with_target(\"reqwest\", Level::WARN)\n            .with_target(\"sled\", Level::INFO)\n            .with_target(\"cranelift\", Level::INFO)\n            .with_target(\"wasmtime\", Level::INFO)\n            .with_target(\"sqlx\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN)\n            .with_target(\"isahc\", Level::WARN)\n            .with_target(\"console_subscriber\", Level::WARN)\n            .with_target(\"reqwest\", Level::WARN)\n            .with_target(\"sled\", Level::INFO)\n            .with_target(\"cranelift\", Level::INFO)\n            .with_target(\"wasmtime\", Level::INFO).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN)\n            .with_target(\"isahc\", Level::WARN)\n            .with_target(\"console_subscriber\", Level::WARN)\n            .with_target(\"reqwest\", Level::WARN)\n            .with_target(\"sled\", Level::INFO)\n            .with_target(\"cranelift\", Level::INFO).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN)\n            .with_target(\"isahc\", Level::WARN)\n            .with_target(\"console_subscriber\", Level::WARN)\n            .with_target(\"reqwest\", Level::WARN)\n            .with_target(\"sled\", Level::INFO).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN)\n            .with_target(\"isahc\", Level::WARN)\n            .with_target(\"console_subscriber\", Level::WARN)\n            .with_target(\"reqwest\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN)\n            .with_target(\"isahc\", Level::WARN)\n            .with_target(\"console_subscriber\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN)\n            .with_target(\"isahc\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN)\n            .with_target(\"tonic\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN)\n            .with_target(\"tower\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN)\n            .with_target(\"h2\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN)\n            .with_target(\"hyper\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN)\n            .with_target(\"aws_credential_types::cache::lazy_caching\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN)\n            .with_target(\"aws_endpoint\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO)\n            .with_target(\"aws_config\", Level::WARN).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO)\n            .with_target(\"aws\", Level::INFO).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter\n            .with_target(\"foyer\", Level::INFO).with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter.with_target",
+          "lineNumber": 267
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter.with_default",
+          "lineNumber": 300
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter.with_targets",
+          "lineNumber": 303
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter.with_default",
+          "lineNumber": 305
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::env::var",
+          "lineNumber": 309
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "rust_log.is_empty",
+          "lineNumber": 310
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "rust_log.parse().expect",
+          "lineNumber": 312
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "rust_log.parse",
+          "lineNumber": 312
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "rust_log_targets.default_level",
+          "lineNumber": 313
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter.with_default",
+          "lineNumber": 314
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter.with_targets",
+          "lineNumber": 316
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer()\n            .with_thread_names(settings.with_thread_name)\n            .with_timer(default_timer.clone())\n            .with_ansi(settings.colorful).with_writer",
+          "lineNumber": 326
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer()\n            .with_thread_names(settings.with_thread_name)\n            .with_timer(default_timer.clone()).with_ansi",
+          "lineNumber": 326
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer()\n            .with_thread_names(settings.with_thread_name).with_timer",
+          "lineNumber": 326
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer().with_thread_names",
+          "lineNumber": 326
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer",
+          "lineNumber": 326
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "default_timer.clone",
+          "lineNumber": 328
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Either::Left",
+          "lineNumber": 332
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::io::stderr",
+          "lineNumber": 332
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Either::Right",
+          "lineNumber": 334
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::io::stdout",
+          "lineNumber": 334
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fmt_layer.compact().boxed",
+          "lineNumber": 339
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fmt_layer.compact",
+          "lineNumber": 339
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fmt_layer\n                .json()\n                .map_event_format(|e| e.with_current_span(false)).boxed",
+          "lineNumber": 340
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fmt_layer\n                .json().map_event_format",
+          "lineNumber": 340
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fmt_layer.json",
+          "lineNumber": 340
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "e.with_current_span",
+          "lineNumber": 342
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "env_var_is_true",
+          "lineNumber": 345
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fmt_layer.pretty().boxed",
+          "lineNumber": 346
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fmt_layer.pretty",
+          "lineNumber": 346
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fmt_layer.boxed",
+          "lineNumber": 348
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layers.push",
+          "lineNumber": 353
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fmt_layer\n                .with_filter(default_filter.clone().with_target(\"rw_tracing\", Level::OFF)).boxed",
+          "lineNumber": 354
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fmt_layer.with_filter",
+          "lineNumber": 354
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "default_filter.clone().with_target",
+          "lineNumber": 355
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "default_filter.clone",
+          "lineNumber": 355
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::env::var",
+          "lineNumber": 361
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "PathBuf::from",
+          "lineNumber": 363
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::fs::create_dir_all(query_log_path.clone()).unwrap_or_else",
+          "lineNumber": 364
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::fs::create_dir_all",
+          "lineNumber": 364
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "query_log_path.clone",
+          "lineNumber": 364
+        },
+        {
+          "caller": "format_fields",
+          "callee": "self.0.format_fields",
+          "lineNumber": 395
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "query_log_path.join",
+          "lineNumber": 403
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::fs::OpenOptions::new()\n                .create(true)\n                .write(true)\n                .truncate(true)\n                .open(&path).unwrap_or_else",
+          "lineNumber": 405
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::fs::OpenOptions::new()\n                .create(true)\n                .write(true)\n                .truncate(true).open",
+          "lineNumber": 405
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::fs::OpenOptions::new()\n                .create(true)\n                .write(true).truncate",
+          "lineNumber": 405
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::fs::OpenOptions::new()\n                .create(true).write",
+          "lineNumber": 405
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::fs::OpenOptions::new().create",
+          "lineNumber": 405
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::fs::OpenOptions::new",
+          "lineNumber": 405
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer()\n                .with_ansi(false)\n                .with_level(false)\n                .with_file(false)\n                .with_target(false)\n                .with_timer(default_timer.clone())\n                .with_thread_names(true)\n                .with_thread_ids(true).with_writer",
+          "lineNumber": 414
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer()\n                .with_ansi(false)\n                .with_level(false)\n                .with_file(false)\n                .with_target(false)\n                .with_timer(default_timer.clone())\n                .with_thread_names(true).with_thread_ids",
+          "lineNumber": 414
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer()\n                .with_ansi(false)\n                .with_level(false)\n                .with_file(false)\n                .with_target(false)\n                .with_timer(default_timer.clone()).with_thread_names",
+          "lineNumber": 414
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer()\n                .with_ansi(false)\n                .with_level(false)\n                .with_file(false)\n                .with_target(false).with_timer",
+          "lineNumber": 414
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer()\n                .with_ansi(false)\n                .with_level(false)\n                .with_file(false).with_target",
+          "lineNumber": 414
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer()\n                .with_ansi(false)\n                .with_level(false).with_file",
+          "lineNumber": 414
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer()\n                .with_ansi(false).with_level",
+          "lineNumber": 414
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer().with_ansi",
+          "lineNumber": 414
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::fmt::layer",
+          "lineNumber": 414
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "default_timer.clone",
+          "lineNumber": 419
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layer.fmt_fields(FmtFields::<true>::default()).boxed",
+          "lineNumber": 425
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layer.fmt_fields",
+          "lineNumber": 425
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "FmtFields::<true>::default",
+          "lineNumber": 425
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layer.fmt_fields(FmtFields::<false>::default()).boxed",
+          "lineNumber": 426
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layer.fmt_fields",
+          "lineNumber": 426
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "FmtFields::<false>::default",
+          "lineNumber": 426
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layer.with_filter",
+          "lineNumber": 429
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter::Targets::new()\n                    // Root span must be enabled to provide common info like the SQL query.\n                    .with_target(PGWIRE_ROOT_SPAN_TARGET, Level::INFO).with_target",
+          "lineNumber": 430
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter::Targets::new().with_target",
+          "lineNumber": 430
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter::Targets::new",
+          "lineNumber": 430
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layers.push",
+          "lineNumber": 436
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layer.boxed",
+          "lineNumber": 436
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "console_subscriber::ConsoleLayer::builder()\n            .with_default_env().build",
+          "lineNumber": 441
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "console_subscriber::ConsoleLayer::builder().with_default_env",
+          "lineNumber": 441
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "console_subscriber::ConsoleLayer::builder",
+          "lineNumber": 441
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "console_layer.with_filter",
+          "lineNumber": 444
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter::Targets::new()\n                .with_target(\"tokio\", Level::TRACE).with_target",
+          "lineNumber": 445
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter::Targets::new().with_target",
+          "lineNumber": 445
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter::Targets::new",
+          "lineNumber": 445
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layers.push",
+          "lineNumber": 449
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "console_layer.boxed",
+          "lineNumber": 449
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "std::thread::spawn",
+          "lineNumber": 450
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_current_thread()\n                .enable_all()\n                .build()\n                .unwrap().block_on",
+          "lineNumber": 451
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_current_thread()\n                .enable_all()\n                .build().unwrap",
+          "lineNumber": 451
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_current_thread()\n                .enable_all().build",
+          "lineNumber": 451
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_current_thread().enable_all",
+          "lineNumber": 451
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_current_thread",
+          "lineNumber": 451
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "server.serve().await.unwrap",
+          "lineNumber": 457
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "server.serve",
+          "lineNumber": 457
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "extra_attributes.is_empty",
+          "lineNumber": 481
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_multi_thread()\n                .enable_all()\n                .thread_name(\"rw-otel\")\n                .worker_threads(2)\n                .build().unwrap",
+          "lineNumber": 492
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_multi_thread()\n                .enable_all()\n                .thread_name(\"rw-otel\")\n                .worker_threads(2).build",
+          "lineNumber": 492
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_multi_thread()\n                .enable_all()\n                .thread_name(\"rw-otel\").worker_threads",
+          "lineNumber": 492
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_multi_thread()\n                .enable_all().thread_name",
+          "lineNumber": 492
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_multi_thread().enable_all",
+          "lineNumber": 492
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tokio::runtime::Builder::new_multi_thread",
+          "lineNumber": 492
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Box::leak",
+          "lineNumber": 498
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Box::new",
+          "lineNumber": 498
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "runtime.enter",
+          "lineNumber": 501
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "resource_attrs.extend",
+          "lineNumber": 513
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "extra_attributes.iter().cloned",
+          "lineNumber": 513
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "extra_attributes.iter",
+          "lineNumber": 513
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "TracerProviderBuilder::default()\n                .with_batch_exporter(\n                    SpanExporter::builder()\n                        .with_tonic()\n                        .with_endpoint(&endpoint)\n                        .build()\n                        .unwrap(),\n                )\n                .with_resource(Resource::builder().with_attributes(resource_attrs).build())\n                .build().tracer",
+          "lineNumber": 515
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "TracerProviderBuilder::default()\n                .with_batch_exporter(\n                    SpanExporter::builder()\n                        .with_tonic()\n                        .with_endpoint(&endpoint)\n                        .build()\n                        .unwrap(),\n                )\n                .with_resource(Resource::builder().with_attributes(resource_attrs).build()).build",
+          "lineNumber": 515
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "TracerProviderBuilder::default()\n                .with_batch_exporter(\n                    SpanExporter::builder()\n                        .with_tonic()\n                        .with_endpoint(&endpoint)\n                        .build()\n                        .unwrap(),\n                ).with_resource",
+          "lineNumber": 515
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "TracerProviderBuilder::default().with_batch_exporter",
+          "lineNumber": 515
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "TracerProviderBuilder::default",
+          "lineNumber": 515
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder()\n                        .with_tonic()\n                        .with_endpoint(&endpoint)\n                        .build().unwrap",
+          "lineNumber": 517
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder()\n                        .with_tonic()\n                        .with_endpoint(&endpoint).build",
+          "lineNumber": 517
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder()\n                        .with_tonic().with_endpoint",
+          "lineNumber": 517
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder().with_tonic",
+          "lineNumber": 517
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder",
+          "lineNumber": 517
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Resource::builder().with_attributes(resource_attrs).build",
+          "lineNumber": 523
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Resource::builder().with_attributes",
+          "lineNumber": 523
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Resource::builder",
+          "lineNumber": 523
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder()\n                .with_tonic()\n                .with_endpoint(&endpoint)\n                .with_protocol(opentelemetry_otlp::Protocol::Grpc)\n                .with_timeout(opentelemetry_otlp::OTEL_EXPORTER_OTLP_TIMEOUT_DEFAULT)\n                .build().unwrap",
+          "lineNumber": 527
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder()\n                .with_tonic()\n                .with_endpoint(&endpoint)\n                .with_protocol(opentelemetry_otlp::Protocol::Grpc)\n                .with_timeout(opentelemetry_otlp::OTEL_EXPORTER_OTLP_TIMEOUT_DEFAULT).build",
+          "lineNumber": 527
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder()\n                .with_tonic()\n                .with_endpoint(&endpoint)\n                .with_protocol(opentelemetry_otlp::Protocol::Grpc).with_timeout",
+          "lineNumber": 527
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder()\n                .with_tonic()\n                .with_endpoint(&endpoint).with_protocol",
+          "lineNumber": 527
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder()\n                .with_tonic().with_endpoint",
+          "lineNumber": 527
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder().with_tonic",
+          "lineNumber": 527
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "SpanExporter::builder",
+          "lineNumber": 527
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "reload::Layer::new",
+          "lineNumber": 541
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "disabled_filter",
+          "lineNumber": 541
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "set_toggle_otel_layer_fn",
+          "lineNumber": 543
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "reload_handle.modify",
+          "lineNumber": 544
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "default_filter.clone",
+          "lineNumber": 546
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "disabled_filter",
+          "lineNumber": 548
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_opentelemetry::layer()\n            .with_tracer(otel_tracer).with_filter",
+          "lineNumber": 566
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_opentelemetry::layer().with_tracer",
+          "lineNumber": 566
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_opentelemetry::layer",
+          "lineNumber": 566
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layers.push",
+          "lineNumber": 570
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layer.boxed",
+          "lineNumber": 570
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fastrace_resource_attrs.extend",
+          "lineNumber": 586
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "extra_attributes.iter().cloned",
+          "lineNumber": 586
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "extra_attributes.iter",
+          "lineNumber": 586
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "OpenTelemetryReporter::new",
+          "lineNumber": 588
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Cow::Owned",
+          "lineNumber": 590
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Resource::builder()\n                    .with_attributes(fastrace_resource_attrs).build",
+          "lineNumber": 591
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Resource::builder().with_attributes",
+          "lineNumber": 591
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Resource::builder",
+          "lineNumber": 591
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "InstrumentationScope::builder(\"opentelemetry-instrumentation-foyer\").build",
+          "lineNumber": 595
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "InstrumentationScope::builder",
+          "lineNumber": 595
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fastrace::set_reporter",
+          "lineNumber": 597
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "fastrace::collector::Config::default",
+          "lineNumber": 597
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter::Targets::new().with_target",
+          "lineNumber": 603
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "filter::Targets::new",
+          "lineNumber": 603
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "layers.push",
+          "lineNumber": 605
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "Box::new",
+          "lineNumber": 605
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "MetricsLayer::new().with_filter",
+          "lineNumber": 605
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "MetricsLayer::new",
+          "lineNumber": 605
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::registry().with(layers).init",
+          "lineNumber": 607
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::registry().with",
+          "lineNumber": 607
+        },
+        {
+          "caller": "init_risingwave_logger",
+          "callee": "tracing_subscriber::registry",
+          "lineNumber": 607
+        },
+        {
+          "caller": "test_parse_extra_tracing_attributes_normal",
+          "callee": "parse_extra_tracing_attributes",
+          "lineNumber": 618
+        },
+        {
+          "caller": "test_parse_extra_tracing_attributes_whitespace",
+          "callee": "parse_extra_tracing_attributes",
+          "lineNumber": 630
+        },
+        {
+          "caller": "test_parse_extra_tracing_attributes_invalid_pairs",
+          "callee": "parse_extra_tracing_attributes",
+          "lineNumber": 647
+        },
+        {
+          "caller": "test_parse_extra_tracing_attributes_empty_key",
+          "callee": "parse_extra_tracing_attributes",
+          "lineNumber": 656
+        },
+        {
+          "caller": "test_parse_extra_tracing_attributes_value_with_equals",
+          "callee": "parse_extra_tracing_attributes",
+          "lineNumber": 664
+        },
+        {
+          "caller": "test_parse_extra_tracing_attributes_trailing_comma",
+          "callee": "parse_extra_tracing_attributes",
+          "lineNumber": 672
+        },
+        {
+          "caller": "test_parse_extra_tracing_attributes_empty_value",
+          "callee": "parse_extra_tracing_attributes",
+          "lineNumber": 678
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/utils/runtime/src/panic_hook.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "set_panic_hook",
+          "startLine": 17,
+          "endLine": 36,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "set_panic_hook",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "set_panic_hook",
+          "callee": "rlimit::Resource::CORE.get_soft",
+          "lineNumber": 18
+        },
+        {
+          "caller": "set_panic_hook",
+          "callee": "std::panic::update_hook",
+          "lineNumber": 24
+        },
+        {
+          "caller": "set_panic_hook",
+          "callee": "default_hook",
+          "lineNumber": 25
+        },
+        {
+          "caller": "set_panic_hook",
+          "callee": "await_tree::current_tree",
+          "lineNumber": 27
+        },
+        {
+          "caller": "set_panic_hook",
+          "callee": "risingwave_common::util::panic::is_catching_unwind",
+          "lineNumber": 32
+        },
+        {
+          "caller": "set_panic_hook",
+          "callee": "std::process::abort",
+          "lineNumber": 33
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/utils/runtime/src/prof.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 43,
+      "functions": [
+        {
+          "name": "spawn_prof_thread",
+          "startLine": 20,
+          "endLine": 48,
+          "params": [
+            "profile_path"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "spawn_prof_thread",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "PathBuf::from",
+          "lineNumber": 22
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "std::fs::create_dir_all(&profile_path).unwrap",
+          "lineNumber": 24
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "std::fs::create_dir_all",
+          "lineNumber": 24
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "std::thread::spawn",
+          "lineNumber": 26
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "pprof::ProfilerGuardBuilder::default()\n                .blocklist(&[\"libc\", \"libgcc\", \"pthread\", \"vdso\"])\n                .build().unwrap",
+          "lineNumber": 29
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "pprof::ProfilerGuardBuilder::default()\n                .blocklist(&[\"libc\", \"libgcc\", \"pthread\", \"vdso\"]).build",
+          "lineNumber": 29
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "pprof::ProfilerGuardBuilder::default().blocklist",
+          "lineNumber": 29
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "pprof::ProfilerGuardBuilder::default",
+          "lineNumber": 29
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "std::thread::sleep",
+          "lineNumber": 33
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "Duration::from_secs",
+          "lineNumber": 33
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "guard.report().build",
+          "lineNumber": 34
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "guard.report",
+          "lineNumber": 34
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "profile_path.join",
+          "lineNumber": 36
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "std::fs::File::create(&profile_svg).unwrap",
+          "lineNumber": 37
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "std::fs::File::create",
+          "lineNumber": 37
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "report.flamegraph(file).unwrap",
+          "lineNumber": 38
+        },
+        {
+          "caller": "spawn_prof_thread",
+          "callee": "report.flamegraph",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

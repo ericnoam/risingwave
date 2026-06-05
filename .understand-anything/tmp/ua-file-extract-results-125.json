@@ -1,0 +1,725 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/ctl/src/common/context.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "meta_client",
+          "startLine": 30,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "hummock_store",
+          "startLine": 40,
+          "endLine": 46,
+          "params": [
+            "hummock_opts"
+          ]
+        },
+        {
+          "name": "hummock_store_with_metrics",
+          "startLine": 48,
+          "endLine": 61,
+          "params": [
+            "hummock_opts"
+          ]
+        },
+        {
+          "name": "try_close",
+          "startLine": 63,
+          "endLine": 68,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CtlContext",
+          "startLine": 24,
+          "endLine": 27,
+          "methods": [
+            "meta_client",
+            "hummock_store",
+            "hummock_store_with_metrics",
+            "try_close"
+          ],
+          "properties": [
+            "meta_client",
+            "hummock"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CtlContext",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "meta_client",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "hummock_store",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "hummock_store_with_metrics",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "try_close",
+          "line": 63,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "meta_client",
+          "callee": "self.meta_client\n            .get_or_try_init(|| async {\n                let meta_opts = MetaServiceOpts::from_env()?;\n                meta_opts.create_meta_client().await\n            })\n            .await.cloned",
+          "lineNumber": 31
+        },
+        {
+          "caller": "meta_client",
+          "callee": "self.meta_client.get_or_try_init",
+          "lineNumber": 31
+        },
+        {
+          "caller": "meta_client",
+          "callee": "MetaServiceOpts::from_env",
+          "lineNumber": 33
+        },
+        {
+          "caller": "meta_client",
+          "callee": "meta_opts.create_meta_client",
+          "lineNumber": 34
+        },
+        {
+          "caller": "hummock_store",
+          "callee": "self.hummock_store_with_metrics",
+          "lineNumber": 44
+        },
+        {
+          "caller": "hummock_store",
+          "callee": "Ok",
+          "lineNumber": 45
+        },
+        {
+          "caller": "hummock_store_with_metrics",
+          "callee": "self.meta_client",
+          "lineNumber": 52
+        },
+        {
+          "caller": "hummock_store_with_metrics",
+          "callee": "self.hummock\n            .get_or_try_init(|| async {\n                hummock_opts\n                    .create_hummock_store_with_metrics(&meta_client)\n                    .await\n            })\n            .await.cloned",
+          "lineNumber": 53
+        },
+        {
+          "caller": "hummock_store_with_metrics",
+          "callee": "self.hummock.get_or_try_init",
+          "lineNumber": 53
+        },
+        {
+          "caller": "hummock_store_with_metrics",
+          "callee": "hummock_opts.create_hummock_store_with_metrics",
+          "lineNumber": 55
+        },
+        {
+          "caller": "try_close",
+          "callee": "self.meta_client.get",
+          "lineNumber": 65
+        },
+        {
+          "caller": "try_close",
+          "callee": "meta_client.try_unregister",
+          "lineNumber": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ctl/src/common/hummock_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 210,
+      "nonEmptyLines": 188,
+      "functions": [
+        {
+          "name": "from_env",
+          "startLine": 61,
+          "endLine": 97,
+          "params": [
+            "data_dir",
+            "use_new_object_prefix_strategy"
+          ]
+        },
+        {
+          "name": "get_storage_opts",
+          "startLine": 99,
+          "endLine": 114,
+          "params": []
+        },
+        {
+          "name": "create_hummock_store_with_metrics",
+          "startLine": 116,
+          "endLine": 164,
+          "params": [
+            "meta_client"
+          ]
+        },
+        {
+          "name": "create_sstable_store",
+          "startLine": 166,
+          "endLine": 209,
+          "params": [
+            "use_new_object_prefix_strategy"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "HummockServiceOpts",
+          "startLine": 36,
+          "endLine": 44,
+          "methods": [
+            "from_env",
+            "get_storage_opts",
+            "create_hummock_store_with_metrics",
+            "create_sstable_store"
+          ],
+          "properties": [
+            "hummock_url",
+            "data_dir",
+            "use_new_object_prefix_strategy",
+            "heartbeat_handle",
+            "heartbeat_shutdown_sender"
+          ]
+        },
+        {
+          "name": "Metrics",
+          "startLine": 47,
+          "endLine": 53,
+          "methods": [],
+          "properties": [
+            "hummock_metrics",
+            "state_store_metrics",
+            "object_store_metrics",
+            "storage_metrics",
+            "compactor_metrics"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "HummockServiceOpts",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "Metrics",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "from_env",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "create_hummock_store_with_metrics",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "create_sstable_store",
+          "line": 166,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_env",
+          "callee": "env::var",
+          "lineNumber": 65
+        },
+        {
+          "caller": "from_env",
+          "callee": "url.starts_with",
+          "lineNumber": 67
+        },
+        {
+          "caller": "from_env",
+          "callee": "Err",
+          "lineNumber": 68
+        },
+        {
+          "caller": "from_env",
+          "callee": "Ok",
+          "lineNumber": 90
+        },
+        {
+          "caller": "get_storage_opts",
+          "callee": "Default::default",
+          "lineNumber": 106
+        },
+        {
+          "caller": "get_storage_opts",
+          "callee": "opts.data_directory.clone_from",
+          "lineNumber": 110
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "MetaClient::start_heartbeat_loop",
+          "lineNumber": 121
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "meta_client.clone",
+          "lineNumber": 121
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Duration::from_millis",
+          "lineNumber": 121
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Some",
+          "lineNumber": 122
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Some",
+          "lineNumber": 123
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "self.get_storage_opts",
+          "lineNumber": 126
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Arc::new",
+          "lineNumber": 131
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "HummockMetrics::unused",
+          "lineNumber": 131
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Arc::new",
+          "lineNumber": 132
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "HummockStateStoreMetrics::unused",
+          "lineNumber": 132
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Arc::new",
+          "lineNumber": 133
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "ObjectStoreMetrics::unused",
+          "lineNumber": 133
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Arc::new",
+          "lineNumber": 134
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "MonitoredStorageMetrics::unused",
+          "lineNumber": 134
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Arc::new",
+          "lineNumber": 135
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "CompactorMetrics::unused",
+          "lineNumber": 135
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "StateStoreImpl::new",
+          "lineNumber": 138
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Arc::new",
+          "lineNumber": 140
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Arc::new",
+          "lineNumber": 141
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "MonitoredHummockMetaClient::new",
+          "lineNumber": 141
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "meta_client.clone",
+          "lineNumber": 142
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "metrics.hummock_metrics.clone",
+          "lineNumber": 143
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "metrics.state_store_metrics.clone",
+          "lineNumber": 145
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "metrics.object_store_metrics.clone",
+          "lineNumber": 146
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "metrics.storage_metrics.clone",
+          "lineNumber": 147
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "metrics.compactor_metrics.clone",
+          "lineNumber": 148
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "state_store_impl.as_hummock",
+          "lineNumber": 154
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Ok",
+          "lineNumber": 155
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "hummock_state_store\n                    .clone().monitored",
+          "lineNumber": 156
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "hummock_state_store.clone",
+          "lineNumber": 156
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "metrics.storage_metrics.clone",
+          "lineNumber": 158
+        },
+        {
+          "caller": "create_hummock_store_with_metrics",
+          "callee": "Err",
+          "lineNumber": 162
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "build_remote_object_store",
+          "lineNumber": 170
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "self.hummock_url.strip_prefix(\"hummock+\").unwrap",
+          "lineNumber": 171
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "self.hummock_url.strip_prefix",
+          "lineNumber": 171
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "Arc::new",
+          "lineNumber": 172
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "ObjectStoreMetrics::unused",
+          "lineNumber": 172
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "Arc::new",
+          "lineNumber": 174
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "ObjectStoreConfig::default",
+          "lineNumber": 174
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "self.get_storage_opts",
+          "lineNumber": 178
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "HybridCacheBuilder::new()\n            .memory(opts.meta_cache_capacity_mb * (1 << 20))\n            .with_shards(opts.meta_cache_shard_num)\n            .storage().build",
+          "lineNumber": 180
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "HybridCacheBuilder::new()\n            .memory(opts.meta_cache_capacity_mb * (1 << 20))\n            .with_shards(opts.meta_cache_shard_num).storage",
+          "lineNumber": 180
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "HybridCacheBuilder::new()\n            .memory(opts.meta_cache_capacity_mb * (1 << 20)).with_shards",
+          "lineNumber": 180
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "HybridCacheBuilder::new().memory",
+          "lineNumber": 180
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "HybridCacheBuilder::new",
+          "lineNumber": 180
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "HybridCacheBuilder::new()\n            .memory(opts.block_cache_capacity_mb * (1 << 20))\n            .with_shards(opts.block_cache_shard_num)\n            .storage().build",
+          "lineNumber": 186
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "HybridCacheBuilder::new()\n            .memory(opts.block_cache_capacity_mb * (1 << 20))\n            .with_shards(opts.block_cache_shard_num).storage",
+          "lineNumber": 186
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "HybridCacheBuilder::new()\n            .memory(opts.block_cache_capacity_mb * (1 << 20)).with_shards",
+          "lineNumber": 186
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "HybridCacheBuilder::new().memory",
+          "lineNumber": 186
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "HybridCacheBuilder::new",
+          "lineNumber": 186
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "Ok",
+          "lineNumber": 193
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "Arc::new",
+          "lineNumber": 193
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "SstableStore::new",
+          "lineNumber": 193
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "Arc::new",
+          "lineNumber": 194
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "Arc::new",
+          "lineNumber": 198
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "NoneRecentFilter::default().into",
+          "lineNumber": 198
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "NoneRecentFilter::default",
+          "lineNumber": 198
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "Arc::new",
+          "lineNumber": 199
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "global_hummock_state_store_metrics",
+          "lineNumber": 199
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "CacheBuilder::new(1 << 10).build",
+          "lineNumber": 206
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "CacheBuilder::new",
+          "lineNumber": 206
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "CacheBuilder::new(1 << 10).build",
+          "lineNumber": 207
+        },
+        {
+          "caller": "create_sstable_store",
+          "callee": "CacheBuilder::new",
+          "lineNumber": 207
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/ctl/src/common/meta_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 69,
+      "functions": [
+        {
+          "name": "from_env",
+          "startLine": 35,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "create_meta_client",
+          "startLine": 58,
+          "endLine": 70,
+          "params": []
+        },
+        {
+          "name": "get_new_ctl_identity",
+          "startLine": 73,
+          "endLine": 78,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MetaServiceOpts",
+          "startLine": 25,
+          "endLine": 27,
+          "methods": [
+            "from_env",
+            "create_meta_client"
+          ],
+          "properties": [
+            "meta_addr"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MetaServiceOpts",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "from_env",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "create_meta_client",
+          "line": 58,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_env",
+          "callee": "env::var",
+          "lineNumber": 36
+        },
+        {
+          "caller": "from_env",
+          "callee": "Ok",
+          "lineNumber": 54
+        },
+        {
+          "caller": "create_meta_client",
+          "callee": "MetaClient::register_new",
+          "lineNumber": 59
+        },
+        {
+          "caller": "create_meta_client",
+          "callee": "self.meta_addr.parse",
+          "lineNumber": 60
+        },
+        {
+          "caller": "create_meta_client",
+          "callee": "get_new_ctl_identity",
+          "lineNumber": 62
+        },
+        {
+          "caller": "create_meta_client",
+          "callee": "Property::default",
+          "lineNumber": 63
+        },
+        {
+          "caller": "create_meta_client",
+          "callee": "Arc::new",
+          "lineNumber": 64
+        },
+        {
+          "caller": "create_meta_client",
+          "callee": "MetaConfig::default",
+          "lineNumber": 64
+        },
+        {
+          "caller": "create_meta_client",
+          "callee": "client.worker_id",
+          "lineNumber": 67
+        },
+        {
+          "caller": "create_meta_client",
+          "callee": "Ok",
+          "lineNumber": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

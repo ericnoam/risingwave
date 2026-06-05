@@ -1,0 +1,5621 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 18,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/expr/core/src/expr_context.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "capture_expr_context",
+          "startLine": 29,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "vnode_count",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "strict_mode",
+          "startLine": 51,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "expr_context_scope",
+          "startLine": 55,
+          "endLine": 64,
+          "params": [
+            "expr_context",
+            "future"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "capture_expr_context",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "vnode_count",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "strict_mode",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "expr_context_scope",
+          "line": 55,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "capture_expr_context",
+          "callee": "TIME_ZONE::try_with",
+          "lineNumber": 30
+        },
+        {
+          "caller": "capture_expr_context",
+          "callee": "STRICT_MODE::try_with",
+          "lineNumber": 31
+        },
+        {
+          "caller": "capture_expr_context",
+          "callee": "Ok",
+          "lineNumber": 32
+        },
+        {
+          "caller": "vnode_count",
+          "callee": "VNODE_COUNT::try_with",
+          "lineNumber": 42
+        },
+        {
+          "caller": "strict_mode",
+          "callee": "STRICT_MODE::try_with",
+          "lineNumber": 52
+        },
+        {
+          "caller": "expr_context_scope",
+          "callee": "TIME_ZONE::scope",
+          "lineNumber": 59
+        },
+        {
+          "caller": "expr_context_scope",
+          "callee": "expr_context.time_zone.clone",
+          "lineNumber": 60
+        },
+        {
+          "caller": "expr_context_scope",
+          "callee": "STRICT_MODE::scope",
+          "lineNumber": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/expr/core/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 33,
+      "metrics": {
+        "importCount": 9,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/expr/core/src/scalar/like.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 197,
+      "nonEmptyLines": 183,
+      "functions": [
+        {
+          "name": "like_impl",
+          "startLine": 22,
+          "endLine": 80,
+          "params": [
+            "s",
+            "p",
+            "escape"
+          ]
+        },
+        {
+          "name": "like_default",
+          "startLine": 83,
+          "endLine": 85,
+          "params": [
+            "s",
+            "p"
+          ]
+        },
+        {
+          "name": "i_like_default",
+          "startLine": 88,
+          "endLine": 90,
+          "params": [
+            "s",
+            "p"
+          ]
+        },
+        {
+          "name": "like",
+          "startLine": 96,
+          "endLine": 98,
+          "params": [
+            "s",
+            "p",
+            "escape"
+          ]
+        },
+        {
+          "name": "from_str",
+          "startLine": 106,
+          "endLine": 117,
+          "params": [
+            "escape"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EscapeChar",
+          "startLine": 103,
+          "endLine": 103,
+          "methods": [
+            "from_str"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "like_default",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "i_like_default",
+          "line": 88,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "like_impl",
+          "callee": "p.as_bytes",
+          "lineNumber": 29
+        },
+        {
+          "caller": "like_impl",
+          "callee": "s.as_bytes",
+          "lineNumber": 29
+        },
+        {
+          "caller": "like_impl",
+          "callee": "pbytes.len",
+          "lineNumber": 30
+        },
+        {
+          "caller": "like_impl",
+          "callee": "sbytes.len",
+          "lineNumber": 30
+        },
+        {
+          "caller": "like_impl",
+          "callee": "pbytes.len",
+          "lineNumber": 31
+        },
+        {
+          "caller": "like_impl",
+          "callee": "sbytes.len",
+          "lineNumber": 41
+        },
+        {
+          "caller": "like_impl",
+          "callee": "pc.eq_ignore_ascii_case",
+          "lineNumber": 55
+        },
+        {
+          "caller": "like_impl",
+          "callee": "pbytes.len",
+          "lineNumber": 56
+        },
+        {
+          "caller": "like_impl",
+          "callee": "sbytes.len",
+          "lineNumber": 61
+        },
+        {
+          "caller": "like_impl",
+          "callee": "sbytes[sx].eq_ignore_ascii_case",
+          "lineNumber": 63
+        },
+        {
+          "caller": "like_impl",
+          "callee": "sbytes.len",
+          "lineNumber": 72
+        },
+        {
+          "caller": "like_default",
+          "callee": "like_impl_escape::<false, b'\\\\'>",
+          "lineNumber": 84
+        },
+        {
+          "caller": "i_like_default",
+          "callee": "like_impl_escape::<true, b'\\\\'>",
+          "lineNumber": 89
+        },
+        {
+          "caller": "like",
+          "callee": "like_impl::<false>",
+          "lineNumber": 97
+        },
+        {
+          "caller": "from_str",
+          "callee": "escape\n            .chars()\n            .exactly_one()\n            .ok()\n            .and_then(|c| c.as_ascii().map(|c| c.to_u8()))\n            .ok_or_else(|| ExprError::InvalidParam {\n                name: \"escape\",\n                reason: \"only single ascii character is supported now\".into(),\n            }).map",
+          "lineNumber": 107
+        },
+        {
+          "caller": "from_str",
+          "callee": "escape\n            .chars()\n            .exactly_one()\n            .ok()\n            .and_then(|c| c.as_ascii().map(|c| c.to_u8())).ok_or_else",
+          "lineNumber": 107
+        },
+        {
+          "caller": "from_str",
+          "callee": "escape\n            .chars()\n            .exactly_one()\n            .ok().and_then",
+          "lineNumber": 107
+        },
+        {
+          "caller": "from_str",
+          "callee": "escape\n            .chars()\n            .exactly_one().ok",
+          "lineNumber": 107
+        },
+        {
+          "caller": "from_str",
+          "callee": "escape\n            .chars().exactly_one",
+          "lineNumber": 107
+        },
+        {
+          "caller": "from_str",
+          "callee": "escape.chars",
+          "lineNumber": 107
+        },
+        {
+          "caller": "from_str",
+          "callee": "c.as_ascii().map",
+          "lineNumber": 111
+        },
+        {
+          "caller": "from_str",
+          "callee": "c.as_ascii",
+          "lineNumber": 111
+        },
+        {
+          "caller": "from_str",
+          "callee": "c.to_u8",
+          "lineNumber": 111
+        },
+        {
+          "caller": "from_str",
+          "callee": "\"only single ascii character is supported now\".into",
+          "lineNumber": 114
+        },
+        {
+          "caller": "test_like",
+          "callee": "i_like_default",
+          "lineNumber": 164
+        },
+        {
+          "caller": "test_like",
+          "callee": "like_default",
+          "lineNumber": 166
+        },
+        {
+          "caller": "test_escape_like",
+          "callee": "like",
+          "lineNumber": 189
+        },
+        {
+          "caller": "test_escape_like",
+          "callee": "EscapeChar::from_str(escape).unwrap",
+          "lineNumber": 189
+        },
+        {
+          "caller": "test_escape_like",
+          "callee": "EscapeChar::from_str",
+          "lineNumber": 189
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/expr/core/src/scalar/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/expr/core/src/sig/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 506,
+      "nonEmptyLines": 454,
+      "functions": [
+        {
+          "name": "insert",
+          "startLine": 54,
+          "endLine": 91,
+          "params": [
+            "sig"
+          ]
+        },
+        {
+          "name": "remove",
+          "startLine": 94,
+          "endLine": 107,
+          "params": [
+            "sig"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 111,
+          "endLine": 148,
+          "params": [
+            "name",
+            "args",
+            "ret"
+          ]
+        },
+        {
+          "name": "get_with_arg_nums",
+          "startLine": 152,
+          "endLine": 160,
+          "params": [
+            "name",
+            "nargs"
+          ]
+        },
+        {
+          "name": "get_return_type",
+          "startLine": 164,
+          "endLine": 179,
+          "params": [
+            "name",
+            "args"
+          ]
+        },
+        {
+          "name": "iter",
+          "startLine": 182,
+          "endLine": 184,
+          "params": []
+        },
+        {
+          "name": "iter_scalars",
+          "startLine": 187,
+          "endLine": 189,
+          "params": []
+        },
+        {
+          "name": "iter_aggregates",
+          "startLine": 192,
+          "endLine": 194,
+          "params": []
+        },
+        {
+          "name": "fmt",
+          "startLine": 224,
+          "endLine": 246,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "match_args",
+          "startLine": 251,
+          "endLine": 261,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "match_args_ret",
+          "startLine": 264,
+          "endLine": 266,
+          "params": [
+            "args",
+            "ret"
+          ]
+        },
+        {
+          "name": "match_number_of_args",
+          "startLine": 269,
+          "endLine": 275,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "is_scalar",
+          "startLine": 278,
+          "endLine": 280,
+          "params": []
+        },
+        {
+          "name": "is_table_function",
+          "startLine": 283,
+          "endLine": 285,
+          "params": []
+        },
+        {
+          "name": "is_aggregate",
+          "startLine": 288,
+          "endLine": 290,
+          "params": []
+        },
+        {
+          "name": "is_append_only",
+          "startLine": 293,
+          "endLine": 301,
+          "params": []
+        },
+        {
+          "name": "is_retractable",
+          "startLine": 304,
+          "endLine": 312,
+          "params": []
+        },
+        {
+          "name": "build_scalar",
+          "startLine": 315,
+          "endLine": 324,
+          "params": [
+            "return_type",
+            "children"
+          ]
+        },
+        {
+          "name": "build_table",
+          "startLine": 327,
+          "endLine": 337,
+          "params": [
+            "return_type",
+            "chunk_size",
+            "children"
+          ]
+        },
+        {
+          "name": "build_aggregate",
+          "startLine": 341,
+          "endLine": 350,
+          "params": [
+            "agg"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 362,
+          "endLine": 364,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 368,
+          "endLine": 370,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 374,
+          "endLine": 376,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 380,
+          "endLine": 382,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "as_str_name",
+          "startLine": 387,
+          "endLine": 394,
+          "params": []
+        },
+        {
+          "name": "is_table",
+          "startLine": 397,
+          "endLine": 399,
+          "params": []
+        },
+        {
+          "name": "as_scalar",
+          "startLine": 401,
+          "endLine": 406,
+          "params": []
+        },
+        {
+          "name": "as_aggregate",
+          "startLine": 408,
+          "endLine": 413,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 435,
+          "endLine": 437,
+          "params": [
+            "dt"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 441,
+          "endLine": 450,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "matches",
+          "startLine": 455,
+          "endLine": 464,
+          "params": [
+            "dt"
+          ]
+        },
+        {
+          "name": "as_exact",
+          "startLine": 467,
+          "endLine": 472,
+          "params": []
+        },
+        {
+          "name": "is_exact",
+          "startLine": 475,
+          "endLine": 477,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "FunctionRegistry",
+          "startLine": 50,
+          "endLine": 50,
+          "methods": [
+            "insert",
+            "remove",
+            "get",
+            "get_with_arg_nums",
+            "get_return_type",
+            "iter",
+            "iter_scalars",
+            "iter_aggregates"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FuncSign",
+          "startLine": 199,
+          "endLine": 221,
+          "methods": [
+            "fmt",
+            "match_args",
+            "match_args_ret",
+            "match_number_of_args",
+            "is_scalar",
+            "is_table_function",
+            "is_aggregate",
+            "is_append_only",
+            "is_retractable",
+            "build_scalar",
+            "build_table",
+            "build_aggregate"
+          ],
+          "properties": [
+            "name",
+            "inputs_type",
+            "variadic",
+            "ret_type",
+            "build",
+            "type_infer",
+            "deprecated"
+          ]
+        },
+        {
+          "name": "FuncName",
+          "startLine": 354,
+          "endLine": 359,
+          "methods": [
+            "from",
+            "from",
+            "from",
+            "fmt",
+            "as_str_name",
+            "is_table",
+            "as_scalar",
+            "as_aggregate"
+          ],
+          "properties": [
+            "Scalar",
+            "Table",
+            "Aggregate",
+            "Udf"
+          ]
+        },
+        {
+          "name": "SigDataType",
+          "startLine": 418,
+          "endLine": 432,
+          "methods": [
+            "from",
+            "fmt",
+            "matches",
+            "as_exact",
+            "is_exact"
+          ],
+          "properties": [
+            "Exact",
+            "Any",
+            "AnyArray",
+            "AnyStruct",
+            "AnyMap",
+            "Vector"
+          ]
+        },
+        {
+          "name": "FuncBuilder",
+          "startLine": 481,
+          "endLine": 502,
+          "methods": [],
+          "properties": [
+            "Scalar",
+            "Table",
+            "Aggregate",
+            "Udf"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FunctionRegistry",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "insert",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "remove",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "get_with_arg_nums",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "get_return_type",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "iter",
+          "line": 182,
+          "isDefault": false
+        },
+        {
+          "name": "iter_scalars",
+          "line": 187,
+          "isDefault": false
+        },
+        {
+          "name": "iter_aggregates",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "FuncSign",
+          "line": 199,
+          "isDefault": false
+        },
+        {
+          "name": "match_args",
+          "line": 251,
+          "isDefault": false
+        },
+        {
+          "name": "is_scalar",
+          "line": 278,
+          "isDefault": false
+        },
+        {
+          "name": "is_table_function",
+          "line": 283,
+          "isDefault": false
+        },
+        {
+          "name": "is_aggregate",
+          "line": 288,
+          "isDefault": false
+        },
+        {
+          "name": "is_append_only",
+          "line": 293,
+          "isDefault": false
+        },
+        {
+          "name": "is_retractable",
+          "line": 304,
+          "isDefault": false
+        },
+        {
+          "name": "build_scalar",
+          "line": 315,
+          "isDefault": false
+        },
+        {
+          "name": "build_table",
+          "line": 327,
+          "isDefault": false
+        },
+        {
+          "name": "build_aggregate",
+          "line": 341,
+          "isDefault": false
+        },
+        {
+          "name": "FuncName",
+          "line": 354,
+          "isDefault": false
+        },
+        {
+          "name": "as_str_name",
+          "line": 387,
+          "isDefault": false
+        },
+        {
+          "name": "as_scalar",
+          "line": 401,
+          "isDefault": false
+        },
+        {
+          "name": "as_aggregate",
+          "line": 408,
+          "isDefault": false
+        },
+        {
+          "name": "SigDataType",
+          "line": 418,
+          "isDefault": false
+        },
+        {
+          "name": "matches",
+          "line": 455,
+          "isDefault": false
+        },
+        {
+          "name": "as_exact",
+          "line": 467,
+          "isDefault": false
+        },
+        {
+          "name": "is_exact",
+          "line": 475,
+          "isDefault": false
+        },
+        {
+          "name": "FuncBuilder",
+          "line": 481,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "insert",
+          "callee": "self.0.entry(sig.name.clone()).or_default",
+          "lineNumber": 55
+        },
+        {
+          "caller": "insert",
+          "callee": "self.0.entry",
+          "lineNumber": 55
+        },
+        {
+          "caller": "insert",
+          "callee": "sig.name.clone",
+          "lineNumber": 55
+        },
+        {
+          "caller": "insert",
+          "callee": "sig.is_aggregate",
+          "lineNumber": 56
+        },
+        {
+          "caller": "insert",
+          "callee": "list\n                .iter_mut().find",
+          "lineNumber": 58
+        },
+        {
+          "caller": "insert",
+          "callee": "list.iter_mut",
+          "lineNumber": 58
+        },
+        {
+          "caller": "insert",
+          "callee": "Some",
+          "lineNumber": 80
+        },
+        {
+          "caller": "insert",
+          "callee": "Some",
+          "lineNumber": 84
+        },
+        {
+          "caller": "insert",
+          "callee": "list.push",
+          "lineNumber": 90
+        },
+        {
+          "caller": "remove",
+          "callee": "self\n            .0\n            .get_mut(&sig.name)?\n            .iter()\n            .positions(|s| s.inputs_type == sig.inputs_type && s.ret_type == sig.ret_type)\n            .rev().collect_vec",
+          "lineNumber": 95
+        },
+        {
+          "caller": "remove",
+          "callee": "self\n            .0\n            .get_mut(&sig.name)?\n            .iter()\n            .positions(|s| s.inputs_type == sig.inputs_type && s.ret_type == sig.ret_type).rev",
+          "lineNumber": 95
+        },
+        {
+          "caller": "remove",
+          "callee": "self\n            .0\n            .get_mut(&sig.name)?\n            .iter().positions",
+          "lineNumber": 95
+        },
+        {
+          "caller": "remove",
+          "callee": "self\n            .0\n            .get_mut(&sig.name)?.iter",
+          "lineNumber": 95
+        },
+        {
+          "caller": "remove",
+          "callee": "self\n            .0.get_mut",
+          "lineNumber": 95
+        },
+        {
+          "caller": "remove",
+          "callee": "Some",
+          "lineNumber": 104
+        },
+        {
+          "caller": "remove",
+          "callee": "self.0.get_mut(&sig.name)?.swap_remove",
+          "lineNumber": 104
+        },
+        {
+          "caller": "remove",
+          "callee": "self.0.get_mut",
+          "lineNumber": 104
+        },
+        {
+          "caller": "get",
+          "callee": "name.into",
+          "lineNumber": 117
+        },
+        {
+          "caller": "get",
+          "callee": "ExprError::UnsupportedFunction",
+          "lineNumber": 121
+        },
+        {
+          "caller": "get",
+          "callee": "self.0.get(&name).ok_or_else",
+          "lineNumber": 144
+        },
+        {
+          "caller": "get",
+          "callee": "self.0.get",
+          "lineNumber": 144
+        },
+        {
+          "caller": "get",
+          "callee": "err",
+          "lineNumber": 144
+        },
+        {
+          "caller": "get",
+          "callee": "v.iter()\n            .find(|d| d.match_args_ret(args, ret)).ok_or_else",
+          "lineNumber": 145
+        },
+        {
+          "caller": "get",
+          "callee": "v.iter().find",
+          "lineNumber": 145
+        },
+        {
+          "caller": "get",
+          "callee": "v.iter",
+          "lineNumber": 145
+        },
+        {
+          "caller": "get",
+          "callee": "d.match_args_ret",
+          "lineNumber": 146
+        },
+        {
+          "caller": "get",
+          "callee": "err",
+          "lineNumber": 147
+        },
+        {
+          "caller": "get_with_arg_nums",
+          "callee": "self.0.get",
+          "lineNumber": 153
+        },
+        {
+          "caller": "get_with_arg_nums",
+          "callee": "name.into",
+          "lineNumber": 153
+        },
+        {
+          "caller": "get_with_arg_nums",
+          "callee": "v\n                .iter()\n                .filter(|d| d.match_number_of_args(nargs) && !d.deprecated).collect",
+          "lineNumber": 154
+        },
+        {
+          "caller": "get_with_arg_nums",
+          "callee": "v\n                .iter().filter",
+          "lineNumber": 154
+        },
+        {
+          "caller": "get_with_arg_nums",
+          "callee": "v.iter",
+          "lineNumber": 154
+        },
+        {
+          "caller": "get_with_arg_nums",
+          "callee": "d.match_number_of_args",
+          "lineNumber": 156
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "name.into",
+          "lineNumber": 169
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "self\n            .0\n            .get(&name).ok_or_else",
+          "lineNumber": 170
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "self\n            .0.get",
+          "lineNumber": 170
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "ExprError::UnsupportedFunction",
+          "lineNumber": 173
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "name.to_string",
+          "lineNumber": 173
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "v\n            .iter()\n            .find(|d| d.match_args(args) && !d.deprecated).ok_or_else",
+          "lineNumber": 174
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "v\n            .iter().find",
+          "lineNumber": 174
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "v.iter",
+          "lineNumber": 174
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "d.match_args",
+          "lineNumber": 176
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "ExprError::UnsupportedFunction",
+          "lineNumber": 177
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "name.to_string",
+          "lineNumber": 177
+        },
+        {
+          "caller": "get_return_type",
+          "callee": "(sig.type_infer)",
+          "lineNumber": 178
+        },
+        {
+          "caller": "iter",
+          "callee": "self.0.values().flatten",
+          "lineNumber": 183
+        },
+        {
+          "caller": "iter",
+          "callee": "self.0.values",
+          "lineNumber": 183
+        },
+        {
+          "caller": "iter_scalars",
+          "callee": "self.iter().filter",
+          "lineNumber": 188
+        },
+        {
+          "caller": "iter_scalars",
+          "callee": "self.iter",
+          "lineNumber": 188
+        },
+        {
+          "caller": "iter_scalars",
+          "callee": "d.is_scalar",
+          "lineNumber": 188
+        },
+        {
+          "caller": "iter_aggregates",
+          "callee": "self.iter().filter",
+          "lineNumber": 193
+        },
+        {
+          "caller": "iter_aggregates",
+          "callee": "self.iter",
+          "lineNumber": 193
+        },
+        {
+          "caller": "iter_aggregates",
+          "callee": "d.is_aggregate",
+          "lineNumber": 193
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 245
+        },
+        {
+          "caller": "match_args",
+          "callee": "self.match_number_of_args",
+          "lineNumber": 252
+        },
+        {
+          "caller": "match_args",
+          "callee": "args.len",
+          "lineNumber": 252
+        },
+        {
+          "caller": "match_args",
+          "callee": "self.inputs_type\n            .iter()\n            .zip(args.iter()).all",
+          "lineNumber": 257
+        },
+        {
+          "caller": "match_args",
+          "callee": "self.inputs_type\n            .iter().zip",
+          "lineNumber": 257
+        },
+        {
+          "caller": "match_args",
+          "callee": "self.inputs_type.iter",
+          "lineNumber": 257
+        },
+        {
+          "caller": "match_args",
+          "callee": "args.iter",
+          "lineNumber": 259
+        },
+        {
+          "caller": "match_args",
+          "callee": "matcher.matches",
+          "lineNumber": 260
+        },
+        {
+          "caller": "match_args_ret",
+          "callee": "self.match_args",
+          "lineNumber": 265
+        },
+        {
+          "caller": "match_args_ret",
+          "callee": "self.ret_type.matches",
+          "lineNumber": 265
+        },
+        {
+          "caller": "match_number_of_args",
+          "callee": "self.inputs_type.len",
+          "lineNumber": 271
+        },
+        {
+          "caller": "match_number_of_args",
+          "callee": "self.inputs_type.len",
+          "lineNumber": 273
+        },
+        {
+          "caller": "build_scalar",
+          "callee": "f",
+          "lineNumber": 321
+        },
+        {
+          "caller": "build_table",
+          "callee": "f",
+          "lineNumber": 334
+        },
+        {
+          "caller": "build_aggregate",
+          "callee": "retractable.or(append_only).unwrap()",
+          "lineNumber": 347
+        },
+        {
+          "caller": "build_aggregate",
+          "callee": "retractable.or(append_only).unwrap",
+          "lineNumber": 347
+        },
+        {
+          "caller": "build_aggregate",
+          "callee": "retractable.or",
+          "lineNumber": 347
+        },
+        {
+          "caller": "from",
+          "callee": "Self::Scalar",
+          "lineNumber": 363
+        },
+        {
+          "caller": "from",
+          "callee": "Self::Table",
+          "lineNumber": 369
+        },
+        {
+          "caller": "from",
+          "callee": "Self::Aggregate",
+          "lineNumber": 375
+        },
+        {
+          "caller": "as_str_name",
+          "callee": "ty.as_str_name().into",
+          "lineNumber": 389
+        },
+        {
+          "caller": "as_str_name",
+          "callee": "ty.as_str_name",
+          "lineNumber": 389
+        },
+        {
+          "caller": "as_str_name",
+          "callee": "ty.as_str_name().into",
+          "lineNumber": 390
+        },
+        {
+          "caller": "as_str_name",
+          "callee": "ty.as_str_name",
+          "lineNumber": 390
+        },
+        {
+          "caller": "as_str_name",
+          "callee": "ty.as_str_name().into",
+          "lineNumber": 391
+        },
+        {
+          "caller": "as_str_name",
+          "callee": "ty.as_str_name",
+          "lineNumber": 391
+        },
+        {
+          "caller": "as_str_name",
+          "callee": "name.clone().into",
+          "lineNumber": 392
+        },
+        {
+          "caller": "as_str_name",
+          "callee": "name.clone",
+          "lineNumber": 392
+        },
+        {
+          "caller": "from",
+          "callee": "SigDataType::Exact",
+          "lineNumber": 436
+        },
+        {
+          "caller": "matches",
+          "callee": "dt.is_array",
+          "lineNumber": 459
+        },
+        {
+          "caller": "matches",
+          "callee": "dt.is_struct",
+          "lineNumber": 460
+        },
+        {
+          "caller": "matches",
+          "callee": "dt.is_map",
+          "lineNumber": 461
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 28,
+        "functionCount": 33,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "src/expr/core/src/sig/udf.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 175,
+      "nonEmptyLines": 157,
+      "functions": [
+        {
+          "name": "find_udf_impl",
+          "startLine": 40,
+          "endLine": 55,
+          "params": [
+            "language",
+            "runtime",
+            "link"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UdfImplDescriptor",
+          "startLine": 60,
+          "endLine": 75,
+          "methods": [],
+          "properties": [
+            "match_fn",
+            "create_fn",
+            "build_fn"
+          ]
+        },
+        {
+          "name": "CreateOptions",
+          "startLine": 81,
+          "endLine": 92,
+          "methods": [],
+          "properties": [
+            "kind",
+            "name",
+            "arg_names",
+            "arg_types",
+            "return_type",
+            "as_",
+            "using_link",
+            "using_base64_decoded"
+          ]
+        },
+        {
+          "name": "CreateFunctionOutput",
+          "startLine": 95,
+          "endLine": 100,
+          "methods": [],
+          "properties": [
+            "name_in_runtime",
+            "body",
+            "compressed_binary"
+          ]
+        },
+        {
+          "name": "BuildOptions",
+          "startLine": 105,
+          "endLine": 119,
+          "methods": [],
+          "properties": [
+            "kind",
+            "body",
+            "compressed_binary",
+            "link",
+            "name_in_runtime",
+            "arg_names",
+            "arg_types",
+            "return_type",
+            "always_retry_on_network_error",
+            "language",
+            "is_async",
+            "is_batched"
+          ]
+        },
+        {
+          "name": "UdfKind",
+          "startLine": 122,
+          "endLine": 126,
+          "methods": [],
+          "properties": [
+            "Scalar",
+            "Table",
+            "Aggregate"
+          ]
+        },
+        {
+          "name": "UdfImpl",
+          "startLine": 130,
+          "endLine": 175,
+          "methods": [
+            "call",
+            "call_table_function",
+            "call_agg_create_state",
+            "call_agg_accumulate_or_retract",
+            "call_agg_finish",
+            "is_legacy",
+            "memory_usage"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "find_udf_impl",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "UdfImplDescriptor",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "CreateOptions",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "CreateFunctionOutput",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "BuildOptions",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "UdfKind",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "UdfImpl",
+          "line": 130,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "find_udf_impl",
+          "callee": "UDF_IMPLS\n        .iter().filter",
+          "lineNumber": 45
+        },
+        {
+          "caller": "find_udf_impl",
+          "callee": "UDF_IMPLS.iter",
+          "lineNumber": 45
+        },
+        {
+          "caller": "find_udf_impl",
+          "callee": "(desc.match_fn)",
+          "lineNumber": 47
+        },
+        {
+          "caller": "find_udf_impl",
+          "callee": "impls.next().context",
+          "lineNumber": 48
+        },
+        {
+          "caller": "find_udf_impl",
+          "callee": "impls.next",
+          "lineNumber": 48
+        },
+        {
+          "caller": "find_udf_impl",
+          "callee": "impls.next().is_some",
+          "lineNumber": 51
+        },
+        {
+          "caller": "find_udf_impl",
+          "callee": "impls.next",
+          "lineNumber": 51
+        },
+        {
+          "caller": "find_udf_impl",
+          "callee": "Ok",
+          "lineNumber": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 1,
+        "classCount": 6
+      }
+    },
+    {
+      "path": "src/expr/core/src/table_function/empty.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "empty",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "return_type"
+          ]
+        },
+        {
+          "name": "return_type",
+          "startLine": 29,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "eval",
+          "startLine": 33,
+          "endLine": 35,
+          "params": [
+            "_input"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Empty",
+          "startLine": 23,
+          "endLine": 25,
+          "methods": [
+            "return_type",
+            "eval"
+          ],
+          "properties": [
+            "return_type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "empty",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "empty",
+          "callee": "Empty { return_type }.boxed",
+          "lineNumber": 19
+        },
+        {
+          "caller": "return_type",
+          "callee": "self.return_type.clone",
+          "lineNumber": 30
+        },
+        {
+          "caller": "eval",
+          "callee": "futures_util::stream::empty().boxed",
+          "lineNumber": 34
+        },
+        {
+          "caller": "eval",
+          "callee": "futures_util::stream::empty",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/expr/core/src/table_function/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 248,
+      "nonEmptyLines": 231,
+      "functions": [
+        {
+          "name": "build_from_prost",
+          "startLine": 108,
+          "endLine": 119,
+          "params": [
+            "prost",
+            "chunk_size"
+          ]
+        },
+        {
+          "name": "build",
+          "startLine": 122,
+          "endLine": 132,
+          "params": [
+            "func",
+            "return_type",
+            "chunk_size",
+            "children"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 181,
+          "endLine": 191,
+          "params": [
+            "stream"
+          ]
+        },
+        {
+          "name": "peek",
+          "startLine": 194,
+          "endLine": 207,
+          "params": []
+        },
+        {
+          "name": "next",
+          "startLine": 212,
+          "endLine": 224,
+          "params": []
+        },
+        {
+          "name": "pop_from_stream",
+          "startLine": 227,
+          "endLine": 230,
+          "params": []
+        },
+        {
+          "name": "check_error",
+          "startLine": 234,
+          "endLine": 248,
+          "params": [
+            "chunk"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TableFunction",
+          "startLine": 38,
+          "endLine": 104,
+          "methods": [
+            "return_type",
+            "eval",
+            "boxed"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TableFunctionOutputIter",
+          "startLine": 174,
+          "endLine": 178,
+          "methods": [],
+          "properties": [
+            "stream",
+            "chunk",
+            "index"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TableFunction",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "build_from_prost",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "build",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "TableFunctionOutputIter",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 181,
+          "isDefault": false
+        },
+        {
+          "name": "peek",
+          "line": 194,
+          "isDefault": false
+        },
+        {
+          "name": "next",
+          "line": 212,
+          "isDefault": false
+        },
+        {
+          "name": "check_error",
+          "line": 234,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "boxed",
+          "callee": "Box::new",
+          "lineNumber": 102
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "prost.get_function_type().unwrap",
+          "lineNumber": 109
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "prost.get_function_type",
+          "lineNumber": 109
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "new_user_defined",
+          "lineNumber": 110
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "build",
+          "lineNumber": 113
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "prost.get_function_type().unwrap",
+          "lineNumber": 114
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "prost.get_function_type",
+          "lineNumber": 114
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "prost.get_return_type()?.into",
+          "lineNumber": 115
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "prost.get_return_type",
+          "lineNumber": 115
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "prost.args.iter().map(expr_build_from_prost).try_collect",
+          "lineNumber": 117
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "prost.args.iter().map",
+          "lineNumber": 117
+        },
+        {
+          "caller": "build_from_prost",
+          "callee": "prost.args.iter",
+          "lineNumber": 117
+        },
+        {
+          "caller": "build",
+          "callee": "children.iter().map(|t| t.return_type()).collect_vec",
+          "lineNumber": 129
+        },
+        {
+          "caller": "build",
+          "callee": "children.iter().map",
+          "lineNumber": 129
+        },
+        {
+          "caller": "build",
+          "callee": "children.iter",
+          "lineNumber": 129
+        },
+        {
+          "caller": "build",
+          "callee": "t.return_type",
+          "lineNumber": 129
+        },
+        {
+          "caller": "build",
+          "callee": "crate::sig::FUNCTION_REGISTRY.get",
+          "lineNumber": 130
+        },
+        {
+          "caller": "build",
+          "callee": "desc.build_table",
+          "lineNumber": 131
+        },
+        {
+          "caller": "new",
+          "callee": "iter.pop_from_stream",
+          "lineNumber": 189
+        },
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 190
+        },
+        {
+          "caller": "peek",
+          "callee": "self.chunk.as_ref",
+          "lineNumber": 195
+        },
+        {
+          "caller": "peek",
+          "callee": "chunk.column_at(0).as_int32().value_at(self.index).unwrap",
+          "lineNumber": 196
+        },
+        {
+          "caller": "peek",
+          "callee": "chunk.column_at(0).as_int32().value_at",
+          "lineNumber": 196
+        },
+        {
+          "caller": "peek",
+          "callee": "chunk.column_at(0).as_int32",
+          "lineNumber": 196
+        },
+        {
+          "caller": "peek",
+          "callee": "chunk.column_at",
+          "lineNumber": 196
+        },
+        {
+          "caller": "peek",
+          "callee": "chunk\n            .columns()\n            .get(2).and_then",
+          "lineNumber": 197
+        },
+        {
+          "caller": "peek",
+          "callee": "chunk\n            .columns().get",
+          "lineNumber": 197
+        },
+        {
+          "caller": "peek",
+          "callee": "chunk.columns",
+          "lineNumber": 197
+        },
+        {
+          "caller": "peek",
+          "callee": "errors.as_utf8().value_at",
+          "lineNumber": 200
+        },
+        {
+          "caller": "peek",
+          "callee": "errors.as_utf8",
+          "lineNumber": 200
+        },
+        {
+          "caller": "peek",
+          "callee": "Err",
+          "lineNumber": 202
+        },
+        {
+          "caller": "peek",
+          "callee": "ExprError::Custom",
+          "lineNumber": 202
+        },
+        {
+          "caller": "peek",
+          "callee": "msg.into",
+          "lineNumber": 202
+        },
+        {
+          "caller": "peek",
+          "callee": "Ok",
+          "lineNumber": 204
+        },
+        {
+          "caller": "peek",
+          "callee": "chunk.column_at(1).value_at",
+          "lineNumber": 204
+        },
+        {
+          "caller": "peek",
+          "callee": "chunk.column_at",
+          "lineNumber": 204
+        },
+        {
+          "caller": "peek",
+          "callee": "Some",
+          "lineNumber": 206
+        },
+        {
+          "caller": "next",
+          "callee": "Ok",
+          "lineNumber": 214
+        },
+        {
+          "caller": "next",
+          "callee": "chunk.capacity",
+          "lineNumber": 216
+        },
+        {
+          "caller": "next",
+          "callee": "self.pop_from_stream",
+          "lineNumber": 218
+        },
+        {
+          "caller": "next",
+          "callee": "Ok",
+          "lineNumber": 223
+        },
+        {
+          "caller": "pop_from_stream",
+          "callee": "self.stream.next().await.transpose",
+          "lineNumber": 228
+        },
+        {
+          "caller": "pop_from_stream",
+          "callee": "self.stream.next",
+          "lineNumber": 228
+        },
+        {
+          "caller": "pop_from_stream",
+          "callee": "Ok",
+          "lineNumber": 229
+        },
+        {
+          "caller": "check_error",
+          "callee": "chunk.columns().get",
+          "lineNumber": 235
+        },
+        {
+          "caller": "check_error",
+          "callee": "chunk.columns",
+          "lineNumber": 235
+        },
+        {
+          "caller": "check_error",
+          "callee": "errors.null_bitmap().any",
+          "lineNumber": 236
+        },
+        {
+          "caller": "check_error",
+          "callee": "errors.null_bitmap",
+          "lineNumber": 236
+        },
+        {
+          "caller": "check_error",
+          "callee": "Err",
+          "lineNumber": 238
+        },
+        {
+          "caller": "check_error",
+          "callee": "ExprError::Custom",
+          "lineNumber": 238
+        },
+        {
+          "caller": "check_error",
+          "callee": "errors\n                .as_utf8()\n                .iter()\n                .find_map(|s| s)\n                .expect(\"no error message\").into",
+          "lineNumber": 239
+        },
+        {
+          "caller": "check_error",
+          "callee": "errors\n                .as_utf8()\n                .iter()\n                .find_map(|s| s).expect",
+          "lineNumber": 239
+        },
+        {
+          "caller": "check_error",
+          "callee": "errors\n                .as_utf8()\n                .iter().find_map",
+          "lineNumber": 239
+        },
+        {
+          "caller": "check_error",
+          "callee": "errors\n                .as_utf8().iter",
+          "lineNumber": 239
+        },
+        {
+          "caller": "check_error",
+          "callee": "errors.as_utf8",
+          "lineNumber": 239
+        },
+        {
+          "caller": "check_error",
+          "callee": "Ok",
+          "lineNumber": 247
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/expr/core/src/table_function/repeat.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "repeat",
+          "startLine": 22,
+          "endLine": 24,
+          "params": [
+            "expr",
+            "n"
+          ]
+        },
+        {
+          "name": "return_type",
+          "startLine": 34,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "eval",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "eval_inner",
+          "startLine": 45,
+          "endLine": 58,
+          "params": [
+            "input"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RepeatN",
+          "startLine": 27,
+          "endLine": 30,
+          "methods": [
+            "return_type",
+            "eval",
+            "eval_inner"
+          ],
+          "properties": [
+            "expr",
+            "n"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "repeat",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "repeat",
+          "callee": "RepeatN { expr, n }.boxed",
+          "lineNumber": 23
+        },
+        {
+          "caller": "return_type",
+          "callee": "self.expr.return_type",
+          "lineNumber": 35
+        },
+        {
+          "caller": "eval",
+          "callee": "self.eval_inner",
+          "lineNumber": 39
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "self.expr.eval",
+          "lineNumber": 46
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "I32ArrayBuilder::new",
+          "lineNumber": 48
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "self.return_type().create_array_builder",
+          "lineNumber": 49
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "self.return_type",
+          "lineNumber": 49
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "array.iter().enumerate",
+          "lineNumber": 50
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "array.iter",
+          "lineNumber": 50
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "index_builder.append_n",
+          "lineNumber": 51
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "Some",
+          "lineNumber": 51
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "value_builder.append_n",
+          "lineNumber": 52
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "index_builder.len",
+          "lineNumber": 54
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "index_builder.finish().into",
+          "lineNumber": 55
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "index_builder.finish",
+          "lineNumber": 55
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "value_builder.finish",
+          "lineNumber": 56
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "DataChunk::new",
+          "lineNumber": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/expr/core/src/table_function/user_defined.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 173,
+      "nonEmptyLines": 154,
+      "functions": [
+        {
+          "name": "return_type",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "eval",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "eval_inner",
+          "startLine": 50,
+          "endLine": 88,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "check_output",
+          "startLine": 91,
+          "endLine": 120,
+          "params": [
+            "output"
+          ]
+        },
+        {
+          "name": "new_user_defined",
+          "startLine": 123,
+          "endLine": 173,
+          "params": [
+            "prost",
+            "chunk_size"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserDefinedTableFunction",
+          "startLine": 27,
+          "endLine": 35,
+          "methods": [
+            "return_type",
+            "eval",
+            "eval_inner",
+            "check_output"
+          ],
+          "properties": [
+            "children",
+            "arg_schema",
+            "return_type",
+            "runtime",
+            "arrow_convert",
+            "chunk_size"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UserDefinedTableFunction",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "new_user_defined",
+          "line": 123,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "return_type",
+          "callee": "self.return_type.clone",
+          "lineNumber": 40
+        },
+        {
+          "caller": "eval",
+          "callee": "self.eval_inner",
+          "lineNumber": 44
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 52
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "self.children.len",
+          "lineNumber": 52
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "c.eval",
+          "lineNumber": 54
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "columns.push",
+          "lineNumber": 55
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "DataChunk::new",
+          "lineNumber": 57
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "input.visibility().clone",
+          "lineNumber": 57
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "input.visibility",
+          "lineNumber": 57
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "direct_input.visibility().iter_ones().collect::<Vec<_>>",
+          "lineNumber": 60
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "direct_input.visibility().iter_ones",
+          "lineNumber": 60
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "direct_input.visibility",
+          "lineNumber": 60
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "self\n            .arrow_convert.to_record_batch",
+          "lineNumber": 62
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "self.arg_schema.clone",
+          "lineNumber": 64
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "self.runtime.call_table_function",
+          "lineNumber": 68
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "self.arrow_convert.from_record_batch",
+          "lineNumber": 69
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "self.check_output",
+          "lineNumber": 70
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "output\n                .column_at(0)\n                .as_int32()\n                .raw_iter()\n                // we have checked all indices are non-negative\n                .map(|idx| visible_rows[idx as usize] as i32)\n                .collect::<I32Array>",
+          "lineNumber": 74
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "output\n                .column_at(0)\n                .as_int32()\n                .raw_iter().map",
+          "lineNumber": 74
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "output\n                .column_at(0)\n                .as_int32().raw_iter",
+          "lineNumber": 74
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "output\n                .column_at(0).as_int32",
+          "lineNumber": 74
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "output.column_at",
+          "lineNumber": 74
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "DataChunk::new",
+          "lineNumber": 82
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "output.visibility().clone",
+          "lineNumber": 84
+        },
+        {
+          "caller": "eval_inner",
+          "callee": "output.visibility",
+          "lineNumber": 84
+        },
+        {
+          "caller": "check_output",
+          "callee": "output.columns().len",
+          "lineNumber": 92
+        },
+        {
+          "caller": "check_output",
+          "callee": "output.columns",
+          "lineNumber": 92
+        },
+        {
+          "caller": "check_output",
+          "callee": "output.column_at(0).data_type",
+          "lineNumber": 98
+        },
+        {
+          "caller": "check_output",
+          "callee": "output.column_at",
+          "lineNumber": 98
+        },
+        {
+          "caller": "check_output",
+          "callee": "output.column_at(0).as_int32().raw_iter().any",
+          "lineNumber": 105
+        },
+        {
+          "caller": "check_output",
+          "callee": "output.column_at(0).as_int32().raw_iter",
+          "lineNumber": 105
+        },
+        {
+          "caller": "check_output",
+          "callee": "output.column_at(0).as_int32",
+          "lineNumber": 105
+        },
+        {
+          "caller": "check_output",
+          "callee": "output.column_at",
+          "lineNumber": 105
+        },
+        {
+          "caller": "check_output",
+          "callee": "output\n            .column_at(1)\n            .data_type().equals_datatype",
+          "lineNumber": 108
+        },
+        {
+          "caller": "check_output",
+          "callee": "output\n            .column_at(1).data_type",
+          "lineNumber": 108
+        },
+        {
+          "caller": "check_output",
+          "callee": "output.column_at",
+          "lineNumber": 108
+        },
+        {
+          "caller": "check_output",
+          "callee": "Ok",
+          "lineNumber": 119
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "prost.get_udf",
+          "lineNumber": 124
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf.arg_types.iter().map(|t| t.into()).collect::<Vec<_>>",
+          "lineNumber": 126
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf.arg_types.iter().map",
+          "lineNumber": 126
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf.arg_types.iter",
+          "lineNumber": 126
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "t.into",
+          "lineNumber": 126
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "DataType::from",
+          "lineNumber": 127
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "prost.get_return_type",
+          "lineNumber": 127
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf.language.as_str",
+          "lineNumber": 129
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf.runtime.as_deref",
+          "lineNumber": 130
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf.link.as_deref",
+          "lineNumber": 131
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf\n        .name_in_runtime().expect",
+          "lineNumber": 133
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf.name_in_runtime",
+          "lineNumber": 133
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "crate::sig::find_udf_impl",
+          "lineNumber": 137
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "build_fn(BuildOptions {\n        kind: UdfKind::Table,\n        body: udf.body.as_deref(),\n        compressed_binary: udf.compressed_binary.as_deref(),\n        link: udf.link.as_deref(),\n        name_in_runtime,\n        arg_names: &udf.arg_names,\n        arg_types: &arg_types,\n        return_type: &return_type,\n        always_retry_on_network_error: false,\n        language,\n        is_async: udf.is_async,\n        is_batched: udf.is_batched,\n    }).context",
+          "lineNumber": 138
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "build_fn",
+          "lineNumber": 138
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf.body.as_deref",
+          "lineNumber": 140
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf.compressed_binary.as_deref",
+          "lineNumber": 141
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "udf.link.as_deref",
+          "lineNumber": 142
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "runtime.is_legacy",
+          "lineNumber": 155
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "Arc::new",
+          "lineNumber": 157
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "Schema::new",
+          "lineNumber": 157
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "arg_types\n            .iter()\n            .map(|t| arrow_convert.to_arrow_field(\"\", t))\n            .try_collect::<Fields>",
+          "lineNumber": 158
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "arg_types\n            .iter().map",
+          "lineNumber": 158
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "arg_types.iter",
+          "lineNumber": 158
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "arrow_convert.to_arrow_field",
+          "lineNumber": 160
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "Ok",
+          "lineNumber": 164
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "UserDefinedTableFunction {\n        children: prost.args.iter().map(expr_build_from_prost).try_collect()?,\n        return_type,\n        arg_schema,\n        runtime,\n        arrow_convert,\n        chunk_size,\n    }.boxed",
+          "lineNumber": 164
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "prost.args.iter().map(expr_build_from_prost).try_collect",
+          "lineNumber": 165
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "prost.args.iter().map",
+          "lineNumber": 165
+        },
+        {
+          "caller": "new_user_defined",
+          "callee": "prost.args.iter",
+          "lineNumber": 165
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/expr/core/src/window_function/call.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 293,
+      "nonEmptyLines": 266,
+      "functions": [
+        {
+          "name": "from_protobuf",
+          "startLine": 41,
+          "endLine": 50,
+          "params": [
+            "call"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 60,
+          "endLine": 66,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "rows",
+          "startLine": 70,
+          "endLine": 75,
+          "params": [
+            "start",
+            "end"
+          ]
+        },
+        {
+          "name": "rows_with_exclusion",
+          "startLine": 77,
+          "endLine": 86,
+          "params": [
+            "start",
+            "end",
+            "exclusion"
+          ]
+        },
+        {
+          "name": "from_protobuf",
+          "startLine": 90,
+          "endLine": 118,
+          "params": [
+            "frame"
+          ]
+        },
+        {
+          "name": "to_protobuf",
+          "startLine": 120,
+          "endLine": 147,
+          "params": []
+        },
+        {
+          "name": "validate",
+          "startLine": 160,
+          "endLine": 166,
+          "params": []
+        },
+        {
+          "name": "start_is_unbounded",
+          "startLine": 168,
+          "endLine": 174,
+          "params": []
+        },
+        {
+          "name": "end_is_unbounded",
+          "startLine": 176,
+          "endLine": 182,
+          "params": []
+        },
+        {
+          "name": "is_unbounded",
+          "startLine": 184,
+          "endLine": 186,
+          "params": []
+        },
+        {
+          "name": "offset_value",
+          "startLine": 206,
+          "endLine": 211,
+          "params": []
+        },
+        {
+          "name": "validate_bounds",
+          "startLine": 213,
+          "endLine": 239,
+          "params": [
+            "start",
+            "end",
+            "offset_checker"
+          ]
+        },
+        {
+          "name": "map",
+          "startLine": 241,
+          "endLine": 249,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "reverse",
+          "startLine": 256,
+          "endLine": 264,
+          "params": []
+        },
+        {
+          "name": "from_protobuf",
+          "startLine": 278,
+          "endLine": 285,
+          "params": [
+            "exclusion"
+          ]
+        },
+        {
+          "name": "to_protobuf",
+          "startLine": 287,
+          "endLine": 292,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "WindowFuncCall",
+          "startLine": 32,
+          "endLine": 38,
+          "methods": [
+            "from_protobuf"
+          ],
+          "properties": [
+            "kind",
+            "return_type",
+            "args",
+            "ignore_nulls",
+            "frame"
+          ]
+        },
+        {
+          "name": "Frame",
+          "startLine": 54,
+          "endLine": 57,
+          "methods": [
+            "fmt",
+            "rows",
+            "rows_with_exclusion",
+            "from_protobuf",
+            "to_protobuf"
+          ],
+          "properties": [
+            "bounds",
+            "exclusion"
+          ]
+        },
+        {
+          "name": "FrameBounds",
+          "startLine": 152,
+          "endLine": 157,
+          "methods": [
+            "validate",
+            "start_is_unbounded",
+            "end_is_unbounded",
+            "is_unbounded"
+          ],
+          "properties": [
+            "Rows",
+            "Range",
+            "Session"
+          ]
+        },
+        {
+          "name": "FrameBoundsImpl",
+          "startLine": 189,
+          "endLine": 191,
+          "methods": [
+            "validate"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FrameBound",
+          "startLine": 195,
+          "endLine": 203,
+          "methods": [],
+          "properties": [
+            "UnboundedPreceding",
+            "Preceding",
+            "CurrentRow",
+            "Following",
+            "UnboundedFollowing"
+          ]
+        },
+        {
+          "name": "FrameExclusion",
+          "startLine": 269,
+          "endLine": 275,
+          "methods": [
+            "from_protobuf",
+            "to_protobuf"
+          ],
+          "properties": [
+            "CurrentRow",
+            "NoOthers"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WindowFuncCall",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "from_protobuf",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "Frame",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "rows",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "rows_with_exclusion",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "from_protobuf",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "to_protobuf",
+          "line": 120,
+          "isDefault": false
+        },
+        {
+          "name": "FrameBounds",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "validate",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "start_is_unbounded",
+          "line": 168,
+          "isDefault": false
+        },
+        {
+          "name": "end_is_unbounded",
+          "line": 176,
+          "isDefault": false
+        },
+        {
+          "name": "is_unbounded",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "FrameBoundsImpl",
+          "line": 189,
+          "isDefault": false
+        },
+        {
+          "name": "FrameBound",
+          "line": 195,
+          "isDefault": false
+        },
+        {
+          "name": "validate_bounds",
+          "line": 213,
+          "isDefault": false
+        },
+        {
+          "name": "map",
+          "line": 241,
+          "isDefault": false
+        },
+        {
+          "name": "reverse",
+          "line": 256,
+          "isDefault": false
+        },
+        {
+          "name": "FrameExclusion",
+          "line": 269,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_protobuf",
+          "callee": "WindowFuncKind::from_protobuf",
+          "lineNumber": 43
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "call.get_type",
+          "lineNumber": 43
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "DataType::from",
+          "lineNumber": 44
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "call.get_return_type",
+          "lineNumber": 44
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "AggArgs::from_protobuf",
+          "lineNumber": 45
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "call.get_args",
+          "lineNumber": 45
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "call.get_ignore_nulls",
+          "lineNumber": 46
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Frame::from_protobuf",
+          "lineNumber": 47
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "call.get_frame",
+          "lineNumber": 47
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Ok",
+          "lineNumber": 49
+        },
+        {
+          "caller": "fmt",
+          "callee": "FrameExclusion::default",
+          "lineNumber": 62
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 65
+        },
+        {
+          "caller": "rows",
+          "callee": "FrameBounds::Rows",
+          "lineNumber": 72
+        },
+        {
+          "caller": "rows",
+          "callee": "FrameExclusion::default",
+          "lineNumber": 73
+        },
+        {
+          "caller": "rows_with_exclusion",
+          "callee": "FrameBounds::Rows",
+          "lineNumber": 83
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "frame.get_type",
+          "lineNumber": 92
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameBound::<usize>::from_protobuf_legacy",
+          "lineNumber": 98
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "frame.get_start",
+          "lineNumber": 98
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameBound::<usize>::from_protobuf_legacy",
+          "lineNumber": 99
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "frame.get_end",
+          "lineNumber": 99
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameBounds::Rows",
+          "lineNumber": 100
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameBounds::Rows",
+          "lineNumber": 105
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "RowsFrameBounds::from_protobuf",
+          "lineNumber": 105
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameBounds::Range",
+          "lineNumber": 109
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "RangeFrameBounds::from_protobuf",
+          "lineNumber": 109
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameBounds::Session",
+          "lineNumber": 113
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "SessionFrameBounds::from_protobuf",
+          "lineNumber": 113
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameExclusion::from_protobuf",
+          "lineNumber": 116
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "frame.get_exclusion",
+          "lineNumber": 116
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Ok",
+          "lineNumber": 117
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.exclusion.to_protobuf",
+          "lineNumber": 122
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 130
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "PbBounds::Rows",
+          "lineNumber": 130
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "bounds.to_protobuf",
+          "lineNumber": 130
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 137
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "PbBounds::Range",
+          "lineNumber": 137
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "bounds.to_protobuf",
+          "lineNumber": 137
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 144
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "PbBounds::Session",
+          "lineNumber": 144
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "bounds.to_protobuf",
+          "lineNumber": 144
+        },
+        {
+          "caller": "validate",
+          "callee": "bounds.validate",
+          "lineNumber": 162
+        },
+        {
+          "caller": "validate",
+          "callee": "bounds.validate",
+          "lineNumber": 163
+        },
+        {
+          "caller": "validate",
+          "callee": "bounds.validate",
+          "lineNumber": 164
+        },
+        {
+          "caller": "start_is_unbounded",
+          "callee": "start.is_unbounded_preceding",
+          "lineNumber": 170
+        },
+        {
+          "caller": "start_is_unbounded",
+          "callee": "start.is_unbounded_preceding",
+          "lineNumber": 171
+        },
+        {
+          "caller": "end_is_unbounded",
+          "callee": "end.is_unbounded_following",
+          "lineNumber": 178
+        },
+        {
+          "caller": "end_is_unbounded",
+          "callee": "end.is_unbounded_following",
+          "lineNumber": 179
+        },
+        {
+          "caller": "is_unbounded",
+          "callee": "self.start_is_unbounded",
+          "lineNumber": 185
+        },
+        {
+          "caller": "is_unbounded",
+          "callee": "self.end_is_unbounded",
+          "lineNumber": 185
+        },
+        {
+          "caller": "offset_value",
+          "callee": "Some",
+          "lineNumber": 209
+        },
+        {
+          "caller": "validate_bounds",
+          "callee": "bound.offset_value",
+          "lineNumber": 233
+        },
+        {
+          "caller": "validate_bounds",
+          "callee": "offset_checker",
+          "lineNumber": 234
+        },
+        {
+          "caller": "validate_bounds",
+          "callee": "Ok",
+          "lineNumber": 238
+        },
+        {
+          "caller": "map",
+          "callee": "Preceding",
+          "lineNumber": 244
+        },
+        {
+          "caller": "map",
+          "callee": "f",
+          "lineNumber": 244
+        },
+        {
+          "caller": "map",
+          "callee": "Following",
+          "lineNumber": 246
+        },
+        {
+          "caller": "map",
+          "callee": "f",
+          "lineNumber": 246
+        },
+        {
+          "caller": "reverse",
+          "callee": "Following",
+          "lineNumber": 259
+        },
+        {
+          "caller": "reverse",
+          "callee": "Preceding",
+          "lineNumber": 261
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Ok",
+          "lineNumber": 284
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 18,
+        "functionCount": 16,
+        "classCount": 6
+      }
+    },
+    {
+      "path": "src/expr/core/src/window_function/kind.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "from_protobuf",
+          "startLine": 41,
+          "endLine": 66,
+          "params": [
+            "window_function_type"
+          ]
+        },
+        {
+          "name": "is_numbering",
+          "startLine": 70,
+          "endLine": 72,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "WindowFuncKind",
+          "startLine": 27,
+          "endLine": 38,
+          "methods": [
+            "from_protobuf",
+            "is_numbering"
+          ],
+          "properties": [
+            "RowNumber",
+            "Rank",
+            "DenseRank",
+            "Lag",
+            "Lead",
+            "Aggregate"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WindowFuncKind",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "from_protobuf",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "is_numbering",
+          "line": 70,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_protobuf",
+          "callee": "PbGeneralType::try_from",
+          "lineNumber": 48
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Self::Aggregate",
+          "lineNumber": 58
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "AggType::from_protobuf_flatten",
+          "lineNumber": 58
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "PbAggKind::try_from(*kind).context",
+          "lineNumber": 59
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "PbAggKind::try_from",
+          "lineNumber": 59
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Self::Aggregate",
+          "lineNumber": 63
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "AggType::from_protobuf",
+          "lineNumber": 63
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Ok",
+          "lineNumber": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/expr/core/src/window_function/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 27,
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/expr/core/src/window_function/range.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 403,
+      "nonEmptyLines": 376,
+      "functions": [
+        {
+          "name": "from_protobuf",
+          "startLine": 51,
+          "endLine": 72,
+          "params": [
+            "bounds"
+          ]
+        },
+        {
+          "name": "to_protobuf",
+          "startLine": 74,
+          "endLine": 82,
+          "params": []
+        },
+        {
+          "name": "fmt",
+          "startLine": 86,
+          "endLine": 94,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "validate",
+          "startLine": 98,
+          "endLine": 140,
+          "params": []
+        },
+        {
+          "name": "frame_start_of",
+          "startLine": 173,
+          "endLine": 175,
+          "params": [
+            "order_value"
+          ]
+        },
+        {
+          "name": "frame_end_of",
+          "startLine": 179,
+          "endLine": 181,
+          "params": [
+            "order_value"
+          ]
+        },
+        {
+          "name": "first_curr_of",
+          "startLine": 212,
+          "endLine": 217,
+          "params": [
+            "order_value"
+          ]
+        },
+        {
+          "name": "last_curr_of",
+          "startLine": 221,
+          "endLine": 226,
+          "params": [
+            "order_value"
+          ]
+        },
+        {
+          "name": "from_protobuf",
+          "startLine": 232,
+          "endLine": 256,
+          "params": [
+            "bound",
+            "order_data_type",
+            "offset_data_type"
+          ]
+        },
+        {
+          "name": "to_protobuf",
+          "startLine": 258,
+          "endLine": 276,
+          "params": []
+        },
+        {
+          "name": "for_display",
+          "startLine": 280,
+          "endLine": 288,
+          "params": []
+        },
+        {
+          "name": "for_calc",
+          "startLine": 290,
+          "endLine": 304,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 323,
+          "endLine": 329,
+          "params": [
+            "offset"
+          ]
+        },
+        {
+          "name": "prepare",
+          "startLine": 331,
+          "endLine": 348,
+          "params": [
+            "order_data_type",
+            "offset_data_type"
+          ]
+        },
+        {
+          "name": "new_for_test",
+          "startLine": 350,
+          "endLine": 358,
+          "params": [
+            "offset",
+            "order_data_type",
+            "offset_data_type"
+          ]
+        },
+        {
+          "name": "deref",
+          "startLine": 364,
+          "endLine": 366,
+          "params": []
+        },
+        {
+          "name": "bound_of",
+          "startLine": 379,
+          "endLine": 402,
+          "params": [
+            "order_value",
+            "order_type"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RangeFrameBounds",
+          "startLine": 42,
+          "endLine": 48,
+          "methods": [
+            "from_protobuf",
+            "to_protobuf",
+            "fmt",
+            "validate",
+            "frame_start_of",
+            "frame_end_of",
+            "first_curr_of",
+            "last_curr_of"
+          ],
+          "properties": [
+            "order_data_type",
+            "order_type",
+            "offset_data_type",
+            "start",
+            "end"
+          ]
+        },
+        {
+          "name": "RangeFrameOffset",
+          "startLine": 311,
+          "endLine": 320,
+          "methods": [
+            "new",
+            "prepare",
+            "new_for_test",
+            "deref"
+          ],
+          "properties": [
+            "offset",
+            "add_expr",
+            "sub_expr"
+          ]
+        },
+        {
+          "name": "RangeFrameOffsetRef",
+          "startLine": 371,
+          "endLine": 376,
+          "methods": [],
+          "properties": [
+            "add_expr",
+            "sub_expr"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RangeFrameBounds",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "from_protobuf",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "to_protobuf",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "frame_start_of",
+          "line": 173,
+          "isDefault": false
+        },
+        {
+          "name": "frame_end_of",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "first_curr_of",
+          "line": 212,
+          "isDefault": false
+        },
+        {
+          "name": "last_curr_of",
+          "line": 221,
+          "isDefault": false
+        },
+        {
+          "name": "RangeFrameOffset",
+          "line": 311,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 323,
+          "isDefault": false
+        },
+        {
+          "name": "new_for_test",
+          "line": 350,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_protobuf",
+          "callee": "DataType::from",
+          "lineNumber": 52
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_order_data_type",
+          "lineNumber": 52
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "OrderType::from_protobuf",
+          "lineNumber": 53
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_order_type",
+          "lineNumber": 53
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "DataType::from",
+          "lineNumber": 54
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_offset_data_type",
+          "lineNumber": 54
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameBound::<RangeFrameOffset>::from_protobuf",
+          "lineNumber": 55
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_start",
+          "lineNumber": 56
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameBound::<RangeFrameOffset>::from_protobuf",
+          "lineNumber": 60
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_end",
+          "lineNumber": 61
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Ok",
+          "lineNumber": 65
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 76
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.start.to_protobuf",
+          "lineNumber": 76
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 77
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.end.to_protobuf",
+          "lineNumber": 77
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 78
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.order_data_type.to_protobuf",
+          "lineNumber": 78
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 79
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.order_type.to_protobuf",
+          "lineNumber": 79
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 80
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.offset_data_type.to_protobuf",
+          "lineNumber": 80
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 93
+        },
+        {
+          "caller": "validate_non_negative",
+          "callee": "val.is_negative",
+          "lineNumber": 100
+        },
+        {
+          "caller": "validate_non_negative",
+          "callee": "Ok",
+          "lineNumber": 106
+        },
+        {
+          "caller": "validate",
+          "callee": "FrameBound::validate_bounds",
+          "lineNumber": 109
+        },
+        {
+          "caller": "validate",
+          "callee": "offset.as_scalar_ref_impl",
+          "lineNumber": 110
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 112
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 113
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 114
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 115
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 116
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 117
+        },
+        {
+          "caller": "validate",
+          "callee": "val.is_never_negative",
+          "lineNumber": 119
+        },
+        {
+          "caller": "validate",
+          "callee": "val.months",
+          "lineNumber": 127
+        },
+        {
+          "caller": "validate",
+          "callee": "val.days",
+          "lineNumber": 127
+        },
+        {
+          "caller": "validate",
+          "callee": "Ok",
+          "lineNumber": 138
+        },
+        {
+          "caller": "frame_start_of",
+          "callee": "self.start.for_calc().bound_of",
+          "lineNumber": 174
+        },
+        {
+          "caller": "frame_start_of",
+          "callee": "self.start.for_calc",
+          "lineNumber": 174
+        },
+        {
+          "caller": "frame_end_of",
+          "callee": "self.end.for_calc().bound_of",
+          "lineNumber": 180
+        },
+        {
+          "caller": "frame_end_of",
+          "callee": "self.end.for_calc",
+          "lineNumber": 180
+        },
+        {
+          "caller": "first_curr_of",
+          "callee": "self.end\n            .for_calc()\n            .reverse().bound_of",
+          "lineNumber": 213
+        },
+        {
+          "caller": "first_curr_of",
+          "callee": "self.end\n            .for_calc().reverse",
+          "lineNumber": 213
+        },
+        {
+          "caller": "first_curr_of",
+          "callee": "self.end.for_calc",
+          "lineNumber": 213
+        },
+        {
+          "caller": "last_curr_of",
+          "callee": "self.start\n            .for_calc()\n            .reverse().bound_of",
+          "lineNumber": 222
+        },
+        {
+          "caller": "last_curr_of",
+          "callee": "self.start\n            .for_calc().reverse",
+          "lineNumber": 222
+        },
+        {
+          "caller": "last_curr_of",
+          "callee": "self.start.for_calc",
+          "lineNumber": 222
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bound.get_type",
+          "lineNumber": 237
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Datum::from_protobuf(bound.get_offset()?, offset_data_type)\n                    .context(\"offset `Datum` is not decodable\")?.context",
+          "lineNumber": 243
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Datum::from_protobuf(bound.get_offset()?, offset_data_type).context",
+          "lineNumber": 243
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Datum::from_protobuf",
+          "lineNumber": 243
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bound.get_offset",
+          "lineNumber": 243
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "RangeFrameOffset::new",
+          "lineNumber": 246
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "offset.prepare",
+          "lineNumber": 247
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Self::Preceding",
+          "lineNumber": 249
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Self::Following",
+          "lineNumber": 251
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Ok",
+          "lineNumber": 255
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 263
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some(offset.as_scalar_ref_impl()).to_protobuf",
+          "lineNumber": 263
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 263
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "offset.as_scalar_ref_impl",
+          "lineNumber": 263
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 268
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some(offset.as_scalar_ref_impl()).to_protobuf",
+          "lineNumber": 268
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 268
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "offset.as_scalar_ref_impl",
+          "lineNumber": 268
+        },
+        {
+          "caller": "for_display",
+          "callee": "Preceding",
+          "lineNumber": 283
+        },
+        {
+          "caller": "for_display",
+          "callee": "offset.as_scalar_ref_impl().to_text",
+          "lineNumber": 283
+        },
+        {
+          "caller": "for_display",
+          "callee": "offset.as_scalar_ref_impl",
+          "lineNumber": 283
+        },
+        {
+          "caller": "for_display",
+          "callee": "Following",
+          "lineNumber": 285
+        },
+        {
+          "caller": "for_display",
+          "callee": "offset.as_scalar_ref_impl().to_text",
+          "lineNumber": 285
+        },
+        {
+          "caller": "for_display",
+          "callee": "offset.as_scalar_ref_impl",
+          "lineNumber": 285
+        },
+        {
+          "caller": "for_calc",
+          "callee": "Preceding",
+          "lineNumber": 293
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.add_expr.as_ref().unwrap().as_ref",
+          "lineNumber": 294
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.add_expr.as_ref().unwrap",
+          "lineNumber": 294
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.add_expr.as_ref",
+          "lineNumber": 294
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.sub_expr.as_ref().unwrap().as_ref",
+          "lineNumber": 295
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.sub_expr.as_ref().unwrap",
+          "lineNumber": 295
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.sub_expr.as_ref",
+          "lineNumber": 295
+        },
+        {
+          "caller": "for_calc",
+          "callee": "Following",
+          "lineNumber": 298
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.add_expr.as_ref().unwrap().as_ref",
+          "lineNumber": 299
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.add_expr.as_ref().unwrap",
+          "lineNumber": 299
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.add_expr.as_ref",
+          "lineNumber": 299
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.sub_expr.as_ref().unwrap().as_ref",
+          "lineNumber": 300
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.sub_expr.as_ref().unwrap",
+          "lineNumber": 300
+        },
+        {
+          "caller": "for_calc",
+          "callee": "offset.sub_expr.as_ref",
+          "lineNumber": 300
+        },
+        {
+          "caller": "prepare",
+          "callee": "InputRefExpression::new",
+          "lineNumber": 334
+        },
+        {
+          "caller": "prepare",
+          "callee": "order_data_type.clone",
+          "lineNumber": 334
+        },
+        {
+          "caller": "prepare",
+          "callee": "LiteralExpression::new",
+          "lineNumber": 336
+        },
+        {
+          "caller": "prepare",
+          "callee": "offset_data_type.clone",
+          "lineNumber": 336
+        },
+        {
+          "caller": "prepare",
+          "callee": "Some",
+          "lineNumber": 336
+        },
+        {
+          "caller": "prepare",
+          "callee": "self.offset.clone",
+          "lineNumber": 336
+        },
+        {
+          "caller": "prepare",
+          "callee": "Some",
+          "lineNumber": 337
+        },
+        {
+          "caller": "prepare",
+          "callee": "Arc::new",
+          "lineNumber": 337
+        },
+        {
+          "caller": "prepare",
+          "callee": "build_func",
+          "lineNumber": 337
+        },
+        {
+          "caller": "prepare",
+          "callee": "order_data_type.clone",
+          "lineNumber": 339
+        },
+        {
+          "caller": "prepare",
+          "callee": "Some",
+          "lineNumber": 342
+        },
+        {
+          "caller": "prepare",
+          "callee": "Arc::new",
+          "lineNumber": 342
+        },
+        {
+          "caller": "prepare",
+          "callee": "build_func",
+          "lineNumber": 342
+        },
+        {
+          "caller": "prepare",
+          "callee": "order_data_type.clone",
+          "lineNumber": 344
+        },
+        {
+          "caller": "prepare",
+          "callee": "Ok",
+          "lineNumber": 347
+        },
+        {
+          "caller": "new_for_test",
+          "callee": "Self::new",
+          "lineNumber": 355
+        },
+        {
+          "caller": "new_for_test",
+          "callee": "offset.prepare(order_data_type, offset_data_type).unwrap",
+          "lineNumber": 356
+        },
+        {
+          "caller": "new_for_test",
+          "callee": "offset.prepare",
+          "lineNumber": 356
+        },
+        {
+          "caller": "bound_of",
+          "callee": "order_type.direction",
+          "lineNumber": 380
+        },
+        {
+          "caller": "bound_of",
+          "callee": "Sentinelled::Normal",
+          "lineNumber": 383
+        },
+        {
+          "caller": "bound_of",
+          "callee": "order_value.to_owned_datum",
+          "lineNumber": 383
+        },
+        {
+          "caller": "bound_of",
+          "callee": "OwnedRow::new",
+          "lineNumber": 395
+        },
+        {
+          "caller": "bound_of",
+          "callee": "Sentinelled::Normal",
+          "lineNumber": 396
+        },
+        {
+          "caller": "bound_of",
+          "callee": "expr.eval_row(&row)\n                .now_or_never()\n                .expect(\"frame bound calculation should finish immediately\").expect",
+          "lineNumber": 397
+        },
+        {
+          "caller": "bound_of",
+          "callee": "expr.eval_row(&row)\n                .now_or_never().expect",
+          "lineNumber": 397
+        },
+        {
+          "caller": "bound_of",
+          "callee": "expr.eval_row(&row).now_or_never",
+          "lineNumber": 397
+        },
+        {
+          "caller": "bound_of",
+          "callee": "expr.eval_row",
+          "lineNumber": 397
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 10,
+        "functionCount": 17,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/expr/core/src/window_function/rows.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 234,
+      "nonEmptyLines": 209,
+      "functions": [
+        {
+          "name": "from_protobuf",
+          "startLine": 35,
+          "endLine": 39,
+          "params": [
+            "bounds"
+          ]
+        },
+        {
+          "name": "to_protobuf",
+          "startLine": 41,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "is_canonical",
+          "startLine": 56,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "n_preceding_rows",
+          "startLine": 65,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "n_following_rows",
+          "startLine": 75,
+          "endLine": 82,
+          "params": []
+        },
+        {
+          "name": "validate",
+          "startLine": 86,
+          "endLine": 88,
+          "params": []
+        },
+        {
+          "name": "from_protobuf_legacy",
+          "startLine": 94,
+          "endLine": 106,
+          "params": [
+            "bound"
+          ]
+        },
+        {
+          "name": "from_protobuf",
+          "startLine": 108,
+          "endLine": 118,
+          "params": [
+            "bound"
+          ]
+        },
+        {
+          "name": "to_protobuf",
+          "startLine": 120,
+          "endLine": 132,
+          "params": []
+        },
+        {
+          "name": "to_offset",
+          "startLine": 137,
+          "endLine": 144,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RowsFrameBounds",
+          "startLine": 29,
+          "endLine": 32,
+          "methods": [
+            "from_protobuf",
+            "to_protobuf",
+            "is_canonical",
+            "n_preceding_rows",
+            "n_following_rows",
+            "validate"
+          ],
+          "properties": [
+            "start",
+            "end"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RowsFrameBounds",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "from_protobuf",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "to_protobuf",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "is_canonical",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "n_preceding_rows",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "n_following_rows",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "from_protobuf_legacy",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "to_offset",
+          "line": 137,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameBound::<usize>::from_protobuf",
+          "lineNumber": 36
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_start",
+          "lineNumber": 36
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "FrameBound::<usize>::from_protobuf",
+          "lineNumber": 37
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_end",
+          "lineNumber": 37
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Ok",
+          "lineNumber": 38
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 43
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.start.to_protobuf",
+          "lineNumber": 43
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 44
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.end.to_protobuf",
+          "lineNumber": 44
+        },
+        {
+          "caller": "is_canonical",
+          "callee": "self.validate().is_ok",
+          "lineNumber": 57
+        },
+        {
+          "caller": "is_canonical",
+          "callee": "self.validate",
+          "lineNumber": 57
+        },
+        {
+          "caller": "is_canonical",
+          "callee": "self.start.to_offset",
+          "lineNumber": 58
+        },
+        {
+          "caller": "is_canonical",
+          "callee": "self.end.to_offset",
+          "lineNumber": 59
+        },
+        {
+          "caller": "is_canonical",
+          "callee": "start.unwrap_or",
+          "lineNumber": 60
+        },
+        {
+          "caller": "is_canonical",
+          "callee": "end.unwrap_or",
+          "lineNumber": 60
+        },
+        {
+          "caller": "n_preceding_rows",
+          "callee": "Some",
+          "lineNumber": 68
+        },
+        {
+          "caller": "n_preceding_rows",
+          "callee": "n1.max",
+          "lineNumber": 68
+        },
+        {
+          "caller": "n_preceding_rows",
+          "callee": "Some",
+          "lineNumber": 69
+        },
+        {
+          "caller": "n_preceding_rows",
+          "callee": "Some",
+          "lineNumber": 70
+        },
+        {
+          "caller": "n_following_rows",
+          "callee": "Some",
+          "lineNumber": 78
+        },
+        {
+          "caller": "n_following_rows",
+          "callee": "n1.max",
+          "lineNumber": 78
+        },
+        {
+          "caller": "n_following_rows",
+          "callee": "Some",
+          "lineNumber": 79
+        },
+        {
+          "caller": "n_following_rows",
+          "callee": "Some",
+          "lineNumber": 80
+        },
+        {
+          "caller": "validate",
+          "callee": "FrameBound::validate_bounds",
+          "lineNumber": 87
+        },
+        {
+          "caller": "validate",
+          "callee": "Ok",
+          "lineNumber": 87
+        },
+        {
+          "caller": "from_protobuf_legacy",
+          "callee": "bound.get_offset",
+          "lineNumber": 97
+        },
+        {
+          "caller": "from_protobuf_legacy",
+          "callee": "Self::from_protobuf",
+          "lineNumber": 99
+        },
+        {
+          "caller": "from_protobuf_legacy",
+          "callee": "bound.get_type",
+          "lineNumber": 100
+        },
+        {
+          "caller": "from_protobuf_legacy",
+          "callee": "Some",
+          "lineNumber": 101
+        },
+        {
+          "caller": "from_protobuf_legacy",
+          "callee": "Ok",
+          "lineNumber": 105
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bound.get_type",
+          "lineNumber": 109
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Self::Preceding",
+          "lineNumber": 112
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bound.get_offset",
+          "lineNumber": 112
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Self::Following",
+          "lineNumber": 114
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bound.get_offset",
+          "lineNumber": 114
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Ok",
+          "lineNumber": 117
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 123
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 125
+        },
+        {
+          "caller": "to_offset",
+          "callee": "Some",
+          "lineNumber": 140
+        },
+        {
+          "caller": "to_offset",
+          "callee": "Some",
+          "lineNumber": 141
+        },
+        {
+          "caller": "to_offset",
+          "callee": "Some",
+          "lineNumber": 142
+        },
+        {
+          "caller": "test_rows_frame_bounds",
+          "callee": "Preceding",
+          "lineNumber": 155
+        },
+        {
+          "caller": "test_rows_frame_bounds",
+          "callee": "Following",
+          "lineNumber": 167
+        },
+        {
+          "caller": "test_rows_frame_bounds",
+          "callee": "Following",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_rows_frame_bounds",
+          "callee": "Preceding",
+          "lineNumber": 188
+        },
+        {
+          "caller": "test_rows_frame_bounds",
+          "callee": "Preceding",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_rows_frame_bounds",
+          "callee": "Preceding",
+          "lineNumber": 200
+        },
+        {
+          "caller": "test_rows_frame_bounds",
+          "callee": "Following",
+          "lineNumber": 210
+        },
+        {
+          "caller": "test_rows_frame_bounds",
+          "callee": "Following",
+          "lineNumber": 211
+        },
+        {
+          "caller": "test_rows_frame_bounds",
+          "callee": "Following",
+          "lineNumber": 222
+        },
+        {
+          "caller": "test_rows_frame_bounds",
+          "callee": "Preceding",
+          "lineNumber": 228
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/expr/core/src/window_function/session.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 208,
+      "nonEmptyLines": 187,
+      "functions": [
+        {
+          "name": "from_protobuf",
+          "startLine": 50,
+          "endLine": 65,
+          "params": [
+            "bounds"
+          ]
+        },
+        {
+          "name": "to_protobuf",
+          "startLine": 67,
+          "endLine": 74,
+          "params": []
+        },
+        {
+          "name": "fmt",
+          "startLine": 78,
+          "endLine": 84,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "validate",
+          "startLine": 88,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "minimal_next_start_of",
+          "startLine": 130,
+          "endLine": 132,
+          "params": [
+            "end_order_value"
+          ]
+        },
+        {
+          "name": "deref",
+          "startLine": 150,
+          "endLine": 152,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 156,
+          "endLine": 161,
+          "params": [
+            "gap"
+          ]
+        },
+        {
+          "name": "prepare",
+          "startLine": 163,
+          "endLine": 174,
+          "params": [
+            "order_data_type",
+            "gap_data_type"
+          ]
+        },
+        {
+          "name": "new_for_test",
+          "startLine": 176,
+          "endLine": 184,
+          "params": [
+            "gap",
+            "order_data_type",
+            "gap_data_type"
+          ]
+        },
+        {
+          "name": "for_calc",
+          "startLine": 186,
+          "endLine": 190,
+          "params": []
+        },
+        {
+          "name": "minimal_next_start_of",
+          "startLine": 200,
+          "endLine": 207,
+          "params": [
+            "end_order_value"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SessionFrameBounds",
+          "startLine": 42,
+          "endLine": 47,
+          "methods": [
+            "from_protobuf",
+            "to_protobuf",
+            "fmt",
+            "validate",
+            "minimal_next_start_of"
+          ],
+          "properties": [
+            "order_data_type",
+            "order_type",
+            "gap_data_type",
+            "gap"
+          ]
+        },
+        {
+          "name": "SessionFrameGap",
+          "startLine": 139,
+          "endLine": 145,
+          "methods": [
+            "deref",
+            "new",
+            "prepare",
+            "new_for_test",
+            "for_calc"
+          ],
+          "properties": [
+            "gap",
+            "add_expr"
+          ]
+        },
+        {
+          "name": "SessionFrameGapRef",
+          "startLine": 195,
+          "endLine": 197,
+          "methods": [],
+          "properties": [
+            "add_expr"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SessionFrameBounds",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "from_protobuf",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "to_protobuf",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "minimal_next_start_of",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "SessionFrameGap",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "new_for_test",
+          "line": 176,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_protobuf",
+          "callee": "DataType::from",
+          "lineNumber": 51
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_order_data_type",
+          "lineNumber": 51
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "OrderType::from_protobuf",
+          "lineNumber": 52
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_order_type",
+          "lineNumber": 52
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "DataType::from",
+          "lineNumber": 53
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_gap_data_type",
+          "lineNumber": 53
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Datum::from_protobuf(bounds.get_gap()?, &gap_data_type)\n            .context(\"gap `Datum` is not decodable\")?.context",
+          "lineNumber": 54
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Datum::from_protobuf(bounds.get_gap()?, &gap_data_type).context",
+          "lineNumber": 54
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Datum::from_protobuf",
+          "lineNumber": 54
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "bounds.get_gap",
+          "lineNumber": 54
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "SessionFrameGap::new",
+          "lineNumber": 57
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "gap.prepare",
+          "lineNumber": 58
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Ok",
+          "lineNumber": 59
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 69
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some(self.gap.as_scalar_ref_impl()).to_protobuf",
+          "lineNumber": 69
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 69
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.gap.as_scalar_ref_impl",
+          "lineNumber": 69
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 70
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.order_data_type.to_protobuf",
+          "lineNumber": 70
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 71
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.order_type.to_protobuf",
+          "lineNumber": 71
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 72
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.gap_data_type.to_protobuf",
+          "lineNumber": 72
+        },
+        {
+          "caller": "validate_non_negative",
+          "callee": "val.is_negative",
+          "lineNumber": 92
+        },
+        {
+          "caller": "validate_non_negative",
+          "callee": "Ok",
+          "lineNumber": 95
+        },
+        {
+          "caller": "validate",
+          "callee": "self.gap.as_scalar_ref_impl",
+          "lineNumber": 98
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 99
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 100
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 101
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 102
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 103
+        },
+        {
+          "caller": "validate",
+          "callee": "validate_non_negative",
+          "lineNumber": 104
+        },
+        {
+          "caller": "validate",
+          "callee": "val.is_never_negative",
+          "lineNumber": 106
+        },
+        {
+          "caller": "validate",
+          "callee": "val.months",
+          "lineNumber": 114
+        },
+        {
+          "caller": "validate",
+          "callee": "val.days",
+          "lineNumber": 114
+        },
+        {
+          "caller": "validate",
+          "callee": "Ok",
+          "lineNumber": 125
+        },
+        {
+          "caller": "minimal_next_start_of",
+          "callee": "self.gap.for_calc().minimal_next_start_of",
+          "lineNumber": 131
+        },
+        {
+          "caller": "minimal_next_start_of",
+          "callee": "self.gap.for_calc",
+          "lineNumber": 131
+        },
+        {
+          "caller": "prepare",
+          "callee": "InputRefExpression::new",
+          "lineNumber": 166
+        },
+        {
+          "caller": "prepare",
+          "callee": "order_data_type.clone",
+          "lineNumber": 166
+        },
+        {
+          "caller": "prepare",
+          "callee": "LiteralExpression::new",
+          "lineNumber": 167
+        },
+        {
+          "caller": "prepare",
+          "callee": "gap_data_type.clone",
+          "lineNumber": 167
+        },
+        {
+          "caller": "prepare",
+          "callee": "Some",
+          "lineNumber": 167
+        },
+        {
+          "caller": "prepare",
+          "callee": "self.gap.clone",
+          "lineNumber": 167
+        },
+        {
+          "caller": "prepare",
+          "callee": "Some",
+          "lineNumber": 168
+        },
+        {
+          "caller": "prepare",
+          "callee": "Arc::new",
+          "lineNumber": 168
+        },
+        {
+          "caller": "prepare",
+          "callee": "build_func",
+          "lineNumber": 168
+        },
+        {
+          "caller": "prepare",
+          "callee": "order_data_type.clone",
+          "lineNumber": 170
+        },
+        {
+          "caller": "prepare",
+          "callee": "Ok",
+          "lineNumber": 173
+        },
+        {
+          "caller": "new_for_test",
+          "callee": "Self::new",
+          "lineNumber": 181
+        },
+        {
+          "caller": "new_for_test",
+          "callee": "gap.prepare(order_data_type, gap_data_type).unwrap",
+          "lineNumber": 182
+        },
+        {
+          "caller": "new_for_test",
+          "callee": "gap.prepare",
+          "lineNumber": 182
+        },
+        {
+          "caller": "for_calc",
+          "callee": "self.add_expr.as_ref().unwrap().as_ref",
+          "lineNumber": 188
+        },
+        {
+          "caller": "for_calc",
+          "callee": "self.add_expr.as_ref().unwrap",
+          "lineNumber": 188
+        },
+        {
+          "caller": "for_calc",
+          "callee": "self.add_expr.as_ref",
+          "lineNumber": 188
+        },
+        {
+          "caller": "minimal_next_start_of",
+          "callee": "OwnedRow::new",
+          "lineNumber": 201
+        },
+        {
+          "caller": "minimal_next_start_of",
+          "callee": "self.add_expr\n            .eval_row(&row)\n            .now_or_never()\n            .expect(\"frame bound calculation should finish immediately\").expect",
+          "lineNumber": 202
+        },
+        {
+          "caller": "minimal_next_start_of",
+          "callee": "self.add_expr\n            .eval_row(&row)\n            .now_or_never().expect",
+          "lineNumber": 202
+        },
+        {
+          "caller": "minimal_next_start_of",
+          "callee": "self.add_expr\n            .eval_row(&row).now_or_never",
+          "lineNumber": 202
+        },
+        {
+          "caller": "minimal_next_start_of",
+          "callee": "self.add_expr.eval_row",
+          "lineNumber": 202
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 11,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/expr/core/src/window_function/state.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 195,
+      "nonEmptyLines": 172,
+      "functions": [
+        {
+          "name": "merge",
+          "startLine": 53,
+          "endLine": 92,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "create_window_state",
+          "startLine": 140,
+          "endLine": 154,
+          "params": [
+            "call"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StateKey",
+          "startLine": 29,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "order_key",
+            "pk"
+          ]
+        },
+        {
+          "name": "StatePos",
+          "startLine": 35,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "key",
+            "is_ready"
+          ]
+        },
+        {
+          "name": "StateEvictHint",
+          "startLine": 44,
+          "endLine": 50,
+          "methods": [
+            "merge"
+          ],
+          "properties": [
+            "CanEvict",
+            "CannotEvict"
+          ]
+        },
+        {
+          "name": "WindowStateSnapshot",
+          "startLine": 97,
+          "endLine": 103,
+          "methods": [],
+          "properties": [
+            "last_output_key",
+            "function_state"
+          ]
+        },
+        {
+          "name": "WindowState",
+          "startLine": 105,
+          "endLine": 133,
+          "methods": [
+            "append",
+            "curr_window",
+            "slide",
+            "slide_no_output",
+            "enable_persistence",
+            "snapshot",
+            "restore"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "StateKey",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "StatePos",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "StateEvictHint",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "merge",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "WindowStateSnapshot",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "WindowState",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "create_window_state",
+          "line": 140,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "merge",
+          "callee": "a.last().unwrap",
+          "lineNumber": 61
+        },
+        {
+          "caller": "merge",
+          "callee": "a.last",
+          "lineNumber": 61
+        },
+        {
+          "caller": "merge",
+          "callee": "b.last().unwrap",
+          "lineNumber": 62
+        },
+        {
+          "caller": "merge",
+          "callee": "b.last",
+          "lineNumber": 62
+        },
+        {
+          "caller": "merge",
+          "callee": "std::cmp::min(a_last, b_last).clone",
+          "lineNumber": 63
+        },
+        {
+          "caller": "merge",
+          "callee": "std::cmp::min",
+          "lineNumber": 63
+        },
+        {
+          "caller": "merge",
+          "callee": "CanEvict",
+          "lineNumber": 64
+        },
+        {
+          "caller": "merge",
+          "callee": "a.into_iter()\n                        .take_while(|k| k <= &last)\n                        .chain(b.into_iter().take_while(|k| k <= &last)).collect",
+          "lineNumber": 65
+        },
+        {
+          "caller": "merge",
+          "callee": "a.into_iter()\n                        .take_while(|k| k <= &last).chain",
+          "lineNumber": 65
+        },
+        {
+          "caller": "merge",
+          "callee": "a.into_iter().take_while",
+          "lineNumber": 65
+        },
+        {
+          "caller": "merge",
+          "callee": "a.into_iter",
+          "lineNumber": 65
+        },
+        {
+          "caller": "merge",
+          "callee": "b.into_iter().take_while",
+          "lineNumber": 67
+        },
+        {
+          "caller": "merge",
+          "callee": "b.into_iter",
+          "lineNumber": 67
+        },
+        {
+          "caller": "merge",
+          "callee": "CannotEvict",
+          "lineNumber": 76
+        },
+        {
+          "caller": "merge",
+          "callee": "std::cmp::min",
+          "lineNumber": 76
+        },
+        {
+          "caller": "merge",
+          "callee": "keys.split_off",
+          "lineNumber": 84
+        },
+        {
+          "caller": "merge",
+          "callee": "keys.is_empty",
+          "lineNumber": 85
+        },
+        {
+          "caller": "merge",
+          "callee": "CannotEvict",
+          "lineNumber": 86
+        },
+        {
+          "caller": "merge",
+          "callee": "CanEvict",
+          "lineNumber": 88
+        },
+        {
+          "caller": "restore",
+          "callee": "Ok",
+          "lineNumber": 131
+        },
+        {
+          "caller": "create_window_state",
+          "callee": "WINDOW_STATE_BUILDERS.iter().next",
+          "lineNumber": 142
+        },
+        {
+          "caller": "create_window_state",
+          "callee": "WINDOW_STATE_BUILDERS.iter",
+          "lineNumber": 142
+        },
+        {
+          "caller": "create_window_state",
+          "callee": "builder.map_or_else",
+          "lineNumber": 143
+        },
+        {
+          "caller": "create_window_state",
+          "callee": "Err",
+          "lineNumber": 145
+        },
+        {
+          "caller": "create_window_state",
+          "callee": "ExprError::UnsupportedFunction",
+          "lineNumber": 145
+        },
+        {
+          "caller": "create_window_state",
+          "callee": "f",
+          "lineNumber": 152
+        },
+        {
+          "caller": "make_state_key",
+          "callee": "MemcmpEncoded::from",
+          "lineNumber": 173
+        },
+        {
+          "caller": "make_state_key",
+          "callee": "order.to_be_bytes().to_vec",
+          "lineNumber": 173
+        },
+        {
+          "caller": "make_state_key",
+          "callee": "order.to_be_bytes",
+          "lineNumber": 173
+        },
+        {
+          "caller": "make_state_key",
+          "callee": "OwnedRow::new(vec![Some(ScalarImpl::Int64(pk))]).into",
+          "lineNumber": 174
+        },
+        {
+          "caller": "make_state_key",
+          "callee": "OwnedRow::new",
+          "lineNumber": 174
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "make_state_key",
+          "lineNumber": 184
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "StateEvictHint::CanEvict(BTreeSet::from([key.clone()])).merge",
+          "lineNumber": 187
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "StateEvictHint::CanEvict",
+          "lineNumber": 187
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "BTreeSet::from",
+          "lineNumber": 187
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "key.clone",
+          "lineNumber": 187
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "StateEvictHint::CannotEvict",
+          "lineNumber": 188
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "key.clone",
+          "lineNumber": 188
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "merged.merge",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "StateEvictHint::CanEvict",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "BTreeSet::from",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_merge_mixed_persistent_and_non_persistent",
+          "callee": "key.clone",
+          "lineNumber": 192
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 2,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "src/expr/core/src/window_function/states.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 114,
+      "nonEmptyLines": 99,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 26,
+          "endLine": 29,
+          "params": [
+            "states"
+          ]
+        },
+        {
+          "name": "are_aligned",
+          "startLine": 32,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "curr_key",
+          "startLine": 40,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "are_ready",
+          "startLine": 46,
+          "endLine": 49,
+          "params": []
+        },
+        {
+          "name": "slide",
+          "startLine": 52,
+          "endLine": 68,
+          "params": []
+        },
+        {
+          "name": "slide_no_evict_hint",
+          "startLine": 71,
+          "endLine": 79,
+          "params": []
+        },
+        {
+          "name": "just_slide",
+          "startLine": 82,
+          "endLine": 88,
+          "params": []
+        },
+        {
+          "name": "just_slide_to",
+          "startLine": 93,
+          "endLine": 99,
+          "params": [
+            "curr_key"
+          ]
+        },
+        {
+          "name": "deref",
+          "startLine": 105,
+          "endLine": 107,
+          "params": []
+        },
+        {
+          "name": "deref_mut",
+          "startLine": 111,
+          "endLine": 113,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "WindowStates",
+          "startLine": 23,
+          "endLine": 23,
+          "methods": [
+            "new",
+            "are_aligned",
+            "curr_key",
+            "are_ready",
+            "slide",
+            "slide_no_evict_hint",
+            "just_slide",
+            "just_slide_to",
+            "deref",
+            "deref_mut"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "WindowStates",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "are_aligned",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "curr_key",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "are_ready",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "slide",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "slide_no_evict_hint",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "just_slide",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "just_slide_to",
+          "line": 93,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Self",
+          "lineNumber": 28
+        },
+        {
+          "caller": "are_aligned",
+          "callee": "self.0\n            .iter()\n            .map(|state| state.curr_window().key).all_equal",
+          "lineNumber": 33
+        },
+        {
+          "caller": "are_aligned",
+          "callee": "self.0\n            .iter().map",
+          "lineNumber": 33
+        },
+        {
+          "caller": "are_aligned",
+          "callee": "self.0.iter",
+          "lineNumber": 33
+        },
+        {
+          "caller": "are_aligned",
+          "callee": "state.curr_window",
+          "lineNumber": 35
+        },
+        {
+          "caller": "curr_key",
+          "callee": "self.0.first().and_then",
+          "lineNumber": 42
+        },
+        {
+          "caller": "curr_key",
+          "callee": "self.0.first",
+          "lineNumber": 42
+        },
+        {
+          "caller": "curr_key",
+          "callee": "state.curr_window",
+          "lineNumber": 42
+        },
+        {
+          "caller": "are_ready",
+          "callee": "self.0.iter().all",
+          "lineNumber": 48
+        },
+        {
+          "caller": "are_ready",
+          "callee": "self.0.iter",
+          "lineNumber": 48
+        },
+        {
+          "caller": "are_ready",
+          "callee": "state.curr_window",
+          "lineNumber": 48
+        },
+        {
+          "caller": "slide",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 54
+        },
+        {
+          "caller": "slide",
+          "callee": "self.0.len",
+          "lineNumber": 54
+        },
+        {
+          "caller": "slide",
+          "callee": "state.slide",
+          "lineNumber": 57
+        },
+        {
+          "caller": "slide",
+          "callee": "output.push",
+          "lineNumber": 58
+        },
+        {
+          "caller": "slide",
+          "callee": "Some",
+          "lineNumber": 60
+        },
+        {
+          "caller": "slide",
+          "callee": "evict_hint.merge",
+          "lineNumber": 60
+        },
+        {
+          "caller": "slide",
+          "callee": "Some",
+          "lineNumber": 61
+        },
+        {
+          "caller": "slide",
+          "callee": "Ok",
+          "lineNumber": 64
+        },
+        {
+          "caller": "slide",
+          "callee": "evict_hint.expect",
+          "lineNumber": 66
+        },
+        {
+          "caller": "slide_no_evict_hint",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 73
+        },
+        {
+          "caller": "slide_no_evict_hint",
+          "callee": "self.0.len",
+          "lineNumber": 73
+        },
+        {
+          "caller": "slide_no_evict_hint",
+          "callee": "state.slide",
+          "lineNumber": 75
+        },
+        {
+          "caller": "slide_no_evict_hint",
+          "callee": "output.push",
+          "lineNumber": 76
+        },
+        {
+          "caller": "slide_no_evict_hint",
+          "callee": "Ok",
+          "lineNumber": 78
+        },
+        {
+          "caller": "just_slide",
+          "callee": "state.slide_no_output",
+          "lineNumber": 85
+        },
+        {
+          "caller": "just_slide",
+          "callee": "Ok",
+          "lineNumber": 87
+        },
+        {
+          "caller": "just_slide_to",
+          "callee": "self.curr_key",
+          "lineNumber": 95
+        },
+        {
+          "caller": "just_slide_to",
+          "callee": "Some",
+          "lineNumber": 95
+        },
+        {
+          "caller": "just_slide_to",
+          "callee": "self.just_slide",
+          "lineNumber": 96
+        },
+        {
+          "caller": "just_slide_to",
+          "callee": "Ok",
+          "lineNumber": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    }
+  ]
+}

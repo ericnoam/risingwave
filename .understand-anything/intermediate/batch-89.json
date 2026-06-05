@@ -1,0 +1,29 @@
+{
+  "nodes": [
+    {"id":"file:src/common/metrics/src/error_metrics.rs","type":"file","name":"error_metrics.rs","filePath":"src/common/metrics/src/error_metrics.rs","summary":"Defines ErrorMetrics and ErrorMetricsRef for tracking per-component error counters, exposed via Prometheus for alerting on runtime errors.","tags":["service","data-model"],"complexity":"simple"},
+    {"id":"file:src/common/metrics/src/gauge_ext.rs","type":"file","name":"gauge_ext.rs","filePath":"src/common/metrics/src/gauge_ext.rs","summary":"Extension trait adding RAII guard semantics to Prometheus gauge metrics, automatically decrementing on drop for tracking in-flight operations.","tags":["utility","middleware"],"complexity":"simple"},
+    {"id":"file:src/common/metrics/src/guarded_metrics.rs","type":"file","name":"guarded_metrics.rs","filePath":"src/common/metrics/src/guarded_metrics.rs","summary":"Implements guarded Prometheus metric wrappers that track active label sets and warn when cardinality explodes or labels are leaked.","tags":["service","middleware"],"complexity":"complex"},
+    {"id":"file:src/common/metrics/src/lib.rs","type":"file","name":"lib.rs","filePath":"src/common/metrics/src/lib.rs","summary":"Crate root for risingwave_common_metrics; re-exports error metrics, gauge extensions, guarded metrics, monitor utilities, and relabeled metric wrappers.","tags":["entry-point","barrel"],"complexity":"moderate"},
+    {"id":"file:src/common/metrics/src/metrics.rs","type":"file","name":"metrics.rs","filePath":"src/common/metrics/src/metrics.rs","summary":"Provides a global Prometheus registry and shared metric registration utilities used across all RisingWave crates.","tags":["utility","configuration"],"complexity":"simple"},
+    {"id":"file:src/common/metrics/src/monitor/connection.rs","type":"file","name":"connection.rs","filePath":"src/common/metrics/src/monitor/connection.rs","summary":"Implements connection-level metrics instrumentation using tower middleware, tracking active connections, latency, and bytes transferred per gRPC endpoint.","tags":["middleware","service"],"complexity":"complex"},
+    {"id":"file:src/common/metrics/src/monitor/in_mem.rs","type":"file","name":"in_mem.rs","filePath":"src/common/metrics/src/monitor/in_mem.rs","summary":"Provides an in-memory Prometheus registry snapshot implementation for testing metric collection without a live Prometheus endpoint.","tags":["utility","test"],"complexity":"moderate"},
+    {"id":"file:src/common/metrics/src/monitor/mod.rs","type":"file","name":"mod.rs","filePath":"src/common/metrics/src/monitor/mod.rs","summary":"Barrel module aggregating all runtime monitoring utilities: connection metrics, in-memory registry, process metrics, and RwLock instrumentation.","tags":["barrel","entry-point"],"complexity":"simple"},
+    {"id":"file:src/common/metrics/src/monitor/process.rs","type":"file","name":"process.rs","filePath":"src/common/metrics/src/monitor/process.rs","summary":"Implements process-level Prometheus metrics collection: CPU usage, memory usage, file descriptors, and thread counts for the RisingWave process.","tags":["service","data-model"],"complexity":"moderate"},
+    {"id":"file:src/common/metrics/src/monitor/rwlock.rs","type":"file","name":"rwlock.rs","filePath":"src/common/metrics/src/monitor/rwlock.rs","summary":"Provides a metrics-instrumented RwLock wrapper that tracks lock contention and acquisition latency via Prometheus histograms.","tags":["utility","middleware"],"complexity":"simple"},
+    {"id":"file:src/common/metrics/src/relabeled_metric.rs","type":"file","name":"relabeled_metric.rs","filePath":"src/common/metrics/src/relabeled_metric.rs","summary":"Implements relabeled metric wrappers that dynamically add or override label values on existing Prometheus metrics without creating new metric families.","tags":["utility","middleware"],"complexity":"moderate"}
+  ],
+  "edges": [
+    {"source":"file:src/common/metrics/src/error_metrics.rs","target":"file:src/common/metrics/src/monitor/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/lib.rs","target":"file:src/common/metrics/src/error_metrics.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/lib.rs","target":"file:src/common/metrics/src/gauge_ext.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/lib.rs","target":"file:src/common/metrics/src/guarded_metrics.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/lib.rs","target":"file:src/common/metrics/src/metrics.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/lib.rs","target":"file:src/common/metrics/src/monitor/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/lib.rs","target":"file:src/common/metrics/src/relabeled_metric.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/monitor/connection.rs","target":"file:src/common/metrics/src/monitor/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/monitor/mod.rs","target":"file:src/common/metrics/src/monitor/connection.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/monitor/mod.rs","target":"file:src/common/metrics/src/monitor/in_mem.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/monitor/mod.rs","target":"file:src/common/metrics/src/monitor/process.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/common/metrics/src/monitor/mod.rs","target":"file:src/common/metrics/src/monitor/rwlock.rs","type":"imports","direction":"forward","weight":0.7}
+  ]
+}

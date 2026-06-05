@@ -1,0 +1,1768 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/dml/src/dml_manager.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 317,
+      "nonEmptyLines": 267,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 49,
+          "endLine": 55,
+          "params": [
+            "worker_node_id",
+            "dml_channel_initial_permits"
+          ]
+        },
+        {
+          "name": "for_test",
+          "startLine": 57,
+          "endLine": 60,
+          "params": []
+        },
+        {
+          "name": "register_reader",
+          "startLine": 64,
+          "endLine": 130,
+          "params": [
+            "table_id",
+            "table_version_id",
+            "column_descs"
+          ]
+        },
+        {
+          "name": "table_dml_handle",
+          "startLine": 132,
+          "endLine": 165,
+          "params": [
+            "table_id",
+            "table_version_id"
+          ]
+        },
+        {
+          "name": "clear",
+          "startLine": 167,
+          "endLine": 169,
+          "params": []
+        },
+        {
+          "name": "gen_txn_id",
+          "startLine": 171,
+          "endLine": 173,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TableReader",
+          "startLine": 31,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "version_id",
+            "handle"
+          ]
+        },
+        {
+          "name": "DmlManager",
+          "startLine": 42,
+          "endLine": 46,
+          "methods": [
+            "new",
+            "for_test",
+            "register_reader",
+            "table_dml_handle",
+            "clear",
+            "gen_txn_id"
+          ],
+          "properties": [
+            "table_readers",
+            "txn_id_generator",
+            "dml_channel_initial_permits"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TableReader",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "DmlManager",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "for_test",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "register_reader",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "table_dml_handle",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "clear",
+          "line": 167,
+          "isDefault": false
+        },
+        {
+          "name": "gen_txn_id",
+          "line": 171,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "RwLock::new",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new",
+          "callee": "HashMap::new",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new",
+          "callee": "TxnIdGenerator::new",
+          "lineNumber": 52
+        },
+        {
+          "caller": "for_test",
+          "callee": "Self::new",
+          "lineNumber": 59
+        },
+        {
+          "caller": "for_test",
+          "callee": "WorkerNodeId::default",
+          "lineNumber": 59
+        },
+        {
+          "caller": "register_reader",
+          "callee": "self.table_readers.write",
+          "lineNumber": 70
+        },
+        {
+          "caller": "register_reader",
+          "callee": "table_readers.retain",
+          "lineNumber": 72
+        },
+        {
+          "caller": "register_reader",
+          "callee": "r.handle.strong_count",
+          "lineNumber": 72
+        },
+        {
+          "caller": "register_reader",
+          "callee": "table_readers.entry",
+          "lineNumber": 88
+        },
+        {
+          "caller": "register_reader",
+          "callee": "o.get",
+          "lineNumber": 94
+        },
+        {
+          "caller": "register_reader",
+          "callee": "table_version_id.cmp",
+          "lineNumber": 96
+        },
+        {
+          "caller": "register_reader",
+          "callee": "handle.upgrade",
+          "lineNumber": 103
+        },
+        {
+          "caller": "register_reader",
+          "callee": "Ok",
+          "lineNumber": 129
+        },
+        {
+          "caller": "table_dml_handle",
+          "callee": "{\n            let table_readers = self.table_readers.read();\n\n            match table_readers.get(&table_id) {\n                Some(TableReader { version_id, handle }) => {\n                    match table_version_id.cmp(version_id) {\n                        // A new version of the table is activated, but the DML request is still on\n                        // the old version.\n                        Ordering::Less => {\n                            return Err(DmlError::SchemaChanged);\n                        }\n\n                        // Write the chunk of correct version to the table.\n                        Ordering::Equal => handle.upgrade(),\n\n                        // This should never happen as the notification of the new version is\n                        // guaranteed to happen after all new readers are activated.\n                        Ordering::Greater => {\n                            unreachable!(\"table version `{table_version_id} not registered\")\n                        }\n                    }\n                }\n                None => None,\n            }\n        }.ok_or",
+          "lineNumber": 137
+        },
+        {
+          "caller": "table_dml_handle",
+          "callee": "self.table_readers.read",
+          "lineNumber": 138
+        },
+        {
+          "caller": "table_dml_handle",
+          "callee": "table_readers.get",
+          "lineNumber": 140
+        },
+        {
+          "caller": "table_dml_handle",
+          "callee": "table_version_id.cmp",
+          "lineNumber": 142
+        },
+        {
+          "caller": "table_dml_handle",
+          "callee": "Err",
+          "lineNumber": 146
+        },
+        {
+          "caller": "table_dml_handle",
+          "callee": "handle.upgrade",
+          "lineNumber": 150
+        },
+        {
+          "caller": "table_dml_handle",
+          "callee": "Ok",
+          "lineNumber": 164
+        },
+        {
+          "caller": "clear",
+          "callee": "self.table_readers.write().clear",
+          "lineNumber": 168
+        },
+        {
+          "caller": "clear",
+          "callee": "self.table_readers.write",
+          "lineNumber": 168
+        },
+        {
+          "caller": "gen_txn_id",
+          "callee": "self.txn_id_generator.gen_txn_id",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "DmlManager::for_test",
+          "lineNumber": 190
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "TableId::new",
+          "lineNumber": 191
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 194
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "dml_manager\n            .register_reader(table_id, table_version_id, &column_descs).unwrap",
+          "lineNumber": 196
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "dml_manager.register_reader",
+          "lineNumber": 196
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "dml_manager\n            .register_reader(table_id, table_version_id, &column_descs).unwrap",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "dml_manager.register_reader",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "h1.stream_reader",
+          "lineNumber": 207
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "h2.stream_reader",
+          "lineNumber": 208
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "dml_manager\n            .table_dml_handle(table_id, table_version_id).unwrap",
+          "lineNumber": 210
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "dml_manager.table_dml_handle",
+          "lineNumber": 210
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "table_dml_handle\n            .write_handle(TEST_SESSION_ID, TEST_TRANSACTION_ID).unwrap",
+          "lineNumber": 213
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "table_dml_handle.write_handle",
+          "lineNumber": 213
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.begin().unwrap",
+          "lineNumber": 216
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.begin",
+          "lineNumber": 216
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.write_chunk(chunk()).await.unwrap",
+          "lineNumber": 219
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.write_chunk",
+          "lineNumber": 219
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "chunk",
+          "lineNumber": 219
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "drop",
+          "lineNumber": 223
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.write_chunk(chunk()).await.unwrap_err",
+          "lineNumber": 225
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.write_chunk",
+          "lineNumber": 225
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "chunk",
+          "lineNumber": 225
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "table_dml_handle\n            .write_handle(TEST_SESSION_ID, TEST_TRANSACTION_ID).unwrap",
+          "lineNumber": 228
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "table_dml_handle.write_handle",
+          "lineNumber": 228
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.begin().unwrap",
+          "lineNumber": 231
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.begin",
+          "lineNumber": 231
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.write_chunk(chunk()).await.unwrap",
+          "lineNumber": 232
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.write_chunk",
+          "lineNumber": 232
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "chunk",
+          "lineNumber": 232
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "drop",
+          "lineNumber": 236
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.write_chunk(chunk()).await.unwrap_err",
+          "lineNumber": 237
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "write_handle.write_chunk",
+          "lineNumber": 237
+        },
+        {
+          "caller": "test_register_and_drop",
+          "callee": "chunk",
+          "lineNumber": 237
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "DmlManager::for_test",
+          "lineNumber": 242
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "TableId::new",
+          "lineNumber": 243
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 247
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 254
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "dml_manager\n            .register_reader(table_id, old_version_id, &old_column_descs).unwrap",
+          "lineNumber": 257
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "dml_manager.register_reader",
+          "lineNumber": 257
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "old_h.stream_reader",
+          "lineNumber": 260
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "dml_manager\n            .table_dml_handle(table_id, old_version_id).unwrap",
+          "lineNumber": 262
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "dml_manager.table_dml_handle",
+          "lineNumber": 262
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "table_dml_handle\n            .write_handle(TEST_SESSION_ID, TEST_TRANSACTION_ID).unwrap",
+          "lineNumber": 265
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "table_dml_handle.write_handle",
+          "lineNumber": 265
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "write_handle.begin().unwrap",
+          "lineNumber": 268
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "write_handle.begin",
+          "lineNumber": 268
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "write_handle.write_chunk(old_chunk()).await.unwrap",
+          "lineNumber": 271
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "write_handle.write_chunk",
+          "lineNumber": 271
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "old_chunk",
+          "lineNumber": 271
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "dml_manager\n            .register_reader(table_id, new_version_id, &new_column_descs).unwrap",
+          "lineNumber": 274
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "dml_manager.register_reader",
+          "lineNumber": 274
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "new_h.stream_reader",
+          "lineNumber": 277
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "write_handle.write_chunk(old_chunk()).await.unwrap",
+          "lineNumber": 280
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "write_handle.write_chunk",
+          "lineNumber": 280
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "old_chunk",
+          "lineNumber": 280
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "dml_manager\n            .table_dml_handle(table_id, old_version_id).unwrap_err",
+          "lineNumber": 283
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "dml_manager.table_dml_handle",
+          "lineNumber": 283
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "dml_manager\n            .table_dml_handle(table_id, new_version_id).unwrap",
+          "lineNumber": 288
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "dml_manager.table_dml_handle",
+          "lineNumber": 288
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "table_dml_handle\n            .write_handle(TEST_SESSION_ID, TEST_TRANSACTION_ID).unwrap",
+          "lineNumber": 291
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "table_dml_handle.write_handle",
+          "lineNumber": 291
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "write_handle.begin().unwrap",
+          "lineNumber": 294
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "write_handle.begin",
+          "lineNumber": 294
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "write_handle.write_chunk(new_chunk()).await.unwrap",
+          "lineNumber": 295
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "write_handle.write_chunk",
+          "lineNumber": 295
+        },
+        {
+          "caller": "test_versioned",
+          "callee": "new_chunk",
+          "lineNumber": 295
+        },
+        {
+          "caller": "test_bad_schema",
+          "callee": "DmlManager::for_test",
+          "lineNumber": 301
+        },
+        {
+          "caller": "test_bad_schema",
+          "callee": "TableId::new",
+          "lineNumber": 302
+        },
+        {
+          "caller": "test_bad_schema",
+          "callee": "dml_manager\n            .register_reader(table_id, table_version_id, &column_descs).unwrap",
+          "lineNumber": 308
+        },
+        {
+          "caller": "test_bad_schema",
+          "callee": "dml_manager.register_reader",
+          "lineNumber": 308
+        },
+        {
+          "caller": "test_bad_schema",
+          "callee": "dml_manager\n            .register_reader(table_id, table_version_id, &other_column_descs).unwrap",
+          "lineNumber": 313
+        },
+        {
+          "caller": "test_bad_schema",
+          "callee": "dml_manager.register_reader",
+          "lineNumber": 313
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 8,
+        "functionCount": 6,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/dml/src/error.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 26,
+      "classes": [
+        {
+          "name": "DmlError",
+          "startLine": 17,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "SchemaChanged",
+            "NoReader",
+            "ReaderClosed"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DmlError",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/dml/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 24,
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/dml/src/table.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 416,
+      "nonEmptyLines": 356,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 58,
+          "endLine": 68,
+          "params": [
+            "column_descs",
+            "dml_channel_initial_permits"
+          ]
+        },
+        {
+          "name": "stream_reader",
+          "startLine": 70,
+          "endLine": 78,
+          "params": []
+        },
+        {
+          "name": "write_handle",
+          "startLine": 80,
+          "endLine": 114,
+          "params": [
+            "session_id",
+            "txn_id"
+          ]
+        },
+        {
+          "name": "column_descs",
+          "startLine": 117,
+          "endLine": 119,
+          "params": []
+        },
+        {
+          "name": "check_chunk_schema",
+          "startLine": 121,
+          "endLine": 129,
+          "params": [
+            "chunk"
+          ]
+        },
+        {
+          "name": "drop",
+          "startLine": 156,
+          "endLine": 160,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 164,
+          "endLine": 170,
+          "params": [
+            "txn_id",
+            "tx"
+          ]
+        },
+        {
+          "name": "begin",
+          "startLine": 172,
+          "endLine": 178,
+          "params": []
+        },
+        {
+          "name": "write_chunk",
+          "startLine": 180,
+          "endLine": 187,
+          "params": [
+            "chunk"
+          ]
+        },
+        {
+          "name": "end",
+          "startLine": 189,
+          "endLine": 196,
+          "params": []
+        },
+        {
+          "name": "end_wait_persistence",
+          "startLine": 200,
+          "endLine": 211,
+          "params": []
+        },
+        {
+          "name": "rollback",
+          "startLine": 213,
+          "endLine": 215,
+          "params": []
+        },
+        {
+          "name": "rollback_inner",
+          "startLine": 217,
+          "endLine": 221,
+          "params": []
+        },
+        {
+          "name": "write_txn_data_msg",
+          "startLine": 228,
+          "endLine": 238,
+          "params": [
+            "txn_msg"
+          ]
+        },
+        {
+          "name": "write_txn_control_msg",
+          "startLine": 242,
+          "endLine": 252,
+          "params": [
+            "txn_msg"
+          ]
+        },
+        {
+          "name": "into_data_stream_for_test",
+          "startLine": 267,
+          "endLine": 280,
+          "params": []
+        },
+        {
+          "name": "into_stream",
+          "startLine": 283,
+          "endLine": 297,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TableDmlHandleCore",
+          "startLine": 32,
+          "endLine": 38,
+          "methods": [],
+          "properties": [
+            "changes_txs"
+          ]
+        },
+        {
+          "name": "TableDmlHandle",
+          "startLine": 47,
+          "endLine": 55,
+          "methods": [
+            "new",
+            "stream_reader",
+            "write_handle",
+            "column_descs",
+            "check_chunk_schema"
+          ],
+          "properties": [
+            "core",
+            "column_descs",
+            "dml_channel_initial_permits"
+          ]
+        },
+        {
+          "name": "TxnState",
+          "startLine": 133,
+          "endLine": 138,
+          "methods": [],
+          "properties": [
+            "Init",
+            "Begin",
+            "Committed",
+            "Rollback"
+          ]
+        },
+        {
+          "name": "WriteHandle",
+          "startLine": 148,
+          "endLine": 153,
+          "methods": [
+            "drop",
+            "new",
+            "begin",
+            "write_chunk",
+            "end",
+            "end_wait_persistence",
+            "rollback",
+            "rollback_inner",
+            "write_txn_data_msg",
+            "write_txn_control_msg"
+          ],
+          "properties": [
+            "txn_id",
+            "tx",
+            "txn_state"
+          ]
+        },
+        {
+          "name": "TableStreamReader",
+          "startLine": 260,
+          "endLine": 263,
+          "methods": [
+            "into_data_stream_for_test",
+            "into_stream"
+          ],
+          "properties": [
+            "rx"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TableDmlHandleCore",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "TableDmlHandle",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "stream_reader",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "write_handle",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "column_descs",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "check_chunk_schema",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "WriteHandle",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "begin",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "write_chunk",
+          "line": 180,
+          "isDefault": false
+        },
+        {
+          "name": "end",
+          "line": 189,
+          "isDefault": false
+        },
+        {
+          "name": "end_wait_persistence",
+          "line": 200,
+          "isDefault": false
+        },
+        {
+          "name": "rollback",
+          "line": 213,
+          "isDefault": false
+        },
+        {
+          "name": "TableStreamReader",
+          "line": 260,
+          "isDefault": false
+        },
+        {
+          "name": "into_data_stream_for_test",
+          "line": 267,
+          "isDefault": false
+        },
+        {
+          "name": "into_stream",
+          "line": 283,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "RwLock::new",
+          "lineNumber": 64
+        },
+        {
+          "caller": "stream_reader",
+          "callee": "self.core.write",
+          "lineNumber": 71
+        },
+        {
+          "caller": "stream_reader",
+          "callee": "txn_channel",
+          "lineNumber": 74
+        },
+        {
+          "caller": "stream_reader",
+          "callee": "core.changes_txs.push",
+          "lineNumber": 75
+        },
+        {
+          "caller": "write_handle",
+          "callee": "self.core.read",
+          "lineNumber": 89
+        },
+        {
+          "caller": "write_handle",
+          "callee": "guard.changes_txs.is_empty",
+          "lineNumber": 90
+        },
+        {
+          "caller": "write_handle",
+          "callee": "Err",
+          "lineNumber": 91
+        },
+        {
+          "caller": "write_handle",
+          "callee": "guard.changes_txs.len",
+          "lineNumber": 93
+        },
+        {
+          "caller": "write_handle",
+          "callee": "guard\n                .changes_txs\n                .get((session_id % len as u32) as usize)\n                .unwrap().clone",
+          "lineNumber": 96
+        },
+        {
+          "caller": "write_handle",
+          "callee": "guard\n                .changes_txs\n                .get((session_id % len as u32) as usize).unwrap",
+          "lineNumber": 96
+        },
+        {
+          "caller": "write_handle",
+          "callee": "guard\n                .changes_txs.get",
+          "lineNumber": 96
+        },
+        {
+          "caller": "write_handle",
+          "callee": "drop",
+          "lineNumber": 102
+        },
+        {
+          "caller": "write_handle",
+          "callee": "sender.is_closed",
+          "lineNumber": 104
+        },
+        {
+          "caller": "write_handle",
+          "callee": "self.core\n                    .write()\n                    .changes_txs.retain",
+          "lineNumber": 106
+        },
+        {
+          "caller": "write_handle",
+          "callee": "self.core.write",
+          "lineNumber": 106
+        },
+        {
+          "caller": "write_handle",
+          "callee": "sender.is_closed",
+          "lineNumber": 109
+        },
+        {
+          "caller": "write_handle",
+          "callee": "Ok",
+          "lineNumber": 111
+        },
+        {
+          "caller": "write_handle",
+          "callee": "WriteHandle::new",
+          "lineNumber": 111
+        },
+        {
+          "caller": "column_descs",
+          "callee": "self.column_descs.as_ref",
+          "lineNumber": 118
+        },
+        {
+          "caller": "check_chunk_schema",
+          "callee": "risingwave_common::util::schema_check::schema_check(\n            self.column_descs\n                .iter()\n                .filter_map(|c| (!c.is_generated()).then_some(&c.data_type)),\n            chunk.columns(),\n        ).expect",
+          "lineNumber": 122
+        },
+        {
+          "caller": "check_chunk_schema",
+          "callee": "risingwave_common::util::schema_check::schema_check",
+          "lineNumber": 122
+        },
+        {
+          "caller": "check_chunk_schema",
+          "callee": "self.column_descs\n                .iter().filter_map",
+          "lineNumber": 123
+        },
+        {
+          "caller": "check_chunk_schema",
+          "callee": "self.column_descs.iter",
+          "lineNumber": 123
+        },
+        {
+          "caller": "check_chunk_schema",
+          "callee": "(!c.is_generated()).then_some",
+          "lineNumber": 125
+        },
+        {
+          "caller": "check_chunk_schema",
+          "callee": "c.is_generated",
+          "lineNumber": 125
+        },
+        {
+          "caller": "check_chunk_schema",
+          "callee": "chunk.columns",
+          "lineNumber": 126
+        },
+        {
+          "caller": "drop",
+          "callee": "self.rollback_inner",
+          "lineNumber": 158
+        },
+        {
+          "caller": "begin",
+          "callee": "self.write_txn_control_msg",
+          "lineNumber": 176
+        },
+        {
+          "caller": "begin",
+          "callee": "TxnMsg::Begin",
+          "lineNumber": 176
+        },
+        {
+          "caller": "begin",
+          "callee": "Ok",
+          "lineNumber": 177
+        },
+        {
+          "caller": "write_chunk",
+          "callee": "self.write_txn_data_msg",
+          "lineNumber": 183
+        },
+        {
+          "caller": "write_chunk",
+          "callee": "TxnMsg::Data",
+          "lineNumber": 184
+        },
+        {
+          "caller": "write_chunk",
+          "callee": "Ok",
+          "lineNumber": 186
+        },
+        {
+          "caller": "end",
+          "callee": "self.write_txn_control_msg",
+          "lineNumber": 193
+        },
+        {
+          "caller": "end",
+          "callee": "TxnMsg::End",
+          "lineNumber": 193
+        },
+        {
+          "caller": "end",
+          "callee": "notifier.await.map_err",
+          "lineNumber": 194
+        },
+        {
+          "caller": "end",
+          "callee": "Ok",
+          "lineNumber": 195
+        },
+        {
+          "caller": "end_wait_persistence",
+          "callee": "oneshot::channel",
+          "lineNumber": 203
+        },
+        {
+          "caller": "end_wait_persistence",
+          "callee": "self.write_txn_control_msg",
+          "lineNumber": 205
+        },
+        {
+          "caller": "end_wait_persistence",
+          "callee": "TxnMsg::End",
+          "lineNumber": 205
+        },
+        {
+          "caller": "end_wait_persistence",
+          "callee": "Some",
+          "lineNumber": 205
+        },
+        {
+          "caller": "end_wait_persistence",
+          "callee": "Ok",
+          "lineNumber": 206
+        },
+        {
+          "caller": "end_wait_persistence",
+          "callee": "notifier.await.map_err",
+          "lineNumber": 207
+        },
+        {
+          "caller": "end_wait_persistence",
+          "callee": "persistence_rx.await.map_err",
+          "lineNumber": 208
+        },
+        {
+          "caller": "end_wait_persistence",
+          "callee": "Ok",
+          "lineNumber": 209
+        },
+        {
+          "caller": "rollback",
+          "callee": "self.rollback_inner",
+          "lineNumber": 214
+        },
+        {
+          "caller": "rollback_inner",
+          "callee": "self.write_txn_control_msg",
+          "lineNumber": 220
+        },
+        {
+          "caller": "rollback_inner",
+          "callee": "TxnMsg::Rollback",
+          "lineNumber": 220
+        },
+        {
+          "caller": "write_txn_data_msg",
+          "callee": "oneshot::channel",
+          "lineNumber": 230
+        },
+        {
+          "caller": "write_txn_data_msg",
+          "callee": "self.tx.send",
+          "lineNumber": 231
+        },
+        {
+          "caller": "write_txn_data_msg",
+          "callee": "Ok",
+          "lineNumber": 232
+        },
+        {
+          "caller": "write_txn_data_msg",
+          "callee": "Err",
+          "lineNumber": 236
+        },
+        {
+          "caller": "write_txn_control_msg",
+          "callee": "oneshot::channel",
+          "lineNumber": 244
+        },
+        {
+          "caller": "write_txn_control_msg",
+          "callee": "self.tx.send_immediate",
+          "lineNumber": 245
+        },
+        {
+          "caller": "write_txn_control_msg",
+          "callee": "Ok",
+          "lineNumber": 246
+        },
+        {
+          "caller": "write_txn_control_msg",
+          "callee": "Err",
+          "lineNumber": 250
+        },
+        {
+          "caller": "into_data_stream_for_test",
+          "callee": "self.rx.recv",
+          "lineNumber": 268
+        },
+        {
+          "caller": "into_data_stream_for_test",
+          "callee": "notifier.send",
+          "lineNumber": 272
+        },
+        {
+          "caller": "into_data_stream_for_test",
+          "callee": "notifier.send",
+          "lineNumber": 275
+        },
+        {
+          "caller": "into_data_stream_for_test",
+          "callee": "chunk.cardinality",
+          "lineNumber": 275
+        },
+        {
+          "caller": "into_stream",
+          "callee": "self.rx.recv",
+          "lineNumber": 284
+        },
+        {
+          "caller": "into_stream",
+          "callee": "notifier.send",
+          "lineNumber": 288
+        },
+        {
+          "caller": "into_stream",
+          "callee": "notifier.send",
+          "lineNumber": 292
+        },
+        {
+          "caller": "into_stream",
+          "callee": "chunk.cardinality",
+          "lineNumber": 292
+        },
+        {
+          "caller": "new_table_dml_handle",
+          "callee": "TableDmlHandle::new",
+          "lineNumber": 315
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "Arc::new",
+          "lineNumber": 323
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "new_table_dml_handle",
+          "lineNumber": 323
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "table_dml_handle.stream_reader().into_stream",
+          "lineNumber": 324
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "table_dml_handle.stream_reader",
+          "lineNumber": 324
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "table_dml_handle\n            .write_handle(TEST_SESSION_ID, TEST_TRANSACTION_ID).unwrap",
+          "lineNumber": 325
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "table_dml_handle.write_handle",
+          "lineNumber": 325
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "write_handle.begin().unwrap",
+          "lineNumber": 328
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "write_handle.begin",
+          "lineNumber": 328
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "tokio::spawn",
+          "lineNumber": 358
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "write_handle.end().await.unwrap",
+          "lineNumber": 359
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "write_handle.end",
+          "lineNumber": 359
+        },
+        {
+          "caller": "test_table_dml_handle",
+          "callee": "Ok",
+          "lineNumber": 364
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "Arc::new",
+          "lineNumber": 369
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "new_table_dml_handle",
+          "lineNumber": 369
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "table_dml_handle.stream_reader().into_stream",
+          "lineNumber": 370
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "table_dml_handle.stream_reader",
+          "lineNumber": 370
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "table_dml_handle\n            .write_handle(TEST_SESSION_ID, TEST_TRANSACTION_ID).unwrap",
+          "lineNumber": 371
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "table_dml_handle.write_handle",
+          "lineNumber": 371
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "write_handle.begin().unwrap",
+          "lineNumber": 374
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "write_handle.begin",
+          "lineNumber": 374
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "StreamChunk::new",
+          "lineNumber": 378
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "write_handle.write_chunk(chunk).await.unwrap",
+          "lineNumber": 379
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "write_handle.write_chunk",
+          "lineNumber": 379
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "drop",
+          "lineNumber": 387
+        },
+        {
+          "caller": "test_write_handle_rollback_on_drop",
+          "callee": "Ok",
+          "lineNumber": 390
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "Arc::new",
+          "lineNumber": 395
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "new_table_dml_handle",
+          "lineNumber": 395
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "table_dml_handle.stream_reader().into_stream",
+          "lineNumber": 396
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "table_dml_handle.stream_reader",
+          "lineNumber": 396
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "table_dml_handle\n            .write_handle(TEST_SESSION_ID, TEST_TRANSACTION_ID).unwrap",
+          "lineNumber": 397
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "table_dml_handle.write_handle",
+          "lineNumber": 397
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "write_handle.begin().unwrap",
+          "lineNumber": 400
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "write_handle.begin",
+          "lineNumber": 400
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "tokio::spawn",
+          "lineNumber": 404
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "write_handle.end_wait_persistence().unwrap().await.unwrap",
+          "lineNumber": 405
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "write_handle.end_wait_persistence().unwrap",
+          "lineNumber": 405
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "write_handle.end_wait_persistence",
+          "lineNumber": 405
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "handle.await.unwrap",
+          "lineNumber": 412
+        },
+        {
+          "caller": "test_end_wait_persistence",
+          "callee": "Ok",
+          "lineNumber": 414
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 17,
+        "functionCount": 17,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "src/dml/src/txn_channel.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 157,
+      "nonEmptyLines": 138,
+      "functions": [
+        {
+          "name": "txn_channel",
+          "startLine": 30,
+          "endLine": 45,
+          "params": [
+            "max_chunk_permits"
+          ]
+        },
+        {
+          "name": "add_permits",
+          "startLine": 58,
+          "endLine": 60,
+          "params": [
+            "permit_value"
+          ]
+        },
+        {
+          "name": "send",
+          "startLine": 79,
+          "endLine": 112,
+          "params": [
+            "txn_msg",
+            "notificator"
+          ]
+        },
+        {
+          "name": "send_immediate",
+          "startLine": 118,
+          "endLine": 126,
+          "params": [
+            "txn_msg",
+            "notificator"
+          ]
+        },
+        {
+          "name": "is_closed",
+          "startLine": 128,
+          "endLine": 130,
+          "params": []
+        },
+        {
+          "name": "recv",
+          "startLine": 144,
+          "endLine": 156,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PermitValue",
+          "startLine": 21,
+          "endLine": 21,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "TxnMsgWithPermits",
+          "startLine": 23,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "txn_msg",
+            "notificator",
+            "permit_value"
+          ]
+        },
+        {
+          "name": "Permits",
+          "startLine": 51,
+          "endLine": 54,
+          "methods": [
+            "add_permits"
+          ],
+          "properties": [
+            "records"
+          ]
+        },
+        {
+          "name": "Sender",
+          "startLine": 65,
+          "endLine": 72,
+          "methods": [
+            "send",
+            "send_immediate",
+            "is_closed"
+          ],
+          "properties": [
+            "tx",
+            "permits",
+            "max_chunk_permits"
+          ]
+        },
+        {
+          "name": "Receiver",
+          "startLine": 135,
+          "endLine": 138,
+          "methods": [
+            "recv"
+          ],
+          "properties": [
+            "rx",
+            "permits"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PermitValue",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "TxnMsgWithPermits",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "txn_channel",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "Permits",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "add_permits",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "Sender",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "send",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "send_immediate",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "is_closed",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "Receiver",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "recv",
+          "line": 144,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "txn_channel",
+          "callee": "mpsc::unbounded_channel",
+          "lineNumber": 32
+        },
+        {
+          "caller": "txn_channel",
+          "callee": "Semaphore::new",
+          "lineNumber": 34
+        },
+        {
+          "caller": "txn_channel",
+          "callee": "Arc::new",
+          "lineNumber": 35
+        },
+        {
+          "caller": "txn_channel",
+          "callee": "permits.clone",
+          "lineNumber": 40
+        },
+        {
+          "caller": "add_permits",
+          "callee": "self.records.add_permits",
+          "lineNumber": 59
+        },
+        {
+          "caller": "send",
+          "callee": "c.cardinality().clamp",
+          "lineNumber": 87
+        },
+        {
+          "caller": "send",
+          "callee": "c.cardinality",
+          "lineNumber": 87
+        },
+        {
+          "caller": "send",
+          "callee": "self.permits\n                    .records\n                    .acquire_many(card as _)\n                    .await\n                    .unwrap().forget",
+          "lineNumber": 94
+        },
+        {
+          "caller": "send",
+          "callee": "self.permits\n                    .records\n                    .acquire_many(card as _)\n                    .await.unwrap",
+          "lineNumber": 94
+        },
+        {
+          "caller": "send",
+          "callee": "self.permits\n                    .records.acquire_many",
+          "lineNumber": 94
+        },
+        {
+          "caller": "send",
+          "callee": "Some",
+          "lineNumber": 100
+        },
+        {
+          "caller": "send",
+          "callee": "PermitValue",
+          "lineNumber": 100
+        },
+        {
+          "caller": "send",
+          "callee": "self.tx\n            .send(TxnMsgWithPermits {\n                txn_msg,\n                notificator,\n                permit_value: permits,\n            }).map_err",
+          "lineNumber": 105
+        },
+        {
+          "caller": "send",
+          "callee": "self.tx.send",
+          "lineNumber": 105
+        },
+        {
+          "caller": "send",
+          "callee": "mpsc::error::SendError",
+          "lineNumber": 111
+        },
+        {
+          "caller": "send_immediate",
+          "callee": "self.send(txn_msg, notificator)\n            .now_or_never().expect",
+          "lineNumber": 123
+        },
+        {
+          "caller": "send_immediate",
+          "callee": "self.send(txn_msg, notificator).now_or_never",
+          "lineNumber": 123
+        },
+        {
+          "caller": "send_immediate",
+          "callee": "self.send",
+          "lineNumber": 123
+        },
+        {
+          "caller": "is_closed",
+          "callee": "self.tx.is_closed",
+          "lineNumber": 129
+        },
+        {
+          "caller": "recv",
+          "callee": "self.rx.recv",
+          "lineNumber": 149
+        },
+        {
+          "caller": "recv",
+          "callee": "self.permits.add_permits",
+          "lineNumber": 152
+        },
+        {
+          "caller": "recv",
+          "callee": "Some",
+          "lineNumber": 155
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 6,
+        "classCount": 5
+      }
+    }
+  ]
+}

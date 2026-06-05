@@ -1,0 +1,269 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/clickhouse-sink/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 36,
+      "nonEmptyLines": 23,
+      "sections": [
+        {
+          "heading": "Demo: Sinking to ClickHouse",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/clickhouse-sink/clickhouse_prepare.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 55,
+      "nonEmptyLines": 50,
+      "definitions": [
+        {
+          "name": "demo_test",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "event_timestamp"
+          ],
+          "startLine": 3,
+          "endLine": 8
+        },
+        {
+          "name": "ck_types",
+          "kind": "table",
+          "fields": [
+            "types_id",
+            "c_boolean",
+            "c_smallint",
+            "c_integer",
+            "c_bigint",
+            "c_decimal",
+            "c_real",
+            "c_double_precision",
+            "c_varchar",
+            "c_date",
+            "c_timestamptz",
+            "c_boolean_array",
+            "c_smallint_array",
+            "c_integer_array",
+            "c_bigint_array",
+            "c_decimal_array",
+            "c_real_array",
+            "c_double_precision_array",
+            "c_varchar_array",
+            "c_date_array",
+            "c_timestamptz_array",
+            "c_struct",
+            "s_boolean",
+            "c_jsonb"
+          ],
+          "startLine": 10,
+          "endLine": 35
+        },
+        {
+          "name": "demo_test_null",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "event_timestamp",
+            "target_id",
+            "event_timestamp"
+          ],
+          "startLine": 37,
+          "endLine": 48
+        },
+        {
+          "name": "demo_test_target_null",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "event_timestamp"
+          ],
+          "startLine": 43,
+          "endLine": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/clickhouse-sink/create_mv.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/clickhouse-sink/create_sink.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 40,
+      "nonEmptyLines": 37,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/clickhouse-sink/create_source.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 51,
+      "nonEmptyLines": 47,
+      "definitions": [
+        {
+          "name": "user_behaviors",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "target_type",
+            "event_timestamp",
+            "behavior_type",
+            "parent_target_type",
+            "parent_target_id",
+            "c_boolean",
+            "c_smallint",
+            "c_integer",
+            "c_bigint",
+            "c_decimal",
+            "c_real",
+            "c_double_precision",
+            "c_varchar",
+            "c_date",
+            "c_timestamptz",
+            "c_boolean_array",
+            "c_smallint_array",
+            "c_integer_array",
+            "c_bigint_array",
+            "c_decimal_array",
+            "c_real_array",
+            "c_double_precision_array",
+            "c_varchar_array",
+            "c_date_array",
+            "c_timestamptz_array",
+            "c_struct",
+            "s_boolean",
+            "c_jsonb"
+          ],
+          "startLine": 1,
+          "endLine": 45
+        },
+        {
+          "name": "ck_types",
+          "kind": "table",
+          "fields": [
+            "types_id",
+            "c_boolean",
+            "c_smallint",
+            "c_integer",
+            "c_bigint",
+            "c_decimal",
+            "c_real",
+            "c_double_precision",
+            "c_varchar",
+            "c_date",
+            "c_timestamptz",
+            "c_boolean_array",
+            "c_smallint_array",
+            "c_integer_array",
+            "c_bigint_array",
+            "c_decimal_array",
+            "c_real_array",
+            "c_double_precision_array",
+            "c_varchar_array",
+            "c_date_array",
+            "c_timestamptz_array",
+            "c_struct",
+            "s_boolean",
+            "c_jsonb"
+          ],
+          "startLine": 20,
+          "endLine": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/clickhouse-sink/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 51,
+      "nonEmptyLines": 51,
+      "sections": [
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 38
+        },
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/clickhouse-sink/prepare.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 6,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

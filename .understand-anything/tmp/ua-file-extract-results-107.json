@@ -1,0 +1,884 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "lints/src/format_error.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 291,
+      "nonEmptyLines": 260,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 67,
+          "endLine": 69,
+          "params": [
+            "format_args"
+          ]
+        },
+        {
+          "name": "match_function_call",
+          "startLine": 86,
+          "endLine": 100,
+          "params": [
+            "cx",
+            "expr",
+            "path_lookup"
+          ]
+        },
+        {
+          "name": "check_expr",
+          "startLine": 103,
+          "endLine": 161,
+          "params": [
+            "cx",
+            "expr"
+          ]
+        },
+        {
+          "name": "check_fmt_arg",
+          "startLine": 164,
+          "endLine": 170,
+          "params": [
+            "cx",
+            "arg_expr"
+          ]
+        },
+        {
+          "name": "check_fmt_arg_in_tracing_event",
+          "startLine": 172,
+          "endLine": 180,
+          "params": [
+            "cx",
+            "arg_expr"
+          ]
+        },
+        {
+          "name": "check_fmt_arg_in_anyhow_error",
+          "startLine": 182,
+          "endLine": 192,
+          "params": [
+            "cx",
+            "arg_expr"
+          ]
+        },
+        {
+          "name": "check_fmt_arg_in_anyhow_context",
+          "startLine": 194,
+          "endLine": 207,
+          "params": [
+            "cx",
+            "arg_expr"
+          ]
+        },
+        {
+          "name": "check_fmt_arg_with_help",
+          "startLine": 209,
+          "endLine": 211,
+          "params": [
+            "cx",
+            "arg_expr",
+            "help"
+          ]
+        },
+        {
+          "name": "check_to_string_call",
+          "startLine": 213,
+          "endLine": 220,
+          "params": [
+            "cx",
+            "receiver",
+            "to_string_span"
+          ]
+        },
+        {
+          "name": "check_arg",
+          "startLine": 222,
+          "endLine": 256,
+          "params": [
+            "cx",
+            "arg_expr",
+            "span",
+            "help"
+          ]
+        },
+        {
+          "name": "normal_help",
+          "startLine": 269,
+          "endLine": 271,
+          "params": []
+        },
+        {
+          "name": "normal_help",
+          "startLine": 275,
+          "endLine": 277,
+          "params": []
+        },
+        {
+          "name": "anyhow_help",
+          "startLine": 279,
+          "endLine": 281,
+          "params": []
+        },
+        {
+          "name": "report_help",
+          "startLine": 283,
+          "endLine": 285,
+          "params": []
+        },
+        {
+          "name": "ui",
+          "startLine": 289,
+          "endLine": 291,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "FormatError",
+          "startLine": 62,
+          "endLine": 64,
+          "methods": [
+            "new",
+            "check_expr"
+          ],
+          "properties": [
+            "format_args"
+          ]
+        },
+        {
+          "name": "Help",
+          "startLine": 258,
+          "endLine": 266,
+          "methods": [
+            "normal_help",
+            "anyhow_help",
+            "report_help"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FormatError",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 67,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "match_function_call",
+          "callee": "cx.qpath_res(&qpath, path_expr.hir_id).opt_def_id",
+          "lineNumber": 93
+        },
+        {
+          "caller": "match_function_call",
+          "callee": "cx.qpath_res",
+          "lineNumber": 93
+        },
+        {
+          "caller": "match_function_call",
+          "callee": "path_lookup.matches",
+          "lineNumber": 94
+        },
+        {
+          "caller": "match_function_call",
+          "callee": "Some",
+          "lineNumber": 96
+        },
+        {
+          "caller": "check_expr",
+          "callee": "is_in_cfg_test",
+          "lineNumber": 105
+        },
+        {
+          "caller": "check_expr",
+          "callee": "is_in_test_function",
+          "lineNumber": 105
+        },
+        {
+          "caller": "check_expr",
+          "callee": "match_function_call(cx, expr, &TRACING_FIELD_DEBUG).or_else",
+          "lineNumber": 110
+        },
+        {
+          "caller": "check_expr",
+          "callee": "match_function_call",
+          "lineNumber": 110
+        },
+        {
+          "caller": "check_expr",
+          "callee": "match_function_call",
+          "lineNumber": 111
+        },
+        {
+          "caller": "check_expr",
+          "callee": "check_fmt_arg_in_tracing_event",
+          "lineNumber": 114
+        },
+        {
+          "caller": "check_expr",
+          "callee": "macro_backtrace(expr.span).any",
+          "lineNumber": 118
+        },
+        {
+          "caller": "check_expr",
+          "callee": "macro_backtrace",
+          "lineNumber": 118
+        },
+        {
+          "caller": "check_expr",
+          "callee": "TRACING_EVENT.matches",
+          "lineNumber": 119
+        },
+        {
+          "caller": "check_expr",
+          "callee": "macro_backtrace(expr.span).any",
+          "lineNumber": 120
+        },
+        {
+          "caller": "check_expr",
+          "callee": "macro_backtrace",
+          "lineNumber": 120
+        },
+        {
+          "caller": "check_expr",
+          "callee": "ANYHOW_ANYHOW.matches",
+          "lineNumber": 121
+        },
+        {
+          "caller": "check_expr",
+          "callee": "macro_backtrace(expr.span).any",
+          "lineNumber": 122
+        },
+        {
+          "caller": "check_expr",
+          "callee": "macro_backtrace",
+          "lineNumber": 122
+        },
+        {
+          "caller": "check_expr",
+          "callee": "THISERROR_IMPL_ERROR.matches",
+          "lineNumber": 123
+        },
+        {
+          "caller": "check_expr",
+          "callee": "macro_backtrace",
+          "lineNumber": 125
+        },
+        {
+          "caller": "check_expr",
+          "callee": "is_format_macro",
+          "lineNumber": 126
+        },
+        {
+          "caller": "check_expr",
+          "callee": "self.format_args.get",
+          "lineNumber": 127
+        },
+        {
+          "caller": "check_expr",
+          "callee": "format_args.arguments.all_args().get",
+          "lineNumber": 132
+        },
+        {
+          "caller": "check_expr",
+          "callee": "format_args.arguments.all_args",
+          "lineNumber": 132
+        },
+        {
+          "caller": "check_expr",
+          "callee": "find_format_arg_expr",
+          "lineNumber": 133
+        },
+        {
+          "caller": "check_expr",
+          "callee": "check_fmt_arg_in_tracing_event",
+          "lineNumber": 136
+        },
+        {
+          "caller": "check_expr",
+          "callee": "format_args.template.len",
+          "lineNumber": 138
+        },
+        {
+          "caller": "check_expr",
+          "callee": "check_fmt_arg_in_anyhow_error",
+          "lineNumber": 139
+        },
+        {
+          "caller": "check_expr",
+          "callee": "check_fmt_arg_in_anyhow_context",
+          "lineNumber": 141
+        },
+        {
+          "caller": "check_expr",
+          "callee": "check_fmt_arg",
+          "lineNumber": 148
+        },
+        {
+          "caller": "check_expr",
+          "callee": "is_trait_method",
+          "lineNumber": 157
+        },
+        {
+          "caller": "check_expr",
+          "callee": "check_to_string_call",
+          "lineNumber": 159
+        },
+        {
+          "caller": "check_fmt_arg",
+          "callee": "check_fmt_arg_with_help",
+          "lineNumber": 165
+        },
+        {
+          "caller": "check_fmt_arg_in_tracing_event",
+          "callee": "check_fmt_arg_with_help",
+          "lineNumber": 174
+        },
+        {
+          "caller": "check_fmt_arg_in_anyhow_error",
+          "callee": "check_fmt_arg_with_help",
+          "lineNumber": 183
+        },
+        {
+          "caller": "check_fmt_arg_in_anyhow_context",
+          "callee": "check_fmt_arg_with_help",
+          "lineNumber": 195
+        },
+        {
+          "caller": "check_fmt_arg_with_help",
+          "callee": "check_arg",
+          "lineNumber": 210
+        },
+        {
+          "caller": "check_to_string_call",
+          "callee": "check_arg",
+          "lineNumber": 214
+        },
+        {
+          "caller": "check_arg",
+          "callee": "cx.tcx.get_diagnostic_item",
+          "lineNumber": 223
+        },
+        {
+          "caller": "check_arg",
+          "callee": "cx.typeck_results().expr_ty(arg_expr).peel_refs",
+          "lineNumber": 227
+        },
+        {
+          "caller": "check_arg",
+          "callee": "cx.typeck_results().expr_ty",
+          "lineNumber": 227
+        },
+        {
+          "caller": "check_arg",
+          "callee": "cx.typeck_results",
+          "lineNumber": 227
+        },
+        {
+          "caller": "check_arg",
+          "callee": "implements_trait",
+          "lineNumber": 229
+        },
+        {
+          "caller": "check_arg",
+          "callee": "help.normal_help",
+          "lineNumber": 230
+        },
+        {
+          "caller": "check_arg",
+          "callee": "ANYHOW_ERROR.matches_ty",
+          "lineNumber": 231
+        },
+        {
+          "caller": "check_arg",
+          "callee": "help.anyhow_help",
+          "lineNumber": 232
+        },
+        {
+          "caller": "check_arg",
+          "callee": "THISERROR_EXT_REPORT_REPORT.matches_ty",
+          "lineNumber": 233
+        },
+        {
+          "caller": "check_arg",
+          "callee": "help.report_help",
+          "lineNumber": 234
+        },
+        {
+          "caller": "check_arg",
+          "callee": "core::iter::successors(Some(span), |s| s.parent_callsite()).find",
+          "lineNumber": 243
+        },
+        {
+          "caller": "check_arg",
+          "callee": "core::iter::successors",
+          "lineNumber": 243
+        },
+        {
+          "caller": "check_arg",
+          "callee": "Some",
+          "lineNumber": 243
+        },
+        {
+          "caller": "check_arg",
+          "callee": "s.parent_callsite",
+          "lineNumber": 243
+        },
+        {
+          "caller": "check_arg",
+          "callee": "s.can_be_used_for_suggestions",
+          "lineNumber": 244
+        },
+        {
+          "caller": "check_arg",
+          "callee": "span_lint_and_help",
+          "lineNumber": 247
+        },
+        {
+          "caller": "anyhow_help",
+          "callee": "self.normal_help",
+          "lineNumber": 261
+        },
+        {
+          "caller": "report_help",
+          "callee": "Some",
+          "lineNumber": 284
+        },
+        {
+          "caller": "ui",
+          "callee": "dylint_testing::ui_test_example",
+          "lineNumber": 290
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 15,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "lints/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 76,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "register_lints",
+          "startLine": 34,
+          "endLine": 60,
+          "params": [
+            "_sess",
+            "lint_store"
+          ]
+        },
+        {
+          "name": "register_group",
+          "startLine": 62,
+          "endLine": 76,
+          "params": [
+            "lint_store",
+            "name",
+            "filter_predicate"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "register_lints",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "register_lints",
+          "callee": "clippy_utils::macros::FormatArgsStorage::default",
+          "lineNumber": 38
+        },
+        {
+          "caller": "register_lints",
+          "callee": "format_args_storage.clone",
+          "lineNumber": 39
+        },
+        {
+          "caller": "register_lints",
+          "callee": "lint_store.register_early_pass",
+          "lineNumber": 40
+        },
+        {
+          "caller": "register_lints",
+          "callee": "Box::new",
+          "lineNumber": 41
+        },
+        {
+          "caller": "register_lints",
+          "callee": "utils::format_args_collector::FormatArgsCollector::new",
+          "lineNumber": 41
+        },
+        {
+          "caller": "register_lints",
+          "callee": "format_args.clone",
+          "lineNumber": 42
+        },
+        {
+          "caller": "register_lints",
+          "callee": "lint_store.register_lints",
+          "lineNumber": 47
+        },
+        {
+          "caller": "register_lints",
+          "callee": "format_args_storage.clone",
+          "lineNumber": 48
+        },
+        {
+          "caller": "register_lints",
+          "callee": "lint_store.register_late_pass",
+          "lineNumber": 49
+        },
+        {
+          "caller": "register_lints",
+          "callee": "Box::new",
+          "lineNumber": 50
+        },
+        {
+          "caller": "register_lints",
+          "callee": "format_error::FormatError::new",
+          "lineNumber": 50
+        },
+        {
+          "caller": "register_lints",
+          "callee": "format_args.clone",
+          "lineNumber": 50
+        },
+        {
+          "caller": "register_lints",
+          "callee": "register_group",
+          "lineNumber": 56
+        },
+        {
+          "caller": "register_lints",
+          "callee": "register_group",
+          "lineNumber": 57
+        },
+        {
+          "caller": "register_group",
+          "callee": "lint_store\n        .get_lints()\n        .iter()\n        .filter(|l| l.name.starts_with(\"rw::\"))\n        .filter(|l| filter_predicate(l))\n        .map(|l| rustc_lint::LintId::of(l)).collect",
+          "lineNumber": 67
+        },
+        {
+          "caller": "register_group",
+          "callee": "lint_store\n        .get_lints()\n        .iter()\n        .filter(|l| l.name.starts_with(\"rw::\"))\n        .filter(|l| filter_predicate(l)).map",
+          "lineNumber": 67
+        },
+        {
+          "caller": "register_group",
+          "callee": "lint_store\n        .get_lints()\n        .iter()\n        .filter(|l| l.name.starts_with(\"rw::\")).filter",
+          "lineNumber": 67
+        },
+        {
+          "caller": "register_group",
+          "callee": "lint_store\n        .get_lints()\n        .iter().filter",
+          "lineNumber": 67
+        },
+        {
+          "caller": "register_group",
+          "callee": "lint_store\n        .get_lints().iter",
+          "lineNumber": 67
+        },
+        {
+          "caller": "register_group",
+          "callee": "lint_store.get_lints",
+          "lineNumber": 67
+        },
+        {
+          "caller": "register_group",
+          "callee": "l.name.starts_with",
+          "lineNumber": 70
+        },
+        {
+          "caller": "register_group",
+          "callee": "filter_predicate",
+          "lineNumber": 71
+        },
+        {
+          "caller": "register_group",
+          "callee": "rustc_lint::LintId::of",
+          "lineNumber": 72
+        },
+        {
+          "caller": "register_group",
+          "callee": "lint_store.register_group",
+          "lineNumber": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lints/src/utils/format_args_collector.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 132,
+      "nonEmptyLines": 116,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 37,
+          "endLine": 42,
+          "params": [
+            "storage"
+          ]
+        },
+        {
+          "name": "check_expr",
+          "startLine": 48,
+          "endLine": 57,
+          "params": [
+            "cx",
+            "expr"
+          ]
+        },
+        {
+          "name": "check_crate_post",
+          "startLine": 59,
+          "endLine": 61,
+          "params": [
+            "_",
+            "_"
+          ]
+        },
+        {
+          "name": "has_span_from_proc_macro",
+          "startLine": 83,
+          "endLine": 132,
+          "params": [
+            "cx",
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FormatArgsCollector",
+          "startLine": 31,
+          "endLine": 34,
+          "methods": [
+            "new",
+            "check_expr",
+            "check_crate_post"
+          ],
+          "properties": [
+            "format_args",
+            "storage"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FormatArgsCollector",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "FxHashMap::default",
+          "lineNumber": 39
+        },
+        {
+          "caller": "check_expr",
+          "callee": "has_span_from_proc_macro",
+          "lineNumber": 50
+        },
+        {
+          "caller": "check_expr",
+          "callee": "self.format_args.insert",
+          "lineNumber": 54
+        },
+        {
+          "caller": "check_expr",
+          "callee": "expr.span.with_parent",
+          "lineNumber": 55
+        },
+        {
+          "caller": "check_expr",
+          "callee": "(**args).clone",
+          "lineNumber": 55
+        },
+        {
+          "caller": "check_crate_post",
+          "callee": "self.storage.set",
+          "lineNumber": 60
+        },
+        {
+          "caller": "check_crate_post",
+          "callee": "mem::take",
+          "lineNumber": 60
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "args.span.ctxt",
+          "lineNumber": 84
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "args\n        .arguments\n        .explicit_args()\n        .iter().map",
+          "lineNumber": 88
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "args\n        .arguments\n        .explicit_args().iter",
+          "lineNumber": 88
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "args\n        .arguments.explicit_args",
+          "lineNumber": 88
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "hygiene::walk_chain",
+          "lineNumber": 92
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "once(args.span)\n        .chain(argument_span)\n        .tuple_windows().map",
+          "lineNumber": 96
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "once(args.span)\n        .chain(argument_span).tuple_windows",
+          "lineNumber": 96
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "once(args.span).chain",
+          "lineNumber": 96
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "once",
+          "lineNumber": 96
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "start.between",
+          "lineNumber": 99
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "snippet_opt",
+          "lineNumber": 104
+        },
+        {
+          "caller": "has_span_from_proc_macro",
+          "callee": "tokenize",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "lints/src/utils/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 15,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lints/src/utils/path.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "path",
+          "startLine": 18,
+          "endLine": 22,
+          "params": [
+            "ns",
+            "path"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "path",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "path",
+          "callee": "path.split(\"::\").map(Symbol::intern).collect::<Vec<_>>",
+          "lineNumber": 19
+        },
+        {
+          "caller": "path",
+          "callee": "path.split(\"::\").map",
+          "lineNumber": 19
+        },
+        {
+          "caller": "path",
+          "callee": "path.split",
+          "lineNumber": 19
+        },
+        {
+          "caller": "path",
+          "callee": "Box::leak",
+          "lineNumber": 20
+        },
+        {
+          "caller": "path",
+          "callee": "paths.into_boxed_slice",
+          "lineNumber": 20
+        },
+        {
+          "caller": "path",
+          "callee": "PathLookup::new",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

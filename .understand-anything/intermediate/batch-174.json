@@ -1,0 +1,190 @@
+{
+  "nodes": [
+    {
+      "id": "table:e2e_test/source_legacy/cdc/mysql_cdc.sql",
+      "type": "table",
+      "name": "mysql_cdc.sql",
+      "filePath": "e2e_test/source_legacy/cdc/mysql_cdc.sql",
+      "summary": "RisingWave CDC source and materialized view definitions for MySQL CDC legacy e2e tests, referencing products, orders, mytable, and tt3 CDC sources.",
+      "tags": ["database", "test", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:e2e_test/source_legacy/cdc/mysql_cdc_insert.sql",
+      "type": "file",
+      "name": "mysql_cdc_insert.sql",
+      "filePath": "e2e_test/source_legacy/cdc/mysql_cdc_insert.sql",
+      "summary": "INSERT statements for MySQL CDC legacy e2e tests, populating source tables with test data.",
+      "tags": ["test", "database", "data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:e2e_test/source_legacy/cdc/mysql_create.sql",
+      "type": "table",
+      "name": "mysql_create.sql",
+      "filePath": "e2e_test/source_legacy/cdc/mysql_create.sql",
+      "summary": "Creates MySQL source tables (products, orders, mytable, tt3, mysql_all_types, test_my_default_value) for CDC legacy e2e tests with comprehensive type coverage.",
+      "tags": ["database", "test", "migration", "schema-definition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:e2e_test/source_legacy/cdc/mysql_create.sql:products",
+      "type": "table",
+      "name": "products",
+      "filePath": "e2e_test/source_legacy/cdc/mysql_create.sql",
+      "lineRange": [1, 20],
+      "summary": "MySQL products table used as a CDC source with product details and order metadata.",
+      "tags": ["database", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:e2e_test/source_legacy/cdc/mysql_create.sql:orders",
+      "type": "table",
+      "name": "orders",
+      "filePath": "e2e_test/source_legacy/cdc/mysql_create.sql",
+      "lineRange": [7, 20],
+      "summary": "MySQL orders table for CDC legacy testing with order status and pricing fields.",
+      "tags": ["database", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:e2e_test/source_legacy/cdc/mysql_create.sql:mysql_all_types",
+      "type": "table",
+      "name": "mysql_all_types",
+      "filePath": "e2e_test/source_legacy/cdc/mysql_create.sql",
+      "lineRange": [28, 48],
+      "summary": "Comprehensive MySQL type coverage table (boolean, bit, int variants, decimal, float, char, binary, date/time types) for CDC type-mapping validation.",
+      "tags": ["database", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:e2e_test/source_legacy/cdc/mysql_init_data.sql",
+      "type": "file",
+      "name": "mysql_init_data.sql",
+      "filePath": "e2e_test/source_legacy/cdc/mysql_init_data.sql",
+      "summary": "Initial data population SQL for MySQL CDC legacy tests, inserting seed rows into source tables.",
+      "tags": ["test", "database", "data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql",
+      "type": "table",
+      "name": "postgres_cdc.sql",
+      "filePath": "e2e_test/source_legacy/cdc/postgres_cdc.sql",
+      "summary": "RisingWave CDC source definitions and materialized views for PostgreSQL CDC legacy e2e tests, covering shipments, person, all-types, partitioned tables, enum types, and JSON columns.",
+      "tags": ["database", "test", "migration", "schema-definition"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql:shipments",
+      "type": "table",
+      "name": "shipments",
+      "filePath": "e2e_test/source_legacy/cdc/postgres_cdc.sql",
+      "lineRange": [3, 9],
+      "summary": "PostgreSQL shipments table with shipment tracking fields for CDC source testing.",
+      "tags": ["database", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql:postgres_all_types",
+      "type": "table",
+      "name": "postgres_all_types",
+      "filePath": "e2e_test/source_legacy/cdc/postgres_cdc.sql",
+      "lineRange": [89, 125],
+      "summary": "Comprehensive PostgreSQL type coverage table including arrays of all basic types, UUID, enum, and JSONB for CDC type-mapping validation.",
+      "tags": ["database", "test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql:partitioned_timestamp_table",
+      "type": "table",
+      "name": "partitioned_timestamp_table",
+      "filePath": "e2e_test/source_legacy/cdc/postgres_cdc.sql",
+      "lineRange": [165, 170],
+      "summary": "Range-partitioned PostgreSQL table by timestamp, with sub-partitions for 2023–2025, testing CDC on partitioned tables.",
+      "tags": ["database", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:e2e_test/source_legacy/cdc/postgres_cdc_insert.sql",
+      "type": "file",
+      "name": "postgres_cdc_insert.sql",
+      "filePath": "e2e_test/source_legacy/cdc/postgres_cdc_insert.sql",
+      "summary": "INSERT and UPDATE statements for PostgreSQL CDC legacy e2e tests, providing DML change events for CDC capture.",
+      "tags": ["test", "database", "data"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "table:e2e_test/source_legacy/cdc/mysql_create.sql",
+      "target": "table:e2e_test/source_legacy/cdc/mysql_create.sql:products",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:e2e_test/source_legacy/cdc/mysql_create.sql",
+      "target": "table:e2e_test/source_legacy/cdc/mysql_create.sql:orders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:e2e_test/source_legacy/cdc/mysql_create.sql",
+      "target": "table:e2e_test/source_legacy/cdc/mysql_create.sql:mysql_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql",
+      "target": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql:shipments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql",
+      "target": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql:postgres_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql",
+      "target": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql:partitioned_timestamp_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:e2e_test/source_legacy/cdc/mysql_create.sql",
+      "target": "file:e2e_test/source_legacy/cdc/mysql_init_data.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "table:e2e_test/source_legacy/cdc/mysql_create.sql",
+      "target": "file:e2e_test/source_legacy/cdc/mysql_cdc_insert.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "table:e2e_test/source_legacy/cdc/mysql_create.sql",
+      "target": "table:e2e_test/source_legacy/cdc/mysql_cdc.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "table:e2e_test/source_legacy/cdc/postgres_cdc.sql",
+      "target": "file:e2e_test/source_legacy/cdc/postgres_cdc_insert.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

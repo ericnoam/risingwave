@@ -1,0 +1,163 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/client-library/python/client.py",
+      "type": "file",
+      "name": "client.py",
+      "filePath": "integration_tests/client-library/python/client.py",
+      "summary": "Provides a Client class wrapping psycopg2 to connect to RisingWave and execute queries for the Python client integration test suite.",
+      "tags": ["client", "integration-test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/client-library/python/crud.py",
+      "type": "file",
+      "name": "crud.py",
+      "filePath": "integration_tests/client-library/python/crud.py",
+      "summary": "Implements CRUD operations for the sample integration test table via SampleTableCrud, covering table creation, row insertion, lookup, update, and deletion.",
+      "tags": ["crud", "integration-test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/client-library/python/materializeview.py",
+      "type": "file",
+      "name": "materializeview.py",
+      "filePath": "integration_tests/client-library/python/materializeview.py",
+      "summary": "Provides the MaterializeView class to create and query materialized views in RisingWave, used in the Python client integration tests.",
+      "tags": ["integration-test", "materialized-view", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/client-library/python/test_database.py",
+      "type": "file",
+      "name": "test_database.py",
+      "filePath": "integration_tests/client-library/python/test_database.py",
+      "summary": "Integration test suite verifying connectivity, table CRUD, materialized view creation, and subscription operations against a running RisingWave instance using the Python psycopg2 client.",
+      "tags": ["test", "integration-test", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:integration_tests/client-library/python/client.py:Client",
+      "type": "class",
+      "name": "Client",
+      "filePath": "integration_tests/client-library/python/client.py",
+      "lineRange": [1, 40],
+      "summary": "Thin wrapper around a psycopg2 connection providing execute and fetch helpers for RisingWave integration tests.",
+      "tags": ["client", "database", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:integration_tests/client-library/python/crud.py:SampleTableCrud",
+      "type": "class",
+      "name": "SampleTableCrud",
+      "filePath": "integration_tests/client-library/python/crud.py",
+      "lineRange": [1, 80],
+      "summary": "Encapsulates parameterized SQL operations (create, drop, insert, select, update, delete) on the sample test table for the Python client integration test.",
+      "tags": ["crud", "database", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:integration_tests/client-library/python/materializeview.py:MaterializeView",
+      "type": "class",
+      "name": "MaterializeView",
+      "filePath": "integration_tests/client-library/python/materializeview.py",
+      "lineRange": [1, 40],
+      "summary": "Manages lifecycle (create, drop, query) for a materialized view over the sample CRUD table in RisingWave integration tests.",
+      "tags": ["materialized-view", "database", "test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/client-library/python/crud.py",
+      "target": "file:integration_tests/client-library/python/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/python/materializeview.py",
+      "target": "file:integration_tests/client-library/python/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/python/materializeview.py",
+      "target": "file:integration_tests/client-library/python/crud.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/python/test_database.py",
+      "target": "file:integration_tests/client-library/python/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/python/test_database.py",
+      "target": "file:integration_tests/client-library/python/crud.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/python/test_database.py",
+      "target": "file:integration_tests/client-library/python/materializeview.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/python/client.py",
+      "target": "class:integration_tests/client-library/python/client.py:Client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/python/client.py",
+      "target": "class:integration_tests/client-library/python/client.py:Client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/client-library/python/crud.py",
+      "target": "class:integration_tests/client-library/python/crud.py:SampleTableCrud",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/python/crud.py",
+      "target": "class:integration_tests/client-library/python/crud.py:SampleTableCrud",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/client-library/python/materializeview.py",
+      "target": "class:integration_tests/client-library/python/materializeview.py:MaterializeView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/python/materializeview.py",
+      "target": "class:integration_tests/client-library/python/materializeview.py:MaterializeView",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/client-library/python/test_database.py",
+      "target": "file:integration_tests/client-library/python/crud.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

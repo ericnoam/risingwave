@@ -1,0 +1,89 @@
+{
+  "nodes": [
+    {
+      "id": "table:integration_tests/prometheus/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/prometheus/create_source.sql",
+      "summary": "Defines the RisingWave source for ingesting Prometheus metrics data, specifying the schema and connector properties for the integration test.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/prometheus/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/prometheus/create_mv.sql",
+      "summary": "Creates materialized views over the Prometheus source to aggregate or transform metrics data for downstream querying in the integration test.",
+      "tags": ["database", "integration-test", "materialized-view"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/prometheus/create_user.sql",
+      "type": "table",
+      "name": "create_user.sql",
+      "filePath": "integration_tests/prometheus/create_user.sql",
+      "summary": "Creates a RisingWave user with the necessary permissions for the Prometheus integration test environment.",
+      "tags": ["database", "integration-test", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/prometheus/query.sql",
+      "type": "table",
+      "name": "query.sql",
+      "filePath": "integration_tests/prometheus/query.sql",
+      "summary": "Verification queries against the Prometheus materialized views, used to validate that data flows correctly in the integration test.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/prometheus/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/prometheus/docker-compose.yml",
+      "summary": "Docker Compose file orchestrating RisingWave, Prometheus, and related services for the Prometheus metrics integration test environment.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:integration_tests/prometheus/prometheus.yaml",
+      "type": "config",
+      "name": "prometheus.yaml",
+      "filePath": "integration_tests/prometheus/prometheus.yaml",
+      "summary": "Prometheus configuration defining global scrape intervals, scrape job targets, and remote_write endpoints for forwarding metrics to RisingWave.",
+      "tags": ["configuration", "monitoring", "integration-test"],
+      "complexity": "simple",
+      "languageNotes": "Includes remote_write section routing scraped metrics into RisingWave as the sink."
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:integration_tests/prometheus/docker-compose.yml",
+      "target": "config:integration_tests/prometheus/prometheus.yaml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/prometheus/docker-compose.yml",
+      "target": "table:integration_tests/prometheus/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/prometheus/docker-compose.yml",
+      "target": "table:integration_tests/prometheus/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/prometheus/docker-compose.yml",
+      "target": "table:integration_tests/prometheus/query.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

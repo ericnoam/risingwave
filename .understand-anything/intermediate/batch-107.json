@@ -1,0 +1,226 @@
+{
+  "nodes": [
+    {
+      "id": "file:lints/src/format_error.rs",
+      "type": "file",
+      "name": "format_error.rs",
+      "filePath": "lints/src/format_error.rs",
+      "summary": "Implements the `FormatError` Dylint lint that detects improper use of `Display`-formatted errors inside tracing events, anyhow errors, and format macros, suggesting use of `%` or `?` specifiers instead.",
+      "tags": ["utility", "validation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:lints/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "lints/src/lib.rs",
+      "summary": "Root library for the RisingWave custom Dylint lints, registering the `FormatError` late pass and grouping all lints under `rw::` namespaced lint groups.",
+      "tags": ["entry-point", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lints/src/utils/format_args_collector.rs",
+      "type": "file",
+      "name": "format_args_collector.rs",
+      "filePath": "lints/src/utils/format_args_collector.rs",
+      "summary": "Implements `FormatArgsCollector`, an early pass lint that collects and stores all format_args expressions, allowing the late `FormatError` pass to inspect them by span.",
+      "tags": ["utility", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lints/src/utils/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "lints/src/utils/mod.rs",
+      "summary": "Module barrel for lint utilities, re-exporting `format_args_collector` and `path` submodules.",
+      "tags": ["barrel", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lints/src/utils/path.rs",
+      "type": "file",
+      "name": "path.rs",
+      "filePath": "lints/src/utils/path.rs",
+      "summary": "Provides the `path` helper function that constructs a `PathLookup` from a `::` delimited path string for use in Dylint lint matchers.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:lints/src/format_error.rs:FormatError",
+      "type": "class",
+      "name": "FormatError",
+      "filePath": "lints/src/format_error.rs",
+      "lineRange": [62, 64],
+      "summary": "Dylint lint struct that holds a reference to the shared `FormatArgsStorage` and implements the `LateLintPass` to check format macro argument expressions.",
+      "tags": ["validation", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:lints/src/format_error.rs:Help",
+      "type": "class",
+      "name": "Help",
+      "filePath": "lints/src/format_error.rs",
+      "lineRange": [258, 266],
+      "summary": "Encapsulates lint help message strategies for normal display format errors, anyhow errors, and thiserror report errors.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:lints/src/utils/format_args_collector.rs:FormatArgsCollector",
+      "type": "class",
+      "name": "FormatArgsCollector",
+      "filePath": "lints/src/utils/format_args_collector.rs",
+      "lineRange": [31, 34],
+      "summary": "Early lint pass that traverses the HIR collecting format_args expressions keyed by span for later retrieval by the late-pass `FormatError` lint.",
+      "tags": ["utility", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lints/src/format_error.rs:check_expr",
+      "type": "function",
+      "name": "check_expr",
+      "filePath": "lints/src/format_error.rs",
+      "lineRange": [103, 161],
+      "summary": "Main HIR expression visitor that identifies format macro usages, matches tracing/anyhow/thiserror contexts, and dispatches to the appropriate format argument checker.",
+      "tags": ["validation", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:lints/src/format_error.rs:check_arg",
+      "type": "function",
+      "name": "check_arg",
+      "filePath": "lints/src/format_error.rs",
+      "lineRange": [222, 256],
+      "summary": "Checks a single format argument expression: if the type implements `std::error::Error`, emits a lint warning with an appropriate help message guiding the user to use `%e` or `?e`.",
+      "tags": ["validation", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lints/src/lib.rs:register_lints",
+      "type": "function",
+      "name": "register_lints",
+      "filePath": "lints/src/lib.rs",
+      "lineRange": [34, 60],
+      "summary": "Dylint entry point that registers the FormatArgsCollector early pass and the FormatError late pass with the lint store, and registers lint groups.",
+      "tags": ["entry-point", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lints/src/utils/format_args_collector.rs:has_span_from_proc_macro",
+      "type": "function",
+      "name": "has_span_from_proc_macro",
+      "filePath": "lints/src/utils/format_args_collector.rs",
+      "lineRange": [83, 132],
+      "summary": "Determines whether any span in a format_args expression originates from a procedural macro by walking hygiene chains and comparing span contexts.",
+      "tags": ["utility"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:lints/src/format_error.rs",
+      "target": "file:lints/src/utils/path.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lints/src/lib.rs",
+      "target": "file:lints/src/format_error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lints/src/lib.rs",
+      "target": "file:lints/src/utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lints/src/utils/mod.rs",
+      "target": "file:lints/src/utils/format_args_collector.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lints/src/utils/mod.rs",
+      "target": "file:lints/src/utils/path.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lints/src/format_error.rs",
+      "target": "class:lints/src/format_error.rs:FormatError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lints/src/format_error.rs",
+      "target": "class:lints/src/format_error.rs:FormatError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lints/src/format_error.rs",
+      "target": "class:lints/src/format_error.rs:Help",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lints/src/format_error.rs",
+      "target": "function:lints/src/format_error.rs:check_expr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lints/src/format_error.rs",
+      "target": "function:lints/src/format_error.rs:check_arg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lints/src/lib.rs",
+      "target": "function:lints/src/lib.rs:register_lints",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lints/src/lib.rs",
+      "target": "function:lints/src/lib.rs:register_lints",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lints/src/utils/format_args_collector.rs",
+      "target": "class:lints/src/utils/format_args_collector.rs:FormatArgsCollector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lints/src/utils/format_args_collector.rs",
+      "target": "class:lints/src/utils/format_args_collector.rs:FormatArgsCollector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lints/src/utils/format_args_collector.rs",
+      "target": "function:lints/src/utils/format_args_collector.rs:has_span_from_proc_macro",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

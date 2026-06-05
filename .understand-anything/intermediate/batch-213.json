@@ -1,0 +1,205 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/postgres-cdc/compatibility-pg.sql",
+      "type": "file",
+      "name": "compatibility-pg.sql",
+      "filePath": "integration_tests/postgres-cdc/compatibility-pg.sql",
+      "summary": "Creates the PostgreSQL-side `postgres_all_types` table with comprehensive type coverage including arrays for CDC type compatibility testing.",
+      "tags": ["database", "schema-definition", "integration-test", "cdc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/postgres-cdc/compatibility-pg.sql:postgres_all_types",
+      "type": "table",
+      "name": "postgres_all_types",
+      "filePath": "integration_tests/postgres-cdc/compatibility-pg.sql",
+      "lineRange": [2, 34],
+      "summary": "PostgreSQL source table with boolean, integer, decimal, varchar, bytea, date/time, interval, jsonb, and array type columns for end-to-end CDC compatibility verification.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/postgres-cdc/compatibility-rw.sql",
+      "type": "file",
+      "name": "compatibility-rw.sql",
+      "filePath": "integration_tests/postgres-cdc/compatibility-rw.sql",
+      "summary": "Defines the RisingWave-side `postgres_all_types` CDC source mirroring the PostgreSQL type schema plus connection credentials for compatibility testing.",
+      "tags": ["database", "schema-definition", "integration-test", "cdc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/postgres-cdc/compatibility-rw.sql:postgres_all_types",
+      "type": "table",
+      "name": "postgres_all_types",
+      "filePath": "integration_tests/postgres-cdc/compatibility-rw.sql",
+      "lineRange": [2, 44],
+      "summary": "RisingWave CDC source table mirroring the full PostgreSQL type schema with connection credentials for end-to-end type compatibility validation.",
+      "tags": ["database", "integration-test", "cdc", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/postgres-cdc/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/postgres-cdc/create_mv.sql",
+      "summary": "Creates materialized views over PostgreSQL CDC sources to aggregate and transform streaming change data in the postgres-cdc integration test.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/postgres-cdc/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/postgres-cdc/create_source.sql",
+      "summary": "Defines RisingWave CDC source tables (`person`, `orders_rw`) and a view backed by PostgreSQL for the postgres-cdc integration test.",
+      "tags": ["database", "schema-definition", "integration-test", "cdc"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/postgres-cdc/create_source.sql:person",
+      "type": "table",
+      "name": "person",
+      "filePath": "integration_tests/postgres-cdc/create_source.sql",
+      "lineRange": [3, 20],
+      "summary": "RisingWave CDC source table for the PostgreSQL persons table with id, name, email, credit card, city, and connection credentials.",
+      "tags": ["database", "integration-test", "cdc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/postgres-cdc/create_source.sql:orders_rw",
+      "type": "table",
+      "name": "orders_rw",
+      "filePath": "integration_tests/postgres-cdc/create_source.sql",
+      "lineRange": [45, 66],
+      "summary": "RisingWave CDC source table for TPC-H orders data from PostgreSQL including order key, customer, status, price, priority, and clerk fields.",
+      "tags": ["database", "integration-test", "cdc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/postgres-cdc/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/postgres-cdc/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the postgres-cdc integration test, running PostgreSQL with logical replication enabled, Debezium Kafka Connect, Kafka, Zookeeper, and RisingWave.",
+      "tags": ["orchestration", "infrastructure", "integration-test", "cdc"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/postgres-cdc/postgres_prepare.sql",
+      "type": "file",
+      "name": "postgres_prepare.sql",
+      "filePath": "integration_tests/postgres-cdc/postgres_prepare.sql",
+      "summary": "Initializes PostgreSQL schemas and test data for the postgres-cdc integration test, including the `person` table and TPC-H data required for CDC source verification.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/postgres-cdc/postgres_prepare.sql:person",
+      "type": "table",
+      "name": "person",
+      "filePath": "integration_tests/postgres-cdc/postgres_prepare.sql",
+      "lineRange": [1, 8],
+      "summary": "PostgreSQL person table with id, name, email_address, credit_card, and city columns serving as the CDC source for persons in the integration test.",
+      "tags": ["database", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:integration_tests/postgres-cdc/postgresql-datatypes.yml",
+      "type": "config",
+      "name": "postgresql-datatypes.yml",
+      "filePath": "integration_tests/postgres-cdc/postgresql-datatypes.yml",
+      "summary": "YAML configuration enumerating PostgreSQL primary key types and data types exercised in the postgres-cdc CDC compatibility test suite.",
+      "tags": ["configuration", "integration-test", "compatibility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/postgres-cdc/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/postgres-cdc/query.sql",
+      "summary": "Verification queries for the postgres-cdc integration test that confirm CDC change events are correctly materialized in RisingWave.",
+      "tags": ["database", "query", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/postgres-cdc/compatibility-pg.sql",
+      "target": "table:integration_tests/postgres-cdc/compatibility-pg.sql:postgres_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/postgres-cdc/compatibility-rw.sql",
+      "target": "table:integration_tests/postgres-cdc/compatibility-rw.sql:postgres_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/postgres-cdc/create_source.sql",
+      "target": "table:integration_tests/postgres-cdc/create_source.sql:person",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/postgres-cdc/create_source.sql",
+      "target": "table:integration_tests/postgres-cdc/create_source.sql:orders_rw",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/postgres-cdc/postgres_prepare.sql",
+      "target": "table:integration_tests/postgres-cdc/postgres_prepare.sql:person",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/postgres-cdc/compatibility-pg.sql",
+      "target": "file:integration_tests/postgres-cdc/compatibility-rw.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/postgres-cdc/create_source.sql",
+      "target": "file:integration_tests/postgres-cdc/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/postgres-cdc/create_mv.sql",
+      "target": "file:integration_tests/postgres-cdc/query.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:integration_tests/postgres-cdc/postgresql-datatypes.yml",
+      "target": "file:integration_tests/postgres-cdc/compatibility-pg.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/postgres-cdc/postgres_prepare.sql",
+      "target": "file:integration_tests/postgres-cdc/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/postgres-cdc/docker-compose.yml",
+      "target": "file:integration_tests/postgres-cdc/postgres_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

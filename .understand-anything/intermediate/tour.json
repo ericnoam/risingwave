@@ -1,0 +1,153 @@
+[
+  {
+    "order": 1,
+    "title": "Project Overview",
+    "description": "Start with the README to understand what RisingWave is: an event streaming platform for agentic AI that replaces the traditional Debezium + Kafka + Flink + serving-DB stack with a single Postgres-compatible system. It continuously ingests data from databases, event streams, and webhooks, processes it incrementally using materialized views, and serves fresh results at low latency. This document establishes the core value proposition and architecture overview before diving into the code.",
+    "nodeIds": ["document:README.md"]
+  },
+  {
+    "order": 2,
+    "title": "Codebase Structure & Binary Entry",
+    "description": "The `src/README.md` maps every Rust crate to its responsibility, revealing how RisingWave is decomposed into frontend, stream, batch, storage, meta, connector, and utility crates. The `cmd_all` crate is the all-in-one binary entry point: its `lib.rs` re-exports three launch modes (single-node, standalone multi-process, and component-per-process), while the README explains why this unification exists for development and cloud deployments alike. Understanding this structure is the map you need for the rest of the tour.",
+    "nodeIds": [
+      "document:src/README.md",
+      "file:src/cmd_all/src/lib.rs",
+      "document:src/cmd_all/src/README.md"
+    ],
+    "languageLesson": "Rust workspaces organize large projects into multiple crates under a single `Cargo.toml`. Each crate compiles independently and can expose a `lib.rs` that acts as a barrel — re-exporting its submodules' public APIs. This pattern (seen in `cmd_all/src/lib.rs`) lets the binary crate selectively compose subsystems at compile time."
+  },
+  {
+    "order": 3,
+    "title": "Postgres Wire Protocol Gateway",
+    "description": "Before a single byte of SQL is parsed, RisingWave must speak PostgreSQL's network protocol so that any Postgres client (psql, JDBC, SQLAlchemy) can connect without modification. The `pg_server.rs` defines the `SessionManager` and `Session` traits that production query engines implement, plus the TCP/TLS accept loop. The `pg_protocol.rs` is the state machine that reads client messages, dispatches to the session handler, and writes back query results. This layer is the reason RisingWave is \"Postgres-compatible\" — it is not a dialect choice, it is a full protocol implementation.",
+    "nodeIds": [
+      "file:src/utils/pgwire/src/pg_server.rs",
+      "file:src/utils/pgwire/src/pg_protocol.rs"
+    ],
+    "languageLesson": "The PostgreSQL wire protocol uses a message-framing format where each message has a 1-byte type tag and a 4-byte length prefix. The extended query protocol separates Parse, Bind, and Execute phases, enabling prepared statements. RisingWave's `pg_protocol.rs` implements this as a Rust async state machine, handling both simple and extended query flows."
+  },
+  {
+    "order": 4,
+    "title": "SQL Parsing & Query Binding",
+    "description": "Once a SQL string arrives via the wire protocol, `src/sqlparser/src/parser.rs` converts it into an AST using a hand-written recursive descent parser — a deliberate choice that gives full control over RisingWave-specific syntax like `CREATE MATERIALIZED VIEW` and `EMIT ON WINDOW CLOSE`. The `frontend/binder/mod.rs` then resolves the AST against the catalog: table names become catalog IDs, column references gain types, and ambiguities are rejected with descriptive errors. The `handler/mod.rs` (fan-out: 89) is the dispatcher that routes each statement kind — DDL, DML, query, `EXPLAIN` — to its dedicated handler, making it a natural index of all SQL capabilities.",
+    "nodeIds": [
+      "file:src/sqlparser/src/parser.rs",
+      "file:src/frontend/src/binder/mod.rs",
+      "file:src/frontend/src/handler/mod.rs"
+    ],
+    "languageLesson": "Recursive descent parsers encode grammar rules directly as Rust functions, giving each syntax construct its own `parse_X()` method. This makes the parser easy to extend with custom SQL syntax without a grammar generator. The binder phase that follows is a semantic analysis pass — it is where type-checking and name resolution happen, distinct from syntactic parsing."
+  },
+  {
+    "order": 5,
+    "title": "Core Type System & Column Arrays",
+    "description": "Every value flowing through RisingWave — whether in a streaming message, a query result, or a state table row — is represented using the types defined in `src/common`. The `types/mod.rs` (fan-in: 61) defines the `DataType` enum and the `Datum` / `ScalarImpl` value representation, covering all Postgres-compatible types from integers and timestamps to JSON and arrays. The `array/mod.rs` provides columnar `ArrayImpl` variants that batch multiple values of the same type together for vectorized processing. These two modules form the vocabulary used by every other layer.",
+    "nodeIds": [
+      "file:src/common/src/types/mod.rs",
+      "file:src/common/src/array/mod.rs"
+    ],
+    "languageLesson": "RisingWave uses a columnar in-memory representation: instead of storing rows as structs, it groups all values of each column into a typed array (`I32Array`, `Utf8Array`, etc.). This layout improves CPU cache utilization during expression evaluation and matches the Arrow format used for Parquet/Iceberg interoperability. The `ArrayImpl` enum dispatches to the correct concrete array type at runtime."
+  },
+  {
+    "order": 6,
+    "title": "Expression Engine",
+    "description": "Built on the type system from Step 5, the expression engine evaluates scalar and aggregate functions across both streaming and batch execution paths. The `expr/impl/src/scalar/mod.rs` (fan-out: 89) is the registry of all built-in scalar functions — arithmetic, string, date/time, JSON, cryptographic, and more — each implemented as a Rust function and registered via the `#[function]` macro. This single module being a fan-out hub of 89 means nearly every function in the system routes through it, making it the central catalog of RisingWave's computational vocabulary.",
+    "nodeIds": ["file:src/expr/impl/src/scalar/mod.rs"],
+    "languageLesson": "RisingWave uses a Rust proc-macro (`#[function(\"name(type) -> return_type\")]`) to register built-in functions at compile time. The macro generates type dispatch, argument coercion, and vectorization wrappers automatically. This approach allows hundreds of functions to be added without modifying a central dispatch table — the macro handles registration."
+  },
+  {
+    "order": 7,
+    "title": "Query Optimizer: Plan Nodes & Rules",
+    "description": "After binding (Step 4), the optimizer transforms the AST into an efficient execution plan. The `optimizer/plan_node/mod.rs` (fan-in: 235, fan-out: 152) is the hub of the entire optimizer — it defines all logical, batch, and stream plan node types and is the most-imported file in the frontend crate. The `optimizer/rule/mod.rs` (fan-out: 87) registers hundreds of rewrite rules (predicate pushdown, join reordering, aggregation splitting) that transform logical plans into optimized physical plans. The optimizer outputs two plan variants: a streaming plan for `CREATE MATERIALIZED VIEW` and a batch plan for ad-hoc `SELECT` queries.",
+    "nodeIds": [
+      "file:src/frontend/src/optimizer/plan_node/mod.rs",
+      "file:src/frontend/src/optimizer/rule/mod.rs",
+      "file:src/frontend/src/optimizer/mod.rs"
+    ],
+    "languageLesson": "RisingWave's optimizer is modeled after Apache Calcite's Volcano/Cascades framework. Each plan node implements traits for both logical and physical transformation. The rule engine applies rules in a fixed order (heuristic), with some cost-based decisions for join ordering. The key insight is that streaming plans and batch plans share the same logical nodes but diverge at the physical planning stage."
+  },
+  {
+    "order": 8,
+    "title": "gRPC Protobuf Contracts",
+    "description": "RisingWave is a distributed system: the frontend, compute nodes, meta node, and compactor communicate over gRPC. The `proto/` directory defines all cross-component contracts. `stream_plan.proto` (1550 lines) encodes the full streaming execution plan — every executor type (source, filter, join, aggregate, sink) is a protobuf message. `data.proto` defines `DataChunk`, `StreamChunk`, and `Datum` — the wire format for all data flowing between nodes. `meta.proto` defines 50 RPCs on the meta service (cluster management, DDL, streaming graph control). These files are the authoritative API contract between components that may be written in different languages or deployed on different machines.",
+    "nodeIds": [
+      "schema:proto/stream_plan.proto",
+      "schema:proto/data.proto",
+      "schema:proto/meta.proto"
+    ],
+    "languageLesson": "Protobuf field numbers are permanent identifiers — they must never be reused after deletion to preserve backward compatibility. RisingWave's `src/prost` crate contains the generated Rust code from these `.proto` files. The `stream_plan.proto` oneof pattern (where a `StreamNode` contains a `oneof node_body` with all executor variants) is a classic protobuf pattern for typed unions."
+  },
+  {
+    "order": 9,
+    "title": "Stream Executors & the Actor Model",
+    "description": "The streaming execution engine is built around the actor model: each operator (filter, join, aggregate, sink) runs as an independent `Actor` that processes `StreamChunk` messages. The `executor/mod.rs` (fan-in: 113, fan-out: 62) is the hub of all executor implementations — it defines the `Executor` trait and re-exports every concrete executor type. The `from_proto/mod.rs` (fan-out: 56) deserializes the `stream_plan.proto` plan from Step 8 into live Rust executor objects, bridging the planning world and the execution world. Actors are arranged in a DAG, connected by async channels, and driven by a combination of source data and control barriers.",
+    "nodeIds": [
+      "file:src/stream/src/executor/mod.rs",
+      "file:src/stream/src/from_proto/mod.rs",
+      "file:src/stream/src/lib.rs"
+    ],
+    "languageLesson": "Each RisingWave executor implements `fn execute(self: Box<Self>) -> BoxedMessageStream`, returning an async stream of `Message` variants (either a `StreamChunk` with data or a `Barrier` control message). This Rust async-stream pattern lets the runtime compose executors into a processing pipeline using `tokio` without thread-per-executor overhead."
+  },
+  {
+    "order": 10,
+    "title": "Barrier Protocol & Checkpointing",
+    "description": "How does a distributed streaming system guarantee that materialized views are consistent after a failure? RisingWave uses an epoch-based barrier protocol inspired by Chandy-Lamport snapshots. The meta service's `barrier/mod.rs` injects `Barrier` control messages into all source actors simultaneously; each actor propagates the barrier downstream and saves its state to Hummock when it arrives. The stream engine's `task/barrier_manager/mod.rs` coordinates barrier collection on each compute node, reporting completion back to the meta service. The design doc `checkpoint.md` provides the full consistency proof. This mechanism is the foundation of RisingWave's exactly-once semantics.",
+    "nodeIds": [
+      "file:src/stream/src/task/barrier_manager/mod.rs",
+      "file:src/meta/src/barrier/mod.rs",
+      "document:docs/dev/src/design/checkpoint.md"
+    ],
+    "languageLesson": "The barrier protocol separates epochs: all data processed before epoch N is guaranteed to be durable before epoch N+1 begins. This is similar to Flink's asynchronous snapshot algorithm but adapted for RisingWave's cloud-native Hummock storage. The key invariant: a barrier cannot advance until all actors in the dataflow graph have acknowledged it, ensuring global consistency."
+  },
+  {
+    "order": 11,
+    "title": "Hummock: Cloud-Native State Store",
+    "description": "Streaming operators need to persist state (join buffers, aggregation accumulators, window frames) to survive failures. RisingWave's answer is Hummock, a purpose-built LSM-tree storage engine that writes to S3-compatible object stores. The `hummock/mod.rs` (fan-in: 70, fan-out: 26) is the crate root, exposing the `HummockStorage` struct that implements the state-store trait. The `hummock_sdk/src/version.rs` defines `HummockVersion`, the immutable snapshot of the entire LSM tree (which SSTables exist at which levels), managed by the meta service. The `state_table.rs` (fan-in: 63) wraps raw Hummock reads/writes into a relational table interface that stream executors use to read and write keyed state rows.",
+    "nodeIds": [
+      "file:src/storage/src/hummock/mod.rs",
+      "file:src/storage/hummock_sdk/src/version.rs",
+      "file:src/stream/src/common/table/state_table.rs",
+      "document:docs/dev/src/design/state-store-overview.md"
+    ],
+    "languageLesson": "Hummock differs from RocksDB (used by Flink) in a key way: it is shared-nothing and cloud-native. SSTable files are written to S3, so compute nodes are stateless and can be scaled in/out without data migration. The `HummockVersion` is a global immutable view of the LSM tree, and all nodes maintain consistent views of it via delta notifications from the meta service."
+  },
+  {
+    "order": 12,
+    "title": "Hummock Compaction",
+    "description": "LSM trees accumulate SSTables over time and need compaction to merge overlapping key ranges, reclaim space, and maintain read performance. Hummock's compaction runs in a dedicated compactor service. The `compactor/mod.rs` (part of the tightly coupled cluster with fan-in of 14 mutual edges) orchestrates compaction task execution: it receives tasks from the meta service, reads SSTables from object storage, merges and re-partitions key ranges, writes new SSTables, and reports completion. The `event_handler/mod.rs` provides the event-driven interface between the storage layer and compaction, managing version pin/unpin and flush triggers. This background process is what keeps Hummock efficient over the long run.",
+    "nodeIds": [
+      "file:src/storage/src/hummock/compactor/mod.rs",
+      "file:src/storage/src/hummock/event_handler/mod.rs"
+    ],
+    "languageLesson": "Hummock uses a tiered compaction strategy similar to LevelDB/RocksDB. The compactor is a separate process (or thread pool) that communicates with meta via gRPC. A key design choice: compaction tasks are idempotent — if a compactor crashes mid-task, the meta service can reassign the task. SSTables are only garbage-collected after the meta confirms the new compacted SSTable is visible in a committed `HummockVersion`."
+  },
+  {
+    "order": 13,
+    "title": "Connector Layer: Sources & Sinks",
+    "description": "RisingWave's value as an integration hub depends on its connector ecosystem. The `connector/src/source/mod.rs` (fan-in: 97) defines the `SplitEnumerator` and `SplitReader` traits that every source (Kafka, Kinesis, CDC for Postgres/MySQL, S3, webhook) implements to deliver `StreamChunk`s into the dataflow. The `connector/src/sink/mod.rs` (fan-out: 37) defines the `Sink` trait and all sink implementations (Kafka, Iceberg, Delta Lake, JDBC, Elasticsearch) that consume output from materialized views. The `parser/mod.rs` (fan-out: 26) provides the format layer — Avro, Protobuf, JSON, CSV, Debezium CDC — decoupling message encoding from the transport protocol. Together these three modules implement the \"continuously ingest from databases, event streams, and webhooks\" promise from the README.",
+    "nodeIds": [
+      "file:src/connector/src/source/mod.rs",
+      "file:src/connector/src/sink/mod.rs",
+      "file:src/connector/src/parser/mod.rs"
+    ],
+    "languageLesson": "RisingWave uses a split-based parallelism model for sources: a `SplitEnumerator` discovers available splits (e.g., Kafka partitions), and the meta service assigns splits to compute workers. Each worker runs a `SplitReader` for its assigned splits. This design scales source parallelism independently of downstream operator parallelism and enables exactly-once source semantics via split-level offset tracking."
+  },
+  {
+    "order": 14,
+    "title": "Meta Service: Cluster Brain",
+    "description": "The meta service is RisingWave's single-node coordinator responsible for cluster membership, catalog management, streaming topology, and compaction scheduling. The `meta/manager/metadata.rs` implements the `MetadataManager`, which holds the authoritative state for all catalog objects (tables, sources, sinks, materialized views) and the streaming graph topology (which actors run on which workers). The `meta/manager/mod.rs` (part of the 11-edge cluster with notification, diagnose, and Iceberg compaction managers) orchestrates all sub-managers, connecting barrier injection (Step 10), Hummock version management (Step 11), and connector split assignment (Step 13) into a unified control plane. The meta service is intentionally the only stateful coordinator — everything else is driven by it.",
+    "nodeIds": [
+      "file:src/meta/src/manager/metadata.rs",
+      "file:src/meta/src/manager/mod.rs"
+    ]
+  },
+  {
+    "order": 15,
+    "title": "Containerization & Deployment",
+    "description": "The `docker/Dockerfile` is a multi-stage production build: the `rust-builder` stage compiles the RisingWave binary with cargo, the `java-builder` stage compiles the Java connector node for Iceberg/JDBC sinks, and the final `image` stage copies only the runtime artifacts into a minimal Ubuntu base, keeping the image lean. The `docker/docker-compose.yml` defines a standalone RisingWave cluster — meta, frontend, compute, and compactor as separate services — mirroring the multi-process deployment mode from Step 2's `standalone.rs`. Together these files show how the entire architecture (Postgres gateway → SQL frontend → stream executors → Hummock → connectors → meta) gets packaged and operated in production.",
+    "nodeIds": [
+      "service:docker/Dockerfile",
+      "service:docker/docker-compose.yml"
+    ],
+    "languageLesson": "Multi-stage Docker builds use multiple `FROM` statements to separate the heavy build environment (Rust compiler, 10+ GB of toolchain) from the lightweight runtime image. Each `COPY --from=builder` instruction selectively extracts artifacts, reducing the final image from gigabytes to hundreds of megabytes. Layer ordering matters for cache efficiency: copy dependency manifests and run `cargo fetch` before copying source code so that the dependency layer is cached across code-only changes."
+  }
+]

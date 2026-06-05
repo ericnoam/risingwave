@@ -1,0 +1,166 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/client-library/nodejs/index.js",
+      "type": "file",
+      "name": "index.js",
+      "filePath": "integration_tests/client-library/nodejs/index.js",
+      "summary": "Creates and exports a configured RisingWave PostgreSQL client with custom type parsers for date, timestamp, and bigint types.",
+      "tags": ["entry-point", "client", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/client-library/nodejs/test/crud_test.js",
+      "type": "file",
+      "name": "crud_test.js",
+      "filePath": "integration_tests/client-library/nodejs/test/crud_test.js",
+      "summary": "Integration test exercising full CRUD operations against a RisingWave table via the Node.js pg client, validating inserts, updates, and deletes.",
+      "tags": ["test", "integration-test", "crud"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/client-library/nodejs/test/test.js",
+      "type": "file",
+      "name": "test.js",
+      "filePath": "integration_tests/client-library/nodejs/test/test.js",
+      "summary": "Top-level test runner that initializes the RisingWave client and invokes the CRUD test suite.",
+      "tags": ["test", "entry-point", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/client-library/nodejs/test/util.js",
+      "type": "file",
+      "name": "util.js",
+      "filePath": "integration_tests/client-library/nodejs/test/util.js",
+      "summary": "Provides SQL helper functions for creating/dropping tables and inserting, checking, updating, and deleting test data in the Node.js client integration test.",
+      "tags": ["utility", "test", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:integration_tests/client-library/nodejs/index.js:rw_client",
+      "type": "function",
+      "name": "rw_client",
+      "filePath": "integration_tests/client-library/nodejs/index.js",
+      "lineRange": [3, 17],
+      "summary": "Builds a pg Client with custom type parsers that handle RisingWave-specific types (date, timestamp, bigint) and returns the configured client.",
+      "tags": ["factory", "client"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:integration_tests/client-library/nodejs/test/util.js:createTable",
+      "type": "function",
+      "name": "createTable",
+      "filePath": "integration_tests/client-library/nodejs/test/util.js",
+      "lineRange": [5, 27],
+      "summary": "Creates the sample integration test table with diverse column types including arrays, decimals, and timestamptz in RisingWave.",
+      "tags": ["utility", "test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:integration_tests/client-library/nodejs/test/util.js:checkInsertedData",
+      "type": "function",
+      "name": "checkInsertedData",
+      "filePath": "integration_tests/client-library/nodejs/test/util.js",
+      "lineRange": [48, 88],
+      "summary": "Queries and asserts equality of all column values after insertion, validating type round-trip correctness for the Node.js pg client.",
+      "tags": ["utility", "test", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:integration_tests/client-library/nodejs/test/crud_test.js:test_crud",
+      "type": "function",
+      "name": "test_crud",
+      "filePath": "integration_tests/client-library/nodejs/test/crud_test.js",
+      "lineRange": [3, 44],
+      "summary": "Runs the full CRUD test sequence: creates a table, inserts two rows with different data, checks inserted values, updates a salary, and deletes a record, then drops the table.",
+      "tags": ["test", "crud", "integration-test"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/client-library/nodejs/test/crud_test.js",
+      "target": "file:integration_tests/client-library/nodejs/test/util.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/test/test.js",
+      "target": "file:integration_tests/client-library/nodejs/index.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/test/test.js",
+      "target": "file:integration_tests/client-library/nodejs/test/crud_test.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/index.js",
+      "target": "function:integration_tests/client-library/nodejs/index.js:rw_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/index.js",
+      "target": "function:integration_tests/client-library/nodejs/index.js:rw_client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/test/util.js",
+      "target": "function:integration_tests/client-library/nodejs/test/util.js:createTable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/test/util.js",
+      "target": "function:integration_tests/client-library/nodejs/test/util.js:checkInsertedData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/test/util.js",
+      "target": "function:integration_tests/client-library/nodejs/test/util.js:createTable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/test/util.js",
+      "target": "function:integration_tests/client-library/nodejs/test/util.js:checkInsertedData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/test/crud_test.js",
+      "target": "function:integration_tests/client-library/nodejs/test/crud_test.js:test_crud",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/test/crud_test.js",
+      "target": "function:integration_tests/client-library/nodejs/test/crud_test.js:test_crud",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/client-library/nodejs/test/test.js",
+      "target": "file:integration_tests/client-library/nodejs/test/crud_test.js",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

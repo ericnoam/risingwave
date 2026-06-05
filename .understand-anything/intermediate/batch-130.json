@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "service:ci/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "ci/docker-compose.yml",
+      "summary": "Docker Compose orchestration file for the CI environment, defining all external service dependencies (databases, message brokers, connectors) used in integration and end-to-end tests.",
+      "tags": ["orchestration", "infrastructure", "ci-cd"],
+      "complexity": "complex"
+    },
+    {
+      "id": "service:ci/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "ci/Dockerfile",
+      "summary": "Multi-stage Dockerfile building the `risingwave-build-env` image on Ubuntu 24.04 with the full Rust toolchain, Node.js, Python, buf CLI, cargo-nextest, cargo-llvm-cov, and other CI tools required to compile and test RisingWave.",
+      "tags": ["containerization", "infrastructure", "ci-cd", "build-system"],
+      "complexity": "complex",
+      "languageNotes": "Uses a single named stage (risingwave-build-env) and configures dumb-init as the entrypoint to handle signal rewriting in containers."
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:ci/docker-compose.yml",
+      "target": "service:ci/Dockerfile",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

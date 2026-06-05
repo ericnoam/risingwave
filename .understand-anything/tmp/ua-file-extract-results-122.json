@@ -1,0 +1,708 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 82,
+      "functions": [
+        {
+          "name": "executeSqlWithProps",
+          "startLine": 31,
+          "endLine": 87,
+          "params": [
+            "fullUrl",
+            "sqls",
+            "propKeys",
+            "propValues"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JDBCSqlRunner",
+          "startLine": 28,
+          "endLine": 88,
+          "methods": [
+            "executeSqlWithProps"
+          ],
+          "properties": [
+            "LOG"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "executeSqlWithProps",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "JDBCSqlRunner",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "Class.forName",
+          "lineNumber": 36
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "new Properties",
+          "lineNumber": 37
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 40
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "props.put",
+          "lineNumber": 45
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "SnowflakeJDBCSinkConfig.handleSnowflakeAuth",
+          "lineNumber": 50
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "DriverManager.getConnection",
+          "lineNumber": 52
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "connection.setAutoCommit",
+          "lineNumber": 53
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "LOG.info",
+          "lineNumber": 54
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "connection.createStatement",
+          "lineNumber": 55
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "stmt.executeUpdate",
+          "lineNumber": 58
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "connection.commit",
+          "lineNumber": 60
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "LOG.info",
+          "lineNumber": 61
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "stmt.close",
+          "lineNumber": 62
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "LOG.error",
+          "lineNumber": 64
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "e.getMessage",
+          "lineNumber": 64
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "connection.rollback",
+          "lineNumber": 67
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "LOG.info",
+          "lineNumber": 68
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "LOG.error",
+          "lineNumber": 70
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "rollbackEx.getMessage",
+          "lineNumber": 72
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "connection.close",
+          "lineNumber": 80
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "LOG.info",
+          "lineNumber": 81
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "LOG.error",
+          "lineNumber": 83
+        },
+        {
+          "caller": "executeSqlWithProps",
+          "callee": "e.getMessage",
+          "lineNumber": 83
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-jdbc-runner/src/test/java/com/risingwave/runner/JDBCSqlRunnerTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "loadTestPem",
+          "startLine": 30,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "loadPrivateKeyFromPem_unencrypted",
+          "startLine": 40,
+          "endLine": 45,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "JDBCSqlRunnerTest",
+          "startLine": 28,
+          "endLine": 46,
+          "methods": [
+            "loadTestPem",
+            "loadPrivateKeyFromPem_unencrypted"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "loadPrivateKeyFromPem_unencrypted",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "JDBCSqlRunnerTest",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "loadTestPem",
+          "callee": "getClass().getClassLoader().getResourceAsStream",
+          "lineNumber": 32
+        },
+        {
+          "caller": "loadTestPem",
+          "callee": "getClass().getClassLoader",
+          "lineNumber": 32
+        },
+        {
+          "caller": "loadTestPem",
+          "callee": "getClass",
+          "lineNumber": 32
+        },
+        {
+          "caller": "loadTestPem",
+          "callee": "new IOException",
+          "lineNumber": 34
+        },
+        {
+          "caller": "loadTestPem",
+          "callee": "new String",
+          "lineNumber": 36
+        },
+        {
+          "caller": "loadTestPem",
+          "callee": "is.readAllBytes",
+          "lineNumber": 36
+        },
+        {
+          "caller": "loadPrivateKeyFromPem_unencrypted",
+          "callee": "loadTestPem",
+          "lineNumber": 42
+        },
+        {
+          "caller": "loadPrivateKeyFromPem_unencrypted",
+          "callee": "SnowflakeJDBCSinkConfig.loadPrivateKeyFromPem",
+          "lineNumber": 43
+        },
+        {
+          "caller": "loadPrivateKeyFromPem_unencrypted",
+          "callee": "assertNotNull",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 242,
+      "nonEmptyLines": 215,
+      "functions": [
+        {
+          "name": "SnowflakeJDBCSinkConfig",
+          "startLine": 76,
+          "endLine": 82,
+          "params": [
+            "jdbcUrl",
+            "tableName",
+            "sinkType"
+          ]
+        },
+        {
+          "name": "getAuthMethod",
+          "startLine": 84,
+          "endLine": 86,
+          "params": []
+        },
+        {
+          "name": "getPrivateKeyFile",
+          "startLine": 88,
+          "endLine": 90,
+          "params": []
+        },
+        {
+          "name": "getPrivateKeyFilePwd",
+          "startLine": 92,
+          "endLine": 94,
+          "params": []
+        },
+        {
+          "name": "getPrivateKeyPem",
+          "startLine": 96,
+          "endLine": 98,
+          "params": []
+        },
+        {
+          "name": "getConnection",
+          "startLine": 107,
+          "endLine": 144,
+          "params": []
+        },
+        {
+          "name": "handleSnowflakeAuth",
+          "startLine": 163,
+          "endLine": 196,
+          "params": [
+            "props"
+          ]
+        },
+        {
+          "name": "loadPrivateKeyFromPem",
+          "startLine": 198,
+          "endLine": 207,
+          "params": [
+            "pemContent",
+            "passphrase"
+          ]
+        },
+        {
+          "name": "convertToPrivateKey",
+          "startLine": 209,
+          "endLine": 241,
+          "params": [
+            "parsed",
+            "passphrase"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SnowflakeJDBCSinkConfig",
+          "startLine": 46,
+          "endLine": 242,
+          "methods": [
+            "SnowflakeJDBCSinkConfig",
+            "getAuthMethod",
+            "getPrivateKeyFile",
+            "getPrivateKeyFilePwd",
+            "getPrivateKeyPem",
+            "getConnection",
+            "handleSnowflakeAuth",
+            "loadPrivateKeyFromPem",
+            "convertToPrivateKey"
+          ],
+          "properties": [
+            "LOG",
+            "PROP_PRIVATE_KEY",
+            "PROP_PRIVATE_KEY_PEM",
+            "PROP_PRIVATE_KEY_PWD",
+            "PROP_AUTH_METHOD",
+            "AUTH_METHOD_KEY_PAIR_OBJECT",
+            "authMethod",
+            "privateKeyFile",
+            "privateKeyFilePwd",
+            "privateKeyPem"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SnowflakeJDBCSinkConfig",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "getAuthMethod",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "getPrivateKeyFile",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "getPrivateKeyFilePwd",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "getPrivateKeyPem",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "getConnection",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "handleSnowflakeAuth",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "loadPrivateKeyFromPem",
+          "line": 198,
+          "isDefault": false
+        },
+        {
+          "name": "convertToPrivateKey",
+          "line": 209,
+          "isDefault": false
+        },
+        {
+          "name": "SnowflakeJDBCSinkConfig",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getConnection",
+          "callee": "getJdbcUrl",
+          "lineNumber": 109
+        },
+        {
+          "caller": "getConnection",
+          "callee": "JdbcUtils.createBaseProperties",
+          "lineNumber": 111
+        },
+        {
+          "caller": "getConnection",
+          "callee": "getUser",
+          "lineNumber": 111
+        },
+        {
+          "caller": "getConnection",
+          "callee": "props.put",
+          "lineNumber": 115
+        },
+        {
+          "caller": "getConnection",
+          "callee": "getPassword",
+          "lineNumber": 117
+        },
+        {
+          "caller": "getConnection",
+          "callee": "props.put",
+          "lineNumber": 118
+        },
+        {
+          "caller": "getConnection",
+          "callee": "getPassword",
+          "lineNumber": 118
+        },
+        {
+          "caller": "getConnection",
+          "callee": "props.put",
+          "lineNumber": 121
+        },
+        {
+          "caller": "getConnection",
+          "callee": "props.put",
+          "lineNumber": 124
+        },
+        {
+          "caller": "getConnection",
+          "callee": "privateKeyFilePwd.isEmpty",
+          "lineNumber": 126
+        },
+        {
+          "caller": "getConnection",
+          "callee": "props.put",
+          "lineNumber": 127
+        },
+        {
+          "caller": "getConnection",
+          "callee": "handleSnowflakeAuth",
+          "lineNumber": 132
+        },
+        {
+          "caller": "getConnection",
+          "callee": "LOG.error",
+          "lineNumber": 136
+        },
+        {
+          "caller": "getConnection",
+          "callee": "new SQLException",
+          "lineNumber": 137
+        },
+        {
+          "caller": "getConnection",
+          "callee": "e.getMessage",
+          "lineNumber": 137
+        },
+        {
+          "caller": "getConnection",
+          "callee": "DriverManager.getConnection",
+          "lineNumber": 140
+        },
+        {
+          "caller": "getConnection",
+          "callee": "conn.setAutoCommit",
+          "lineNumber": 141
+        },
+        {
+          "caller": "getConnection",
+          "callee": "isAutoCommit",
+          "lineNumber": 141
+        },
+        {
+          "caller": "getConnection",
+          "callee": "conn.setTransactionIsolation",
+          "lineNumber": 142
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "props.getProperty",
+          "lineNumber": 169
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "props.remove",
+          "lineNumber": 175
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "\"password\".equalsIgnoreCase",
+          "lineNumber": 177
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "\"key_pair_file\".equalsIgnoreCase",
+          "lineNumber": 180
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "props.put",
+          "lineNumber": 183
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "AUTH_METHOD_KEY_PAIR_OBJECT.equalsIgnoreCase",
+          "lineNumber": 184
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "props.getProperty",
+          "lineNumber": 186
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "props.getProperty",
+          "lineNumber": 187
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "loadPrivateKeyFromPem",
+          "lineNumber": 189
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "props.put",
+          "lineNumber": 190
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "props.remove",
+          "lineNumber": 191
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "props.remove",
+          "lineNumber": 192
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "props.put",
+          "lineNumber": 193
+        },
+        {
+          "caller": "handleSnowflakeAuth",
+          "callee": "LOG.debug",
+          "lineNumber": 194
+        },
+        {
+          "caller": "loadPrivateKeyFromPem",
+          "callee": "new PEMParser",
+          "lineNumber": 200
+        },
+        {
+          "caller": "loadPrivateKeyFromPem",
+          "callee": "new StringReader",
+          "lineNumber": 200
+        },
+        {
+          "caller": "loadPrivateKeyFromPem",
+          "callee": "parser.readObject",
+          "lineNumber": 201
+        },
+        {
+          "caller": "loadPrivateKeyFromPem",
+          "callee": "new GeneralSecurityException",
+          "lineNumber": 203
+        },
+        {
+          "caller": "loadPrivateKeyFromPem",
+          "callee": "convertToPrivateKey",
+          "lineNumber": 205
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "new JcaPEMKeyConverter",
+          "lineNumber": 211
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "converter.setProvider",
+          "lineNumber": 212
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "converter.getPrivateKey",
+          "lineNumber": 216
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "passphrase.isEmpty",
+          "lineNumber": 220
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "new GeneralSecurityException",
+          "lineNumber": 221
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "new JceOpenSSLPKCS8DecryptorProviderBuilder().build",
+          "lineNumber": 225
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "new JceOpenSSLPKCS8DecryptorProviderBuilder",
+          "lineNumber": 225
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "passphrase.toCharArray",
+          "lineNumber": 225
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "converter.getPrivateKey",
+          "lineNumber": 226
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "encryptedInfo.decryptPrivateKeyInfo",
+          "lineNumber": 226
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "PrivateKeyInfo.getInstance",
+          "lineNumber": 232
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "converter.getPrivateKey",
+          "lineNumber": 233
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "new GeneralSecurityException",
+          "lineNumber": 235
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "new GeneralSecurityException",
+          "lineNumber": 239
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "parsed.getClass().getName",
+          "lineNumber": 240
+        },
+        {
+          "caller": "convertToPrivateKey",
+          "callee": "parsed.getClass",
+          "lineNumber": 240
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    }
+  ]
+}

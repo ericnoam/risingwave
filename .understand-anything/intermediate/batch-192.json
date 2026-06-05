@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/deltalake-sink/spark-script/create-table.sql",
+      "type": "file",
+      "name": "create-table.sql",
+      "filePath": "integration_tests/deltalake-sink/spark-script/create-table.sql",
+      "summary": "Spark SQL script that creates Delta Lake tables on the MinIO/S3 storage backend for use as the sink target in the Delta Lake integration test.",
+      "tags": ["database", "integration-test", "migration", "schema-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/deltalake-sink/spark-script/data-types-query.sql",
+      "type": "file",
+      "name": "data-types-query.sql",
+      "filePath": "integration_tests/deltalake-sink/spark-script/data-types-query.sql",
+      "summary": "Single-line Spark SQL query that reads the data types Delta Lake table to verify that data type columns were written correctly by the RisingWave sink.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/deltalake-sink/spark-script/query-table.sql",
+      "type": "file",
+      "name": "query-table.sql",
+      "filePath": "integration_tests/deltalake-sink/spark-script/query-table.sql",
+      "summary": "Single-line Spark SQL query that selects all rows from the Delta Lake table to verify sink output from RisingWave.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/deltalake-sink/spark-script/run-sql-file.sh",
+      "type": "file",
+      "name": "run-sql-file.sh",
+      "filePath": "integration_tests/deltalake-sink/spark-script/run-sql-file.sh",
+      "summary": "Shell script that submits a SQL file to the Spark container for execution, used to run Delta Lake DDL and query scripts in the integration test.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/deltalake-sink/spark-script/run-sql-file.sh",
+      "target": "file:integration_tests/deltalake-sink/spark-script/create-table.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/deltalake-sink/spark-script/run-sql-file.sh",
+      "target": "file:integration_tests/deltalake-sink/spark-script/query-table.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/deltalake-sink/spark-script/run-sql-file.sh",
+      "target": "file:integration_tests/deltalake-sink/spark-script/data-types-query.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

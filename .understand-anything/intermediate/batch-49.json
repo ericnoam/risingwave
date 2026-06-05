@@ -1,0 +1,820 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/tests/simulation/src/client.rs",
+      "type": "file",
+      "name": "client.rs",
+      "filePath": "src/tests/simulation/src/client.rs",
+      "summary": "Simulation test client wrapping a RisingWave connection with test utility methods.",
+      "tags": [
+        "test",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/simulation/src/cluster.rs",
+      "type": "file",
+      "name": "cluster.rs",
+      "filePath": "src/tests/simulation/src/cluster.rs",
+      "summary": "Manages a full simulated RisingWave cluster with configurable topology for integration testing.",
+      "tags": [
+        "test",
+        "service",
+        "factory"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/simulation/src/ctl_ext.rs",
+      "type": "file",
+      "name": "ctl_ext.rs",
+      "filePath": "src/tests/simulation/src/ctl_ext.rs",
+      "summary": "Extends cluster control with fragment introspection and worker management utilities.",
+      "tags": [
+        "test",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/simulation/src/kafka.rs",
+      "type": "file",
+      "name": "kafka.rs",
+      "filePath": "src/tests/simulation/src/kafka.rs",
+      "summary": "Helpers for creating and producing to Kafka topics in simulation tests.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/tests/simulation/src/lib.rs",
+      "summary": "Library root for simulation test framework.",
+      "tags": [
+        "test",
+        "entry-point",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/simulation/src/nexmark.rs",
+      "type": "file",
+      "name": "nexmark.rs",
+      "filePath": "src/tests/simulation/src/nexmark.rs",
+      "summary": "Provides Nexmark benchmark cluster setup for simulation tests.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/simulation/src/parse.rs",
+      "type": "file",
+      "name": "parse.rs",
+      "filePath": "src/tests/simulation/src/parse.rs",
+      "summary": "Parses SQL commands and control directives from SLT test files.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/src/slt.rs",
+      "type": "file",
+      "name": "slt.rs",
+      "filePath": "src/tests/simulation/src/slt.rs",
+      "summary": "Runs SQLLogicTest files against a simulated cluster with failure injection.",
+      "tags": [
+        "test",
+        "service",
+        "entry-point"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/simulation/src/utils/assert_result.rs",
+      "type": "file",
+      "name": "assert_result.rs",
+      "filePath": "src/tests/simulation/src/utils/assert_result.rs",
+      "summary": "Assertion helpers for result set comparison in simulation tests.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/simulation/src/utils/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/tests/simulation/src/utils/mod.rs",
+      "summary": "Module barrel for simulation test utilities.",
+      "tags": [
+        "test",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/simulation/src/utils/timed_future.rs",
+      "type": "file",
+      "name": "timed_future.rs",
+      "filePath": "src/tests/simulation/src/utils/timed_future.rs",
+      "summary": "Wraps futures with timeout tracking for simulation test diagnostics.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/backfill_tests.rs",
+      "type": "file",
+      "name": "backfill_tests.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/backfill_tests.rs",
+      "summary": "Integration tests for materialized view backfill correctness and performance.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/batch/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/batch/mod.rs",
+      "summary": "Integration tests for batch execution correctness on simulated clusters.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/compaction/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/compaction/mod.rs",
+      "summary": "Integration tests for Hummock SST compaction in simulated clusters.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/default_parallelism.rs",
+      "type": "file",
+      "name": "default_parallelism.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/default_parallelism.rs",
+      "summary": "Tests for default parallelism configuration behavior.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/license_cpu_limit.rs",
+      "type": "file",
+      "name": "license_cpu_limit.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/license_cpu_limit.rs",
+      "summary": "Tests for CPU limit enforcement under different license configurations.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/log_store/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/log_store/mod.rs",
+      "summary": "Module barrel for log store integration tests.",
+      "tags": [
+        "test",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/log_store/recovery.rs",
+      "type": "file",
+      "name": "recovery.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/log_store/recovery.rs",
+      "summary": "Tests for log store recovery after compute node failures.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/log_store/scale.rs",
+      "type": "file",
+      "name": "scale.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/log_store/scale.rs",
+      "summary": "Tests for log store behavior during scale operations.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/log_store/utils.rs",
+      "type": "file",
+      "name": "utils.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/log_store/utils.rs",
+      "summary": "Utilities for log store integration test setup and verification.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "type": "file",
+      "name": "main.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/main.rs",
+      "summary": "Entry point for integration test binary wiring all test modules.",
+      "tags": [
+        "test",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/recovery/backfill.rs",
+      "type": "file",
+      "name": "backfill.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/recovery/backfill.rs",
+      "summary": "Tests for backfill correctness during and after node recovery.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/recovery/background_ddl.rs",
+      "type": "file",
+      "name": "background_ddl.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/recovery/background_ddl.rs",
+      "summary": "Tests for background DDL operations with concurrent failures and recovery.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/recovery/batch_refresh.rs",
+      "type": "file",
+      "name": "batch_refresh.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/recovery/batch_refresh.rs",
+      "summary": "Tests for batch-mode materialized view refresh after recovery.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/recovery/event_log.rs",
+      "type": "file",
+      "name": "event_log.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/recovery/event_log.rs",
+      "summary": "Tests verifying event log correctness during cluster recovery.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/recovery/locality_backfill.rs",
+      "type": "file",
+      "name": "locality_backfill.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/recovery/locality_backfill.rs",
+      "summary": "Tests for locality-aware backfill recovery correctness.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/recovery/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/recovery/mod.rs",
+      "summary": "Module barrel for recovery integration tests.",
+      "tags": [
+        "test",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/recovery/nexmark_recovery.rs",
+      "type": "file",
+      "name": "nexmark_recovery.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/recovery/nexmark_recovery.rs",
+      "summary": "Tests for Nexmark streaming job recovery.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/recovery/serving_mapping.rs",
+      "type": "file",
+      "name": "serving_mapping.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/recovery/serving_mapping.rs",
+      "summary": "Tests for serving mode vnode mapping correctness during recovery.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/scale/adaptive_strategy.rs",
+      "type": "file",
+      "name": "adaptive_strategy.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/scale/adaptive_strategy.rs",
+      "summary": "Tests for adaptive parallelism scaling strategy behavior.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/simulation/tests/integration_tests/scale/alter_fragment.rs",
+      "type": "file",
+      "name": "alter_fragment.rs",
+      "filePath": "src/tests/simulation/tests/integration_tests/scale/alter_fragment.rs",
+      "summary": "Tests for altering fragment parallelism without full reschedule.",
+      "tags": [
+        "test",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/tests/simulation/src/cluster.rs:Cluster",
+      "type": "class",
+      "name": "Cluster",
+      "filePath": "src/tests/simulation/src/cluster.rs",
+      "lineRange": [
+        375,
+        384
+      ],
+      "summary": "Full simulated RisingWave cluster for integration testing.",
+      "tags": [
+        "test",
+        "service",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/simulation/src/cluster.rs:Configuration",
+      "type": "class",
+      "name": "Configuration",
+      "filePath": "src/tests/simulation/src/cluster.rs",
+      "lineRange": [
+        69,
+        101
+      ],
+      "summary": "Cluster configuration options for simulation test topology.",
+      "tags": [
+        "test",
+        "data-model",
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/simulation/src/client.rs:RisingWave",
+      "type": "class",
+      "name": "RisingWave",
+      "filePath": "src/tests/simulation/src/client.rs",
+      "lineRange": [
+        27,
+        35
+      ],
+      "summary": "Test client wrapping a RisingWave SQL connection.",
+      "tags": [
+        "test",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/simulation/src/slt.rs:SqlCmd",
+      "type": "class",
+      "name": "SqlCmd",
+      "filePath": "src/tests/simulation/src/slt.rs",
+      "lineRange": [
+        41,
+        58
+      ],
+      "summary": "Parsed SQL command from SLT file with execution metadata.",
+      "tags": [
+        "test",
+        "data-model"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/tests/simulation/src/client.rs",
+      "target": "file:src/tests/simulation/src/ctl_ext.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/cluster.rs",
+      "target": "file:src/tests/simulation/src/client.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/ctl_ext.rs",
+      "target": "file:src/tests/simulation/src/cluster.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/lib.rs",
+      "target": "file:src/tests/simulation/src/client.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/lib.rs",
+      "target": "file:src/tests/simulation/src/cluster.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/lib.rs",
+      "target": "file:src/tests/simulation/src/ctl_ext.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/lib.rs",
+      "target": "file:src/tests/simulation/src/kafka.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/lib.rs",
+      "target": "file:src/tests/simulation/src/nexmark.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/lib.rs",
+      "target": "file:src/tests/simulation/src/parse.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/lib.rs",
+      "target": "file:src/tests/simulation/src/slt.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/lib.rs",
+      "target": "file:src/tests/simulation/src/utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/nexmark.rs",
+      "target": "file:src/tests/simulation/src/cluster.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/parse.rs",
+      "target": "file:src/tests/simulation/src/slt.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/slt.rs",
+      "target": "file:src/tests/simulation/src/client.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/slt.rs",
+      "target": "file:src/tests/simulation/src/cluster.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/slt.rs",
+      "target": "file:src/tests/simulation/src/parse.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/slt.rs",
+      "target": "file:src/tests/simulation/src/slt.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/slt.rs",
+      "target": "file:src/tests/simulation/src/utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/utils/mod.rs",
+      "target": "file:src/tests/simulation/src/utils/assert_result.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/utils/mod.rs",
+      "target": "file:src/tests/simulation/src/utils/timed_future.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/backfill_tests.rs",
+      "target": "file:src/tests/simulation/src/utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/log_store/mod.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/log_store/recovery.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/log_store/mod.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/log_store/scale.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/log_store/mod.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/log_store/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/backfill_tests.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/batch/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/compaction/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/default_parallelism.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/license_cpu_limit.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/log_store/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/recovery/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/scale/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/sink/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/storage.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/throttle.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/main.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/recovery/background_ddl.rs",
+      "target": "file:src/tests/simulation/src/utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/recovery/batch_refresh.rs",
+      "target": "file:src/tests/simulation/src/utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/recovery/mod.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/recovery/backfill.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/recovery/mod.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/recovery/background_ddl.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/recovery/mod.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/recovery/batch_refresh.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/recovery/mod.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/recovery/event_log.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/recovery/mod.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/recovery/locality_backfill.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/recovery/mod.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/recovery/nexmark_recovery.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/tests/integration_tests/recovery/mod.rs",
+      "target": "file:src/tests/simulation/tests/integration_tests/recovery/serving_mapping.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/simulation/src/cluster.rs",
+      "target": "class:src/tests/simulation/src/cluster.rs:Cluster",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/simulation/src/cluster.rs",
+      "target": "class:src/tests/simulation/src/cluster.rs:Cluster",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/simulation/src/cluster.rs",
+      "target": "class:src/tests/simulation/src/cluster.rs:Configuration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/simulation/src/cluster.rs",
+      "target": "class:src/tests/simulation/src/cluster.rs:Configuration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/simulation/src/client.rs",
+      "target": "class:src/tests/simulation/src/client.rs:RisingWave",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/simulation/src/client.rs",
+      "target": "class:src/tests/simulation/src/client.rs:RisingWave",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/simulation/src/slt.rs",
+      "target": "class:src/tests/simulation/src/slt.rs:SqlCmd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/simulation/src/slt.rs",
+      "target": "class:src/tests/simulation/src/slt.rs:SqlCmd",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

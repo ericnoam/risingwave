@@ -1,0 +1,112 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/connector/benches/debezium_json_parser.rs",
+      "type": "file",
+      "name": "debezium_json_parser.rs",
+      "filePath": "src/connector/benches/debezium_json_parser.rs",
+      "summary": "Criterion benchmark measuring the throughput of the Debezium JSON parser when ingesting a batch of generated JSON change-event rows.",
+      "tags": ["test", "benchmark", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/connector/benches/json_common/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/connector/benches/json_common/mod.rs",
+      "summary": "Shared helpers for connector JSON benchmarks, providing column descriptor generation and randomized JSON row construction used by both the plain and Debezium JSON parser benchmarks.",
+      "tags": ["utility", "benchmark", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/connector/benches/json_vs_plain_parser.rs",
+      "type": "file",
+      "name": "json_vs_plain_parser.rs",
+      "filePath": "src/connector/benches/json_vs_plain_parser.rs",
+      "summary": "Criterion benchmark comparing plain JSON parser throughput across multiple payload sizes, exercising the connector's row deserialization hot path.",
+      "tags": ["test", "benchmark", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/connector/benches/json_common/mod.rs:generate_json_row",
+      "type": "function",
+      "name": "generate_json_row",
+      "filePath": "src/connector/benches/json_common/mod.rs",
+      "lineRange": [20, 40],
+      "summary": "Generates a random JSON object byte string with a fixed schema of typed columns used as synthetic benchmark input.",
+      "tags": ["utility", "benchmark", "factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/connector/benches/json_common/mod.rs:get_descs",
+      "type": "function",
+      "name": "get_descs",
+      "filePath": "src/connector/benches/json_common/mod.rs",
+      "lineRange": [1, 19],
+      "summary": "Returns a fixed set of SourceColumnDesc definitions representing the benchmark table schema.",
+      "tags": ["utility", "benchmark"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/connector/benches/json_vs_plain_parser.rs:bench_plain_parser_and_json_parser",
+      "type": "function",
+      "name": "bench_plain_parser_and_json_parser",
+      "filePath": "src/connector/benches/json_vs_plain_parser.rs",
+      "lineRange": [30, 95],
+      "summary": "Criterion benchmark function that runs the plain JSON row parser over varying payload sizes and measures parse throughput in rows/sec.",
+      "tags": ["benchmark", "connector"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/connector/benches/debezium_json_parser.rs",
+      "target": "file:src/connector/benches/json_common/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/connector/benches/json_vs_plain_parser.rs",
+      "target": "file:src/connector/benches/json_common/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/connector/benches/json_common/mod.rs",
+      "target": "function:src/connector/benches/json_common/mod.rs:generate_json_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/connector/benches/json_common/mod.rs",
+      "target": "function:src/connector/benches/json_common/mod.rs:get_descs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/connector/benches/json_common/mod.rs",
+      "target": "function:src/connector/benches/json_common/mod.rs:generate_json_row",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/connector/benches/json_common/mod.rs",
+      "target": "function:src/connector/benches/json_common/mod.rs:get_descs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/connector/benches/json_vs_plain_parser.rs",
+      "target": "function:src/connector/benches/json_vs_plain_parser.rs:bench_plain_parser_and_json_parser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

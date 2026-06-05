@@ -1,0 +1,17 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 16,
+  "edgesRestored": 31,
+  "crossBatchEdgesAdded": 1,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "Fixed section was minimal (29 corrections): 22 duplicate node IDs, 4 tested_by edge flips, 3 orphan tested_by drops. All counts are reasonable for a project of this scale.",
+    "Recovered 16 file nodes that existed on disk but had no batch-produced node: utils.rs (migration utilities, imported by 23 files) and 15 pg_catalog system-catalog stubs (pg_partitioned_table, pg_range, pg_rewrite, pg_roles, pg_sequence, pg_sequences, pg_shadow, pg_shdescription, pg_stat_activity, pg_stat_user_tables, pg_tables, pg_tablespace, pg_trigger, pg_user, pg_views).",
+    "Restored 31 dangling import edges whose targets were re-created above: 16 migration m*.rs -> utils.rs and 15 pg_catalog/mod.rs -> pg_*.rs edges.",
+    "Cross-batch edge check on top 30 most-imported and top 30 heaviest-importing files: 1 missing imports edge detected and added (file:src/meta/model/migration/src/lib.rs -> file:src/meta/model/migration/src/utils.rs, backed by importMap).",
+    "Removed 7 self-loop import edges (source == target) caused by a scanner artifact in importMap where src/meta/src/hummock/manager/mod.rs and similar files list themselves as their own import target.",
+    "No unknown node types or unknown complexity values were present.",
+    "Skipped 8 importMap source files and 59 importMap target paths with no file: node in graph (per merge script report) \u2014 these are external or generated files legitimately absent from the graph."
+  ]
+}

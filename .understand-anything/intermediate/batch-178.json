@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/big-query-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/big-query-sink/README.md",
+      "summary": "Setup guide for the BigQuery sink integration test demo, describing prerequisite GCP credentials, environment configuration, and test execution steps.",
+      "tags": ["documentation", "test", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/big-query-sink/bq_prepare.sql",
+      "type": "table",
+      "name": "bq_prepare.sql",
+      "filePath": "integration_tests/big-query-sink/bq_prepare.sql",
+      "summary": "Creates destination BigQuery tables (rwctest event and types tables) in the target dataset for the BigQuery sink integration test.",
+      "tags": ["database", "test", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/big-query-sink/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/big-query-sink/create_mv.sql",
+      "summary": "Creates a RisingWave materialized view over the user_behaviors source for the BigQuery sink integration test.",
+      "tags": ["test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/big-query-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/big-query-sink/create_sink.sql",
+      "summary": "Defines RisingWave BigQuery sink connectors writing materialized view data to the prepared BigQuery destination tables.",
+      "tags": ["test", "database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/big-query-sink/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/big-query-sink/create_source.sql",
+      "summary": "Defines RisingWave Kafka sources (user_behaviors, bq_sink_data_types) with comprehensive column schemas for the BigQuery sink integration test.",
+      "tags": ["test", "database", "schema-definition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:integration_tests/big-query-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/big-query-sink/docker-compose.yml",
+      "summary": "Docker Compose configuration for the BigQuery sink integration test, orchestrating RisingWave and Kafka containers.",
+      "tags": ["infrastructure", "orchestration", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/big-query-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/big-query-sink/prepare.sh",
+      "summary": "Shell script that creates the BigQuery dataset and runs the bq_prepare.sql DDL against BigQuery before the integration test.",
+      "tags": ["script", "test", "infrastructure"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/big-query-sink/create_mv.sql",
+      "target": "table:integration_tests/big-query-sink/create_source.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/big-query-sink/create_sink.sql",
+      "target": "file:integration_tests/big-query-sink/create_mv.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/big-query-sink/create_sink.sql",
+      "target": "table:integration_tests/big-query-sink/bq_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/big-query-sink/prepare.sh",
+      "target": "table:integration_tests/big-query-sink/bq_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/big-query-sink/docker-compose.yml",
+      "target": "table:integration_tests/big-query-sink/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:integration_tests/big-query-sink/README.md",
+      "target": "file:integration_tests/big-query-sink/prepare.sh",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

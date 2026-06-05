@@ -1,0 +1,928 @@
+{
+  "nodes": [
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/SourceValidateHandler.java",
+      "type": "file",
+      "name": "SourceValidateHandler.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/SourceValidateHandler.java",
+      "summary": "Validates CDC source connector configuration including heartbeat intervals and memory ratios.",
+      "tags": [
+        "connector",
+        "validation",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/CdcConnectorException.java",
+      "type": "file",
+      "name": "CdcConnectorException.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/CdcConnectorException.java",
+      "summary": "CDC connector runtime exception type.",
+      "tags": [
+        "connector",
+        "error-handling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/CitusValidator.java",
+      "type": "file",
+      "name": "CitusValidator.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/CitusValidator.java",
+      "summary": "Validates Citus (distributed PostgreSQL) CDC source connection and configuration.",
+      "tags": [
+        "connector",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java",
+      "type": "file",
+      "name": "DbzConnectorConfig.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java",
+      "summary": "Debezium connector configuration builder for MySQL, PostgreSQL, and SQL Server CDC sources.",
+      "tags": [
+        "connector",
+        "configuration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzSourceUtils.java",
+      "type": "file",
+      "name": "DbzSourceUtils.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzSourceUtils.java",
+      "summary": "Utilities for creating and managing PostgreSQL publication slots for Debezium CDC.",
+      "tags": [
+        "connector",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/MySqlValidator.java",
+      "type": "file",
+      "name": "MySqlValidator.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/MySqlValidator.java",
+      "summary": "Validates MySQL CDC source: connection, binlog format, user privileges, and table access.",
+      "tags": [
+        "connector",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/PostgresValidator.java",
+      "type": "file",
+      "name": "PostgresValidator.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/PostgresValidator.java",
+      "summary": "Validates PostgreSQL CDC source: connection, schema access, replication slot, and publication.",
+      "tags": [
+        "connector",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/SqlServerValidator.java",
+      "type": "file",
+      "name": "SqlServerValidator.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/SqlServerValidator.java",
+      "summary": "Validates SQL Server CDC source: connection, table schema, and user privileges.",
+      "tags": [
+        "connector",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/ValidatorUtils.java",
+      "type": "file",
+      "name": "ValidatorUtils.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/ValidatorUtils.java",
+      "summary": "Utility class providing JDBC URL construction for CDC validator implementations.",
+      "tags": [
+        "connector",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngine.java",
+      "type": "file",
+      "name": "DbzCdcEngine.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngine.java",
+      "summary": "Embeds a Debezium CDC engine for streaming change events from databases.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngineRunner.java",
+      "type": "file",
+      "name": "DbzCdcEngineRunner.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngineRunner.java",
+      "summary": "Manages Debezium CDC engine lifecycle: creation, startup, and shutdown.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzChangeEventConsumer.java",
+      "type": "file",
+      "name": "DbzChangeEventConsumer.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzChangeEventConsumer.java",
+      "summary": "Consumes Debezium change events and converts them to RisingWave CDC source records.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzSourceHandler.java",
+      "type": "file",
+      "name": "DbzSourceHandler.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzSourceHandler.java",
+      "summary": "CDC source handler starting Debezium engines for streaming database changes.",
+      "tags": [
+        "connector",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java",
+      "type": "file",
+      "name": "JniDbzSourceHandler.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java",
+      "summary": "JNI-based Debezium source handler invoked from native Rust code for embedded CDC.",
+      "tags": [
+        "connector",
+        "api-handler",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/SourceHandlerFactory.java",
+      "type": "file",
+      "name": "SourceHandlerFactory.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/SourceHandlerFactory.java",
+      "summary": "Factory creating CDC source handler instances for each supported source type.",
+      "tags": [
+        "connector",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java",
+      "type": "file",
+      "name": "ConnectorNodeMetrics.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java",
+      "summary": "Prometheus metrics for the Java connector node covering sink writes, source events, and RPC latencies.",
+      "tags": [
+        "connector",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/MonitoredRowIterable.java",
+      "type": "file",
+      "name": "MonitoredRowIterable.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/MonitoredRowIterable.java",
+      "summary": "Row iterable wrapper recording metrics on row consumption.",
+      "tags": [
+        "connector",
+        "monitoring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/test/java/com/risingwave/connector/sink/FileSinkTest.java",
+      "type": "file",
+      "name": "FileSinkTest.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/test/java/com/risingwave/connector/sink/FileSinkTest.java",
+      "summary": "Unit tests for FileSink operations: sync, write, and drop lifecycle.",
+      "tags": [
+        "connector",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-connector-service/src/test/java/com/risingwave/connector/sink/SinkStreamObserverTest.java",
+      "type": "file",
+      "name": "SinkStreamObserverTest.java",
+      "filePath": "java/connector-node/risingwave-connector-service/src/test/java/com/risingwave/connector/sink/SinkStreamObserverTest.java",
+      "summary": "Unit tests for SinkWriterStreamObserver protocol validation: task start, sync, and epoch handling.",
+      "tags": [
+        "connector",
+        "test"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraConfig.java",
+      "type": "file",
+      "name": "CassandraConfig.java",
+      "filePath": "java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraConfig.java",
+      "summary": "Configuration class for the Cassandra sink connector with contact points, keyspace, and table settings.",
+      "tags": [
+        "connector",
+        "configuration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraFactory.java",
+      "type": "file",
+      "name": "CassandraFactory.java",
+      "filePath": "java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraFactory.java",
+      "summary": "Factory for creating and validating Cassandra sink instances.",
+      "tags": [
+        "connector",
+        "factory"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java",
+      "type": "file",
+      "name": "CassandraSink.java",
+      "filePath": "java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java",
+      "summary": "Cassandra sink writing rows via CQL with append-only and upsert modes.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/ElasticRestHighLevelClientAdapter.java",
+      "type": "file",
+      "name": "ElasticRestHighLevelClientAdapter.java",
+      "filePath": "java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/ElasticRestHighLevelClientAdapter.java",
+      "summary": "Adapter for Elasticsearch REST High Level Client with configurable SSL and auth.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java",
+      "type": "file",
+      "name": "EsSink.java",
+      "filePath": "java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java",
+      "summary": "Elasticsearch 7 sink writing rows as documents with upsert and delete support.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSinkConfig.java",
+      "type": "file",
+      "name": "EsSinkConfig.java",
+      "filePath": "java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSinkConfig.java",
+      "summary": "Configuration for Elasticsearch 7 sink with endpoint, index, and credential settings.",
+      "tags": [
+        "connector",
+        "configuration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSinkFactory.java",
+      "type": "file",
+      "name": "EsSinkFactory.java",
+      "filePath": "java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSinkFactory.java",
+      "summary": "Factory creating and validating Elasticsearch 7 sink instances.",
+      "tags": [
+        "connector",
+        "factory"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java:DbzConnectorConfig",
+      "type": "class",
+      "name": "DbzConnectorConfig",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java",
+      "lineRange": [
+        34,
+        431
+      ],
+      "summary": "Debezium connector configuration for all supported database CDC types.",
+      "tags": [
+        "connector",
+        "configuration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/MySqlValidator.java:MySqlValidator",
+      "type": "class",
+      "name": "MySqlValidator",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/MySqlValidator.java",
+      "lineRange": [
+        26,
+        431
+      ],
+      "summary": "Validates MySQL CDC source configuration and privileges.",
+      "tags": [
+        "connector",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/PostgresValidator.java:PostgresValidator",
+      "type": "class",
+      "name": "PostgresValidator",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/PostgresValidator.java",
+      "lineRange": [
+        29,
+        875
+      ],
+      "summary": "Validates PostgreSQL CDC source configuration.",
+      "tags": [
+        "connector",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngine.java:DbzCdcEngine",
+      "type": "class",
+      "name": "DbzCdcEngine",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngine.java",
+      "lineRange": [
+        30,
+        87
+      ],
+      "summary": "Debezium CDC engine embedding and running change data capture.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngineRunner.java:DbzCdcEngineRunner",
+      "type": "class",
+      "name": "DbzCdcEngineRunner",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngineRunner.java",
+      "lineRange": [
+        32,
+        184
+      ],
+      "summary": "Manages Debezium CDC engine lifecycle.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzChangeEventConsumer.java:DbzChangeEventConsumer",
+      "type": "class",
+      "name": "DbzChangeEventConsumer",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzChangeEventConsumer.java",
+      "lineRange": [
+        53,
+        378
+      ],
+      "summary": "Consumes Debezium events converting to RisingWave CDC format.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java:JniDbzSourceHandler",
+      "type": "class",
+      "name": "JniDbzSourceHandler",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java",
+      "lineRange": [
+        40,
+        208
+      ],
+      "summary": "JNI source handler for embedded CDC via native Rust bridge.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java:ConnectorNodeMetrics",
+      "type": "class",
+      "name": "ConnectorNodeMetrics",
+      "filePath": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java",
+      "lineRange": [
+        30,
+        172
+      ],
+      "summary": "Prometheus metrics for connector node operations.",
+      "tags": [
+        "connector",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java:CassandraSink",
+      "type": "class",
+      "name": "CassandraSink",
+      "filePath": "java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java",
+      "lineRange": [
+        37,
+        286
+      ],
+      "summary": "Cassandra sink with CQL write and upsert operations.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java:EsSink",
+      "type": "class",
+      "name": "EsSink",
+      "filePath": "java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java",
+      "lineRange": [
+        46,
+        234
+      ],
+      "summary": "Elasticsearch 7 sink with document write and sync.",
+      "tags": [
+        "connector",
+        "service"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/SourceValidateHandler.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/CitusValidator.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzSourceUtils.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/MySqlValidator.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/PostgresValidator.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/PostgresValidator.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/SqlServerValidator.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/SqlServerValidator.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/ValidatorUtils.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngine.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngineRunner.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngineRunner.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzSourceUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzChangeEventConsumer.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzChangeEventConsumer.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/CdcConnectorException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzSourceHandler.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzSourceHandler.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzSourceHandler.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/CdcConnectorException.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/SourceHandlerFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceHandler.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/SourceHandlerFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceTypeE.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/SourceHandlerFactory.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/MonitoredRowIterable.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/test/java/com/risingwave/connector/sink/FileSinkTest.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/ArraySinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/test/java/com/risingwave/connector/sink/FileSinkTest.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/TestUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/test/java/com/risingwave/connector/sink/FileSinkTest.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/FileSink.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/test/java/com/risingwave/connector/sink/SinkStreamObserverTest.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/TestUtils.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/test/java/com/risingwave/connector/sink/SinkStreamObserverTest.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/SinkWriterStreamObserver.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraConfig.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/CommonSinkConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterV1.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterBase.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSinkConfig.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/CommonSinkConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSinkFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSinkFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSinkFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriterV1.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java:DbzConnectorConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DbzConnectorConfig.java:DbzConnectorConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/MySqlValidator.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/MySqlValidator.java:MySqlValidator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/MySqlValidator.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/MySqlValidator.java:MySqlValidator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/PostgresValidator.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/PostgresValidator.java:PostgresValidator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/PostgresValidator.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/PostgresValidator.java:PostgresValidator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngine.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngine.java:DbzCdcEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngine.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngine.java:DbzCdcEngine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngineRunner.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngineRunner.java:DbzCdcEngineRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngineRunner.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzCdcEngineRunner.java:DbzCdcEngineRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzChangeEventConsumer.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzChangeEventConsumer.java:DbzChangeEventConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzChangeEventConsumer.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzChangeEventConsumer.java:DbzChangeEventConsumer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java:JniDbzSourceHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceHandler.java:JniDbzSourceHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java:ConnectorNodeMetrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java",
+      "target": "class:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/metrics/ConnectorNodeMetrics.java:ConnectorNodeMetrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java",
+      "target": "class:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java:CassandraSink",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java",
+      "target": "class:java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraSink.java:CassandraSink",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java",
+      "target": "class:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java:EsSink",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java",
+      "target": "class:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java:EsSink",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

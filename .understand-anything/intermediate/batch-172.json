@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "document:e2e_test/source_inline/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "e2e_test/source_inline/README.md",
+      "summary": "Documentation for the 'inline' style source e2e tests, covering serial test execution, dependency installation, and Python environment setup for Kafka/Redpanda source tests.",
+      "tags": ["documentation", "test", "development"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:e2e_test/source_inline/commands.toml",
+      "type": "config",
+      "name": "commands.toml",
+      "filePath": "e2e_test/source_inline/commands.toml",
+      "summary": "Task runner configuration defining check-kafka, clean-kafka, rpk, and redpanda-console commands used to manage Kafka/Redpanda services during inline source e2e tests.",
+      "tags": ["configuration", "test", "infrastructure"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:e2e_test/source_inline/requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "e2e_test/source_inline/requirements.txt",
+      "summary": "Python package requirements for the inline source e2e test suite.",
+      "tags": ["documentation", "configuration", "test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:e2e_test/source_inline/README.md",
+      "target": "config:e2e_test/source_inline/commands.toml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:e2e_test/source_inline/README.md",
+      "target": "document:e2e_test/source_inline/requirements.txt",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

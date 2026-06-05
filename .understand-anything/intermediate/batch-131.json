@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "service:docker/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "docker/docker-compose.yml",
+      "summary": "Docker Compose file for deploying a standalone RisingWave cluster with configurable image versions, defining services for the frontend, compactor, compute node, and meta node along with shared volumes.",
+      "tags": ["orchestration", "infrastructure", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:docker/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "docker/Dockerfile",
+      "summary": "Multi-stage production Dockerfile that builds the RisingWave binary (rust-builder stage), Java connector node (java-builder stage), and assembles a minimal Ubuntu 24.04 runtime image with flamegraph, addr2line, and ADBC drivers.",
+      "tags": ["containerization", "infrastructure", "deployment"],
+      "complexity": "complex",
+      "languageNotes": "Six named build stages: base, rust-base, rust-builder, java-planner, java-builder, and risingwave (final). The final stage copies artifacts from multiple builder stages."
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:docker/docker-compose.yml",
+      "target": "service:docker/Dockerfile",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

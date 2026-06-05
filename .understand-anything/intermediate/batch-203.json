@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/kinesis-s3-source/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/kinesis-s3-source/create_mv.sql",
+      "summary": "Creates materialized views over Kinesis and S3 source data for the kinesis-s3-source integration test, transforming and aggregating streaming events.",
+      "tags": ["database", "materialized-view", "integration-test", "streaming"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/kinesis-s3-source/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/kinesis-s3-source/create_source.sql",
+      "summary": "Defines RisingWave sources backed by Amazon Kinesis and S3 for the kinesis-s3-source integration test.",
+      "tags": ["database", "schema-definition", "integration-test", "streaming"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/kinesis-s3-source/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/kinesis-s3-source/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the kinesis-s3-source integration test, providing localstack for AWS Kinesis and S3 simulation alongside a RisingWave instance.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/kinesis-s3-source/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/kinesis-s3-source/query.sql",
+      "summary": "Verification queries to inspect materialized view results from Kinesis and S3 sources in the integration test.",
+      "tags": ["database", "query", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/kinesis-s3-source/create_source.sql",
+      "target": "file:integration_tests/kinesis-s3-source/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/kinesis-s3-source/create_mv.sql",
+      "target": "file:integration_tests/kinesis-s3-source/query.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/kinesis-s3-source/docker-compose.yml",
+      "target": "file:integration_tests/kinesis-s3-source/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,1589 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/common/secret/src/encryption.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 73,
+      "functions": [
+        {
+          "name": "encrypt",
+          "startLine": 27,
+          "endLine": 39,
+          "params": [
+            "key",
+            "plaintext"
+          ]
+        },
+        {
+          "name": "decrypt",
+          "startLine": 41,
+          "endLine": 51,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "fill_key",
+          "startLine": 53,
+          "endLine": 57,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "serialize",
+          "startLine": 59,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "deserialize",
+          "startLine": 64,
+          "endLine": 67,
+          "params": [
+            "data"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SecretEncryption",
+          "startLine": 21,
+          "endLine": 24,
+          "methods": [
+            "encrypt",
+            "decrypt",
+            "fill_key",
+            "serialize",
+            "deserialize"
+          ],
+          "properties": [
+            "nonce",
+            "ciphertext"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SecretEncryption",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "encrypt",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "decrypt",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "serialize",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "deserialize",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "encrypt",
+          "callee": "Self::fill_key",
+          "lineNumber": 28
+        },
+        {
+          "caller": "encrypt",
+          "callee": "RandomizedNonceKey::new(&AES_128_GCM, &encrypt_key).map_err",
+          "lineNumber": 29
+        },
+        {
+          "caller": "encrypt",
+          "callee": "RandomizedNonceKey::new",
+          "lineNumber": 29
+        },
+        {
+          "caller": "encrypt",
+          "callee": "plaintext.to_vec",
+          "lineNumber": 31
+        },
+        {
+          "caller": "encrypt",
+          "callee": "nonce_key\n            .seal_in_place_append_tag(Aad::empty(), &mut in_out).map_err",
+          "lineNumber": 32
+        },
+        {
+          "caller": "encrypt",
+          "callee": "nonce_key.seal_in_place_append_tag",
+          "lineNumber": 32
+        },
+        {
+          "caller": "encrypt",
+          "callee": "Aad::empty",
+          "lineNumber": 33
+        },
+        {
+          "caller": "encrypt",
+          "callee": "Ok",
+          "lineNumber": 35
+        },
+        {
+          "caller": "encrypt",
+          "callee": "nonce.as_ref",
+          "lineNumber": 36
+        },
+        {
+          "caller": "decrypt",
+          "callee": "Self::fill_key",
+          "lineNumber": 42
+        },
+        {
+          "caller": "decrypt",
+          "callee": "RandomizedNonceKey::new(&AES_128_GCM, &decrypt_key).map_err",
+          "lineNumber": 43
+        },
+        {
+          "caller": "decrypt",
+          "callee": "RandomizedNonceKey::new",
+          "lineNumber": 43
+        },
+        {
+          "caller": "decrypt",
+          "callee": "self.ciphertext.clone",
+          "lineNumber": 45
+        },
+        {
+          "caller": "decrypt",
+          "callee": "Nonce::assume_unique_for_key",
+          "lineNumber": 46
+        },
+        {
+          "caller": "decrypt",
+          "callee": "nonce_key\n            .open_in_place(nonce, Aad::empty(), &mut in_out).map_err",
+          "lineNumber": 47
+        },
+        {
+          "caller": "decrypt",
+          "callee": "nonce_key.open_in_place",
+          "lineNumber": 47
+        },
+        {
+          "caller": "decrypt",
+          "callee": "Aad::empty",
+          "lineNumber": 48
+        },
+        {
+          "caller": "decrypt",
+          "callee": "Ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "decrypt",
+          "callee": "plaintext.to_vec",
+          "lineNumber": 50
+        },
+        {
+          "caller": "fill_key",
+          "callee": "key[..(std::cmp::min(key.len(), 16))].to_vec",
+          "lineNumber": 54
+        },
+        {
+          "caller": "fill_key",
+          "callee": "std::cmp::min",
+          "lineNumber": 54
+        },
+        {
+          "caller": "fill_key",
+          "callee": "key.len",
+          "lineNumber": 54
+        },
+        {
+          "caller": "fill_key",
+          "callee": "k.resize_with",
+          "lineNumber": 55
+        },
+        {
+          "caller": "serialize",
+          "callee": "bincode::serialize",
+          "lineNumber": 60
+        },
+        {
+          "caller": "serialize",
+          "callee": "Ok",
+          "lineNumber": 61
+        },
+        {
+          "caller": "deserialize",
+          "callee": "bincode::deserialize",
+          "lineNumber": 65
+        },
+        {
+          "caller": "deserialize",
+          "callee": "Ok",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_secret_encryption_decyption",
+          "callee": "hex::decode(\"0123456789abcdef0123456789abcdef\").unwrap",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_secret_encryption_decyption",
+          "callee": "hex::decode",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_secret_encryption_decyption",
+          "callee": "\"Hello, world!\".as_bytes",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_secret_encryption_decyption",
+          "callee": "SecretEncryption::encrypt(key, plaintext).unwrap",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_secret_encryption_decyption",
+          "callee": "SecretEncryption::encrypt",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_secret_encryption_decyption",
+          "callee": "secret.decrypt(key).unwrap",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_secret_encryption_decyption",
+          "callee": "secret.decrypt",
+          "lineNumber": 79
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/secret/src/error.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 35,
+      "classes": [
+        {
+          "name": "SecretError",
+          "startLine": 24,
+          "endLine": 45,
+          "methods": [],
+          "properties": [
+            "ItemNotFound",
+            "DecodeUtf8Error",
+            "IoError",
+            "UnspecifiedRefType",
+            "AesError",
+            "ProtoError",
+            "Internal"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SecretError",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/secret/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 21,
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/secret/src/secret_manager.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 233,
+      "nonEmptyLines": 208,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 49,
+          "endLine": 67,
+          "params": [
+            "temp_file_dir",
+            "cluster_id",
+            "worker_id"
+          ]
+        },
+        {
+          "name": "global",
+          "startLine": 72,
+          "endLine": 78,
+          "params": []
+        },
+        {
+          "name": "add_secret",
+          "startLine": 80,
+          "endLine": 88,
+          "params": [
+            "secret_id",
+            "secret"
+          ]
+        },
+        {
+          "name": "update_secret",
+          "startLine": 90,
+          "endLine": 99,
+          "params": [
+            "secret_id",
+            "secret"
+          ]
+        },
+        {
+          "name": "init_secrets",
+          "startLine": 101,
+          "endLine": 122,
+          "params": [
+            "secrets"
+          ]
+        },
+        {
+          "name": "get_secret",
+          "startLine": 124,
+          "endLine": 127,
+          "params": [
+            "secret_id"
+          ]
+        },
+        {
+          "name": "remove_secret",
+          "startLine": 129,
+          "endLine": 133,
+          "params": [
+            "secret_id"
+          ]
+        },
+        {
+          "name": "fill_secrets",
+          "startLine": 135,
+          "endLine": 146,
+          "params": [
+            "options",
+            "secret_refs"
+          ]
+        },
+        {
+          "name": "fill_secret",
+          "startLine": 148,
+          "endLine": 152,
+          "params": [
+            "secret_ref"
+          ]
+        },
+        {
+          "name": "fill_secret_inner",
+          "startLine": 154,
+          "endLine": 176,
+          "params": [
+            "secret_ref",
+            "secret_guard"
+          ]
+        },
+        {
+          "name": "get_or_init_secret_file",
+          "startLine": 180,
+          "endLine": 192,
+          "params": [
+            "secret_id",
+            "secret_bytes"
+          ]
+        },
+        {
+          "name": "remove_secret_file_if_exist",
+          "startLine": 195,
+          "endLine": 207,
+          "params": [
+            "secret_id"
+          ]
+        },
+        {
+          "name": "get_secret_value",
+          "startLine": 210,
+          "endLine": 223,
+          "params": [
+            "pb_secret_bytes"
+          ]
+        },
+        {
+          "name": "get_pb_secret_backend",
+          "startLine": 226,
+          "endLine": 232,
+          "params": [
+            "pb_secret_bytes"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LocalSecretManager",
+          "startLine": 39,
+          "endLine": 43,
+          "methods": [
+            "init",
+            "global",
+            "add_secret",
+            "update_secret",
+            "init_secrets",
+            "get_secret",
+            "remove_secret",
+            "fill_secrets",
+            "fill_secret",
+            "fill_secret_inner",
+            "get_or_init_secret_file",
+            "remove_secret_file_if_exist",
+            "get_secret_value",
+            "get_pb_secret_backend"
+          ],
+          "properties": [
+            "secrets",
+            "secret_file_dir"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LocalSecretManager",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "global",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "add_secret",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "update_secret",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "init_secrets",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "get_secret",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "remove_secret",
+          "line": 129,
+          "isDefault": false
+        },
+        {
+          "name": "fill_secrets",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "fill_secret",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "get_pb_secret_backend",
+          "line": 226,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "INSTANCE.get_or_init",
+          "lineNumber": 51
+        },
+        {
+          "caller": "init",
+          "callee": "PathBuf::from(temp_file_dir)\n                .join(cluster_id).join",
+          "lineNumber": 52
+        },
+        {
+          "caller": "init",
+          "callee": "PathBuf::from(temp_file_dir).join",
+          "lineNumber": 52
+        },
+        {
+          "caller": "init",
+          "callee": "PathBuf::from",
+          "lineNumber": 52
+        },
+        {
+          "caller": "init",
+          "callee": "worker_id.to_string",
+          "lineNumber": 54
+        },
+        {
+          "caller": "init",
+          "callee": "std::fs::remove_dir_all(&secret_file_dir).ok",
+          "lineNumber": 55
+        },
+        {
+          "caller": "init",
+          "callee": "std::fs::remove_dir_all",
+          "lineNumber": 55
+        },
+        {
+          "caller": "init",
+          "callee": "std::fs::create_dir_all(&secret_file_dir).unwrap",
+          "lineNumber": 60
+        },
+        {
+          "caller": "init",
+          "callee": "std::fs::create_dir_all",
+          "lineNumber": 60
+        },
+        {
+          "caller": "init",
+          "callee": "RwLock::new",
+          "lineNumber": 63
+        },
+        {
+          "caller": "init",
+          "callee": "HashMap::new",
+          "lineNumber": 63
+        },
+        {
+          "caller": "global",
+          "callee": "LocalSecretManager::init",
+          "lineNumber": 75
+        },
+        {
+          "caller": "global",
+          "callee": "\"./tmp\".to_owned",
+          "lineNumber": 75
+        },
+        {
+          "caller": "global",
+          "callee": "\"test_cluster\".to_owned",
+          "lineNumber": 75
+        },
+        {
+          "caller": "global",
+          "callee": "0.into",
+          "lineNumber": 75
+        },
+        {
+          "caller": "global",
+          "callee": "INSTANCE.get().unwrap",
+          "lineNumber": 77
+        },
+        {
+          "caller": "global",
+          "callee": "INSTANCE.get",
+          "lineNumber": 77
+        },
+        {
+          "caller": "add_secret",
+          "callee": "self.secrets.write",
+          "lineNumber": 81
+        },
+        {
+          "caller": "add_secret",
+          "callee": "secret_guard.insert(secret_id, secret).is_some",
+          "lineNumber": 82
+        },
+        {
+          "caller": "add_secret",
+          "callee": "secret_guard.insert",
+          "lineNumber": 82
+        },
+        {
+          "caller": "update_secret",
+          "callee": "self.secrets.write",
+          "lineNumber": 91
+        },
+        {
+          "caller": "update_secret",
+          "callee": "secret_guard.insert(secret_id, secret).is_none",
+          "lineNumber": 92
+        },
+        {
+          "caller": "update_secret",
+          "callee": "secret_guard.insert",
+          "lineNumber": 92
+        },
+        {
+          "caller": "update_secret",
+          "callee": "self.remove_secret_file_if_exist",
+          "lineNumber": 98
+        },
+        {
+          "caller": "init_secrets",
+          "callee": "self.secrets.write",
+          "lineNumber": 102
+        },
+        {
+          "caller": "init_secrets",
+          "callee": "secret_guard.clear",
+          "lineNumber": 104
+        },
+        {
+          "caller": "init_secrets",
+          "callee": "std::fs::remove_dir_all(&self.secret_file_dir)\n            .inspect_err(|e| {\n                tracing::error!(\n            error = %e.as_report(),\n            path = %self.secret_file_dir.to_string_lossy(),\n            \"Failed to remove secret directory\")\n            }).ok",
+          "lineNumber": 107
+        },
+        {
+          "caller": "init_secrets",
+          "callee": "std::fs::remove_dir_all(&self.secret_file_dir).inspect_err",
+          "lineNumber": 107
+        },
+        {
+          "caller": "init_secrets",
+          "callee": "std::fs::remove_dir_all",
+          "lineNumber": 107
+        },
+        {
+          "caller": "init_secrets",
+          "callee": "std::fs::create_dir_all(&self.secret_file_dir).unwrap",
+          "lineNumber": 117
+        },
+        {
+          "caller": "init_secrets",
+          "callee": "std::fs::create_dir_all",
+          "lineNumber": 117
+        },
+        {
+          "caller": "init_secrets",
+          "callee": "secret_guard.insert",
+          "lineNumber": 120
+        },
+        {
+          "caller": "get_secret",
+          "callee": "self.secrets.read",
+          "lineNumber": 125
+        },
+        {
+          "caller": "get_secret",
+          "callee": "secret_guard.get(&secret_id).cloned",
+          "lineNumber": 126
+        },
+        {
+          "caller": "get_secret",
+          "callee": "secret_guard.get",
+          "lineNumber": 126
+        },
+        {
+          "caller": "remove_secret",
+          "callee": "self.secrets.write",
+          "lineNumber": 130
+        },
+        {
+          "caller": "remove_secret",
+          "callee": "secret_guard.remove",
+          "lineNumber": 131
+        },
+        {
+          "caller": "remove_secret",
+          "callee": "self.remove_secret_file_if_exist",
+          "lineNumber": 132
+        },
+        {
+          "caller": "fill_secrets",
+          "callee": "self.secrets.read",
+          "lineNumber": 140
+        },
+        {
+          "caller": "fill_secrets",
+          "callee": "self.fill_secret_inner",
+          "lineNumber": 142
+        },
+        {
+          "caller": "fill_secrets",
+          "callee": "options.insert",
+          "lineNumber": 143
+        },
+        {
+          "caller": "fill_secrets",
+          "callee": "Ok",
+          "lineNumber": 145
+        },
+        {
+          "caller": "fill_secret",
+          "callee": "self.secrets.read",
+          "lineNumber": 150
+        },
+        {
+          "caller": "fill_secret",
+          "callee": "self.fill_secret_inner",
+          "lineNumber": 151
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "secret_guard\n            .get(&secret_id).ok_or",
+          "lineNumber": 160
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "secret_guard.get",
+          "lineNumber": 160
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "SecretError::ItemNotFound",
+          "lineNumber": 162
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "Self::get_secret_value",
+          "lineNumber": 163
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "secret_ref.ref_as",
+          "lineNumber": 164
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "Ok",
+          "lineNumber": 168
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "String::from_utf8",
+          "lineNumber": 168
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "self.get_or_init_secret_file",
+          "lineNumber": 171
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "Ok",
+          "lineNumber": 172
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "Err",
+          "lineNumber": 174
+        },
+        {
+          "caller": "fill_secret_inner",
+          "callee": "SecretError::UnspecifiedRefType",
+          "lineNumber": 174
+        },
+        {
+          "caller": "get_or_init_secret_file",
+          "callee": "self.secret_file_dir.join",
+          "lineNumber": 185
+        },
+        {
+          "caller": "get_or_init_secret_file",
+          "callee": "secret_id.to_string",
+          "lineNumber": 185
+        },
+        {
+          "caller": "get_or_init_secret_file",
+          "callee": "path.exists",
+          "lineNumber": 186
+        },
+        {
+          "caller": "get_or_init_secret_file",
+          "callee": "File::create",
+          "lineNumber": 187
+        },
+        {
+          "caller": "get_or_init_secret_file",
+          "callee": "file.write_all",
+          "lineNumber": 188
+        },
+        {
+          "caller": "get_or_init_secret_file",
+          "callee": "file.sync_all",
+          "lineNumber": 189
+        },
+        {
+          "caller": "get_or_init_secret_file",
+          "callee": "Ok",
+          "lineNumber": 191
+        },
+        {
+          "caller": "get_or_init_secret_file",
+          "callee": "path.to_string_lossy().to_string",
+          "lineNumber": 191
+        },
+        {
+          "caller": "get_or_init_secret_file",
+          "callee": "path.to_string_lossy",
+          "lineNumber": 191
+        },
+        {
+          "caller": "remove_secret_file_if_exist",
+          "callee": "self.secret_file_dir.join",
+          "lineNumber": 196
+        },
+        {
+          "caller": "remove_secret_file_if_exist",
+          "callee": "secret_id.to_string",
+          "lineNumber": 196
+        },
+        {
+          "caller": "remove_secret_file_if_exist",
+          "callee": "path.exists",
+          "lineNumber": 197
+        },
+        {
+          "caller": "remove_secret_file_if_exist",
+          "callee": "std::fs::remove_file(&path)\n                .inspect_err(|e| {\n                    tracing::error!(\n                error = %e.as_report(),\n                path = %path.to_string_lossy(),\n                \"Failed to remove secret file\")\n                }).ok",
+          "lineNumber": 198
+        },
+        {
+          "caller": "remove_secret_file_if_exist",
+          "callee": "std::fs::remove_file(&path).inspect_err",
+          "lineNumber": 198
+        },
+        {
+          "caller": "remove_secret_file_if_exist",
+          "callee": "std::fs::remove_file",
+          "lineNumber": 198
+        },
+        {
+          "caller": "get_secret_value",
+          "callee": "Self::get_pb_secret_backend",
+          "lineNumber": 211
+        },
+        {
+          "caller": "get_secret_value",
+          "callee": "HashiCorpVaultConfig::from_protobuf",
+          "lineNumber": 214
+        },
+        {
+          "caller": "get_secret_value",
+          "callee": "HashiCorpVaultClient::new",
+          "lineNumber": 215
+        },
+        {
+          "caller": "get_secret_value",
+          "callee": "task::block_in_place",
+          "lineNumber": 217
+        },
+        {
+          "caller": "get_secret_value",
+          "callee": "Handle::current().block_on",
+          "lineNumber": 218
+        },
+        {
+          "caller": "get_secret_value",
+          "callee": "Handle::current",
+          "lineNumber": 218
+        },
+        {
+          "caller": "get_secret_value",
+          "callee": "client.get_secret",
+          "lineNumber": 218
+        },
+        {
+          "caller": "get_secret_value",
+          "callee": "Ok",
+          "lineNumber": 222
+        },
+        {
+          "caller": "get_pb_secret_backend",
+          "callee": "risingwave_pb::secret::Secret::decode(pb_secret_bytes).context",
+          "lineNumber": 229
+        },
+        {
+          "caller": "get_pb_secret_backend",
+          "callee": "risingwave_pb::secret::Secret::decode",
+          "lineNumber": 229
+        },
+        {
+          "caller": "get_pb_secret_backend",
+          "callee": "Ok",
+          "lineNumber": 231
+        },
+        {
+          "caller": "get_pb_secret_backend",
+          "callee": "pb_secret.get_secret_backend().unwrap().clone",
+          "lineNumber": 231
+        },
+        {
+          "caller": "get_pb_secret_backend",
+          "callee": "pb_secret.get_secret_backend().unwrap",
+          "lineNumber": 231
+        },
+        {
+          "caller": "get_pb_secret_backend",
+          "callee": "pb_secret.get_secret_backend",
+          "lineNumber": 231
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 14,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/secret/src/vault_client.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 416,
+      "nonEmptyLines": 364,
+      "functions": [
+        {
+          "name": "from_protobuf",
+          "startLine": 110,
+          "endLine": 137,
+          "params": [
+            "vault_backend"
+          ]
+        },
+        {
+          "name": "to_protobuf",
+          "startLine": 140,
+          "endLine": 165,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 169,
+          "endLine": 181,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "get_secret",
+          "startLine": 183,
+          "endLine": 227,
+          "params": []
+        },
+        {
+          "name": "process_secret_response",
+          "startLine": 229,
+          "endLine": 274,
+          "params": [
+            "response"
+          ]
+        },
+        {
+          "name": "get_token_internal",
+          "startLine": 276,
+          "endLine": 351,
+          "params": [
+            "force_refresh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TokenCacheKey",
+          "startLine": 29,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "vault_base_url",
+            "role_id"
+          ]
+        },
+        {
+          "name": "CachedToken",
+          "startLine": 35,
+          "endLine": 38,
+          "methods": [],
+          "properties": [
+            "token",
+            "expires_at"
+          ]
+        },
+        {
+          "name": "HashiCorpVaultConfig",
+          "startLine": 51,
+          "endLine": 60,
+          "methods": [
+            "from_protobuf",
+            "to_protobuf"
+          ],
+          "properties": [
+            "addr",
+            "path",
+            "field",
+            "auth",
+            "tls_skip_verify"
+          ]
+        },
+        {
+          "name": "HashiCorpVaultAuth",
+          "startLine": 64,
+          "endLine": 73,
+          "methods": [],
+          "properties": [
+            "Token",
+            "AppRole"
+          ]
+        },
+        {
+          "name": "VaultAppRoleLoginRequest",
+          "startLine": 76,
+          "endLine": 79,
+          "methods": [],
+          "properties": [
+            "role_id",
+            "secret_id"
+          ]
+        },
+        {
+          "name": "VaultAuthResponse",
+          "startLine": 82,
+          "endLine": 84,
+          "methods": [],
+          "properties": [
+            "auth"
+          ]
+        },
+        {
+          "name": "VaultAuthData",
+          "startLine": 87,
+          "endLine": 90,
+          "methods": [],
+          "properties": [
+            "client_token",
+            "lease_duration"
+          ]
+        },
+        {
+          "name": "VaultSecretResponse",
+          "startLine": 93,
+          "endLine": 95,
+          "methods": [],
+          "properties": [
+            "data"
+          ]
+        },
+        {
+          "name": "VaultSecretData",
+          "startLine": 98,
+          "endLine": 100,
+          "methods": [],
+          "properties": [
+            "data"
+          ]
+        },
+        {
+          "name": "HashiCorpVaultClient",
+          "startLine": 103,
+          "endLine": 106,
+          "methods": [
+            "new",
+            "get_secret",
+            "process_secret_response",
+            "get_token_internal"
+          ],
+          "properties": [
+            "client",
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "HashiCorpVaultConfig",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "HashiCorpVaultAuth",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "HashiCorpVaultClient",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "from_protobuf",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "to_protobuf",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 169,
+          "isDefault": false
+        },
+        {
+          "name": "get_secret",
+          "line": 183,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_protobuf",
+          "callee": "vault_backend.auth.as_ref",
+          "lineNumber": 111
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "token_auth.token.clone",
+          "lineNumber": 114
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "approle_auth.role_id.clone",
+          "lineNumber": 119
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "approle_auth.secret_id.clone",
+          "lineNumber": 120
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Err",
+          "lineNumber": 124
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "Ok",
+          "lineNumber": 130
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "vault_backend.addr.clone",
+          "lineNumber": 131
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "vault_backend.path.clone",
+          "lineNumber": 132
+        },
+        {
+          "caller": "from_protobuf",
+          "callee": "vault_backend.field.clone",
+          "lineNumber": 133
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 142
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "secret::secret_hashicorp_vault_backend::Auth::TokenAuth",
+          "lineNumber": 143
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "auth_token.clone",
+          "lineNumber": 144
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "Some",
+          "lineNumber": 150
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "secret::secret_hashicorp_vault_backend::Auth::ApproleAuth",
+          "lineNumber": 150
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "auth_role_id.clone",
+          "lineNumber": 152
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "auth_secret_id.clone",
+          "lineNumber": 153
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.addr.clone",
+          "lineNumber": 159
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.path.clone",
+          "lineNumber": 160
+        },
+        {
+          "caller": "to_protobuf",
+          "callee": "self.field.clone",
+          "lineNumber": 161
+        },
+        {
+          "caller": "new",
+          "callee": "Client::builder",
+          "lineNumber": 170
+        },
+        {
+          "caller": "new",
+          "callee": "client_builder.danger_accept_invalid_certs",
+          "lineNumber": 173
+        },
+        {
+          "caller": "new",
+          "callee": "client_builder\n            .build().context",
+          "lineNumber": 176
+        },
+        {
+          "caller": "new",
+          "callee": "client_builder.build",
+          "lineNumber": 176
+        },
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 180
+        },
+        {
+          "caller": "get_secret",
+          "callee": "self.get_token_internal",
+          "lineNumber": 190
+        },
+        {
+          "caller": "get_secret",
+          "callee": "Url::parse(&self.config.addr).context",
+          "lineNumber": 193
+        },
+        {
+          "caller": "get_secret",
+          "callee": "Url::parse",
+          "lineNumber": 193
+        },
+        {
+          "caller": "get_secret",
+          "callee": "url.set_path",
+          "lineNumber": 194
+        },
+        {
+          "caller": "get_secret",
+          "callee": "self\n                .client\n                .get(url.as_str())\n                .header(\"X-Vault-Token\", &token)\n                .send()\n                .await.context",
+          "lineNumber": 195
+        },
+        {
+          "caller": "get_secret",
+          "callee": "self\n                .client\n                .get(url.as_str())\n                .header(\"X-Vault-Token\", &token).send",
+          "lineNumber": 195
+        },
+        {
+          "caller": "get_secret",
+          "callee": "self\n                .client\n                .get(url.as_str()).header",
+          "lineNumber": 195
+        },
+        {
+          "caller": "get_secret",
+          "callee": "self\n                .client.get",
+          "lineNumber": 195
+        },
+        {
+          "caller": "get_secret",
+          "callee": "url.as_str",
+          "lineNumber": 197
+        },
+        {
+          "caller": "get_secret",
+          "callee": "response.status",
+          "lineNumber": 204
+        },
+        {
+          "caller": "get_secret",
+          "callee": "response.status",
+          "lineNumber": 204
+        },
+        {
+          "caller": "get_secret",
+          "callee": "response.status().is_success",
+          "lineNumber": 213
+        },
+        {
+          "caller": "get_secret",
+          "callee": "response.status",
+          "lineNumber": 213
+        },
+        {
+          "caller": "get_secret",
+          "callee": "Err",
+          "lineNumber": 214
+        },
+        {
+          "caller": "get_secret",
+          "callee": "self.process_secret_response",
+          "lineNumber": 222
+        },
+        {
+          "caller": "get_secret",
+          "callee": "Err",
+          "lineNumber": 226
+        },
+        {
+          "caller": "process_secret_response",
+          "callee": "response\n            .json()\n            .await.context",
+          "lineNumber": 256
+        },
+        {
+          "caller": "process_secret_response",
+          "callee": "response.json",
+          "lineNumber": 256
+        },
+        {
+          "caller": "process_secret_response",
+          "callee": "secret_response\n            .data\n            .data\n            .get(&self.config.field).ok_or_else",
+          "lineNumber": 261
+        },
+        {
+          "caller": "process_secret_response",
+          "callee": "secret_response\n            .data\n            .data.get",
+          "lineNumber": 261
+        },
+        {
+          "caller": "process_secret_response",
+          "callee": "s.as_bytes().to_vec",
+          "lineNumber": 268
+        },
+        {
+          "caller": "process_secret_response",
+          "callee": "s.as_bytes",
+          "lineNumber": 268
+        },
+        {
+          "caller": "process_secret_response",
+          "callee": "serde_json::to_vec(field_value).context",
+          "lineNumber": 269
+        },
+        {
+          "caller": "process_secret_response",
+          "callee": "serde_json::to_vec",
+          "lineNumber": 269
+        },
+        {
+          "caller": "process_secret_response",
+          "callee": "Ok",
+          "lineNumber": 273
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "Ok",
+          "lineNumber": 278
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "auth_token.clone",
+          "lineNumber": 278
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "self.config.addr.trim_end_matches('/').to_owned",
+          "lineNumber": 285
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "self.config.addr.trim_end_matches",
+          "lineNumber": 285
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "auth_role_id.clone",
+          "lineNumber": 286
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "GLOBAL_VAULT_TOKEN_CACHE.get",
+          "lineNumber": 291
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "Instant::now",
+          "lineNumber": 293
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "Ok",
+          "lineNumber": 294
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "GLOBAL_VAULT_TOKEN_CACHE.invalidate",
+          "lineNumber": 297
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "Url::parse(&self.config.addr).context",
+          "lineNumber": 303
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "Url::parse",
+          "lineNumber": 303
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "login_url.set_path",
+          "lineNumber": 304
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "auth_role_id.clone",
+          "lineNumber": 306
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "auth_secret_id.clone",
+          "lineNumber": 307
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "self\n                    .client\n                    .post(login_url.as_str())\n                    .json(&login_request)\n                    .send()\n                    .await.context",
+          "lineNumber": 310
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "self\n                    .client\n                    .post(login_url.as_str())\n                    .json(&login_request).send",
+          "lineNumber": 310
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "self\n                    .client\n                    .post(login_url.as_str()).json",
+          "lineNumber": 310
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "self\n                    .client.post",
+          "lineNumber": 310
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "login_url.as_str",
+          "lineNumber": 312
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "response.status().is_success",
+          "lineNumber": 318
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "response.status",
+          "lineNumber": 318
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "GLOBAL_VAULT_TOKEN_CACHE.invalidate",
+          "lineNumber": 321
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "Err",
+          "lineNumber": 323
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "response\n                    .json()\n                    .await.context",
+          "lineNumber": 330
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "response.json",
+          "lineNumber": 330
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "Instant::now",
+          "lineNumber": 339
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "Duration::from_secs",
+          "lineNumber": 339
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "token.clone",
+          "lineNumber": 341
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "GLOBAL_VAULT_TOKEN_CACHE.insert",
+          "lineNumber": 344
+        },
+        {
+          "caller": "get_token_internal",
+          "callee": "Ok",
+          "lineNumber": 348
+        },
+        {
+          "caller": "test_hashicorp_vault_config_token_auth_full",
+          "callee": "serde_json::from_value(json_config).unwrap",
+          "lineNumber": 371
+        },
+        {
+          "caller": "test_hashicorp_vault_config_token_auth_full",
+          "callee": "serde_json::from_value",
+          "lineNumber": 371
+        },
+        {
+          "caller": "test_hashicorp_vault_config_approle_auth_full",
+          "callee": "serde_json::from_value(json_config).unwrap",
+          "lineNumber": 398
+        },
+        {
+          "caller": "test_hashicorp_vault_config_approle_auth_full",
+          "callee": "serde_json::from_value",
+          "lineNumber": 398
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 10
+      }
+    }
+  ]
+}

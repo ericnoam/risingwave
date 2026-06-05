@@ -1,0 +1,3645 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/ctl/src/cmd_impl.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 23,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/bench.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 166,
+      "nonEmptyLines": 157,
+      "functions": [
+        {
+          "name": "spawn_okk",
+          "startLine": 52,
+          "endLine": 54,
+          "params": [
+            "fut"
+          ]
+        },
+        {
+          "name": "report",
+          "startLine": 66,
+          "endLine": 79,
+          "params": [
+            "metrics"
+          ]
+        },
+        {
+          "name": "do_bench",
+          "startLine": 82,
+          "endLine": 166,
+          "params": [
+            "context",
+            "cmd"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BenchCommands",
+          "startLine": 36,
+          "endLine": 48,
+          "methods": [],
+          "properties": [
+            "Scan"
+          ]
+        },
+        {
+          "name": "InterestedMetrics",
+          "startLine": 57,
+          "endLine": 63,
+          "methods": [
+            "report"
+          ],
+          "properties": [
+            "object_store_read",
+            "object_store_write",
+            "next_cnt",
+            "iter_cnt",
+            "now"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BenchCommands",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "InterestedMetrics",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "report",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "do_bench",
+          "line": 82,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "spawn_okk",
+          "callee": "tokio::spawn",
+          "lineNumber": 53
+        },
+        {
+          "caller": "report",
+          "callee": "self.now.duration_since(metrics.now).as_secs_f64",
+          "lineNumber": 67
+        },
+        {
+          "caller": "report",
+          "callee": "self.now.duration_since",
+          "lineNumber": 67
+        },
+        {
+          "caller": "do_bench",
+          "callee": "context.meta_client",
+          "lineNumber": 83
+        },
+        {
+          "caller": "do_bench",
+          "callee": "Arc::new",
+          "lineNumber": 84
+        },
+        {
+          "caller": "do_bench",
+          "callee": "AtomicU64::new",
+          "lineNumber": 84
+        },
+        {
+          "caller": "do_bench",
+          "callee": "Arc::new",
+          "lineNumber": 85
+        },
+        {
+          "caller": "do_bench",
+          "callee": "AtomicU64::new",
+          "lineNumber": 85
+        },
+        {
+          "caller": "do_bench",
+          "callee": "context.hummock_store_with_metrics",
+          "lineNumber": 93
+        },
+        {
+          "caller": "do_bench",
+          "callee": "HummockServiceOpts::from_env",
+          "lineNumber": 94
+        },
+        {
+          "caller": "do_bench",
+          "callee": "get_table_catalog",
+          "lineNumber": 99
+        },
+        {
+          "caller": "do_bench",
+          "callee": "meta.clone",
+          "lineNumber": 99
+        },
+        {
+          "caller": "do_bench",
+          "callee": "hummock\n                .inner()\n                .get_pinned_version()\n                .table_committed_epoch(table.id).ok_or_else",
+          "lineNumber": 100
+        },
+        {
+          "caller": "do_bench",
+          "callee": "hummock\n                .inner()\n                .get_pinned_version().table_committed_epoch",
+          "lineNumber": 100
+        },
+        {
+          "caller": "do_bench",
+          "callee": "hummock\n                .inner().get_pinned_version",
+          "lineNumber": 100
+        },
+        {
+          "caller": "do_bench",
+          "callee": "hummock.inner",
+          "lineNumber": 100
+        },
+        {
+          "caller": "do_bench",
+          "callee": "table.clone",
+          "lineNumber": 107
+        },
+        {
+          "caller": "do_bench",
+          "callee": "next_cnt.clone",
+          "lineNumber": 108
+        },
+        {
+          "caller": "do_bench",
+          "callee": "iter_cnt.clone",
+          "lineNumber": 109
+        },
+        {
+          "caller": "do_bench",
+          "callee": "hummock.clone",
+          "lineNumber": 110
+        },
+        {
+          "caller": "do_bench",
+          "callee": "spawn_okk",
+          "lineNumber": 111
+        },
+        {
+          "caller": "do_bench",
+          "callee": "make_state_table",
+          "lineNumber": 114
+        },
+        {
+          "caller": "do_bench",
+          "callee": "tb.init_epoch",
+          "lineNumber": 115
+        },
+        {
+          "caller": "do_bench",
+          "callee": "EpochPair::new",
+          "lineNumber": 115
+        },
+        {
+          "caller": "do_bench",
+          "callee": "state_table.iter_with_prefix",
+          "lineNumber": 122
+        },
+        {
+          "caller": "do_bench",
+          "callee": "row::empty",
+          "lineNumber": 124
+        },
+        {
+          "caller": "do_bench",
+          "callee": "PrefetchOptions::prefetch_for_large_range_scan",
+          "lineNumber": 126
+        },
+        {
+          "caller": "do_bench",
+          "callee": "iter_cnt.fetch_add",
+          "lineNumber": 130
+        },
+        {
+          "caller": "do_bench",
+          "callee": "stream.next",
+          "lineNumber": 131
+        },
+        {
+          "caller": "do_bench",
+          "callee": "next_cnt.fetch_add",
+          "lineNumber": 132
+        },
+        {
+          "caller": "do_bench",
+          "callee": "handlers.push",
+          "lineNumber": 137
+        },
+        {
+          "caller": "do_bench",
+          "callee": "spawn_okk",
+          "lineNumber": 139
+        },
+        {
+          "caller": "do_bench",
+          "callee": "metrics.object_store_metrics.read_bytes.get",
+          "lineNumber": 144
+        },
+        {
+          "caller": "do_bench",
+          "callee": "metrics.object_store_metrics.write_bytes.get",
+          "lineNumber": 145
+        },
+        {
+          "caller": "do_bench",
+          "callee": "next_cnt.load",
+          "lineNumber": 146
+        },
+        {
+          "caller": "do_bench",
+          "callee": "iter_cnt.load",
+          "lineNumber": 147
+        },
+        {
+          "caller": "do_bench",
+          "callee": "Instant::now",
+          "lineNumber": 148
+        },
+        {
+          "caller": "do_bench",
+          "callee": "collected_metrics.report",
+          "lineNumber": 151
+        },
+        {
+          "caller": "do_bench",
+          "callee": "Some",
+          "lineNumber": 153
+        },
+        {
+          "caller": "do_bench",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 155
+        },
+        {
+          "caller": "do_bench",
+          "callee": "std::time::Duration::from_secs",
+          "lineNumber": 155
+        },
+        {
+          "caller": "do_bench",
+          "callee": "handlers.push",
+          "lineNumber": 158
+        },
+        {
+          "caller": "do_bench",
+          "callee": "try_join_all",
+          "lineNumber": 159
+        },
+        {
+          "caller": "do_bench",
+          "callee": "Ok",
+          "lineNumber": 165
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 37,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/list_kv.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 68,
+      "functions": [
+        {
+          "name": "list_kv",
+          "startLine": 30,
+          "endLine": 72,
+          "params": [
+            "context",
+            "epoch",
+            "table_id",
+            "data_dir",
+            "use_new_object_prefix_strategy"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "list_kv",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "list_kv",
+          "callee": "context.hummock_store",
+          "lineNumber": 37
+        },
+        {
+          "caller": "list_kv",
+          "callee": "HummockServiceOpts::from_env",
+          "lineNumber": 38
+        },
+        {
+          "caller": "list_kv",
+          "callee": "is_max_epoch",
+          "lineNumber": 43
+        },
+        {
+          "caller": "list_kv",
+          "callee": "hummock.new_read_snapshot",
+          "lineNumber": 47
+        },
+        {
+          "caller": "list_kv",
+          "callee": "HummockReadEpoch::Committed",
+          "lineNumber": 49
+        },
+        {
+          "caller": "list_kv",
+          "callee": "TableOption::default",
+          "lineNumber": 52
+        },
+        {
+          "caller": "list_kv",
+          "callee": "read_snapshot.iter",
+          "lineNumber": 56
+        },
+        {
+          "caller": "list_kv",
+          "callee": "PrefetchOptions::prefetch_for_large_range_scan",
+          "lineNumber": 60
+        },
+        {
+          "caller": "list_kv",
+          "callee": "Default::default",
+          "lineNumber": 62
+        },
+        {
+          "caller": "list_kv",
+          "callee": "scan_result.try_next",
+          "lineNumber": 66
+        },
+        {
+          "caller": "list_kv",
+          "callee": "Ok",
+          "lineNumber": 71
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/resize_cache.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "resize_cache",
+          "startLine": 33,
+          "endLine": 65,
+          "params": [
+            "context",
+            "meta_cache_capacity",
+            "data_cache_capacity"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "resize_cache",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "resize_cache",
+          "callee": "context.meta_client",
+          "lineNumber": 38
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "meta_client.get_cluster_info",
+          "lineNumber": 40
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "worker_nodes.iter().map",
+          "lineNumber": 47
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "worker_nodes.iter",
+          "lineNumber": 47
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "worker.get_host().expect",
+          "lineNumber": 48
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "worker.get_host",
+          "lineNumber": 48
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "ComputeClient::new(addr.into(), &RpcClientConfig::default())\n            .await.unwrap_or_else",
+          "lineNumber": 49
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "ComputeClient::new",
+          "lineNumber": 49
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "addr.into",
+          "lineNumber": 49
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "RpcClientConfig::default",
+          "lineNumber": 49
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "client.resize_cache",
+          "lineNumber": 52
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "meta_cache_capacity.unwrap_or",
+          "lineNumber": 54
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "data_cache_capacity.unwrap_or",
+          "lineNumber": 55
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "try_join_all",
+          "lineNumber": 60
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "Ok",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/sst_dump.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 442,
+      "nonEmptyLines": 404,
+      "functions": [
+        {
+          "name": "sst_dump",
+          "startLine": 69,
+          "endLine": 174,
+          "params": [
+            "context",
+            "args"
+          ]
+        },
+        {
+          "name": "print_level",
+          "startLine": 176,
+          "endLine": 191,
+          "params": [
+            "level",
+            "sst_info",
+            "args"
+          ]
+        },
+        {
+          "name": "print_object",
+          "startLine": 193,
+          "endLine": 197,
+          "params": [
+            "obj"
+          ]
+        },
+        {
+          "name": "get_meta_offset_from_object",
+          "startLine": 199,
+          "endLine": 212,
+          "params": [
+            "obj",
+            "obj_store"
+          ]
+        },
+        {
+          "name": "sst_dump_via_sstable_store",
+          "startLine": 214,
+          "endLine": 277,
+          "params": [
+            "sstable_store",
+            "object_id",
+            "meta_offset",
+            "file_size",
+            "table_data",
+            "args"
+          ]
+        },
+        {
+          "name": "load_table_schemas",
+          "startLine": 281,
+          "endLine": 290,
+          "params": [
+            "meta_client"
+          ]
+        },
+        {
+          "name": "print_block",
+          "startLine": 293,
+          "endLine": 332,
+          "params": [
+            "block_idx",
+            "table_data",
+            "sstable_store",
+            "sst",
+            "args"
+          ]
+        },
+        {
+          "name": "print_kv_pairs",
+          "startLine": 335,
+          "endLine": 374,
+          "params": [
+            "block_data",
+            "table_data",
+            "uncompressed_capacity",
+            "args"
+          ]
+        },
+        {
+          "name": "print_table_column",
+          "startLine": 377,
+          "endLine": 442,
+          "params": [
+            "full_key",
+            "humm_val",
+            "table_data"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SstDumpArgs",
+          "startLine": 50,
+          "endLine": 67,
+          "methods": [],
+          "properties": [
+            "object_id",
+            "block_id",
+            "print_entry",
+            "print_level",
+            "print_table",
+            "print_vnode_stats",
+            "data_dir",
+            "use_new_object_prefix_strategy"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SstDumpArgs",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "sst_dump",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "sst_dump_via_sstable_store",
+          "line": 214,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sst_dump",
+          "callee": "context.meta_client",
+          "lineNumber": 72
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "load_table_schemas",
+          "lineNumber": 73
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "TableData::default",
+          "lineNumber": 75
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "context.hummock_store",
+          "lineNumber": 79
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "HummockServiceOpts::from_env",
+          "lineNumber": 80
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "args.data_dir.clone",
+          "lineNumber": 81
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "hummock.inner().get_pinned_version().clone",
+          "lineNumber": 85
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "hummock.inner().get_pinned_version",
+          "lineNumber": 85
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "hummock.inner",
+          "lineNumber": 85
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "hummock.sstable_store",
+          "lineNumber": 86
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "version.get_combined_levels",
+          "lineNumber": 87
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "print_level",
+          "lineNumber": 91
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "sst_dump_via_sstable_store",
+          "lineNumber": 92
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "Ok",
+          "lineNumber": 101
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "print_level",
+          "lineNumber": 104
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "sst_dump_via_sstable_store",
+          "lineNumber": 105
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "HummockServiceOpts::from_env",
+          "lineNumber": 119
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "args.data_dir.clone",
+          "lineNumber": 120
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "hummock_service_opts.create_sstable_store",
+          "lineNumber": 123
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "sstable_store.store",
+          "lineNumber": 127
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "sstable_store.get_sst_data_path",
+          "lineNumber": 128
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "obj_store.metadata",
+          "lineNumber": 129
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "print_object",
+          "lineNumber": 130
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "get_meta_offset_from_object",
+          "lineNumber": 131
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "obj_store.as_ref",
+          "lineNumber": 131
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "sst_dump_via_sstable_store",
+          "lineNumber": 132
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "(*obj_id).into",
+          "lineNumber": 134
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "sstable_store.list_sst_object_metadata_from_object_store",
+          "lineNumber": 142
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "metadata_iter.try_next",
+          "lineNumber": 145
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "print_object",
+          "lineNumber": 146
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "SstableStore::get_object_id_from_path",
+          "lineNumber": 147
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "get_meta_offset_from_object",
+          "lineNumber": 159
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "sstable_store.store().as_ref",
+          "lineNumber": 159
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "sstable_store.store",
+          "lineNumber": 159
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "sst_dump_via_sstable_store",
+          "lineNumber": 160
+        },
+        {
+          "caller": "sst_dump",
+          "callee": "Ok",
+          "lineNumber": 173
+        },
+        {
+          "caller": "get_meta_offset_from_object",
+          "callee": "std::mem::size_of::<u32>",
+          "lineNumber": 206
+        },
+        {
+          "caller": "get_meta_offset_from_object",
+          "callee": "std::mem::size_of::<u64>",
+          "lineNumber": 208
+        },
+        {
+          "caller": "get_meta_offset_from_object",
+          "callee": "std::mem::size_of::<u64>",
+          "lineNumber": 210
+        },
+        {
+          "caller": "get_meta_offset_from_object",
+          "callee": "Ok",
+          "lineNumber": 211
+        },
+        {
+          "caller": "get_meta_offset_from_object",
+          "callee": "obj_store.read(&obj.key, start..end).await?.get_u64_le",
+          "lineNumber": 211
+        },
+        {
+          "caller": "get_meta_offset_from_object",
+          "callee": "obj_store.read",
+          "lineNumber": 211
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "SstableInfoInner {\n        object_id,\n        file_size,\n        meta_offset,\n        // below are default unused value\n        sst_id: 0.into(),\n        key_range: Default::default(),\n        table_ids: vec![],\n        stale_key_count: 0,\n        total_key_count: 0,\n        min_epoch: 0,\n        max_epoch: 0,\n        uncompressed_file_size: 0,\n        range_tombstone_count: 0,\n        bloom_filter_kind: Default::default(),\n        filter_type: Default::default(),\n        sst_size: 0,\n        vnode_statistics: None,\n    }.into",
+          "lineNumber": 222
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "0.into",
+          "lineNumber": 227
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "Default::default",
+          "lineNumber": 228
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "Default::default",
+          "lineNumber": 236
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "Default::default",
+          "lineNumber": 237
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "sstable_store.sstable",
+          "lineNumber": 242
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "StoreLocalStatistic::default",
+          "lineNumber": 243
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "sstable_cache.as_ref",
+          "lineNumber": 245
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "FullKey::decode",
+          "lineNumber": 247
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "FullKey::decode",
+          "lineNumber": 248
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "sstable.block_count",
+          "lineNumber": 266
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "print_block",
+          "lineNumber": 269
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "Ok",
+          "lineNumber": 270
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "print_block",
+          "lineNumber": 273
+        },
+        {
+          "caller": "sst_dump_via_sstable_store",
+          "callee": "Ok",
+          "lineNumber": 276
+        },
+        {
+          "caller": "load_table_schemas",
+          "callee": "HashMap::new",
+          "lineNumber": 282
+        },
+        {
+          "caller": "load_table_schemas",
+          "callee": "meta_client.risectl_list_state_tables",
+          "lineNumber": 284
+        },
+        {
+          "caller": "load_table_schemas",
+          "callee": "mvs.iter().for_each",
+          "lineNumber": 285
+        },
+        {
+          "caller": "load_table_schemas",
+          "callee": "mvs.iter",
+          "lineNumber": 285
+        },
+        {
+          "caller": "load_table_schemas",
+          "callee": "tables.insert",
+          "lineNumber": 286
+        },
+        {
+          "caller": "load_table_schemas",
+          "callee": "tbl.into",
+          "lineNumber": 286
+        },
+        {
+          "caller": "load_table_schemas",
+          "callee": "Ok",
+          "lineNumber": 289
+        },
+        {
+          "caller": "print_block",
+          "callee": "FullKey::decode",
+          "lineNumber": 304
+        },
+        {
+          "caller": "print_block",
+          "callee": "sstable_store.get_sst_data_path",
+          "lineNumber": 305
+        },
+        {
+          "caller": "print_block",
+          "callee": "sstable_store.store",
+          "lineNumber": 308
+        },
+        {
+          "caller": "print_block",
+          "callee": "store.read",
+          "lineNumber": 310
+        },
+        {
+          "caller": "print_block",
+          "callee": "block_data.len",
+          "lineNumber": 313
+        },
+        {
+          "caller": "print_block",
+          "callee": "(&block_data[len - 8..]).get_u64_le",
+          "lineNumber": 314
+        },
+        {
+          "caller": "print_block",
+          "callee": "CompressionAlgorithm::decode",
+          "lineNumber": 315
+        },
+        {
+          "caller": "print_block",
+          "callee": "print_kv_pairs",
+          "lineNumber": 323
+        },
+        {
+          "caller": "print_block",
+          "callee": "Ok",
+          "lineNumber": 331
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "Box::new",
+          "lineNumber": 343
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "Block::decode(block_data, uncompressed_capacity).unwrap",
+          "lineNumber": 343
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "Block::decode",
+          "lineNumber": 343
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "BlockHolder::from_owned_block",
+          "lineNumber": 344
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "BlockIterator::new",
+          "lineNumber": 345
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "block_iter.seek_to_first",
+          "lineNumber": 346
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "block_iter.is_valid",
+          "lineNumber": 348
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "block_iter.key",
+          "lineNumber": 349
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "block_iter.value",
+          "lineNumber": 350
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "HummockValue::from_slice",
+          "lineNumber": 351
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "Epoch::from",
+          "lineNumber": 353
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "full_key.epoch_with_gap.pure_epoch",
+          "lineNumber": 353
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "DateTime::<Utc>::from",
+          "lineNumber": 354
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "epoch.as_system_time",
+          "lineNumber": 354
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "print_table_column",
+          "lineNumber": 365
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "block_iter.next",
+          "lineNumber": 370
+        },
+        {
+          "caller": "print_kv_pairs",
+          "callee": "Ok",
+          "lineNumber": 373
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_data.get",
+          "lineNumber": 385
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "Ok",
+          "lineNumber": 389
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "humm_val.into_user_value",
+          "lineNumber": 399
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog\n            .value_indices\n            .iter()\n            .map(|idx| table_catalog.columns[*idx].column_desc.name.clone()).collect_vec",
+          "lineNumber": 400
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog\n            .value_indices\n            .iter().map",
+          "lineNumber": 400
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog\n            .value_indices.iter",
+          "lineNumber": 400
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog.columns[*idx].column_desc.name.clone",
+          "lineNumber": 403
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog.version().is_some",
+          "lineNumber": 406
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog.version",
+          "lineNumber": 406
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "ColumnAwareSerde::new(\n                table_catalog.value_indices.clone().into(),\n                Arc::from_iter(\n                    table_catalog\n                        .columns()\n                        .iter()\n                        .cloned()\n                        .map(|c| c.column_desc),\n                ),\n            ).into",
+          "lineNumber": 407
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "ColumnAwareSerde::new",
+          "lineNumber": 407
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog.value_indices.clone().into",
+          "lineNumber": 408
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog.value_indices.clone",
+          "lineNumber": 408
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "Arc::from_iter",
+          "lineNumber": 409
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog\n                        .columns()\n                        .iter()\n                        .cloned().map",
+          "lineNumber": 410
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog\n                        .columns()\n                        .iter().cloned",
+          "lineNumber": 410
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog\n                        .columns().iter",
+          "lineNumber": 410
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog.columns",
+          "lineNumber": 410
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "BasicSerde::new(\n                table_catalog.value_indices.clone().into(),\n                Arc::from_iter(\n                    table_catalog\n                        .columns()\n                        .iter()\n                        .cloned()\n                        .map(|c| c.column_desc),\n                ),\n            ).into",
+          "lineNumber": 419
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "BasicSerde::new",
+          "lineNumber": 419
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog.value_indices.clone().into",
+          "lineNumber": 420
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog.value_indices.clone",
+          "lineNumber": 420
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "Arc::from_iter",
+          "lineNumber": 421
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog\n                        .columns()\n                        .iter()\n                        .cloned().map",
+          "lineNumber": 422
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog\n                        .columns()\n                        .iter().cloned",
+          "lineNumber": 422
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog\n                        .columns().iter",
+          "lineNumber": 422
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "table_catalog.columns",
+          "lineNumber": 422
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "row_deserializer.deserialize",
+          "lineNumber": 431
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "column_desc.iter().zip_eq_fast",
+          "lineNumber": 432
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "column_desc.iter",
+          "lineNumber": 432
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "row.iter",
+          "lineNumber": 432
+        },
+        {
+          "caller": "print_table_column",
+          "callee": "Ok",
+          "lineNumber": 441
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/tiered_cache_tracing.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "tiered_cache_tracing",
+          "startLine": 27,
+          "endLine": 63,
+          "params": [
+            "context",
+            "enable",
+            "record_hybrid_insert_threshold_ms",
+            "record_hybrid_get_threshold_ms",
+            "record_hybrid_obtain_threshold_ms",
+            "record_hybrid_remove_threshold_ms",
+            "record_hybrid_fetch_threshold_ms"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "tiered_cache_tracing",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "context.meta_client",
+          "lineNumber": 36
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "meta_client.get_cluster_info",
+          "lineNumber": 37
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "info\n        .get_worker_nodes()\n        .iter()\n        .map(|worker_node| async {\n            let addr = worker_node.get_host().unwrap();\n            let channel = Endpoint::from_shared(format!(\"http://{}:{}\", addr.host, addr.port))?\n                .connect_timeout(Duration::from_secs(5))\n                .monitored_connect(\"grpc-tiered-cache-tracing-client\", Default::default())\n                .await?;\n            let mut client = configured_monitor_service_client(MonitorServiceClient::new(channel));\n            client\n                .tiered_cache_tracing(TieredCacheTracingRequest {\n                    enable,\n                    record_hybrid_insert_threshold_ms,\n                    record_hybrid_get_threshold_ms,\n                    record_hybrid_obtain_threshold_ms,\n                    record_hybrid_remove_threshold_ms,\n                    record_hybrid_fetch_threshold_ms,\n                })\n                .await?;\n            Ok::<_, anyhow::Error>(())\n        }).collect_vec",
+          "lineNumber": 38
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "info\n        .get_worker_nodes()\n        .iter().map",
+          "lineNumber": 38
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "info\n        .get_worker_nodes().iter",
+          "lineNumber": 38
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "info.get_worker_nodes",
+          "lineNumber": 38
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "worker_node.get_host().unwrap",
+          "lineNumber": 42
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "worker_node.get_host",
+          "lineNumber": 42
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Endpoint::from_shared(format!(\"http://{}:{}\", addr.host, addr.port))?\n                .connect_timeout(Duration::from_secs(5)).monitored_connect",
+          "lineNumber": 43
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Endpoint::from_shared(format!(\"http://{}:{}\", addr.host, addr.port))?.connect_timeout",
+          "lineNumber": 43
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Endpoint::from_shared",
+          "lineNumber": 43
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Duration::from_secs",
+          "lineNumber": 44
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Default::default",
+          "lineNumber": 45
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "configured_monitor_service_client",
+          "lineNumber": 47
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "MonitorServiceClient::new",
+          "lineNumber": 47
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "client.tiered_cache_tracing",
+          "lineNumber": 48
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Ok::<_, anyhow::Error>",
+          "lineNumber": 58
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "try_join_all",
+          "lineNumber": 61
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Ok",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/hummock/validate_version.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 231,
+      "nonEmptyLines": 218,
+      "functions": [
+        {
+          "name": "validate_version",
+          "startLine": 38,
+          "endLine": 50,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "get_archive",
+          "startLine": 52,
+          "endLine": 63,
+          "params": [
+            "archive_id",
+            "data_dir",
+            "archive_object_store"
+          ]
+        },
+        {
+          "name": "print_user_key_in_archive",
+          "startLine": 65,
+          "endLine": 95,
+          "params": [
+            "context",
+            "archive_ids",
+            "data_dir",
+            "user_key",
+            "use_new_object_prefix_strategy"
+          ]
+        },
+        {
+          "name": "print_user_key_in_version",
+          "startLine": 97,
+          "endLine": 117,
+          "params": [
+            "sstable_store",
+            "version",
+            "target_key"
+          ]
+        },
+        {
+          "name": "print_user_key_in_sst",
+          "startLine": 119,
+          "endLine": 169,
+          "params": [
+            "sstable_store",
+            "sst",
+            "user_key"
+          ]
+        },
+        {
+          "name": "print_version_delta_in_archive",
+          "startLine": 171,
+          "endLine": 207,
+          "params": [
+            "context",
+            "archive_ids",
+            "data_dir",
+            "sst_id",
+            "use_new_object_prefix_strategy"
+          ]
+        },
+        {
+          "name": "match_delta",
+          "startLine": 209,
+          "endLine": 227,
+          "params": [
+            "delta",
+            "sst_id"
+          ]
+        },
+        {
+          "name": "print_delta",
+          "startLine": 229,
+          "endLine": 231,
+          "params": [
+            "delta"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "validate_version",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "print_user_key_in_archive",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "print_version_delta_in_archive",
+          "line": 171,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "validate_version",
+          "callee": "context.meta_client",
+          "lineNumber": 39
+        },
+        {
+          "caller": "validate_version",
+          "callee": "meta_client.get_current_version",
+          "lineNumber": 40
+        },
+        {
+          "caller": "validate_version",
+          "callee": "hummock_version_ext::validate_version",
+          "lineNumber": 41
+        },
+        {
+          "caller": "validate_version",
+          "callee": "result.is_empty",
+          "lineNumber": 42
+        },
+        {
+          "caller": "validate_version",
+          "callee": "Ok",
+          "lineNumber": 49
+        },
+        {
+          "caller": "get_archive",
+          "callee": "version_archive_dir",
+          "lineNumber": 58
+        },
+        {
+          "caller": "get_archive",
+          "callee": "archive_object_store.read",
+          "lineNumber": 60
+        },
+        {
+          "caller": "get_archive",
+          "callee": "HummockVersionArchive::decode",
+          "lineNumber": 61
+        },
+        {
+          "caller": "get_archive",
+          "callee": "Ok",
+          "lineNumber": 62
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "hex::decode(user_key.clone()).unwrap_or_else",
+          "lineNumber": 72
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "hex::decode",
+          "lineNumber": 72
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "user_key.clone",
+          "lineNumber": 72
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "UserKey::decode",
+          "lineNumber": 75
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "HummockServiceOpts::from_env",
+          "lineNumber": 79
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "Some",
+          "lineNumber": 79
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "data_dir.clone",
+          "lineNumber": 79
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "context.hummock_store",
+          "lineNumber": 80
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "hummock.sstable_store",
+          "lineNumber": 81
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "sstable_store.store",
+          "lineNumber": 82
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "archive_ids.into_iter().sorted",
+          "lineNumber": 83
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "archive_ids.into_iter",
+          "lineNumber": 83
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "get_archive",
+          "lineNumber": 85
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "archive_object_store.clone",
+          "lineNumber": 85
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "HummockVersion::from_persisted_protobuf",
+          "lineNumber": 87
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "archive.version.as_ref().unwrap",
+          "lineNumber": 87
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "archive.version.as_ref",
+          "lineNumber": 87
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "print_user_key_in_version",
+          "lineNumber": 88
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "sstable_store.clone",
+          "lineNumber": 88
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "base_version.apply_version_delta",
+          "lineNumber": 90
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "HummockVersionDelta::from_persisted_protobuf",
+          "lineNumber": 90
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "print_user_key_in_version",
+          "lineNumber": 91
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "sstable_store.clone",
+          "lineNumber": 91
+        },
+        {
+          "caller": "print_user_key_in_archive",
+          "callee": "Ok",
+          "lineNumber": 94
+        },
+        {
+          "caller": "print_user_key_in_version",
+          "callee": "version.levels.values",
+          "lineNumber": 103
+        },
+        {
+          "caller": "print_user_key_in_version",
+          "callee": "cg.l0.sub_levels.iter().rev().chain",
+          "lineNumber": 104
+        },
+        {
+          "caller": "print_user_key_in_version",
+          "callee": "cg.l0.sub_levels.iter().rev",
+          "lineNumber": 104
+        },
+        {
+          "caller": "print_user_key_in_version",
+          "callee": "cg.l0.sub_levels.iter",
+          "lineNumber": 104
+        },
+        {
+          "caller": "print_user_key_in_version",
+          "callee": "cg.levels.iter",
+          "lineNumber": 104
+        },
+        {
+          "caller": "print_user_key_in_version",
+          "callee": "FullKey::decode",
+          "lineNumber": 107
+        },
+        {
+          "caller": "print_user_key_in_version",
+          "callee": "FullKey::decode",
+          "lineNumber": 108
+        },
+        {
+          "caller": "print_user_key_in_version",
+          "callee": "print_user_key_in_sst",
+          "lineNumber": 112
+        },
+        {
+          "caller": "print_user_key_in_version",
+          "callee": "sstable_store.clone",
+          "lineNumber": 112
+        },
+        {
+          "caller": "print_user_key_in_version",
+          "callee": "Ok",
+          "lineNumber": 116
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "StoreLocalStatistic::default",
+          "lineNumber": 125
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "sstable_store.sstable",
+          "lineNumber": 126
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "dummy.ignore",
+          "lineNumber": 127
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "sstable_store.get_sst_data_path",
+          "lineNumber": 128
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "sstable_store.store().read",
+          "lineNumber": 133
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "sstable_store.store",
+          "lineNumber": 133
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "Box::new",
+          "lineNumber": 134
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "Block::decode(block_data, block_meta.uncompressed_size as _).unwrap",
+          "lineNumber": 134
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "Block::decode",
+          "lineNumber": 134
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "BlockHolder::from_owned_block",
+          "lineNumber": 135
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "BlockIterator::new",
+          "lineNumber": 136
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "block_iter.seek_to_first",
+          "lineNumber": 137
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "block_iter.is_valid",
+          "lineNumber": 138
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "block_iter.key",
+          "lineNumber": 139
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "full_key.user_key.cmp",
+          "lineNumber": 140
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "block_iter.next",
+          "lineNumber": 141
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "block_iter.value",
+          "lineNumber": 144
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "HummockValue::from_slice",
+          "lineNumber": 145
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "Epoch::from",
+          "lineNumber": 146
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "full_key.epoch_with_gap.pure_epoch",
+          "lineNumber": 146
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "DateTime::<Utc>::from",
+          "lineNumber": 147
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "epoch.as_system_time",
+          "lineNumber": 147
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "block_iter.next",
+          "lineNumber": 165
+        },
+        {
+          "caller": "print_user_key_in_sst",
+          "callee": "Ok",
+          "lineNumber": 168
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "HummockServiceOpts::from_env",
+          "lineNumber": 179
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "Some",
+          "lineNumber": 179
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "data_dir.clone",
+          "lineNumber": 179
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "context.hummock_store",
+          "lineNumber": 180
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "hummock.sstable_store",
+          "lineNumber": 181
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "sstable_store.store",
+          "lineNumber": 182
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "archive_ids.into_iter().sorted",
+          "lineNumber": 183
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "archive_ids.into_iter",
+          "lineNumber": 183
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "get_archive",
+          "lineNumber": 185
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "archive_object_store.clone",
+          "lineNumber": 185
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "d.delta_type.as_ref().unwrap",
+          "lineNumber": 190
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "d.delta_type.as_ref",
+          "lineNumber": 190
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "match_delta",
+          "lineNumber": 191
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "print_delta",
+          "lineNumber": 200
+        },
+        {
+          "caller": "print_version_delta_in_archive",
+          "callee": "Ok",
+          "lineNumber": 206
+        },
+        {
+          "caller": "match_delta",
+          "callee": "delta\n                .inserted_table_infos\n                .iter().any",
+          "lineNumber": 216
+        },
+        {
+          "caller": "match_delta",
+          "callee": "delta\n                .inserted_table_infos.iter",
+          "lineNumber": 216
+        },
+        {
+          "caller": "match_delta",
+          "callee": "delta.removed_table_ids.contains",
+          "lineNumber": 220
+        },
+        {
+          "caller": "match_delta",
+          "callee": "delta\n            .inserted_table_infos\n            .iter().any",
+          "lineNumber": 222
+        },
+        {
+          "caller": "match_delta",
+          "callee": "delta\n            .inserted_table_infos.iter",
+          "lineNumber": 222
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/meta/connection.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 76,
+      "functions": [
+        {
+          "name": "list_connections",
+          "startLine": 24,
+          "endLine": 51,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "validate_source",
+          "startLine": 53,
+          "endLine": 82,
+          "params": [
+            "context",
+            "props"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "list_connections",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "validate_source",
+          "line": 53,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "list_connections",
+          "callee": "context.meta_client",
+          "lineNumber": 25
+        },
+        {
+          "caller": "list_connections",
+          "callee": "meta_client.list_connections",
+          "lineNumber": 26
+        },
+        {
+          "caller": "list_connections",
+          "callee": "Ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "validate_source",
+          "callee": "serde_json::from_str::<HashMap<String, Value>>(props.as_str())\n            .expect(\"error parsing with props json\")\n            .into_iter()\n            .map(|(key, val)| match val {\n                Value::String(s) => (key, s),\n                _ => (key, val.to_string()),\n            }).collect",
+          "lineNumber": 55
+        },
+        {
+          "caller": "validate_source",
+          "callee": "serde_json::from_str::<HashMap<String, Value>>(props.as_str())\n            .expect(\"error parsing with props json\")\n            .into_iter().map",
+          "lineNumber": 55
+        },
+        {
+          "caller": "validate_source",
+          "callee": "serde_json::from_str::<HashMap<String, Value>>(props.as_str())\n            .expect(\"error parsing with props json\").into_iter",
+          "lineNumber": 55
+        },
+        {
+          "caller": "validate_source",
+          "callee": "serde_json::from_str::<HashMap<String, Value>>(props.as_str()).expect",
+          "lineNumber": 55
+        },
+        {
+          "caller": "validate_source",
+          "callee": "serde_json::from_str::<HashMap<String, Value>>",
+          "lineNumber": 55
+        },
+        {
+          "caller": "validate_source",
+          "callee": "props.as_str",
+          "lineNumber": 55
+        },
+        {
+          "caller": "validate_source",
+          "callee": "val.to_string",
+          "lineNumber": 60
+        },
+        {
+          "caller": "validate_source",
+          "callee": "with_props\n        .get(\"connector\")\n        .expect(\"missing 'connector' in with clause\").as_str",
+          "lineNumber": 63
+        },
+        {
+          "caller": "validate_source",
+          "callee": "with_props\n        .get(\"connector\").expect",
+          "lineNumber": 63
+        },
+        {
+          "caller": "validate_source",
+          "callee": "with_props.get",
+          "lineNumber": 63
+        },
+        {
+          "caller": "validate_source",
+          "callee": "Ok",
+          "lineNumber": 68
+        },
+        {
+          "caller": "validate_source",
+          "callee": "Err",
+          "lineNumber": 69
+        },
+        {
+          "caller": "validate_source",
+          "callee": "context.meta_client",
+          "lineNumber": 73
+        },
+        {
+          "caller": "validate_source",
+          "callee": "meta_client.rw_cloud_validate_source",
+          "lineNumber": 74
+        },
+        {
+          "caller": "validate_source",
+          "callee": "std::process::exit",
+          "lineNumber": 79
+        },
+        {
+          "caller": "validate_source",
+          "callee": "Ok",
+          "lineNumber": 81
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/profile.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 194,
+      "nonEmptyLines": 165,
+      "functions": [
+        {
+          "name": "cpu_profile",
+          "startLine": 39,
+          "endLine": 105,
+          "params": [
+            "context",
+            "sleep_s",
+            "worker_types"
+          ]
+        },
+        {
+          "name": "heap_profile",
+          "startLine": 107,
+          "endLine": 162,
+          "params": [
+            "context",
+            "dir",
+            "worker_types"
+          ]
+        },
+        {
+          "name": "selected_worker_types",
+          "startLine": 164,
+          "endLine": 175,
+          "params": [
+            "values"
+          ]
+        },
+        {
+          "name": "to_worker_type",
+          "startLine": 177,
+          "endLine": 184,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "worker_type_label",
+          "startLine": 186,
+          "endLine": 194,
+          "params": [
+            "worker_type"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProfileWorkerType",
+          "startLine": 32,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "Frontend",
+            "ComputeNode",
+            "Compactor",
+            "Meta"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProfileWorkerType",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "cpu_profile",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "heap_profile",
+          "line": 107,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "cpu_profile",
+          "callee": "context.meta_client",
+          "lineNumber": 44
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "meta_client.list_worker_nodes",
+          "lineNumber": 46
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "selected_worker_types",
+          "lineNumber": 47
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "workers\n        .into_iter().filter",
+          "lineNumber": 48
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "workers.into_iter",
+          "lineNumber": 48
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "target_types.contains",
+          "lineNumber": 50
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "w.r#type",
+          "lineNumber": 50
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "MonitorClientPool::adhoc",
+          "lineNumber": 52
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "std::env::var(\"PREFIX_PROFILING\").unwrap_or_else",
+          "lineNumber": 54
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "std::env::var",
+          "lineNumber": 54
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "\"./\".to_owned",
+          "lineNumber": 56
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "PathBuf::from",
+          "lineNumber": 58
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "Local::now().format(\"%Y-%m-%d-%H-%M-%S\").to_string",
+          "lineNumber": 59
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "Local::now().format",
+          "lineNumber": 59
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "Local::now",
+          "lineNumber": 59
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "profile_root_path.join",
+          "lineNumber": 60
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "create_dir_all",
+          "lineNumber": 61
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "clients.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "client.profile",
+          "lineNumber": 73
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "cn.get_host().expect",
+          "lineNumber": 74
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "cn.get_host",
+          "lineNumber": 74
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "File::create",
+          "lineNumber": 84
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "dir_path_ref.join",
+          "lineNumber": 84
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "file.write_all",
+          "lineNumber": 85
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "Ok::<_, anyhow::Error>",
+          "lineNumber": 95
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "profile_futs.push",
+          "lineNumber": 97
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "try_join_all",
+          "lineNumber": 100
+        },
+        {
+          "caller": "cpu_profile",
+          "callee": "Ok",
+          "lineNumber": 104
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "dir.unwrap_or_default",
+          "lineNumber": 112
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "context.meta_client",
+          "lineNumber": 113
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "meta_client.list_worker_nodes",
+          "lineNumber": 115
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "selected_worker_types",
+          "lineNumber": 116
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "workers\n        .into_iter().filter",
+          "lineNumber": 117
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "workers.into_iter",
+          "lineNumber": 117
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "target_types.contains",
+          "lineNumber": 119
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "w.r#type",
+          "lineNumber": 119
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "MonitorClientPool::adhoc",
+          "lineNumber": 121
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "clients.get",
+          "lineNumber": 128
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "client.heap_profile",
+          "lineNumber": 132
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "dir.clone",
+          "lineNumber": 132
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "cn.get_host().expect",
+          "lineNumber": 133
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "cn.get_host",
+          "lineNumber": 133
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "Ok::<_, anyhow::Error>",
+          "lineNumber": 149
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "profile_futs.push",
+          "lineNumber": 151
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "try_join_all",
+          "lineNumber": 154
+        },
+        {
+          "caller": "heap_profile",
+          "callee": "Ok",
+          "lineNumber": 161
+        },
+        {
+          "caller": "selected_worker_types",
+          "callee": "values.is_empty",
+          "lineNumber": 166
+        },
+        {
+          "caller": "selected_worker_types",
+          "callee": "HashSet::from",
+          "lineNumber": 167
+        },
+        {
+          "caller": "selected_worker_types",
+          "callee": "values.iter().map(|value| to_worker_type(*value)).collect",
+          "lineNumber": 174
+        },
+        {
+          "caller": "selected_worker_types",
+          "callee": "values.iter().map",
+          "lineNumber": 174
+        },
+        {
+          "caller": "selected_worker_types",
+          "callee": "values.iter",
+          "lineNumber": 174
+        },
+        {
+          "caller": "selected_worker_types",
+          "callee": "to_worker_type",
+          "lineNumber": 174
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/scale.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "set_cdc_table_backfill_parallelism",
+          "startLine": 20,
+          "endLine": 37,
+          "params": [
+            "context",
+            "table_id",
+            "parallelism"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "set_cdc_table_backfill_parallelism",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "set_cdc_table_backfill_parallelism",
+          "callee": "context.meta_client",
+          "lineNumber": 25
+        },
+        {
+          "caller": "set_cdc_table_backfill_parallelism",
+          "callee": "meta_client.alter_cdc_table_backfill_parallelism",
+          "lineNumber": 26
+        },
+        {
+          "caller": "set_cdc_table_backfill_parallelism",
+          "callee": "table_id.into",
+          "lineNumber": 28
+        },
+        {
+          "caller": "set_cdc_table_backfill_parallelism",
+          "callee": "Some",
+          "lineNumber": 30
+        },
+        {
+          "caller": "set_cdc_table_backfill_parallelism",
+          "callee": "table_parallelism::Parallelism::Fixed",
+          "lineNumber": 30
+        },
+        {
+          "caller": "set_cdc_table_backfill_parallelism",
+          "callee": "Ok",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/table/scan.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 154,
+      "nonEmptyLines": 143,
+      "functions": [
+        {
+          "name": "get_table_catalog",
+          "startLine": 33,
+          "endLine": 41,
+          "params": [
+            "meta",
+            "mv_name"
+          ]
+        },
+        {
+          "name": "get_table_catalog_by_id",
+          "startLine": 43,
+          "endLine": 51,
+          "params": [
+            "meta",
+            "table_id"
+          ]
+        },
+        {
+          "name": "print_table_catalog",
+          "startLine": 53,
+          "endLine": 55,
+          "params": [
+            "table"
+          ]
+        },
+        {
+          "name": "make_state_table",
+          "startLine": 58,
+          "endLine": 72,
+          "params": [
+            "hummock",
+            "table"
+          ]
+        },
+        {
+          "name": "make_storage_table",
+          "startLine": 75,
+          "endLine": 90,
+          "params": [
+            "hummock",
+            "table"
+          ]
+        },
+        {
+          "name": "scan",
+          "startLine": 92,
+          "endLine": 107,
+          "params": [
+            "context",
+            "mv_name",
+            "data_dir",
+            "use_new_object_prefix_strategy"
+          ]
+        },
+        {
+          "name": "scan_id",
+          "startLine": 109,
+          "endLine": 124,
+          "params": [
+            "context",
+            "table_id",
+            "data_dir",
+            "use_new_object_prefix_strategy"
+          ]
+        },
+        {
+          "name": "do_scan",
+          "startLine": 126,
+          "endLine": 154,
+          "params": [
+            "table",
+            "hummock"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_table_catalog",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "get_table_catalog_by_id",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "print_table_catalog",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "make_state_table",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "make_storage_table",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "scan",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "scan_id",
+          "line": 109,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_table_catalog",
+          "callee": "meta.risectl_list_state_tables",
+          "lineNumber": 34
+        },
+        {
+          "caller": "get_table_catalog",
+          "callee": "mvs\n        .iter()\n        .find(|x| x.name == mv_name)\n        .ok_or_else(|| anyhow!(\"mv not found\"))?.clone",
+          "lineNumber": 35
+        },
+        {
+          "caller": "get_table_catalog",
+          "callee": "mvs\n        .iter()\n        .find(|x| x.name == mv_name).ok_or_else",
+          "lineNumber": 35
+        },
+        {
+          "caller": "get_table_catalog",
+          "callee": "mvs\n        .iter().find",
+          "lineNumber": 35
+        },
+        {
+          "caller": "get_table_catalog",
+          "callee": "mvs.iter",
+          "lineNumber": 35
+        },
+        {
+          "caller": "get_table_catalog",
+          "callee": "Ok",
+          "lineNumber": 40
+        },
+        {
+          "caller": "get_table_catalog",
+          "callee": "TableCatalog::from",
+          "lineNumber": 40
+        },
+        {
+          "caller": "get_table_catalog_by_id",
+          "callee": "meta.risectl_list_state_tables",
+          "lineNumber": 44
+        },
+        {
+          "caller": "get_table_catalog_by_id",
+          "callee": "mvs\n        .iter()\n        .find(|x| x.id == table_id)\n        .ok_or_else(|| anyhow!(\"mv not found\"))?.clone",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_table_catalog_by_id",
+          "callee": "mvs\n        .iter()\n        .find(|x| x.id == table_id).ok_or_else",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_table_catalog_by_id",
+          "callee": "mvs\n        .iter().find",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_table_catalog_by_id",
+          "callee": "mvs.iter",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_table_catalog_by_id",
+          "callee": "Ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "get_table_catalog_by_id",
+          "callee": "TableCatalog::from",
+          "lineNumber": 50
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "StateTableBuilder::new(\n        &table.to_internal_table_prost(),\n        hummock,\n        Some(\n            // scan all vnodes\n            TableDistribution::all(table.distribution_key().to_vec(), table.vnode_count())\n                .vnodes()\n                .clone(),\n        ),\n    )\n    .forbid_preload_all_rows().build",
+          "lineNumber": 59
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "StateTableBuilder::new(\n        &table.to_internal_table_prost(),\n        hummock,\n        Some(\n            // scan all vnodes\n            TableDistribution::all(table.distribution_key().to_vec(), table.vnode_count())\n                .vnodes()\n                .clone(),\n        ),\n    ).forbid_preload_all_rows",
+          "lineNumber": 59
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 59
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "table.to_internal_table_prost",
+          "lineNumber": 60
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "Some",
+          "lineNumber": 62
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "TableDistribution::all(table.distribution_key().to_vec(), table.vnode_count())\n                .vnodes().clone",
+          "lineNumber": 64
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "TableDistribution::all(table.distribution_key().to_vec(), table.vnode_count()).vnodes",
+          "lineNumber": 64
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "TableDistribution::all",
+          "lineNumber": 64
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "table.distribution_key().to_vec",
+          "lineNumber": 64
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "table.distribution_key",
+          "lineNumber": 64
+        },
+        {
+          "caller": "make_state_table",
+          "callee": "table.vnode_count",
+          "lineNumber": 64
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "table\n        .columns()\n        .iter()\n        .map(|x| x.column_desc.column_id).collect",
+          "lineNumber": 79
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "table\n        .columns()\n        .iter().map",
+          "lineNumber": 79
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "table\n        .columns().iter",
+          "lineNumber": 79
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "table.columns",
+          "lineNumber": 79
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "Ok",
+          "lineNumber": 84
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "BatchTable::new_partial",
+          "lineNumber": 84
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "Some",
+          "lineNumber": 87
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "Bitmap::ones(table.vnode_count()).into",
+          "lineNumber": 87
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "Bitmap::ones",
+          "lineNumber": 87
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "table.vnode_count",
+          "lineNumber": 87
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "table.table_desc().try_to_protobuf",
+          "lineNumber": 88
+        },
+        {
+          "caller": "make_storage_table",
+          "callee": "table.table_desc",
+          "lineNumber": 88
+        },
+        {
+          "caller": "scan",
+          "callee": "context.meta_client",
+          "lineNumber": 98
+        },
+        {
+          "caller": "scan",
+          "callee": "context.hummock_store",
+          "lineNumber": 99
+        },
+        {
+          "caller": "scan",
+          "callee": "HummockServiceOpts::from_env",
+          "lineNumber": 100
+        },
+        {
+          "caller": "scan",
+          "callee": "get_table_catalog",
+          "lineNumber": 105
+        },
+        {
+          "caller": "scan",
+          "callee": "do_scan",
+          "lineNumber": 106
+        },
+        {
+          "caller": "scan_id",
+          "callee": "context.meta_client",
+          "lineNumber": 115
+        },
+        {
+          "caller": "scan_id",
+          "callee": "context.hummock_store",
+          "lineNumber": 116
+        },
+        {
+          "caller": "scan_id",
+          "callee": "HummockServiceOpts::from_env",
+          "lineNumber": 117
+        },
+        {
+          "caller": "scan_id",
+          "callee": "get_table_catalog_by_id",
+          "lineNumber": 122
+        },
+        {
+          "caller": "scan_id",
+          "callee": "do_scan",
+          "lineNumber": 123
+        },
+        {
+          "caller": "do_scan",
+          "callee": "print_table_catalog",
+          "lineNumber": 127
+        },
+        {
+          "caller": "do_scan",
+          "callee": "hummock\n        .inner()\n        .get_pinned_version().table_committed_epoch",
+          "lineNumber": 130
+        },
+        {
+          "caller": "do_scan",
+          "callee": "hummock\n        .inner().get_pinned_version",
+          "lineNumber": 130
+        },
+        {
+          "caller": "do_scan",
+          "callee": "hummock.inner",
+          "lineNumber": 130
+        },
+        {
+          "caller": "do_scan",
+          "callee": "Ok",
+          "lineNumber": 139
+        },
+        {
+          "caller": "do_scan",
+          "callee": "make_storage_table",
+          "lineNumber": 141
+        },
+        {
+          "caller": "do_scan",
+          "callee": "storage_table.batch_iter",
+          "lineNumber": 142
+        },
+        {
+          "caller": "do_scan",
+          "callee": "HummockReadEpoch::Committed",
+          "lineNumber": 144
+        },
+        {
+          "caller": "do_scan",
+          "callee": "PrefetchOptions::prefetch_for_large_range_scan",
+          "lineNumber": 146
+        },
+        {
+          "caller": "do_scan",
+          "callee": "stream.next",
+          "lineNumber": 150
+        },
+        {
+          "caller": "do_scan",
+          "callee": "Ok",
+          "lineNumber": 153
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/cmd_impl/throttle.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "apply_throttle",
+          "startLine": 21,
+          "endLine": 38,
+          "params": [
+            "context",
+            "kind",
+            "params"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "apply_throttle",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "apply_throttle",
+          "callee": "context.meta_client",
+          "lineNumber": 26
+        },
+        {
+          "caller": "apply_throttle",
+          "callee": "meta_client.apply_throttle",
+          "lineNumber": 34
+        },
+        {
+          "caller": "apply_throttle",
+          "callee": "Ok",
+          "lineNumber": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/common.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 18,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/ctl/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 1040,
+      "nonEmptyLines": 994,
+      "functions": [
+        {
+          "name": "start",
+          "startLine": 611,
+          "endLine": 627,
+          "params": [
+            "opts",
+            "shutdown"
+          ]
+        },
+        {
+          "name": "start_fallible",
+          "startLine": 631,
+          "endLine": 635,
+          "params": [
+            "opts",
+            "context"
+          ]
+        },
+        {
+          "name": "start_impl",
+          "startLine": 642,
+          "endLine": 1040,
+          "params": [
+            "opts",
+            "context"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CliOpts",
+          "startLine": 51,
+          "endLine": 54,
+          "methods": [],
+          "properties": [
+            "command"
+          ]
+        },
+        {
+          "name": "Commands",
+          "startLine": 58,
+          "endLine": 86,
+          "methods": [],
+          "properties": [
+            "Compute",
+            "Hummock",
+            "Table",
+            "Meta",
+            "Bench",
+            "AwaitTree",
+            "Profile",
+            "Throttle",
+            "Test"
+          ]
+        },
+        {
+          "name": "ComputeCommands",
+          "startLine": 89,
+          "endLine": 92,
+          "methods": [],
+          "properties": [
+            "ShowConfig"
+          ]
+        },
+        {
+          "name": "HummockCommands",
+          "startLine": 96,
+          "endLine": 340,
+          "methods": [],
+          "properties": [
+            "ListVersion",
+            "ListVersionDeltas",
+            "DisableCommitEpoch",
+            "ListKv",
+            "SstDump",
+            "TriggerManualCompaction",
+            "TriggerFullGc",
+            "ListPinnedVersions",
+            "ListCompactionGroup",
+            "UpdateCompactionConfig",
+            "SplitCompactionGroup",
+            "PauseVersionCheckpoint",
+            "ResumeVersionCheckpoint",
+            "ReplayVersion",
+            "ListCompactionStatus",
+            "GetCompactionScore",
+            "ValidateVersion",
+            "RebuildTableStats",
+            "CancelCompactTask",
+            "PrintUserKeyInArchive",
+            "PrintVersionDeltaInArchive",
+            "TieredCacheTracing",
+            "MergeCompactionGroup",
+            "MigrateLegacyObject",
+            "ResizeCache"
+          ]
+        },
+        {
+          "name": "TableCommands",
+          "startLine": 343,
+          "endLine": 365,
+          "methods": [],
+          "properties": [
+            "Scan",
+            "ScanById",
+            "List"
+          ]
+        },
+        {
+          "name": "MetaCommands",
+          "startLine": 369,
+          "endLine": 523,
+          "methods": [],
+          "properties": [
+            "Pause",
+            "Resume",
+            "ResumeBackfill",
+            "ClusterInfo",
+            "SourceSplitInfo",
+            "Reschedule",
+            "BackupMeta",
+            "RestoreMeta",
+            "DeleteMetaSnapshots",
+            "ListConnections",
+            "ListServingFragmentMapping",
+            "UnregisterWorkers",
+            "ValidateSource",
+            "SetCdcTableBackfillParallelism",
+            "AlterSourcePropertiesSafe",
+            "ResetSourceSplits",
+            "InjectSourceOffsets"
+          ]
+        },
+        {
+          "name": "AwaitTreeCommands",
+          "startLine": 526,
+          "endLine": 547,
+          "methods": [],
+          "properties": [
+            "Dump",
+            "Analyze",
+            "Transcribe"
+          ]
+        },
+        {
+          "name": "TestCommands",
+          "startLine": 550,
+          "endLine": 553,
+          "methods": [],
+          "properties": [
+            "Jvm"
+          ]
+        },
+        {
+          "name": "ThrottleCommands",
+          "startLine": 556,
+          "endLine": 560,
+          "methods": [],
+          "properties": [
+            "Source",
+            "Mv",
+            "Sink"
+          ]
+        },
+        {
+          "name": "ThrottleTypeArg",
+          "startLine": 563,
+          "endLine": 568,
+          "methods": [],
+          "properties": [
+            "Dml",
+            "Backfill",
+            "Source",
+            "Sink"
+          ]
+        },
+        {
+          "name": "ThrottleCommandArgs",
+          "startLine": 571,
+          "endLine": 581,
+          "methods": [],
+          "properties": [
+            "id",
+            "rate",
+            "throttle_type"
+          ]
+        },
+        {
+          "name": "ProfileCommands",
+          "startLine": 584,
+          "endLine": 603,
+          "methods": [],
+          "properties": [
+            "Cpu",
+            "Heap"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CliOpts",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "AwaitTreeCommands",
+          "line": 526,
+          "isDefault": false
+        },
+        {
+          "name": "ThrottleTypeArg",
+          "line": 563,
+          "isDefault": false
+        },
+        {
+          "name": "ThrottleCommandArgs",
+          "line": 571,
+          "isDefault": false
+        },
+        {
+          "name": "ProfileCommands",
+          "line": 584,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 611,
+          "isDefault": false
+        },
+        {
+          "name": "start_fallible",
+          "line": 631,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "start",
+          "callee": "CtlContext::default",
+          "lineNumber": 612
+        },
+        {
+          "caller": "start_fallible",
+          "callee": "start_impl",
+          "lineNumber": 632
+        },
+        {
+          "caller": "start_fallible",
+          "callee": "context.try_close",
+          "lineNumber": 633
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::compute::show_config",
+          "lineNumber": 645
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::disable_commit_epoch",
+          "lineNumber": 648
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::list_version",
+          "lineNumber": 654
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::list_version_deltas",
+          "lineNumber": 660
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::list_kv",
+          "lineNumber": 668
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::sst_dump(context, args).await.unwrap",
+          "lineNumber": 678
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::sst_dump",
+          "lineNumber": 678
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::trigger_manual_compaction",
+          "lineNumber": 689
+        },
+        {
+          "caller": "start_impl",
+          "callee": "table_id.into",
+          "lineNumber": 692
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::trigger_full_gc",
+          "lineNumber": 704
+        },
+        {
+          "caller": "start_impl",
+          "callee": "list_pinned_versions",
+          "lineNumber": 706
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::list_compaction_group",
+          "lineNumber": 709
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::update_compaction_config",
+          "lineNumber": 747
+        },
+        {
+          "caller": "start_impl",
+          "callee": "build_compaction_config_vec",
+          "lineNumber": 750
+        },
+        {
+          "caller": "start_impl",
+          "callee": "Some",
+          "lineNumber": 768
+        },
+        {
+          "caller": "start_impl",
+          "callee": "compression_algorithm.unwrap",
+          "lineNumber": 770
+        },
+        {
+          "caller": "start_impl",
+          "callee": "Some",
+          "lineNumber": 778
+        },
+        {
+          "caller": "start_impl",
+          "callee": "Some",
+          "lineNumber": 785
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::split_compaction_group",
+          "lineNumber": 810
+        },
+        {
+          "caller": "start_impl",
+          "callee": "table_ids.into_iter().map_into().collect_vec",
+          "lineNumber": 813
+        },
+        {
+          "caller": "start_impl",
+          "callee": "table_ids.into_iter().map_into",
+          "lineNumber": 813
+        },
+        {
+          "caller": "start_impl",
+          "callee": "table_ids.into_iter",
+          "lineNumber": 813
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::pause_version_checkpoint",
+          "lineNumber": 819
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::resume_version_checkpoint",
+          "lineNumber": 822
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::replay_version",
+          "lineNumber": 825
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::list_compaction_status",
+          "lineNumber": 828
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::get_compaction_score",
+          "lineNumber": 833
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::validate_version",
+          "lineNumber": 836
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::rebuild_table_stats",
+          "lineNumber": 839
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::cancel_compact_task",
+          "lineNumber": 842
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::print_version_delta_in_archive",
+          "lineNumber": 850
+        },
+        {
+          "caller": "start_impl",
+          "callee": "archive_ids.into_iter().map",
+          "lineNumber": 852
+        },
+        {
+          "caller": "start_impl",
+          "callee": "archive_ids.into_iter",
+          "lineNumber": 852
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::print_user_key_in_archive",
+          "lineNumber": 865
+        },
+        {
+          "caller": "start_impl",
+          "callee": "archive_ids.into_iter().map",
+          "lineNumber": 867
+        },
+        {
+          "caller": "start_impl",
+          "callee": "archive_ids.into_iter",
+          "lineNumber": 867
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::tiered_cache_tracing",
+          "lineNumber": 882
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::merge_compaction_group",
+          "lineNumber": 897
+        },
+        {
+          "caller": "start_impl",
+          "callee": "migrate_legacy_object",
+          "lineNumber": 907
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::hummock::resize_cache",
+          "lineNumber": 914
+        },
+        {
+          "caller": "start_impl",
+          "callee": "meta_cache_capacity_mb.map",
+          "lineNumber": 916
+        },
+        {
+          "caller": "start_impl",
+          "callee": "data_cache_capacity_mb.map",
+          "lineNumber": 917
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::table::scan",
+          "lineNumber": 926
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::table::scan_id",
+          "lineNumber": 934
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::table::list",
+          "lineNumber": 937
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::bench::do_bench",
+          "lineNumber": 938
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::pause",
+          "lineNumber": 939
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::resume",
+          "lineNumber": 940
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::resume_backfill",
+          "lineNumber": 944
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::cluster_info",
+          "lineNumber": 945
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::source_split_info",
+          "lineNumber": 947
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::reschedule",
+          "lineNumber": 956
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::backup_meta",
+          "lineNumber": 960
+        },
+        {
+          "caller": "start_impl",
+          "callee": "risingwave_meta::backup_restore::restore",
+          "lineNumber": 963
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::delete_meta_snapshots",
+          "lineNumber": 966
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::list_connections",
+          "lineNumber": 969
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::list_serving_fragment_mappings",
+          "lineNumber": 972
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::unregister_workers",
+          "lineNumber": 980
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::validate_source",
+          "lineNumber": 990
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::await_tree::dump",
+          "lineNumber": 994
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::await_tree::bottleneck_detect",
+          "lineNumber": 996
+        },
+        {
+          "caller": "start_impl",
+          "callee": "rw_diagnose_tools::await_tree::transcribe",
+          "lineNumber": 999
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::profile::cpu_profile",
+          "lineNumber": 1004
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::profile::heap_profile",
+          "lineNumber": 1006
+        },
+        {
+          "caller": "start_impl",
+          "callee": "apply_throttle",
+          "lineNumber": 1009
+        },
+        {
+          "caller": "start_impl",
+          "callee": "apply_throttle",
+          "lineNumber": 1012
+        },
+        {
+          "caller": "start_impl",
+          "callee": "apply_throttle",
+          "lineNumber": 1015
+        },
+        {
+          "caller": "start_impl",
+          "callee": "set_cdc_table_backfill_parallelism",
+          "lineNumber": 1021
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::alter_source_properties_safe",
+          "lineNumber": 1028
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::reset_source_splits",
+          "lineNumber": 1032
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::meta::inject_source_offsets",
+          "lineNumber": 1035
+        },
+        {
+          "caller": "start_impl",
+          "callee": "cmd_impl::test::test_jvm",
+          "lineNumber": 1037
+        },
+        {
+          "caller": "start_impl",
+          "callee": "Ok",
+          "lineNumber": 1039
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 7,
+        "functionCount": 3,
+        "classCount": 12
+      }
+    }
+  ]
+}

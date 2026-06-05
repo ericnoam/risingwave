@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/deltalake-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/deltalake-sink/README.md",
+      "summary": "Getting-started guide for the Delta Lake sink integration test demo, explaining prerequisites, setup steps, and how to run the RisingWave-to-Delta-Lake sinking scenario.",
+      "tags": ["documentation", "integration-test", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/deltalake-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/deltalake-sink/create_sink.sql",
+      "summary": "Defines RisingWave sink configurations that write materialized view data to Delta Lake tables, covering both append-only and upsert sink modes.",
+      "tags": ["database", "integration-test", "data-pipeline"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/deltalake-sink/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/deltalake-sink/create_source.sql",
+      "summary": "Creates RisingWave source tables (`source` and `data_types`) from Kafka or datagen, providing the upstream data for the Delta Lake sink integration test with comprehensive type coverage.",
+      "tags": ["database", "integration-test", "schema-definition", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/deltalake-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/deltalake-sink/docker-compose.yml",
+      "summary": "Docker Compose setup for the Delta Lake sink integration test, starting Spark, MinIO (S3-compatible storage), and supporting services to host Delta Lake tables.",
+      "tags": ["infrastructure", "orchestration", "integration-test", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/deltalake-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/deltalake-sink/prepare.sh",
+      "summary": "Minimal shell script that prepares the Delta Lake test environment, typically initializing MinIO buckets or Spark tables before the integration test runs.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/deltalake-sink/README.md",
+      "target": "file:integration_tests/deltalake-sink/create_sink.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/deltalake-sink/create_sink.sql",
+      "target": "file:integration_tests/deltalake-sink/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/deltalake-sink/prepare.sh",
+      "target": "service:integration_tests/deltalake-sink/docker-compose.yml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,1336 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "e2e_test/udf/embedded_wasm/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 125,
+      "nonEmptyLines": 106,
+      "functions": [
+        {
+          "name": "count_char",
+          "startLine": 7,
+          "endLine": 9,
+          "params": [
+            "s",
+            "c"
+          ]
+        },
+        {
+          "name": "int_42",
+          "startLine": 12,
+          "endLine": 14,
+          "params": []
+        },
+        {
+          "name": "gcd",
+          "startLine": 17,
+          "endLine": 24,
+          "params": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "gcd3",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        {
+          "name": "sleep",
+          "startLine": 32,
+          "endLine": 35,
+          "params": [
+            "second"
+          ]
+        },
+        {
+          "name": "segfault",
+          "startLine": 38,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "oom",
+          "startLine": 43,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "create_file",
+          "startLine": 49,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "length",
+          "startLine": 56,
+          "endLine": 58,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "extract_tcp_info",
+          "startLine": 69,
+          "endLine": 80,
+          "params": [
+            "tcp_packet"
+          ]
+        },
+        {
+          "name": "decimal_add",
+          "startLine": 83,
+          "endLine": 85,
+          "params": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "datetime",
+          "startLine": 88,
+          "endLine": 90,
+          "params": [
+            "date",
+            "time"
+          ]
+        },
+        {
+          "name": "jsonb_access",
+          "startLine": 93,
+          "endLine": 95,
+          "params": [
+            "json",
+            "index"
+          ]
+        },
+        {
+          "name": "sum_array",
+          "startLine": 98,
+          "endLine": 100,
+          "params": [
+            "xs"
+          ]
+        },
+        {
+          "name": "key_value",
+          "startLine": 109,
+          "endLine": 112,
+          "params": [
+            "kv"
+          ]
+        },
+        {
+          "name": "series",
+          "startLine": 115,
+          "endLine": 117,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "key_values",
+          "startLine": 120,
+          "endLine": 125,
+          "params": [
+            "kv"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TcpInfo",
+          "startLine": 61,
+          "endLine": 66,
+          "methods": [],
+          "properties": [
+            "src_addr",
+            "dst_addr",
+            "src_port",
+            "dst_port"
+          ]
+        },
+        {
+          "name": "KeyValue",
+          "startLine": 103,
+          "endLine": 106,
+          "methods": [],
+          "properties": [
+            "key",
+            "value"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "count_char",
+          "callee": "s.matches(c).count",
+          "lineNumber": 8
+        },
+        {
+          "caller": "count_char",
+          "callee": "s.matches",
+          "lineNumber": 8
+        },
+        {
+          "caller": "gcd3",
+          "callee": "gcd",
+          "lineNumber": 28
+        },
+        {
+          "caller": "gcd3",
+          "callee": "gcd",
+          "lineNumber": 28
+        },
+        {
+          "caller": "sleep",
+          "callee": "std::thread::sleep",
+          "lineNumber": 33
+        },
+        {
+          "caller": "sleep",
+          "callee": "std::time::Duration::from_secs",
+          "lineNumber": 33
+        },
+        {
+          "caller": "segfault",
+          "callee": "(usize::MAX as *const i32).read_volatile",
+          "lineNumber": 39
+        },
+        {
+          "caller": "create_file",
+          "callee": "std::fs::File::create(\"test\").unwrap",
+          "lineNumber": 50
+        },
+        {
+          "caller": "create_file",
+          "callee": "std::fs::File::create",
+          "lineNumber": 50
+        },
+        {
+          "caller": "length",
+          "callee": "s.as_ref().len",
+          "lineNumber": 57
+        },
+        {
+          "caller": "length",
+          "callee": "s.as_ref",
+          "lineNumber": 57
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "std::net::Ipv4Addr::from",
+          "lineNumber": 70
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "<[u8; 4]>::try_from(&tcp_packet[12..16]).unwrap",
+          "lineNumber": 70
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "<[u8; 4]>::try_from",
+          "lineNumber": 70
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "std::net::Ipv4Addr::from",
+          "lineNumber": 71
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "<[u8; 4]>::try_from(&tcp_packet[16..20]).unwrap",
+          "lineNumber": 71
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "<[u8; 4]>::try_from",
+          "lineNumber": 71
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "u16::from_be_bytes",
+          "lineNumber": 72
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "<[u8; 2]>::try_from(&tcp_packet[20..22]).unwrap",
+          "lineNumber": 72
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "<[u8; 2]>::try_from",
+          "lineNumber": 72
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "u16::from_be_bytes",
+          "lineNumber": 73
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "<[u8; 2]>::try_from(&tcp_packet[22..24]).unwrap",
+          "lineNumber": 73
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "<[u8; 2]>::try_from",
+          "lineNumber": 73
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "src_addr.to_string",
+          "lineNumber": 75
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "dst_addr.to_string",
+          "lineNumber": 76
+        },
+        {
+          "caller": "datetime",
+          "callee": "NaiveDateTime::new",
+          "lineNumber": 89
+        },
+        {
+          "caller": "jsonb_access",
+          "callee": "json.get(index as usize).cloned",
+          "lineNumber": 94
+        },
+        {
+          "caller": "jsonb_access",
+          "callee": "json.get",
+          "lineNumber": 94
+        },
+        {
+          "caller": "sum_array",
+          "callee": "xs.iter().sum",
+          "lineNumber": 99
+        },
+        {
+          "caller": "sum_array",
+          "callee": "xs.iter",
+          "lineNumber": 99
+        },
+        {
+          "caller": "key_value",
+          "callee": "kv.split_once",
+          "lineNumber": 110
+        },
+        {
+          "caller": "key_value",
+          "callee": "Some",
+          "lineNumber": 111
+        },
+        {
+          "caller": "key_values",
+          "callee": "kv.split(',').filter_map",
+          "lineNumber": 121
+        },
+        {
+          "caller": "key_values",
+          "callee": "kv.split",
+          "lineNumber": 121
+        },
+        {
+          "caller": "key_values",
+          "callee": "kv.split_once('=').map",
+          "lineNumber": 122
+        },
+        {
+          "caller": "key_values",
+          "callee": "kv.split_once",
+          "lineNumber": 122
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 17,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "e2e_test/udf/remote_java/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 74,
+      "nonEmptyLines": 68,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/remote_java/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "sections": [
+        {
+          "heading": "RisingWave Java UDF Example",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "e2e_test/udf/remote_java/src/main/java/com/example/UdfExample.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 343,
+      "nonEmptyLines": 311,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 35,
+          "endLine": 60,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UdfExample",
+          "startLine": 34,
+          "endLine": 343,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "UdfExample",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new UdfServer",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "new Int42",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "new FloatToDecimal",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "new Sleep",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "new Gcd",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "new Gcd3",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "new ExtractTcpInfo",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "new HexToDec",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "new DecimalAdd",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "new ArrayAccess",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "new JsonbAccess",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "new JsonbConcat",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "new JsonbArrayIdentity",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 49
+        },
+        {
+          "caller": "main",
+          "callee": "new JsonbArrayStructIdentity",
+          "lineNumber": 49
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 50
+        },
+        {
+          "caller": "main",
+          "callee": "new ReturnAll",
+          "lineNumber": 50
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "new ReturnAllArrays",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 52
+        },
+        {
+          "caller": "main",
+          "callee": "new Series",
+          "lineNumber": 52
+        },
+        {
+          "caller": "main",
+          "callee": "server.addFunction",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "new Split",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "server.start",
+          "lineNumber": 55
+        },
+        {
+          "caller": "main",
+          "callee": "server.awaitTermination",
+          "lineNumber": 56
+        },
+        {
+          "caller": "main",
+          "callee": "e.printStackTrace",
+          "lineNumber": 58
+        },
+        {
+          "caller": "eval",
+          "callee": "new BigDecimal",
+          "lineNumber": 70
+        },
+        {
+          "caller": "eval",
+          "callee": "Thread.sleep",
+          "lineNumber": 77
+        },
+        {
+          "caller": "eval",
+          "callee": "e.printStackTrace",
+          "lineNumber": 79
+        },
+        {
+          "caller": "eval",
+          "callee": "new Gcd",
+          "lineNumber": 98
+        },
+        {
+          "caller": "eval",
+          "callee": "gcd.eval",
+          "lineNumber": 99
+        },
+        {
+          "caller": "eval",
+          "callee": "gcd.eval",
+          "lineNumber": 99
+        },
+        {
+          "caller": "eval",
+          "callee": "new TcpPacketInfo",
+          "lineNumber": 112
+        },
+        {
+          "caller": "eval",
+          "callee": "ByteBuffer.wrap",
+          "lineNumber": 113
+        },
+        {
+          "caller": "eval",
+          "callee": "intToIpAddr",
+          "lineNumber": 114
+        },
+        {
+          "caller": "eval",
+          "callee": "buffer.getInt",
+          "lineNumber": 114
+        },
+        {
+          "caller": "eval",
+          "callee": "intToIpAddr",
+          "lineNumber": 115
+        },
+        {
+          "caller": "eval",
+          "callee": "buffer.getInt",
+          "lineNumber": 115
+        },
+        {
+          "caller": "eval",
+          "callee": "buffer.getShort",
+          "lineNumber": 116
+        },
+        {
+          "caller": "eval",
+          "callee": "buffer.getShort",
+          "lineNumber": 117
+        },
+        {
+          "caller": "intToIpAddr",
+          "callee": "String.format",
+          "lineNumber": 122
+        },
+        {
+          "caller": "eval",
+          "callee": "new BigDecimal",
+          "lineNumber": 133
+        },
+        {
+          "caller": "eval",
+          "callee": "new BigInteger",
+          "lineNumber": 133
+        },
+        {
+          "caller": "eval",
+          "callee": "a.add",
+          "lineNumber": 139
+        },
+        {
+          "caller": "eval",
+          "callee": "gson.fromJson",
+          "lineNumber": 156
+        },
+        {
+          "caller": "eval",
+          "callee": "gson.toJson",
+          "lineNumber": 161
+        },
+        {
+          "caller": "eval",
+          "callee": "String.join",
+          "lineNumber": 170
+        },
+        {
+          "caller": "toString",
+          "callee": "String.format",
+          "lineNumber": 215
+        },
+        {
+          "caller": "eval",
+          "callee": "new Row",
+          "lineNumber": 235
+        },
+        {
+          "caller": "toString",
+          "callee": "String.format",
+          "lineNumber": 279
+        },
+        {
+          "caller": "eval",
+          "callee": "new Row",
+          "lineNumber": 299
+        },
+        {
+          "caller": "eval",
+          "callee": "IntStream.range(0, n).iterator",
+          "lineNumber": 321
+        },
+        {
+          "caller": "eval",
+          "callee": "IntStream.range",
+          "lineNumber": 321
+        },
+        {
+          "caller": "eval",
+          "callee": "Stream.of(str.split(\" \"))\n                    .map(\n                            s -> {\n                                Row row = new Row();\n                                row.word = s;\n                                row.length = s.length();\n                                return row;\n                            }).iterator",
+          "lineNumber": 332
+        },
+        {
+          "caller": "eval",
+          "callee": "Stream.of(str.split(\" \")).map",
+          "lineNumber": 332
+        },
+        {
+          "caller": "eval",
+          "callee": "Stream.of",
+          "lineNumber": 332
+        },
+        {
+          "caller": "eval",
+          "callee": "str.split",
+          "lineNumber": 332
+        },
+        {
+          "caller": "eval",
+          "callee": "new Row",
+          "lineNumber": 335
+        },
+        {
+          "caller": "eval",
+          "callee": "s.length",
+          "lineNumber": 337
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "e2e_test/udf/remote_python/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 8,
+      "nonEmptyLines": 6,
+      "sections": [
+        {
+          "heading": "RisingWave Python UDF Example",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "e2e_test/udf/remote_python/requirements.txt",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/remote_python/test.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 307,
+      "nonEmptyLines": 265,
+      "functions": [
+        {
+          "name": "int_42",
+          "startLine": 27,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "sleep",
+          "startLine": 32,
+          "endLine": 34,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "gcd",
+          "startLine": 38,
+          "endLine": 41,
+          "params": [
+            "x",
+            "y"
+          ]
+        },
+        {
+          "name": "gcd3",
+          "startLine": 45,
+          "endLine": 46,
+          "params": [
+            "x",
+            "y",
+            "z"
+          ]
+        },
+        {
+          "name": "extract_tcp_info",
+          "startLine": 53,
+          "endLine": 63,
+          "params": [
+            "tcp_packet"
+          ]
+        },
+        {
+          "name": "series",
+          "startLine": 67,
+          "endLine": 69,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "split",
+          "startLine": 73,
+          "endLine": 75,
+          "params": [
+            "string"
+          ]
+        },
+        {
+          "name": "hex_to_dec",
+          "startLine": 79,
+          "endLine": 91,
+          "params": [
+            "hex"
+          ]
+        },
+        {
+          "name": "float_to_decimal",
+          "startLine": 95,
+          "endLine": 96,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "decimal_add",
+          "startLine": 100,
+          "endLine": 101,
+          "params": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "array_access",
+          "startLine": 105,
+          "endLine": 108,
+          "params": [
+            "list",
+            "idx"
+          ]
+        },
+        {
+          "name": "jsonb_access",
+          "startLine": 112,
+          "endLine": 115,
+          "params": [
+            "json",
+            "i"
+          ]
+        },
+        {
+          "name": "jsonb_concat",
+          "startLine": 119,
+          "endLine": 122,
+          "params": [
+            "list"
+          ]
+        },
+        {
+          "name": "jsonb_array_identity",
+          "startLine": 126,
+          "endLine": 127,
+          "params": [
+            "list"
+          ]
+        },
+        {
+          "name": "jsonb_array_struct_identity",
+          "startLine": 134,
+          "endLine": 135,
+          "params": [
+            "v"
+          ]
+        },
+        {
+          "name": "return_all",
+          "startLine": 174,
+          "endLine": 207,
+          "params": [
+            "bool",
+            "i16",
+            "i32",
+            "i64",
+            "f32",
+            "f64",
+            "decimal",
+            "date",
+            "time",
+            "timestamp",
+            "interval",
+            "varchar",
+            "bytea",
+            "jsonb",
+            "struct"
+          ]
+        },
+        {
+          "name": "return_all_arrays",
+          "startLine": 246,
+          "endLine": 279,
+          "params": [
+            "bool",
+            "i16",
+            "i32",
+            "i64",
+            "f32",
+            "f64",
+            "decimal",
+            "date",
+            "time",
+            "timestamp",
+            "interval",
+            "varchar",
+            "bytea",
+            "jsonb",
+            "struct"
+          ]
+        },
+        {
+          "name": "random_int",
+          "startLine": 283,
+          "endLine": 284,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "int_42",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "sleep",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "gcd",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "gcd3",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "extract_tcp_info",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "series",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "split",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "hex_to_dec",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "float_to_decimal",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "decimal_add",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "array_access",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "jsonb_access",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "jsonb_concat",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "jsonb_array_identity",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "jsonb_array_struct_identity",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "return_all",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "return_all_arrays",
+          "line": 210,
+          "isDefault": false
+        },
+        {
+          "name": "random_int",
+          "line": 282,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sleep",
+          "callee": "time.sleep",
+          "lineNumber": 33
+        },
+        {
+          "caller": "gcd3",
+          "callee": "gcd",
+          "lineNumber": 46
+        },
+        {
+          "caller": "gcd3",
+          "callee": "gcd",
+          "lineNumber": 46
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "struct.unpack",
+          "lineNumber": 54
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "struct.unpack",
+          "lineNumber": 55
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "socket.inet_ntoa",
+          "lineNumber": 56
+        },
+        {
+          "caller": "extract_tcp_info",
+          "callee": "socket.inet_ntoa",
+          "lineNumber": 57
+        },
+        {
+          "caller": "series",
+          "callee": "range",
+          "lineNumber": 68
+        },
+        {
+          "caller": "split",
+          "callee": "string.split",
+          "lineNumber": 74
+        },
+        {
+          "caller": "split",
+          "callee": "len",
+          "lineNumber": 75
+        },
+        {
+          "caller": "hex_to_dec",
+          "callee": "hex.strip",
+          "lineNumber": 83
+        },
+        {
+          "caller": "hex_to_dec",
+          "callee": "Decimal",
+          "lineNumber": 84
+        },
+        {
+          "caller": "hex_to_dec",
+          "callee": "int",
+          "lineNumber": 88
+        },
+        {
+          "caller": "hex_to_dec",
+          "callee": "len",
+          "lineNumber": 89
+        },
+        {
+          "caller": "float_to_decimal",
+          "callee": "Decimal",
+          "lineNumber": 96
+        },
+        {
+          "caller": "array_access",
+          "callee": "len",
+          "lineNumber": 106
+        },
+        {
+          "caller": "random_int",
+          "callee": "random.randint",
+          "lineNumber": 284
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 18,
+        "functionCount": 18,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/udf/tests/aggregate/drop.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/aggregate/javascript.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 30,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/aggregate/python.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 27,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/aggregate/test.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 36,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/aggregate/wrapped_scalar.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 20,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/bug_fixes/17560_udaf_as_win_func.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 84,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/bug_fixes/18202_sql_udf_aggregate_prefix.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 12,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/javascript_async.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 81,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/javascript_legacy.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 26,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/javascript.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 50,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/python.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 53,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/remote/determinism.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 54,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/remote/main.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 17,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/remote/test.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 391,
+      "nonEmptyLines": 313,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/rust.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/sql_from.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 71,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/sql.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 649,
+      "nonEmptyLines": 489,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/udf/tests/language_specific/wasm.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    }
+  ]
+}

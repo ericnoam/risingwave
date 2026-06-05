@@ -1,0 +1,424 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/storage/compactor/src/compactor_observer/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/storage/compactor/src/compactor_observer/mod.rs",
+      "summary": "Module barrel for the compactor observer subsystem, re-exporting `CompactorObserverNode` from the inner observer_manager module.",
+      "tags": ["barrel", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/storage/compactor/src/compactor_observer/observer_manager.rs",
+      "type": "file",
+      "name": "observer_manager.rs",
+      "filePath": "src/storage/compactor/src/compactor_observer/observer_manager.rs",
+      "summary": "Implements `CompactorObserverNode`, which receives and processes meta-service notifications to keep the compactor's catalog and system-params caches up to date.",
+      "tags": ["service", "event-handler", "api-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/compactor/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/storage/compactor/src/lib.rs",
+      "summary": "Root library file of the compactor crate, defining `CompactorOpts`/`CompactorMode` configuration and the `start` async entry point that dispatches to dedicated or shared compactor modes.",
+      "tags": ["entry-point", "configuration", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/compactor/src/rpc.rs",
+      "type": "file",
+      "name": "rpc.rs",
+      "filePath": "src/storage/compactor/src/rpc.rs",
+      "summary": "Implements the `CompactorService` and `MonitorService` gRPC handlers for the compactor node, including compaction task dispatch and profiling/diagnostic endpoints.",
+      "tags": ["api-handler", "service", "middleware"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/compactor/src/server.rs",
+      "type": "file",
+      "name": "server.rs",
+      "filePath": "src/storage/compactor/src/server.rs",
+      "summary": "Contains `compactor_serve`, `shared_compactor_serve`, and `prepare_start_parameters` — the main async server setup functions that initialise object storage, sstable store, metrics, and the gRPC endpoint for dedicated and shared compactor modes.",
+      "tags": ["service", "entry-point", "infrastructure"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/compactor/src/telemetry.rs",
+      "type": "file",
+      "name": "telemetry.rs",
+      "filePath": "src/storage/compactor/src/telemetry.rs",
+      "summary": "Defines `CompactorTelemetryCreator` and `CompactorTelemetryReport` for generating and serialising compactor usage telemetry reports.",
+      "tags": ["utility", "monitoring"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/storage/compactor/src/compactor_observer/observer_manager.rs:CompactorObserverNode",
+      "type": "class",
+      "name": "CompactorObserverNode",
+      "filePath": "src/storage/compactor/src/compactor_observer/observer_manager.rs",
+      "lineRange": [24, 28],
+      "summary": "Observer node that subscribes to meta notifications and updates the local compaction catalog and system parameters when catalog changes or system params updates arrive.",
+      "tags": ["service", "event-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/storage/compactor/src/lib.rs:CompactorMode",
+      "type": "class",
+      "name": "CompactorMode",
+      "filePath": "src/storage/compactor/src/lib.rs",
+      "lineRange": [29, 42],
+      "summary": "Enum distinguishing the four compactor operating modes: Dedicated, Shared, DedicatedIceberg, and SharedIceberg.",
+      "tags": ["configuration", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/compactor/src/lib.rs:CompactorOpts",
+      "type": "class",
+      "name": "CompactorOpts",
+      "filePath": "src/storage/compactor/src/lib.rs",
+      "lineRange": [50, 123],
+      "summary": "Command-line configuration struct for the compactor process, covering network addresses, memory limits, threading, metrics, and RPC message size settings.",
+      "tags": ["configuration", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/storage/compactor/src/rpc.rs:CompactorServiceImpl",
+      "type": "class",
+      "name": "CompactorServiceImpl",
+      "filePath": "src/storage/compactor/src/rpc.rs",
+      "lineRange": [35, 37],
+      "summary": "gRPC service implementation for the CompactorService, dispatching compaction tasks through an mpsc channel to the compactor worker.",
+      "tags": ["api-handler", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/storage/compactor/src/rpc.rs:MonitorServiceImpl",
+      "type": "class",
+      "name": "MonitorServiceImpl",
+      "filePath": "src/storage/compactor/src/rpc.rs",
+      "lineRange": [74, 77],
+      "summary": "gRPC service implementation for the MonitorService on the compactor node, providing stack traces, CPU/heap profiling, and diagnostic data endpoints.",
+      "tags": ["api-handler", "monitoring", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/storage/compactor/src/telemetry.rs:CompactorTelemetryCreator",
+      "type": "class",
+      "name": "CompactorTelemetryCreator",
+      "filePath": "src/storage/compactor/src/telemetry.rs",
+      "lineRange": [48, 48],
+      "summary": "Factory that creates compactor telemetry reports and identifies the report type for the telemetry manager.",
+      "tags": ["utility", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/compactor/src/telemetry.rs:CompactorTelemetryReport",
+      "type": "class",
+      "name": "CompactorTelemetryReport",
+      "filePath": "src/storage/compactor/src/telemetry.rs",
+      "lineRange": [86, 89],
+      "summary": "Telemetry report data structure containing a base report with system metrics, serializable to protobuf bytes for submission.",
+      "tags": ["data-model", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/storage/compactor/src/compactor_observer/observer_manager.rs:handle_notification",
+      "type": "function",
+      "name": "handle_notification",
+      "filePath": "src/storage/compactor/src/compactor_observer/observer_manager.rs",
+      "lineRange": [35, 69],
+      "summary": "Processes incremental meta notifications, routing catalog updates to the catalog manager and system param changes to the params manager.",
+      "tags": ["event-handler", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/compactor/src/lib.rs:start",
+      "type": "function",
+      "name": "start",
+      "filePath": "src/storage/compactor/src/lib.rs",
+      "lineRange": [138, 210],
+      "summary": "Asynchronous entry point that interprets CompactorOpts to select the appropriate serve function (dedicated, shared, or Iceberg variants) and spawns it with shutdown signaling.",
+      "tags": ["entry-point", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/storage/compactor/src/rpc.rs:dispatch_compaction_task",
+      "type": "function",
+      "name": "dispatch_compaction_task",
+      "filePath": "src/storage/compactor/src/rpc.rs",
+      "lineRange": [51, 70],
+      "summary": "Receives a compaction task from meta via gRPC and forwards it to the local compactor worker through an mpsc channel.",
+      "tags": ["api-handler", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/storage/compactor/src/rpc.rs:stack_trace",
+      "type": "function",
+      "name": "stack_trace",
+      "filePath": "src/storage/compactor/src/rpc.rs",
+      "lineRange": [93, 109],
+      "summary": "Collects all ongoing compaction task await-tree stack traces and returns them as a map in the monitor service response.",
+      "tags": ["monitoring", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/storage/compactor/src/server.rs:prepare_start_parameters",
+      "type": "function",
+      "name": "prepare_start_parameters",
+      "filePath": "src/storage/compactor/src/server.rs",
+      "lineRange": [66, 183],
+      "summary": "Builds all shared startup components — object store, sstable store, memory limiter, await-tree registry, and heap profiler — from compactor options and system params.",
+      "tags": ["service", "infrastructure"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/storage/compactor/src/server.rs:compactor_serve",
+      "type": "function",
+      "name": "compactor_serve",
+      "filePath": "src/storage/compactor/src/server.rs",
+      "lineRange": [188, 355],
+      "summary": "Main server loop for the dedicated compactor: registers with meta, initialises storage and catalog managers, starts the gRPC server, telemetry, and metrics services.",
+      "tags": ["service", "entry-point"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/storage/compactor/src/server.rs:shared_compactor_serve",
+      "type": "function",
+      "name": "shared_compactor_serve",
+      "filePath": "src/storage/compactor/src/server.rs",
+      "lineRange": [360, 462],
+      "summary": "Main server loop for the shared compactor mode: fetches system params via the proxy gRPC client, sets up a shared compaction executor, and starts the gRPC and metrics services.",
+      "tags": ["service", "entry-point"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/storage/compactor/src/compactor_observer/mod.rs",
+      "target": "file:src/storage/compactor/src/compactor_observer/observer_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/compactor/src/lib.rs",
+      "target": "file:src/storage/compactor/src/compactor_observer/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/compactor/src/lib.rs",
+      "target": "file:src/storage/compactor/src/rpc.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/compactor/src/lib.rs",
+      "target": "file:src/storage/compactor/src/server.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/compactor/src/lib.rs",
+      "target": "file:src/storage/compactor/src/telemetry.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/compactor/src/server.rs",
+      "target": "file:src/storage/compactor/src/rpc.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/compactor/src/server.rs",
+      "target": "file:src/storage/compactor/src/telemetry.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/compactor/src/compactor_observer/observer_manager.rs",
+      "target": "class:src/storage/compactor/src/compactor_observer/observer_manager.rs:CompactorObserverNode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/compactor_observer/observer_manager.rs",
+      "target": "class:src/storage/compactor/src/compactor_observer/observer_manager.rs:CompactorObserverNode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/compactor/src/compactor_observer/observer_manager.rs",
+      "target": "function:src/storage/compactor/src/compactor_observer/observer_manager.rs:handle_notification",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/lib.rs",
+      "target": "class:src/storage/compactor/src/lib.rs:CompactorMode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/lib.rs",
+      "target": "class:src/storage/compactor/src/lib.rs:CompactorMode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/compactor/src/lib.rs",
+      "target": "class:src/storage/compactor/src/lib.rs:CompactorOpts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/lib.rs",
+      "target": "class:src/storage/compactor/src/lib.rs:CompactorOpts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/compactor/src/lib.rs",
+      "target": "function:src/storage/compactor/src/lib.rs:start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/lib.rs",
+      "target": "function:src/storage/compactor/src/lib.rs:start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/compactor/src/rpc.rs",
+      "target": "class:src/storage/compactor/src/rpc.rs:CompactorServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/rpc.rs",
+      "target": "class:src/storage/compactor/src/rpc.rs:CompactorServiceImpl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/compactor/src/rpc.rs",
+      "target": "class:src/storage/compactor/src/rpc.rs:MonitorServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/rpc.rs",
+      "target": "class:src/storage/compactor/src/rpc.rs:MonitorServiceImpl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/compactor/src/rpc.rs",
+      "target": "function:src/storage/compactor/src/rpc.rs:dispatch_compaction_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/rpc.rs",
+      "target": "function:src/storage/compactor/src/rpc.rs:stack_trace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/server.rs",
+      "target": "function:src/storage/compactor/src/server.rs:prepare_start_parameters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/server.rs",
+      "target": "function:src/storage/compactor/src/server.rs:prepare_start_parameters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/compactor/src/server.rs",
+      "target": "function:src/storage/compactor/src/server.rs:compactor_serve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/server.rs",
+      "target": "function:src/storage/compactor/src/server.rs:compactor_serve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/compactor/src/server.rs",
+      "target": "function:src/storage/compactor/src/server.rs:shared_compactor_serve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/server.rs",
+      "target": "function:src/storage/compactor/src/server.rs:shared_compactor_serve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/compactor/src/telemetry.rs",
+      "target": "class:src/storage/compactor/src/telemetry.rs:CompactorTelemetryCreator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/telemetry.rs",
+      "target": "class:src/storage/compactor/src/telemetry.rs:CompactorTelemetryCreator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/compactor/src/telemetry.rs",
+      "target": "class:src/storage/compactor/src/telemetry.rs:CompactorTelemetryReport",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/compactor/src/telemetry.rs",
+      "target": "class:src/storage/compactor/src/telemetry.rs:CompactorTelemetryReport",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

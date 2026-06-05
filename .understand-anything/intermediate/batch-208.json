@@ -1,0 +1,97 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/mqtt/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/mqtt/create_sink.sql",
+      "summary": "Creates an MQTT sink in RisingWave to publish materialized view changes to an MQTT broker topic in the mqtt integration test.",
+      "tags": ["database", "integration-test", "mqtt"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mqtt/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/mqtt/create_source.sql",
+      "summary": "Defines RisingWave source tables for the MQTT integration test: a `personnel` table for test data and an `mqtt_source_table` backed by an MQTT broker topic.",
+      "tags": ["database", "schema-definition", "integration-test", "mqtt"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/mqtt/create_source.sql:personnel",
+      "type": "table",
+      "name": "personnel",
+      "filePath": "integration_tests/mqtt/create_source.sql",
+      "lineRange": [1, 2],
+      "summary": "Simple test personnel table with id and name columns used as a source for the MQTT sink test.",
+      "tags": ["database", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/mqtt/create_source.sql:mqtt_source_table",
+      "type": "table",
+      "name": "mqtt_source_table",
+      "filePath": "integration_tests/mqtt/create_source.sql",
+      "lineRange": [4, 9],
+      "summary": "RisingWave source table backed by an MQTT broker topic for ingesting MQTT messages in the integration test.",
+      "tags": ["database", "integration-test", "mqtt"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/mqtt/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/mqtt/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the MQTT integration test, running an MQTT broker (Mosquitto) and RisingWave together.",
+      "tags": ["orchestration", "infrastructure", "integration-test", "mqtt"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mqtt/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/mqtt/query.sql",
+      "summary": "Verification queries for the MQTT integration test that inspect source and sink table contents to confirm message delivery.",
+      "tags": ["database", "query", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/mqtt/create_source.sql",
+      "target": "table:integration_tests/mqtt/create_source.sql:personnel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/mqtt/create_source.sql",
+      "target": "table:integration_tests/mqtt/create_source.sql:mqtt_source_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/mqtt/create_source.sql",
+      "target": "file:integration_tests/mqtt/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/mqtt/create_sink.sql",
+      "target": "file:integration_tests/mqtt/query.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/mqtt/docker-compose.yml",
+      "target": "file:integration_tests/mqtt/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

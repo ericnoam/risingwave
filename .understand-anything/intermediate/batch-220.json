@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "table:integration_tests/snowflake-sink/upsert/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/snowflake-sink/upsert/create_source.sql",
+      "summary": "Defines the user_behaviors RisingWave source table for the Snowflake upsert sink variant, enabling upsert semantics via a primary key.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/snowflake-sink/upsert/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/snowflake-sink/upsert/create_mv.sql",
+      "summary": "Creates a materialized view with a primary key to support upsert operations when sinking to Snowflake.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/snowflake-sink/upsert/create_sink.sql",
+      "type": "table",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/snowflake-sink/upsert/create_sink.sql",
+      "summary": "Creates the Snowflake upsert sink connector that merges records into the Snowflake destination table using a primary key.",
+      "tags": ["database", "sink", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "table:integration_tests/snowflake-sink/upsert/create_mv.sql",
+      "target": "table:integration_tests/snowflake-sink/upsert/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "table:integration_tests/snowflake-sink/upsert/create_sink.sql",
+      "target": "table:integration_tests/snowflake-sink/upsert/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "nodes": [
+    {"id":"file:src/error/src/anyhow.rs","type":"file","name":"anyhow.rs","filePath":"src/error/src/anyhow.rs","summary":"Provides conversion bridges between anyhow::Error and RisingWave's error types, enabling use of the ? operator across crate boundaries.","tags":["error-handling","utility"],"complexity":"moderate"},
+    {"id":"file:src/error/src/code.rs","type":"file","name":"code.rs","filePath":"src/error/src/code.rs","summary":"Defines the core error code enum and structured error types used throughout RisingWave, providing SQLSTATE-compatible error codes and error categorization.","tags":["error-handling","data-model"],"complexity":"complex"},
+    {"id":"file:src/error/src/common.rs","type":"file","name":"common.rs","filePath":"src/error/src/common.rs","summary":"Defines common error helper macros and conversion implementations for frequently used error patterns across RisingWave crates.","tags":["error-handling","utility"],"complexity":"simple"},
+    {"id":"file:src/error/src/lib.rs","type":"file","name":"lib.rs","filePath":"src/error/src/lib.rs","summary":"Crate root for risingwave_error; re-exports the error code, anyhow utilities, macros, tonic conversions, and wrapper types.","tags":["entry-point","barrel","error-handling"],"complexity":"simple"},
+    {"id":"file:src/error/src/macros.rs","type":"file","name":"macros.rs","filePath":"src/error/src/macros.rs","summary":"Defines convenience macros (bail!, ensure!, bail_not_implemented!) for constructing and returning typed RisingWave errors.","tags":["utility","error-handling"],"complexity":"moderate"},
+    {"id":"file:src/error/src/tonic.rs","type":"file","name":"tonic.rs","filePath":"src/error/src/tonic.rs","summary":"Implements bidirectional conversion between RisingWave error types and tonic::Status for gRPC error propagation across the cluster.","tags":["error-handling","serialization","rpc"],"complexity":"moderate"},
+    {"id":"file:src/error/src/tonic/extra.rs","type":"file","name":"extra.rs","filePath":"src/error/src/tonic/extra.rs","summary":"Extends tonic::Status with RisingWave error code metadata embedding, allowing structured error details to be transmitted in gRPC trailers.","tags":["error-handling","rpc","utility"],"complexity":"simple"},
+    {"id":"file:src/error/src/wrappers.rs","type":"file","name":"wrappers.rs","filePath":"src/error/src/wrappers.rs","summary":"Provides thin error wrapper types (NotImplemented, InternalError) as named newtype wrappers for common RisingWave error categories.","tags":["error-handling","data-model"],"complexity":"simple"}
+  ],
+  "edges": [
+    {"source":"file:src/error/src/lib.rs","target":"file:src/error/src/anyhow.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/error/src/lib.rs","target":"file:src/error/src/code.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/error/src/lib.rs","target":"file:src/error/src/common.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/error/src/lib.rs","target":"file:src/error/src/macros.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/error/src/lib.rs","target":"file:src/error/src/tonic.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/error/src/lib.rs","target":"file:src/error/src/wrappers.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/error/src/tonic/extra.rs","target":"file:src/error/src/code.rs","type":"imports","direction":"forward","weight":0.7}
+  ]
+}

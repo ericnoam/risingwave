@@ -1,0 +1,731 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "e2e_test/source_inline/pulsar/issue-22486.slt.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 69,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/pulsar/read_compact.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 58,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/refresh/refresh_table.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 360,
+      "nonEmptyLines": 262,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/tvf/mysql_query.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 211,
+      "nonEmptyLines": 197,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/tvf/postgres_query.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 68,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/vault/vault_approle_setup.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 198,
+      "nonEmptyLines": 167,
+      "functions": [
+        {
+          "name": "create_vault_approle",
+          "startLine": 11,
+          "endLine": 100,
+          "params": [
+            "vault_addr",
+            "vault_token",
+            "role_name"
+          ]
+        },
+        {
+          "name": "create_risingwave_secret",
+          "startLine": 103,
+          "endLine": 163,
+          "params": [
+            "db_name",
+            "vault_addr",
+            "role_id",
+            "secret_id"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 166,
+          "endLine": 194,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "create_vault_approle",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "create_risingwave_secret",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 166,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 13
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "requests.get",
+          "lineNumber": 22
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "auth_methods_resp.raise_for_status",
+          "lineNumber": 23
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "auth_methods_resp.json",
+          "lineNumber": 24
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 27
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "requests.post",
+          "lineNumber": 28
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "enable_resp.raise_for_status",
+          "lineNumber": 33
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 35
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 37
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "sys.exit",
+          "lineNumber": 38
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "requests.put",
+          "lineNumber": 45
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "policy_resp.raise_for_status",
+          "lineNumber": 50
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 53
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "sys.exit",
+          "lineNumber": 54
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "requests.post",
+          "lineNumber": 63
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "role_resp.raise_for_status",
+          "lineNumber": 68
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 69
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 71
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "sys.exit",
+          "lineNumber": 72
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "requests.get",
+          "lineNumber": 76
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "role_id_resp.raise_for_status",
+          "lineNumber": 80
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "role_id_resp.json",
+          "lineNumber": 81
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 82
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 84
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "sys.exit",
+          "lineNumber": 85
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "requests.post",
+          "lineNumber": 89
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "secret_id_resp.raise_for_status",
+          "lineNumber": 93
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "secret_id_resp.json",
+          "lineNumber": 94
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 95
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "print",
+          "lineNumber": 97
+        },
+        {
+          "caller": "create_vault_approle",
+          "callee": "sys.exit",
+          "lineNumber": 98
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "print",
+          "lineNumber": 105
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "psycopg2.connect",
+          "lineNumber": 109
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "os.environ.get",
+          "lineNumber": 110
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "os.environ.get",
+          "lineNumber": 111
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "conn.cursor",
+          "lineNumber": 116
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "print",
+          "lineNumber": 117
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "print",
+          "lineNumber": 119
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "sys.exit",
+          "lineNumber": 120
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "cur.execute",
+          "lineNumber": 125
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "conn.commit",
+          "lineNumber": 126
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "print",
+          "lineNumber": 127
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "cur.execute",
+          "lineNumber": 143
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "conn.commit",
+          "lineNumber": 144
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "print",
+          "lineNumber": 145
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "cur.execute",
+          "lineNumber": 149
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "cur.fetchone",
+          "lineNumber": 150
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "print",
+          "lineNumber": 153
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "print",
+          "lineNumber": 155
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "sys.exit",
+          "lineNumber": 156
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "print",
+          "lineNumber": 159
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "sys.exit",
+          "lineNumber": 160
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "cur.close",
+          "lineNumber": 162
+        },
+        {
+          "caller": "create_risingwave_secret",
+          "callee": "conn.close",
+          "lineNumber": 163
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 167
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 168
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 169
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 170
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 171
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 173
+        },
+        {
+          "caller": "main",
+          "callee": "os.environ.get",
+          "lineNumber": 176
+        },
+        {
+          "caller": "main",
+          "callee": "os.environ.get",
+          "lineNumber": 177
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 179
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 180
+        },
+        {
+          "caller": "main",
+          "callee": "create_vault_approle",
+          "lineNumber": 183
+        },
+        {
+          "caller": "main",
+          "callee": "create_risingwave_secret",
+          "lineNumber": 186
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 188
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 189
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 190
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/source_inline/vault/vault_secret_ddl.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 49,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/vault/vault_secret_source.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 57,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/ddl.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 232,
+      "nonEmptyLines": 191,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/kafka_batch.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 248,
+      "nonEmptyLines": 209,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/kafka.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 991,
+      "nonEmptyLines": 847,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/nosim_kafka.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 132,
+      "nonEmptyLines": 109,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/old_row_format_syntax/datagen.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 190,
+      "nonEmptyLines": 161,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/old_row_format_syntax/ddl.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 198,
+      "nonEmptyLines": 168,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/old_row_format_syntax/kafka_batch.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 204,
+      "nonEmptyLines": 172,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/old_row_format_syntax/kafka.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 736,
+      "nonEmptyLines": 629,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/scripts/prepare_ci_kafka.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 67,
+      "nonEmptyLines": 55,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/scripts/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 12,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "Kafka",
+          "level": 2,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/scripts/schema_registry_producer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 147,
+      "nonEmptyLines": 132,
+      "functions": [
+        {
+          "name": "create_topic",
+          "startLine": 13,
+          "endLine": 18,
+          "params": [
+            "kafka_conf",
+            "topic_name"
+          ]
+        },
+        {
+          "name": "delivery_report",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "err",
+            "msg"
+          ]
+        },
+        {
+          "name": "load_avro_json",
+          "startLine": 27,
+          "endLine": 38,
+          "params": [
+            "encoded",
+            "schema"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "create_topic",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "delivery_report",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "load_avro_json",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_topic",
+          "callee": "AdminClient",
+          "lineNumber": 14
+        },
+        {
+          "caller": "create_topic",
+          "callee": "topic_list.append",
+          "lineNumber": 16
+        },
+        {
+          "caller": "create_topic",
+          "callee": "NewTopic",
+          "lineNumber": 17
+        },
+        {
+          "caller": "create_topic",
+          "callee": "client.create_topics",
+          "lineNumber": 18
+        },
+        {
+          "caller": "delivery_report",
+          "callee": "print",
+          "lineNumber": 23
+        },
+        {
+          "caller": "delivery_report",
+          "callee": "\"Delivery failed for User record {}: {}\".format",
+          "lineNumber": 23
+        },
+        {
+          "caller": "delivery_report",
+          "callee": "msg.value",
+          "lineNumber": 23
+        },
+        {
+          "caller": "load_avro_json",
+          "callee": "StringIO",
+          "lineNumber": 36
+        },
+        {
+          "caller": "load_avro_json",
+          "callee": "json_reader",
+          "lineNumber": 37
+        },
+        {
+          "caller": "load_avro_json",
+          "callee": "next",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/scripts/test_data/avro_complex_schema_bin.1",
+      "language": "1",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/scripts/test_data/avro_simple_schema_bin.1",
+      "language": "1",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/scripts/test_data/bug_bash.1",
+      "language": "1",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 25,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/scripts/test_data/canal_json_double_field.1",
+      "language": "1",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/scripts/test_data/cannal_json.1",
+      "language": "1",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_legacy/basic/scripts/test_data/debezium_compact_avro_json.1",
+      "language": "1",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {}
+    }
+  ]
+}

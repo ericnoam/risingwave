@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/debezium-mongo/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/debezium-mongo/create_mv.sql",
+      "summary": "Creates a RisingWave materialized view over the MongoDB CDC source to project user data for verification in the integration test.",
+      "tags": ["database", "integration-test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/debezium-mongo/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/debezium-mongo/create_source.sql",
+      "summary": "Defines the RisingWave CDC source table backed by Debezium-streamed MongoDB change events, creating the `users` table.",
+      "tags": ["database", "integration-test", "data-model", "schema-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/debezium-mongo/docker-compose.yaml",
+      "type": "service",
+      "name": "docker-compose.yaml",
+      "filePath": "integration_tests/debezium-mongo/docker-compose.yaml",
+      "summary": "Docker Compose orchestration for the Debezium-MongoDB integration test, spinning up MongoDB, Kafka, Zookeeper, Debezium Connect, and RisingWave services.",
+      "tags": ["infrastructure", "orchestration", "integration-test", "containerization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/debezium-mongo/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/debezium-mongo/query.sql",
+      "summary": "Verification query that reads from the materialized view to validate CDC data ingestion from MongoDB into RisingWave.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/debezium-mongo/register-mongodb-connector.sh",
+      "type": "file",
+      "name": "register-mongodb-connector.sh",
+      "filePath": "integration_tests/debezium-mongo/register-mongodb-connector.sh",
+      "summary": "Shell script that registers the MongoDB Debezium connector with Kafka Connect via REST API, configuring the connector to capture change events from the MongoDB instance.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/debezium-mongo/create_mv.sql",
+      "target": "file:integration_tests/debezium-mongo/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-mongo/query.sql",
+      "target": "file:integration_tests/debezium-mongo/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-mongo/register-mongodb-connector.sh",
+      "target": "service:integration_tests/debezium-mongo/docker-compose.yaml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

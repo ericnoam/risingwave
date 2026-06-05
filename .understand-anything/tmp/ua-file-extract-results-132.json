@@ -1,0 +1,63 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "docker/aws/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "services": [
+        {
+          "name": "ubuntu",
+          "image": "ubuntu:24.04",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 8
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM ubuntu:24.04",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y ",
+          "startLine": 2,
+          "endLine": 2
+        },
+        {
+          "name": "RUN mkdir -p /risingwave/bin",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "COPY risingwave /risingwave/bin/risingwave",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "ENTRYPOINT [ \"/risingwave/bin/risingwave\" ]",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "CMD [ \"playground\" ]",
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 6
+      }
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "nodes": [
+    {
+      "id": "config:src/risedevtool/Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "src/risedevtool/Cargo.toml",
+      "summary": "Cargo manifest for the risedevtool crate, the developer tool that orchestrates RisingWave component lifecycle and cluster management.",
+      "tags": ["configuration", "build-system", "developer-tools", "rust-crate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/risedevtool/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/risedevtool/README.md",
+      "summary": "Comprehensive developer guide for RiseDev covering usage (service bootstrap, e2e tests, debug workflows), configuration file structure with template/variable/wildcard expansion, and architectural overview of component provisioning.",
+      "tags": ["documentation", "developer-tools", "configuration", "architecture"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:src/risedevtool/adbc.toml",
+      "type": "config",
+      "name": "adbc.toml",
+      "filePath": "src/risedevtool/adbc.toml",
+      "summary": "Cargo Make task configuration for downloading, removing, and updating the ADBC Snowflake connector binary used in RiseDev.",
+      "tags": ["configuration", "developer-tools", "connector", "automation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src/risedevtool/common.toml",
+      "type": "config",
+      "name": "common.toml",
+      "filePath": "src/risedevtool/common.toml",
+      "summary": "Cargo Make task configuration for common RiseDev setup tasks: directory preparation, configuration checking, and general cluster preparation.",
+      "tags": ["configuration", "developer-tools", "automation", "build-system"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src/risedevtool/connector.toml",
+      "type": "config",
+      "name": "connector.toml",
+      "filePath": "src/risedevtool/connector.toml",
+      "summary": "Cargo Make task configuration for downloading Maven and connector dependencies used in RiseDev integration tests.",
+      "tags": ["configuration", "developer-tools", "connector", "automation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/risedevtool/gcloud-pubsub.toml",
+      "type": "config",
+      "name": "gcloud-pubsub.toml",
+      "filePath": "src/risedevtool/gcloud-pubsub.toml",
+      "summary": "Cargo Make task configuration for downloading the Google Cloud Pub/Sub emulator binary for RiseDev.",
+      "tags": ["configuration", "developer-tools", "pubsub", "automation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src/risedevtool/grafana.toml",
+      "type": "config",
+      "name": "grafana.toml",
+      "filePath": "src/risedevtool/grafana.toml",
+      "summary": "Cargo Make task configuration for downloading the Grafana monitoring binary for RiseDev.",
+      "tags": ["configuration", "developer-tools", "monitoring", "automation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/risedevtool/lakekeeper.toml",
+      "type": "config",
+      "name": "lakekeeper.toml",
+      "filePath": "src/risedevtool/lakekeeper.toml",
+      "summary": "Cargo Make task configuration for downloading the Lakekeeper Iceberg catalog binary for RiseDev.",
+      "tags": ["configuration", "developer-tools", "iceberg", "automation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/risedevtool/minio.toml",
+      "type": "config",
+      "name": "minio.toml",
+      "filePath": "src/risedevtool/minio.toml",
+      "summary": "Cargo Make task configuration for downloading MinIO object storage server and CLI binaries for RiseDev.",
+      "tags": ["configuration", "developer-tools", "storage", "automation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src/risedevtool/moat.toml",
+      "type": "config",
+      "name": "moat.toml",
+      "filePath": "src/risedevtool/moat.toml",
+      "summary": "Cargo Make task configuration for downloading, removing, and updating the Moat security tool binary for RiseDev.",
+      "tags": ["configuration", "developer-tools", "security", "automation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/risedevtool/prometheus.toml",
+      "type": "config",
+      "name": "prometheus.toml",
+      "filePath": "src/risedevtool/prometheus.toml",
+      "summary": "Cargo Make task configuration for downloading the Prometheus metrics server binary for RiseDev.",
+      "tags": ["configuration", "developer-tools", "monitoring", "automation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/risedevtool/redis.toml",
+      "type": "config",
+      "name": "redis.toml",
+      "filePath": "src/risedevtool/redis.toml",
+      "summary": "Cargo Make task configuration for downloading the Redis in-memory data store binary for RiseDev.",
+      "tags": ["configuration", "developer-tools", "cache", "automation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/risedevtool/risedev-components.toml",
+      "type": "config",
+      "name": "risedev-components.toml",
+      "filePath": "src/risedevtool/risedev-components.toml",
+      "summary": "Cargo Make task configuration for the risedev configure/reconfigure workflow, checking and initializing component binaries.",
+      "tags": ["configuration", "developer-tools", "automation", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/risedevtool/risedev-schema.json",
+      "type": "config",
+      "name": "risedev-schema.json",
+      "filePath": "src/risedevtool/risedev-schema.json",
+      "summary": "JSON Schema for the risedev.yml configuration file, defining valid profile structures for the RiseDev cluster tool.",
+      "tags": ["configuration", "schema-definition", "developer-tools"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/risedevtool/run_command.sh",
+      "type": "file",
+      "name": "run_command.sh",
+      "filePath": "src/risedevtool/run_command.sh",
+      "summary": "Shell utility that runs a given command while capturing output to a log file (with ANSI stripping) and writing the exit status to a status file used by risedev-dev for early-exit detection.",
+      "tags": ["script", "developer-tools", "logging", "shell"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/risedevtool/tempo.toml",
+      "type": "file",
+      "name": "tempo.toml",
+      "filePath": "src/risedevtool/tempo.toml",
+      "summary": "Cargo Make task configuration for downloading the Grafana Tempo distributed tracing binary for RiseDev.",
+      "tags": ["configuration", "developer-tools", "tracing", "automation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/risedevtool/welcome.sh",
+      "type": "file",
+      "name": "welcome.sh",
+      "filePath": "src/risedevtool/welcome.sh",
+      "summary": "Shell script that prints the RiseDev ASCII art banner and launches an interactive shell session for the developer.",
+      "tags": ["script", "developer-tools", "shell"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:src/risedevtool/README.md",
+      "target": "config:src/risedevtool/Cargo.toml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/risedevtool/README.md",
+      "target": "config:src/risedevtool/risedev-components.toml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

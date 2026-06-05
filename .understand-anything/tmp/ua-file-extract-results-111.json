@@ -1,0 +1,2410 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/expr/macro/src/context.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 283,
+      "nonEmptyLines": 251,
+      "functions": [
+        {
+          "name": "parse",
+          "startLine": 38,
+          "endLine": 45,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "parse",
+          "startLine": 49,
+          "endLine": 54,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "r#gen",
+          "startLine": 58,
+          "endLine": 106,
+          "params": []
+        },
+        {
+          "name": "r#gen",
+          "startLine": 110,
+          "endLine": 119,
+          "params": []
+        },
+        {
+          "name": "parse",
+          "startLine": 128,
+          "endLine": 133,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "generate_captured_function",
+          "startLine": 136,
+          "endLine": 283,
+          "params": [
+            "attr",
+            "user_fn"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DefineContextField",
+          "startLine": 25,
+          "endLine": 29,
+          "methods": [
+            "parse",
+            "r#gen"
+          ],
+          "properties": [
+            "vis",
+            "name",
+            "ty"
+          ]
+        },
+        {
+          "name": "DefineContextAttr",
+          "startLine": 33,
+          "endLine": 35,
+          "methods": [
+            "parse",
+            "r#gen"
+          ],
+          "properties": [
+            "fields"
+          ]
+        },
+        {
+          "name": "CaptureContextAttr",
+          "startLine": 122,
+          "endLine": 125,
+          "methods": [
+            "parse"
+          ],
+          "properties": [
+            "captures"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DefineContextField",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "DefineContextAttr",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "r#gen",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "r#gen",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "CaptureContextAttr",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "generate_captured_function",
+          "line": 136,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parse",
+          "callee": "input.parse",
+          "lineNumber": 39
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse",
+          "lineNumber": 40
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse::<Token![:]>",
+          "lineNumber": 41
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse",
+          "lineNumber": 42
+        },
+        {
+          "caller": "parse",
+          "callee": "Ok",
+          "lineNumber": 44
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse_terminated",
+          "lineNumber": 50
+        },
+        {
+          "caller": "parse",
+          "callee": "Ok",
+          "lineNumber": 51
+        },
+        {
+          "caller": "parse",
+          "callee": "fields.into_iter().collect",
+          "lineNumber": 52
+        },
+        {
+          "caller": "parse",
+          "callee": "fields.into_iter",
+          "lineNumber": 52
+        },
+        {
+          "caller": "r#gen",
+          "callee": "extend_vis_with_super",
+          "lineNumber": 62
+        },
+        {
+          "caller": "r#gen",
+          "callee": "name.to_string",
+          "lineNumber": 65
+        },
+        {
+          "caller": "r#gen",
+          "callee": "name_s.to_uppercase",
+          "lineNumber": 66
+        },
+        {
+          "caller": "r#gen",
+          "callee": "Err",
+          "lineNumber": 67
+        },
+        {
+          "caller": "r#gen",
+          "callee": "Error::new_spanned",
+          "lineNumber": 67
+        },
+        {
+          "caller": "r#gen",
+          "callee": "Ok",
+          "lineNumber": 74
+        },
+        {
+          "caller": "r#gen",
+          "callee": "self\n            .fields\n            .into_iter()\n            .map(DefineContextField::r#gen).try_collect",
+          "lineNumber": 111
+        },
+        {
+          "caller": "r#gen",
+          "callee": "self\n            .fields\n            .into_iter().map",
+          "lineNumber": 111
+        },
+        {
+          "caller": "r#gen",
+          "callee": "self\n            .fields.into_iter",
+          "lineNumber": 111
+        },
+        {
+          "caller": "r#gen",
+          "callee": "Ok",
+          "lineNumber": 116
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse_terminated",
+          "lineNumber": 129
+        },
+        {
+          "caller": "parse",
+          "callee": "Ok",
+          "lineNumber": 130
+        },
+        {
+          "caller": "parse",
+          "callee": "captures.into_iter().collect",
+          "lineNumber": 131
+        },
+        {
+          "caller": "parse",
+          "callee": "captures.into_iter",
+          "lineNumber": 131
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "user_fn.sig.asyncness.is_some",
+          "lineNumber": 141
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "user_fn.clone",
+          "lineNumber": 142
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "ty.clone",
+          "lineNumber": 146
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "Box::new",
+          "lineNumber": 147
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "ReturnType::Type",
+          "lineNumber": 149
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "syn::token::RArrow::default",
+          "lineNumber": 150
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "Box::new",
+          "lineNumber": 151
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "orig_user_fn\n            .sig\n            .inputs\n            .iter()\n            .map(|arg| {\n                if let FnArg::Typed(PatType { pat, .. }) = arg\n                    && let Pat::Ident(ident) = pat.as_ref()\n                {\n                    let ident_name = &ident.ident;\n                    return quote! {\n                        let #ident_name = #ident_name.clone();\n                    };\n                }\n                quote! {}\n            }).collect",
+          "lineNumber": 158
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "orig_user_fn\n            .sig\n            .inputs\n            .iter().map",
+          "lineNumber": 158
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "orig_user_fn\n            .sig\n            .inputs.iter",
+          "lineNumber": 158
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "pat.as_ref",
+          "lineNumber": 164
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "Box::new",
+          "lineNumber": 177
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "sig.ident.clone",
+          "lineNumber": 185
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "Ident::new",
+          "lineNumber": 190
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "sig.ident.span",
+          "lineNumber": 190
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "Some",
+          "lineNumber": 196
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "syn::token::Async::default",
+          "lineNumber": 196
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "inputs.len",
+          "lineNumber": 201
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "captures.len",
+          "lineNumber": 201
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "Err",
+          "lineNumber": 202
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "syn::Error::new_spanned",
+          "lineNumber": 202
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "inputs\n        .iter()\n        .map(|arg| {\n            let FnArg::Typed(arg) = arg else {\n                return Err(syn::Error::new_spanned(\n                    arg,\n                    \"receiver is not allowed in captured function\",\n                ));\n            };\n            Ok(arg.pat.to_token_stream())\n        }).try_collect",
+          "lineNumber": 208
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "inputs\n        .iter().map",
+          "lineNumber": 208
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "inputs.iter",
+          "lineNumber": 208
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "Err",
+          "lineNumber": 212
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "syn::Error::new_spanned",
+          "lineNumber": 212
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "Ok",
+          "lineNumber": 217
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "arg.pat.to_token_stream",
+          "lineNumber": 217
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "inputs.iter().cloned",
+          "lineNumber": 222
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "inputs.iter",
+          "lineNumber": 222
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "inputs.by_ref",
+          "lineNumber": 223
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "inputs.take(captures.len()).collect_vec",
+          "lineNumber": 224
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "inputs.take",
+          "lineNumber": 224
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "captures.len",
+          "lineNumber": 224
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "inputs.collect_vec",
+          "lineNumber": 225
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "remained_inputs.into_iter().collect",
+          "lineNumber": 228
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "remained_inputs.into_iter",
+          "lineNumber": 228
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "captures.into_iter().zip",
+          "lineNumber": 240
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "captures.into_iter",
+          "lineNumber": 240
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "captured_inputs.into_iter",
+          "lineNumber": 240
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "Err",
+          "lineNumber": 242
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "syn::Error::new_spanned",
+          "lineNumber": 242
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "arg.pat.into_token_stream",
+          "lineNumber": 247
+        },
+        {
+          "caller": "generate_captured_function",
+          "callee": "Ok",
+          "lineNumber": 279
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/expr/macro/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 687,
+      "nonEmptyLines": 661,
+      "functions": [
+        {
+          "name": "function",
+          "startLine": 426,
+          "endLine": 441,
+          "params": [
+            "attr",
+            "item"
+          ]
+        },
+        {
+          "name": "build_function",
+          "startLine": 454,
+          "endLine": 469,
+          "params": [
+            "attr",
+            "item"
+          ]
+        },
+        {
+          "name": "aggregate",
+          "startLine": 472,
+          "endLine": 487,
+          "params": [
+            "attr",
+            "item"
+          ]
+        },
+        {
+          "name": "build_aggregate",
+          "startLine": 490,
+          "endLine": 505,
+          "params": [
+            "attr",
+            "item"
+          ]
+        },
+        {
+          "name": "as_fn",
+          "startLine": 596,
+          "endLine": 601,
+          "params": []
+        },
+        {
+          "name": "accumulate",
+          "startLine": 603,
+          "endLine": 608,
+          "params": []
+        },
+        {
+          "name": "has_retract",
+          "startLine": 610,
+          "endLine": 615,
+          "params": []
+        },
+        {
+          "name": "ident_name",
+          "startLine": 636,
+          "endLine": 642,
+          "params": []
+        },
+        {
+          "name": "is_pure",
+          "startLine": 647,
+          "endLine": 653,
+          "params": []
+        },
+        {
+          "name": "define_context",
+          "startLine": 658,
+          "endLine": 668,
+          "params": [
+            "def"
+          ]
+        },
+        {
+          "name": "capture_context",
+          "startLine": 675,
+          "endLine": 687,
+          "params": [
+            "attr",
+            "item"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FunctionAttr",
+          "startLine": 508,
+          "endLine": 540,
+          "methods": [
+            "ident_name"
+          ],
+          "properties": [
+            "name",
+            "args",
+            "ret",
+            "is_table_function",
+            "append_only",
+            "batch_fn",
+            "state",
+            "init_state",
+            "prebuild",
+            "type_infer",
+            "generic",
+            "volatile",
+            "deprecated",
+            "rewritten"
+          ]
+        },
+        {
+          "name": "UserFunctionAttr",
+          "startLine": 544,
+          "endLine": 569,
+          "methods": [
+            "is_pure"
+          ],
+          "properties": [
+            "name",
+            "async_",
+            "context",
+            "writer_type_kind",
+            "retract",
+            "args_option",
+            "first_mut_ref_arg",
+            "return_type_kind",
+            "iterator_item_kind",
+            "core_return_type",
+            "generic",
+            "return_type_span"
+          ]
+        },
+        {
+          "name": "AggregateImpl",
+          "startLine": 572,
+          "endLine": 584,
+          "methods": [],
+          "properties": [
+            "struct_name",
+            "accumulate",
+            "retract",
+            "merge",
+            "finalize",
+            "create_state",
+            "encode_state",
+            "decode_state"
+          ]
+        },
+        {
+          "name": "AggregateFnOrImpl",
+          "startLine": 588,
+          "endLine": 593,
+          "methods": [
+            "as_fn",
+            "accumulate",
+            "has_retract"
+          ],
+          "properties": [
+            "Fn",
+            "Impl"
+          ]
+        },
+        {
+          "name": "WriterTypeKind",
+          "startLine": 619,
+          "endLine": 624,
+          "methods": [],
+          "properties": [
+            "FmtWrite",
+            "IoWrite",
+            "JsonbbBuilder",
+            "ListWrite"
+          ]
+        },
+        {
+          "name": "ReturnTypeKind",
+          "startLine": 627,
+          "endLine": 632,
+          "methods": [],
+          "properties": [
+            "T",
+            "Option",
+            "Result",
+            "ResultOption"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "function",
+          "line": 426,
+          "isDefault": false
+        },
+        {
+          "name": "build_function",
+          "line": 454,
+          "isDefault": false
+        },
+        {
+          "name": "aggregate",
+          "line": 472,
+          "isDefault": false
+        },
+        {
+          "name": "build_aggregate",
+          "line": 490,
+          "isDefault": false
+        },
+        {
+          "name": "define_context",
+          "line": 658,
+          "isDefault": false
+        },
+        {
+          "name": "capture_context",
+          "line": 675,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 428
+        },
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 429
+        },
+        {
+          "caller": "inner",
+          "callee": "item.clone",
+          "lineNumber": 429
+        },
+        {
+          "caller": "inner",
+          "callee": "item.into",
+          "lineNumber": 431
+        },
+        {
+          "caller": "inner",
+          "callee": "fn_attr.expand",
+          "lineNumber": 432
+        },
+        {
+          "caller": "inner",
+          "callee": "tokens.extend",
+          "lineNumber": 433
+        },
+        {
+          "caller": "inner",
+          "callee": "attr.generate_function_descriptor",
+          "lineNumber": 433
+        },
+        {
+          "caller": "inner",
+          "callee": "Ok",
+          "lineNumber": 435
+        },
+        {
+          "caller": "function",
+          "callee": "inner",
+          "lineNumber": 437
+        },
+        {
+          "caller": "function",
+          "callee": "tokens.into",
+          "lineNumber": 438
+        },
+        {
+          "caller": "function",
+          "callee": "e.to_compile_error().into",
+          "lineNumber": 439
+        },
+        {
+          "caller": "function",
+          "callee": "e.to_compile_error",
+          "lineNumber": 439
+        },
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 456
+        },
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 457
+        },
+        {
+          "caller": "inner",
+          "callee": "item.clone",
+          "lineNumber": 457
+        },
+        {
+          "caller": "inner",
+          "callee": "item.into",
+          "lineNumber": 459
+        },
+        {
+          "caller": "inner",
+          "callee": "fn_attr.expand",
+          "lineNumber": 460
+        },
+        {
+          "caller": "inner",
+          "callee": "tokens.extend",
+          "lineNumber": 461
+        },
+        {
+          "caller": "inner",
+          "callee": "attr.generate_function_descriptor",
+          "lineNumber": 461
+        },
+        {
+          "caller": "inner",
+          "callee": "Ok",
+          "lineNumber": 463
+        },
+        {
+          "caller": "build_function",
+          "callee": "inner",
+          "lineNumber": 465
+        },
+        {
+          "caller": "build_function",
+          "callee": "tokens.into",
+          "lineNumber": 466
+        },
+        {
+          "caller": "build_function",
+          "callee": "e.to_compile_error().into",
+          "lineNumber": 467
+        },
+        {
+          "caller": "build_function",
+          "callee": "e.to_compile_error",
+          "lineNumber": 467
+        },
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 474
+        },
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 475
+        },
+        {
+          "caller": "inner",
+          "callee": "item.clone",
+          "lineNumber": 475
+        },
+        {
+          "caller": "inner",
+          "callee": "item.into",
+          "lineNumber": 477
+        },
+        {
+          "caller": "inner",
+          "callee": "fn_attr.expand",
+          "lineNumber": 478
+        },
+        {
+          "caller": "inner",
+          "callee": "tokens.extend",
+          "lineNumber": 479
+        },
+        {
+          "caller": "inner",
+          "callee": "attr.generate_aggregate_descriptor",
+          "lineNumber": 479
+        },
+        {
+          "caller": "inner",
+          "callee": "Ok",
+          "lineNumber": 481
+        },
+        {
+          "caller": "aggregate",
+          "callee": "inner",
+          "lineNumber": 483
+        },
+        {
+          "caller": "aggregate",
+          "callee": "tokens.into",
+          "lineNumber": 484
+        },
+        {
+          "caller": "aggregate",
+          "callee": "e.to_compile_error().into",
+          "lineNumber": 485
+        },
+        {
+          "caller": "aggregate",
+          "callee": "e.to_compile_error",
+          "lineNumber": 485
+        },
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 492
+        },
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 493
+        },
+        {
+          "caller": "inner",
+          "callee": "item.clone",
+          "lineNumber": 493
+        },
+        {
+          "caller": "inner",
+          "callee": "item.into",
+          "lineNumber": 495
+        },
+        {
+          "caller": "inner",
+          "callee": "fn_attr.expand",
+          "lineNumber": 496
+        },
+        {
+          "caller": "inner",
+          "callee": "tokens.extend",
+          "lineNumber": 497
+        },
+        {
+          "caller": "inner",
+          "callee": "attr.generate_aggregate_descriptor",
+          "lineNumber": 497
+        },
+        {
+          "caller": "inner",
+          "callee": "Ok",
+          "lineNumber": 499
+        },
+        {
+          "caller": "build_aggregate",
+          "callee": "inner",
+          "lineNumber": 501
+        },
+        {
+          "caller": "build_aggregate",
+          "callee": "tokens.into",
+          "lineNumber": 502
+        },
+        {
+          "caller": "build_aggregate",
+          "callee": "e.to_compile_error().into",
+          "lineNumber": 503
+        },
+        {
+          "caller": "build_aggregate",
+          "callee": "e.to_compile_error",
+          "lineNumber": 503
+        },
+        {
+          "caller": "has_retract",
+          "callee": "impl_.retract.is_some",
+          "lineNumber": 613
+        },
+        {
+          "caller": "ident_name",
+          "callee": "format!(\"{}_{}_{}\", self.name, self.args.join(\"_\"), self.ret)\n            .replace(\"[]\", \"array\")\n            .replace(\"...\", \"variadic\")\n            .replace(['<', '>', ' ', ','], \"_\").replace",
+          "lineNumber": 637
+        },
+        {
+          "caller": "ident_name",
+          "callee": "format!(\"{}_{}_{}\", self.name, self.args.join(\"_\"), self.ret)\n            .replace(\"[]\", \"array\")\n            .replace(\"...\", \"variadic\").replace",
+          "lineNumber": 637
+        },
+        {
+          "caller": "ident_name",
+          "callee": "format!(\"{}_{}_{}\", self.name, self.args.join(\"_\"), self.ret)\n            .replace(\"[]\", \"array\").replace",
+          "lineNumber": 637
+        },
+        {
+          "caller": "ident_name",
+          "callee": "format!(\"{}_{}_{}\", self.name, self.args.join(\"_\"), self.ret).replace",
+          "lineNumber": 637
+        },
+        {
+          "caller": "is_pure",
+          "callee": "self.writer_type_kind.is_none",
+          "lineNumber": 649
+        },
+        {
+          "caller": "is_pure",
+          "callee": "self.args_option.iter().all",
+          "lineNumber": 651
+        },
+        {
+          "caller": "is_pure",
+          "callee": "self.args_option.iter",
+          "lineNumber": 651
+        },
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 660
+        },
+        {
+          "caller": "inner",
+          "callee": "attr.r#gen",
+          "lineNumber": 661
+        },
+        {
+          "caller": "define_context",
+          "callee": "inner",
+          "lineNumber": 664
+        },
+        {
+          "caller": "define_context",
+          "callee": "tokens.into",
+          "lineNumber": 665
+        },
+        {
+          "caller": "define_context",
+          "callee": "e.to_compile_error().into",
+          "lineNumber": 666
+        },
+        {
+          "caller": "define_context",
+          "callee": "e.to_compile_error",
+          "lineNumber": 666
+        },
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 677
+        },
+        {
+          "caller": "inner",
+          "callee": "syn::parse",
+          "lineNumber": 678
+        },
+        {
+          "caller": "inner",
+          "callee": "generate_captured_function",
+          "lineNumber": 681
+        },
+        {
+          "caller": "capture_context",
+          "callee": "inner",
+          "lineNumber": 683
+        },
+        {
+          "caller": "capture_context",
+          "callee": "tokens.into",
+          "lineNumber": 684
+        },
+        {
+          "caller": "capture_context",
+          "callee": "e.to_compile_error().into",
+          "lineNumber": 685
+        },
+        {
+          "caller": "capture_context",
+          "callee": "e.to_compile_error",
+          "lineNumber": 685
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 6,
+        "functionCount": 11,
+        "classCount": 6
+      }
+    },
+    {
+      "path": "src/expr/macro/src/parse.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 332,
+      "nonEmptyLines": 313,
+      "functions": [
+        {
+          "name": "parse",
+          "startLine": 27,
+          "endLine": 97,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "parse",
+          "startLine": 101,
+          "endLine": 104,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 108,
+          "endLine": 136,
+          "params": [
+            "sig"
+          ]
+        },
+        {
+          "name": "parse",
+          "startLine": 140,
+          "endLine": 165,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "parse",
+          "startLine": 169,
+          "endLine": 177,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "arg_writer_type",
+          "startLine": 181,
+          "endLine": 210,
+          "params": [
+            "arg"
+          ]
+        },
+        {
+          "name": "arg_is_context",
+          "startLine": 213,
+          "endLine": 227,
+          "params": [
+            "arg"
+          ]
+        },
+        {
+          "name": "last_arg_is_retract",
+          "startLine": 230,
+          "endLine": 238,
+          "params": [
+            "sig"
+          ]
+        },
+        {
+          "name": "arg_is_option",
+          "startLine": 241,
+          "endLine": 252,
+          "params": [
+            "arg"
+          ]
+        },
+        {
+          "name": "first_mut_ref_arg",
+          "startLine": 255,
+          "endLine": 272,
+          "params": [
+            "sig"
+          ]
+        },
+        {
+          "name": "check_type",
+          "startLine": 275,
+          "endLine": 289,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "strip_outer_type",
+          "startLine": 292,
+          "endLine": 307,
+          "params": [
+            "ty",
+            "type_"
+          ]
+        },
+        {
+          "name": "strip_iterator",
+          "startLine": 310,
+          "endLine": 332,
+          "params": [
+            "ty"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parse",
+          "callee": "Self::default",
+          "lineNumber": 28
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse::<LitStr>",
+          "lineNumber": 30
+        },
+        {
+          "caller": "parse",
+          "callee": "sig.value",
+          "lineNumber": 31
+        },
+        {
+          "caller": "parse",
+          "callee": "sig_str.split_once",
+          "lineNumber": 32
+        },
+        {
+          "caller": "parse",
+          "callee": "sig_str.as_str",
+          "lineNumber": 34
+        },
+        {
+          "caller": "parse",
+          "callee": "name_args\n            .split_once('(').ok_or_else",
+          "lineNumber": 36
+        },
+        {
+          "caller": "parse",
+          "callee": "name_args.split_once",
+          "lineNumber": 36
+        },
+        {
+          "caller": "parse",
+          "callee": "Error::new_spanned",
+          "lineNumber": 38
+        },
+        {
+          "caller": "parse",
+          "callee": "args.trim_start().trim_end_matches",
+          "lineNumber": 39
+        },
+        {
+          "caller": "parse",
+          "callee": "args.trim_start",
+          "lineNumber": 39
+        },
+        {
+          "caller": "parse",
+          "callee": "ret.trim_start().strip_prefix",
+          "lineNumber": 40
+        },
+        {
+          "caller": "parse",
+          "callee": "ret.trim_start",
+          "lineNumber": 40
+        },
+        {
+          "caller": "parse",
+          "callee": "name.trim().to_owned",
+          "lineNumber": 44
+        },
+        {
+          "caller": "parse",
+          "callee": "name.trim",
+          "lineNumber": 44
+        },
+        {
+          "caller": "parse",
+          "callee": "args.is_empty",
+          "lineNumber": 45
+        },
+        {
+          "caller": "parse",
+          "callee": "args.split(',').map(|s| s.trim().to_owned()).collect",
+          "lineNumber": 48
+        },
+        {
+          "caller": "parse",
+          "callee": "args.split(',').map",
+          "lineNumber": 48
+        },
+        {
+          "caller": "parse",
+          "callee": "args.split",
+          "lineNumber": 48
+        },
+        {
+          "caller": "parse",
+          "callee": "s.trim().to_owned",
+          "lineNumber": 48
+        },
+        {
+          "caller": "parse",
+          "callee": "s.trim",
+          "lineNumber": 48
+        },
+        {
+          "caller": "parse",
+          "callee": "ret.trim().to_owned",
+          "lineNumber": 50
+        },
+        {
+          "caller": "parse",
+          "callee": "ret.trim",
+          "lineNumber": 50
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse::<Token![,]>().is_err",
+          "lineNumber": 53
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse::<Token![,]>",
+          "lineNumber": 53
+        },
+        {
+          "caller": "parse",
+          "callee": "Ok",
+          "lineNumber": 54
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse_terminated",
+          "lineNumber": 57
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.require_name_value",
+          "lineNumber": 60
+        },
+        {
+          "caller": "parse",
+          "callee": "Err",
+          "lineNumber": 62
+        },
+        {
+          "caller": "parse",
+          "callee": "Error::new",
+          "lineNumber": 62
+        },
+        {
+          "caller": "parse",
+          "callee": "kv.value.span",
+          "lineNumber": 62
+        },
+        {
+          "caller": "parse",
+          "callee": "Err",
+          "lineNumber": 65
+        },
+        {
+          "caller": "parse",
+          "callee": "Error::new",
+          "lineNumber": 65
+        },
+        {
+          "caller": "parse",
+          "callee": "kv.value.span",
+          "lineNumber": 65
+        },
+        {
+          "caller": "parse",
+          "callee": "Ok",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse",
+          "callee": "lit.value",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 69
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 69
+        },
+        {
+          "caller": "parse",
+          "callee": "Some",
+          "lineNumber": 70
+        },
+        {
+          "caller": "parse",
+          "callee": "get_value",
+          "lineNumber": 70
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 71
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 71
+        },
+        {
+          "caller": "parse",
+          "callee": "Some",
+          "lineNumber": 72
+        },
+        {
+          "caller": "parse",
+          "callee": "get_value",
+          "lineNumber": 72
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 73
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 73
+        },
+        {
+          "caller": "parse",
+          "callee": "Some",
+          "lineNumber": 74
+        },
+        {
+          "caller": "parse",
+          "callee": "get_value",
+          "lineNumber": 74
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 75
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 75
+        },
+        {
+          "caller": "parse",
+          "callee": "Some",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse",
+          "callee": "get_value",
+          "lineNumber": 76
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse",
+          "callee": "Some",
+          "lineNumber": 78
+        },
+        {
+          "caller": "parse",
+          "callee": "get_value",
+          "lineNumber": 78
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 79
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 79
+        },
+        {
+          "caller": "parse",
+          "callee": "Some",
+          "lineNumber": 80
+        },
+        {
+          "caller": "parse",
+          "callee": "get_value",
+          "lineNumber": 80
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 81
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 81
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 83
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 83
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 83
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 83
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 85
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 85
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 87
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.path",
+          "lineNumber": 87
+        },
+        {
+          "caller": "parse",
+          "callee": "Err",
+          "lineNumber": 90
+        },
+        {
+          "caller": "parse",
+          "callee": "Error::new",
+          "lineNumber": 90
+        },
+        {
+          "caller": "parse",
+          "callee": "meta.span",
+          "lineNumber": 91
+        },
+        {
+          "caller": "parse",
+          "callee": "Ok",
+          "lineNumber": 96
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse",
+          "lineNumber": 102
+        },
+        {
+          "caller": "parse",
+          "callee": "Ok",
+          "lineNumber": 103
+        },
+        {
+          "caller": "parse",
+          "callee": "UserFunctionAttr::from",
+          "lineNumber": 103
+        },
+        {
+          "caller": "from",
+          "callee": "\"()\".into",
+          "lineNumber": 110
+        },
+        {
+          "caller": "from",
+          "callee": "check_type",
+          "lineNumber": 112
+        },
+        {
+          "caller": "from",
+          "callee": "strip_iterator",
+          "lineNumber": 113
+        },
+        {
+          "caller": "from",
+          "callee": "check_type",
+          "lineNumber": 115
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 116
+        },
+        {
+          "caller": "from",
+          "callee": "inner.to_token_stream().to_string",
+          "lineNumber": 116
+        },
+        {
+          "caller": "from",
+          "callee": "inner.to_token_stream",
+          "lineNumber": 116
+        },
+        {
+          "caller": "from",
+          "callee": "inner.to_token_stream().to_string",
+          "lineNumber": 118
+        },
+        {
+          "caller": "from",
+          "callee": "inner.to_token_stream",
+          "lineNumber": 118
+        },
+        {
+          "caller": "from",
+          "callee": "sig.ident.to_string",
+          "lineNumber": 123
+        },
+        {
+          "caller": "from",
+          "callee": "sig.asyncness.is_some",
+          "lineNumber": 124
+        },
+        {
+          "caller": "from",
+          "callee": "sig.inputs.last().and_then",
+          "lineNumber": 125
+        },
+        {
+          "caller": "from",
+          "callee": "sig.inputs.last",
+          "lineNumber": 125
+        },
+        {
+          "caller": "from",
+          "callee": "sig.inputs.iter().any",
+          "lineNumber": 126
+        },
+        {
+          "caller": "from",
+          "callee": "sig.inputs.iter",
+          "lineNumber": 126
+        },
+        {
+          "caller": "from",
+          "callee": "last_arg_is_retract",
+          "lineNumber": 127
+        },
+        {
+          "caller": "from",
+          "callee": "sig.inputs.iter().map(arg_is_option).collect",
+          "lineNumber": 128
+        },
+        {
+          "caller": "from",
+          "callee": "sig.inputs.iter().map",
+          "lineNumber": 128
+        },
+        {
+          "caller": "from",
+          "callee": "sig.inputs.iter",
+          "lineNumber": 128
+        },
+        {
+          "caller": "from",
+          "callee": "first_mut_ref_arg",
+          "lineNumber": 129
+        },
+        {
+          "caller": "from",
+          "callee": "sig.generics.params.len",
+          "lineNumber": 133
+        },
+        {
+          "caller": "from",
+          "callee": "sig.output.span",
+          "lineNumber": 134
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse",
+          "lineNumber": 141
+        },
+        {
+          "caller": "parse",
+          "callee": "itemimpl.items.iter().find_map",
+          "lineNumber": 143
+        },
+        {
+          "caller": "parse",
+          "callee": "itemimpl.items.iter",
+          "lineNumber": 143
+        },
+        {
+          "caller": "parse",
+          "callee": "Some",
+          "lineNumber": 145
+        },
+        {
+          "caller": "parse",
+          "callee": "UserFunctionAttr::from",
+          "lineNumber": 145
+        },
+        {
+          "caller": "parse",
+          "callee": "itemimpl.self_ty.to_token_stream().to_string",
+          "lineNumber": 150
+        },
+        {
+          "caller": "parse",
+          "callee": "itemimpl.self_ty.to_token_stream",
+          "lineNumber": 150
+        },
+        {
+          "caller": "parse",
+          "callee": "self_path.split_once",
+          "lineNumber": 151
+        },
+        {
+          "caller": "parse",
+          "callee": "path.trim().into",
+          "lineNumber": 152
+        },
+        {
+          "caller": "parse",
+          "callee": "path.trim",
+          "lineNumber": 152
+        },
+        {
+          "caller": "parse",
+          "callee": "Ok",
+          "lineNumber": 155
+        },
+        {
+          "caller": "parse",
+          "callee": "parse_function(\"accumulate\").expect",
+          "lineNumber": 157
+        },
+        {
+          "caller": "parse",
+          "callee": "parse_function",
+          "lineNumber": 157
+        },
+        {
+          "caller": "parse",
+          "callee": "parse_function",
+          "lineNumber": 158
+        },
+        {
+          "caller": "parse",
+          "callee": "parse_function",
+          "lineNumber": 159
+        },
+        {
+          "caller": "parse",
+          "callee": "parse_function",
+          "lineNumber": 160
+        },
+        {
+          "caller": "parse",
+          "callee": "parse_function",
+          "lineNumber": 161
+        },
+        {
+          "caller": "parse",
+          "callee": "parse_function",
+          "lineNumber": 162
+        },
+        {
+          "caller": "parse",
+          "callee": "parse_function",
+          "lineNumber": 163
+        },
+        {
+          "caller": "parse",
+          "callee": "input.call",
+          "lineNumber": 171
+        },
+        {
+          "caller": "parse",
+          "callee": "input.peek",
+          "lineNumber": 172
+        },
+        {
+          "caller": "parse",
+          "callee": "Ok",
+          "lineNumber": 173
+        },
+        {
+          "caller": "parse",
+          "callee": "AggregateFnOrImpl::Impl",
+          "lineNumber": 173
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse",
+          "lineNumber": 173
+        },
+        {
+          "caller": "parse",
+          "callee": "Ok",
+          "lineNumber": 175
+        },
+        {
+          "caller": "parse",
+          "callee": "AggregateFnOrImpl::Fn",
+          "lineNumber": 175
+        },
+        {
+          "caller": "parse",
+          "callee": "input.parse",
+          "lineNumber": 175
+        },
+        {
+          "caller": "arg_writer_type",
+          "callee": "arg.ty.as_ref",
+          "lineNumber": 185
+        },
+        {
+          "caller": "arg_writer_type",
+          "callee": "elem.as_ref",
+          "lineNumber": 188
+        },
+        {
+          "caller": "arg_writer_type",
+          "callee": "Some",
+          "lineNumber": 190
+        },
+        {
+          "caller": "arg_writer_type",
+          "callee": "Some",
+          "lineNumber": 192
+        },
+        {
+          "caller": "arg_writer_type",
+          "callee": "Some",
+          "lineNumber": 199
+        },
+        {
+          "caller": "arg_writer_type",
+          "callee": "Some",
+          "lineNumber": 206
+        },
+        {
+          "caller": "arg_is_context",
+          "callee": "arg.ty.as_ref",
+          "lineNumber": 217
+        },
+        {
+          "caller": "arg_is_context",
+          "callee": "elem.as_ref",
+          "lineNumber": 220
+        },
+        {
+          "caller": "arg_is_context",
+          "callee": "path.path.segments.last",
+          "lineNumber": 223
+        },
+        {
+          "caller": "last_arg_is_retract",
+          "callee": "sig.inputs.last",
+          "lineNumber": 231
+        },
+        {
+          "caller": "last_arg_is_retract",
+          "callee": "pat.ident.to_string().contains",
+          "lineNumber": 237
+        },
+        {
+          "caller": "last_arg_is_retract",
+          "callee": "pat.ident.to_string",
+          "lineNumber": 237
+        },
+        {
+          "caller": "arg_is_option",
+          "callee": "arg.ty.as_ref",
+          "lineNumber": 245
+        },
+        {
+          "caller": "arg_is_option",
+          "callee": "path.path.segments.last",
+          "lineNumber": 248
+        },
+        {
+          "caller": "first_mut_ref_arg",
+          "callee": "sig.inputs.first",
+          "lineNumber": 256
+        },
+        {
+          "caller": "first_mut_ref_arg",
+          "callee": "sig.inputs.iter().nth",
+          "lineNumber": 258
+        },
+        {
+          "caller": "first_mut_ref_arg",
+          "callee": "sig.inputs.iter",
+          "lineNumber": 258
+        },
+        {
+          "caller": "first_mut_ref_arg",
+          "callee": "arg.ty.as_ref",
+          "lineNumber": 267
+        },
+        {
+          "caller": "first_mut_ref_arg",
+          "callee": "Some",
+          "lineNumber": 271
+        },
+        {
+          "caller": "first_mut_ref_arg",
+          "callee": "elem.to_token_stream().to_string",
+          "lineNumber": 271
+        },
+        {
+          "caller": "first_mut_ref_arg",
+          "callee": "elem.to_token_stream",
+          "lineNumber": 271
+        },
+        {
+          "caller": "check_type",
+          "callee": "strip_outer_type",
+          "lineNumber": 276
+        },
+        {
+          "caller": "check_type",
+          "callee": "strip_outer_type",
+          "lineNumber": 277
+        },
+        {
+          "caller": "check_type",
+          "callee": "strip_outer_type",
+          "lineNumber": 282
+        },
+        {
+          "caller": "check_type",
+          "callee": "strip_outer_type",
+          "lineNumber": 284
+        },
+        {
+          "caller": "strip_outer_type",
+          "callee": "path.path.segments.last",
+          "lineNumber": 296
+        },
+        {
+          "caller": "strip_outer_type",
+          "callee": "args.args.first",
+          "lineNumber": 303
+        },
+        {
+          "caller": "strip_outer_type",
+          "callee": "Some",
+          "lineNumber": 306
+        },
+        {
+          "caller": "strip_iterator",
+          "callee": "impl_trait.bounds.first",
+          "lineNumber": 314
+        },
+        {
+          "caller": "strip_iterator",
+          "callee": "trait_bound.path.segments.last().unwrap",
+          "lineNumber": 317
+        },
+        {
+          "caller": "strip_iterator",
+          "callee": "trait_bound.path.segments.last",
+          "lineNumber": 317
+        },
+        {
+          "caller": "strip_iterator",
+          "callee": "Some",
+          "lineNumber": 328
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 13,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/expr/macro/src/types.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 151,
+      "nonEmptyLines": 132,
+      "functions": [
+        {
+          "name": "data_type",
+          "startLine": 44,
+          "endLine": 46,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "array_type",
+          "startLine": 49,
+          "endLine": 51,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "owned_type",
+          "startLine": 54,
+          "endLine": 56,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "ref_type",
+          "startLine": 59,
+          "endLine": 61,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "is_primitive",
+          "startLine": 64,
+          "endLine": 66,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "lookup_matrix",
+          "startLine": 68,
+          "endLine": 87,
+          "params": [
+            "ty",
+            "idx"
+          ]
+        },
+        {
+          "name": "expand_type_wildcard",
+          "startLine": 90,
+          "endLine": 102,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "min_compatible_type",
+          "startLine": 107,
+          "endLine": 151,
+          "params": [
+            "types"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "data_type",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "array_type",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "owned_type",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "ref_type",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "is_primitive",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "expand_type_wildcard",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "min_compatible_type",
+          "line": 107,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "data_type",
+          "callee": "lookup_matrix",
+          "lineNumber": 45
+        },
+        {
+          "caller": "array_type",
+          "callee": "lookup_matrix",
+          "lineNumber": 50
+        },
+        {
+          "caller": "owned_type",
+          "callee": "lookup_matrix",
+          "lineNumber": 55
+        },
+        {
+          "caller": "ref_type",
+          "callee": "lookup_matrix",
+          "lineNumber": 60
+        },
+        {
+          "caller": "is_primitive",
+          "callee": "lookup_matrix",
+          "lineNumber": 65
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "ty.ends_with",
+          "lineNumber": 69
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "ty.starts_with",
+          "lineNumber": 71
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "TYPE_MATRIX.trim().lines().find_map",
+          "lineNumber": 78
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "TYPE_MATRIX.trim().lines",
+          "lineNumber": 78
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "TYPE_MATRIX.trim",
+          "lineNumber": 78
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "line.split_whitespace",
+          "lineNumber": 79
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "parts.next",
+          "lineNumber": 80
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "Some",
+          "lineNumber": 80
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "Some",
+          "lineNumber": 81
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "parts.nth(idx - 1).unwrap",
+          "lineNumber": 81
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "parts.nth",
+          "lineNumber": 81
+        },
+        {
+          "caller": "lookup_matrix",
+          "callee": "s.unwrap_or_else",
+          "lineNumber": 86
+        },
+        {
+          "caller": "expand_type_wildcard",
+          "callee": "TYPE_MATRIX\n            .trim()\n            .lines()\n            .map(|l| l.split_whitespace().next().unwrap())\n            .filter(|l| *l != \"any\").collect",
+          "lineNumber": 92
+        },
+        {
+          "caller": "expand_type_wildcard",
+          "callee": "TYPE_MATRIX\n            .trim()\n            .lines()\n            .map(|l| l.split_whitespace().next().unwrap()).filter",
+          "lineNumber": 92
+        },
+        {
+          "caller": "expand_type_wildcard",
+          "callee": "TYPE_MATRIX\n            .trim()\n            .lines().map",
+          "lineNumber": 92
+        },
+        {
+          "caller": "expand_type_wildcard",
+          "callee": "TYPE_MATRIX\n            .trim().lines",
+          "lineNumber": 92
+        },
+        {
+          "caller": "expand_type_wildcard",
+          "callee": "TYPE_MATRIX.trim",
+          "lineNumber": 92
+        },
+        {
+          "caller": "expand_type_wildcard",
+          "callee": "l.split_whitespace().next().unwrap",
+          "lineNumber": 95
+        },
+        {
+          "caller": "expand_type_wildcard",
+          "callee": "l.split_whitespace().next",
+          "lineNumber": 95
+        },
+        {
+          "caller": "expand_type_wildcard",
+          "callee": "l.split_whitespace",
+          "lineNumber": 95
+        },
+        {
+          "caller": "min_compatible_type",
+          "callee": "types.len",
+          "lineNumber": 108
+        },
+        {
+          "caller": "min_compatible_type",
+          "callee": "types[0].as_ref",
+          "lineNumber": 109
+        },
+        {
+          "caller": "min_compatible_type",
+          "callee": "types[0].as_ref",
+          "lineNumber": 112
+        },
+        {
+          "caller": "min_compatible_type",
+          "callee": "types[1].as_ref",
+          "lineNumber": 112
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/expr/macro/src/utils.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 99,
+      "nonEmptyLines": 93,
+      "functions": [
+        {
+          "name": "to_camel_case",
+          "startLine": 20,
+          "endLine": 33,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "extend_vis_with_super",
+          "startLine": 35,
+          "endLine": 59,
+          "params": [
+            "vis"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "to_camel_case",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "extend_vis_with_super",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_camel_case",
+          "callee": "input\n        .split('_')\n        .map(|word| {\n            let mut chars = word.chars();\n            match chars.next() {\n                None => String::new(),\n                Some(first_char) => {\n                    format!(\"{}{}\", first_char.to_uppercase(), chars.as_str())\n                }\n            }\n        }).collect",
+          "lineNumber": 21
+        },
+        {
+          "caller": "to_camel_case",
+          "callee": "input\n        .split('_').map",
+          "lineNumber": 21
+        },
+        {
+          "caller": "to_camel_case",
+          "callee": "input.split",
+          "lineNumber": 21
+        },
+        {
+          "caller": "to_camel_case",
+          "callee": "word.chars",
+          "lineNumber": 24
+        },
+        {
+          "caller": "to_camel_case",
+          "callee": "chars.next",
+          "lineNumber": 25
+        },
+        {
+          "caller": "to_camel_case",
+          "callee": "String::new",
+          "lineNumber": 26
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "path.segments.first_mut().unwrap",
+          "lineNumber": 45
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "path.segments.first_mut",
+          "lineNumber": 45
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "Ident::new(\"super\", first_segment.span()).into",
+          "lineNumber": 47
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "Ident::new",
+          "lineNumber": 47
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "first_segment.span",
+          "lineNumber": 47
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "first_segment.span",
+          "lineNumber": 49
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "path.segments.insert",
+          "lineNumber": 50
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "Ident::new(\"super\", span).into",
+          "lineNumber": 50
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "Ident::new",
+          "lineNumber": 50
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "in_token.get_or_insert",
+          "lineNumber": 51
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "Token![in]",
+          "lineNumber": 51
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "in_token.span",
+          "lineNumber": 51
+        },
+        {
+          "caller": "extend_vis_with_super",
+          "callee": "Visibility::Restricted",
+          "lineNumber": 53
+        },
+        {
+          "caller": "test_extend_vis_with_super",
+          "callee": "syn::parse_str(input).unwrap",
+          "lineNumber": 91
+        },
+        {
+          "caller": "test_extend_vis_with_super",
+          "callee": "syn::parse_str",
+          "lineNumber": 91
+        },
+        {
+          "caller": "test_extend_vis_with_super",
+          "callee": "syn::parse_str(expected).unwrap",
+          "lineNumber": 92
+        },
+        {
+          "caller": "test_extend_vis_with_super",
+          "callee": "syn::parse_str",
+          "lineNumber": 92
+        },
+        {
+          "caller": "test_extend_vis_with_super",
+          "callee": "extend_vis_with_super",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_extend_vis_with_super",
+          "callee": "expected.into_token_stream().to_string",
+          "lineNumber": 94
+        },
+        {
+          "caller": "test_extend_vis_with_super",
+          "callee": "expected.into_token_stream",
+          "lineNumber": 94
+        },
+        {
+          "caller": "test_extend_vis_with_super",
+          "callee": "output.into_token_stream().to_string",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_extend_vis_with_super",
+          "callee": "output.into_token_stream",
+          "lineNumber": 95
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

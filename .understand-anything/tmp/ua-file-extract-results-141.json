@@ -1,0 +1,63 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/kafka-cdc-sink/flink/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "services": [
+        {
+          "name": "flink",
+          "image": "flink:1.17.0-scala_2.12",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 8
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM flink:1.17.0-scala_2.12",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "COPY flink-sql-connector-kafka-1.17.0.jar /opt/flink/lib",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "COPY flink-connector-jdbc-3.0.0-1.16.jar  /opt/flink/lib",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "COPY postgresql-42.6.0.jar /opt/flink/lib",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "COPY flink.sql /tmp",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "COPY compatibility-flink.sql /tmp",
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 6
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/dynamodb/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/dynamodb/create_sink.sql",
+      "summary": "Defines a RisingWave sink that writes materialized view data into an Amazon DynamoDB table using the DynamoDB connector.",
+      "tags": ["database", "integration-test", "data-pipeline"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/dynamodb/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/dynamodb/create_source.sql",
+      "summary": "Creates the `movies` source table in RisingWave with year, title, and description fields as the upstream data for the DynamoDB sink integration test.",
+      "tags": ["database", "integration-test", "schema-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:integration_tests/dynamodb/create_table_request.json",
+      "type": "config",
+      "name": "create_table_request.json",
+      "filePath": "integration_tests/dynamodb/create_table_request.json",
+      "summary": "JSON payload for the DynamoDB CreateTable API call, specifying the table name, key schema, attribute definitions, and provisioned throughput for the integration test table.",
+      "tags": ["configuration", "integration-test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/dynamodb/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/dynamodb/docker-compose.yml",
+      "summary": "Docker Compose configuration for the DynamoDB sink integration test, starting a local DynamoDB emulator (DynamoDB Local) and RisingWave.",
+      "tags": ["infrastructure", "orchestration", "integration-test", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/dynamodb/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/dynamodb/prepare.sh",
+      "summary": "Shell script that provisions the local DynamoDB table by calling the AWS CLI with the create_table_request.json payload against the DynamoDB Local endpoint.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/dynamodb/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/dynamodb/query.sql",
+      "summary": "Validation queries that insert, update, and delete rows in RisingWave to test full DML propagation to DynamoDB through the sink connector.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/dynamodb/create_sink.sql",
+      "target": "file:integration_tests/dynamodb/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/dynamodb/prepare.sh",
+      "target": "config:integration_tests/dynamodb/create_table_request.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/dynamodb/prepare.sh",
+      "target": "service:integration_tests/dynamodb/docker-compose.yml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/dynamodb/query.sql",
+      "target": "file:integration_tests/dynamodb/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

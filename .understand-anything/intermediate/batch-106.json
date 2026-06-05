@@ -1,0 +1,275 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/feature-store/simulator/src/entities.rs",
+      "type": "file",
+      "name": "entities.rs",
+      "filePath": "integration_tests/feature-store/simulator/src/entities.rs",
+      "summary": "Defines the `User` entity with methods to mock MFA actions and feature lookups via gRPC, plus helpers to read and parse user metadata from a JSON file.",
+      "tags": ["data-model", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "type": "file",
+      "name": "entities_taxi.rs",
+      "filePath": "integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "summary": "Defines the `TaxiFeature` entity representing a taxi trip, with methods to mock gRPC reporting and fare feature lookups, plus helpers to parse CSV feature data.",
+      "tags": ["data-model", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/feature-store/simulator/src/main.rs",
+      "type": "file",
+      "name": "main.rs",
+      "filePath": "integration_tests/feature-store/simulator/src/main.rs",
+      "summary": "Entry point for the feature-store simulator binary: parses CLI args to select simulation type (MFA or taxi) and invokes the main simulation loop.",
+      "tags": ["entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/feature-store/simulator/src/server_pb.rs",
+      "type": "file",
+      "name": "server_pb.rs",
+      "filePath": "integration_tests/feature-store/simulator/src/server_pb.rs",
+      "summary": "Auto-generated tonic gRPC client/server stubs for the feature-store Server service, including request/response message structs and client/server trait implementations.",
+      "tags": ["api-handler", "service", "serialization"],
+      "complexity": "complex",
+      "languageNotes": "Generated protobuf/tonic code providing both client (ServerClient) and server (ServerServer) implementations for the feature-store gRPC service."
+    },
+    {
+      "id": "file:integration_tests/feature-store/simulator/src/simulation.rs",
+      "type": "file",
+      "name": "simulation.rs",
+      "filePath": "integration_tests/feature-store/simulator/src/simulation.rs",
+      "summary": "Implements the simulation main loop and scenario runners (`mock_taxi`, `mock_user_mfa`) that spawn concurrent Tokio tasks to simulate feature-store workloads over gRPC.",
+      "tags": ["service", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:integration_tests/feature-store/simulator/src/entities.rs:User",
+      "type": "class",
+      "name": "User",
+      "filePath": "integration_tests/feature-store/simulator/src/entities.rs",
+      "lineRange": [14, 22],
+      "summary": "Represents a simulated user with geographic and demographic attributes; provides `mock_act` to report user actions and `mock_get_feature` to query aggregated features.",
+      "tags": ["data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:integration_tests/feature-store/simulator/src/entities_taxi.rs:TaxiFeature",
+      "type": "class",
+      "name": "TaxiFeature",
+      "filePath": "integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "lineRange": [13, 60],
+      "summary": "Represents a single taxi trip with full NYCT metadata; provides `mock_act` to report the trip and `mock_get_amount` to query predicted fare amounts.",
+      "tags": ["data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:integration_tests/feature-store/simulator/src/entities.rs:mock_act",
+      "type": "function",
+      "name": "mock_act",
+      "filePath": "integration_tests/feature-store/simulator/src/entities.rs",
+      "lineRange": [37, 67],
+      "summary": "Simulates a user action event by generating a random event type and change amount, then sending a ReportActionRequest gRPC call and returning the action history.",
+      "tags": ["utility", "api-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:integration_tests/feature-store/simulator/src/entities_taxi.rs:mock_act",
+      "type": "function",
+      "name": "mock_act",
+      "filePath": "integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "lineRange": [84, 114],
+      "summary": "Sends a ReportTaxiActionRequest gRPC call with all fields from this TaxiFeature, simulating a taxi trip action event submission.",
+      "tags": ["utility", "api-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:integration_tests/feature-store/simulator/src/entities_taxi.rs:mock_get_amount",
+      "type": "function",
+      "name": "mock_get_amount",
+      "filePath": "integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "lineRange": [116, 127],
+      "summary": "Queries the feature store for a predicted fare amount for this trip's pickup and dropoff location combination.",
+      "tags": ["utility", "api-handler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:integration_tests/feature-store/simulator/src/main.rs:get_args",
+      "type": "function",
+      "name": "get_args",
+      "filePath": "integration_tests/feature-store/simulator/src/main.rs",
+      "lineRange": [19, 31],
+      "summary": "Builds and parses CLI arguments using clap, accepting a `--types` flag to select the simulation mode (mfa or taxi).",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:integration_tests/feature-store/simulator/src/simulation.rs:main_loop",
+      "type": "function",
+      "name": "main_loop",
+      "filePath": "integration_tests/feature-store/simulator/src/simulation.rs",
+      "lineRange": [20, 32],
+      "summary": "Initializes a shared gRPC client connection and dispatches the simulation to either `mock_taxi` or `mock_user_mfa` based on the simulator type argument.",
+      "tags": ["service", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:integration_tests/feature-store/simulator/src/simulation.rs:mock_taxi",
+      "type": "function",
+      "name": "mock_taxi",
+      "filePath": "integration_tests/feature-store/simulator/src/simulation.rs",
+      "lineRange": [34, 85],
+      "summary": "Spawns concurrent Tokio tasks that load taxi trip data, call `mock_act` for each trip in parallel, triggers ML training, then queries predicted amounts.",
+      "tags": ["service", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:integration_tests/feature-store/simulator/src/simulation.rs:mock_user_mfa",
+      "type": "function",
+      "name": "mock_user_mfa",
+      "filePath": "integration_tests/feature-store/simulator/src/simulation.rs",
+      "lineRange": [88, 117],
+      "summary": "Spawns concurrent Tokio tasks that simulate MFA user actions and feature queries with randomized delays for each user.",
+      "tags": ["service", "utility"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/entities.rs",
+      "target": "file:integration_tests/feature-store/simulator/src/server_pb.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "target": "file:integration_tests/feature-store/simulator/src/server_pb.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/main.rs",
+      "target": "file:integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/main.rs",
+      "target": "file:integration_tests/feature-store/simulator/src/entities.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/main.rs",
+      "target": "file:integration_tests/feature-store/simulator/src/server_pb.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/main.rs",
+      "target": "file:integration_tests/feature-store/simulator/src/simulation.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/simulation.rs",
+      "target": "file:integration_tests/feature-store/simulator/src/server_pb.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/entities.rs",
+      "target": "class:integration_tests/feature-store/simulator/src/entities.rs:User",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/entities.rs",
+      "target": "class:integration_tests/feature-store/simulator/src/entities.rs:User",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/entities.rs",
+      "target": "function:integration_tests/feature-store/simulator/src/entities.rs:mock_act",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "target": "class:integration_tests/feature-store/simulator/src/entities_taxi.rs:TaxiFeature",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "target": "class:integration_tests/feature-store/simulator/src/entities_taxi.rs:TaxiFeature",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "target": "function:integration_tests/feature-store/simulator/src/entities_taxi.rs:mock_act",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/entities_taxi.rs",
+      "target": "function:integration_tests/feature-store/simulator/src/entities_taxi.rs:mock_get_amount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/main.rs",
+      "target": "function:integration_tests/feature-store/simulator/src/main.rs:get_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/simulation.rs",
+      "target": "function:integration_tests/feature-store/simulator/src/simulation.rs:main_loop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/simulation.rs",
+      "target": "function:integration_tests/feature-store/simulator/src/simulation.rs:main_loop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/simulation.rs",
+      "target": "function:integration_tests/feature-store/simulator/src/simulation.rs:mock_taxi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/simulator/src/simulation.rs",
+      "target": "function:integration_tests/feature-store/simulator/src/simulation.rs:mock_user_mfa",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

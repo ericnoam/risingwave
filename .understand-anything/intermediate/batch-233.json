@@ -1,0 +1,359 @@
+{
+  "nodes": [
+    {
+      "id": "schema:proto/secret.proto",
+      "type": "schema",
+      "name": "secret.proto",
+      "filePath": "proto/secret.proto",
+      "summary": "Protobuf schema defining secret management types including SecretMetaBackend, Secret (with meta or Hashicorp Vault backends), and SecretRef used for secure credential storage.",
+      "tags": ["schema-definition", "security", "secrets"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/serverless_backfill_controller.proto",
+      "type": "schema",
+      "name": "serverless_backfill_controller.proto",
+      "filePath": "proto/serverless_backfill_controller.proto",
+      "summary": "Protobuf schema for the NodeGroupControllerService providing a Provision RPC to allocate resource groups for serverless backfill operations.",
+      "tags": ["schema-definition", "grpc", "serverless", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/source.proto",
+      "type": "schema",
+      "name": "source.proto",
+      "filePath": "proto/source.proto",
+      "summary": "Protobuf schema defining source-related messages including ConnectorSplit, ConnectorSplits, SourceActorInfo, and CDC snapshot split structures used in source partition management.",
+      "tags": ["schema-definition", "source", "connector", "cdc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/stream_plan.proto",
+      "type": "schema",
+      "name": "stream_plan.proto",
+      "filePath": "proto/stream_plan.proto",
+      "summary": "Protobuf schema defining the complete streaming plan representation (1550 lines), including all stream node types (Source, Materialize, HashJoin, Aggregate, etc.), barrier mutations, dispatchers, actors, and StreamFragmentGraph.",
+      "tags": ["schema-definition", "streaming", "query-plan"],
+      "complexity": "complex"
+    },
+    {
+      "id": "schema:proto/stream_service.proto",
+      "type": "schema",
+      "name": "stream_service.proto",
+      "filePath": "proto/stream_service.proto",
+      "summary": "Protobuf schema for the StreamService gRPC interface providing StreamingControlStream (bidirectional barrier injection) and GetMinUncommittedObjectId for compute node streaming control.",
+      "tags": ["schema-definition", "grpc", "streaming"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "schema:proto/task_service.proto",
+      "type": "schema",
+      "name": "task_service.proto",
+      "filePath": "proto/task_service.proto",
+      "summary": "Protobuf schema for TaskService, BatchExchangeService, and StreamExchangeService gRPC interfaces handling batch task lifecycle, data exchange, DML ingestion, and inter-actor stream exchange.",
+      "tags": ["schema-definition", "grpc", "batch", "task"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "schema:proto/telemetry.proto",
+      "type": "schema",
+      "name": "telemetry.proto",
+      "filePath": "proto/telemetry.proto",
+      "summary": "Protobuf schema defining telemetry report structures for all node types (Meta, Compute, Frontend, Compactor) including system data, cluster type, streaming job descriptions, and event tracking.",
+      "tags": ["schema-definition", "telemetry", "monitoring"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "schema:proto/user.proto",
+      "type": "schema",
+      "name": "user.proto",
+      "filePath": "proto/user.proto",
+      "summary": "Protobuf schema for the UserService gRPC interface (6 RPCs) handling user creation, deletion, updates, privilege grants/revocations, and default privilege management.",
+      "tags": ["schema-definition", "grpc", "user-management", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "schema:proto/window_function.proto",
+      "type": "schema",
+      "name": "window_function.proto",
+      "filePath": "proto/window_function.proto",
+      "summary": "Protobuf schema defining window function state snapshots including RowNumberState, RankState, DenseRankState, and StateKey for streaming window operator persistence.",
+      "tags": ["schema-definition", "window-function", "streaming"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/serverless_backfill_controller.proto:NodeGroupControllerService.Provision",
+      "type": "endpoint",
+      "name": "NodeGroupControllerService.Provision",
+      "filePath": "proto/serverless_backfill_controller.proto",
+      "lineRange": [23, 23],
+      "summary": "RPC to provision a resource group for serverless backfill job execution.",
+      "tags": ["grpc", "serverless", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/stream_service.proto:StreamService.StreamingControlStream",
+      "type": "endpoint",
+      "name": "StreamService.StreamingControlStream",
+      "filePath": "proto/stream_service.proto",
+      "lineRange": [196, 196],
+      "summary": "Bidirectional streaming RPC for injecting barriers and receiving completion reports between meta and compute nodes.",
+      "tags": ["grpc", "streaming", "barrier"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "endpoint:proto/stream_service.proto:StreamService.GetMinUncommittedObjectId",
+      "type": "endpoint",
+      "name": "StreamService.GetMinUncommittedObjectId",
+      "filePath": "proto/stream_service.proto",
+      "lineRange": [197, 197],
+      "summary": "RPC to get the minimum uncommitted object ID from a compute node for GC purposes.",
+      "tags": ["grpc", "streaming", "storage"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/task_service.proto:TaskService.CreateTask",
+      "type": "endpoint",
+      "name": "TaskService.CreateTask",
+      "filePath": "proto/task_service.proto",
+      "lineRange": [143, 143],
+      "summary": "RPC to create and schedule a batch query task on a compute node.",
+      "tags": ["grpc", "batch", "task"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/task_service.proto:TaskService.CancelTask",
+      "type": "endpoint",
+      "name": "TaskService.CancelTask",
+      "filePath": "proto/task_service.proto",
+      "lineRange": [145, 145],
+      "summary": "RPC to cancel an executing batch query task on a compute node.",
+      "tags": ["grpc", "batch", "task"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/task_service.proto:TaskService.Execute",
+      "type": "endpoint",
+      "name": "TaskService.Execute",
+      "filePath": "proto/task_service.proto",
+      "lineRange": [146, 146],
+      "summary": "Streaming RPC to execute a local batch task and stream results back.",
+      "tags": ["grpc", "batch", "task"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/task_service.proto:TaskService.FastInsert",
+      "type": "endpoint",
+      "name": "TaskService.FastInsert",
+      "filePath": "proto/task_service.proto",
+      "lineRange": [148, 148],
+      "summary": "RPC for fast DML INSERT operations directly to a compute node bypassing the batch task framework.",
+      "tags": ["grpc", "batch", "dml"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/task_service.proto:TaskService.IngestDml",
+      "type": "endpoint",
+      "name": "TaskService.IngestDml",
+      "filePath": "proto/task_service.proto",
+      "lineRange": [150, 150],
+      "summary": "Bidirectional streaming RPC for ingesting DML (INSERT/UPDATE/DELETE) data into a compute node.",
+      "tags": ["grpc", "batch", "dml"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "endpoint:proto/task_service.proto:BatchExchangeService.GetData",
+      "type": "endpoint",
+      "name": "BatchExchangeService.GetData",
+      "filePath": "proto/task_service.proto",
+      "lineRange": [194, 194],
+      "summary": "Server-streaming RPC to fetch result data from a batch task on a remote compute node.",
+      "tags": ["grpc", "batch", "exchange"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/task_service.proto:StreamExchangeService.GetStream",
+      "type": "endpoint",
+      "name": "StreamExchangeService.GetStream",
+      "filePath": "proto/task_service.proto",
+      "lineRange": [198, 198],
+      "summary": "Bidirectional streaming RPC for inter-actor message exchange between compute node streaming fragments.",
+      "tags": ["grpc", "streaming", "exchange"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "endpoint:proto/user.proto:UserService.CreateUser",
+      "type": "endpoint",
+      "name": "UserService.CreateUser",
+      "filePath": "proto/user.proto",
+      "lineRange": [168, 168],
+      "summary": "RPC to create a new database user with authentication info and privilege settings.",
+      "tags": ["grpc", "user-management"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/user.proto:UserService.DropUser",
+      "type": "endpoint",
+      "name": "UserService.DropUser",
+      "filePath": "proto/user.proto",
+      "lineRange": [169, 169],
+      "summary": "RPC to delete a database user by ID.",
+      "tags": ["grpc", "user-management"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/user.proto:UserService.UpdateUser",
+      "type": "endpoint",
+      "name": "UserService.UpdateUser",
+      "filePath": "proto/user.proto",
+      "lineRange": [170, 170],
+      "summary": "RPC to update user properties such as password, login permission, or superuser status.",
+      "tags": ["grpc", "user-management"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/user.proto:UserService.GrantPrivilege",
+      "type": "endpoint",
+      "name": "UserService.GrantPrivilege",
+      "filePath": "proto/user.proto",
+      "lineRange": [173, 173],
+      "summary": "RPC to grant database privileges on objects to specified users.",
+      "tags": ["grpc", "user-management", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/user.proto:UserService.RevokePrivilege",
+      "type": "endpoint",
+      "name": "UserService.RevokePrivilege",
+      "filePath": "proto/user.proto",
+      "lineRange": [175, 175],
+      "summary": "RPC to revoke previously granted database privileges from users.",
+      "tags": ["grpc", "user-management", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/user.proto:UserService.AlterDefaultPrivilege",
+      "type": "endpoint",
+      "name": "UserService.AlterDefaultPrivilege",
+      "filePath": "proto/user.proto",
+      "lineRange": [177, 177],
+      "summary": "RPC to alter default privilege settings for future objects created in a schema or database.",
+      "tags": ["grpc", "user-management", "security"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "schema:proto/serverless_backfill_controller.proto",
+      "target": "endpoint:proto/serverless_backfill_controller.proto:NodeGroupControllerService.Provision",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/stream_service.proto",
+      "target": "endpoint:proto/stream_service.proto:StreamService.StreamingControlStream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/stream_service.proto",
+      "target": "endpoint:proto/stream_service.proto:StreamService.GetMinUncommittedObjectId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/task_service.proto",
+      "target": "endpoint:proto/task_service.proto:TaskService.CreateTask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/task_service.proto",
+      "target": "endpoint:proto/task_service.proto:TaskService.CancelTask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/task_service.proto",
+      "target": "endpoint:proto/task_service.proto:TaskService.Execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/task_service.proto",
+      "target": "endpoint:proto/task_service.proto:TaskService.FastInsert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/task_service.proto",
+      "target": "endpoint:proto/task_service.proto:TaskService.IngestDml",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/task_service.proto",
+      "target": "endpoint:proto/task_service.proto:BatchExchangeService.GetData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/task_service.proto",
+      "target": "endpoint:proto/task_service.proto:StreamExchangeService.GetStream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/user.proto",
+      "target": "endpoint:proto/user.proto:UserService.CreateUser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/user.proto",
+      "target": "endpoint:proto/user.proto:UserService.DropUser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/user.proto",
+      "target": "endpoint:proto/user.proto:UserService.UpdateUser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/user.proto",
+      "target": "endpoint:proto/user.proto:UserService.GrantPrivilege",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/user.proto",
+      "target": "endpoint:proto/user.proto:UserService.RevokePrivilege",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/user.proto",
+      "target": "endpoint:proto/user.proto:UserService.AlterDefaultPrivilege",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

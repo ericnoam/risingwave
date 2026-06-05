@@ -1,0 +1,2402 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/tests/regress/src/env.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "init_env",
+          "startLine": 22,
+          "endLine": 46,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init_env",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init_env",
+          "callee": "set_var",
+          "lineNumber": 24
+        },
+        {
+          "caller": "init_env",
+          "callee": "remove_var",
+          "lineNumber": 30
+        },
+        {
+          "caller": "init_env",
+          "callee": "remove_var",
+          "lineNumber": 31
+        },
+        {
+          "caller": "init_env",
+          "callee": "set_var",
+          "lineNumber": 32
+        },
+        {
+          "caller": "init_env",
+          "callee": "set_var",
+          "lineNumber": 35
+        },
+        {
+          "caller": "init_env",
+          "callee": "set_var",
+          "lineNumber": 36
+        },
+        {
+          "caller": "init_env",
+          "callee": "var(VAR_PG_OPTS).unwrap_or_else",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init_env",
+          "callee": "var",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init_env",
+          "callee": "\"\".to_owned",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init_env",
+          "callee": "pg_opts.push_str",
+          "lineNumber": 43
+        },
+        {
+          "caller": "init_env",
+          "callee": "set_var",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/tests/regress/src/file.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 234,
+      "nonEmptyLines": 197,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "init",
+          "startLine": 38,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "source_of",
+          "startLine": 50,
+          "endLine": 72,
+          "params": [
+            "test_name"
+          ]
+        },
+        {
+          "name": "output_of",
+          "startLine": 75,
+          "endLine": 81,
+          "params": [
+            "test_name"
+          ]
+        },
+        {
+          "name": "diff_of",
+          "startLine": 84,
+          "endLine": 90,
+          "params": [
+            "test_name"
+          ]
+        },
+        {
+          "name": "expected_output_of",
+          "startLine": 93,
+          "endLine": 115,
+          "params": [
+            "test_name"
+          ]
+        },
+        {
+          "name": "convert_source_files",
+          "startLine": 118,
+          "endLine": 122,
+          "params": []
+        },
+        {
+          "name": "convert_source_files_internal",
+          "startLine": 129,
+          "endLine": 159,
+          "params": [
+            "input_subdir",
+            "dest_subdir",
+            "suffix"
+          ]
+        },
+        {
+          "name": "replace_placeholder",
+          "startLine": 168,
+          "endLine": 198,
+          "params": [
+            "input",
+            "output"
+          ]
+        },
+        {
+          "name": "test_table_space_dir",
+          "startLine": 200,
+          "endLine": 204,
+          "params": []
+        },
+        {
+          "name": "result_dir",
+          "startLine": 206,
+          "endLine": 208,
+          "params": []
+        },
+        {
+          "name": "ensure_dir",
+          "startLine": 217,
+          "endLine": 234,
+          "params": [
+            "dir"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FileManager",
+          "startLine": 25,
+          "endLine": 27,
+          "methods": [
+            "new",
+            "init",
+            "source_of",
+            "output_of",
+            "diff_of",
+            "expected_output_of",
+            "convert_source_files",
+            "convert_source_files_internal",
+            "replace_placeholder",
+            "test_table_space_dir",
+            "result_dir"
+          ],
+          "properties": [
+            "opts"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FileManager",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "source_of",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "output_of",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "diff_of",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "expected_output_of",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "convert_source_files",
+          "line": 118,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "ensure_dir",
+          "lineNumber": 39
+        },
+        {
+          "caller": "init",
+          "callee": "self.opts.absolutized_output_dir",
+          "lineNumber": 39
+        },
+        {
+          "caller": "init",
+          "callee": "ensure_dir",
+          "lineNumber": 40
+        },
+        {
+          "caller": "init",
+          "callee": "self.opts.absolutized_output_dir()?.join",
+          "lineNumber": 40
+        },
+        {
+          "caller": "init",
+          "callee": "self.opts.absolutized_output_dir",
+          "lineNumber": 40
+        },
+        {
+          "caller": "init",
+          "callee": "ensure_dir",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init",
+          "callee": "self.opts.absolutized_output_dir()?.join",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init",
+          "callee": "self.opts.absolutized_output_dir",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init",
+          "callee": "ensure_dir",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init",
+          "callee": "self.test_table_space_dir",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init",
+          "callee": "ensure_dir",
+          "lineNumber": 43
+        },
+        {
+          "caller": "init",
+          "callee": "self.result_dir",
+          "lineNumber": 43
+        },
+        {
+          "caller": "init",
+          "callee": "self.convert_source_files",
+          "lineNumber": 45
+        },
+        {
+          "caller": "init",
+          "callee": "Ok",
+          "lineNumber": 46
+        },
+        {
+          "caller": "source_of",
+          "callee": "self\n            .opts\n            .absolutized_input_dir()?\n            .join(\"sql\").join",
+          "lineNumber": 51
+        },
+        {
+          "caller": "source_of",
+          "callee": "self\n            .opts\n            .absolutized_input_dir()?.join",
+          "lineNumber": 51
+        },
+        {
+          "caller": "source_of",
+          "callee": "self\n            .opts.absolutized_input_dir",
+          "lineNumber": 51
+        },
+        {
+          "caller": "source_of",
+          "callee": "path.exists",
+          "lineNumber": 57
+        },
+        {
+          "caller": "source_of",
+          "callee": "Ok",
+          "lineNumber": 58
+        },
+        {
+          "caller": "source_of",
+          "callee": "self\n            .opts\n            .absolutized_output_dir()?\n            .join(\"sql\").join",
+          "lineNumber": 61
+        },
+        {
+          "caller": "source_of",
+          "callee": "self\n            .opts\n            .absolutized_output_dir()?.join",
+          "lineNumber": 61
+        },
+        {
+          "caller": "source_of",
+          "callee": "self\n            .opts.absolutized_output_dir",
+          "lineNumber": 61
+        },
+        {
+          "caller": "source_of",
+          "callee": "path.exists",
+          "lineNumber": 67
+        },
+        {
+          "caller": "source_of",
+          "callee": "Ok",
+          "lineNumber": 68
+        },
+        {
+          "caller": "output_of",
+          "callee": "Ok",
+          "lineNumber": 76
+        },
+        {
+          "caller": "output_of",
+          "callee": "self\n            .opts\n            .absolutized_output_dir()?\n            .join(\"results\").join",
+          "lineNumber": 76
+        },
+        {
+          "caller": "output_of",
+          "callee": "self\n            .opts\n            .absolutized_output_dir()?.join",
+          "lineNumber": 76
+        },
+        {
+          "caller": "output_of",
+          "callee": "self\n            .opts.absolutized_output_dir",
+          "lineNumber": 76
+        },
+        {
+          "caller": "diff_of",
+          "callee": "Ok",
+          "lineNumber": 85
+        },
+        {
+          "caller": "diff_of",
+          "callee": "self\n            .opts\n            .absolutized_output_dir()?\n            .join(\"results\").join",
+          "lineNumber": 85
+        },
+        {
+          "caller": "diff_of",
+          "callee": "self\n            .opts\n            .absolutized_output_dir()?.join",
+          "lineNumber": 85
+        },
+        {
+          "caller": "diff_of",
+          "callee": "self\n            .opts.absolutized_output_dir",
+          "lineNumber": 85
+        },
+        {
+          "caller": "expected_output_of",
+          "callee": "self\n            .opts\n            .absolutized_input_dir()?\n            .join(\"expected\").join",
+          "lineNumber": 94
+        },
+        {
+          "caller": "expected_output_of",
+          "callee": "self\n            .opts\n            .absolutized_input_dir()?.join",
+          "lineNumber": 94
+        },
+        {
+          "caller": "expected_output_of",
+          "callee": "self\n            .opts.absolutized_input_dir",
+          "lineNumber": 94
+        },
+        {
+          "caller": "expected_output_of",
+          "callee": "path.exists",
+          "lineNumber": 100
+        },
+        {
+          "caller": "expected_output_of",
+          "callee": "Ok",
+          "lineNumber": 101
+        },
+        {
+          "caller": "expected_output_of",
+          "callee": "self\n            .opts\n            .absolutized_output_dir()?\n            .join(\"expected\").join",
+          "lineNumber": 104
+        },
+        {
+          "caller": "expected_output_of",
+          "callee": "self\n            .opts\n            .absolutized_output_dir()?.join",
+          "lineNumber": 104
+        },
+        {
+          "caller": "expected_output_of",
+          "callee": "self\n            .opts.absolutized_output_dir",
+          "lineNumber": 104
+        },
+        {
+          "caller": "expected_output_of",
+          "callee": "path.exists",
+          "lineNumber": 110
+        },
+        {
+          "caller": "expected_output_of",
+          "callee": "Ok",
+          "lineNumber": 111
+        },
+        {
+          "caller": "convert_source_files",
+          "callee": "self.convert_source_files_internal",
+          "lineNumber": 119
+        },
+        {
+          "caller": "convert_source_files",
+          "callee": "self.convert_source_files_internal",
+          "lineNumber": 120
+        },
+        {
+          "caller": "convert_source_files",
+          "callee": "Ok",
+          "lineNumber": 121
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "self.opts.absolutized_output_dir()?.join",
+          "lineNumber": 135
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "self.opts.absolutized_output_dir",
+          "lineNumber": 135
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "ensure_dir",
+          "lineNumber": 136
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "self.opts.absolutized_input_dir()?.join",
+          "lineNumber": 138
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "self.opts.absolutized_input_dir",
+          "lineNumber": 138
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "read_dir(&input_subdir_path).with_context",
+          "lineNumber": 140
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "read_dir",
+          "lineNumber": 140
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "entry?.path",
+          "lineNumber": 144
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "path.extension().and_then",
+          "lineNumber": 145
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "path.extension",
+          "lineNumber": 145
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "path.is_file",
+          "lineNumber": 147
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "Some",
+          "lineNumber": 147
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "path.file_prefix().unwrap",
+          "lineNumber": 148
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "path.file_prefix",
+          "lineNumber": 148
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "output_subdir_path.join",
+          "lineNumber": 150
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "self.replace_placeholder",
+          "lineNumber": 152
+        },
+        {
+          "caller": "convert_source_files_internal",
+          "callee": "Ok",
+          "lineNumber": 158
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "self.opts.absolutized_input_dir",
+          "lineNumber": 169
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "self.opts.absolutized_output_dir",
+          "lineNumber": 170
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "self.test_table_space_dir",
+          "lineNumber": 171
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "BufReader::new",
+          "lineNumber": 173
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "File::options()\n                .read(true)\n                .open(&input).with_context",
+          "lineNumber": 174
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "File::options()\n                .read(true).open",
+          "lineNumber": 174
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "File::options().read",
+          "lineNumber": 174
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "File::options",
+          "lineNumber": 174
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "BufWriter::new",
+          "lineNumber": 180
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "File::options()\n                .write(true)\n                .create_new(true)\n                .open(&output).with_context",
+          "lineNumber": 181
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "File::options()\n                .write(true)\n                .create_new(true).open",
+          "lineNumber": 181
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "File::options()\n                .write(true).create_new",
+          "lineNumber": 181
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "File::options().write",
+          "lineNumber": 181
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "File::options",
+          "lineNumber": 181
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "reader.lines",
+          "lineNumber": 188
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "new_line.replace",
+          "lineNumber": 190
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "abs_input_dir.to_str().unwrap",
+          "lineNumber": 190
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "abs_input_dir.to_str",
+          "lineNumber": 190
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "new_line.replace",
+          "lineNumber": 191
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "abs_output_dir.to_str().unwrap",
+          "lineNumber": 191
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "abs_output_dir.to_str",
+          "lineNumber": 191
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "new_line.replace",
+          "lineNumber": 192
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "test_tablespace.to_str().unwrap",
+          "lineNumber": 192
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "test_tablespace.to_str",
+          "lineNumber": 192
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "writer.write_all",
+          "lineNumber": 193
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "new_line.as_bytes",
+          "lineNumber": 193
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "writer.write_all",
+          "lineNumber": 194
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "\"\\n\".as_bytes",
+          "lineNumber": 194
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "Ok",
+          "lineNumber": 197
+        },
+        {
+          "caller": "replace_placeholder",
+          "callee": "writer.flush",
+          "lineNumber": 197
+        },
+        {
+          "caller": "test_table_space_dir",
+          "callee": "self.opts\n            .absolutized_output_dir().map",
+          "lineNumber": 201
+        },
+        {
+          "caller": "test_table_space_dir",
+          "callee": "self.opts.absolutized_output_dir",
+          "lineNumber": 201
+        },
+        {
+          "caller": "test_table_space_dir",
+          "callee": "p.join",
+          "lineNumber": 203
+        },
+        {
+          "caller": "result_dir",
+          "callee": "self.opts.absolutized_output_dir().map",
+          "lineNumber": 207
+        },
+        {
+          "caller": "result_dir",
+          "callee": "self.opts.absolutized_output_dir",
+          "lineNumber": 207
+        },
+        {
+          "caller": "result_dir",
+          "callee": "p.join",
+          "lineNumber": 207
+        },
+        {
+          "caller": "ensure_dir",
+          "callee": "dir.as_ref",
+          "lineNumber": 218
+        },
+        {
+          "caller": "ensure_dir",
+          "callee": "dir.exists",
+          "lineNumber": 219
+        },
+        {
+          "caller": "ensure_dir",
+          "callee": "create_dir_all(dir).with_context",
+          "lineNumber": 220
+        },
+        {
+          "caller": "ensure_dir",
+          "callee": "create_dir_all",
+          "lineNumber": 220
+        },
+        {
+          "caller": "ensure_dir",
+          "callee": "Ok",
+          "lineNumber": 221
+        },
+        {
+          "caller": "ensure_dir",
+          "callee": "dir.is_dir",
+          "lineNumber": 224
+        },
+        {
+          "caller": "ensure_dir",
+          "callee": "read_dir(dir).with_context",
+          "lineNumber": 228
+        },
+        {
+          "caller": "ensure_dir",
+          "callee": "read_dir",
+          "lineNumber": 228
+        },
+        {
+          "caller": "ensure_dir",
+          "callee": "dir_entry.count",
+          "lineNumber": 229
+        },
+        {
+          "caller": "ensure_dir",
+          "callee": "Ok",
+          "lineNumber": 233
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 12,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/tests/regress/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "regress_main",
+          "startLine": 46,
+          "endLine": 64,
+          "params": []
+        },
+        {
+          "name": "run_schedules",
+          "startLine": 66,
+          "endLine": 69,
+          "params": [
+            "opts"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "regress_main",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "regress_main",
+          "callee": "Opts::parse",
+          "lineNumber": 47
+        },
+        {
+          "caller": "regress_main",
+          "callee": "tracing_subscriber::fmt::init",
+          "lineNumber": 49
+        },
+        {
+          "caller": "regress_main",
+          "callee": "run_schedules",
+          "lineNumber": 51
+        },
+        {
+          "caller": "run_schedules",
+          "callee": "Schedule::new",
+          "lineNumber": 67
+        },
+        {
+          "caller": "run_schedules",
+          "callee": "schedule.run",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/tests/regress/src/opts.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 124,
+      "nonEmptyLines": 110,
+      "functions": [
+        {
+          "name": "from",
+          "startLine": 29,
+          "endLine": 38,
+          "params": [
+            "mode"
+          ]
+        },
+        {
+          "name": "pg_user_name",
+          "startLine": 73,
+          "endLine": 75,
+          "params": []
+        },
+        {
+          "name": "log4rs_config_path",
+          "startLine": 77,
+          "endLine": 79,
+          "params": []
+        },
+        {
+          "name": "absolutized_input_dir",
+          "startLine": 81,
+          "endLine": 91,
+          "params": []
+        },
+        {
+          "name": "absolutized_output_dir",
+          "startLine": 93,
+          "endLine": 103,
+          "params": []
+        },
+        {
+          "name": "database_name",
+          "startLine": 105,
+          "endLine": 107,
+          "params": []
+        },
+        {
+          "name": "schedule_file_path",
+          "startLine": 109,
+          "endLine": 111,
+          "params": []
+        },
+        {
+          "name": "host",
+          "startLine": 113,
+          "endLine": 115,
+          "params": []
+        },
+        {
+          "name": "port",
+          "startLine": 117,
+          "endLine": 119,
+          "params": []
+        },
+        {
+          "name": "database_mode",
+          "startLine": 121,
+          "endLine": 123,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DatabaseMode",
+          "startLine": 23,
+          "endLine": 26,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "Postgres",
+            "Risingwave"
+          ]
+        },
+        {
+          "name": "Opts",
+          "startLine": 42,
+          "endLine": 70,
+          "methods": [
+            "pg_user_name",
+            "log4rs_config_path",
+            "absolutized_input_dir",
+            "absolutized_output_dir",
+            "database_name",
+            "schedule_file_path",
+            "host",
+            "port",
+            "database_mode"
+          ],
+          "properties": [
+            "pg_db_name",
+            "pg_user_name",
+            "pg_server_host",
+            "pg_server_port",
+            "input_dir",
+            "output_dir",
+            "schedule",
+            "log4rs_config",
+            "database_mode"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DatabaseMode",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "Opts",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "pg_user_name",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "log4rs_config_path",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "absolutized_input_dir",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "absolutized_output_dir",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "database_name",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "schedule_file_path",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "host",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "port",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "database_mode",
+          "line": 121,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from",
+          "callee": "mode\n            .to_str().expect",
+          "lineNumber": 30
+        },
+        {
+          "caller": "from",
+          "callee": "mode.to_str",
+          "lineNumber": 30
+        },
+        {
+          "caller": "from",
+          "callee": "mode.to_lowercase().as_str",
+          "lineNumber": 33
+        },
+        {
+          "caller": "from",
+          "callee": "mode.to_lowercase",
+          "lineNumber": 33
+        },
+        {
+          "caller": "log4rs_config_path",
+          "callee": "self.log4rs_config.as_path",
+          "lineNumber": 78
+        },
+        {
+          "caller": "absolutized_input_dir",
+          "callee": "self.input_dir\n            .absolutize()\n            .map(|c| c.into_owned()).with_context",
+          "lineNumber": 82
+        },
+        {
+          "caller": "absolutized_input_dir",
+          "callee": "self.input_dir\n            .absolutize().map",
+          "lineNumber": 82
+        },
+        {
+          "caller": "absolutized_input_dir",
+          "callee": "self.input_dir.absolutize",
+          "lineNumber": 82
+        },
+        {
+          "caller": "absolutized_input_dir",
+          "callee": "c.into_owned",
+          "lineNumber": 84
+        },
+        {
+          "caller": "absolutized_output_dir",
+          "callee": "self.output_dir\n            .absolutize()\n            .map(|c| c.into_owned()).with_context",
+          "lineNumber": 94
+        },
+        {
+          "caller": "absolutized_output_dir",
+          "callee": "self.output_dir\n            .absolutize().map",
+          "lineNumber": 94
+        },
+        {
+          "caller": "absolutized_output_dir",
+          "callee": "self.output_dir.absolutize",
+          "lineNumber": 94
+        },
+        {
+          "caller": "absolutized_output_dir",
+          "callee": "c.into_owned",
+          "lineNumber": 96
+        },
+        {
+          "caller": "database_name",
+          "callee": "self.pg_db_name.as_str",
+          "lineNumber": 106
+        },
+        {
+          "caller": "schedule_file_path",
+          "callee": "self.schedule.as_path",
+          "lineNumber": 110
+        },
+        {
+          "caller": "host",
+          "callee": "self.pg_server_host.clone",
+          "lineNumber": 114
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 10,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/tests/regress/src/psql.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 128,
+      "nonEmptyLines": 104,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 33,
+          "endLine": 35,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "init",
+          "startLine": 37,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "create_database",
+          "startLine": 48,
+          "endLine": 68,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "drop_database_if_exists",
+          "startLine": 70,
+          "endLine": 90,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 94,
+          "endLine": 104,
+          "params": [
+            "database",
+            "opts"
+          ]
+        },
+        {
+          "name": "add_cmd",
+          "startLine": 106,
+          "endLine": 122,
+          "params": [
+            "cmd"
+          ]
+        },
+        {
+          "name": "build",
+          "startLine": 124,
+          "endLine": 127,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Psql",
+          "startLine": 23,
+          "endLine": 25,
+          "methods": [
+            "new",
+            "init",
+            "create_database",
+            "drop_database_if_exists"
+          ],
+          "properties": [
+            "opts"
+          ]
+        },
+        {
+          "name": "PsqlCommandBuilder",
+          "startLine": 27,
+          "endLine": 30,
+          "methods": [
+            "new",
+            "add_cmd",
+            "build"
+          ],
+          "properties": [
+            "database",
+            "cmd"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Psql",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "PsqlCommandBuilder",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "init",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "create_database",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "drop_database_if_exists",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "add_cmd",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "build",
+          "line": 124,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "self.opts.database_name",
+          "lineNumber": 40
+        },
+        {
+          "caller": "init",
+          "callee": "Ok",
+          "lineNumber": 45
+        },
+        {
+          "caller": "create_database",
+          "callee": "PsqlCommandBuilder::new(PG_DB_NAME, &self.opts)\n            .add_cmd(format!(\n                r#\"CREATE DATABASE \"{}\" TEMPLATE=template0 LC_COLLATE='C' LC_CTYPE='C'\"#,\n                db.as_ref()\n            )).build",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_database",
+          "callee": "PsqlCommandBuilder::new(PG_DB_NAME, &self.opts).add_cmd",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_database",
+          "callee": "PsqlCommandBuilder::new",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_database",
+          "callee": "cmd\n            .status()\n            .await.with_context",
+          "lineNumber": 58
+        },
+        {
+          "caller": "create_database",
+          "callee": "cmd.status",
+          "lineNumber": 58
+        },
+        {
+          "caller": "create_database",
+          "callee": "status.success",
+          "lineNumber": 62
+        },
+        {
+          "caller": "create_database",
+          "callee": "Ok",
+          "lineNumber": 64
+        },
+        {
+          "caller": "drop_database_if_exists",
+          "callee": "PsqlCommandBuilder::new(\"postgres\", &self.opts)\n            .add_cmd(format!(r#\"DROP DATABASE IF EXISTS \"{}\"\"#, db.as_ref())).build",
+          "lineNumber": 73
+        },
+        {
+          "caller": "drop_database_if_exists",
+          "callee": "PsqlCommandBuilder::new(\"postgres\", &self.opts).add_cmd",
+          "lineNumber": 73
+        },
+        {
+          "caller": "drop_database_if_exists",
+          "callee": "PsqlCommandBuilder::new",
+          "lineNumber": 73
+        },
+        {
+          "caller": "drop_database_if_exists",
+          "callee": "cmd\n            .status()\n            .await.with_context",
+          "lineNumber": 79
+        },
+        {
+          "caller": "drop_database_if_exists",
+          "callee": "cmd.status",
+          "lineNumber": 79
+        },
+        {
+          "caller": "drop_database_if_exists",
+          "callee": "status.success",
+          "lineNumber": 84
+        },
+        {
+          "caller": "drop_database_if_exists",
+          "callee": "Ok",
+          "lineNumber": 86
+        },
+        {
+          "caller": "new",
+          "callee": "Command::new",
+          "lineNumber": 95
+        },
+        {
+          "caller": "new",
+          "callee": "cmd.arg(\"-X\")\n            .args([\"-h\", opts.host().as_str()]).args",
+          "lineNumber": 96
+        },
+        {
+          "caller": "new",
+          "callee": "cmd.arg(\"-X\").args",
+          "lineNumber": 96
+        },
+        {
+          "caller": "new",
+          "callee": "cmd.arg",
+          "lineNumber": 96
+        },
+        {
+          "caller": "new",
+          "callee": "opts.host().as_str",
+          "lineNumber": 97
+        },
+        {
+          "caller": "new",
+          "callee": "opts.host",
+          "lineNumber": 97
+        },
+        {
+          "caller": "new",
+          "callee": "format!(\"{}\", opts.port()).as_str",
+          "lineNumber": 98
+        },
+        {
+          "caller": "new",
+          "callee": "database.to_string",
+          "lineNumber": 101
+        },
+        {
+          "caller": "add_cmd",
+          "callee": "cmd.as_ref",
+          "lineNumber": 107
+        },
+        {
+          "caller": "add_cmd",
+          "callee": "\"\".to_owned",
+          "lineNumber": 108
+        },
+        {
+          "caller": "add_cmd",
+          "callee": "cmd.chars",
+          "lineNumber": 111
+        },
+        {
+          "caller": "add_cmd",
+          "callee": "r#\"\\\"$`\"#.contains",
+          "lineNumber": 112
+        },
+        {
+          "caller": "add_cmd",
+          "callee": "escaped_cmd.push",
+          "lineNumber": 113
+        },
+        {
+          "caller": "add_cmd",
+          "callee": "escaped_cmd.push",
+          "lineNumber": 115
+        },
+        {
+          "caller": "add_cmd",
+          "callee": "self.cmd.args",
+          "lineNumber": 119
+        },
+        {
+          "caller": "build",
+          "callee": "self.cmd.arg",
+          "lineNumber": 125
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 7,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/tests/regress/src/schedule.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 457,
+      "nonEmptyLines": 400,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 62,
+          "endLine": 69,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "do_init",
+          "startLine": 71,
+          "endLine": 78,
+          "params": []
+        },
+        {
+          "name": "parse_from",
+          "startLine": 80,
+          "endLine": 103,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 111,
+          "endLine": 114,
+          "params": []
+        },
+        {
+          "name": "do_run",
+          "startLine": 116,
+          "endLine": 154,
+          "params": []
+        },
+        {
+          "name": "run_one_schedule",
+          "startLine": 156,
+          "endLine": 179,
+          "params": [
+            "tests"
+          ]
+        },
+        {
+          "name": "create_test_case",
+          "startLine": 181,
+          "endLine": 188,
+          "params": [
+            "test_name"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 192,
+          "endLine": 362,
+          "params": []
+        },
+        {
+          "name": "compare_output",
+          "startLine": 365,
+          "endLine": 439,
+          "params": [
+            "query",
+            "expected",
+            "actual"
+          ]
+        },
+        {
+          "name": "format_diff",
+          "startLine": 441,
+          "endLine": 457,
+          "params": [
+            "expected_output",
+            "actual_output"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestResult",
+          "startLine": 32,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "Same",
+            "Different"
+          ]
+        },
+        {
+          "name": "TestCase",
+          "startLine": 39,
+          "endLine": 44,
+          "methods": [
+            "run"
+          ],
+          "properties": [
+            "test_name",
+            "opts",
+            "psql",
+            "file_manager"
+          ]
+        },
+        {
+          "name": "Schedule",
+          "startLine": 46,
+          "endLine": 54,
+          "methods": [
+            "new",
+            "do_init",
+            "parse_from",
+            "run",
+            "do_run",
+            "run_one_schedule",
+            "create_test_case"
+          ],
+          "properties": [
+            "opts",
+            "file_manager",
+            "psql",
+            "schedules"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Schedule",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 111,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Ok",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new",
+          "callee": "opts.clone",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new",
+          "callee": "FileManager::new",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new",
+          "callee": "opts.clone",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new",
+          "callee": "Psql::new",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new",
+          "callee": "opts.clone",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new",
+          "callee": "Schedule::parse_from",
+          "lineNumber": 67
+        },
+        {
+          "caller": "new",
+          "callee": "opts.schedule_file_path",
+          "lineNumber": 67
+        },
+        {
+          "caller": "do_init",
+          "callee": "init_env",
+          "lineNumber": 72
+        },
+        {
+          "caller": "do_init",
+          "callee": "self.file_manager.init",
+          "lineNumber": 74
+        },
+        {
+          "caller": "do_init",
+          "callee": "self.psql.init",
+          "lineNumber": 75
+        },
+        {
+          "caller": "do_init",
+          "callee": "Ok",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse_from",
+          "callee": "File::options()\n            .read(true)\n            .open(path.as_ref()).with_context",
+          "lineNumber": 81
+        },
+        {
+          "caller": "parse_from",
+          "callee": "File::options()\n            .read(true).open",
+          "lineNumber": 81
+        },
+        {
+          "caller": "parse_from",
+          "callee": "File::options().read",
+          "lineNumber": 81
+        },
+        {
+          "caller": "parse_from",
+          "callee": "File::options",
+          "lineNumber": 81
+        },
+        {
+          "caller": "parse_from",
+          "callee": "path.as_ref",
+          "lineNumber": 83
+        },
+        {
+          "caller": "parse_from",
+          "callee": "BufReader::new",
+          "lineNumber": 86
+        },
+        {
+          "caller": "parse_from",
+          "callee": "Vec::new",
+          "lineNumber": 87
+        },
+        {
+          "caller": "parse_from",
+          "callee": "reader.lines",
+          "lineNumber": 89
+        },
+        {
+          "caller": "parse_from",
+          "callee": "line.starts_with",
+          "lineNumber": 91
+        },
+        {
+          "caller": "parse_from",
+          "callee": "schedules.push",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_from",
+          "callee": "line[5..]\n                        .split_whitespace()\n                        .map(ToString::to_string).collect",
+          "lineNumber": 93
+        },
+        {
+          "caller": "parse_from",
+          "callee": "line[5..]\n                        .split_whitespace().map",
+          "lineNumber": 93
+        },
+        {
+          "caller": "parse_from",
+          "callee": "line[5..].split_whitespace",
+          "lineNumber": 93
+        },
+        {
+          "caller": "parse_from",
+          "callee": "Ok",
+          "lineNumber": 102
+        },
+        {
+          "caller": "run",
+          "callee": "self.do_init",
+          "lineNumber": 112
+        },
+        {
+          "caller": "run",
+          "callee": "s.do_run",
+          "lineNumber": 113
+        },
+        {
+          "caller": "do_run",
+          "callee": "Vec::new",
+          "lineNumber": 117
+        },
+        {
+          "caller": "do_run",
+          "callee": "self.run_one_schedule",
+          "lineNumber": 120
+        },
+        {
+          "caller": "do_run",
+          "callee": "parallel_schedule.iter().map",
+          "lineNumber": 121
+        },
+        {
+          "caller": "do_run",
+          "callee": "parallel_schedule.iter",
+          "lineNumber": 121
+        },
+        {
+          "caller": "do_run",
+          "callee": "ret\n                .iter()\n                .filter(|(_test_name, test_result)| **test_result == Different)\n                .map(|t| t.0.clone())\n                .collect::<Vec<String>>",
+          "lineNumber": 124
+        },
+        {
+          "caller": "do_run",
+          "callee": "ret\n                .iter()\n                .filter(|(_test_name, test_result)| **test_result == Different).map",
+          "lineNumber": 124
+        },
+        {
+          "caller": "do_run",
+          "callee": "ret\n                .iter().filter",
+          "lineNumber": 124
+        },
+        {
+          "caller": "do_run",
+          "callee": "ret.iter",
+          "lineNumber": 124
+        },
+        {
+          "caller": "do_run",
+          "callee": "t.0.clone",
+          "lineNumber": 127
+        },
+        {
+          "caller": "do_run",
+          "callee": "diff_test.is_empty",
+          "lineNumber": 130
+        },
+        {
+          "caller": "do_run",
+          "callee": "different_tests.append",
+          "lineNumber": 135
+        },
+        {
+          "caller": "do_run",
+          "callee": "different_tests.is_empty",
+          "lineNumber": 141
+        },
+        {
+          "caller": "do_run",
+          "callee": "Ok",
+          "lineNumber": 152
+        },
+        {
+          "caller": "run_one_schedule",
+          "callee": "HashMap::new",
+          "lineNumber": 160
+        },
+        {
+          "caller": "run_one_schedule",
+          "callee": "self.create_test_case",
+          "lineNumber": 163
+        },
+        {
+          "caller": "run_one_schedule",
+          "callee": "tokio::spawn",
+          "lineNumber": 164
+        },
+        {
+          "caller": "run_one_schedule",
+          "callee": "test_case.run",
+          "lineNumber": 164
+        },
+        {
+          "caller": "run_one_schedule",
+          "callee": "join_handles.insert",
+          "lineNumber": 165
+        },
+        {
+          "caller": "run_one_schedule",
+          "callee": "HashMap::new",
+          "lineNumber": 168
+        },
+        {
+          "caller": "run_one_schedule",
+          "callee": "join_handle\n                .await.with_context",
+          "lineNumber": 171
+        },
+        {
+          "caller": "run_one_schedule",
+          "callee": "result.insert",
+          "lineNumber": 175
+        },
+        {
+          "caller": "run_one_schedule",
+          "callee": "test_name.to_owned",
+          "lineNumber": 175
+        },
+        {
+          "caller": "run_one_schedule",
+          "callee": "Ok",
+          "lineNumber": 178
+        },
+        {
+          "caller": "create_test_case",
+          "callee": "test_name.to_owned",
+          "lineNumber": 183
+        },
+        {
+          "caller": "create_test_case",
+          "callee": "self.opts.clone",
+          "lineNumber": 184
+        },
+        {
+          "caller": "create_test_case",
+          "callee": "self.psql.clone",
+          "lineNumber": 185
+        },
+        {
+          "caller": "create_test_case",
+          "callee": "self.file_manager.clone",
+          "lineNumber": 186
+        },
+        {
+          "caller": "run",
+          "callee": "self.opts.host",
+          "lineNumber": 193
+        },
+        {
+          "caller": "run",
+          "callee": "self.opts.port().to_string",
+          "lineNumber": 194
+        },
+        {
+          "caller": "run",
+          "callee": "self.opts.port",
+          "lineNumber": 194
+        },
+        {
+          "caller": "run",
+          "callee": "self.opts.database_name",
+          "lineNumber": 195
+        },
+        {
+          "caller": "run",
+          "callee": "self.opts.pg_user_name",
+          "lineNumber": 196
+        },
+        {
+          "caller": "run",
+          "callee": "self.opts.database_mode",
+          "lineNumber": 220
+        },
+        {
+          "caller": "run",
+          "callee": "self.file_manager.output_of",
+          "lineNumber": 230
+        },
+        {
+          "caller": "run",
+          "callee": "File::options()\n            .create_new(true)\n            .write(true)\n            .open(&actual_output_path).with_context",
+          "lineNumber": 231
+        },
+        {
+          "caller": "run",
+          "callee": "File::options()\n            .create_new(true)\n            .write(true).open",
+          "lineNumber": 231
+        },
+        {
+          "caller": "run",
+          "callee": "File::options()\n            .create_new(true).write",
+          "lineNumber": 231
+        },
+        {
+          "caller": "run",
+          "callee": "File::options().create_new",
+          "lineNumber": 231
+        },
+        {
+          "caller": "run",
+          "callee": "File::options",
+          "lineNumber": 231
+        },
+        {
+          "caller": "run",
+          "callee": "Command::new",
+          "lineNumber": 242
+        },
+        {
+          "caller": "run",
+          "callee": "command.env",
+          "lineNumber": 243
+        },
+        {
+          "caller": "run",
+          "callee": "command.args",
+          "lineNumber": 247
+        },
+        {
+          "caller": "run",
+          "callee": "command\n            .stdin(Stdio::piped())\n            .stdout(actual_output_file.try_clone().with_context(|| {\n                format!(\"Failed to clone output file: {:?}\", actual_output_path)\n            })?)\n            .stderr(actual_output_file)\n            .spawn().with_context",
+          "lineNumber": 252
+        },
+        {
+          "caller": "run",
+          "callee": "command\n            .stdin(Stdio::piped())\n            .stdout(actual_output_file.try_clone().with_context(|| {\n                format!(\"Failed to clone output file: {:?}\", actual_output_path)\n            })?)\n            .stderr(actual_output_file).spawn",
+          "lineNumber": 252
+        },
+        {
+          "caller": "run",
+          "callee": "command\n            .stdin(Stdio::piped())\n            .stdout(actual_output_file.try_clone().with_context(|| {\n                format!(\"Failed to clone output file: {:?}\", actual_output_path)\n            })?).stderr",
+          "lineNumber": 252
+        },
+        {
+          "caller": "run",
+          "callee": "command\n            .stdin(Stdio::piped()).stdout",
+          "lineNumber": 252
+        },
+        {
+          "caller": "run",
+          "callee": "command.stdin",
+          "lineNumber": 252
+        },
+        {
+          "caller": "run",
+          "callee": "Stdio::piped",
+          "lineNumber": 253
+        },
+        {
+          "caller": "run",
+          "callee": "actual_output_file.try_clone().with_context",
+          "lineNumber": 254
+        },
+        {
+          "caller": "run",
+          "callee": "actual_output_file.try_clone",
+          "lineNumber": 254
+        },
+        {
+          "caller": "run",
+          "callee": "child\n            .stdin\n            .as_mut().ok_or_else",
+          "lineNumber": 261
+        },
+        {
+          "caller": "run",
+          "callee": "child\n            .stdin.as_mut",
+          "lineNumber": 261
+        },
+        {
+          "caller": "run",
+          "callee": "child_stdin.write_all",
+          "lineNumber": 266
+        },
+        {
+          "caller": "run",
+          "callee": "extra_line.as_bytes",
+          "lineNumber": 266
+        },
+        {
+          "caller": "run",
+          "callee": "self.file_manager.source_of",
+          "lineNumber": 271
+        },
+        {
+          "caller": "run",
+          "callee": "read_all_lines_from",
+          "lineNumber": 272
+        },
+        {
+          "caller": "run",
+          "callee": "child_stdin.write_all",
+          "lineNumber": 274
+        },
+        {
+          "caller": "run",
+          "callee": "input_file_content.as_bytes",
+          "lineNumber": 274
+        },
+        {
+          "caller": "run",
+          "callee": "child.wait().await.with_context",
+          "lineNumber": 276
+        },
+        {
+          "caller": "run",
+          "callee": "child.wait",
+          "lineNumber": 276
+        },
+        {
+          "caller": "run",
+          "callee": "status.success",
+          "lineNumber": 280
+        },
+        {
+          "caller": "run",
+          "callee": "read_all_lines_from",
+          "lineNumber": 281
+        },
+        {
+          "caller": "run",
+          "callee": "self.file_manager.expected_output_of",
+          "lineNumber": 290
+        },
+        {
+          "caller": "run",
+          "callee": "input_file_content\n            .lines().filter",
+          "lineNumber": 292
+        },
+        {
+          "caller": "run",
+          "callee": "input_file_content.lines",
+          "lineNumber": 292
+        },
+        {
+          "caller": "run",
+          "callee": "s.is_empty",
+          "lineNumber": 294
+        },
+        {
+          "caller": "run",
+          "callee": "std::io::BufReader::new(File::open(expected_output_path)?)\n            .lines()\n            .map(|s| s.unwrap()).filter",
+          "lineNumber": 295
+        },
+        {
+          "caller": "run",
+          "callee": "std::io::BufReader::new(File::open(expected_output_path)?)\n            .lines().map",
+          "lineNumber": 295
+        },
+        {
+          "caller": "run",
+          "callee": "std::io::BufReader::new(File::open(expected_output_path)?).lines",
+          "lineNumber": 295
+        },
+        {
+          "caller": "run",
+          "callee": "std::io::BufReader::new",
+          "lineNumber": 295
+        },
+        {
+          "caller": "run",
+          "callee": "File::open",
+          "lineNumber": 295
+        },
+        {
+          "caller": "run",
+          "callee": "s.unwrap",
+          "lineNumber": 297
+        },
+        {
+          "caller": "run",
+          "callee": "s.is_empty",
+          "lineNumber": 298
+        },
+        {
+          "caller": "run",
+          "callee": "std::io::BufReader::new(File::open(actual_output_path)?)\n            .lines()\n            .skip(extra_lines_added_to_input.len())\n            .map(|s| s.unwrap()).filter",
+          "lineNumber": 299
+        },
+        {
+          "caller": "run",
+          "callee": "std::io::BufReader::new(File::open(actual_output_path)?)\n            .lines()\n            .skip(extra_lines_added_to_input.len()).map",
+          "lineNumber": 299
+        },
+        {
+          "caller": "run",
+          "callee": "std::io::BufReader::new(File::open(actual_output_path)?)\n            .lines().skip",
+          "lineNumber": 299
+        },
+        {
+          "caller": "run",
+          "callee": "std::io::BufReader::new(File::open(actual_output_path)?).lines",
+          "lineNumber": 299
+        },
+        {
+          "caller": "run",
+          "callee": "std::io::BufReader::new",
+          "lineNumber": 299
+        },
+        {
+          "caller": "run",
+          "callee": "File::open",
+          "lineNumber": 299
+        },
+        {
+          "caller": "run",
+          "callee": "extra_lines_added_to_input.len",
+          "lineNumber": 301
+        },
+        {
+          "caller": "run",
+          "callee": "s.unwrap",
+          "lineNumber": 302
+        },
+        {
+          "caller": "run",
+          "callee": "s.is_empty",
+          "lineNumber": 303
+        },
+        {
+          "caller": "run",
+          "callee": "input_line.strip_prefix(PREFIX_IGNORE).unwrap_or",
+          "lineNumber": 328
+        },
+        {
+          "caller": "run",
+          "callee": "input_line.strip_prefix",
+          "lineNumber": 328
+        },
+        {
+          "caller": "run",
+          "callee": "expected_lines.next",
+          "lineNumber": 332
+        },
+        {
+          "caller": "run",
+          "callee": "expected_output.push",
+          "lineNumber": 335
+        },
+        {
+          "caller": "run",
+          "callee": "actual_lines.next",
+          "lineNumber": 339
+        },
+        {
+          "caller": "run",
+          "callee": "actual_output.push",
+          "lineNumber": 342
+        },
+        {
+          "caller": "run",
+          "callee": "expected_output.is_empty",
+          "lineNumber": 347
+        },
+        {
+          "caller": "run",
+          "callee": "actual_output.is_empty",
+          "lineNumber": 347
+        },
+        {
+          "caller": "run",
+          "callee": "pending_input.push",
+          "lineNumber": 348
+        },
+        {
+          "caller": "run",
+          "callee": "std::mem::replace",
+          "lineNumber": 352
+        },
+        {
+          "caller": "run",
+          "callee": "compare_output",
+          "lineNumber": 354
+        },
+        {
+          "caller": "run",
+          "callee": "expected_lines.collect",
+          "lineNumber": 357
+        },
+        {
+          "caller": "run",
+          "callee": "actual_lines.collect",
+          "lineNumber": 358
+        },
+        {
+          "caller": "run",
+          "callee": "compare_output",
+          "lineNumber": 359
+        },
+        {
+          "caller": "run",
+          "callee": "Ok",
+          "lineNumber": 361
+        },
+        {
+          "caller": "compare_output",
+          "callee": "expected.join",
+          "lineNumber": 371
+        },
+        {
+          "caller": "compare_output",
+          "callee": "actual.join",
+          "lineNumber": 371
+        },
+        {
+          "caller": "compare_output",
+          "callee": "format_diff",
+          "lineNumber": 372
+        },
+        {
+          "caller": "compare_output",
+          "callee": "query.last",
+          "lineNumber": 378
+        },
+        {
+          "caller": "compare_output",
+          "callee": "l.starts_with",
+          "lineNumber": 379
+        },
+        {
+          "caller": "compare_output",
+          "callee": "expected.is_empty",
+          "lineNumber": 383
+        },
+        {
+          "caller": "compare_output",
+          "callee": "actual.is_empty",
+          "lineNumber": 384
+        },
+        {
+          "caller": "compare_output",
+          "callee": "expected[0].starts_with",
+          "lineNumber": 385
+        },
+        {
+          "caller": "compare_output",
+          "callee": "actual[0].starts_with",
+          "lineNumber": 386
+        },
+        {
+          "caller": "compare_output",
+          "callee": "query\n        .iter().any",
+          "lineNumber": 391
+        },
+        {
+          "caller": "compare_output",
+          "callee": "query.iter",
+          "lineNumber": 391
+        },
+        {
+          "caller": "compare_output",
+          "callee": "line.to_lowercase().starts_with",
+          "lineNumber": 393
+        },
+        {
+          "caller": "compare_output",
+          "callee": "line.to_lowercase",
+          "lineNumber": 393
+        },
+        {
+          "caller": "compare_output",
+          "callee": "compare_lines",
+          "lineNumber": 396
+        },
+        {
+          "caller": "compare_output",
+          "callee": "query\n        .iter().any",
+          "lineNumber": 402
+        },
+        {
+          "caller": "compare_output",
+          "callee": "query.iter",
+          "lineNumber": 402
+        },
+        {
+          "caller": "compare_output",
+          "callee": "line.to_lowercase().contains",
+          "lineNumber": 404
+        },
+        {
+          "caller": "compare_output",
+          "callee": "line.to_lowercase",
+          "lineNumber": 404
+        },
+        {
+          "caller": "compare_output",
+          "callee": "expected.len",
+          "lineNumber": 418
+        },
+        {
+          "caller": "compare_output",
+          "callee": "expected[1].starts_with",
+          "lineNumber": 419
+        },
+        {
+          "caller": "compare_output",
+          "callee": "actual.len",
+          "lineNumber": 421
+        },
+        {
+          "caller": "compare_output",
+          "callee": "actual[1].starts_with",
+          "lineNumber": 422
+        },
+        {
+          "caller": "compare_output",
+          "callee": "compare_lines",
+          "lineNumber": 426
+        },
+        {
+          "caller": "compare_output",
+          "callee": "compare_lines",
+          "lineNumber": 430
+        },
+        {
+          "caller": "compare_output",
+          "callee": "expected.to_vec",
+          "lineNumber": 432
+        },
+        {
+          "caller": "compare_output",
+          "callee": "expected_sorted[2..expected.len() - 1].sort",
+          "lineNumber": 433
+        },
+        {
+          "caller": "compare_output",
+          "callee": "expected.len",
+          "lineNumber": 433
+        },
+        {
+          "caller": "compare_output",
+          "callee": "actual.to_vec",
+          "lineNumber": 434
+        },
+        {
+          "caller": "compare_output",
+          "callee": "actual_sorted[2..actual.len() - 1].sort",
+          "lineNumber": 435
+        },
+        {
+          "caller": "compare_output",
+          "callee": "actual.len",
+          "lineNumber": 435
+        },
+        {
+          "caller": "compare_output",
+          "callee": "compare_lines",
+          "lineNumber": 437
+        },
+        {
+          "caller": "format_diff",
+          "callee": "TextDiff::from_lines",
+          "lineNumber": 445
+        },
+        {
+          "caller": "format_diff",
+          "callee": "\"\".to_owned",
+          "lineNumber": 447
+        },
+        {
+          "caller": "format_diff",
+          "callee": "diff.iter_all_changes",
+          "lineNumber": 448
+        },
+        {
+          "caller": "format_diff",
+          "callee": "change.tag",
+          "lineNumber": 449
+        },
+        {
+          "caller": "format_diff",
+          "callee": "write!(diff_str, \"{}{}\", sign, change).unwrap",
+          "lineNumber": 454
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 10,
+        "classCount": 3
+      }
+    }
+  ]
+}

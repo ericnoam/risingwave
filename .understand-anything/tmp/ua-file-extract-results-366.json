@@ -1,0 +1,4331 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/tests/regress/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 71,
+      "nonEmptyLines": 53,
+      "sections": [
+        {
+          "heading": "How it works",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "How to enable a new test file",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "How to edit a test file",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "How to run",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "Reference",
+          "level": 1,
+          "line": 64
+        },
+        {
+          "heading": "Caveat",
+          "level": 1,
+          "line": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "src/tests/regress/src/bin/main.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 20,
+          "endLine": 22,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "exit",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "regress_main",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/tests/simulation/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 59,
+      "nonEmptyLines": 56,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "package.metadata.cargo-machete",
+          "level": 3,
+          "line": 6
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 58
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "src/tests/simulation/src/main.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 301,
+      "nonEmptyLines": 260,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 152,
+          "endLine": 296,
+          "params": []
+        },
+        {
+          "name": "sqlsmith_seed",
+          "startLine": 299,
+          "endLine": 301,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Args",
+          "startLine": 31,
+          "endLine": 149,
+          "methods": [],
+          "properties": [
+            "files",
+            "frontend_nodes",
+            "compute_nodes",
+            "compactor_nodes",
+            "meta_nodes",
+            "compute_node_cores",
+            "jobs",
+            "kill",
+            "kill_meta",
+            "kill_frontend",
+            "kill_compute",
+            "kill_compactor",
+            "kill_rate",
+            "restart_delay_secs",
+            "kafka_datadir",
+            "config_path",
+            "sqlsmith",
+            "run_sqlsmith_queries",
+            "generate_sqlsmith_queries",
+            "weight_config_path",
+            "enabled_features",
+            "run_differential_tests",
+            "e2e_extended_test",
+            "background_ddl_rate",
+            "use_arrangement_backfill",
+            "random_vnode_count"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Args",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt()\n        .with_env_filter(EnvFilter::from_default_env())\n        // no ANSI color codes when output to file\n        .with_ansi(console::colors_enabled_stderr() && console::colors_enabled())\n        .with_writer(std::io::stderr).try_init",
+          "lineNumber": 160
+        },
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt()\n        .with_env_filter(EnvFilter::from_default_env())\n        // no ANSI color codes when output to file\n        .with_ansi(console::colors_enabled_stderr() && console::colors_enabled()).with_writer",
+          "lineNumber": 160
+        },
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt()\n        .with_env_filter(EnvFilter::from_default_env()).with_ansi",
+          "lineNumber": 160
+        },
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt().with_env_filter",
+          "lineNumber": 160
+        },
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt",
+          "lineNumber": 160
+        },
+        {
+          "caller": "main",
+          "callee": "EnvFilter::from_default_env",
+          "lineNumber": 161
+        },
+        {
+          "caller": "main",
+          "callee": "console::colors_enabled_stderr",
+          "lineNumber": 163
+        },
+        {
+          "caller": "main",
+          "callee": "console::colors_enabled",
+          "lineNumber": 163
+        },
+        {
+          "caller": "main",
+          "callee": "Args::parse",
+          "lineNumber": 167
+        },
+        {
+          "caller": "main",
+          "callee": "ConfigPath::Regular",
+          "lineNumber": 169
+        },
+        {
+          "caller": "main",
+          "callee": "args.config_path.unwrap_or_default",
+          "lineNumber": 169
+        },
+        {
+          "caller": "main",
+          "callee": "vec![\"SET STREAMING_USE_ARRANGEMENT_BACKFILL = true;\".to_owned()].into",
+          "lineNumber": 176
+        },
+        {
+          "caller": "main",
+          "callee": "vec![\"SET STREAMING_USE_ARRANGEMENT_BACKFILL = false;\".to_owned()].into",
+          "lineNumber": 178
+        },
+        {
+          "caller": "main",
+          "callee": "Default::default",
+          "lineNumber": 180
+        },
+        {
+          "caller": "main",
+          "callee": "Default::default",
+          "lineNumber": 181
+        },
+        {
+          "caller": "main",
+          "callee": "Arc::new",
+          "lineNumber": 192
+        },
+        {
+          "caller": "main",
+          "callee": "Cluster::start(config)\n            .await.expect",
+          "lineNumber": 193
+        },
+        {
+          "caller": "main",
+          "callee": "Cluster::start",
+          "lineNumber": 193
+        },
+        {
+          "caller": "main",
+          "callee": "cluster.create_kafka_producer",
+          "lineNumber": 199
+        },
+        {
+          "caller": "main",
+          "callee": "sqlsmith_seed",
+          "lineNumber": 202
+        },
+        {
+          "caller": "main",
+          "callee": "risingwave_sqlsmith::config::Configuration::new",
+          "lineNumber": 204
+        },
+        {
+          "caller": "main",
+          "callee": "sqlsmith_config.enable_features_from_args",
+          "lineNumber": 205
+        },
+        {
+          "caller": "main",
+          "callee": "cluster.run_on_client",
+          "lineNumber": 207
+        },
+        {
+          "caller": "main",
+          "callee": "RisingWave::connect(\"frontend\".into(), \"dev\".into())\n                    .await.unwrap",
+          "lineNumber": 209
+        },
+        {
+          "caller": "main",
+          "callee": "RisingWave::connect",
+          "lineNumber": 209
+        },
+        {
+          "caller": "main",
+          "callee": "\"frontend\".into",
+          "lineNumber": 209
+        },
+        {
+          "caller": "main",
+          "callee": "\"dev\".into",
+          "lineNumber": 209
+        },
+        {
+          "caller": "main",
+          "callee": "risingwave_sqlsmith::test_runners::generate",
+          "lineNumber": 213
+        },
+        {
+          "caller": "main",
+          "callee": "rw.pg_client",
+          "lineNumber": 214
+        },
+        {
+          "caller": "main",
+          "callee": "Some",
+          "lineNumber": 219
+        },
+        {
+          "caller": "main",
+          "callee": "risingwave_sqlsmith::test_runners::run_differential_testing(\n                        rw.pg_client(),\n                        &args.files,\n                        count,\n                        &sqlsmith_config,\n                        Some(seed),\n                    )\n                    .await.unwrap",
+          "lineNumber": 225
+        },
+        {
+          "caller": "main",
+          "callee": "risingwave_sqlsmith::test_runners::run_differential_testing",
+          "lineNumber": 225
+        },
+        {
+          "caller": "main",
+          "callee": "rw.pg_client",
+          "lineNumber": 226
+        },
+        {
+          "caller": "main",
+          "callee": "Some",
+          "lineNumber": 230
+        },
+        {
+          "caller": "main",
+          "callee": "risingwave_sqlsmith::test_runners::run",
+          "lineNumber": 237
+        },
+        {
+          "caller": "main",
+          "callee": "rw.pg_client",
+          "lineNumber": 238
+        },
+        {
+          "caller": "main",
+          "callee": "Some",
+          "lineNumber": 242
+        },
+        {
+          "caller": "main",
+          "callee": "cluster.run_on_client",
+          "lineNumber": 252
+        },
+        {
+          "caller": "main",
+          "callee": "RisingWave::connect(\"frontend\".into(), \"dev\".into())\n                    .await.unwrap",
+          "lineNumber": 254
+        },
+        {
+          "caller": "main",
+          "callee": "RisingWave::connect",
+          "lineNumber": 254
+        },
+        {
+          "caller": "main",
+          "callee": "\"frontend\".into",
+          "lineNumber": 254
+        },
+        {
+          "caller": "main",
+          "callee": "\"dev\".into",
+          "lineNumber": 254
+        },
+        {
+          "caller": "main",
+          "callee": "risingwave_sqlsmith::test_runners::run_pre_generated",
+          "lineNumber": 257
+        },
+        {
+          "caller": "main",
+          "callee": "rw.pg_client",
+          "lineNumber": 257
+        },
+        {
+          "caller": "main",
+          "callee": "cluster.clone",
+          "lineNumber": 263
+        },
+        {
+          "caller": "main",
+          "callee": "cluster.run_on_client",
+          "lineNumber": 264
+        },
+        {
+          "caller": "main",
+          "callee": "run_parallel_slt_task(glob, jobs).await.unwrap",
+          "lineNumber": 268
+        },
+        {
+          "caller": "main",
+          "callee": "run_parallel_slt_task",
+          "lineNumber": 268
+        },
+        {
+          "caller": "main",
+          "callee": "run_slt_task",
+          "lineNumber": 275
+        },
+        {
+          "caller": "main",
+          "callee": "cluster.run_on_client",
+          "lineNumber": 281
+        },
+        {
+          "caller": "main",
+          "callee": "risingwave_e2e_extended_mode_test::run_test_suit",
+          "lineNumber": 283
+        },
+        {
+          "caller": "main",
+          "callee": "\"dev\".to_owned",
+          "lineNumber": 284
+        },
+        {
+          "caller": "main",
+          "callee": "\"root\".to_owned",
+          "lineNumber": 285
+        },
+        {
+          "caller": "main",
+          "callee": "\"frontend\".to_owned",
+          "lineNumber": 286
+        },
+        {
+          "caller": "main",
+          "callee": "\"\".to_owned",
+          "lineNumber": 288
+        },
+        {
+          "caller": "main",
+          "callee": "cluster.graceful_shutdown",
+          "lineNumber": 295
+        },
+        {
+          "caller": "sqlsmith_seed",
+          "callee": "madsim::runtime::Handle::current().seed",
+          "lineNumber": 300
+        },
+        {
+          "caller": "sqlsmith_seed",
+          "callee": "madsim::runtime::Handle::current",
+          "lineNumber": 300
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/tests/simulation/tests/integration_tests/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 4,
+      "nonEmptyLines": 3,
+      "sections": [
+        {
+          "heading": "Simulation Integration Tests",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "src/tests/sqlsmith/scripts/extract_queries.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 22,
+      "nonEmptyLines": 16,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/tests/sqlsmith/scripts/gen_queries.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 473,
+      "nonEmptyLines": 408,
+      "functions": [
+        {
+          "name": "refresh",
+          "startLine": 32,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "echo_err",
+          "startLine": 38,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "get_failure_reason",
+          "startLine": 47,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "check_if_failed",
+          "startLine": 53,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "check_if_timeout",
+          "startLine": 57,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "extract_queries",
+          "startLine": 62,
+          "endLine": 76,
+          "params": []
+        },
+        {
+          "name": "extract_ddl",
+          "startLine": 78,
+          "endLine": 80,
+          "params": []
+        },
+        {
+          "name": "extract_inserts",
+          "startLine": 82,
+          "endLine": 84,
+          "params": []
+        },
+        {
+          "name": "extract_updates",
+          "startLine": 86,
+          "endLine": 88,
+          "params": []
+        },
+        {
+          "name": "extract_last_session",
+          "startLine": 90,
+          "endLine": 92,
+          "params": []
+        },
+        {
+          "name": "extract_global_session",
+          "startLine": 94,
+          "endLine": 96,
+          "params": []
+        },
+        {
+          "name": "extract_failing_query",
+          "startLine": 98,
+          "endLine": 100,
+          "params": []
+        },
+        {
+          "name": "extract_fail_info_from_logs",
+          "startLine": 105,
+          "endLine": 148,
+          "params": []
+        },
+        {
+          "name": "gen_seed",
+          "startLine": 158,
+          "endLine": 167,
+          "params": []
+        },
+        {
+          "name": "generate_deterministic",
+          "startLine": 171,
+          "endLine": 208,
+          "params": []
+        },
+        {
+          "name": "generate_sqlsmith",
+          "startLine": 210,
+          "endLine": 216,
+          "params": []
+        },
+        {
+          "name": "check_different_queries",
+          "startLine": 221,
+          "endLine": 227,
+          "params": []
+        },
+        {
+          "name": "check_queries_have_at_least_create_table",
+          "startLine": 230,
+          "endLine": 244,
+          "params": []
+        },
+        {
+          "name": "check_failed_to_generate_queries",
+          "startLine": 247,
+          "endLine": 254,
+          "params": []
+        },
+        {
+          "name": "run_queries_timed",
+          "startLine": 258,
+          "endLine": 265,
+          "params": []
+        },
+        {
+          "name": "run_queries",
+          "startLine": 268,
+          "endLine": 277,
+          "params": []
+        },
+        {
+          "name": "check_failed_to_run_queries",
+          "startLine": 280,
+          "endLine": 287,
+          "params": []
+        },
+        {
+          "name": "setup",
+          "startLine": 291,
+          "endLine": 310,
+          "params": []
+        },
+        {
+          "name": "setup_madsim",
+          "startLine": 312,
+          "endLine": 316,
+          "params": []
+        },
+        {
+          "name": "build",
+          "startLine": 318,
+          "endLine": 321,
+          "params": []
+        },
+        {
+          "name": "generate",
+          "startLine": 323,
+          "endLine": 325,
+          "params": []
+        },
+        {
+          "name": "validate",
+          "startLine": 327,
+          "endLine": 346,
+          "params": []
+        },
+        {
+          "name": "sync_queries",
+          "startLine": 350,
+          "endLine": 362,
+          "params": []
+        },
+        {
+          "name": "sync",
+          "startLine": 364,
+          "endLine": 368,
+          "params": []
+        },
+        {
+          "name": "upload_queries",
+          "startLine": 371,
+          "endLine": 381,
+          "params": []
+        },
+        {
+          "name": "upload",
+          "startLine": 383,
+          "endLine": 387,
+          "params": []
+        },
+        {
+          "name": "cleanup",
+          "startLine": 389,
+          "endLine": 392,
+          "params": []
+        },
+        {
+          "name": "run_generate",
+          "startLine": 396,
+          "endLine": 417,
+          "params": []
+        },
+        {
+          "name": "run_extract",
+          "startLine": 419,
+          "endLine": 433,
+          "params": []
+        },
+        {
+          "name": "main",
+          "startLine": 435,
+          "endLine": 471,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 35,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/tests/sqlsmith/src/bin/main.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 133,
+      "nonEmptyLines": 114,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 94,
+          "endLine": 133,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Opt",
+          "startLine": 30,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "command"
+          ]
+        },
+        {
+          "name": "TestOptions",
+          "startLine": 36,
+          "endLine": 81,
+          "methods": [],
+          "properties": [
+            "host",
+            "port",
+            "db",
+            "user",
+            "pass",
+            "testdata",
+            "count",
+            "generate",
+            "differential_testing",
+            "weight_config_path",
+            "enabled_features"
+          ]
+        },
+        {
+          "name": "Commands",
+          "startLine": 84,
+          "endLine": 91,
+          "methods": [],
+          "properties": [
+            "PrintFunctionTable",
+            "Test"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt::init",
+          "lineNumber": 95
+        },
+        {
+          "caller": "main",
+          "callee": "Opt::parse",
+          "lineNumber": 97
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host)\n        .port(opt.port)\n        .dbname(&opt.db)\n        .user(&opt.user)\n        .password(&opt.pass)\n        .connect_timeout(Duration::from_secs(5))\n        .connect(NoTls)\n        .await.unwrap_or_else",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host)\n        .port(opt.port)\n        .dbname(&opt.db)\n        .user(&opt.user)\n        .password(&opt.pass)\n        .connect_timeout(Duration::from_secs(5)).connect",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host)\n        .port(opt.port)\n        .dbname(&opt.db)\n        .user(&opt.user)\n        .password(&opt.pass).connect_timeout",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host)\n        .port(opt.port)\n        .dbname(&opt.db)\n        .user(&opt.user).password",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host)\n        .port(opt.port)\n        .dbname(&opt.db).user",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host)\n        .port(opt.port).dbname",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host).port",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new().host",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "Duration::from_secs",
+          "lineNumber": 112
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::spawn",
+          "lineNumber": 116
+        },
+        {
+          "caller": "main",
+          "callee": "Configuration::new",
+          "lineNumber": 121
+        },
+        {
+          "caller": "main",
+          "callee": "config.enable_features_from_args",
+          "lineNumber": 122
+        },
+        {
+          "caller": "main",
+          "callee": "run_differential_testing(&client, &opt.testdata, opt.count, &config, None)\n            .await.unwrap",
+          "lineNumber": 124
+        },
+        {
+          "caller": "main",
+          "callee": "run_differential_testing",
+          "lineNumber": 124
+        },
+        {
+          "caller": "main",
+          "callee": "generate",
+          "lineNumber": 129
+        },
+        {
+          "caller": "main",
+          "callee": "run",
+          "lineNumber": 131
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/tests/sqlsmith/src/bin/reducer.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 80,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 42,
+          "endLine": 92,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Args",
+          "startLine": 27,
+          "endLine": 39,
+          "methods": [],
+          "properties": [
+            "input_file",
+            "output_file",
+            "run_rw_cmd"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt()\n        .with_env_filter(EnvFilter::from_default_env())\n        .with_ansi(console::colors_enabled_stderr() && console::colors_enabled())\n        .with_writer(std::io::stderr).try_init",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt()\n        .with_env_filter(EnvFilter::from_default_env())\n        .with_ansi(console::colors_enabled_stderr() && console::colors_enabled()).with_writer",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt()\n        .with_env_filter(EnvFilter::from_default_env()).with_ansi",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt().with_env_filter",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "EnvFilter::from_default_env",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "console::colors_enabled_stderr",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "console::colors_enabled",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "Args::parse",
+          "lineNumber": 49
+        },
+        {
+          "caller": "main",
+          "callee": "Command::new(\"sh\").arg(\"-c\").arg(&args.run_rw_cmd).status",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "Command::new(\"sh\").arg(\"-c\").arg",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "Command::new(\"sh\").arg",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "Command::new",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "s.success",
+          "lineNumber": 56
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(\"localhost\")\n        .port(4566)\n        .dbname(\"dev\")\n        .user(\"root\")\n        .password(\"\")\n        .connect_timeout(Duration::from_secs(5))\n        .connect(NoTls)\n        .await.unwrap_or_else",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(\"localhost\")\n        .port(4566)\n        .dbname(\"dev\")\n        .user(\"root\")\n        .password(\"\")\n        .connect_timeout(Duration::from_secs(5)).connect",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(\"localhost\")\n        .port(4566)\n        .dbname(\"dev\")\n        .user(\"root\")\n        .password(\"\").connect_timeout",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(\"localhost\")\n        .port(4566)\n        .dbname(\"dev\")\n        .user(\"root\").password",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(\"localhost\")\n        .port(4566)\n        .dbname(\"dev\").user",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(\"localhost\")\n        .port(4566).dbname",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(\"localhost\").port",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new().host",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "Duration::from_secs",
+          "lineNumber": 73
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::spawn",
+          "lineNumber": 78
+        },
+        {
+          "caller": "main",
+          "callee": "shrink_file(\n        &args.input_file,\n        &args.output_file,\n        client,\n        &args.run_rw_cmd,\n    )\n    .await.unwrap",
+          "lineNumber": 84
+        },
+        {
+          "caller": "main",
+          "callee": "shrink_file",
+          "lineNumber": 84
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/tests/sqlsmith/src/test_runners/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "src/tests/sqlsmith/tests/frontend/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 328,
+      "nonEmptyLines": 295,
+      "functions": [
+        {
+          "name": "handle",
+          "startLine": 49,
+          "endLine": 55,
+          "params": [
+            "session",
+            "stmt",
+            "sql"
+          ]
+        },
+        {
+          "name": "get_seed_table_sql",
+          "startLine": 57,
+          "endLine": 67,
+          "params": []
+        },
+        {
+          "name": "reproduce_failing_queries",
+          "startLine": 73,
+          "endLine": 88,
+          "params": [
+            "setup",
+            "failing"
+          ]
+        },
+        {
+          "name": "create_tables",
+          "startLine": 91,
+          "endLine": 125,
+          "params": [
+            "session",
+            "rng"
+          ]
+        },
+        {
+          "name": "unparse",
+          "startLine": 128,
+          "endLine": 130,
+          "params": [
+            "sql"
+          ]
+        },
+        {
+          "name": "parse_first_sql_stmt",
+          "startLine": 133,
+          "endLine": 135,
+          "params": [
+            "sql"
+          ]
+        },
+        {
+          "name": "round_trip_parse_test",
+          "startLine": 138,
+          "endLine": 151,
+          "params": [
+            "sql"
+          ]
+        },
+        {
+          "name": "test_stream_query",
+          "startLine": 153,
+          "endLine": 186,
+          "params": [
+            "session",
+            "tables",
+            "seed",
+            "setup_sql"
+          ]
+        },
+        {
+          "name": "run_batch_query",
+          "startLine": 188,
+          "endLine": 219,
+          "params": [
+            "session",
+            "context",
+            "stmt"
+          ]
+        },
+        {
+          "name": "test_batch_query",
+          "startLine": 221,
+          "endLine": 252,
+          "params": [
+            "session",
+            "tables",
+            "seed",
+            "setup_sql"
+          ]
+        },
+        {
+          "name": "build_runtime",
+          "startLine": 254,
+          "endLine": 259,
+          "params": []
+        },
+        {
+          "name": "setup_sqlsmith_with_seed",
+          "startLine": 264,
+          "endLine": 266,
+          "params": [
+            "seed"
+          ]
+        },
+        {
+          "name": "setup_sqlsmith_with_seed_inner",
+          "startLine": 268,
+          "endLine": 286,
+          "params": [
+            "seed"
+          ]
+        },
+        {
+          "name": "validate_result",
+          "startLine": 291,
+          "endLine": 302,
+          "params": [
+            "result"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 304,
+          "endLine": 328,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SqlsmithEnv",
+          "startLine": 38,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "session",
+            "tables",
+            "setup_sql"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SqlsmithEnv",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 304,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "handle",
+          "callee": "Box::pin(handler::handle(session.clone(), stmt, sql, vec![]))\n        .await\n        .map(|_| ()).map_err",
+          "lineNumber": 50
+        },
+        {
+          "caller": "handle",
+          "callee": "Box::pin(handler::handle(session.clone(), stmt, sql, vec![]))\n        .await.map",
+          "lineNumber": 50
+        },
+        {
+          "caller": "handle",
+          "callee": "Box::pin",
+          "lineNumber": 50
+        },
+        {
+          "caller": "handle",
+          "callee": "handler::handle",
+          "lineNumber": 50
+        },
+        {
+          "caller": "handle",
+          "callee": "session.clone",
+          "lineNumber": 50
+        },
+        {
+          "caller": "handle",
+          "callee": "format!(\"Error Reason:\\n{}\", e.as_report()).into",
+          "lineNumber": 53
+        },
+        {
+          "caller": "handle",
+          "callee": "validate_result",
+          "lineNumber": 54
+        },
+        {
+          "caller": "get_seed_table_sql",
+          "callee": "seed_files\n        .iter()\n        .map(|filename| std::fs::read_to_string(filename).unwrap())\n        .collect::<String>",
+          "lineNumber": 63
+        },
+        {
+          "caller": "get_seed_table_sql",
+          "callee": "seed_files\n        .iter().map",
+          "lineNumber": 63
+        },
+        {
+          "caller": "get_seed_table_sql",
+          "callee": "seed_files.iter",
+          "lineNumber": 63
+        },
+        {
+          "caller": "get_seed_table_sql",
+          "callee": "std::fs::read_to_string(filename).unwrap",
+          "lineNumber": 65
+        },
+        {
+          "caller": "get_seed_table_sql",
+          "callee": "std::fs::read_to_string",
+          "lineNumber": 65
+        },
+        {
+          "caller": "create_tables",
+          "callee": "String::with_capacity",
+          "lineNumber": 95
+        },
+        {
+          "caller": "create_tables",
+          "callee": "get_seed_table_sql",
+          "lineNumber": 96
+        },
+        {
+          "caller": "create_tables",
+          "callee": "setup_sql.push_str",
+          "lineNumber": 97
+        },
+        {
+          "caller": "create_tables",
+          "callee": "parse_create_table_statements",
+          "lineNumber": 99
+        },
+        {
+          "caller": "create_tables",
+          "callee": "Arc::from",
+          "lineNumber": 102
+        },
+        {
+          "caller": "create_tables",
+          "callee": "s.to_string",
+          "lineNumber": 102
+        },
+        {
+          "caller": "create_tables",
+          "callee": "Box::pin",
+          "lineNumber": 103
+        },
+        {
+          "caller": "create_tables",
+          "callee": "handle",
+          "lineNumber": 103
+        },
+        {
+          "caller": "create_tables",
+          "callee": "session.clone",
+          "lineNumber": 103
+        },
+        {
+          "caller": "create_tables",
+          "callee": "mview_sql_gen",
+          "lineNumber": 108
+        },
+        {
+          "caller": "create_tables",
+          "callee": "tables.clone",
+          "lineNumber": 110
+        },
+        {
+          "caller": "create_tables",
+          "callee": "Configuration::default",
+          "lineNumber": 112
+        },
+        {
+          "caller": "create_tables",
+          "callee": "Arc::from",
+          "lineNumber": 114
+        },
+        {
+          "caller": "create_tables",
+          "callee": "reproduce_failing_queries",
+          "lineNumber": 115
+        },
+        {
+          "caller": "create_tables",
+          "callee": "setup_sql.push_str",
+          "lineNumber": 116
+        },
+        {
+          "caller": "create_tables",
+          "callee": "parse_sql",
+          "lineNumber": 117
+        },
+        {
+          "caller": "create_tables",
+          "callee": "stmts[0].clone",
+          "lineNumber": 118
+        },
+        {
+          "caller": "create_tables",
+          "callee": "Box::pin",
+          "lineNumber": 119
+        },
+        {
+          "caller": "create_tables",
+          "callee": "handle",
+          "lineNumber": 119
+        },
+        {
+          "caller": "create_tables",
+          "callee": "session.clone",
+          "lineNumber": 119
+        },
+        {
+          "caller": "create_tables",
+          "callee": "tables.push",
+          "lineNumber": 121
+        },
+        {
+          "caller": "create_tables",
+          "callee": "Ok",
+          "lineNumber": 124
+        },
+        {
+          "caller": "parse_first_sql_stmt",
+          "callee": "parse_sql(sql)[0].clone",
+          "lineNumber": 134
+        },
+        {
+          "caller": "parse_first_sql_stmt",
+          "callee": "parse_sql",
+          "lineNumber": 134
+        },
+        {
+          "caller": "round_trip_parse_test",
+          "callee": "parse_first_sql_stmt",
+          "lineNumber": 139
+        },
+        {
+          "caller": "round_trip_parse_test",
+          "callee": "parse_first_sql_stmt",
+          "lineNumber": 140
+        },
+        {
+          "caller": "round_trip_parse_test",
+          "callee": "unparse",
+          "lineNumber": 140
+        },
+        {
+          "caller": "round_trip_parse_test",
+          "callee": "parse_first_sql_stmt",
+          "lineNumber": 140
+        },
+        {
+          "caller": "round_trip_parse_test",
+          "callee": "Err",
+          "lineNumber": 142
+        },
+        {
+          "caller": "round_trip_parse_test",
+          "callee": "format!(\n            \"Roundtrip test failed\\nStart: {}\\nRoundtrip: {}\\n\\\n            Start AST: {:?}\\nRoundtrip AST: {:?}\",\n            sql, round_trip, start, round_trip\n        ).into",
+          "lineNumber": 142
+        },
+        {
+          "caller": "round_trip_parse_test",
+          "callee": "Ok",
+          "lineNumber": 149
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "env::var",
+          "lineNumber": 160
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "SmallRng::from_os_rng",
+          "lineNumber": 163
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "SmallRng::seed_from_u64",
+          "lineNumber": 165
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "mview_sql_gen",
+          "lineNumber": 168
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "tables.clone",
+          "lineNumber": 170
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "Configuration::default",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "Arc::from",
+          "lineNumber": 174
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "reproduce_failing_queries",
+          "lineNumber": 175
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "round_trip_parse_test",
+          "lineNumber": 177
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "Box::pin",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "handle",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "session.clone",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "Arc::from",
+          "lineNumber": 180
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "parse_sql",
+          "lineNumber": 181
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "drop_stmts[0].clone",
+          "lineNumber": 182
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "Box::pin",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "handle",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "session.clone",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_stream_query",
+          "callee": "Ok",
+          "lineNumber": 185
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "session.txn_begin_implicit",
+          "lineNumber": 193
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "Binder::new_for_batch",
+          "lineNumber": 195
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "binder\n        .bind(stmt).map_err",
+          "lineNumber": 196
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "binder.bind",
+          "lineNumber": 196
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "Failed::from",
+          "lineNumber": 198
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "Planner::new_for_batch",
+          "lineNumber": 199
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "planner.plan(bound).map_err",
+          "lineNumber": 200
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "planner.plan",
+          "lineNumber": 200
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "Failed::from",
+          "lineNumber": 201
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "plan_root.gen_batch_plan().map_err",
+          "lineNumber": 206
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "plan_root.gen_batch_plan",
+          "lineNumber": 206
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "Failed::from",
+          "lineNumber": 207
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "batch_plan.gen_batch_distributed_plan().map_err",
+          "lineNumber": 212
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "batch_plan.gen_batch_distributed_plan",
+          "lineNumber": 212
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "Failed::from",
+          "lineNumber": 213
+        },
+        {
+          "caller": "run_batch_query",
+          "callee": "Ok",
+          "lineNumber": 218
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "env::var",
+          "lineNumber": 228
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "SmallRng::from_os_rng",
+          "lineNumber": 231
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "SmallRng::seed_from_u64",
+          "lineNumber": 233
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "Arc::from",
+          "lineNumber": 236
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "sql_gen",
+          "lineNumber": 236
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "Configuration::default",
+          "lineNumber": 236
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "reproduce_failing_queries",
+          "lineNumber": 237
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "round_trip_parse_test",
+          "lineNumber": 240
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "OptimizerContext::from_handler_args(HandlerArgs::new(session.clone(), &stmt, sql)?).into",
+          "lineNumber": 242
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "OptimizerContext::from_handler_args",
+          "lineNumber": 242
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "HandlerArgs::new",
+          "lineNumber": 242
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "session.clone",
+          "lineNumber": 242
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "run_batch_query",
+          "lineNumber": 246
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "validate_result",
+          "lineNumber": 247
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "Ok",
+          "lineNumber": 248
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "Err",
+          "lineNumber": 250
+        },
+        {
+          "caller": "test_batch_query",
+          "callee": "format!(\"Invalid Query: {}\", stmt).into",
+          "lineNumber": 250
+        },
+        {
+          "caller": "build_runtime",
+          "callee": "tokio::runtime::Builder::new_current_thread()\n        .enable_all()\n        .build().unwrap",
+          "lineNumber": 255
+        },
+        {
+          "caller": "build_runtime",
+          "callee": "tokio::runtime::Builder::new_current_thread()\n        .enable_all().build",
+          "lineNumber": 255
+        },
+        {
+          "caller": "build_runtime",
+          "callee": "tokio::runtime::Builder::new_current_thread().enable_all",
+          "lineNumber": 255
+        },
+        {
+          "caller": "build_runtime",
+          "callee": "tokio::runtime::Builder::new_current_thread",
+          "lineNumber": 255
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed",
+          "callee": "build_runtime().block_on",
+          "lineNumber": 265
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed",
+          "callee": "build_runtime",
+          "lineNumber": 265
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed",
+          "callee": "setup_sqlsmith_with_seed_inner",
+          "lineNumber": 265
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed_inner",
+          "callee": "LocalFrontend::new",
+          "lineNumber": 269
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed_inner",
+          "callee": "FrontendOpts::default",
+          "lineNumber": 269
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed_inner",
+          "callee": "frontend.session_ref",
+          "lineNumber": 270
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed_inner",
+          "callee": "env::var",
+          "lineNumber": 273
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed_inner",
+          "callee": "SmallRng::from_os_rng",
+          "lineNumber": 276
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed_inner",
+          "callee": "SmallRng::seed_from_u64",
+          "lineNumber": 278
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed_inner",
+          "callee": "Box::pin",
+          "lineNumber": 280
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed_inner",
+          "callee": "create_tables",
+          "lineNumber": 280
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed_inner",
+          "callee": "session.clone",
+          "lineNumber": 280
+        },
+        {
+          "caller": "setup_sqlsmith_with_seed_inner",
+          "callee": "Ok",
+          "lineNumber": 281
+        },
+        {
+          "caller": "validate_result",
+          "callee": "e.message",
+          "lineNumber": 293
+        },
+        {
+          "caller": "validate_result",
+          "callee": "is_permissible_error",
+          "lineNumber": 294
+        },
+        {
+          "caller": "validate_result",
+          "callee": "Ok",
+          "lineNumber": 296
+        },
+        {
+          "caller": "validate_result",
+          "callee": "Err",
+          "lineNumber": 298
+        },
+        {
+          "caller": "validate_result",
+          "callee": "Ok",
+          "lineNumber": 301
+        },
+        {
+          "caller": "run",
+          "callee": "Arguments::from_args",
+          "lineNumber": 305
+        },
+        {
+          "caller": "run",
+          "callee": "Arc::new",
+          "lineNumber": 306
+        },
+        {
+          "caller": "run",
+          "callee": "setup_sqlsmith_with_seed(0).unwrap",
+          "lineNumber": 306
+        },
+        {
+          "caller": "run",
+          "callee": "setup_sqlsmith_with_seed",
+          "lineNumber": 306
+        },
+        {
+          "caller": "run",
+          "callee": "(0..num_tests)\n        .map(|i| {\n            let env = env.clone();\n            Trial::test(format!(\"run_sqlsmith_on_frontend_{}\", i), move || {\n                let SqlsmithEnv {\n                    session,\n                    tables,\n                    setup_sql,\n                } = &*env;\n                test_batch_query(session.clone(), tables.clone(), i, setup_sql)?;\n                let test_stream_query =\n                    test_stream_query(session.clone(), tables.clone(), i, setup_sql);\n                build_runtime().block_on(test_stream_query)?;\n                Ok(())\n            })\n        }).collect",
+          "lineNumber": 309
+        },
+        {
+          "caller": "run",
+          "callee": "(0..num_tests).map",
+          "lineNumber": 309
+        },
+        {
+          "caller": "run",
+          "callee": "env.clone",
+          "lineNumber": 311
+        },
+        {
+          "caller": "run",
+          "callee": "Trial::test",
+          "lineNumber": 312
+        },
+        {
+          "caller": "run",
+          "callee": "test_batch_query",
+          "lineNumber": 318
+        },
+        {
+          "caller": "run",
+          "callee": "session.clone",
+          "lineNumber": 318
+        },
+        {
+          "caller": "run",
+          "callee": "tables.clone",
+          "lineNumber": 318
+        },
+        {
+          "caller": "run",
+          "callee": "test_stream_query",
+          "lineNumber": 320
+        },
+        {
+          "caller": "run",
+          "callee": "session.clone",
+          "lineNumber": 320
+        },
+        {
+          "caller": "run",
+          "callee": "tables.clone",
+          "lineNumber": 320
+        },
+        {
+          "caller": "run",
+          "callee": "build_runtime().block_on",
+          "lineNumber": 321
+        },
+        {
+          "caller": "run",
+          "callee": "build_runtime",
+          "lineNumber": 321
+        },
+        {
+          "caller": "run",
+          "callee": "Ok",
+          "lineNumber": 322
+        },
+        {
+          "caller": "run",
+          "callee": "libtest_mimic::run(&args, tests).exit",
+          "lineNumber": 327
+        },
+        {
+          "caller": "run",
+          "callee": "libtest_mimic::run",
+          "lineNumber": 327
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 15,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/tests/sqlsmith/tests/test_runner.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 19,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "main",
+          "startLine": 24,
+          "endLine": 24,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "frontend::run",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/tests/state_cleaning_test/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 32,
+      "nonEmptyLines": 28,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "target.'cfg(not(madsim))'.dependencies",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "[[bin]]",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "src/tests/state_cleaning_test/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 18,
+      "nonEmptyLines": 14,
+      "sections": [
+        {
+          "heading": "risingwave_state_cleaning_test",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "TOML files",
+          "level": 2,
+          "line": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "src/tests/state_cleaning_test/src/bin/main.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 234,
+      "nonEmptyLines": 195,
+      "functions": [
+        {
+          "name": "validate_case",
+          "startLine": 77,
+          "endLine": 156,
+          "params": [
+            "client",
+            "TestCase {\n        name,\n        init_sqls,\n        bound_tables,\n    }"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 159,
+          "endLine": 234,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestOptions",
+          "startLine": 35,
+          "endLine": 55,
+          "methods": [],
+          "properties": [
+            "host",
+            "port",
+            "db",
+            "user",
+            "pass"
+          ]
+        },
+        {
+          "name": "BoundTable",
+          "startLine": 58,
+          "endLine": 61,
+          "methods": [],
+          "properties": [
+            "pattern",
+            "limit"
+          ]
+        },
+        {
+          "name": "TestCase",
+          "startLine": 65,
+          "endLine": 70,
+          "methods": [],
+          "properties": [
+            "name",
+            "init_sqls",
+            "bound_tables"
+          ]
+        },
+        {
+          "name": "TestFile",
+          "startLine": 73,
+          "endLine": 75,
+          "methods": [],
+          "properties": [
+            "test"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "validate_case",
+          "callee": "client.simple_query",
+          "lineNumber": 88
+        },
+        {
+          "caller": "validate_case",
+          "callee": "client.simple_query",
+          "lineNumber": 91
+        },
+        {
+          "caller": "validate_case",
+          "callee": "msgs\n        .into_iter()\n        .filter_map(|msg| {\n            let SimpleQueryMessage::Row(row) = msg else {\n                return None;\n            };\n            Some(row.get(\"Name\").unwrap().to_owned())\n        }).collect",
+          "lineNumber": 92
+        },
+        {
+          "caller": "validate_case",
+          "callee": "msgs\n        .into_iter().filter_map",
+          "lineNumber": 92
+        },
+        {
+          "caller": "validate_case",
+          "callee": "msgs.into_iter",
+          "lineNumber": 92
+        },
+        {
+          "caller": "validate_case",
+          "callee": "Some",
+          "lineNumber": 98
+        },
+        {
+          "caller": "validate_case",
+          "callee": "row.get(\"Name\").unwrap().to_owned",
+          "lineNumber": 98
+        },
+        {
+          "caller": "validate_case",
+          "callee": "row.get(\"Name\").unwrap",
+          "lineNumber": 98
+        },
+        {
+          "caller": "validate_case",
+          "callee": "row.get",
+          "lineNumber": 98
+        },
+        {
+          "caller": "validate_case",
+          "callee": "bound_tables\n        .into_iter()\n        .map(|t| {\n            let pattern = Regex::new(&t.pattern).unwrap();\n            let interested_tables = internal_tables\n                .iter()\n                .filter(|t| pattern.is_match(t))\n                .cloned()\n                .collect::<Vec<_>>();\n            ProcessedBoundTable {\n                interested_tables,\n                limit: t.limit,\n            }\n        }).collect",
+          "lineNumber": 109
+        },
+        {
+          "caller": "validate_case",
+          "callee": "bound_tables\n        .into_iter().map",
+          "lineNumber": 109
+        },
+        {
+          "caller": "validate_case",
+          "callee": "bound_tables.into_iter",
+          "lineNumber": 109
+        },
+        {
+          "caller": "validate_case",
+          "callee": "Regex::new(&t.pattern).unwrap",
+          "lineNumber": 112
+        },
+        {
+          "caller": "validate_case",
+          "callee": "Regex::new",
+          "lineNumber": 112
+        },
+        {
+          "caller": "validate_case",
+          "callee": "internal_tables\n                .iter()\n                .filter(|t| pattern.is_match(t))\n                .cloned()\n                .collect::<Vec<_>>",
+          "lineNumber": 113
+        },
+        {
+          "caller": "validate_case",
+          "callee": "internal_tables\n                .iter()\n                .filter(|t| pattern.is_match(t)).cloned",
+          "lineNumber": 113
+        },
+        {
+          "caller": "validate_case",
+          "callee": "internal_tables\n                .iter().filter",
+          "lineNumber": 113
+        },
+        {
+          "caller": "validate_case",
+          "callee": "internal_tables.iter",
+          "lineNumber": 113
+        },
+        {
+          "caller": "validate_case",
+          "callee": "pattern.is_match",
+          "lineNumber": 115
+        },
+        {
+          "caller": "validate_case",
+          "callee": "std::time::Duration::from_secs",
+          "lineNumber": 128
+        },
+        {
+          "caller": "validate_case",
+          "callee": "client.query_one",
+          "lineNumber": 138
+        },
+        {
+          "caller": "validate_case",
+          "callee": "res.get",
+          "lineNumber": 139
+        },
+        {
+          "caller": "validate_case",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 152
+        },
+        {
+          "caller": "validate_case",
+          "callee": "Ok",
+          "lineNumber": 155
+        },
+        {
+          "caller": "main",
+          "callee": "risingwave_rt::init_risingwave_logger",
+          "lineNumber": 160
+        },
+        {
+          "caller": "main",
+          "callee": "risingwave_rt::LoggerSettings::default",
+          "lineNumber": 160
+        },
+        {
+          "caller": "main",
+          "callee": "TestOptions::parse",
+          "lineNumber": 162
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host)\n        .port(opt.port)\n        .user(&opt.user)\n        .password(&opt.pass)\n        .connect_timeout(Duration::from_secs(5)).clone",
+          "lineNumber": 164
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host)\n        .port(opt.port)\n        .user(&opt.user)\n        .password(&opt.pass).connect_timeout",
+          "lineNumber": 164
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host)\n        .port(opt.port)\n        .user(&opt.user).password",
+          "lineNumber": 164
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host)\n        .port(opt.port).user",
+          "lineNumber": 164
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new()\n        .host(&opt.host).port",
+          "lineNumber": 164
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new().host",
+          "lineNumber": 164
+        },
+        {
+          "caller": "main",
+          "callee": "tokio_postgres::Config::new",
+          "lineNumber": 164
+        },
+        {
+          "caller": "main",
+          "callee": "Duration::from_secs",
+          "lineNumber": 169
+        },
+        {
+          "caller": "main",
+          "callee": "conn_builder\n        .clone()\n        .dbname(&opt.db)\n        .connect(NoTls)\n        .await.unwrap_or_else",
+          "lineNumber": 172
+        },
+        {
+          "caller": "main",
+          "callee": "conn_builder\n        .clone()\n        .dbname(&opt.db).connect",
+          "lineNumber": 172
+        },
+        {
+          "caller": "main",
+          "callee": "conn_builder\n        .clone().dbname",
+          "lineNumber": 172
+        },
+        {
+          "caller": "main",
+          "callee": "conn_builder.clone",
+          "lineNumber": 172
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::spawn",
+          "lineNumber": 179
+        },
+        {
+          "caller": "main",
+          "callee": "SystemTime::now()\n        .duration_since(UNIX_EPOCH)\n        .expect(\"Time went backwards\").as_secs",
+          "lineNumber": 185
+        },
+        {
+          "caller": "main",
+          "callee": "SystemTime::now()\n        .duration_since(UNIX_EPOCH).expect",
+          "lineNumber": 185
+        },
+        {
+          "caller": "main",
+          "callee": "SystemTime::now().duration_since",
+          "lineNumber": 185
+        },
+        {
+          "caller": "main",
+          "callee": "SystemTime::now",
+          "lineNumber": 185
+        },
+        {
+          "caller": "main",
+          "callee": "PathBuf::from_str(manifest).unwrap().join",
+          "lineNumber": 192
+        },
+        {
+          "caller": "main",
+          "callee": "PathBuf::from_str(manifest).unwrap",
+          "lineNumber": 192
+        },
+        {
+          "caller": "main",
+          "callee": "PathBuf::from_str",
+          "lineNumber": 192
+        },
+        {
+          "caller": "main",
+          "callee": "ReadDirStream::new(fs::read_dir(data_dir).await?)\n        .map(|path| async {\n            let path = path?.path();\n            let content = tokio::fs::read_to_string(&path).await?;\n            let test_file: TestFile = toml::from_str(&content)?;\n            let cases = test_file.test;\n\n            let test_name = path.file_stem().unwrap().to_string_lossy();\n\n            let cur_db_name = format!(\"state_cleaning_test_{}_{}\", test_name, now);\n\n            main_client\n                .simple_query(&format!(\"CREATE DATABASE {}\", cur_db_name))\n                .await?;\n\n            let (client, connection) = conn_builder\n                .clone()\n                .dbname(&cur_db_name)\n                .connect(NoTls)\n                .await?;\n\n            info!(%test_name, %cur_db_name, \"run test in new database\");\n\n            tokio::spawn(async move {\n                if let Err(e) = connection.await {\n                    error!(?e, \"connection error\");\n                }\n            });\n\n            for case in cases {\n                validate_case(&client, case).await?;\n            }\n\n            Ok::<_, anyhow::Error>(())\n        })\n        .buffer_unordered(16)\n        .try_collect::<()>",
+          "lineNumber": 194
+        },
+        {
+          "caller": "main",
+          "callee": "ReadDirStream::new(fs::read_dir(data_dir).await?)\n        .map(|path| async {\n            let path = path?.path();\n            let content = tokio::fs::read_to_string(&path).await?;\n            let test_file: TestFile = toml::from_str(&content)?;\n            let cases = test_file.test;\n\n            let test_name = path.file_stem().unwrap().to_string_lossy();\n\n            let cur_db_name = format!(\"state_cleaning_test_{}_{}\", test_name, now);\n\n            main_client\n                .simple_query(&format!(\"CREATE DATABASE {}\", cur_db_name))\n                .await?;\n\n            let (client, connection) = conn_builder\n                .clone()\n                .dbname(&cur_db_name)\n                .connect(NoTls)\n                .await?;\n\n            info!(%test_name, %cur_db_name, \"run test in new database\");\n\n            tokio::spawn(async move {\n                if let Err(e) = connection.await {\n                    error!(?e, \"connection error\");\n                }\n            });\n\n            for case in cases {\n                validate_case(&client, case).await?;\n            }\n\n            Ok::<_, anyhow::Error>(())\n        }).buffer_unordered",
+          "lineNumber": 194
+        },
+        {
+          "caller": "main",
+          "callee": "ReadDirStream::new(fs::read_dir(data_dir).await?).map",
+          "lineNumber": 194
+        },
+        {
+          "caller": "main",
+          "callee": "ReadDirStream::new",
+          "lineNumber": 194
+        },
+        {
+          "caller": "main",
+          "callee": "fs::read_dir",
+          "lineNumber": 194
+        },
+        {
+          "caller": "main",
+          "callee": "path?.path",
+          "lineNumber": 196
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::fs::read_to_string",
+          "lineNumber": 197
+        },
+        {
+          "caller": "main",
+          "callee": "toml::from_str",
+          "lineNumber": 198
+        },
+        {
+          "caller": "main",
+          "callee": "path.file_stem().unwrap().to_string_lossy",
+          "lineNumber": 201
+        },
+        {
+          "caller": "main",
+          "callee": "path.file_stem().unwrap",
+          "lineNumber": 201
+        },
+        {
+          "caller": "main",
+          "callee": "path.file_stem",
+          "lineNumber": 201
+        },
+        {
+          "caller": "main",
+          "callee": "main_client.simple_query",
+          "lineNumber": 205
+        },
+        {
+          "caller": "main",
+          "callee": "conn_builder\n                .clone()\n                .dbname(&cur_db_name).connect",
+          "lineNumber": 209
+        },
+        {
+          "caller": "main",
+          "callee": "conn_builder\n                .clone().dbname",
+          "lineNumber": 209
+        },
+        {
+          "caller": "main",
+          "callee": "conn_builder.clone",
+          "lineNumber": 209
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::spawn",
+          "lineNumber": 217
+        },
+        {
+          "caller": "main",
+          "callee": "validate_case",
+          "lineNumber": 224
+        },
+        {
+          "caller": "main",
+          "callee": "Ok::<_, anyhow::Error>",
+          "lineNumber": 227
+        },
+        {
+          "caller": "main",
+          "callee": "Ok",
+          "lineNumber": 233
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "src/utils/delta_btree_map/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 15,
+      "nonEmptyLines": 13,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "src/utils/delta_btree_map/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 660,
+      "nonEmptyLines": 601,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 45,
+          "endLine": 66,
+          "params": [
+            "snapshot",
+            "delta"
+          ]
+        },
+        {
+          "name": "snapshot",
+          "startLine": 69,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "delta",
+          "startLine": 74,
+          "endLine": 76,
+          "params": []
+        },
+        {
+          "name": "first_key",
+          "startLine": 79,
+          "endLine": 81,
+          "params": []
+        },
+        {
+          "name": "last_key",
+          "startLine": 84,
+          "endLine": 86,
+          "params": []
+        },
+        {
+          "name": "before",
+          "startLine": 90,
+          "endLine": 96,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "after",
+          "startLine": 100,
+          "endLine": 106,
+          "params": [
+            "key"
+          ]
+        },
+        {
+          "name": "lower_bound",
+          "startLine": 109,
+          "endLine": 116,
+          "params": [
+            "bound"
+          ]
+        },
+        {
+          "name": "upper_bound",
+          "startLine": 119,
+          "endLine": 126,
+          "params": [
+            "bound"
+          ]
+        },
+        {
+          "name": "peek_prev",
+          "startLine": 149,
+          "endLine": 151,
+          "params": []
+        },
+        {
+          "name": "peek_next",
+          "startLine": 153,
+          "endLine": 155,
+          "params": []
+        },
+        {
+          "name": "prev",
+          "startLine": 157,
+          "endLine": 159,
+          "params": []
+        },
+        {
+          "name": "next",
+          "startLine": 162,
+          "endLine": 164,
+          "params": []
+        },
+        {
+          "name": "peek",
+          "startLine": 166,
+          "endLine": 170,
+          "params": []
+        },
+        {
+          "name": "r#move",
+          "startLine": 172,
+          "endLine": 179,
+          "params": []
+        },
+        {
+          "name": "move_impl",
+          "startLine": 181,
+          "endLine": 240,
+          "params": [
+            "ss_cursor",
+            "dt_cursor"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DeltaBTreeMap",
+          "startLine": 28,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "snapshot",
+            "delta",
+            "first_key",
+            "last_key"
+          ]
+        },
+        {
+          "name": "Change",
+          "startLine": 37,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "Insert",
+            "Delete"
+          ]
+        },
+        {
+          "name": "CursorWithDelta",
+          "startLine": 143,
+          "endLine": 146,
+          "methods": [],
+          "properties": [
+            "ss_cursor",
+            "dt_cursor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DeltaBTreeMap",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "Change",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "snapshot",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "delta",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "first_key",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "last_key",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "before",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "after",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "lower_bound",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "upper_bound",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "CursorWithDelta",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "peek_prev",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "peek_next",
+          "line": 153,
+          "isDefault": false
+        },
+        {
+          "name": "prev",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "next",
+          "line": 162,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "snapshot.lower_bound",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new",
+          "callee": "delta.lower_bound",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new",
+          "callee": "cursor.peek_next().map",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new",
+          "callee": "cursor.peek_next",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new",
+          "callee": "snapshot.upper_bound",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new",
+          "callee": "delta.upper_bound",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new",
+          "callee": "cursor.peek_prev().map",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new",
+          "callee": "cursor.peek_prev",
+          "lineNumber": 58
+        },
+        {
+          "caller": "before",
+          "callee": "self.lower_bound",
+          "lineNumber": 91
+        },
+        {
+          "caller": "before",
+          "callee": "Bound::Included",
+          "lineNumber": 91
+        },
+        {
+          "caller": "before",
+          "callee": "cursor.peek_next().map",
+          "lineNumber": 92
+        },
+        {
+          "caller": "before",
+          "callee": "cursor.peek_next",
+          "lineNumber": 92
+        },
+        {
+          "caller": "before",
+          "callee": "Some",
+          "lineNumber": 92
+        },
+        {
+          "caller": "before",
+          "callee": "Some",
+          "lineNumber": 95
+        },
+        {
+          "caller": "after",
+          "callee": "self.upper_bound",
+          "lineNumber": 101
+        },
+        {
+          "caller": "after",
+          "callee": "Bound::Included",
+          "lineNumber": 101
+        },
+        {
+          "caller": "after",
+          "callee": "cursor.peek_prev().map",
+          "lineNumber": 102
+        },
+        {
+          "caller": "after",
+          "callee": "cursor.peek_prev",
+          "lineNumber": 102
+        },
+        {
+          "caller": "after",
+          "callee": "Some",
+          "lineNumber": 102
+        },
+        {
+          "caller": "after",
+          "callee": "Some",
+          "lineNumber": 105
+        },
+        {
+          "caller": "lower_bound",
+          "callee": "self.snapshot.lower_bound",
+          "lineNumber": 110
+        },
+        {
+          "caller": "lower_bound",
+          "callee": "self.delta.lower_bound",
+          "lineNumber": 111
+        },
+        {
+          "caller": "upper_bound",
+          "callee": "self.snapshot.upper_bound",
+          "lineNumber": 120
+        },
+        {
+          "caller": "upper_bound",
+          "callee": "self.delta.upper_bound",
+          "lineNumber": 121
+        },
+        {
+          "caller": "peek_prev",
+          "callee": "self.peek::<false /* PREV */>",
+          "lineNumber": 150
+        },
+        {
+          "caller": "peek_next",
+          "callee": "self.peek::<true /* NEXT */>",
+          "lineNumber": 154
+        },
+        {
+          "caller": "prev",
+          "callee": "self.r#move::<false /* PREV */>",
+          "lineNumber": 158
+        },
+        {
+          "caller": "next",
+          "callee": "self.r#move::<true /* NEXT */>",
+          "lineNumber": 163
+        },
+        {
+          "caller": "peek",
+          "callee": "self.ss_cursor.clone",
+          "lineNumber": 167
+        },
+        {
+          "caller": "peek",
+          "callee": "self.dt_cursor.clone",
+          "lineNumber": 168
+        },
+        {
+          "caller": "peek",
+          "callee": "Self::move_impl::<NEXT>",
+          "lineNumber": 169
+        },
+        {
+          "caller": "r#move",
+          "callee": "self.ss_cursor.clone",
+          "lineNumber": 173
+        },
+        {
+          "caller": "r#move",
+          "callee": "self.dt_cursor.clone",
+          "lineNumber": 174
+        },
+        {
+          "caller": "r#move",
+          "callee": "Self::move_impl::<NEXT>",
+          "lineNumber": 175
+        },
+        {
+          "caller": "move_impl",
+          "callee": "ss_cursor.peek_next",
+          "lineNumber": 187
+        },
+        {
+          "caller": "move_impl",
+          "callee": "ss_cursor.peek_prev",
+          "lineNumber": 189
+        },
+        {
+          "caller": "move_impl",
+          "callee": "dt_cursor.peek_next",
+          "lineNumber": 192
+        },
+        {
+          "caller": "move_impl",
+          "callee": "dt_cursor.peek_prev",
+          "lineNumber": 194
+        },
+        {
+          "caller": "move_impl",
+          "callee": "ss_key.cmp",
+          "lineNumber": 201
+        },
+        {
+          "caller": "move_impl",
+          "callee": "ss_cursor.next().unwrap",
+          "lineNumber": 206
+        },
+        {
+          "caller": "move_impl",
+          "callee": "ss_cursor.next",
+          "lineNumber": 206
+        },
+        {
+          "caller": "move_impl",
+          "callee": "ss_cursor.prev().unwrap",
+          "lineNumber": 208
+        },
+        {
+          "caller": "move_impl",
+          "callee": "ss_cursor.prev",
+          "lineNumber": 208
+        },
+        {
+          "caller": "move_impl",
+          "callee": "dt_cursor.next().unwrap",
+          "lineNumber": 214
+        },
+        {
+          "caller": "move_impl",
+          "callee": "dt_cursor.next",
+          "lineNumber": 214
+        },
+        {
+          "caller": "move_impl",
+          "callee": "dt_cursor.prev().unwrap",
+          "lineNumber": 216
+        },
+        {
+          "caller": "move_impl",
+          "callee": "dt_cursor.prev",
+          "lineNumber": 216
+        },
+        {
+          "caller": "move_impl",
+          "callee": "dt_cursor.next().unwrap",
+          "lineNumber": 227
+        },
+        {
+          "caller": "move_impl",
+          "callee": "dt_cursor.next",
+          "lineNumber": 227
+        },
+        {
+          "caller": "move_impl",
+          "callee": "dt_cursor.prev().unwrap",
+          "lineNumber": 229
+        },
+        {
+          "caller": "move_impl",
+          "callee": "dt_cursor.prev",
+          "lineNumber": 229
+        },
+        {
+          "caller": "move_impl",
+          "callee": "Some",
+          "lineNumber": 231
+        },
+        {
+          "caller": "move_impl",
+          "callee": "change.as_insert().unwrap",
+          "lineNumber": 231
+        },
+        {
+          "caller": "move_impl",
+          "callee": "change.as_insert",
+          "lineNumber": 231
+        },
+        {
+          "caller": "move_impl",
+          "callee": "ss_cursor.next",
+          "lineNumber": 234
+        },
+        {
+          "caller": "move_impl",
+          "callee": "ss_cursor.prev",
+          "lineNumber": 236
+        },
+        {
+          "caller": "test_empty",
+          "callee": "BTreeMap::new",
+          "lineNumber": 249
+        },
+        {
+          "caller": "test_empty",
+          "callee": "BTreeMap::new",
+          "lineNumber": 250
+        },
+        {
+          "caller": "test_empty",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 251
+        },
+        {
+          "caller": "test_empty",
+          "callee": "BTreeMap::new",
+          "lineNumber": 260
+        },
+        {
+          "caller": "test_empty",
+          "callee": "map.insert",
+          "lineNumber": 261
+        },
+        {
+          "caller": "test_empty",
+          "callee": "map.insert",
+          "lineNumber": 262
+        },
+        {
+          "caller": "test_empty",
+          "callee": "BTreeMap::new",
+          "lineNumber": 263
+        },
+        {
+          "caller": "test_empty",
+          "callee": "delta.insert",
+          "lineNumber": 264
+        },
+        {
+          "caller": "test_empty",
+          "callee": "delta.insert",
+          "lineNumber": 265
+        },
+        {
+          "caller": "test_empty",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 266
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "BTreeMap::new",
+          "lineNumber": 276
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "map.insert",
+          "lineNumber": 277
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "map.insert",
+          "lineNumber": 278
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "map.insert",
+          "lineNumber": 279
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "BTreeMap::new",
+          "lineNumber": 280
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 281
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "delta_map.before(&2).unwrap",
+          "lineNumber": 303
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "delta_map.before",
+          "lineNumber": 303
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "cursor.next().unwrap",
+          "lineNumber": 306
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "cursor.next",
+          "lineNumber": 306
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "cursor.next",
+          "lineNumber": 311
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "cursor.next",
+          "lineNumber": 313
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "cursor.prev",
+          "lineNumber": 316
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "cursor.prev",
+          "lineNumber": 318
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "cursor.prev",
+          "lineNumber": 319
+        },
+        {
+          "caller": "test_empty_delta",
+          "callee": "cursor.prev",
+          "lineNumber": 322
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "BTreeMap::new",
+          "lineNumber": 329
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "BTreeMap::new",
+          "lineNumber": 330
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "delta.insert",
+          "lineNumber": 331
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "Change::Insert",
+          "lineNumber": 331
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "delta.insert",
+          "lineNumber": 332
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "Change::Insert",
+          "lineNumber": 332
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 333
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "delta_map.before(&2).unwrap",
+          "lineNumber": 355
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "delta_map.before",
+          "lineNumber": 355
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "cursor.next",
+          "lineNumber": 358
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "cursor.next",
+          "lineNumber": 361
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "cursor.prev",
+          "lineNumber": 364
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "cursor.prev",
+          "lineNumber": 367
+        },
+        {
+          "caller": "test_empty_snapshot",
+          "callee": "cursor.prev",
+          "lineNumber": 370
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "BTreeMap::new",
+          "lineNumber": 377
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "map.insert",
+          "lineNumber": 378
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "map.insert",
+          "lineNumber": 379
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "BTreeMap::new",
+          "lineNumber": 380
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "delta.insert",
+          "lineNumber": 381
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 382
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "delta_map.before(&3).unwrap",
+          "lineNumber": 402
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "delta_map.before",
+          "lineNumber": 402
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "cursor.next",
+          "lineNumber": 405
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "cursor.prev",
+          "lineNumber": 408
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "cursor.prev",
+          "lineNumber": 411
+        },
+        {
+          "caller": "test_delete_first",
+          "callee": "cursor.next",
+          "lineNumber": 414
+        },
+        {
+          "caller": "test_delete_last",
+          "callee": "BTreeMap::new",
+          "lineNumber": 421
+        },
+        {
+          "caller": "test_delete_last",
+          "callee": "map.insert",
+          "lineNumber": 422
+        },
+        {
+          "caller": "test_delete_last",
+          "callee": "map.insert",
+          "lineNumber": 423
+        },
+        {
+          "caller": "test_delete_last",
+          "callee": "BTreeMap::new",
+          "lineNumber": 424
+        },
+        {
+          "caller": "test_delete_last",
+          "callee": "delta.insert",
+          "lineNumber": 425
+        },
+        {
+          "caller": "test_delete_last",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 426
+        },
+        {
+          "caller": "test_delete_last",
+          "callee": "delta_map.before(&1).unwrap",
+          "lineNumber": 446
+        },
+        {
+          "caller": "test_delete_last",
+          "callee": "delta_map.before",
+          "lineNumber": 446
+        },
+        {
+          "caller": "test_delete_last",
+          "callee": "cursor.next",
+          "lineNumber": 448
+        },
+        {
+          "caller": "test_delete_last",
+          "callee": "cursor.prev",
+          "lineNumber": 451
+        },
+        {
+          "caller": "test_delete_all",
+          "callee": "BTreeMap::new",
+          "lineNumber": 458
+        },
+        {
+          "caller": "test_delete_all",
+          "callee": "map.insert",
+          "lineNumber": 459
+        },
+        {
+          "caller": "test_delete_all",
+          "callee": "map.insert",
+          "lineNumber": 460
+        },
+        {
+          "caller": "test_delete_all",
+          "callee": "BTreeMap::new",
+          "lineNumber": 461
+        },
+        {
+          "caller": "test_delete_all",
+          "callee": "delta.insert",
+          "lineNumber": 462
+        },
+        {
+          "caller": "test_delete_all",
+          "callee": "delta.insert",
+          "lineNumber": 463
+        },
+        {
+          "caller": "test_delete_all",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 464
+        },
+        {
+          "caller": "test_insert_middle",
+          "callee": "BTreeMap::new",
+          "lineNumber": 477
+        },
+        {
+          "caller": "test_insert_middle",
+          "callee": "map.insert",
+          "lineNumber": 478
+        },
+        {
+          "caller": "test_insert_middle",
+          "callee": "map.insert",
+          "lineNumber": 479
+        },
+        {
+          "caller": "test_insert_middle",
+          "callee": "BTreeMap::new",
+          "lineNumber": 480
+        },
+        {
+          "caller": "test_insert_middle",
+          "callee": "delta.insert",
+          "lineNumber": 481
+        },
+        {
+          "caller": "test_insert_middle",
+          "callee": "Change::Insert",
+          "lineNumber": 481
+        },
+        {
+          "caller": "test_insert_middle",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 482
+        },
+        {
+          "caller": "test_insert_middle",
+          "callee": "delta_map.before(&2).unwrap",
+          "lineNumber": 504
+        },
+        {
+          "caller": "test_insert_middle",
+          "callee": "delta_map.before",
+          "lineNumber": 504
+        },
+        {
+          "caller": "test_insert_middle",
+          "callee": "cursor.next",
+          "lineNumber": 507
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "BTreeMap::new",
+          "lineNumber": 514
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "map.insert",
+          "lineNumber": 515
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "map.insert",
+          "lineNumber": 516
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "BTreeMap::new",
+          "lineNumber": 517
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "delta.insert",
+          "lineNumber": 518
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "Change::Insert",
+          "lineNumber": 518
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 519
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "delta_map.before(&1).unwrap",
+          "lineNumber": 524
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "delta_map.before",
+          "lineNumber": 524
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "cursor.next",
+          "lineNumber": 527
+        },
+        {
+          "caller": "test_update_first",
+          "callee": "cursor.prev",
+          "lineNumber": 530
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "BTreeMap::new",
+          "lineNumber": 537
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "map.insert",
+          "lineNumber": 538
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "map.insert",
+          "lineNumber": 539
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "BTreeMap::new",
+          "lineNumber": 540
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "delta.insert",
+          "lineNumber": 541
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "Change::Insert",
+          "lineNumber": 541
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 542
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "delta_map.before(&3).unwrap",
+          "lineNumber": 547
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "delta_map.before",
+          "lineNumber": 547
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "cursor.next",
+          "lineNumber": 550
+        },
+        {
+          "caller": "test_update_last",
+          "callee": "cursor.prev",
+          "lineNumber": 553
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "BTreeMap::new",
+          "lineNumber": 560
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "map.insert",
+          "lineNumber": 561
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "map.insert",
+          "lineNumber": 562
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "map.insert",
+          "lineNumber": 563
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "BTreeMap::new",
+          "lineNumber": 564
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "delta.insert",
+          "lineNumber": 565
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "Change::Insert",
+          "lineNumber": 565
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "delta.insert",
+          "lineNumber": 566
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "Change::Insert",
+          "lineNumber": 566
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "delta.insert",
+          "lineNumber": 567
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "delta.insert",
+          "lineNumber": 568
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "Change::Insert",
+          "lineNumber": 568
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 569
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "delta_map.before(&0).unwrap",
+          "lineNumber": 601
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "delta_map.before",
+          "lineNumber": 601
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "cursor.next",
+          "lineNumber": 603
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "cursor.next",
+          "lineNumber": 605
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "cursor.next",
+          "lineNumber": 607
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "cursor.next",
+          "lineNumber": 609
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "cursor.next",
+          "lineNumber": 611
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "cursor.prev",
+          "lineNumber": 613
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "cursor.prev",
+          "lineNumber": 615
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "cursor.prev",
+          "lineNumber": 617
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "cursor.prev",
+          "lineNumber": 619
+        },
+        {
+          "caller": "test_mixed",
+          "callee": "cursor.prev",
+          "lineNumber": 622
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "BTreeMap::new",
+          "lineNumber": 629
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "map.insert",
+          "lineNumber": 630
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "map.insert",
+          "lineNumber": 631
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "map.insert",
+          "lineNumber": 632
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "map.insert",
+          "lineNumber": 633
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "map.insert",
+          "lineNumber": 634
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "BTreeMap::new",
+          "lineNumber": 635
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "delta.insert",
+          "lineNumber": 636
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "Change::Insert",
+          "lineNumber": 636
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "delta.insert",
+          "lineNumber": 637
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "Change::Insert",
+          "lineNumber": 637
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "delta.insert",
+          "lineNumber": 638
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "delta.insert",
+          "lineNumber": 639
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "delta.insert",
+          "lineNumber": 640
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "DeltaBTreeMap::new",
+          "lineNumber": 641
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "delta_map.before(&0).unwrap",
+          "lineNumber": 646
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "delta_map.before",
+          "lineNumber": 646
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "cursor.next",
+          "lineNumber": 648
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "res.push",
+          "lineNumber": 649
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "delta_map.after(&3).unwrap",
+          "lineNumber": 653
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "delta_map.after",
+          "lineNumber": 653
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "cursor.prev",
+          "lineNumber": 655
+        },
+        {
+          "caller": "test_mixed_complex",
+          "callee": "res.push",
+          "lineNumber": 656
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 16,
+        "functionCount": 16,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/utils/futures_util/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 15,
+      "nonEmptyLines": 12,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "dev-dependencies",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "src/utils/iter_util/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "src/utils/iter_util/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "zip_eq_fast",
+          "startLine": 48,
+          "endLine": 56,
+          "params": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ZipEqFast",
+          "startLine": 15,
+          "endLine": 29,
+          "methods": [
+            "zip_eq_fast"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ZipEqDebug",
+          "startLine": 33,
+          "endLine": 44,
+          "methods": [
+            "zip_eq_debug"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ZipEqFast",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "ZipEqDebug",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "zip_eq_fast",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "zip_eq_fast",
+          "callee": "other.into_iter",
+          "lineNumber": 25
+        },
+        {
+          "caller": "zip_eq_fast",
+          "callee": "self.zip",
+          "lineNumber": 27
+        },
+        {
+          "caller": "zip_eq_debug",
+          "callee": "self.zip_eq",
+          "lineNumber": 40
+        },
+        {
+          "caller": "zip_eq_debug",
+          "callee": "self.zip",
+          "lineNumber": 42
+        },
+        {
+          "caller": "zip_eq_fast",
+          "callee": "a.into_iter().zip_eq_fast",
+          "lineNumber": 55
+        },
+        {
+          "caller": "zip_eq_fast",
+          "callee": "a.into_iter",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 1,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/utils/openai_embedding_service/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 23,
+      "nonEmptyLines": 20,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "[[bin]]",
+          "level": 1,
+          "line": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "src/utils/openai_embedding_service/src/bin/mocked_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 18,
+          "endLine": 42,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt::init",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "serve_embedding_service",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "inputs.iter().map(|s| s.len()).sum",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "inputs.iter().map",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "inputs.iter",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "s.len",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "inputs\n                .into_iter()\n                .map(|input| {\n                    const VECTOR_DIM: usize = 3;\n                    let vector: [_; VECTOR_DIM] = match input.as_str() {\n                        \"first\" => [1.0, 2.0, 3.0],\n                        \"second\" => [4.0, 5.0, 6.0],\n                        \"third\" => [7.0, 8.0, 9.0],\n                        \"query\" => [3.0, 2.0, 1.0],\n                        _ => [0.0, 0.0, 0.0],\n                    };\n                    vector.into()\n                }).collect",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "inputs\n                .into_iter().map",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "inputs.into_iter",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "input.as_str",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "vector.into",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/utils/openai_embedding_service/src/bin/test_client.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 20,
+          "endLine": 36,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "tracing_subscriber::fmt::init",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "OpenAIConfig::new()\n        .with_api_key(\"api_key\").with_api_base",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "OpenAIConfig::new().with_api_key",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "OpenAIConfig::new",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "Client::with_config",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "\"mock_embedding\".to_owned",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "EmbeddingInput::String",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "\"first\".to_owned",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "Default::default",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "client.embeddings().create",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "client.embeddings",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/utils/openai_embedding_service/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 90,
+      "functions": [
+        {
+          "name": "embedding_handler",
+          "startLine": 47,
+          "endLine": 84,
+          "params": [
+            "Json(payload)",
+            "gen_embedding"
+          ]
+        },
+        {
+          "name": "serve_embedding_service",
+          "startLine": 86,
+          "endLine": 100,
+          "params": [
+            "gen_embedding",
+            "bind_addr"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EmbeddingRequest",
+          "startLine": 21,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "input",
+            "model"
+          ]
+        },
+        {
+          "name": "Usage",
+          "startLine": 27,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "prompt_tokens",
+            "total_tokens"
+          ]
+        },
+        {
+          "name": "EmbeddingResponse",
+          "startLine": 33,
+          "endLine": 38,
+          "methods": [],
+          "properties": [
+            "object",
+            "model",
+            "data",
+            "usage"
+          ]
+        },
+        {
+          "name": "EmbeddingData",
+          "startLine": 41,
+          "endLine": 45,
+          "methods": [],
+          "properties": [
+            "object",
+            "embedding",
+            "index"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "serve_embedding_service",
+          "line": 86,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "embedding_handler",
+          "callee": "array\n            .into_iter()\n            .map(|s| s.as_str().unwrap().to_owned()).collect",
+          "lineNumber": 52
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "array\n            .into_iter().map",
+          "lineNumber": 52
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "array.into_iter",
+          "lineNumber": 52
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "s.as_str().unwrap().to_owned",
+          "lineNumber": 54
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "s.as_str().unwrap",
+          "lineNumber": 54
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "s.as_str",
+          "lineNumber": 54
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "gen_embedding",
+          "lineNumber": 61
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "embeddings\n        .into_iter()\n        .enumerate()\n        .map(|(index, embedding)| {\n            // Return a fixed embedding vector\n            EmbeddingData {\n                object: \"embedding\".to_owned(),\n                embedding,\n                index,\n            }\n        }).collect",
+          "lineNumber": 62
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "embeddings\n        .into_iter()\n        .enumerate().map",
+          "lineNumber": 62
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "embeddings\n        .into_iter().enumerate",
+          "lineNumber": 62
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "embeddings.into_iter",
+          "lineNumber": 62
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "\"embedding\".to_owned",
+          "lineNumber": 68
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "Json",
+          "lineNumber": 75
+        },
+        {
+          "caller": "embedding_handler",
+          "callee": "\"list\".to_owned",
+          "lineNumber": 76
+        },
+        {
+          "caller": "serve_embedding_service",
+          "callee": "Router::new().route",
+          "lineNumber": 90
+        },
+        {
+          "caller": "serve_embedding_service",
+          "callee": "Router::new",
+          "lineNumber": 90
+        },
+        {
+          "caller": "serve_embedding_service",
+          "callee": "post",
+          "lineNumber": 92
+        },
+        {
+          "caller": "serve_embedding_service",
+          "callee": "embedding_handler",
+          "lineNumber": 92
+        },
+        {
+          "caller": "serve_embedding_service",
+          "callee": "tokio::net::TcpListener::bind(bind_addr).await.unwrap",
+          "lineNumber": 94
+        },
+        {
+          "caller": "serve_embedding_service",
+          "callee": "tokio::net::TcpListener::bind",
+          "lineNumber": 94
+        },
+        {
+          "caller": "serve_embedding_service",
+          "callee": "axum::serve(listener, app).await.unwrap",
+          "lineNumber": 99
+        },
+        {
+          "caller": "serve_embedding_service",
+          "callee": "axum::serve",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "src/utils/pgwire/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 52,
+      "nonEmptyLines": 48,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "target.'cfg(not(madsim))'.dependencies",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "dev-dependencies",
+          "level": 1,
+          "line": 43
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

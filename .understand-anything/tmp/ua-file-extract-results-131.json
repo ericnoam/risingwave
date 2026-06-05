@@ -1,0 +1,389 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "docker/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 253,
+      "nonEmptyLines": 243,
+      "sections": [
+        {
+          "heading": "x-image",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 243
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "docker/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 161,
+      "nonEmptyLines": 114,
+      "services": [
+        {
+          "name": "base",
+          "image": "ubuntu:24.04",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 8
+        },
+        {
+          "name": "rust-base",
+          "image": "base",
+          "ports": [],
+          "startLine": 9,
+          "endLine": 62
+        },
+        {
+          "name": "rust-builder",
+          "image": "rust-base",
+          "ports": [],
+          "startLine": 63,
+          "endLine": 89
+        },
+        {
+          "name": "java-planner",
+          "image": "base",
+          "ports": [],
+          "startLine": 90,
+          "endLine": 100
+        },
+        {
+          "name": "java-builder",
+          "image": "rust-base",
+          "ports": [],
+          "startLine": 101,
+          "endLine": 123
+        },
+        {
+          "name": "risingwave",
+          "image": "base",
+          "ports": [],
+          "startLine": 124,
+          "endLine": 162
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM ubuntu:24.04 AS base",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "ENV LANG en_US.utf8",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "RUN apt-get update \\",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "FROM base AS rust-base",
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "RUN apt-get update && apt-get -y install make cmake protobuf-com",
+          "startLine": 11,
+          "endLine": 11
+        },
+        {
+          "name": "ENV NVM_DIR /root/.nvm",
+          "startLine": 15,
+          "endLine": 15
+        },
+        {
+          "name": "ENV NODE_VERSION 20.11.1",
+          "startLine": 16,
+          "endLine": 16
+        },
+        {
+          "name": "RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.",
+          "startLine": 17,
+          "endLine": 17
+        },
+        {
+          "name": "ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH",
+          "startLine": 20,
+          "endLine": 20
+        },
+        {
+          "name": "RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | ",
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "ENV PATH /root/.cargo/bin:$PATH",
+          "startLine": 25,
+          "endLine": 25
+        },
+        {
+          "name": "ENV CARGO_INCREMENTAL=0",
+          "startLine": 26,
+          "endLine": 26
+        },
+        {
+          "name": "COPY rust-toolchain rust-toolchain",
+          "startLine": 28,
+          "endLine": 28
+        },
+        {
+          "name": "RUN rustup self update \\",
+          "startLine": 31,
+          "endLine": 31
+        },
+        {
+          "name": "RUN cargo install flamegraph",
+          "startLine": 37,
+          "endLine": 37
+        },
+        {
+          "name": "RUN cargo install addr2line --features bin --bin addr2line",
+          "startLine": 38,
+          "endLine": 38
+        },
+        {
+          "name": "FROM rust-base AS rust-builder",
+          "startLine": 63,
+          "endLine": 63
+        },
+        {
+          "name": "ARG GIT_SHA",
+          "startLine": 66,
+          "endLine": 66
+        },
+        {
+          "name": "ENV GIT_SHA=$GIT_SHA",
+          "startLine": 67,
+          "endLine": 67
+        },
+        {
+          "name": "ARG CARGO_PROFILE",
+          "startLine": 69,
+          "endLine": 69
+        },
+        {
+          "name": "ENV CARGO_PROFILE=$CARGO_PROFILE",
+          "startLine": 70,
+          "endLine": 70
+        },
+        {
+          "name": "COPY ./ /risingwave",
+          "startLine": 72,
+          "endLine": 72
+        },
+        {
+          "name": "WORKDIR /risingwave",
+          "startLine": 73,
+          "endLine": 73
+        },
+        {
+          "name": "ENV ENABLE_BUILD_DASHBOARD=1",
+          "startLine": 75,
+          "endLine": 75
+        },
+        {
+          "name": "ENV OPENSSL_STATIC=1",
+          "startLine": 76,
+          "endLine": 76
+        },
+        {
+          "name": "RUN cargo fetch && \\",
+          "startLine": 78,
+          "endLine": 78
+        },
+        {
+          "name": "FROM base AS java-planner",
+          "startLine": 90,
+          "endLine": 90
+        },
+        {
+          "name": "RUN mkdir -p /risingwave",
+          "startLine": 92,
+          "endLine": 92
+        },
+        {
+          "name": "WORKDIR /risingwave",
+          "startLine": 93,
+          "endLine": 93
+        },
+        {
+          "name": "COPY java /risingwave/java/",
+          "startLine": 95,
+          "endLine": 95
+        },
+        {
+          "name": "RUN find . -name pom.xml -exec bash -c 'mkdir -p poms/$(dirname ",
+          "startLine": 98,
+          "endLine": 98
+        },
+        {
+          "name": "FROM rust-base AS java-builder",
+          "startLine": 101,
+          "endLine": 101
+        },
+        {
+          "name": "RUN apt-get update && apt-get -y install maven",
+          "startLine": 103,
+          "endLine": 103
+        },
+        {
+          "name": "RUN mkdir -p /risingwave",
+          "startLine": 105,
+          "endLine": 105
+        },
+        {
+          "name": "WORKDIR /risingwave/java",
+          "startLine": 106,
+          "endLine": 106
+        },
+        {
+          "name": "COPY --from=java-planner /risingwave/poms /risingwave/java/",
+          "startLine": 109,
+          "endLine": 109
+        },
+        {
+          "name": "RUN mvn dependency:go-offline --fail-never",
+          "startLine": 112,
+          "endLine": 112
+        },
+        {
+          "name": "COPY ./ /risingwave",
+          "startLine": 118,
+          "endLine": 118
+        },
+        {
+          "name": "RUN mvn -B package -Dmaven.test.skip=true -Dno-build-rust && \\",
+          "startLine": 120,
+          "endLine": 120
+        },
+        {
+          "name": "FROM base AS risingwave",
+          "startLine": 124,
+          "endLine": 124
+        },
+        {
+          "name": "RUN apt-get update && apt-get -y install linux-tools-generic \\",
+          "startLine": 128,
+          "endLine": 128
+        },
+        {
+          "name": "RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y ",
+          "startLine": 131,
+          "endLine": 131
+        },
+        {
+          "name": "RUN rustup show && sed -i '1s/^/default_toolchain = \"stable\"\\n/'",
+          "startLine": 137,
+          "endLine": 137
+        },
+        {
+          "name": "RUN mkdir -p /risingwave/bin/connector-node && mkdir -p /risingw",
+          "startLine": 139,
+          "endLine": 139
+        },
+        {
+          "name": "COPY --from=rust-builder /risingwave/bin/risingwave /risingwave/b",
+          "startLine": 141,
+          "endLine": 141
+        },
+        {
+          "name": "COPY --from=rust-builder /risingwave/bin/risingwave.dwp /risingwa",
+          "startLine": 142,
+          "endLine": 142
+        },
+        {
+          "name": "COPY --from=java-builder /risingwave/bin/connector-node /risingwa",
+          "startLine": 143,
+          "endLine": 143
+        },
+        {
+          "name": "COPY --from=rust-builder /risingwave/bin/jeprof /usr/local/bin/je",
+          "startLine": 144,
+          "endLine": 144
+        },
+        {
+          "name": "COPY --from=rust-base /root/.cargo/bin/flamegraph /usr/local/bin/",
+          "startLine": 145,
+          "endLine": 145
+        },
+        {
+          "name": "COPY --from=rust-base /root/.cargo/bin/addr2line /usr/local/bin/a",
+          "startLine": 146,
+          "endLine": 146
+        },
+        {
+          "name": "COPY --from=rust-builder /risingwave/lib/adbc /risingwave/lib/adb",
+          "startLine": 148,
+          "endLine": 148
+        },
+        {
+          "name": "ENV PLAYGROUND_PROFILE docker-playground",
+          "startLine": 151,
+          "endLine": 151
+        },
+        {
+          "name": "ENV CONNECTOR_LIBS_PATH /risingwave/bin/connector-node/libs",
+          "startLine": 153,
+          "endLine": 153
+        },
+        {
+          "name": "ENV IN_CONTAINER=1",
+          "startLine": 154,
+          "endLine": 154
+        },
+        {
+          "name": "ENV ADBC_DRIVER_PATH /risingwave/lib/adbc",
+          "startLine": 157,
+          "endLine": 157
+        },
+        {
+          "name": "ENV LD_LIBRARY_PATH /risingwave/lib/adbc:${LD_LIBRARY_PATH}",
+          "startLine": 158,
+          "endLine": 158
+        },
+        {
+          "name": "ENTRYPOINT [ \"/risingwave/bin/risingwave\" ]",
+          "startLine": 160,
+          "endLine": 160
+        },
+        {
+          "name": "CMD [ \"single_node\" ]",
+          "startLine": 161,
+          "endLine": 161
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 6,
+        "stepCount": 58
+      }
+    }
+  ]
+}

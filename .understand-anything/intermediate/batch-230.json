@@ -1,0 +1,40 @@
+{
+  "nodes": [
+    {
+      "id": "file:java/connector-node/python-client/build-venv.sh",
+      "type": "file",
+      "name": "build-venv.sh",
+      "filePath": "java/connector-node/python-client/build-venv.sh",
+      "summary": "Shell script that creates and populates a Python virtual environment with the dependencies required to run the connector-node Python client.",
+      "tags": ["script", "build-system", "python"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/python-client/format-python.sh",
+      "type": "file",
+      "name": "format-python.sh",
+      "filePath": "java/connector-node/python-client/format-python.sh",
+      "summary": "One-liner script that runs the Python code formatter (e.g., black or autopep8) over the Python client source files.",
+      "tags": ["script", "utility", "python"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/python-client/gen-stub.sh",
+      "type": "file",
+      "name": "gen-stub.sh",
+      "filePath": "java/connector-node/python-client/gen-stub.sh",
+      "summary": "One-liner script that generates Python gRPC stubs from the connector-node Protobuf definitions using grpc_tools.protoc.",
+      "tags": ["script", "code-generation", "protobuf"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:java/connector-node/python-client/build-venv.sh",
+      "target": "file:java/connector-node/python-client/gen-stub.sh",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

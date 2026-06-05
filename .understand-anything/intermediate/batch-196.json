@@ -1,0 +1,118 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/feature-store/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/feature-store/README.md",
+      "summary": "Documentation for two feature store demo scenarios using RisingWave: an NYC taxi real-time feature store and an account change (MFA) feature store, with installation and run instructions for each.",
+      "tags": ["documentation", "integration-test", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/feature-store/mfa-mock.sql",
+      "type": "file",
+      "name": "mfa-mock.sql",
+      "filePath": "integration_tests/feature-store/mfa-mock.sql",
+      "summary": "Creates and populates the `actionhistory` source table in RisingWave with mock account change event data for the MFA (multi-factor authentication) feature store demo.",
+      "tags": ["database", "integration-test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/feature-store/mfa-start.sql",
+      "type": "file",
+      "name": "mfa-start.sql",
+      "filePath": "integration_tests/feature-store/mfa-start.sql",
+      "summary": "Sets up RisingWave views and materialized aggregations over account action history for the MFA feature store scenario, computing per-user event statistics.",
+      "tags": ["database", "integration-test", "data-pipeline"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/feature-store/run-local.sh",
+      "type": "file",
+      "name": "run-local.sh",
+      "filePath": "integration_tests/feature-store/run-local.sh",
+      "summary": "Shell script to run the NYC taxi feature store demo against a locally running RisingWave instance, loading taxi data and setting up feature queries.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/feature-store/run-mfa.sh",
+      "type": "file",
+      "name": "run-mfa.sh",
+      "filePath": "integration_tests/feature-store/run-mfa.sh",
+      "summary": "Shell script that orchestrates the MFA feature store demo end-to-end, executing mock data loading and starting the feature materialization pipeline.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/feature-store/run.sh",
+      "type": "file",
+      "name": "run.sh",
+      "filePath": "integration_tests/feature-store/run.sh",
+      "summary": "Main entry-point shell script for the feature store integration test, dispatching to the appropriate demo scenario (taxi or MFA) and coordinating environment setup.",
+      "tags": ["script", "integration-test", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/feature-store/taxi-start.sql",
+      "type": "file",
+      "name": "taxi-start.sql",
+      "filePath": "integration_tests/feature-store/taxi-start.sql",
+      "summary": "Creates RisingWave sources, materialized views, and feature aggregations for the NYC taxi feature store demo, computing trip statistics and geospatial features over real-time trip data.",
+      "tags": ["database", "integration-test", "data-pipeline", "data-model"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/feature-store/README.md",
+      "target": "file:integration_tests/feature-store/taxi-start.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:integration_tests/feature-store/README.md",
+      "target": "file:integration_tests/feature-store/mfa-start.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/feature-store/run.sh",
+      "target": "file:integration_tests/feature-store/run-local.sh",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/feature-store/run.sh",
+      "target": "file:integration_tests/feature-store/run-mfa.sh",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/feature-store/run-mfa.sh",
+      "target": "file:integration_tests/feature-store/mfa-mock.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/feature-store/run-mfa.sh",
+      "target": "file:integration_tests/feature-store/mfa-start.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/feature-store/run-local.sh",
+      "target": "file:integration_tests/feature-store/taxi-start.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

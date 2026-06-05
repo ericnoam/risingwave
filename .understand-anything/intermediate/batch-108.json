@@ -1,0 +1,359 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/common/secret/src/encryption.rs",
+      "type": "file",
+      "name": "encryption.rs",
+      "filePath": "src/common/secret/src/encryption.rs",
+      "summary": "Implements AES-128-GCM symmetric encryption and decryption for RisingWave secrets via the `SecretEncryption` struct, with bincode-based serialization.",
+      "tags": ["security", "utility", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/common/secret/src/error.rs",
+      "type": "file",
+      "name": "error.rs",
+      "filePath": "src/common/secret/src/error.rs",
+      "summary": "Defines `SecretError`, a thiserror error enum covering item-not-found, AES decryption failures, protobuf decode errors, and other secret-management error variants.",
+      "tags": ["data-model", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/common/secret/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/common/secret/src/lib.rs",
+      "summary": "Root library file for the `risingwave_common_secret` crate, re-exporting all public types from the encryption, error, secret_manager, and vault_client submodules.",
+      "tags": ["entry-point", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/common/secret/src/secret_manager.rs",
+      "type": "file",
+      "name": "secret_manager.rs",
+      "filePath": "src/common/secret/src/secret_manager.rs",
+      "summary": "Implements `LocalSecretManager`, a singleton that stores encrypted secrets in memory and manages per-worker-node temp file directories; supports HashiCorp Vault as an external backend.",
+      "tags": ["service", "security", "singleton"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/common/secret/src/vault_client.rs",
+      "type": "file",
+      "name": "vault_client.rs",
+      "filePath": "src/common/secret/src/vault_client.rs",
+      "summary": "Implements `HashiCorpVaultClient` with token and AppRole authentication, secret retrieval, and a global token cache; also defines `HashiCorpVaultConfig` with protobuf serialization support.",
+      "tags": ["service", "security"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/common/secret/src/encryption.rs:SecretEncryption",
+      "type": "class",
+      "name": "SecretEncryption",
+      "filePath": "src/common/secret/src/encryption.rs",
+      "lineRange": [21, 24],
+      "summary": "Encapsulates an AES-128-GCM ciphertext with its nonce; provides static `encrypt` and instance `decrypt` methods plus bincode serialize/deserialize helpers.",
+      "tags": ["security", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/common/secret/src/error.rs:SecretError",
+      "type": "class",
+      "name": "SecretError",
+      "filePath": "src/common/secret/src/error.rs",
+      "lineRange": [24, 45],
+      "summary": "Error enum covering all failure cases in the secret management subsystem including item not found, UTF-8 decode, IO, AES, protobuf, and unspecified reference type errors.",
+      "tags": ["data-model", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/common/secret/src/secret_manager.rs:LocalSecretManager",
+      "type": "class",
+      "name": "LocalSecretManager",
+      "filePath": "src/common/secret/src/secret_manager.rs",
+      "lineRange": [39, 43],
+      "summary": "Thread-safe singleton secret manager storing encrypted secrets in an RwLock-guarded HashMap and optionally persisting them as temp files for connector use.",
+      "tags": ["service", "security", "singleton"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/common/secret/src/vault_client.rs:HashiCorpVaultConfig",
+      "type": "class",
+      "name": "HashiCorpVaultConfig",
+      "filePath": "src/common/secret/src/vault_client.rs",
+      "lineRange": [51, 60],
+      "summary": "Configuration for a HashiCorp Vault secret backend: address, secret path, field name, auth (token or AppRole), and TLS skip-verify flag; supports protobuf roundtrip.",
+      "tags": ["configuration", "data-model", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/common/secret/src/vault_client.rs:HashiCorpVaultClient",
+      "type": "class",
+      "name": "HashiCorpVaultClient",
+      "filePath": "src/common/secret/src/vault_client.rs",
+      "lineRange": [103, 106],
+      "summary": "HTTP client for HashiCorp Vault: authenticates with token or AppRole, retrieves secrets from KV v2 paths, and caches bearer tokens with TTL-based expiry.",
+      "tags": ["service", "security"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/common/secret/src/encryption.rs:encrypt",
+      "type": "function",
+      "name": "encrypt",
+      "filePath": "src/common/secret/src/encryption.rs",
+      "lineRange": [27, 39],
+      "summary": "Encrypts plaintext bytes using AES-128-GCM with a randomized nonce derived from the provided key, returning a `SecretEncryption` instance.",
+      "tags": ["security", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/secret/src/secret_manager.rs:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "src/common/secret/src/secret_manager.rs",
+      "lineRange": [49, 67],
+      "summary": "Initializes the global `LocalSecretManager` singleton with a per-worker-node temp directory path, clearing any previous files from a prior run.",
+      "tags": ["service", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/secret/src/secret_manager.rs:fill_secrets",
+      "type": "function",
+      "name": "fill_secrets",
+      "filePath": "src/common/secret/src/secret_manager.rs",
+      "lineRange": [135, 146],
+      "summary": "Resolves a map of secret references into their plaintext values by looking up each in the local secret store, inserting resolved values into the connector options map.",
+      "tags": ["security", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/common/secret/src/secret_manager.rs:fill_secret_inner",
+      "type": "function",
+      "name": "fill_secret_inner",
+      "filePath": "src/common/secret/src/secret_manager.rs",
+      "lineRange": [154, 176],
+      "summary": "Resolves a single secret reference by decoding its storage type — inline plaintext, file path, or Vault backend — and returning the plaintext string value.",
+      "tags": ["security", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/secret/src/secret_manager.rs:get_or_init_secret_file",
+      "type": "function",
+      "name": "get_or_init_secret_file",
+      "filePath": "src/common/secret/src/secret_manager.rs",
+      "lineRange": [180, 192],
+      "summary": "Creates a temporary file for a secret (if it does not already exist), writes the secret bytes to it, and returns the file path string.",
+      "tags": ["security", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/common/secret/src/vault_client.rs:from_protobuf",
+      "type": "function",
+      "name": "from_protobuf",
+      "filePath": "src/common/secret/src/vault_client.rs",
+      "lineRange": [110, 137],
+      "summary": "Deserializes a `HashiCorpVaultConfig` from a protobuf `SecretHashicorpVaultBackend` message, mapping token/AppRole auth variants.",
+      "tags": ["serialization", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/secret/src/vault_client.rs:to_protobuf",
+      "type": "function",
+      "name": "to_protobuf",
+      "filePath": "src/common/secret/src/vault_client.rs",
+      "lineRange": [140, 165],
+      "summary": "Serializes a `HashiCorpVaultConfig` to a protobuf `SecretHashicorpVaultBackend` message, converting auth variant fields back to protobuf oneof format.",
+      "tags": ["serialization", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/secret/src/vault_client.rs:get_secret",
+      "type": "function",
+      "name": "get_secret",
+      "filePath": "src/common/secret/src/vault_client.rs",
+      "lineRange": [183, 227],
+      "summary": "Fetches a secret value from HashiCorp Vault: retrieves an auth token, constructs the KV v2 URL, sends an authenticated GET request, and processes the response.",
+      "tags": ["security", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/common/secret/src/vault_client.rs:get_token_internal",
+      "type": "function",
+      "name": "get_token_internal",
+      "filePath": "src/common/secret/src/vault_client.rs",
+      "lineRange": [276, 351],
+      "summary": "Obtains a Vault auth token using AppRole login or returns the static token; caches the token with its lease-based TTL in a global dashmap cache.",
+      "tags": ["security", "service"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/common/secret/src/lib.rs",
+      "target": "file:src/common/secret/src/encryption.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/secret/src/lib.rs",
+      "target": "file:src/common/secret/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/secret/src/lib.rs",
+      "target": "file:src/common/secret/src/secret_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/secret/src/lib.rs",
+      "target": "file:src/common/secret/src/vault_client.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/secret/src/encryption.rs",
+      "target": "class:src/common/secret/src/encryption.rs:SecretEncryption",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/encryption.rs",
+      "target": "class:src/common/secret/src/encryption.rs:SecretEncryption",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/secret/src/encryption.rs",
+      "target": "function:src/common/secret/src/encryption.rs:encrypt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/error.rs",
+      "target": "class:src/common/secret/src/error.rs:SecretError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/error.rs",
+      "target": "class:src/common/secret/src/error.rs:SecretError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/secret/src/secret_manager.rs",
+      "target": "class:src/common/secret/src/secret_manager.rs:LocalSecretManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/secret_manager.rs",
+      "target": "class:src/common/secret/src/secret_manager.rs:LocalSecretManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/secret/src/secret_manager.rs",
+      "target": "function:src/common/secret/src/secret_manager.rs:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/secret_manager.rs",
+      "target": "function:src/common/secret/src/secret_manager.rs:fill_secrets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/secret_manager.rs",
+      "target": "function:src/common/secret/src/secret_manager.rs:fill_secret_inner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/secret_manager.rs",
+      "target": "function:src/common/secret/src/secret_manager.rs:get_or_init_secret_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/vault_client.rs",
+      "target": "class:src/common/secret/src/vault_client.rs:HashiCorpVaultConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/vault_client.rs",
+      "target": "class:src/common/secret/src/vault_client.rs:HashiCorpVaultConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/secret/src/vault_client.rs",
+      "target": "class:src/common/secret/src/vault_client.rs:HashiCorpVaultClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/vault_client.rs",
+      "target": "class:src/common/secret/src/vault_client.rs:HashiCorpVaultClient",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/secret/src/vault_client.rs",
+      "target": "function:src/common/secret/src/vault_client.rs:from_protobuf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/vault_client.rs",
+      "target": "function:src/common/secret/src/vault_client.rs:to_protobuf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/vault_client.rs",
+      "target": "function:src/common/secret/src/vault_client.rs:get_secret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/secret/src/vault_client.rs",
+      "target": "function:src/common/secret/src/vault_client.rs:get_secret",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/secret/src/vault_client.rs",
+      "target": "function:src/common/secret/src/vault_client.rs:get_token_internal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

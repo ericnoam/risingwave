@@ -1,0 +1,146 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/pinot-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/pinot-sink/README.md",
+      "summary": "Detailed guide for the Apache Pinot sink integration test, covering setup instructions, demo walkthrough, Kafka payload format specifications, and Pinot schema configuration.",
+      "tags": ["documentation", "integration-test", "pinot"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/pinot-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/pinot-sink/create_sink.sql",
+      "summary": "Creates an Apache Pinot sink in RisingWave to write order change events to a Pinot table via Kafka.",
+      "tags": ["database", "integration-test", "pinot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/pinot-sink/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/pinot-sink/create_source.sql",
+      "summary": "Defines the RisingWave `orders` source table backed by a Kafka topic for the Apache Pinot sink integration test.",
+      "tags": ["database", "schema-definition", "integration-test", "pinot"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/pinot-sink/create_source.sql:orders",
+      "type": "table",
+      "name": "orders",
+      "filePath": "integration_tests/pinot-sink/create_source.sql",
+      "lineRange": [1, 11],
+      "summary": "RisingWave orders source table with id, user_id, product_id, status, quantity, total, and timestamps for Pinot sink streaming demo.",
+      "tags": ["database", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/pinot-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/pinot-sink/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the Apache Pinot sink integration test, running Apache Pinot (controller, broker, server), Kafka, Zookeeper, and RisingWave.",
+      "tags": ["orchestration", "infrastructure", "integration-test", "pinot"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/pinot-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/pinot-sink/prepare.sh",
+      "summary": "Shell script that initializes the Pinot sink integration test by waiting for services, creating Pinot schemas/tables, Kafka topics, and seeding initial data.",
+      "tags": ["script", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:integration_tests/pinot-sink/prepare.sh:wait_for_container_running",
+      "type": "function",
+      "name": "wait_for_container_running",
+      "filePath": "integration_tests/pinot-sink/prepare.sh",
+      "lineRange": [6, 21],
+      "summary": "Polls until a specified Docker container reaches the running state, retrying with a configurable interval for service readiness checks.",
+      "tags": ["utility", "infrastructure", "script"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:integration_tests/pinot-sink/prepare.sh:ensure_service_running",
+      "type": "function",
+      "name": "ensure_service_running",
+      "filePath": "integration_tests/pinot-sink/prepare.sh",
+      "lineRange": [23, 35],
+      "summary": "Verifies that a named service container is running, calling wait_for_container_running and exiting with an error if the service fails to start.",
+      "tags": ["utility", "infrastructure", "script"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/pinot-sink/update.sql",
+      "type": "file",
+      "name": "update.sql",
+      "filePath": "integration_tests/pinot-sink/update.sql",
+      "summary": "SQL DML statements to update order records in RisingWave for verifying that change events are correctly propagated to Apache Pinot via the sink.",
+      "tags": ["database", "integration-test", "pinot"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/pinot-sink/create_source.sql",
+      "target": "table:integration_tests/pinot-sink/create_source.sql:orders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/pinot-sink/prepare.sh",
+      "target": "function:integration_tests/pinot-sink/prepare.sh:wait_for_container_running",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/pinot-sink/prepare.sh",
+      "target": "function:integration_tests/pinot-sink/prepare.sh:ensure_service_running",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "document:integration_tests/pinot-sink/README.md",
+      "target": "service:integration_tests/pinot-sink/docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:integration_tests/pinot-sink/README.md",
+      "target": "file:integration_tests/pinot-sink/create_sink.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/pinot-sink/create_source.sql",
+      "target": "file:integration_tests/pinot-sink/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/pinot-sink/create_sink.sql",
+      "target": "file:integration_tests/pinot-sink/update.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/pinot-sink/docker-compose.yml",
+      "target": "file:integration_tests/pinot-sink/prepare.sh",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

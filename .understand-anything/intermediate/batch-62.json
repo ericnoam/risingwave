@@ -1,0 +1,552 @@
+{
+  "nodes": [
+    {
+      "id": "file:java/connector-node/risingwave-sink-es-7/src/test/java/com/risingwave/connector/sink/elasticsearch/EsSinkTest.java",
+      "type": "file",
+      "name": "EsSinkTest.java",
+      "filePath": "java/connector-node/risingwave-sink-es-7/src/test/java/com/risingwave/connector/sink/elasticsearch/EsSinkTest.java",
+      "summary": "Integration test for the Elasticsearch 7 sink connector using a Testcontainers environment.",
+      "tags": [
+        "test",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/BatchAppendOnlyJDBCSink.java",
+      "type": "file",
+      "name": "BatchAppendOnlyJDBCSink.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/BatchAppendOnlyJDBCSink.java",
+      "summary": "Implements a JDBC sink writer for append-only batch insert workloads, batching rows for efficiency.",
+      "tags": [
+        "service",
+        "api-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSink.java",
+      "type": "file",
+      "name": "JDBCSink.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSink.java",
+      "summary": "Implements the main JDBC sink writer with upsert and delete support via JDBC dialect.",
+      "tags": [
+        "service",
+        "api-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSinkConfig.java",
+      "type": "file",
+      "name": "JDBCSinkConfig.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSinkConfig.java",
+      "summary": "Configuration class for JDBC sink, parsing connection URL, driver, and table settings.",
+      "tags": [
+        "config",
+        "data-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSinkFactory.java",
+      "type": "file",
+      "name": "JDBCSinkFactory.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSinkFactory.java",
+      "summary": "Factory class creating JDBC sink writer instances and validating sink configuration.",
+      "tags": [
+        "factory",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialect.java",
+      "type": "file",
+      "name": "JdbcDialect.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialect.java",
+      "summary": "Defines the JDBC dialect interface for generating database-specific SQL statements.",
+      "tags": [
+        "api-handler",
+        "type-definition"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialect.java",
+      "type": "file",
+      "name": "MySqlDialect.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialect.java",
+      "summary": "MySQL-specific JDBC dialect implementing upsert and delete statement generation.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialect.java",
+      "type": "file",
+      "name": "PostgresDialect.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialect.java",
+      "summary": "PostgreSQL-specific JDBC dialect implementing upsert via ON CONFLICT and delete statements.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialect.java",
+      "type": "file",
+      "name": "RedShiftDialect.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialect.java",
+      "summary": "Amazon Redshift JDBC dialect for the connector sink.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialect.java",
+      "type": "file",
+      "name": "SnowflakeDialect.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialect.java",
+      "summary": "Snowflake-specific JDBC dialect for the connector sink.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialect.java",
+      "type": "file",
+      "name": "SqlServerDialect.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialect.java",
+      "summary": "SQL Server-specific JDBC dialect implementing MERGE statement for upsert.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/test/java/com/risingwave/connector/sink/jdbc/JDBCSinkTest.java",
+      "type": "file",
+      "name": "JDBCSinkTest.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/test/java/com/risingwave/connector/sink/jdbc/JDBCSinkTest.java",
+      "summary": "Unit tests for the JDBC sink verifying upsert and delete operations.",
+      "tags": [
+        "test",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc-test/src/test/java/com/risingwave/connector/source/MongoDbSourceTest.java",
+      "type": "file",
+      "name": "MongoDbSourceTest.java",
+      "filePath": "java/connector-node/risingwave-source-cdc-test/src/test/java/com/risingwave/connector/source/MongoDbSourceTest.java",
+      "summary": "Integration test for the MongoDB CDC source connector.",
+      "tags": [
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc-test/src/test/java/com/risingwave/connector/source/MySQLSourceTest.java",
+      "type": "file",
+      "name": "MySQLSourceTest.java",
+      "filePath": "java/connector-node/risingwave-source-cdc-test/src/test/java/com/risingwave/connector/source/MySQLSourceTest.java",
+      "summary": "Integration test for the MySQL CDC source connector using Debezium.",
+      "tags": [
+        "test"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc-test/src/test/java/com/risingwave/connector/source/PostgresSourceTest.java",
+      "type": "file",
+      "name": "PostgresSourceTest.java",
+      "filePath": "java/connector-node/risingwave-source-cdc-test/src/test/java/com/risingwave/connector/source/PostgresSourceTest.java",
+      "summary": "Comprehensive integration test for the PostgreSQL CDC source connector.",
+      "tags": [
+        "test"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc/src/main/java/com/risingwave/connector/cdc/debezium/internal/ConfigurableOffsetBackingStore.java",
+      "type": "file",
+      "name": "ConfigurableOffsetBackingStore.java",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/com/risingwave/connector/cdc/debezium/internal/ConfigurableOffsetBackingStore.java",
+      "summary": "Custom Debezium offset backing store that persists offsets to a configurable storage.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc/src/main/java/com/risingwave/connector/cdc/debezium/internal/DebeziumOffset.java",
+      "type": "file",
+      "name": "DebeziumOffset.java",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/com/risingwave/connector/cdc/debezium/internal/DebeziumOffset.java",
+      "summary": "Data class representing a Debezium connector offset for CDC position tracking.",
+      "tags": [
+        "data-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc/src/main/java/com/risingwave/connector/cdc/debezium/internal/DebeziumOffsetSerializer.java",
+      "type": "file",
+      "name": "DebeziumOffsetSerializer.java",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/com/risingwave/connector/cdc/debezium/internal/DebeziumOffsetSerializer.java",
+      "summary": "Serializes and deserializes Debezium offsets for storage in the backing store.",
+      "tags": [
+        "serialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc/src/main/java/com/risingwave/connector/cdc/debezium/internal/OpendalSchemaHistory.java",
+      "type": "file",
+      "name": "OpendalSchemaHistory.java",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/com/risingwave/connector/cdc/debezium/internal/OpendalSchemaHistory.java",
+      "summary": "Implements Debezium schema history storage using OpenDAL for cloud-native persistence.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/embedded/EmbeddedEngineChangeEventProxy.java",
+      "type": "file",
+      "name": "EmbeddedEngineChangeEventProxy.java",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/embedded/EmbeddedEngineChangeEventProxy.java",
+      "summary": "Proxy wrapper exposing internal Debezium EmbeddedEngine change events.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/s3-common/src/main/java/com/risingwave/connector/common/S3Config.java",
+      "type": "file",
+      "name": "S3Config.java",
+      "filePath": "java/connector-node/s3-common/src/main/java/com/risingwave/connector/common/S3Config.java",
+      "summary": "Configuration class for S3 sink connectors with bucket and region settings.",
+      "tags": [
+        "config",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/java-binding/src/main/java/com/risingwave/java/binding/CdcSourceChannel.java",
+      "type": "file",
+      "name": "CdcSourceChannel.java",
+      "filePath": "java/java-binding/src/main/java/com/risingwave/java/binding/CdcSourceChannel.java",
+      "summary": "JNI binding for the CDC source channel providing native interop with Rust backend.",
+      "tags": [
+        "api-handler",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/java-binding/src/main/java/com/risingwave/java/binding/StreamChunk.java",
+      "type": "file",
+      "name": "StreamChunk.java",
+      "filePath": "java/java-binding/src/main/java/com/risingwave/java/binding/StreamChunk.java",
+      "summary": "JNI binding representing a stream chunk of row data from the Rust streaming layer.",
+      "tags": [
+        "data-model",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/java-binding/src/main/java/com/risingwave/java/binding/StreamChunkIterator.java",
+      "type": "file",
+      "name": "StreamChunkIterator.java",
+      "filePath": "java/java-binding/src/main/java/com/risingwave/java/binding/StreamChunkIterator.java",
+      "summary": "Iterator over rows in a StreamChunk JNI binding.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/java-binding/src/main/java/com/risingwave/java/binding/StreamChunkRow.java",
+      "type": "file",
+      "name": "StreamChunkRow.java",
+      "filePath": "java/java-binding/src/main/java/com/risingwave/java/binding/StreamChunkRow.java",
+      "summary": "Represents a single row in a stream chunk from the JNI binding layer.",
+      "tags": [
+        "data-model"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/test/java/com/risingwave/connector/sink/elasticsearch/EsSinkTest.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/ArraySinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/test/java/com/risingwave/connector/sink/elasticsearch/EsSinkTest.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/test/java/com/risingwave/connector/sink/elasticsearch/EsSinkTest.java",
+      "target": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/ElasticRestHighLevelClientAdapter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/test/java/com/risingwave/connector/sink/elasticsearch/EsSinkTest.java",
+      "target": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSink.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-es-7/src/test/java/com/risingwave/connector/sink/elasticsearch/EsSinkTest.java",
+      "target": "file:java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/EsSinkConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/BatchAppendOnlyJDBCSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/BatchAppendOnlyJDBCSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/BatchAppendOnlyJDBCSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/BatchAppendOnlyJDBCSink.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSink.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSink.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialect.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSinkConfig.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/CommonSinkConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSinkFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSinkFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkWriter.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSinkFactory.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/SinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialect.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/test/java/com/risingwave/connector/sink/jdbc/JDBCSinkTest.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/ArraySinkRow.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/test/java/com/risingwave/connector/sink/jdbc/JDBCSinkTest.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/TableSchema.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/test/java/com/risingwave/connector/sink/jdbc/JDBCSinkTest.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSink.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/test/java/com/risingwave/connector/sink/jdbc/JDBCSinkTest.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JDBCSinkConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc-test/src/test/java/com/risingwave/connector/source/MongoDbSourceTest.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc-test/src/test/java/com/risingwave/connector/source/MySQLSourceTest.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc-test/src/test/java/com/risingwave/connector/source/PostgresSourceTest.java",
+      "target": "file:java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/ConnectorServiceImpl.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/s3-common/src/main/java/com/risingwave/connector/common/S3Config.java",
+      "target": "file:java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/CommonSinkConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

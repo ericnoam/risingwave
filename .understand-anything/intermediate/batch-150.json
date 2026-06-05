@@ -1,0 +1,395 @@
+{
+  "nodes": [
+    {
+      "id": "file:ci/scripts/package_version_check.sh",
+      "type": "file",
+      "name": "package_version_check.sh",
+      "filePath": "ci/scripts/package_version_check.sh",
+      "summary": "CI utility script that checks package versions across branches to detect unintended version regressions or mismatches in CI artifacts.",
+      "tags": ["script", "ci-cd", "configuration", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/pr-fuzz-test.sh",
+      "type": "file",
+      "name": "pr-fuzz-test.sh",
+      "filePath": "ci/scripts/pr-fuzz-test.sh",
+      "summary": "Minimal CI script that triggers the sqlsmith fuzz test for pull requests.",
+      "tags": ["script", "ci-cd", "test", "fuzzing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/pulsar-source-test.sh",
+      "type": "file",
+      "name": "pulsar-source-test.sh",
+      "filePath": "ci/scripts/pulsar-source-test.sh",
+      "summary": "CI script that produces test messages to a Pulsar topic and runs SLT tests verifying Pulsar source ingestion.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/regress-test.sh",
+      "type": "file",
+      "name": "regress-test.sh",
+      "filePath": "ci/scripts/regress-test.sh",
+      "summary": "CI regression test script that runs PostgreSQL regression tests against RisingWave to verify SQL compatibility.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/release.sh",
+      "type": "file",
+      "name": "release.sh",
+      "filePath": "ci/scripts/release.sh",
+      "summary": "CI release script that builds release binaries, packages them, and uploads artifacts to S3 and GitHub releases.",
+      "tags": ["script", "ci-cd", "deployment", "build-system"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ci/scripts/remove-micro-bench-results.sh",
+      "type": "file",
+      "name": "remove-micro-bench-results.sh",
+      "filePath": "ci/scripts/remove-micro-bench-results.sh",
+      "summary": "CI cleanup script that removes micro-benchmark result files from S3 to avoid stale comparisons.",
+      "tags": ["script", "ci-cd", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/run-backfill-tests.sh",
+      "type": "file",
+      "name": "run-backfill-tests.sh",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "summary": "Comprehensive CI script that runs a battery of backfill correctness and performance tests, including snapshot backfill, arrangement backfill, scale-in, and sink recovery scenarios.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:restart_cn",
+      "type": "function",
+      "name": "restart_cn",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [79, 102],
+      "summary": "Restarts compute nodes with configurable backfill rate limits to test backfill resumption after node recovery.",
+      "tags": ["script", "test", "infrastructure"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_snapshot_and_upstream_read",
+      "type": "function",
+      "name": "test_snapshot_and_upstream_read",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [105, 127],
+      "summary": "Tests that snapshot reads and upstream change propagation both work correctly during backfill.",
+      "tags": ["script", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_backfill_tombstone",
+      "type": "function",
+      "name": "test_backfill_tombstone",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [130, 160],
+      "summary": "Tests that deleted rows (tombstones) are handled correctly during backfill, ensuring data consistency.",
+      "tags": ["script", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_replication_with_column_pruning",
+      "type": "function",
+      "name": "test_replication_with_column_pruning",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [162, 180],
+      "summary": "Tests that materialized views with column pruning replicate correctly during backfill.",
+      "tags": ["script", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_sink_backfill_recovery",
+      "type": "function",
+      "name": "test_sink_backfill_recovery",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [183, 210],
+      "summary": "Tests that sink jobs resume correctly after backfill interruption, verifying exactly-once delivery semantics.",
+      "tags": ["script", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_arrangement_backfill_snapshot_and_upstream_runtime",
+      "type": "function",
+      "name": "test_arrangement_backfill_snapshot_and_upstream_runtime",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [220, 234],
+      "summary": "Tests arrangement backfill combining snapshot reads with concurrent upstream mutations.",
+      "tags": ["script", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_no_shuffle_backfill_snapshot_and_upstream_runtime",
+      "type": "function",
+      "name": "test_no_shuffle_backfill_snapshot_and_upstream_runtime",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [236, 250],
+      "summary": "Tests no-shuffle backfill mode combining snapshot reads with concurrent upstream mutations.",
+      "tags": ["script", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_backfill_snapshot_runtime",
+      "type": "function",
+      "name": "test_backfill_snapshot_runtime",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [252, 263],
+      "summary": "Tests backfill with various runtime snapshot configurations to ensure correctness under different storage settings.",
+      "tags": ["script", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_backfill_snapshot_with_limited_storage_throughput",
+      "type": "function",
+      "name": "test_backfill_snapshot_with_limited_storage_throughput",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [267, 278],
+      "summary": "Tests backfill correctness when storage throughput is throttled, simulating resource-constrained environments.",
+      "tags": ["script", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_backfill_snapshot_with_wider_rows",
+      "type": "function",
+      "name": "test_backfill_snapshot_with_wider_rows",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [281, 292],
+      "summary": "Tests backfill correctness with wide rows (many columns) to verify memory and I/O handling.",
+      "tags": ["script", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_snapshot_backfill",
+      "type": "function",
+      "name": "test_snapshot_backfill",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [294, 339],
+      "summary": "Tests the snapshot backfill feature end-to-end, verifying that MVs are populated correctly from a historical snapshot.",
+      "tags": ["script", "test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:test_scale_in",
+      "type": "function",
+      "name": "test_scale_in",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [341, 432],
+      "summary": "Tests backfill correctness during scale-in operations, verifying data completeness when compute nodes are removed mid-backfill.",
+      "tags": ["script", "test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/run-backfill-tests.sh:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "ci/scripts/run-backfill-tests.sh",
+      "lineRange": [454, 484],
+      "summary": "Entry point that parses test mode flags and dispatches to individual backfill test functions.",
+      "tags": ["script", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/run-deterministic-fuzz-test.sh",
+      "type": "file",
+      "name": "run-deterministic-fuzz-test.sh",
+      "filePath": "ci/scripts/run-deterministic-fuzz-test.sh",
+      "summary": "CI fuzz test script that runs sqlsmith in deterministic simulation mode, extracting failing SQL queries for diagnosis.",
+      "tags": ["script", "ci-cd", "test", "fuzzing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/run-fuzz-test.sh",
+      "type": "file",
+      "name": "run-fuzz-test.sh",
+      "filePath": "ci/scripts/run-fuzz-test.sh",
+      "summary": "CI fuzz test script that runs sqlsmith against a live cluster, backing up and restoring logs and extracting error SQL for analysis.",
+      "tags": ["script", "ci-cd", "test", "fuzzing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/run-meta-backup-test.sh",
+      "type": "file",
+      "name": "run-meta-backup-test.sh",
+      "filePath": "ci/scripts/run-meta-backup-test.sh",
+      "summary": "CI script that tests metadata backup and restore procedures by creating a backup, restarting the cluster from backup, and verifying data integrity.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/run-micro-benchmarks.sh",
+      "type": "file",
+      "name": "run-micro-benchmarks.sh",
+      "filePath": "ci/scripts/run-micro-benchmarks.sh",
+      "summary": "CI micro-benchmark script that runs Criterion benchmarks, compares results against historical baselines, and uploads results to S3.",
+      "tags": ["script", "ci-cd", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-micro-benchmarks.sh:bench",
+      "type": "function",
+      "name": "bench",
+      "filePath": "ci/scripts/run-micro-benchmarks.sh",
+      "lineRange": [20, 40],
+      "summary": "Runs a single Criterion benchmark suite, compares results with a stored baseline, and reports regressions.",
+      "tags": ["script", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/run-micro-benchmarks.sh:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "ci/scripts/run-micro-benchmarks.sh",
+      "lineRange": [42, 86],
+      "summary": "Entry point that iterates over all benchmark suites, invokes the bench function, and uploads aggregate results to S3.",
+      "tags": ["script", "entry-point", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/run-unit-test.sh",
+      "type": "file",
+      "name": "run-unit-test.sh",
+      "filePath": "ci/scripts/run-unit-test.sh",
+      "summary": "CI script that runs Rust unit tests across the workspace using nextest with appropriate configuration.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/rustc-workspace-wrapper.sh",
+      "type": "file",
+      "name": "rustc-workspace-wrapper.sh",
+      "filePath": "ci/scripts/rustc-workspace-wrapper.sh",
+      "summary": "Rustc compiler wrapper script used in CI to intercept compilation commands for custom toolchain configuration or caching.",
+      "tags": ["script", "ci-cd", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/s3-source-test-for-opendal-fs-engine.sh",
+      "type": "file",
+      "name": "s3-source-test-for-opendal-fs-engine.sh",
+      "filePath": "ci/scripts/s3-source-test-for-opendal-fs-engine.sh",
+      "summary": "CI e2e test script for S3 source connector using the OpenDAL filesystem engine backend.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/s3-source-test.sh",
+      "type": "file",
+      "name": "s3-source-test.sh",
+      "filePath": "ci/scripts/s3-source-test.sh",
+      "summary": "CI e2e test script for S3 source connector, uploading test files to S3 and verifying RisingWave can ingest them.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/setup-vault.sh",
+      "type": "file",
+      "name": "setup-vault.sh",
+      "filePath": "ci/scripts/setup-vault.sh",
+      "summary": "CI script that configures HashiCorp Vault with secrets and policies needed for CI pipeline authentication and secrets management.",
+      "tags": ["script", "ci-cd", "security", "infrastructure"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/single-node-utils.sh",
+      "type": "file",
+      "name": "single-node-utils.sh",
+      "filePath": "ci/scripts/single-node-utils.sh",
+      "summary": "Shared utility functions for CI scripts that manage single-node RisingWave deployments: start, stop, wait for ready, and restart.",
+      "tags": ["script", "ci-cd", "infrastructure", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/single-node-utils.sh:wait_single_node",
+      "type": "function",
+      "name": "wait_single_node",
+      "filePath": "ci/scripts/single-node-utils.sh",
+      "lineRange": [26, 45],
+      "summary": "Polls the single-node RisingWave instance until it is ready to accept connections, with configurable timeout.",
+      "tags": ["script", "infrastructure", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/slow-e2e-test.sh",
+      "type": "file",
+      "name": "slow-e2e-test.sh",
+      "filePath": "ci/scripts/slow-e2e-test.sh",
+      "summary": "CI e2e test script for slow/long-running test suites that are excluded from the standard parallel test runs.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sqlsmith-differential-test.sh",
+      "type": "file",
+      "name": "sqlsmith-differential-test.sh",
+      "filePath": "ci/scripts/sqlsmith-differential-test.sh",
+      "summary": "CI differential testing script that runs sqlsmith-generated queries against two RisingWave versions and compares results to detect regressions.",
+      "tags": ["script", "ci-cd", "test", "fuzzing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/standalone-utils.sh",
+      "type": "file",
+      "name": "standalone-utils.sh",
+      "filePath": "ci/scripts/standalone-utils.sh",
+      "summary": "Shared utility functions for CI scripts managing standalone RisingWave deployments: start with or without compactor, stop, wait for ready, and restart.",
+      "tags": ["script", "ci-cd", "infrastructure", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/standalone-utils.sh:start_standalone_without_compactor",
+      "type": "function",
+      "name": "start_standalone_without_compactor",
+      "filePath": "ci/scripts/standalone-utils.sh",
+      "lineRange": [13, 43],
+      "summary": "Starts a standalone RisingWave instance without the compactor component, configuring all process parameters and storage paths.",
+      "tags": ["script", "infrastructure"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/standalone-utils.sh:start_standalone",
+      "type": "function",
+      "name": "start_standalone",
+      "filePath": "ci/scripts/standalone-utils.sh",
+      "lineRange": [47, 83],
+      "summary": "Starts a full standalone RisingWave instance including the compactor, configuring all process parameters and storage paths.",
+      "tags": ["script", "infrastructure"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/standalone-utils.sh:wait_standalone",
+      "type": "function",
+      "name": "wait_standalone",
+      "filePath": "ci/scripts/standalone-utils.sh",
+      "lineRange": [89, 111],
+      "summary": "Polls the standalone RisingWave instance until all components are ready to accept connections, with timeout handling.",
+      "tags": ["script", "infrastructure", "utility"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:restart_cn", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_snapshot_and_upstream_read", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_backfill_tombstone", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_replication_with_column_pruning", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_sink_backfill_recovery", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_arrangement_backfill_snapshot_and_upstream_runtime", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_no_shuffle_backfill_snapshot_and_upstream_runtime", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_backfill_snapshot_runtime", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_backfill_snapshot_with_limited_storage_throughput", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_backfill_snapshot_with_wider_rows", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_snapshot_backfill", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:test_scale_in", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-backfill-tests.sh", "target": "function:ci/scripts/run-backfill-tests.sh:main", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-micro-benchmarks.sh", "target": "function:ci/scripts/run-micro-benchmarks.sh:bench", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/run-micro-benchmarks.sh", "target": "function:ci/scripts/run-micro-benchmarks.sh:main", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/single-node-utils.sh", "target": "function:ci/scripts/single-node-utils.sh:wait_single_node", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/standalone-utils.sh", "target": "function:ci/scripts/standalone-utils.sh:start_standalone_without_compactor", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/standalone-utils.sh", "target": "function:ci/scripts/standalone-utils.sh:start_standalone", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/standalone-utils.sh", "target": "function:ci/scripts/standalone-utils.sh:wait_standalone", "type": "contains", "direction": "forward", "weight": 1.0}
+  ]
+}

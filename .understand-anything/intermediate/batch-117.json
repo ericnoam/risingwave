@@ -1,0 +1,159 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/common/common_service/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/common/common_service/src/lib.rs",
+      "summary": "Barrel file for the common_service crate, re-exporting the metrics manager, observer manager, and tracing utilities shared across RisingWave service nodes.",
+      "tags": ["entry-point", "barrel", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/common/common_service/src/metrics_manager.rs",
+      "type": "file",
+      "name": "metrics_manager.rs",
+      "filePath": "src/common/common_service/src/metrics_manager.rs",
+      "summary": "Provides the MetricsManager struct and `boot_metrics_service` helper for starting a Prometheus HTTP exporter endpoint on a configurable address.",
+      "tags": ["metrics", "service", "monitoring"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/common/common_service/src/observer_manager.rs",
+      "type": "file",
+      "name": "observer_manager.rs",
+      "filePath": "src/common/common_service/src/observer_manager.rs",
+      "summary": "Implements the ObserverManager that subscribes to meta node change notifications and dispatches them to registered ObserverState handlers for cache invalidation and refresh.",
+      "tags": ["service", "observer", "event-handler"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/common/common_service/src/tracing.rs",
+      "type": "file",
+      "name": "tracing.rs",
+      "filePath": "src/common/common_service/src/tracing.rs",
+      "summary": "Implements a gRPC tower layer (TracingExtractLayer) that extracts distributed tracing context from incoming request metadata and attaches it to the current tracing span.",
+      "tags": ["tracing", "middleware", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/common/common_service/src/metrics_manager.rs:MetricsManager",
+      "type": "class",
+      "name": "MetricsManager",
+      "filePath": "src/common/common_service/src/metrics_manager.rs",
+      "lineRange": [1, 50],
+      "summary": "Holds a reference to the Prometheus registry and provides methods to start the HTTP scrape endpoint.",
+      "tags": ["metrics", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/common/common_service/src/metrics_manager.rs:boot_metrics_service",
+      "type": "function",
+      "name": "boot_metrics_service",
+      "filePath": "src/common/common_service/src/metrics_manager.rs",
+      "lineRange": [55, 88],
+      "summary": "Binds an HTTP server on the configured listen address to expose Prometheus metrics for scraping by the monitoring stack.",
+      "tags": ["metrics", "initialization", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/common/common_service/src/observer_manager.rs:ObserverManager",
+      "type": "class",
+      "name": "ObserverManager",
+      "filePath": "src/common/common_service/src/observer_manager.rs",
+      "lineRange": [1, 120],
+      "summary": "Manages a gRPC subscription to the meta node's notification stream and dispatches snapshot and incremental change events to an ObserverState implementation.",
+      "tags": ["service", "observer", "event-handler"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/common/common_service/src/tracing.rs:TracingExtractLayer",
+      "type": "class",
+      "name": "TracingExtractLayer",
+      "filePath": "src/common/common_service/src/tracing.rs",
+      "lineRange": [1, 91],
+      "summary": "Tower middleware layer that extracts W3C TraceContext or B3 tracing headers from gRPC metadata and propagates them into the current tracing span.",
+      "tags": ["tracing", "middleware"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/common/common_service/src/lib.rs",
+      "target": "file:src/common/common_service/src/metrics_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/common_service/src/lib.rs",
+      "target": "file:src/common/common_service/src/observer_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/common_service/src/lib.rs",
+      "target": "file:src/common/common_service/src/tracing.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/common_service/src/metrics_manager.rs",
+      "target": "class:src/common/common_service/src/metrics_manager.rs:MetricsManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/common_service/src/metrics_manager.rs",
+      "target": "function:src/common/common_service/src/metrics_manager.rs:boot_metrics_service",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/common_service/src/metrics_manager.rs",
+      "target": "class:src/common/common_service/src/metrics_manager.rs:MetricsManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/common_service/src/metrics_manager.rs",
+      "target": "function:src/common/common_service/src/metrics_manager.rs:boot_metrics_service",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/common_service/src/observer_manager.rs",
+      "target": "class:src/common/common_service/src/observer_manager.rs:ObserverManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/common_service/src/observer_manager.rs",
+      "target": "class:src/common/common_service/src/observer_manager.rs:ObserverManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/common_service/src/tracing.rs",
+      "target": "class:src/common/common_service/src/tracing.rs:TracingExtractLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/common_service/src/tracing.rs",
+      "target": "class:src/common/common_service/src/tracing.rs:TracingExtractLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

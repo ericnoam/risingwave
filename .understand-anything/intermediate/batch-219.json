@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/snowflake-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/snowflake-sink/README.md",
+      "summary": "Comprehensive guide for the RisingWave-to-Snowflake sink integration test, covering S3 setup, Snowflake preparation, and both append-only and upsert sink workflows.",
+      "tags": ["documentation", "integration-test", "overview"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/snowflake-sink/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/snowflake-sink/create_source.sql",
+      "summary": "Defines the user_behaviors RisingWave source table used as input to the Snowflake sink integration test.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/snowflake-sink/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/snowflake-sink/create_mv.sql",
+      "summary": "Creates a materialized view over the user_behaviors source to transform data before sinking to Snowflake.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/snowflake-sink/create_sink.sql",
+      "type": "table",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/snowflake-sink/create_sink.sql",
+      "summary": "Creates the Snowflake sink connector definition, configuring S3 staging and Snowflake connection properties.",
+      "tags": ["database", "sink", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/snowflake-sink/snowflake_prep.sql",
+      "type": "table",
+      "name": "snowflake_prep.sql",
+      "filePath": "integration_tests/snowflake-sink/snowflake_prep.sql",
+      "summary": "Snowflake-side preparation SQL that creates the destination table and staging area configuration required before starting the sink.",
+      "tags": ["database", "integration-test", "setup"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/snowflake-sink/README.md",
+      "target": "table:integration_tests/snowflake-sink/create_source.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:integration_tests/snowflake-sink/README.md",
+      "target": "table:integration_tests/snowflake-sink/create_sink.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "table:integration_tests/snowflake-sink/create_sink.sql",
+      "target": "table:integration_tests/snowflake-sink/snowflake_prep.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

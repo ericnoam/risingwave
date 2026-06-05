@@ -1,0 +1,143 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/client-library/ruby/rw_conn.rb",
+      "type": "file",
+      "name": "rw_conn.rb",
+      "filePath": "integration_tests/client-library/ruby/rw_conn.rb",
+      "summary": "Provides a helper function to establish a pg-gem connection to the RisingWave instance for the Ruby client integration tests.",
+      "tags": ["client", "integration-test", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/client-library/ruby/test/crud_test.rb",
+      "type": "file",
+      "name": "crud_test.rb",
+      "filePath": "integration_tests/client-library/ruby/test/crud_test.rb",
+      "summary": "Integration test class using MiniTest that runs CRUD operations against RisingWave via the Ruby pg gem, verifying insert, update, and delete semantics.",
+      "tags": ["test", "integration-test", "crud"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/client-library/ruby/test/util.rb",
+      "type": "file",
+      "name": "util.rb",
+      "filePath": "integration_tests/client-library/ruby/test/util.rb",
+      "summary": "Utility functions for creating the test table, inserting sample data, and validating inserted rows in the Ruby client integration test.",
+      "tags": ["utility", "test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:integration_tests/client-library/ruby/rw_conn.rb:get_rw_conn",
+      "type": "function",
+      "name": "get_rw_conn",
+      "filePath": "integration_tests/client-library/ruby/rw_conn.rb",
+      "lineRange": [3, 14],
+      "summary": "Creates and returns a PG connection object to the local RisingWave instance using default test credentials.",
+      "tags": ["factory", "client"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:integration_tests/client-library/ruby/test/crud_test.rb:SQLTest",
+      "type": "class",
+      "name": "SQLTest",
+      "filePath": "integration_tests/client-library/ruby/test/crud_test.rb",
+      "lineRange": [1, 60],
+      "summary": "MiniTest::Test subclass running integration tests for create, insert, select, update, and delete operations via the RisingWave Ruby pg client.",
+      "tags": ["test", "crud", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:integration_tests/client-library/ruby/test/util.rb:create_table",
+      "type": "function",
+      "name": "create_table",
+      "filePath": "integration_tests/client-library/ruby/test/util.rb",
+      "lineRange": [1, 22],
+      "summary": "Executes a CREATE TABLE statement for the sample test table with diverse column types in RisingWave.",
+      "tags": ["utility", "database", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:integration_tests/client-library/ruby/test/util.rb:insert_data",
+      "type": "function",
+      "name": "insert_data",
+      "filePath": "integration_tests/client-library/ruby/test/util.rb",
+      "lineRange": [24, 44],
+      "summary": "Inserts sample rows into the test table and verifies the row count after each insert.",
+      "tags": ["utility", "database", "test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/client-library/ruby/test/crud_test.rb",
+      "target": "file:integration_tests/client-library/ruby/rw_conn.rb",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/ruby/test/crud_test.rb",
+      "target": "file:integration_tests/client-library/ruby/test/util.rb",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/client-library/ruby/rw_conn.rb",
+      "target": "function:integration_tests/client-library/ruby/rw_conn.rb:get_rw_conn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/ruby/rw_conn.rb",
+      "target": "function:integration_tests/client-library/ruby/rw_conn.rb:get_rw_conn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/client-library/ruby/test/crud_test.rb",
+      "target": "class:integration_tests/client-library/ruby/test/crud_test.rb:SQLTest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/ruby/test/util.rb",
+      "target": "function:integration_tests/client-library/ruby/test/util.rb:create_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/ruby/test/util.rb",
+      "target": "function:integration_tests/client-library/ruby/test/util.rb:insert_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/client-library/ruby/test/util.rb",
+      "target": "function:integration_tests/client-library/ruby/test/util.rb:create_table",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/client-library/ruby/test/util.rb",
+      "target": "function:integration_tests/client-library/ruby/test/util.rb:insert_data",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/client-library/ruby/test/crud_test.rb",
+      "target": "file:integration_tests/client-library/ruby/rw_conn.rb",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "nodes": [
+    {
+      "id": "config:integration_tests/client-library/go/go.mod",
+      "type": "config",
+      "name": "go.mod",
+      "filePath": "integration_tests/client-library/go/go.mod",
+      "summary": "Go module definition for the RisingWave Go client-library integration test, declaring the module path and PostgreSQL driver dependencies.",
+      "tags": ["configuration", "test", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:integration_tests/client-library/go/go.sum",
+      "type": "config",
+      "name": "go.sum",
+      "filePath": "integration_tests/client-library/go/go.sum",
+      "summary": "Go dependency checksum lockfile for the RisingWave Go client-library integration test, ensuring reproducible builds.",
+      "tags": ["configuration", "test", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/client-library/go/run.sh",
+      "type": "file",
+      "name": "run.sh",
+      "filePath": "integration_tests/client-library/go/run.sh",
+      "summary": "Shell script that builds and runs the Go client-library integration test against a running RisingWave instance.",
+      "tags": ["script", "test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/client-library/go/run.sh",
+      "target": "config:integration_tests/client-library/go/go.mod",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

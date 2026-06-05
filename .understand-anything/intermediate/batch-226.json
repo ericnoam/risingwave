@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "table:integration_tests/twitter-pulsar/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/twitter-pulsar/create_source.sql",
+      "summary": "Defines the RisingWave source reading tweet events from an Apache Pulsar topic using the Protobuf schema for the twitter-pulsar integration test.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/twitter-pulsar/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/twitter-pulsar/create_mv.sql",
+      "summary": "Creates materialized views that join and aggregate tweet and user data from the Pulsar source for analytics queries in the integration test.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/twitter-pulsar/query.sql",
+      "type": "table",
+      "name": "query.sql",
+      "filePath": "integration_tests/twitter-pulsar/query.sql",
+      "summary": "Validation queries against the twitter-pulsar materialized views to verify correct data ingestion and aggregation from Pulsar.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/twitter-pulsar/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/twitter-pulsar/docker-compose.yml",
+      "summary": "Docker Compose file spinning up Apache Pulsar and RisingWave services for the Pulsar connector integration test.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "schema:integration_tests/twitter-pulsar/twitter.proto",
+      "type": "schema",
+      "name": "twitter.proto",
+      "filePath": "integration_tests/twitter-pulsar/twitter.proto",
+      "summary": "Protobuf schema defining the Event, TweetData, and User message types used to serialize Twitter-like events sent through Apache Pulsar in the integration test.",
+      "tags": ["schema-definition", "protobuf", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "table:integration_tests/twitter-pulsar/create_source.sql",
+      "target": "schema:integration_tests/twitter-pulsar/twitter.proto",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/twitter-pulsar/docker-compose.yml",
+      "target": "table:integration_tests/twitter-pulsar/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/twitter-pulsar/docker-compose.yml",
+      "target": "table:integration_tests/twitter-pulsar/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,1824 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/nats/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/nats/pb/create_source.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 31,
+      "nonEmptyLines": 30,
+      "definitions": [
+        {
+          "name": "live_stream_metrics",
+          "kind": "table",
+          "fields": [
+            "connector",
+            "server_url",
+            "subject",
+            "stream",
+            "allow_create_stream",
+            "connect_mode"
+          ],
+          "startLine": 1,
+          "endLine": 14
+        },
+        {
+          "name": "live_stream_metrics_2",
+          "kind": "table",
+          "fields": [
+            "connector",
+            "server_url",
+            "subject",
+            "stream",
+            "allow_create_stream",
+            "connect_mode"
+          ],
+          "startLine": 18,
+          "endLine": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/nats/pb/query.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 13,
+      "nonEmptyLines": 12,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/nats/schema",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 16,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/nats/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 18,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/pinot-sink/config/orders_schema.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 42,
+      "nonEmptyLines": 42,
+      "sections": [
+        {
+          "heading": "schemaName",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "primaryKeyColumns",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "dimensionFieldSpecs",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "metricFieldSpecs",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "dateTimeFieldSpecs",
+          "level": 1,
+          "line": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "integration_tests/pinot-sink/config/orders_table.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "tableName",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "tableType",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "segmentsConfig",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "tenants",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "tableIndexConfig",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "ingestionConfig",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "metadata",
+          "level": 1,
+          "line": 35
+        },
+        {
+          "heading": "upsertConfig",
+          "level": 1,
+          "line": 38
+        },
+        {
+          "heading": "routing",
+          "level": 1,
+          "line": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "integration_tests/pinot-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "run_pinot_sql",
+          "startLine": 11,
+          "endLine": 28,
+          "params": [
+            "sql"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run_pinot_sql",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run_pinot_sql",
+          "callee": "json.dumps",
+          "lineNumber": 12
+        },
+        {
+          "caller": "run_pinot_sql",
+          "callee": "subprocess.check_output",
+          "lineNumber": 13
+        },
+        {
+          "caller": "run_pinot_sql",
+          "callee": "json.loads",
+          "lineNumber": 28
+        },
+        {
+          "caller": "run_pinot_sql",
+          "callee": "output.decode",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/postgres-cdc/cdc_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/postgres-cdc/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/postgres-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "functions": [
+        {
+          "name": "pg_count",
+          "startLine": 7,
+          "endLine": 10,
+          "params": [
+            "rel"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "pg_count",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pg_count",
+          "callee": "docker_compose_exec",
+          "lineNumber": 9
+        },
+        {
+          "caller": "pg_count",
+          "callee": "int",
+          "lineNumber": 10
+        },
+        {
+          "caller": "pg_count",
+          "callee": "output.strip",
+          "lineNumber": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/presto-trino/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/presto-trino/etc/config.properties",
+      "language": "properties",
+      "fileCategory": "config",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/presto-trino/etc/jvm.config",
+      "language": "config",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/presto-trino/etc/risingwave.properties",
+      "language": "properties",
+      "fileCategory": "config",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/presto-trino/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/prometheus/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/pubsub/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/pubsub/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 21,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 46,
+      "nonEmptyLines": 33,
+      "sections": [
+        {
+          "heading": "RisingWave Demos",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Demo Runnability Testing",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Workload Generator",
+          "level": 2,
+          "line": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/redis-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "redis_key_count",
+          "startLine": 8,
+          "endLine": 18,
+          "params": [
+            "rel"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "redis_key_count",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "redis_key_count",
+          "callee": "print",
+          "lineNumber": 10
+        },
+        {
+          "caller": "redis_key_count",
+          "callee": "subprocess.Popen",
+          "lineNumber": 11
+        },
+        {
+          "caller": "redis_key_count",
+          "callee": "subprocess.check_output",
+          "lineNumber": 15
+        },
+        {
+          "caller": "redis_key_count",
+          "callee": "output.stdout.close",
+          "lineNumber": 16
+        },
+        {
+          "caller": "redis_key_count",
+          "callee": "output.wait",
+          "lineNumber": 17
+        },
+        {
+          "caller": "redis_key_count",
+          "callee": "int",
+          "lineNumber": 18
+        },
+        {
+          "caller": "redis_key_count",
+          "callee": "rows.decode(\"utf8\").strip",
+          "lineNumber": 18
+        },
+        {
+          "caller": "redis_key_count",
+          "callee": "rows.decode",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/scripts/check_data.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 119,
+      "nonEmptyLines": 92,
+      "functions": [
+        {
+          "name": "create_mv",
+          "startLine": 17,
+          "endLine": 20,
+          "params": [
+            "rel"
+          ]
+        },
+        {
+          "name": "check_mv",
+          "startLine": 23,
+          "endLine": 27,
+          "params": [
+            "rel"
+          ]
+        },
+        {
+          "name": "check_cdc_table",
+          "startLine": 31,
+          "endLine": 47,
+          "params": [
+            "rel"
+          ]
+        },
+        {
+          "name": "run_psql",
+          "startLine": 50,
+          "endLine": 53,
+          "params": [
+            "sql"
+          ]
+        },
+        {
+          "name": "data_check",
+          "startLine": 56,
+          "endLine": 67,
+          "params": [
+            "data_check_file"
+          ]
+        },
+        {
+          "name": "sink_check",
+          "startLine": 70,
+          "endLine": 75,
+          "params": [
+            "demo_dir",
+            "sink_check_file"
+          ]
+        },
+        {
+          "name": "cdc_check",
+          "startLine": 78,
+          "endLine": 83,
+          "params": [
+            "cdc_check_file",
+            "upstream"
+          ]
+        },
+        {
+          "name": "test_check",
+          "startLine": 86,
+          "endLine": 107,
+          "params": [
+            "demo",
+            "upstream",
+            "need_data_check",
+            "need_sink_check"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "create_mv",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "check_mv",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "check_cdc_table",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "run_psql",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "data_check",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "sink_check",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "cdc_check",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "test_check",
+          "line": 86,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_mv",
+          "callee": "Exception",
+          "lineNumber": 19
+        },
+        {
+          "caller": "create_mv",
+          "callee": "'relation \"{}\" must not contains \"_mv\"'.format",
+          "lineNumber": 19
+        },
+        {
+          "caller": "create_mv",
+          "callee": "run_psql",
+          "lineNumber": 20
+        },
+        {
+          "caller": "create_mv",
+          "callee": "\"CREATE MATERIALIZED VIEW {0}_mv AS SELECT * FROM {0}\".format",
+          "lineNumber": 20
+        },
+        {
+          "caller": "check_mv",
+          "callee": "run_psql",
+          "lineNumber": 24
+        },
+        {
+          "caller": "check_mv",
+          "callee": "\"SELECT COUNT(*) FROM {}_mv\".format",
+          "lineNumber": 24
+        },
+        {
+          "caller": "check_mv",
+          "callee": "int",
+          "lineNumber": 25
+        },
+        {
+          "caller": "check_mv",
+          "callee": "rows.decode('utf8').strip",
+          "lineNumber": 25
+        },
+        {
+          "caller": "check_mv",
+          "callee": "rows.decode",
+          "lineNumber": 25
+        },
+        {
+          "caller": "check_mv",
+          "callee": "print",
+          "lineNumber": 26
+        },
+        {
+          "caller": "check_mv",
+          "callee": "\"{} rows in {}\".format",
+          "lineNumber": 26
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "print",
+          "lineNumber": 32
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "\"SELECT * FROM {}_count\".format",
+          "lineNumber": 33
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "run_psql",
+          "lineNumber": 35
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "int",
+          "lineNumber": 36
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "rows.decode('utf8').strip",
+          "lineNumber": 36
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "rows.decode",
+          "lineNumber": 36
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "print",
+          "lineNumber": 38
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "\"Current row count: {}\".format",
+          "lineNumber": 38
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "time.sleep",
+          "lineNumber": 40
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "run_psql",
+          "lineNumber": 41
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "int",
+          "lineNumber": 42
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "rows.decode('utf8').strip",
+          "lineNumber": 42
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "rows.decode",
+          "lineNumber": 42
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "print",
+          "lineNumber": 46
+        },
+        {
+          "caller": "check_cdc_table",
+          "callee": "\"All upstream data (roughly) has been loaded into RisingWave: {}\".format",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run_psql",
+          "callee": "print",
+          "lineNumber": 51
+        },
+        {
+          "caller": "run_psql",
+          "callee": "\"Running SQL: {} on RisingWave\".format",
+          "lineNumber": 51
+        },
+        {
+          "caller": "run_psql",
+          "callee": "subprocess.check_output",
+          "lineNumber": 52
+        },
+        {
+          "caller": "data_check",
+          "callee": "open",
+          "lineNumber": 57
+        },
+        {
+          "caller": "data_check",
+          "callee": "f.read().strip().split",
+          "lineNumber": 58
+        },
+        {
+          "caller": "data_check",
+          "callee": "f.read().strip",
+          "lineNumber": 58
+        },
+        {
+          "caller": "data_check",
+          "callee": "f.read",
+          "lineNumber": 58
+        },
+        {
+          "caller": "data_check",
+          "callee": "create_mv",
+          "lineNumber": 60
+        },
+        {
+          "caller": "data_check",
+          "callee": "time.sleep",
+          "lineNumber": 61
+        },
+        {
+          "caller": "data_check",
+          "callee": "check_mv",
+          "lineNumber": 64
+        },
+        {
+          "caller": "data_check",
+          "callee": "failed_cases.append",
+          "lineNumber": 65
+        },
+        {
+          "caller": "data_check",
+          "callee": "len",
+          "lineNumber": 66
+        },
+        {
+          "caller": "data_check",
+          "callee": "Exception",
+          "lineNumber": 67
+        },
+        {
+          "caller": "data_check",
+          "callee": "\"Data check failed for case {}\".format",
+          "lineNumber": 67
+        },
+        {
+          "caller": "sink_check",
+          "callee": "print",
+          "lineNumber": 71
+        },
+        {
+          "caller": "sink_check",
+          "callee": "time.sleep",
+          "lineNumber": 74
+        },
+        {
+          "caller": "sink_check",
+          "callee": "subprocess.run",
+          "lineNumber": 75
+        },
+        {
+          "caller": "cdc_check",
+          "callee": "open",
+          "lineNumber": 79
+        },
+        {
+          "caller": "cdc_check",
+          "callee": "print",
+          "lineNumber": 80
+        },
+        {
+          "caller": "cdc_check",
+          "callee": "\"Check cdc table with upstream {}\".format",
+          "lineNumber": 80
+        },
+        {
+          "caller": "cdc_check",
+          "callee": "f.read().strip().split",
+          "lineNumber": 81
+        },
+        {
+          "caller": "cdc_check",
+          "callee": "f.read().strip",
+          "lineNumber": 81
+        },
+        {
+          "caller": "cdc_check",
+          "callee": "f.read",
+          "lineNumber": 81
+        },
+        {
+          "caller": "cdc_check",
+          "callee": "check_cdc_table",
+          "lineNumber": 83
+        },
+        {
+          "caller": "test_check",
+          "callee": "dirname",
+          "lineNumber": 87
+        },
+        {
+          "caller": "test_check",
+          "callee": "abspath",
+          "lineNumber": 87
+        },
+        {
+          "caller": "test_check",
+          "callee": "dirname",
+          "lineNumber": 88
+        },
+        {
+          "caller": "test_check",
+          "callee": "os.path.join",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test_check",
+          "callee": "os.path.join",
+          "lineNumber": 91
+        },
+        {
+          "caller": "test_check",
+          "callee": "os.path.exists",
+          "lineNumber": 92
+        },
+        {
+          "caller": "test_check",
+          "callee": "data_check",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_check",
+          "callee": "print",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_check",
+          "callee": "os.path.join",
+          "lineNumber": 97
+        },
+        {
+          "caller": "test_check",
+          "callee": "os.path.exists",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_check",
+          "callee": "sink_check",
+          "lineNumber": 99
+        },
+        {
+          "caller": "test_check",
+          "callee": "print",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test_check",
+          "callee": "os.path.join",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_check",
+          "callee": "os.path.exists",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_check",
+          "callee": "cdc_check",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_check",
+          "callee": "print",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/scripts/clean_demos.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "clean_demo",
+          "startLine": 10,
+          "endLine": 17,
+          "params": [
+            "demo"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "clean_demo",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "clean_demo",
+          "callee": "dirname",
+          "lineNumber": 11
+        },
+        {
+          "caller": "clean_demo",
+          "callee": "abspath",
+          "lineNumber": 11
+        },
+        {
+          "caller": "clean_demo",
+          "callee": "dirname",
+          "lineNumber": 12
+        },
+        {
+          "caller": "clean_demo",
+          "callee": "os.path.join",
+          "lineNumber": 13
+        },
+        {
+          "caller": "clean_demo",
+          "callee": "print",
+          "lineNumber": 14
+        },
+        {
+          "caller": "clean_demo",
+          "callee": "\"Clean demo: {}\".format",
+          "lineNumber": 14
+        },
+        {
+          "caller": "clean_demo",
+          "callee": "subprocess.run",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/scripts/compatibility/cli.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 112,
+      "nonEmptyLines": 100,
+      "functions": [
+        {
+          "name": "cli",
+          "startLine": 6,
+          "endLine": 7,
+          "params": []
+        },
+        {
+          "name": "gen_select_sql",
+          "startLine": 13,
+          "endLine": 29,
+          "params": [
+            "datatype_file",
+            "database_type"
+          ]
+        },
+        {
+          "name": "gen_rw_ddl",
+          "startLine": 35,
+          "endLine": 52,
+          "params": [
+            "datatype_file",
+            "database_type"
+          ]
+        },
+        {
+          "name": "gen_ddl_dml",
+          "startLine": 58,
+          "endLine": 104,
+          "params": [
+            "datatype_file",
+            "database_type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "cli",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "gen_select_sql",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "gen_rw_ddl",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "gen_ddl_dml",
+          "line": 55,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "gen_select_sql",
+          "callee": "database_type.lower",
+          "lineNumber": 14
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "open",
+          "lineNumber": 15
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "yaml.safe_load",
+          "lineNumber": 16
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "DataType",
+          "lineNumber": 19
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "MysqlDataType",
+          "lineNumber": 21
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "datatype_list.append",
+          "lineNumber": 22
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "print",
+          "lineNumber": 23
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "new_datatype.select_zero_sql",
+          "lineNumber": 23
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "print",
+          "lineNumber": 24
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "new_datatype.select_min_sql",
+          "lineNumber": 24
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "print",
+          "lineNumber": 25
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "new_datatype.select_max_sql",
+          "lineNumber": 25
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "print",
+          "lineNumber": 27
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "new_datatype.select_array_zero_sql",
+          "lineNumber": 27
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "print",
+          "lineNumber": 28
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "new_datatype.select_array_min_sql",
+          "lineNumber": 28
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "print",
+          "lineNumber": 29
+        },
+        {
+          "caller": "gen_select_sql",
+          "callee": "new_datatype.select_array_max_sql",
+          "lineNumber": 29
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "open",
+          "lineNumber": 36
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "open",
+          "lineNumber": 37
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "yaml.safe_load",
+          "lineNumber": 38
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "DataType",
+          "lineNumber": 41
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "MysqlDataType",
+          "lineNumber": 43
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "datatype_list.append",
+          "lineNumber": 44
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "TableSqlGenerator",
+          "lineNumber": 45
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "'{}_all_types'.format",
+          "lineNumber": 46
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "datatypes_map.get",
+          "lineNumber": 49
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "print",
+          "lineNumber": 52
+        },
+        {
+          "caller": "gen_rw_ddl",
+          "callee": "table_sql_generator.create_table_sql",
+          "lineNumber": 52
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "database_type.lower",
+          "lineNumber": 59
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "open",
+          "lineNumber": 60
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "yaml.safe_load",
+          "lineNumber": 61
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "DataType",
+          "lineNumber": 64
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "MysqlDataType",
+          "lineNumber": 66
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "datatype_list.append",
+          "lineNumber": 67
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "TableSqlGenerator",
+          "lineNumber": 68
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "'{}_all_types'.format",
+          "lineNumber": 69
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "datatypes_map.get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "TableSqlGenerator",
+          "lineNumber": 76
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "'{}_all_types'.format",
+          "lineNumber": 77
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "datatypes_map.get",
+          "lineNumber": 80
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "PostgresTableSqlGenerator",
+          "lineNumber": 84
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "'{}_all_types'.format",
+          "lineNumber": 85
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "datatypes_map.get",
+          "lineNumber": 88
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "RisingwaveTableSqlGenerator",
+          "lineNumber": 92
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "'{}_all_types'.format",
+          "lineNumber": 93
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "datatypes_map.get",
+          "lineNumber": 96
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "print",
+          "lineNumber": 100
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "table_sql_generator.drop_table_sql",
+          "lineNumber": 100
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "print",
+          "lineNumber": 101
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "table_sql_generator.create_table_sql",
+          "lineNumber": 101
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "print",
+          "lineNumber": 102
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "table_sql_generator.insert_zero_sql",
+          "lineNumber": 102
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "print",
+          "lineNumber": 103
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "table_sql_generator.insert_min_sql",
+          "lineNumber": 103
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "print",
+          "lineNumber": 104
+        },
+        {
+          "caller": "gen_ddl_dml",
+          "callee": "table_sql_generator.insert_max_sql",
+          "lineNumber": 104
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/scripts/compatibility/compatibility.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 225,
+      "nonEmptyLines": 185,
+      "classes": [
+        {
+          "name": "DataType",
+          "startLine": 6,
+          "endLine": 65,
+          "methods": [
+            "__init__",
+            "typ",
+            "cast",
+            "array_cast",
+            "array_type",
+            "array_zero",
+            "array_min",
+            "array_max",
+            "select_zero_sql",
+            "select_min_sql",
+            "select_max_sql",
+            "select_array_zero_sql",
+            "select_array_min_sql",
+            "select_array_max_sql"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MysqlDataType",
+          "startLine": 68,
+          "endLine": 70,
+          "methods": [
+            "cast"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TableSqlGenerator",
+          "startLine": 73,
+          "endLine": 187,
+          "methods": [
+            "__init__",
+            "struct_type",
+            "struct_values",
+            "create_table_sql",
+            "database_type",
+            "drop_table_sql",
+            "insert_null_sql",
+            "zero_values",
+            "min_values",
+            "max_values",
+            "insert_zero_sql",
+            "insert_min_sql",
+            "insert_max_sql"
+          ],
+          "properties": []
+        },
+        {
+          "name": "RisingwaveTableSqlGenerator",
+          "startLine": 190,
+          "endLine": 201,
+          "methods": [
+            "struct_type"
+          ],
+          "properties": []
+        },
+        {
+          "name": "PostgresTableSqlGenerator",
+          "startLine": 204,
+          "endLine": 220,
+          "methods": [
+            "database_type",
+            "struct_type"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MysqlTableSqlGenerator",
+          "startLine": 223,
+          "endLine": 225,
+          "methods": [
+            "database_type"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DataType",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "MysqlDataType",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "TableSqlGenerator",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "RisingwaveTableSqlGenerator",
+          "line": 190,
+          "isDefault": false
+        },
+        {
+          "name": "PostgresTableSqlGenerator",
+          "line": 204,
+          "isDefault": false
+        },
+        {
+          "name": "MysqlTableSqlGenerator",
+          "line": 223,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "self.name.replace",
+          "lineNumber": 11
+        },
+        {
+          "caller": "__init__",
+          "callee": "str",
+          "lineNumber": 13
+        },
+        {
+          "caller": "__init__",
+          "callee": "exec",
+          "lineNumber": 24
+        },
+        {
+          "caller": "__init__",
+          "callee": "\"self.max={}\".format",
+          "lineNumber": 24
+        },
+        {
+          "caller": "typ",
+          "callee": "\"{}({})\".format",
+          "lineNumber": 28
+        },
+        {
+          "caller": "cast",
+          "callee": "'{}::{}'.format",
+          "lineNumber": 32
+        },
+        {
+          "caller": "cast",
+          "callee": "self.typ",
+          "lineNumber": 32
+        },
+        {
+          "caller": "array_cast",
+          "callee": "'{}::{}'.format",
+          "lineNumber": 35
+        },
+        {
+          "caller": "array_cast",
+          "callee": "self.array_type",
+          "lineNumber": 35
+        },
+        {
+          "caller": "array_type",
+          "callee": "self.typ",
+          "lineNumber": 38
+        },
+        {
+          "caller": "array_min",
+          "callee": "\"array[{}]\".format",
+          "lineNumber": 44
+        },
+        {
+          "caller": "array_min",
+          "callee": "self.cast",
+          "lineNumber": 44
+        },
+        {
+          "caller": "array_max",
+          "callee": "\"array[{}]\".format",
+          "lineNumber": 47
+        },
+        {
+          "caller": "array_max",
+          "callee": "self.cast",
+          "lineNumber": 47
+        },
+        {
+          "caller": "select_zero_sql",
+          "callee": "\"SELECT {};\".format",
+          "lineNumber": 50
+        },
+        {
+          "caller": "select_zero_sql",
+          "callee": "self.cast",
+          "lineNumber": 50
+        },
+        {
+          "caller": "select_min_sql",
+          "callee": "\"SELECT {};\".format",
+          "lineNumber": 53
+        },
+        {
+          "caller": "select_min_sql",
+          "callee": "self.cast",
+          "lineNumber": 53
+        },
+        {
+          "caller": "select_max_sql",
+          "callee": "\"SELECT {};\".format",
+          "lineNumber": 56
+        },
+        {
+          "caller": "select_max_sql",
+          "callee": "self.cast",
+          "lineNumber": 56
+        },
+        {
+          "caller": "select_array_zero_sql",
+          "callee": "\"SELECT {};\".format",
+          "lineNumber": 59
+        },
+        {
+          "caller": "select_array_zero_sql",
+          "callee": "self.array_cast",
+          "lineNumber": 59
+        },
+        {
+          "caller": "select_array_zero_sql",
+          "callee": "self.array_zero",
+          "lineNumber": 59
+        },
+        {
+          "caller": "select_array_min_sql",
+          "callee": "\"SELECT {}\".format",
+          "lineNumber": 62
+        },
+        {
+          "caller": "select_array_min_sql",
+          "callee": "self.array_cast",
+          "lineNumber": 62
+        },
+        {
+          "caller": "select_array_min_sql",
+          "callee": "self.array_min",
+          "lineNumber": 62
+        },
+        {
+          "caller": "select_array_max_sql",
+          "callee": "\"SELECT {}\".format",
+          "lineNumber": 65
+        },
+        {
+          "caller": "select_array_max_sql",
+          "callee": "self.array_cast",
+          "lineNumber": 65
+        },
+        {
+          "caller": "select_array_max_sql",
+          "callee": "self.array_max",
+          "lineNumber": 65
+        },
+        {
+          "caller": "cast",
+          "callee": "\"CAST({} AS {})\".format",
+          "lineNumber": 70
+        },
+        {
+          "caller": "cast",
+          "callee": "self.typ",
+          "lineNumber": 70
+        },
+        {
+          "caller": "struct_values",
+          "callee": "'ROW({})'.format",
+          "lineNumber": 87
+        },
+        {
+          "caller": "create_table_sql",
+          "callee": "data_type.typ",
+          "lineNumber": 96
+        },
+        {
+          "caller": "create_table_sql",
+          "callee": "pk_col_names.append",
+          "lineNumber": 102
+        },
+        {
+          "caller": "create_table_sql",
+          "callee": "data_type.array_type",
+          "lineNumber": 106
+        },
+        {
+          "caller": "create_table_sql",
+          "callee": "\"c_struct {}\".format",
+          "lineNumber": 109
+        },
+        {
+          "caller": "create_table_sql",
+          "callee": "self.struct_type",
+          "lineNumber": 109
+        },
+        {
+          "caller": "create_table_sql",
+          "callee": "\",\".join",
+          "lineNumber": 111
+        },
+        {
+          "caller": "drop_table_sql",
+          "callee": "\"DROP TABLE IF EXISTS {};\".format",
+          "lineNumber": 118
+        },
+        {
+          "caller": "zero_values",
+          "callee": "'{} {}'.format",
+          "lineNumber": 140
+        },
+        {
+          "caller": "zero_values",
+          "callee": "'{}, {}'.format",
+          "lineNumber": 143
+        },
+        {
+          "caller": "zero_values",
+          "callee": "data_type.array_cast",
+          "lineNumber": 143
+        },
+        {
+          "caller": "zero_values",
+          "callee": "data_type.array_zero",
+          "lineNumber": 143
+        },
+        {
+          "caller": "zero_values",
+          "callee": "self.struct_values",
+          "lineNumber": 145
+        },
+        {
+          "caller": "min_values",
+          "callee": "'{} {}'.format",
+          "lineNumber": 153
+        },
+        {
+          "caller": "min_values",
+          "callee": "'{}, {}'.format",
+          "lineNumber": 156
+        },
+        {
+          "caller": "min_values",
+          "callee": "data_type.array_cast",
+          "lineNumber": 156
+        },
+        {
+          "caller": "min_values",
+          "callee": "data_type.array_min",
+          "lineNumber": 156
+        },
+        {
+          "caller": "min_values",
+          "callee": "self.struct_values",
+          "lineNumber": 158
+        },
+        {
+          "caller": "max_values",
+          "callee": "'{} {}'.format",
+          "lineNumber": 166
+        },
+        {
+          "caller": "max_values",
+          "callee": "'{}, {}'.format",
+          "lineNumber": 169
+        },
+        {
+          "caller": "max_values",
+          "callee": "data_type.array_cast",
+          "lineNumber": 169
+        },
+        {
+          "caller": "max_values",
+          "callee": "data_type.array_max",
+          "lineNumber": 169
+        },
+        {
+          "caller": "max_values",
+          "callee": "self.struct_values",
+          "lineNumber": 171
+        },
+        {
+          "caller": "insert_zero_sql",
+          "callee": "self.zero_values",
+          "lineNumber": 176
+        },
+        {
+          "caller": "insert_min_sql",
+          "callee": "self.min_values",
+          "lineNumber": 181
+        },
+        {
+          "caller": "insert_max_sql",
+          "callee": "self.max_values",
+          "lineNumber": 186
+        },
+        {
+          "caller": "struct_type",
+          "callee": "data_type.typ",
+          "lineNumber": 196
+        },
+        {
+          "caller": "struct_type",
+          "callee": "data_type.array_type",
+          "lineNumber": 200
+        },
+        {
+          "caller": "struct_type",
+          "callee": "\"struct <\\n{}\\n>\".format",
+          "lineNumber": 201
+        },
+        {
+          "caller": "struct_type",
+          "callee": "data_type.typ",
+          "lineNumber": 213
+        },
+        {
+          "caller": "struct_type",
+          "callee": "data_type.array_type",
+          "lineNumber": 217
+        },
+        {
+          "caller": "struct_type",
+          "callee": "print",
+          "lineNumber": 218
+        },
+        {
+          "caller": "struct_type",
+          "callee": "print",
+          "lineNumber": 219
+        },
+        {
+          "caller": "struct_type",
+          "callee": "\"CREATE TYPE struct AS (\\n{}\\n);\".format",
+          "lineNumber": 219
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 0,
+        "classCount": 6
+      }
+    }
+  ]
+}

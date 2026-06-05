@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/ad-click/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/ad-click/create_mv.sql",
+      "summary": "Creates RisingWave materialized views for the ad-click integration test, aggregating click event data from the Kafka source.",
+      "tags": ["test", "database", "data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/ad-click/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/ad-click/create_source.sql",
+      "summary": "Defines the RisingWave Kafka source for the ad-click integration test, declaring the ad click event schema.",
+      "tags": ["test", "database", "data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/ad-click/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/ad-click/docker-compose.yml",
+      "summary": "Docker Compose configuration for the ad-click integration test, orchestrating RisingWave and Kafka/Redpanda containers.",
+      "tags": ["infrastructure", "orchestration", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/ad-click/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/ad-click/query.sql",
+      "summary": "Validation SELECT queries for the ad-click integration test, asserting expected results from materialized views.",
+      "tags": ["test", "database"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/ad-click/create_mv.sql",
+      "target": "file:integration_tests/ad-click/create_source.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/ad-click/query.sql",
+      "target": "file:integration_tests/ad-click/create_mv.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:integration_tests/ad-click/docker-compose.yml",
+      "target": "file:integration_tests/ad-click/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

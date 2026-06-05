@@ -1,0 +1,386 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/utils/estimate-size/src/collections/btreemap.rs",
+      "type": "file",
+      "name": "btreemap.rs",
+      "filePath": "src/utils/estimate-size/src/collections/btreemap.rs",
+      "summary": "Provides EstimatedBTreeMap, a BTreeMap wrapper that tracks heap memory usage via the EstimateSize trait, including specialized range-based retain and extract_if operations.",
+      "tags": ["utility", "data-model", "service"],
+      "complexity": "complex",
+      "languageNotes": "Uses a newtype wrapper pattern over BTreeMap with forwarded iterator adapters for memory-aware collection operations."
+    },
+    {
+      "id": "file:src/utils/estimate-size/src/collections/hashmap.rs",
+      "type": "file",
+      "name": "hashmap.rs",
+      "filePath": "src/utils/estimate-size/src/collections/hashmap.rs",
+      "summary": "Provides EstimatedHashMap, a HashMap wrapper that tracks heap memory usage via the EstimateSize trait.",
+      "tags": ["utility", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/utils/estimate-size/src/collections/hashset.rs",
+      "type": "file",
+      "name": "hashset.rs",
+      "filePath": "src/utils/estimate-size/src/collections/hashset.rs",
+      "summary": "Provides EstimatedHashSet, a HashSet wrapper that tracks heap memory usage via the EstimateSize trait.",
+      "tags": ["utility", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/utils/estimate-size/src/collections/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/utils/estimate-size/src/collections/mod.rs",
+      "summary": "Module root for the memory-estimated collections crate, re-exporting all collection wrappers and defining the MutGuard type for mutation-tracking via size delta computation.",
+      "tags": ["barrel", "entry-point", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/utils/estimate-size/src/collections/vec.rs",
+      "type": "file",
+      "name": "vec.rs",
+      "filePath": "src/utils/estimate-size/src/collections/vec.rs",
+      "summary": "Provides EstimatedVec, a Vec wrapper that tracks heap memory usage via the EstimateSize trait.",
+      "tags": ["utility", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/utils/estimate-size/src/collections/vecdeque.rs",
+      "type": "file",
+      "name": "vecdeque.rs",
+      "filePath": "src/utils/estimate-size/src/collections/vecdeque.rs",
+      "summary": "Provides EstimatedVecDeque, a VecDeque wrapper that tracks heap memory usage via the EstimateSize trait.",
+      "tags": ["utility", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/utils/estimate-size/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/utils/estimate-size/src/lib.rs",
+      "summary": "Crate root for the estimate-size utility; defines the EstimateSize and ZeroHeapSize traits, KvSize struct for accumulating key-value memory footprints, and implements these traits for all standard Rust types.",
+      "tags": ["entry-point", "type-definition", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/utils/estimate-size/src/collections/btreemap.rs:EstimatedBTreeMap",
+      "type": "class",
+      "name": "EstimatedBTreeMap",
+      "filePath": "src/utils/estimate-size/src/collections/btreemap.rs",
+      "lineRange": [22, 25],
+      "summary": "Memory-tracked BTreeMap wrapper that maintains a running heap size estimate updated on every mutation through EstimateSize impls.",
+      "tags": ["data-model", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/utils/estimate-size/src/collections/btreemap.rs:OccupiedEntry",
+      "type": "class",
+      "name": "OccupiedEntry",
+      "filePath": "src/utils/estimate-size/src/collections/btreemap.rs",
+      "lineRange": [222, 225],
+      "summary": "Occupied-entry handle for EstimatedBTreeMap that updates the size counter when its value is modified or removed.",
+      "tags": ["data-model", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/utils/estimate-size/src/collections/btreemap.rs:ExtractIf",
+      "type": "class",
+      "name": "ExtractIf",
+      "filePath": "src/utils/estimate-size/src/collections/btreemap.rs",
+      "lineRange": [243, 249],
+      "summary": "Iterator adapter for EstimatedBTreeMap that conditionally removes entries while keeping the size counter accurate.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/estimate-size/src/collections/btreemap.rs:retain_range",
+      "type": "function",
+      "name": "retain_range",
+      "filePath": "src/utils/estimate-size/src/collections/btreemap.rs",
+      "lineRange": [148, 178],
+      "summary": "Retains only entries within the given key range in an EstimatedBTreeMap, correctly updating the accumulated heap size as entries are removed.",
+      "tags": ["utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/utils/estimate-size/src/collections/btreemap.rs:extract_if",
+      "type": "function",
+      "name": "extract_if",
+      "filePath": "src/utils/estimate-size/src/collections/btreemap.rs",
+      "lineRange": [180, 192],
+      "summary": "Returns an ExtractIf iterator that removes entries satisfying a predicate, tracking size changes through the adapter.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/utils/estimate-size/src/collections/hashmap.rs:EstimatedHashMap",
+      "type": "class",
+      "name": "EstimatedHashMap",
+      "filePath": "src/utils/estimate-size/src/collections/hashmap.rs",
+      "lineRange": [21, 24],
+      "summary": "Memory-tracked HashMap wrapper that maintains a running heap size estimate updated on every mutation.",
+      "tags": ["data-model", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/utils/estimate-size/src/collections/hashset.rs:EstimatedHashSet",
+      "type": "class",
+      "name": "EstimatedHashSet",
+      "filePath": "src/utils/estimate-size/src/collections/hashset.rs",
+      "lineRange": [22, 25],
+      "summary": "Memory-tracked HashSet wrapper that maintains a running heap size estimate updated on every mutation.",
+      "tags": ["data-model", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/utils/estimate-size/src/collections/mod.rs:MutGuard",
+      "type": "class",
+      "name": "MutGuard",
+      "filePath": "src/utils/estimate-size/src/collections/mod.rs",
+      "lineRange": [57, 67],
+      "summary": "RAII guard that captures the heap size of a value before mutation and updates the parent collection's size counter when dropped.",
+      "tags": ["utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/utils/estimate-size/src/collections/vec.rs:EstimatedVec",
+      "type": "class",
+      "name": "EstimatedVec",
+      "filePath": "src/utils/estimate-size/src/collections/vec.rs",
+      "lineRange": [18, 21],
+      "summary": "Memory-tracked Vec wrapper that maintains a running heap size estimate updated on every mutation.",
+      "tags": ["data-model", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/utils/estimate-size/src/collections/vecdeque.rs:EstimatedVecDeque",
+      "type": "class",
+      "name": "EstimatedVecDeque",
+      "filePath": "src/utils/estimate-size/src/collections/vecdeque.rs",
+      "lineRange": [23, 26],
+      "summary": "Memory-tracked VecDeque wrapper that maintains a running heap size estimate updated on every mutation.",
+      "tags": ["data-model", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/utils/estimate-size/src/lib.rs:EstimateSize",
+      "type": "class",
+      "name": "EstimateSize",
+      "filePath": "src/utils/estimate-size/src/lib.rs",
+      "lineRange": [31, 43],
+      "summary": "Core trait requiring types to report their heap allocation footprint and a total estimated size including self; implemented for all standard Rust types and collection wrappers in this crate.",
+      "tags": ["type-definition", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/utils/estimate-size/src/lib.rs:KvSize",
+      "type": "class",
+      "name": "KvSize",
+      "filePath": "src/utils/estimate-size/src/lib.rs",
+      "lineRange": [168, 231],
+      "summary": "Accumulator struct for tracking total heap size of key-value pairs; provides add/sub methods for updating the running total as entries are inserted or removed.",
+      "tags": ["utility", "data-model"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/utils/estimate-size/src/collections/mod.rs",
+      "target": "file:src/utils/estimate-size/src/collections/btreemap.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/mod.rs",
+      "target": "file:src/utils/estimate-size/src/collections/hashmap.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/mod.rs",
+      "target": "file:src/utils/estimate-size/src/collections/hashset.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/mod.rs",
+      "target": "file:src/utils/estimate-size/src/collections/vec.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/mod.rs",
+      "target": "file:src/utils/estimate-size/src/collections/vecdeque.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/lib.rs",
+      "target": "file:src/utils/estimate-size/src/collections/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/btreemap.rs",
+      "target": "class:src/utils/estimate-size/src/collections/btreemap.rs:EstimatedBTreeMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/btreemap.rs",
+      "target": "class:src/utils/estimate-size/src/collections/btreemap.rs:OccupiedEntry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/btreemap.rs",
+      "target": "class:src/utils/estimate-size/src/collections/btreemap.rs:ExtractIf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/btreemap.rs",
+      "target": "function:src/utils/estimate-size/src/collections/btreemap.rs:retain_range",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/btreemap.rs",
+      "target": "function:src/utils/estimate-size/src/collections/btreemap.rs:extract_if",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/btreemap.rs",
+      "target": "class:src/utils/estimate-size/src/collections/btreemap.rs:EstimatedBTreeMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/btreemap.rs",
+      "target": "class:src/utils/estimate-size/src/collections/btreemap.rs:OccupiedEntry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/btreemap.rs",
+      "target": "class:src/utils/estimate-size/src/collections/btreemap.rs:ExtractIf",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/hashmap.rs",
+      "target": "class:src/utils/estimate-size/src/collections/hashmap.rs:EstimatedHashMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/hashmap.rs",
+      "target": "class:src/utils/estimate-size/src/collections/hashmap.rs:EstimatedHashMap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/hashset.rs",
+      "target": "class:src/utils/estimate-size/src/collections/hashset.rs:EstimatedHashSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/hashset.rs",
+      "target": "class:src/utils/estimate-size/src/collections/hashset.rs:EstimatedHashSet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/mod.rs",
+      "target": "class:src/utils/estimate-size/src/collections/mod.rs:MutGuard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/mod.rs",
+      "target": "class:src/utils/estimate-size/src/collections/mod.rs:MutGuard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/vec.rs",
+      "target": "class:src/utils/estimate-size/src/collections/vec.rs:EstimatedVec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/vec.rs",
+      "target": "class:src/utils/estimate-size/src/collections/vec.rs:EstimatedVec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/vecdeque.rs",
+      "target": "class:src/utils/estimate-size/src/collections/vecdeque.rs:EstimatedVecDeque",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/collections/vecdeque.rs",
+      "target": "class:src/utils/estimate-size/src/collections/vecdeque.rs:EstimatedVecDeque",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/lib.rs",
+      "target": "class:src/utils/estimate-size/src/lib.rs:EstimateSize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/lib.rs",
+      "target": "class:src/utils/estimate-size/src/lib.rs:KvSize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/lib.rs",
+      "target": "class:src/utils/estimate-size/src/lib.rs:EstimateSize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/estimate-size/src/lib.rs",
+      "target": "class:src/utils/estimate-size/src/lib.rs:KvSize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

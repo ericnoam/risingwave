@@ -1,0 +1,224 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/utils/runtime/src/deadlock.rs",
+      "type": "file",
+      "name": "deadlock.rs",
+      "filePath": "src/utils/runtime/src/deadlock.rs",
+      "summary": "Exports a helper to enable parking_lot deadlock detection, spawning a background thread that periodically checks for deadlocked threads and panics with diagnostics.",
+      "tags": ["utility", "debugging", "runtime"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/utils/runtime/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/utils/runtime/src/lib.rs",
+      "summary": "Entry point for the risingwave_rt runtime utility crate, re-exporting the logger, panic hook, profiler, and deadlock utilities and providing the `main_okk` Tokio runtime entry-point builder.",
+      "tags": ["entry-point", "runtime", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/utils/runtime/src/logger.rs",
+      "type": "file",
+      "name": "logger.rs",
+      "filePath": "src/utils/runtime/src/logger.rs",
+      "summary": "Configures the RisingWave tracing/logging subscriber stack with layered formatters, OpenTelemetry OTLP export, log filtering, and panic-on-error guard, exposed via `init_risingwave_logger`.",
+      "tags": ["logging", "tracing", "configuration", "runtime"],
+      "complexity": "complex",
+      "languageNotes": "Uses `tracing_subscriber` layered architecture with conditional compilation for OpenTelemetry and Jaeger exporters."
+    },
+    {
+      "id": "file:src/utils/runtime/src/panic_hook.rs",
+      "type": "file",
+      "name": "panic_hook.rs",
+      "filePath": "src/utils/runtime/src/panic_hook.rs",
+      "summary": "Installs a custom Rust panic hook that logs full panic information including backtrace via the tracing framework before calling the default hook.",
+      "tags": ["utility", "error-handling", "runtime"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/utils/runtime/src/prof.rs",
+      "type": "file",
+      "name": "prof.rs",
+      "filePath": "src/utils/runtime/src/prof.rs",
+      "summary": "Spawns an optional background profiling thread using pprof-rs to collect CPU profiles at a configurable interval for RisingWave processes.",
+      "tags": ["profiling", "utility", "runtime"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/runtime/src/deadlock.rs:enable_parking_lot_deadlock_detection",
+      "type": "function",
+      "name": "enable_parking_lot_deadlock_detection",
+      "filePath": "src/utils/runtime/src/deadlock.rs",
+      "lineRange": [8, 39],
+      "summary": "Starts a background thread that polls parking_lot for deadlocked threads every 10 seconds and panics with thread details if any are found.",
+      "tags": ["debugging", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/runtime/src/lib.rs:main_okk",
+      "type": "function",
+      "name": "main_okk",
+      "filePath": "src/utils/runtime/src/lib.rs",
+      "lineRange": [45, 160],
+      "summary": "Builds and starts the Tokio multi-thread runtime with configured thread counts, sets up panic hooks, deadlock detection, profiling, and logger, then runs the provided async main function.",
+      "tags": ["entry-point", "runtime", "initialization"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/utils/runtime/src/logger.rs:LoggerSettings",
+      "type": "class",
+      "name": "LoggerSettings",
+      "filePath": "src/utils/runtime/src/logger.rs",
+      "lineRange": [1, 80],
+      "summary": "Builder struct for configuring the logger: log level, OTLP endpoint, Jaeger endpoint, verbose modules, and log format selection.",
+      "tags": ["configuration", "logging"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/utils/runtime/src/logger.rs:init_risingwave_logger",
+      "type": "function",
+      "name": "init_risingwave_logger",
+      "filePath": "src/utils/runtime/src/logger.rs",
+      "lineRange": [200, 574],
+      "summary": "Initializes the global tracing subscriber from LoggerSettings, assembling a layered subscriber with console/file formatters, OTLP/Jaeger exporters, and optional panic-on-error guard.",
+      "tags": ["initialization", "logging", "tracing"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/utils/runtime/src/panic_hook.rs:set_panic_hook",
+      "type": "function",
+      "name": "set_panic_hook",
+      "filePath": "src/utils/runtime/src/panic_hook.rs",
+      "lineRange": [6, 36],
+      "summary": "Registers a panic hook that logs the panic message and backtrace using `tracing::error!` before invoking the default panic behavior.",
+      "tags": ["error-handling", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/runtime/src/prof.rs:spawn_prof_thread",
+      "type": "function",
+      "name": "spawn_prof_thread",
+      "filePath": "src/utils/runtime/src/prof.rs",
+      "lineRange": [10, 48],
+      "summary": "Optionally spawns a pprof-rs based CPU profiling thread that samples at the configured rate and writes flamegraph profiles to disk.",
+      "tags": ["profiling", "utility"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/utils/runtime/src/lib.rs",
+      "target": "file:src/utils/runtime/src/deadlock.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/runtime/src/lib.rs",
+      "target": "file:src/utils/runtime/src/logger.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/runtime/src/lib.rs",
+      "target": "file:src/utils/runtime/src/panic_hook.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/runtime/src/lib.rs",
+      "target": "file:src/utils/runtime/src/prof.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/runtime/src/deadlock.rs",
+      "target": "function:src/utils/runtime/src/deadlock.rs:enable_parking_lot_deadlock_detection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/runtime/src/deadlock.rs",
+      "target": "function:src/utils/runtime/src/deadlock.rs:enable_parking_lot_deadlock_detection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/runtime/src/lib.rs",
+      "target": "function:src/utils/runtime/src/lib.rs:main_okk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/runtime/src/lib.rs",
+      "target": "function:src/utils/runtime/src/lib.rs:main_okk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/runtime/src/logger.rs",
+      "target": "class:src/utils/runtime/src/logger.rs:LoggerSettings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/runtime/src/logger.rs",
+      "target": "function:src/utils/runtime/src/logger.rs:init_risingwave_logger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/runtime/src/logger.rs",
+      "target": "class:src/utils/runtime/src/logger.rs:LoggerSettings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/runtime/src/logger.rs",
+      "target": "function:src/utils/runtime/src/logger.rs:init_risingwave_logger",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/runtime/src/panic_hook.rs",
+      "target": "function:src/utils/runtime/src/panic_hook.rs:set_panic_hook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/runtime/src/panic_hook.rs",
+      "target": "function:src/utils/runtime/src/panic_hook.rs:set_panic_hook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/runtime/src/prof.rs",
+      "target": "function:src/utils/runtime/src/prof.rs:spawn_prof_thread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/runtime/src/prof.rs",
+      "target": "function:src/utils/runtime/src/prof.rs:spawn_prof_thread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

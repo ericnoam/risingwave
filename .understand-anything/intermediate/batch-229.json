@@ -1,0 +1,96 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/vector/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/vector/README.md",
+      "summary": "HOW-TO guide for the Vector-to-RisingWave integration test, explaining how to start the environment and verify that Vector can forward log data to RisingWave.",
+      "tags": ["documentation", "integration-test", "overview"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/vector/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/vector/create_source.sql",
+      "summary": "Defines the event source table in RisingWave with source_id, data_type, and value columns to receive log events forwarded by the Vector agent.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/vector/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/vector/create_mv.sql",
+      "summary": "Creates a minimal materialized view over the Vector event source for querying ingested log data.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/vector/query.sql",
+      "type": "table",
+      "name": "query.sql",
+      "filePath": "integration_tests/vector/query.sql",
+      "summary": "Validation queries that verify log events from Vector are correctly ingested and stored in RisingWave.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/vector/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/vector/docker-compose.yml",
+      "summary": "Docker Compose file orchestrating RisingWave and a Vector agent service for the Vector log-forwarding integration test.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:integration_tests/vector/vector.yaml",
+      "type": "config",
+      "name": "vector.yaml",
+      "filePath": "integration_tests/vector/vector.yaml",
+      "summary": "Vector agent configuration defining a stdin source and a RisingWave sink, routing log events from standard input to the RisingWave event table.",
+      "tags": ["configuration", "monitoring", "integration-test"],
+      "complexity": "simple",
+      "languageNotes": "Configures Vector's sources and sinks sections; the RisingWave sink uses the native Vector-to-RisingWave connector."
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/vector/README.md",
+      "target": "service:integration_tests/vector/docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:integration_tests/vector/README.md",
+      "target": "config:integration_tests/vector/vector.yaml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/vector/docker-compose.yml",
+      "target": "config:integration_tests/vector/vector.yaml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:integration_tests/vector/vector.yaml",
+      "target": "table:integration_tests/vector/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/vector/docker-compose.yml",
+      "target": "table:integration_tests/vector/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

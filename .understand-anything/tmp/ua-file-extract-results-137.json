@@ -1,0 +1,63 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/iceberg-cdc/python/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 11,
+      "nonEmptyLines": 6,
+      "services": [
+        {
+          "name": "python",
+          "image": "python:3.11",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 12
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM python:3.11",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "RUN curl -sSL https://install.python-poetry.org | python3 -",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "COPY script /app",
+          "startLine": 7,
+          "endLine": 7
+        },
+        {
+          "name": "RUN $HOME/.local/bin/poetry update",
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "CMD $HOME/.local/bin/poetry run python init.py;sleep 40;$HOME/.l",
+          "startLine": 11,
+          "endLine": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 6
+      }
+    }
+  ]
+}

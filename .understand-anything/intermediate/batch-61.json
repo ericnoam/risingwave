@@ -1,0 +1,910 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/frontend/src/planner/values.rs",
+      "type": "file",
+      "name": "values.rs",
+      "filePath": "src/frontend/src/planner/values.rs",
+      "summary": "Plans SQL VALUES clauses into a LogicalValues plan node.",
+      "tags": [
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/distributed/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/frontend/src/scheduler/distributed/mod.rs",
+      "summary": "Barrel module re-exporting distributed scheduler components: query, stage, manager, stats.",
+      "tags": [
+        "barrel",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "type": "file",
+      "name": "query.rs",
+      "filePath": "src/frontend/src/scheduler/distributed/query.rs",
+      "summary": "Manages distributed query execution lifecycle, coordinating stage scheduling and result streaming.",
+      "tags": [
+        "service",
+        "api-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/distributed/query_manager.rs",
+      "type": "file",
+      "name": "query_manager.rs",
+      "filePath": "src/frontend/src/scheduler/distributed/query_manager.rs",
+      "summary": "Manages the pool of in-flight distributed query executions, handling lifecycle and cancellation.",
+      "tags": [
+        "service",
+        "singleton"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "type": "file",
+      "name": "stage.rs",
+      "filePath": "src/frontend/src/scheduler/distributed/stage.rs",
+      "summary": "Implements distributed stage execution, dispatching tasks to compute nodes and collecting results.",
+      "tags": [
+        "service",
+        "api-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/distributed/stats.rs",
+      "type": "file",
+      "name": "stats.rs",
+      "filePath": "src/frontend/src/scheduler/distributed/stats.rs",
+      "summary": "Tracks runtime statistics for distributed query scheduling.",
+      "tags": [
+        "utility",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/error.rs",
+      "type": "file",
+      "name": "error.rs",
+      "filePath": "src/frontend/src/scheduler/error.rs",
+      "summary": "Defines scheduler-specific error types wrapping plan fragmenter and frontend errors.",
+      "tags": [
+        "utility",
+        "validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/frontend/src/scheduler/mod.rs",
+      "summary": "Barrel module for the scheduler subsystem, re-exporting distributed, local, and snapshot scheduler components.",
+      "tags": [
+        "barrel",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "type": "file",
+      "name": "plan_fragmenter.rs",
+      "filePath": "src/frontend/src/scheduler/plan_fragmenter.rs",
+      "summary": "Fragments a logical query plan into distributed execution stages, assigning workers and partitions.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/snapshot.rs",
+      "type": "file",
+      "name": "snapshot.rs",
+      "filePath": "src/frontend/src/scheduler/snapshot.rs",
+      "summary": "Manages read snapshots for query execution, pinning Hummock versions and tracking epoch boundaries.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/stream_fragmenter/graph/fragment_graph.rs",
+      "type": "file",
+      "name": "fragment_graph.rs",
+      "filePath": "src/frontend/src/stream_fragmenter/graph/fragment_graph.rs",
+      "summary": "Defines the stream fragment graph data structure used during stream plan construction.",
+      "tags": [
+        "data-model",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/stream_fragmenter/graph/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/frontend/src/stream_fragmenter/graph/mod.rs",
+      "summary": "Barrel module re-exporting the fragment_graph module.",
+      "tags": [
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/frontend/src/stream_fragmenter/mod.rs",
+      "summary": "Entry point for stream plan fragmentation, converting logical stream plans into physical stream fragments.",
+      "tags": [
+        "service",
+        "entry-point"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/stream_fragmenter/parallelism.rs",
+      "type": "file",
+      "name": "parallelism.rs",
+      "filePath": "src/frontend/src/stream_fragmenter/parallelism.rs",
+      "summary": "Handles parallelism assignment for stream plan fragments during fragmentation.",
+      "tags": [
+        "service",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/stream_fragmenter/rewrite/delta_join.rs",
+      "type": "file",
+      "name": "delta_join.rs",
+      "filePath": "src/frontend/src/stream_fragmenter/rewrite/delta_join.rs",
+      "summary": "Rewrites stream plans to use delta join patterns for incremental join computation.",
+      "tags": [
+        "service",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/stream_fragmenter/rewrite/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/frontend/src/stream_fragmenter/rewrite/mod.rs",
+      "summary": "Barrel module re-exporting stream plan rewrite passes.",
+      "tags": [
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/src/utils/column_index_mapping.rs",
+      "type": "file",
+      "name": "column_index_mapping.rs",
+      "filePath": "src/frontend/src/utils/column_index_mapping.rs",
+      "summary": "Provides a column index mapping utility used for projections and join output remapping.",
+      "tags": [
+        "utility",
+        "data-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/utils/condition.rs",
+      "type": "file",
+      "name": "condition.rs",
+      "filePath": "src/frontend/src/utils/condition.rs",
+      "summary": "Represents and manipulates filter conditions including conjunctions and expression rewrites.",
+      "tags": [
+        "utility",
+        "data-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/utils/connected_components.rs",
+      "type": "file",
+      "name": "connected_components.rs",
+      "filePath": "src/frontend/src/utils/connected_components.rs",
+      "summary": "Implements connected components algorithm for graph-structured query optimizer data.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/utils/drop_guard.rs",
+      "type": "file",
+      "name": "drop_guard.rs",
+      "filePath": "src/frontend/src/utils/drop_guard.rs",
+      "summary": "Provides a RAII guard that executes a closure on drop, used for cleanup in async contexts.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/src/utils/group_by.rs",
+      "type": "file",
+      "name": "group_by.rs",
+      "filePath": "src/frontend/src/utils/group_by.rs",
+      "summary": "Utilities for handling GROUP BY expressions in query plans.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/utils/iceberg_predicate.rs",
+      "type": "file",
+      "name": "iceberg_predicate.rs",
+      "filePath": "src/frontend/src/utils/iceberg_predicate.rs",
+      "summary": "Translates RisingWave expressions into Iceberg predicate pushdown format.",
+      "tags": [
+        "utility",
+        "serialization"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/utils/index_set.rs",
+      "type": "file",
+      "name": "index_set.rs",
+      "filePath": "src/frontend/src/utils/index_set.rs",
+      "summary": "Represents sets of column indices used in join keys and sort keys.",
+      "tags": [
+        "utility",
+        "data-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/utils/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/frontend/src/utils/mod.rs",
+      "summary": "Barrel module re-exporting all frontend utility types and functions.",
+      "tags": [
+        "barrel",
+        "utility",
+        "entry-point"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/utils/pretty_serde.rs",
+      "type": "file",
+      "name": "pretty_serde.rs",
+      "filePath": "src/frontend/src/utils/pretty_serde.rs",
+      "summary": "Provides pretty-printing serde utilities for debugging plan nodes.",
+      "tags": [
+        "utility",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/utils/rewrite_index.rs",
+      "type": "file",
+      "name": "rewrite_index.rs",
+      "filePath": "src/frontend/src/utils/rewrite_index.rs",
+      "summary": "Utility for rewriting column indices in expressions during plan transformations.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/frontend/src/scheduler/distributed/query.rs:QueryExecution",
+      "type": "class",
+      "name": "QueryExecution",
+      "filePath": "src/frontend/src/scheduler/distributed/query.rs",
+      "lineRange": [
+        69,
+        78
+      ],
+      "summary": "Encapsulates a distributed query execution instance, managing stage spawning, state tracking, and result streaming.",
+      "tags": [
+        "service",
+        "data-model"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "target": "class:src/frontend/src/scheduler/distributed/query.rs:QueryExecution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "target": "class:src/frontend/src/scheduler/distributed/query.rs:QueryExecution",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/planner/values.rs",
+      "target": "file:src/frontend/src/binder/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/planner/values.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/planner/values.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/planner/values.rs",
+      "target": "file:src/frontend/src/planner/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/mod.rs",
+      "target": "file:src/frontend/src/scheduler/distributed/query_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/mod.rs",
+      "target": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/mod.rs",
+      "target": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/mod.rs",
+      "target": "file:src/frontend/src/scheduler/distributed/stats.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "target": "file:src/frontend/src/catalog/catalog_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "target": "file:src/frontend/src/scheduler/distributed/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "target": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "target": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query.rs",
+      "target": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query_manager.rs",
+      "target": "file:src/frontend/src/catalog/catalog_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query_manager.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/query_manager.rs",
+      "target": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "target": "file:src/frontend/src/catalog/catalog_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "target": "file:src/frontend/src/scheduler/distributed/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "target": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/distributed/stage.rs",
+      "target": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/error.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/error.rs",
+      "target": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/mod.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/mod.rs",
+      "target": "file:src/frontend/src/scheduler/distributed/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/mod.rs",
+      "target": "file:src/frontend/src/scheduler/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/mod.rs",
+      "target": "file:src/frontend/src/scheduler/fast_insert.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/mod.rs",
+      "target": "file:src/frontend/src/scheduler/local.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/mod.rs",
+      "target": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/mod.rs",
+      "target": "file:src/frontend/src/scheduler/snapshot.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/mod.rs",
+      "target": "file:src/frontend/src/scheduler/streaming_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/mod.rs",
+      "target": "file:src/frontend/src/scheduler/task_context.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/mod.rs",
+      "target": "file:src/frontend/src/session.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "target": "file:src/frontend/src/catalog/catalog_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/generic/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "target": "file:src/frontend/src/optimizer/property/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/snapshot.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/snapshot.rs",
+      "target": "file:src/frontend/src/expr/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/snapshot.rs",
+      "target": "file:src/frontend/src/meta_client.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/snapshot.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/snapshot.rs",
+      "target": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/graph/mod.rs",
+      "target": "file:src/frontend/src/stream_fragmenter/graph/fragment_graph.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/generic/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "target": "file:src/frontend/src/stream_fragmenter/graph/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "target": "file:src/frontend/src/stream_fragmenter/parallelism.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "target": "file:src/frontend/src/stream_fragmenter/rewrite/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/rewrite/delta_join.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/rewrite/delta_join.rs",
+      "target": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/stream_fragmenter/rewrite/mod.rs",
+      "target": "file:src/frontend/src/stream_fragmenter/rewrite/delta_join.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/column_index_mapping.rs",
+      "target": "file:src/frontend/src/expr/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/column_index_mapping.rs",
+      "target": "file:src/frontend/src/optimizer/property/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/condition.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/condition.rs",
+      "target": "file:src/frontend/src/expr/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/condition.rs",
+      "target": "file:src/frontend/src/utils/condition.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/group_by.rs",
+      "target": "file:src/frontend/src/expr/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/iceberg_predicate.rs",
+      "target": "file:src/frontend/src/expr/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/iceberg_predicate.rs",
+      "target": "file:src/frontend/src/utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/expr/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/column_index_mapping.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/condition.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/connected_components.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/data_type.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/drop_guard.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/group_by.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/iceberg_predicate.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/index_set.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/overwrite_options.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/pretty_serde.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/rewrite_index.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/stream_graph_formatter.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/mod.rs",
+      "target": "file:src/frontend/src/utils/with_options.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/utils/rewrite_index.rs",
+      "target": "file:src/frontend/src/expr/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

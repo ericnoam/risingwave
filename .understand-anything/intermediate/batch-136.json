@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "service:integration_tests/feature-store/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/feature-store/docker-compose.yml",
+      "summary": "Docker Compose file orchestrating the feature-store integration test environment, including the feature-store server, a RisingWave instance, and supporting volumes.",
+      "tags": ["orchestration", "infrastructure", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:integration_tests/feature-store/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "integration_tests/feature-store/Dockerfile",
+      "summary": "Builds the feature-store server image on Ubuntu 20.04, installing Python ML dependencies, Rust toolchain, .NET SDK, and compiling both the server and simulator binaries for the feature-store integration test scenario.",
+      "tags": ["containerization", "infrastructure", "test"],
+      "complexity": "complex",
+      "languageNotes": "Unusual polyglot image: installs Python (pip), Rust (cargo), and .NET SDK 6.0 in a single Ubuntu image to support the diverse feature-store service stack."
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:integration_tests/feature-store/docker-compose.yml",
+      "target": "service:integration_tests/feature-store/Dockerfile",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

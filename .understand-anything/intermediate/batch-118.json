@@ -1,0 +1,135 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/common/heap_profiling/src/jeprof.rs",
+      "type": "file",
+      "name": "jeprof.rs",
+      "filePath": "src/common/heap_profiling/src/jeprof.rs",
+      "summary": "Wraps the `jeprof` Perl script to post-process jemalloc heap profiles into human-readable flamegraph or callgrind output.",
+      "tags": ["profiling", "utility", "debugging"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/common/heap_profiling/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/common/heap_profiling/src/lib.rs",
+      "summary": "Barrel file for the heap_profiling crate, re-exporting the jemalloc profiler, profile service gRPC handler, and jeprof post-processing utilities.",
+      "tags": ["entry-point", "barrel", "profiling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/common/heap_profiling/src/profile_service.rs",
+      "type": "file",
+      "name": "profile_service.rs",
+      "filePath": "src/common/heap_profiling/src/profile_service.rs",
+      "summary": "Implements the HeapProfilingService gRPC handler that triggers jemalloc heap dumps, collects profile files, and streams them back to the caller via the RPC interface.",
+      "tags": ["service", "profiling", "api-handler"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/common/heap_profiling/src/profiler.rs",
+      "type": "file",
+      "name": "profiler.rs",
+      "filePath": "src/common/heap_profiling/src/profiler.rs",
+      "summary": "Implements the HeapProfiler which activates jemalloc heap profiling, triggers dumps at configurable intervals, and writes profile files to a designated directory.",
+      "tags": ["profiling", "service", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/common/heap_profiling/src/profile_service.rs:HeapProfilingServiceImpl",
+      "type": "class",
+      "name": "HeapProfilingServiceImpl",
+      "filePath": "src/common/heap_profiling/src/profile_service.rs",
+      "lineRange": [1, 180],
+      "summary": "gRPC service implementation for on-demand heap profiling: triggers dumps and returns the raw profile bytes or processed flamegraph output.",
+      "tags": ["api-handler", "profiling", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/common/heap_profiling/src/profiler.rs:HeapProfiler",
+      "type": "class",
+      "name": "HeapProfiler",
+      "filePath": "src/common/heap_profiling/src/profiler.rs",
+      "lineRange": [1, 107],
+      "summary": "Manages jemalloc profiling lifecycle: enables/disables heap profiling, triggers periodic dumps, and manages profile file rotation.",
+      "tags": ["profiling", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/heap_profiling/src/jeprof.rs:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "src/common/heap_profiling/src/jeprof.rs",
+      "lineRange": [18, 56],
+      "summary": "Invokes the jeprof script on a heap profile dump file and returns the processed output as a byte vector.",
+      "tags": ["profiling", "utility"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/common/heap_profiling/src/lib.rs",
+      "target": "file:src/common/heap_profiling/src/jeprof.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/heap_profiling/src/lib.rs",
+      "target": "file:src/common/heap_profiling/src/profile_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/heap_profiling/src/lib.rs",
+      "target": "file:src/common/heap_profiling/src/profiler.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/heap_profiling/src/jeprof.rs",
+      "target": "function:src/common/heap_profiling/src/jeprof.rs:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/heap_profiling/src/jeprof.rs",
+      "target": "function:src/common/heap_profiling/src/jeprof.rs:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/heap_profiling/src/profile_service.rs",
+      "target": "class:src/common/heap_profiling/src/profile_service.rs:HeapProfilingServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/heap_profiling/src/profile_service.rs",
+      "target": "class:src/common/heap_profiling/src/profile_service.rs:HeapProfilingServiceImpl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/heap_profiling/src/profiler.rs",
+      "target": "class:src/common/heap_profiling/src/profiler.rs:HeapProfiler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/heap_profiling/src/profiler.rs",
+      "target": "class:src/common/heap_profiling/src/profiler.rs:HeapProfiler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

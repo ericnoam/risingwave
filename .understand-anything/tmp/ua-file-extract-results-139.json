@@ -1,0 +1,53 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/iceberg-sink/presto-with-iceberg/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "services": [
+        {
+          "name": "prestodb-sandbox",
+          "image": "ahanaio/prestodb-sandbox",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 5
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM ahanaio/prestodb-sandbox",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "COPY ./iceberg.properties /opt/presto-server/etc/catalog",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "COPY ./log.properties /opt/presto-server/etc",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "COPY ./hadoop-catalog.xml /etc/iceberg/conf/hadoop-catalog.xml",
+          "startLine": 5,
+          "endLine": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 4
+      }
+    }
+  ]
+}

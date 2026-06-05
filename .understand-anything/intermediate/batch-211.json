@@ -1,0 +1,162 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/nats/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/nats/README.md",
+      "summary": "Comprehensive guide for the NATS sink integration test demo, covering setup steps, SQL commands, and end-to-end walkthrough of sinking RisingWave changes to NATS subjects.",
+      "tags": ["documentation", "integration-test", "nats"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/nats/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/nats/create_mv.sql",
+      "summary": "Defines the `nats_sink_all_types` source table in RisingWave covering the full range of supported types for the NATS sink all-types compatibility test.",
+      "tags": ["database", "schema-definition", "integration-test", "nats"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/nats/create_mv.sql:nats_sink_all_types",
+      "type": "table",
+      "name": "nats_sink_all_types",
+      "filePath": "integration_tests/nats/create_mv.sql",
+      "lineRange": [1, 35],
+      "summary": "RisingWave table with comprehensive type coverage including boolean, numeric, varchar, bytea, date/time, interval, jsonb, struct, and array variants for full NATS sink type testing.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/nats/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/nats/create_sink.sql",
+      "summary": "Creates the `personnel` test table and NATS sink definitions to publish RisingWave data changes to NATS subjects in the nats integration test.",
+      "tags": ["database", "integration-test", "nats"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/nats/create_sink.sql:personnel",
+      "type": "table",
+      "name": "personnel",
+      "filePath": "integration_tests/nats/create_sink.sql",
+      "lineRange": [3, 4],
+      "summary": "Simple personnel test table with id and name columns serving as NATS sink source data.",
+      "tags": ["database", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/nats/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/nats/create_source.sql",
+      "summary": "Defines RisingWave NATS source tables (`live_stream_metrics`, `live_stream_metrics_2`) consuming messages from NATS subjects for the nats integration test.",
+      "tags": ["database", "schema-definition", "integration-test", "nats"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/nats/create_source.sql:live_stream_metrics",
+      "type": "table",
+      "name": "live_stream_metrics",
+      "filePath": "integration_tests/nats/create_source.sql",
+      "lineRange": [2, 7],
+      "summary": "RisingWave source table ingesting live stream metrics from a NATS subject.",
+      "tags": ["database", "integration-test", "nats"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/nats/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/nats/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the NATS integration test, running a NATS server and RisingWave instance together.",
+      "tags": ["orchestration", "infrastructure", "integration-test", "nats"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/nats/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/nats/prepare.sh",
+      "summary": "Shell script that sets up the NATS integration test environment by creating subjects, inserting test data into RisingWave, and configuring the sink.",
+      "tags": ["script", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/nats/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/nats/query.sql",
+      "summary": "Verification queries for the NATS integration test that inspect ingested source data and sink output to confirm end-to-end message delivery.",
+      "tags": ["database", "query", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/nats/create_mv.sql",
+      "target": "table:integration_tests/nats/create_mv.sql:nats_sink_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/nats/create_sink.sql",
+      "target": "table:integration_tests/nats/create_sink.sql:personnel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/nats/create_source.sql",
+      "target": "table:integration_tests/nats/create_source.sql:live_stream_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "document:integration_tests/nats/README.md",
+      "target": "service:integration_tests/nats/docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:integration_tests/nats/README.md",
+      "target": "file:integration_tests/nats/create_sink.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/nats/create_source.sql",
+      "target": "file:integration_tests/nats/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/nats/create_mv.sql",
+      "target": "file:integration_tests/nats/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/nats/create_sink.sql",
+      "target": "file:integration_tests/nats/query.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/nats/docker-compose.yml",
+      "target": "file:integration_tests/nats/prepare.sh",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

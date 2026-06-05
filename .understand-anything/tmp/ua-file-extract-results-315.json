@@ -1,0 +1,1115 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "e2e_test/source_inline/kafka/avro/ref.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 257,
+      "nonEmptyLines": 198,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/avro/union.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 175,
+      "nonEmptyLines": 152,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/avro/upsert_avro_json",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/background_ddl/basic.slt.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 129,
+      "nonEmptyLines": 90,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/consumer_group_non_shared.slt.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 126,
+      "nonEmptyLines": 93,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/consumer_group.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 115,
+      "nonEmptyLines": 105,
+      "functions": [
+        {
+          "name": "get_fragment_id_of_mv",
+          "startLine": 12,
+          "endLine": 25,
+          "params": [
+            "mv_name"
+          ]
+        },
+        {
+          "name": "list_consumer_groups",
+          "startLine": 27,
+          "endLine": 44,
+          "params": [
+            "fragment_id"
+          ]
+        },
+        {
+          "name": "count_consumer_groups",
+          "startLine": 46,
+          "endLine": 68,
+          "params": []
+        },
+        {
+          "name": "describe_consumer_group",
+          "startLine": 70,
+          "endLine": 84,
+          "params": [
+            "group_name"
+          ]
+        },
+        {
+          "name": "list_consumer_group_members",
+          "startLine": 86,
+          "endLine": 93,
+          "params": [
+            "fragment_id"
+          ]
+        },
+        {
+          "name": "list_consumer_group_lags",
+          "startLine": 95,
+          "endLine": 102,
+          "params": [
+            "fragment_id"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_fragment_id_of_mv",
+          "callee": "(\n    await $`\n    psql -h $RISEDEV_RW_FRONTEND_LISTEN_ADDRESS -p $RISEDEV_RW_FRONTEND_PORT -U root -d dev \\\n    --csv -t -c \"select fragment_id from rw_materialized_views JOIN rw_fragments on rw_materialized_views.id = rw_fragments.table_id where name='${mv_name}';\"\n  `\n  )\n    .toString()\n    .trim",
+          "lineNumber": 13
+        },
+        {
+          "caller": "get_fragment_id_of_mv",
+          "callee": "(\n    await $`\n    psql -h $RISEDEV_RW_FRONTEND_LISTEN_ADDRESS -p $RISEDEV_RW_FRONTEND_PORT -U root -d dev \\\n    --csv -t -c \"select fragment_id from rw_materialized_views JOIN rw_fragments on rw_materialized_views.id = rw_fragments.table_id where name='${mv_name}';\"\n  `\n  )\n    .toString",
+          "lineNumber": 13
+        },
+        {
+          "caller": "get_fragment_id_of_mv",
+          "callee": "$",
+          "lineNumber": 14
+        },
+        {
+          "caller": "list_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString()\n    .trim()\n    .split(\"\\n\")\n    .slice(1)\n    .map",
+          "lineNumber": 28
+        },
+        {
+          "caller": "list_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString()\n    .trim()\n    .split(\"\\n\")\n    .slice",
+          "lineNumber": 28
+        },
+        {
+          "caller": "list_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString()\n    .trim()\n    .split",
+          "lineNumber": 28
+        },
+        {
+          "caller": "list_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString()\n    .trim",
+          "lineNumber": 28
+        },
+        {
+          "caller": "list_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString",
+          "lineNumber": 28
+        },
+        {
+          "caller": "list_consumer_groups",
+          "callee": "$",
+          "lineNumber": 28
+        },
+        {
+          "caller": "list_consumer_groups",
+          "callee": "line.split",
+          "lineNumber": 34
+        },
+        {
+          "caller": "list_consumer_groups",
+          "callee": "all_groups.filter",
+          "lineNumber": 38
+        },
+        {
+          "caller": "list_consumer_groups",
+          "callee": "group_name.endsWith",
+          "lineNumber": 39
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString()\n    .trim()\n    .split(\"\\n\")\n    .slice(1)\n    .map((line) => {\n      const [_broker_id, group_name] = line.split(/\\s+/);\n      console.error(group_name);\n      return group_name.split(\"-\").slice(0, -1).join(\"-\");\n    })\n    .reduce",
+          "lineNumber": 47
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString()\n    .trim()\n    .split(\"\\n\")\n    .slice(1)\n    .map",
+          "lineNumber": 47
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString()\n    .trim()\n    .split(\"\\n\")\n    .slice",
+          "lineNumber": 47
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString()\n    .trim()\n    .split",
+          "lineNumber": 47
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString()\n    .trim",
+          "lineNumber": 47
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "(await $`rpk group list`)\n    .toString",
+          "lineNumber": 47
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "$",
+          "lineNumber": 47
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "line.split",
+          "lineNumber": 53
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "console.error",
+          "lineNumber": 54
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "group_name.split(\"-\").slice(0, -1).join",
+          "lineNumber": 55
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "group_name.split(\"-\").slice",
+          "lineNumber": 55
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "group_name.split",
+          "lineNumber": 55
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "acc.set",
+          "lineNumber": 58
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "acc.get",
+          "lineNumber": 58
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "[...map.entries()].sort",
+          "lineNumber": 61
+        },
+        {
+          "caller": "count_consumer_groups",
+          "callee": "map.entries",
+          "lineNumber": 61
+        },
+        {
+          "caller": "describe_consumer_group",
+          "callee": "$",
+          "lineNumber": 71
+        },
+        {
+          "caller": "describe_consumer_group",
+          "callee": "res.toString().trim().split",
+          "lineNumber": 79
+        },
+        {
+          "caller": "describe_consumer_group",
+          "callee": "res.toString().trim",
+          "lineNumber": 79
+        },
+        {
+          "caller": "describe_consumer_group",
+          "callee": "res.toString",
+          "lineNumber": 79
+        },
+        {
+          "caller": "describe_consumer_group",
+          "callee": "line.split",
+          "lineNumber": 80
+        },
+        {
+          "caller": "list_consumer_group_members",
+          "callee": "list_consumer_groups",
+          "lineNumber": 87
+        },
+        {
+          "caller": "list_consumer_group_members",
+          "callee": "Promise.all",
+          "lineNumber": 88
+        },
+        {
+          "caller": "list_consumer_group_members",
+          "callee": "groups.map",
+          "lineNumber": 89
+        },
+        {
+          "caller": "list_consumer_group_members",
+          "callee": "describe_consumer_group",
+          "lineNumber": 90
+        },
+        {
+          "caller": "list_consumer_group_lags",
+          "callee": "list_consumer_groups",
+          "lineNumber": 96
+        },
+        {
+          "caller": "list_consumer_group_lags",
+          "callee": "Promise.all",
+          "lineNumber": 97
+        },
+        {
+          "caller": "list_consumer_group_lags",
+          "callee": "groups.map",
+          "lineNumber": 98
+        },
+        {
+          "caller": "list_consumer_group_lags",
+          "callee": "describe_consumer_group",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/consumer_group.slt.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 63,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/datagen.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 213,
+      "nonEmptyLines": 181,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/handling_mode.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 145,
+      "nonEmptyLines": 122,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/include_key_as.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 295,
+      "nonEmptyLines": 251,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/issue_18308.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 38,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/issue_19563.slt.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 59,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/issue_20377.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 30,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/issue_24829.slt.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 219,
+      "nonEmptyLines": 166,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/kafka_startup_millis.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 141,
+      "nonEmptyLines": 115,
+      "functions": [
+        {
+          "name": "produce_records",
+          "startLine": 12,
+          "endLine": 17,
+          "params": [
+            "producer",
+            "topic",
+            "records"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 20,
+          "endLine": 137,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "produce_records",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "produce_records",
+          "callee": "producer.produce",
+          "lineNumber": 15
+        },
+        {
+          "caller": "produce_records",
+          "callee": "json.dumps",
+          "lineNumber": 15
+        },
+        {
+          "caller": "produce_records",
+          "callee": "producer.flush",
+          "lineNumber": 16
+        },
+        {
+          "caller": "produce_records",
+          "callee": "print",
+          "lineNumber": 17
+        },
+        {
+          "caller": "produce_records",
+          "callee": "len",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "os.environ.get",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "Producer",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "sys.exit",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "produce_records",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "time.sleep",
+          "lineNumber": 49
+        },
+        {
+          "caller": "main",
+          "callee": "int",
+          "lineNumber": 52
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 52
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 58
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 62
+        },
+        {
+          "caller": "main",
+          "callee": "produce_records",
+          "lineNumber": 63
+        },
+        {
+          "caller": "main",
+          "callee": "psycopg2.connect",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "os.environ.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "os.environ.get",
+          "lineNumber": 69
+        },
+        {
+          "caller": "main",
+          "callee": "conn.cursor",
+          "lineNumber": 74
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 75
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 77
+        },
+        {
+          "caller": "main",
+          "callee": "sys.exit",
+          "lineNumber": 78
+        },
+        {
+          "caller": "main",
+          "callee": "int",
+          "lineNumber": 80
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 80
+        },
+        {
+          "caller": "main",
+          "callee": "cur.execute",
+          "lineNumber": 97
+        },
+        {
+          "caller": "main",
+          "callee": "conn.commit",
+          "lineNumber": 98
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 99
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 102
+        },
+        {
+          "caller": "main",
+          "callee": "produce_records",
+          "lineNumber": 103
+        },
+        {
+          "caller": "main",
+          "callee": "time.sleep",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "cur.execute",
+          "lineNumber": 109
+        },
+        {
+          "caller": "main",
+          "callee": "cur.fetchone",
+          "lineNumber": 110
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 111
+        },
+        {
+          "caller": "main",
+          "callee": "cur.execute",
+          "lineNumber": 114
+        },
+        {
+          "caller": "main",
+          "callee": "cur.fetchall",
+          "lineNumber": 115
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 116
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 118
+        },
+        {
+          "caller": "main",
+          "callee": "len",
+          "lineNumber": 121
+        },
+        {
+          "caller": "main",
+          "callee": "cur.execute",
+          "lineNumber": 127
+        },
+        {
+          "caller": "main",
+          "callee": "conn.commit",
+          "lineNumber": 128
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 129
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 131
+        },
+        {
+          "caller": "main",
+          "callee": "cur.close",
+          "lineNumber": 133
+        },
+        {
+          "caller": "main",
+          "callee": "conn.close",
+          "lineNumber": 134
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/kafka_startup_millis.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 19,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/kafka_txn_produce.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 23,
+          "endLine": 54,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "os.environ.get",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "int",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "args.partitions.split",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "Producer",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "int",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "producer.init_transactions",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "producer.begin_transaction",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "json.dumps",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "producer.produce",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "key.encode",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "value.encode",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "producer.flush",
+          "lineNumber": 50
+        },
+        {
+          "caller": "main",
+          "callee": "producer.commit_transaction",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/kinesis.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 11,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/nexmark.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/protobuf/alter_source_shared.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 113,
+      "nonEmptyLines": 84,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/protobuf/alter_source.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 172,
+      "nonEmptyLines": 136,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/protobuf/basic.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 66,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/protobuf/oneof_empty_message.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 86,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/protobuf/opentelemetry.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 38,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/kafka/protobuf/pb.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 105,
+      "nonEmptyLines": 87,
+      "functions": [
+        {
+          "name": "delivery_report",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "err",
+            "msg"
+          ]
+        },
+        {
+          "name": "get_user",
+          "startLine": 19,
+          "endLine": 27,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "get_user_with_more_fields",
+          "startLine": 30,
+          "endLine": 39,
+          "params": [
+            "i"
+          ]
+        },
+        {
+          "name": "send_to_kafka",
+          "startLine": 42,
+          "endLine": 64,
+          "params": [
+            "producer_conf",
+            "schema_registry_conf",
+            "topic",
+            "num_records",
+            "get_user_fn",
+            "pb_message"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "delivery_report",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "get_user",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "get_user_with_more_fields",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "send_to_kafka",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "delivery_report",
+          "callee": "print",
+          "lineNumber": 16
+        },
+        {
+          "caller": "delivery_report",
+          "callee": "\"Delivery failed for User record {}: {}\".format",
+          "lineNumber": 16
+        },
+        {
+          "caller": "delivery_report",
+          "callee": "msg.value",
+          "lineNumber": 16
+        },
+        {
+          "caller": "get_user",
+          "callee": "user_pb2.User",
+          "lineNumber": 20
+        },
+        {
+          "caller": "get_user",
+          "callee": "\"User_{}\".format",
+          "lineNumber": 22
+        },
+        {
+          "caller": "get_user",
+          "callee": "\"Address_{}\".format",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_user",
+          "callee": "\"City_{}\".format",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_user",
+          "callee": "SourceContext",
+          "lineNumber": 26
+        },
+        {
+          "caller": "get_user",
+          "callee": "\"source/context_{:03}.proto\".format",
+          "lineNumber": 26
+        },
+        {
+          "caller": "get_user_with_more_fields",
+          "callee": "user_pb2.User",
+          "lineNumber": 31
+        },
+        {
+          "caller": "get_user_with_more_fields",
+          "callee": "\"User_{}\".format",
+          "lineNumber": 33
+        },
+        {
+          "caller": "get_user_with_more_fields",
+          "callee": "\"Address_{}\".format",
+          "lineNumber": 34
+        },
+        {
+          "caller": "get_user_with_more_fields",
+          "callee": "\"City_{}\".format",
+          "lineNumber": 35
+        },
+        {
+          "caller": "get_user_with_more_fields",
+          "callee": "SourceContext",
+          "lineNumber": 37
+        },
+        {
+          "caller": "get_user_with_more_fields",
+          "callee": "\"source/context_{:03}.proto\".format",
+          "lineNumber": 37
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "SchemaRegistryClient",
+          "lineNumber": 45
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "ProtobufSerializer",
+          "lineNumber": 46
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "Producer",
+          "lineNumber": 52
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "range",
+          "lineNumber": 53
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "get_user_fn",
+          "lineNumber": 54
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "producer.produce",
+          "lineNumber": 56
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "json.dumps",
+          "lineNumber": 59
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "serializer",
+          "lineNumber": 60
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "SerializationContext",
+          "lineNumber": 60
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "producer.flush",
+          "lineNumber": 63
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "print",
+          "lineNumber": 64
+        },
+        {
+          "caller": "send_to_kafka",
+          "callee": "\"Send {} records to kafka\\n\".format",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    }
+  ]
+}

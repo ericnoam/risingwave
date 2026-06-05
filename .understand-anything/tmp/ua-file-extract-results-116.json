@@ -1,0 +1,1317 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/cmd_all/src/common.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "osstrs",
+          "startLine": 17,
+          "endLine": 19,
+          "params": [
+            "s"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "osstrs",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "osstrs",
+          "callee": "s.as_ref().iter().map(OsString::from).collect",
+          "lineNumber": 18
+        },
+        {
+          "caller": "osstrs",
+          "callee": "s.as_ref().iter().map",
+          "lineNumber": 18
+        },
+        {
+          "caller": "osstrs",
+          "callee": "s.as_ref().iter",
+          "lineNumber": 18
+        },
+        {
+          "caller": "osstrs",
+          "callee": "s.as_ref",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/cmd_all/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 21,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/cmd_all/src/single_node.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 297,
+      "nonEmptyLines": 262,
+      "functions": [
+        {
+          "name": "new_for_playground",
+          "startLine": 59,
+          "endLine": 64,
+          "params": []
+        },
+        {
+          "name": "map_single_node_opts_to_standalone_opts",
+          "startLine": 124,
+          "endLine": 259,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "memory_for_frontend",
+          "startLine": 261,
+          "endLine": 267,
+          "params": [
+            "total_memory_bytes"
+          ]
+        },
+        {
+          "name": "memory_for_compactor",
+          "startLine": 269,
+          "endLine": 275,
+          "params": [
+            "total_memory_bytes"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SingleNodeOpts",
+          "startLine": 33,
+          "endLine": 56,
+          "methods": [
+            "new_for_playground"
+          ],
+          "properties": [
+            "prometheus_listener_addr",
+            "config_path",
+            "store_directory",
+            "in_memory",
+            "max_idle_secs",
+            "node_opts"
+          ]
+        },
+        {
+          "name": "NodeSpecificOpts",
+          "startLine": 88,
+          "endLine": 120,
+          "methods": [],
+          "properties": [
+            "total_memory_bytes",
+            "parallelism",
+            "listen_addr",
+            "prometheus_endpoint",
+            "prometheus_selector",
+            "compaction_worker_threads_number"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SingleNodeOpts",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "new_for_playground",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "NodeSpecificOpts",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "map_single_node_opts_to_standalone_opts",
+          "line": 124,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_for_playground",
+          "callee": "SingleNodeOpts::parse_from",
+          "lineNumber": 61
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "MetaNodeOpts::parse_from",
+          "lineNumber": 128
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "ComputeNodeOpts::parse_from",
+          "lineNumber": 129
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "FrontendOpts::parse_from",
+          "lineNumber": 130
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "CompactorOpts::parse_from",
+          "lineNumber": 131
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 134
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 138
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "prometheus_listener_addr.clone",
+          "lineNumber": 138
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "compute_opts\n            .prometheus_listener_addr.clone_from",
+          "lineNumber": 139
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "frontend_opts\n            .prometheus_listener_addr.clone_from",
+          "lineNumber": 142
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "compactor_opts\n            .prometheus_listener_addr.clone_from",
+          "lineNumber": 145
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_opts.config_path.clone_from",
+          "lineNumber": 150
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "compute_opts.config_path.clone_from",
+          "lineNumber": 151
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "frontend_opts.config_path.clone_from",
+          "lineNumber": 152
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "compactor_opts.config_path.clone_from",
+          "lineNumber": 153
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "opts.store_directory.unwrap_or_else",
+          "lineNumber": 156
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "home_dir().unwrap",
+          "lineNumber": 157
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "home_dir",
+          "lineNumber": 157
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "home_path.push",
+          "lineNumber": 158
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "home_path.to_str().unwrap().to_owned",
+          "lineNumber": 159
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "home_path.to_str().unwrap",
+          "lineNumber": 159
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "home_path.to_str",
+          "lineNumber": 159
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_opts.state_store.is_none",
+          "lineNumber": 163
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 165
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "HUMMOCK_IN_MEMORY.to_owned",
+          "lineNumber": 165
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "std::fs::create_dir_all(&state_store_dir).unwrap",
+          "lineNumber": 168
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "std::fs::create_dir_all",
+          "lineNumber": 168
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 170
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 174
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "\"hummock_001\".to_owned",
+          "lineNumber": 174
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_opts.sql_endpoint.is_some",
+          "lineNumber": 182
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 188
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 190
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "std::fs::create_dir_all(&meta_store_dir).unwrap",
+          "lineNumber": 192
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "std::fs::create_dir_all",
+          "lineNumber": 192
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 194
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_store_endpoint.into",
+          "lineNumber": 194
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "\"127.0.0.1:5690\".to_owned",
+          "lineNumber": 199
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "\"127.0.0.1:5690\".to_owned",
+          "lineNumber": 200
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 201
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "\"0.0.0.0:5691\".to_owned",
+          "lineNumber": 201
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "\"127.0.0.1:5688\".to_owned",
+          "lineNumber": 202
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "\"127.0.0.1:6660\".to_owned",
+          "lineNumber": 203
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "\"http://127.0.0.1:5690\".to_owned",
+          "lineNumber": 206
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_addr.parse().unwrap",
+          "lineNumber": 207
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_addr.parse",
+          "lineNumber": 207
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_addr.parse().unwrap",
+          "lineNumber": 208
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_addr.parse",
+          "lineNumber": 208
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_addr.parse().unwrap",
+          "lineNumber": 209
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_addr.parse",
+          "lineNumber": 209
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "system_memory_available_bytes",
+          "lineNumber": 215
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "memory_for_frontend",
+          "lineNumber": 217
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "memory_for_compactor",
+          "lineNumber": 218
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "memory_for_frontend",
+          "lineNumber": 220
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "memory_for_compactor",
+          "lineNumber": 221
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 223
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "gradient_reserve_memory_bytes",
+          "lineNumber": 223
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 233
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 236
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 239
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_opts\n        .state_store\n        .as_ref()\n        .unwrap().starts_with",
+          "lineNumber": 242
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_opts\n        .state_store\n        .as_ref().unwrap",
+          "lineNumber": 242
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "meta_opts\n        .state_store.as_ref",
+          "lineNumber": 242
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 249
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 250
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 251
+        },
+        {
+          "caller": "map_single_node_opts_to_standalone_opts",
+          "callee": "Some",
+          "lineNumber": 256
+        },
+        {
+          "caller": "test_playground_in_memory_state_store",
+          "callee": "SingleNodeOpts::new_for_playground",
+          "lineNumber": 283
+        },
+        {
+          "caller": "test_playground_in_memory_state_store",
+          "callee": "map_single_node_opts_to_standalone_opts",
+          "lineNumber": 284
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/cmd_all/src/standalone.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 459,
+      "nonEmptyLines": 410,
+      "functions": [
+        {
+          "name": "name",
+          "startLine": 83,
+          "endLine": 85,
+          "params": []
+        },
+        {
+          "name": "meta_addr",
+          "startLine": 87,
+          "endLine": 99,
+          "params": []
+        },
+        {
+          "name": "parse_standalone_opt_args",
+          "startLine": 102,
+          "endLine": 180,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "spawn",
+          "startLine": 197,
+          "endLine": 216,
+          "params": [
+            "name",
+            "f"
+          ]
+        },
+        {
+          "name": "shutdown",
+          "startLine": 223,
+          "endLine": 231,
+          "params": []
+        },
+        {
+          "name": "standalone",
+          "startLine": 241,
+          "endLine": 390,
+          "params": [
+            "ParsedStandaloneOpts {\n        meta_opts,\n        compute_opts,\n        frontend_opts,\n        compactor_opts,\n    }",
+            "shutdown"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StandaloneOpts",
+          "startLine": 40,
+          "endLine": 72,
+          "methods": [],
+          "properties": [
+            "compute_opts",
+            "meta_opts",
+            "frontend_opts",
+            "compactor_opts",
+            "prometheus_listener_addr",
+            "config_path"
+          ]
+        },
+        {
+          "name": "ParsedStandaloneOpts",
+          "startLine": 75,
+          "endLine": 80,
+          "methods": [
+            "name",
+            "meta_addr"
+          ],
+          "properties": [
+            "meta_opts",
+            "compute_opts",
+            "frontend_opts",
+            "compactor_opts"
+          ]
+        },
+        {
+          "name": "Service",
+          "startLine": 183,
+          "endLine": 188,
+          "methods": [
+            "spawn",
+            "shutdown"
+          ],
+          "properties": [
+            "name",
+            "runtime",
+            "main_task",
+            "shutdown"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "StandaloneOpts",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "ParsedStandaloneOpts",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "parse_standalone_opt_args",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "standalone",
+          "line": 241,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "meta_addr",
+          "callee": "self.meta_opts.as_ref",
+          "lineNumber": 88
+        },
+        {
+          "caller": "meta_addr",
+          "callee": "opts.meta_addr",
+          "lineNumber": 89
+        },
+        {
+          "caller": "meta_addr",
+          "callee": "self.compute_opts.as_ref",
+          "lineNumber": 90
+        },
+        {
+          "caller": "meta_addr",
+          "callee": "opts.meta_addr",
+          "lineNumber": 91
+        },
+        {
+          "caller": "meta_addr",
+          "callee": "self.frontend_opts.as_ref",
+          "lineNumber": 92
+        },
+        {
+          "caller": "meta_addr",
+          "callee": "opts.meta_addr",
+          "lineNumber": 93
+        },
+        {
+          "caller": "meta_addr",
+          "callee": "self.compactor_opts.as_ref",
+          "lineNumber": 94
+        },
+        {
+          "caller": "meta_addr",
+          "callee": "opts.meta_addr",
+          "lineNumber": 95
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "opts.meta_opts.as_ref().map",
+          "lineNumber": 103
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "opts.meta_opts.as_ref",
+          "lineNumber": 103
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "split(s).unwrap",
+          "lineNumber": 104
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "split",
+          "lineNumber": 104
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "s.insert",
+          "lineNumber": 105
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "\"meta-node\".into",
+          "lineNumber": 105
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "meta_opts.map",
+          "lineNumber": 108
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "MetaNodeOpts::parse_from",
+          "lineNumber": 108
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "osstrs",
+          "lineNumber": 108
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "opts.compute_opts.as_ref().map",
+          "lineNumber": 110
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "opts.compute_opts.as_ref",
+          "lineNumber": 110
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "split(s).unwrap",
+          "lineNumber": 111
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "split",
+          "lineNumber": 111
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "s.insert",
+          "lineNumber": 112
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "\"compute-node\".into",
+          "lineNumber": 112
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compute_opts.map",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "ComputeNodeOpts::parse_from",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "osstrs",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "opts.frontend_opts.as_ref().map",
+          "lineNumber": 117
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "opts.frontend_opts.as_ref",
+          "lineNumber": 117
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "split(s).unwrap",
+          "lineNumber": 118
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "split",
+          "lineNumber": 118
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "s.insert",
+          "lineNumber": 119
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "\"frontend-node\".into",
+          "lineNumber": 119
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "frontend_opts.map",
+          "lineNumber": 122
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "FrontendOpts::parse_from",
+          "lineNumber": 122
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "osstrs",
+          "lineNumber": 122
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "opts.compactor_opts.as_ref().map",
+          "lineNumber": 124
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "opts.compactor_opts.as_ref",
+          "lineNumber": 124
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "split(s).unwrap",
+          "lineNumber": 125
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "split",
+          "lineNumber": 125
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "s.insert",
+          "lineNumber": 126
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "\"compactor-node\".into",
+          "lineNumber": 126
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compactor_opts.map",
+          "lineNumber": 129
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "CompactorOpts::parse_from",
+          "lineNumber": 129
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "osstrs",
+          "lineNumber": 129
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "opts.config_path.as_ref",
+          "lineNumber": 131
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "meta_opts.as_mut",
+          "lineNumber": 132
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "meta_opts.config_path.clone_from",
+          "lineNumber": 133
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compute_opts.as_mut",
+          "lineNumber": 135
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compute_opts.config_path.clone_from",
+          "lineNumber": 136
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "frontend_opts.as_mut",
+          "lineNumber": 138
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "frontend_opts.config_path.clone_from",
+          "lineNumber": 139
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compactor_opts.as_mut",
+          "lineNumber": 141
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compactor_opts.config_path.clone_from",
+          "lineNumber": 142
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "opts.prometheus_listener_addr.as_ref",
+          "lineNumber": 145
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compute_opts.as_mut",
+          "lineNumber": 146
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compute_opts\n                .prometheus_listener_addr.clone_from",
+          "lineNumber": 147
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "frontend_opts.as_mut",
+          "lineNumber": 151
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "frontend_opts\n                .prometheus_listener_addr.clone_from",
+          "lineNumber": 152
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compactor_opts.as_mut",
+          "lineNumber": 156
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compactor_opts\n                .prometheus_listener_addr.clone_from",
+          "lineNumber": 157
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "meta_opts.as_mut",
+          "lineNumber": 161
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "Some",
+          "lineNumber": 162
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "prometheus_listener_addr.clone",
+          "lineNumber": 162
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "meta_opts.is_none",
+          "lineNumber": 166
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compute_opts.is_none",
+          "lineNumber": 167
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "frontend_opts.is_none",
+          "lineNumber": 168
+        },
+        {
+          "caller": "parse_standalone_opt_args",
+          "callee": "compactor_opts.is_none",
+          "lineNumber": 169
+        },
+        {
+          "caller": "spawn",
+          "callee": "tokio::runtime::Builder::new_multi_thread()\n            .thread_name(format!(\"rw-standalone-{name}\"))\n            .enable_all()\n            .build().unwrap",
+          "lineNumber": 202
+        },
+        {
+          "caller": "spawn",
+          "callee": "tokio::runtime::Builder::new_multi_thread()\n            .thread_name(format!(\"rw-standalone-{name}\"))\n            .enable_all().build",
+          "lineNumber": 202
+        },
+        {
+          "caller": "spawn",
+          "callee": "tokio::runtime::Builder::new_multi_thread()\n            .thread_name(format!(\"rw-standalone-{name}\")).enable_all",
+          "lineNumber": 202
+        },
+        {
+          "caller": "spawn",
+          "callee": "tokio::runtime::Builder::new_multi_thread().thread_name",
+          "lineNumber": 202
+        },
+        {
+          "caller": "spawn",
+          "callee": "tokio::runtime::Builder::new_multi_thread",
+          "lineNumber": 202
+        },
+        {
+          "caller": "spawn",
+          "callee": "CancellationToken::new",
+          "lineNumber": 207
+        },
+        {
+          "caller": "spawn",
+          "callee": "runtime.spawn",
+          "lineNumber": 208
+        },
+        {
+          "caller": "spawn",
+          "callee": "f",
+          "lineNumber": 208
+        },
+        {
+          "caller": "spawn",
+          "callee": "shutdown.clone",
+          "lineNumber": 208
+        },
+        {
+          "caller": "spawn",
+          "callee": "runtime.into",
+          "lineNumber": 212
+        },
+        {
+          "caller": "shutdown",
+          "callee": "self.shutdown.cancel",
+          "lineNumber": 226
+        },
+        {
+          "caller": "shutdown",
+          "callee": "drop",
+          "lineNumber": 228
+        },
+        {
+          "caller": "standalone",
+          "callee": "meta_opts.clone",
+          "lineNumber": 252
+        },
+        {
+          "caller": "standalone",
+          "callee": "Service::spawn",
+          "lineNumber": 255
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_meta_node::start",
+          "lineNumber": 256
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_meta_node::is_server_started",
+          "lineNumber": 261
+        },
+        {
+          "caller": "standalone",
+          "callee": "service.main_task.is_finished",
+          "lineNumber": 265
+        },
+        {
+          "caller": "standalone",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 270
+        },
+        {
+          "caller": "standalone",
+          "callee": "std::time::Duration::from_millis",
+          "lineNumber": 270
+        },
+        {
+          "caller": "standalone",
+          "callee": "Some",
+          "lineNumber": 273
+        },
+        {
+          "caller": "standalone",
+          "callee": "Service::spawn",
+          "lineNumber": 280
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_compute::start",
+          "lineNumber": 281
+        },
+        {
+          "caller": "standalone",
+          "callee": "Some",
+          "lineNumber": 283
+        },
+        {
+          "caller": "standalone",
+          "callee": "frontend_opts.clone",
+          "lineNumber": 288
+        },
+        {
+          "caller": "standalone",
+          "callee": "Service::spawn",
+          "lineNumber": 290
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_frontend::start",
+          "lineNumber": 291
+        },
+        {
+          "caller": "standalone",
+          "callee": "Some",
+          "lineNumber": 293
+        },
+        {
+          "caller": "standalone",
+          "callee": "Service::spawn",
+          "lineNumber": 300
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_compactor::start",
+          "lineNumber": 301
+        },
+        {
+          "caller": "standalone",
+          "callee": "Some",
+          "lineNumber": 303
+        },
+        {
+          "caller": "standalone",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 309
+        },
+        {
+          "caller": "standalone",
+          "callee": "std::time::Duration::from_millis",
+          "lineNumber": 309
+        },
+        {
+          "caller": "standalone",
+          "callee": "String::new",
+          "lineNumber": 327
+        },
+        {
+          "caller": "standalone",
+          "callee": "opts.listen_addr.split(':').next().unwrap_or",
+          "lineNumber": 330
+        },
+        {
+          "caller": "standalone",
+          "callee": "opts.listen_addr.split(':').next",
+          "lineNumber": 330
+        },
+        {
+          "caller": "standalone",
+          "callee": "opts.listen_addr.split",
+          "lineNumber": 330
+        },
+        {
+          "caller": "standalone",
+          "callee": "opts.listen_addr.split(':').next_back().unwrap_or",
+          "lineNumber": 331
+        },
+        {
+          "caller": "standalone",
+          "callee": "opts.listen_addr.split(':').next_back",
+          "lineNumber": 331
+        },
+        {
+          "caller": "standalone",
+          "callee": "opts.listen_addr.split",
+          "lineNumber": 331
+        },
+        {
+          "caller": "standalone",
+          "callee": "writeln!(\n            risedev_env,\n            r#\"RISEDEV_RW_FRONTEND_LISTEN_ADDRESS=\"{host}\"\"#\n        ).unwrap",
+          "lineNumber": 335
+        },
+        {
+          "caller": "standalone",
+          "callee": "writeln!(risedev_env, r#\"RISEDEV_RW_FRONTEND_PORT=\"{port}\"\"#).unwrap",
+          "lineNumber": 340
+        },
+        {
+          "caller": "standalone",
+          "callee": "writeln!(risedev_env, r#\"RW_META_ADDR=\"http://{meta_addr}\"\"#).unwrap",
+          "lineNumber": 355
+        },
+        {
+          "caller": "standalone",
+          "callee": "env_var_is_true",
+          "lineNumber": 359
+        },
+        {
+          "caller": "standalone",
+          "callee": "Path::new(\n            &env::var(\"PREFIX_CONFIG\").expect(\"env var `PREFIX_CONFIG` must be set by RiseDev\"),\n        ).join",
+          "lineNumber": 360
+        },
+        {
+          "caller": "standalone",
+          "callee": "Path::new",
+          "lineNumber": 360
+        },
+        {
+          "caller": "standalone",
+          "callee": "env::var(\"PREFIX_CONFIG\").expect",
+          "lineNumber": 361
+        },
+        {
+          "caller": "standalone",
+          "callee": "env::var",
+          "lineNumber": 361
+        },
+        {
+          "caller": "standalone",
+          "callee": "std::fs::write(env_path, risedev_env).unwrap",
+          "lineNumber": 364
+        },
+        {
+          "caller": "standalone",
+          "callee": "std::fs::write",
+          "lineNumber": 364
+        },
+        {
+          "caller": "standalone",
+          "callee": "meta\n        .as_ref()\n        .map(|m| m.shutdown.clone())\n        // If there's no meta service, use a dummy token which will never resolve.\n        .unwrap_or_else(CancellationToken::new).cancelled_owned",
+          "lineNumber": 367
+        },
+        {
+          "caller": "standalone",
+          "callee": "meta\n        .as_ref()\n        .map(|m| m.shutdown.clone()).unwrap_or_else",
+          "lineNumber": 367
+        },
+        {
+          "caller": "standalone",
+          "callee": "meta\n        .as_ref().map",
+          "lineNumber": 367
+        },
+        {
+          "caller": "standalone",
+          "callee": "meta.as_ref",
+          "lineNumber": 367
+        },
+        {
+          "caller": "standalone",
+          "callee": "m.shutdown.clone",
+          "lineNumber": 369
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "StandaloneOpts::parse_from",
+          "lineNumber": 407
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "raw_opts.lines",
+          "lineNumber": 407
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "Some",
+          "lineNumber": 409
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "\"--listen-addr 127.0.0.1:8000 --total-memory-bytes 34359738368 --parallelism 10 --temp-secret-file-dir ./compute/secrets/\".into",
+          "lineNumber": 409
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "Some",
+          "lineNumber": 410
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "\"--advertise-addr 127.0.0.1:9999 --data-directory \\\"some path with spaces\\\" --listen-addr 127.0.0.1:8001 --temp-secret-file-dir ./meta/secrets/\".into",
+          "lineNumber": 410
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "Some",
+          "lineNumber": 411
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "\"--config-path=src/config/original.toml --temp-secret-file-dir ./frontend/secrets/ --frontend-total-memory-bytes=34359738368\".into",
+          "lineNumber": 411
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "Some",
+          "lineNumber": 413
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "\"127.0.0.1:1234\".into",
+          "lineNumber": 413
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "Some",
+          "lineNumber": 414
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "\"src/config/test.toml\".into",
+          "lineNumber": 414
+        },
+        {
+          "caller": "test_parse_opt_args",
+          "callee": "parse_standalone_opt_args",
+          "lineNumber": 419
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 6,
+        "classCount": 3
+      }
+    }
+  ]
+}

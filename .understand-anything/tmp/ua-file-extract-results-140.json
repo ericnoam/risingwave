@@ -1,0 +1,73 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/kafka-cdc-sink/debezium-jdbc/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 16,
+      "nonEmptyLines": 12,
+      "services": [
+        {
+          "name": "connect",
+          "image": "quay.io/debezium/connect:${DEBEZIUM_VERSION}",
+          "ports": [],
+          "startLine": 2,
+          "endLine": 17
+        }
+      ],
+      "steps": [
+        {
+          "name": "ARG DEBEZIUM_VERSION",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "FROM quay.io/debezium/connect:${DEBEZIUM_VERSION}",
+          "startLine": 2,
+          "endLine": 2
+        },
+        {
+          "name": "ENV KAFKA_CONNECT_JDBC_DIR=$KAFKA_CONNECT_PLUGINS_DIR/kafka-conn",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "ARG POSTGRES_VERSION=42.5.1",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "ARG KAFKA_JDBC_VERSION=5.3.2",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "RUN cd /kafka/libs && curl -sO https://jdbc.postgresql.org/downl",
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "RUN cd /kafka/libs && curl -sO https://repo1.maven.org/maven2/my",
+          "startLine": 12,
+          "endLine": 12
+        },
+        {
+          "name": "RUN mkdir $KAFKA_CONNECT_JDBC_DIR && cd $KAFKA_CONNECT_JDBC_DIR ",
+          "startLine": 15,
+          "endLine": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 8
+      }
+    }
+  ]
+}

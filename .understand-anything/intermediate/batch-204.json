@@ -1,0 +1,96 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/livestream/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/livestream/create_mv.sql",
+      "summary": "Creates materialized views aggregating live streaming metrics (buffering rate, video quality, user sessions) from the livestream Protobuf source for real-time analytics.",
+      "tags": ["database", "materialized-view", "integration-test", "streaming"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/livestream/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/livestream/create_source.sql",
+      "summary": "Defines a RisingWave source consuming livestream metrics events from Kafka using the Protobuf schema defined in livestream.proto.",
+      "tags": ["database", "schema-definition", "integration-test", "streaming"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/livestream/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/livestream/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the livestream integration test, running RisingWave, Kafka, and Zookeeper to simulate live streaming metrics ingestion.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:integration_tests/livestream/livestream.proto",
+      "type": "schema",
+      "name": "livestream.proto",
+      "filePath": "integration_tests/livestream/livestream.proto",
+      "summary": "Protobuf schema defining the `LiveStreamMetrics` message with video quality fields (bps, fps, rtt, freeze duration) for the livestream integration test.",
+      "tags": ["schema-definition", "protobuf", "integration-test", "streaming"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:integration_tests/livestream/livestream.proto:LiveStreamMetrics",
+      "type": "schema",
+      "name": "LiveStreamMetrics",
+      "filePath": "integration_tests/livestream/livestream.proto",
+      "lineRange": [6, 19],
+      "summary": "Protobuf message capturing per-viewer live stream quality metrics including IP, user agent, room, video bitrate, FPS, RTT, freeze durations, and country.",
+      "tags": ["schema-definition", "protobuf", "streaming"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/livestream/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/livestream/query.sql",
+      "summary": "Verification queries to inspect aggregated livestream metrics from materialized views in the integration test.",
+      "tags": ["database", "query", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "schema:integration_tests/livestream/livestream.proto",
+      "target": "schema:integration_tests/livestream/livestream.proto:LiveStreamMetrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:integration_tests/livestream/livestream.proto",
+      "target": "file:integration_tests/livestream/create_source.sql",
+      "type": "defines_schema",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/livestream/create_source.sql",
+      "target": "file:integration_tests/livestream/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/livestream/create_mv.sql",
+      "target": "file:integration_tests/livestream/query.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/livestream/docker-compose.yml",
+      "target": "file:integration_tests/livestream/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

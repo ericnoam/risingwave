@@ -1,0 +1,1411 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/connector/codec/tests/integration_tests/avro.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 975,
+      "nonEmptyLines": 954,
+      "functions": [
+        {
+          "name": "avro_schema_str_to_risingwave_schema",
+          "startLine": 49,
+          "endLine": 61,
+          "params": [
+            "avro_schema",
+            "config"
+          ]
+        },
+        {
+          "name": "check",
+          "startLine": 69,
+          "endLine": 116,
+          "params": [
+            "avro_schema",
+            "avro_data",
+            "config",
+            "expected_risingwave_schema",
+            "expected_risingwave_data"
+          ]
+        },
+        {
+          "name": "test_simple",
+          "startLine": 120,
+          "endLine": 226,
+          "params": []
+        },
+        {
+          "name": "test_nullable_union",
+          "startLine": 229,
+          "endLine": 365,
+          "params": []
+        },
+        {
+          "name": "test_1",
+          "startLine": 369,
+          "endLine": 548,
+          "params": []
+        },
+        {
+          "name": "test_union",
+          "startLine": 551,
+          "endLine": 861,
+          "params": []
+        },
+        {
+          "name": "test_map",
+          "startLine": 864,
+          "endLine": 975,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestDataEncoding",
+          "startLine": 27,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "Json",
+            "HexBinary"
+          ]
+        },
+        {
+          "name": "Config",
+          "startLine": 43,
+          "endLine": 47,
+          "methods": [],
+          "properties": [
+            "map_handling",
+            "data_encoding"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "avro_schema_str_to_risingwave_schema",
+          "callee": "AvroSchema::parse_str(avro_schema).context",
+          "lineNumber": 54
+        },
+        {
+          "caller": "avro_schema_str_to_risingwave_schema",
+          "callee": "AvroSchema::parse_str",
+          "lineNumber": 54
+        },
+        {
+          "caller": "avro_schema_str_to_risingwave_schema",
+          "callee": "ResolvedAvroSchema::create(avro_schema.into()).context",
+          "lineNumber": 56
+        },
+        {
+          "caller": "avro_schema_str_to_risingwave_schema",
+          "callee": "ResolvedAvroSchema::create",
+          "lineNumber": 56
+        },
+        {
+          "caller": "avro_schema_str_to_risingwave_schema",
+          "callee": "avro_schema.into",
+          "lineNumber": 56
+        },
+        {
+          "caller": "avro_schema_str_to_risingwave_schema",
+          "callee": "avro_schema_to_fields(&resolved_schema.original_schema, config.map_handling).context",
+          "lineNumber": 58
+        },
+        {
+          "caller": "avro_schema_str_to_risingwave_schema",
+          "callee": "avro_schema_to_fields",
+          "lineNumber": 58
+        },
+        {
+          "caller": "avro_schema_str_to_risingwave_schema",
+          "callee": "Ok",
+          "lineNumber": 60
+        },
+        {
+          "caller": "check",
+          "callee": "avro_schema_str_to_risingwave_schema",
+          "lineNumber": 77
+        },
+        {
+          "caller": "check",
+          "callee": "expected_risingwave_schema.assert_eq",
+          "lineNumber": 80
+        },
+        {
+          "caller": "check",
+          "callee": "expected_risingwave_data.assert_eq",
+          "lineNumber": 81
+        },
+        {
+          "caller": "check",
+          "callee": "expected_risingwave_schema.assert_eq",
+          "lineNumber": 85
+        },
+        {
+          "caller": "check",
+          "callee": "AvroParseOptions::create",
+          "lineNumber": 93
+        },
+        {
+          "caller": "check",
+          "callee": "hex::decode(data).expect",
+          "lineNumber": 98
+        },
+        {
+          "caller": "check",
+          "callee": "hex::decode",
+          "lineNumber": 98
+        },
+        {
+          "caller": "check",
+          "callee": "from_avro_datum(&resolved_schema.original_schema, &mut data.as_slice(), None).expect",
+          "lineNumber": 100
+        },
+        {
+          "caller": "check",
+          "callee": "from_avro_datum",
+          "lineNumber": 100
+        },
+        {
+          "caller": "check",
+          "callee": "data.as_slice",
+          "lineNumber": 100
+        },
+        {
+          "caller": "check",
+          "callee": "AvroAccess::new",
+          "lineNumber": 102
+        },
+        {
+          "caller": "check",
+          "callee": "access\n                        .access(&[&col.name], &col.data_type).expect",
+          "lineNumber": 106
+        },
+        {
+          "caller": "check",
+          "callee": "access.access",
+          "lineNumber": 106
+        },
+        {
+          "caller": "check",
+          "callee": "row.push",
+          "lineNumber": 109
+        },
+        {
+          "caller": "check",
+          "callee": "data_str.push",
+          "lineNumber": 111
+        },
+        {
+          "caller": "check",
+          "callee": "expected_risingwave_data.assert_eq",
+          "lineNumber": 115
+        },
+        {
+          "caller": "test_simple",
+          "callee": "check",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_nullable_union",
+          "callee": "check",
+          "lineNumber": 230
+        },
+        {
+          "caller": "test_1",
+          "callee": "check",
+          "lineNumber": 370
+        },
+        {
+          "caller": "test_union",
+          "callee": "check",
+          "lineNumber": 553
+        },
+        {
+          "caller": "test_union",
+          "callee": "check",
+          "lineNumber": 618
+        },
+        {
+          "caller": "test_union",
+          "callee": "check",
+          "lineNumber": 648
+        },
+        {
+          "caller": "test_union",
+          "callee": "check",
+          "lineNumber": 712
+        },
+        {
+          "caller": "test_map",
+          "callee": "check",
+          "lineNumber": 900
+        },
+        {
+          "caller": "test_map",
+          "callee": "check",
+          "lineNumber": 956
+        },
+        {
+          "caller": "test_map",
+          "callee": "Some",
+          "lineNumber": 960
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 7,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/connector/codec/tests/integration_tests/json.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 230,
+      "nonEmptyLines": 221,
+      "functions": [
+        {
+          "name": "test_json_schema_parse",
+          "startLine": 23,
+          "endLine": 230,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "fs::canonicalize(\"tests/test_data/id_type.json\")\n        .unwrap()\n        .to_string_lossy().to_string",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "fs::canonicalize(\"tests/test_data/id_type.json\")\n        .unwrap().to_string_lossy",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "fs::canonicalize(\"tests/test_data/id_type.json\").unwrap",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "fs::canonicalize",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "JsonSchema::parse_str(&schema).unwrap",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "JsonSchema::parse_str",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "json_schema\n        .json_schema_to_columns(Url::parse(\"http://test_schema_uri.test\").unwrap())\n        .await.unwrap",
+          "lineNumber": 100
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "json_schema.json_schema_to_columns",
+          "lineNumber": 100
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "Url::parse(\"http://test_schema_uri.test\").unwrap",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "Url::parse",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "columns.iter().map(FieldTestDisplay).collect_vec",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "columns.iter().map",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "columns.iter",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "expect![[r#\"\n        {\n          \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n          \"definitions\": {\n            \"marketArray\": {\n              \"additionalProperties\": {\n                \"items\": {\n                  \"type\": \"string\"\n                },\n                \"type\": \"array\"\n              },\n              \"type\": \"object\"\n            },\n            \"marketObj\": {\n              \"additionalProperties\": {\n                \"type\": \"string\"\n              },\n              \"type\": \"object\"\n            },\n            \"recurrentType\": {\n              \"properties\": {\n                \"id\": {\n                  \"type\": \"string\"\n                },\n                \"next\": {\n                  \"properties\": {\n                    \"id\": {\n                      \"type\": \"string\"\n                    },\n                    \"next\": {}\n                  },\n                  \"type\": \"object\"\n                }\n              },\n              \"type\": \"object\"\n            },\n            \"stringType\": {\n              \"type\": \"string\"\n            }\n          },\n          \"properties\": {\n            \"cats\": {\n              \"additionalProperties\": {\n                \"items\": {\n                  \"type\": \"string\"\n                },\n                \"type\": \"array\"\n              },\n              \"type\": \"object\"\n            },\n            \"id\": {\n              \"type\": \"string\"\n            },\n            \"meta\": {\n              \"properties\": {\n                \"active\": {\n                  \"additionalProperties\": {\n                    \"type\": \"string\"\n                  },\n                  \"type\": \"object\"\n                },\n                \"tags\": {\n                  \"additionalProperties\": {\n                    \"items\": {\n                      \"type\": \"string\"\n                    },\n                    \"type\": \"array\"\n                  },\n                  \"type\": \"object\"\n                }\n              },\n              \"type\": \"object\"\n            },\n            \"name\": {\n              \"additionalProperties\": {\n                \"type\": \"string\"\n              },\n              \"type\": \"object\"\n            },\n            \"recurrent\": {\n              \"properties\": {\n                \"id\": {\n                  \"type\": \"string\"\n                },\n                \"next\": {\n                  \"properties\": {\n                    \"id\": {\n                      \"type\": \"string\"\n                    },\n                    \"next\": {}\n                  },\n                  \"type\": \"object\"\n                }\n              },\n              \"type\": \"object\"\n            }\n          },\n          \"required\": [\n            \"id\",\n            \"name\"\n          ],\n          \"type\": \"object\"\n        }\"#]].assert_eq",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "serde_json::to_string_pretty(&json_schema.0).unwrap",
+          "lineNumber": 209
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "serde_json::to_string_pretty",
+          "lineNumber": 209
+        },
+        {
+          "caller": "test_json_schema_parse",
+          "callee": "expect![[r#\"\n        [\n            cats: Jsonb,\n            id: Varchar,\n            meta: Struct {\n                active: Jsonb,\n                tags: Jsonb,\n            },\n            name: Jsonb,\n            recurrent: Struct {\n                id: Varchar,\n                next: Struct {\n                    id: Varchar,\n                    next: Varchar,\n                },\n            },\n        ]\n    \"#]].assert_debug_eq",
+          "lineNumber": 211
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/connector/codec/tests/integration_tests/main.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 40,
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/connector/codec/tests/integration_tests/protobuf.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 731,
+      "nonEmptyLines": 693,
+      "functions": [
+        {
+          "name": "check",
+          "startLine": 36,
+          "endLine": 87,
+          "params": [
+            "pb_schema",
+            "pb_data",
+            "expected_risingwave_schema",
+            "expected_risingwave_data"
+          ]
+        },
+        {
+          "name": "load_message_descriptor",
+          "startLine": 89,
+          "endLine": 110,
+          "params": [
+            "file_name",
+            "message_name"
+          ]
+        },
+        {
+          "name": "test_simple_schema",
+          "startLine": 113,
+          "endLine": 173,
+          "params": []
+        },
+        {
+          "name": "test_complex_schema",
+          "startLine": 176,
+          "endLine": 204,
+          "params": []
+        },
+        {
+          "name": "test_any_schema",
+          "startLine": 207,
+          "endLine": 502,
+          "params": []
+        },
+        {
+          "name": "test_all_types",
+          "startLine": 505,
+          "endLine": 711,
+          "params": []
+        },
+        {
+          "name": "test_recursive",
+          "startLine": 714,
+          "endLine": 731,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "check",
+          "callee": "pb_schema_to_fields",
+          "lineNumber": 42
+        },
+        {
+          "caller": "check",
+          "callee": "HashSet::from",
+          "lineNumber": 44
+        },
+        {
+          "caller": "check",
+          "callee": "\"google.protobuf.Any\".to_owned",
+          "lineNumber": 44
+        },
+        {
+          "caller": "check",
+          "callee": "expected_risingwave_schema.assert_eq",
+          "lineNumber": 48
+        },
+        {
+          "caller": "check",
+          "callee": "e.to_report_string_pretty",
+          "lineNumber": 48
+        },
+        {
+          "caller": "check",
+          "callee": "expected_risingwave_data.assert_eq",
+          "lineNumber": 49
+        },
+        {
+          "caller": "check",
+          "callee": "rw_schema.unwrap",
+          "lineNumber": 53
+        },
+        {
+          "caller": "check",
+          "callee": "expected_risingwave_schema.assert_eq",
+          "lineNumber": 54
+        },
+        {
+          "caller": "check",
+          "callee": "HashSet::from",
+          "lineNumber": 60
+        },
+        {
+          "caller": "check",
+          "callee": "\"google.protobuf.Any\".to_owned",
+          "lineNumber": 60
+        },
+        {
+          "caller": "check",
+          "callee": "ProtobufAccess::new",
+          "lineNumber": 62
+        },
+        {
+          "caller": "check",
+          "callee": "DynamicMessage::decode(pb_schema.clone(), *data).unwrap",
+          "lineNumber": 63
+        },
+        {
+          "caller": "check",
+          "callee": "DynamicMessage::decode",
+          "lineNumber": 63
+        },
+        {
+          "caller": "check",
+          "callee": "pb_schema.clone",
+          "lineNumber": 63
+        },
+        {
+          "caller": "check",
+          "callee": "access.access",
+          "lineNumber": 68
+        },
+        {
+          "caller": "check",
+          "callee": "row.push",
+          "lineNumber": 70
+        },
+        {
+          "caller": "check",
+          "callee": "row.push",
+          "lineNumber": 71
+        },
+        {
+          "caller": "check",
+          "callee": "data_str.push",
+          "lineNumber": 78
+        },
+        {
+          "caller": "check",
+          "callee": "expected_risingwave_data.assert_eq",
+          "lineNumber": 81
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "\"tests/test_data/\".to_owned",
+          "lineNumber": 93
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "fs_err::read_to_string(&location).unwrap",
+          "lineNumber": 94
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "fs_err::read_to_string",
+          "lineNumber": 94
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "if file_name.ends_with(\".proto\") {\n        let fd_set = compile_pb((location.clone(), file_content), [])?;\n        DescriptorPool::from_file_descriptor_set(fd_set)\n    } else {\n        DescriptorPool::decode(file_content.as_bytes())\n    }.with_context",
+          "lineNumber": 96
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "file_name.ends_with",
+          "lineNumber": 96
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "compile_pb",
+          "lineNumber": 97
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "location.clone",
+          "lineNumber": 97
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "DescriptorPool::from_file_descriptor_set",
+          "lineNumber": 98
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "DescriptorPool::decode",
+          "lineNumber": 100
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "file_content.as_bytes",
+          "lineNumber": 100
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "pool.get_message_by_name(message_name).with_context",
+          "lineNumber": 104
+        },
+        {
+          "caller": "load_message_descriptor",
+          "callee": "pool.get_message_by_name",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "load_message_descriptor(\"simple-schema.proto\", \"test.TestRecord\").unwrap",
+          "lineNumber": 123
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "load_message_descriptor",
+          "lineNumber": 123
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "DynamicMessage::decode(message_descriptor.clone(), PRE_GEN_PROTO_DATA).unwrap",
+          "lineNumber": 126
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "DynamicMessage::decode",
+          "lineNumber": 126
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "message_descriptor.clone",
+          "lineNumber": 126
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "expect![[r#\"\n        [\n            I32(\n                123,\n            ),\n            String(\n                \"test address\",\n            ),\n            String(\n                \"test city\",\n            ),\n            I64(\n                456,\n            ),\n            F32(\n                1.2345,\n            ),\n            String(\n                \"2021-01-01\",\n            ),\n        ]\n    \"#]].assert_debug_eq",
+          "lineNumber": 127
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "value.fields().map(|f| f.1).collect_vec",
+          "lineNumber": 149
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "value.fields().map",
+          "lineNumber": 149
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "value.fields",
+          "lineNumber": 149
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "check",
+          "lineNumber": 151
+        },
+        {
+          "caller": "test_simple_schema",
+          "callee": "Ok",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_complex_schema",
+          "callee": "load_message_descriptor(\"complex-schema.proto\", \"test.User\").unwrap",
+          "lineNumber": 177
+        },
+        {
+          "caller": "test_complex_schema",
+          "callee": "load_message_descriptor",
+          "lineNumber": 177
+        },
+        {
+          "caller": "test_complex_schema",
+          "callee": "check",
+          "lineNumber": 179
+        },
+        {
+          "caller": "test_complex_schema",
+          "callee": "Ok",
+          "lineNumber": 203
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "load_message_descriptor(\"any-schema.proto\", \"test.TestAny\").unwrap",
+          "lineNumber": 208
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "load_message_descriptor",
+          "lineNumber": 208
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "DynamicMessage::decode(message_descriptor.clone(), ANY_DATA_1).unwrap",
+          "lineNumber": 250
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "DynamicMessage::decode",
+          "lineNumber": 250
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "message_descriptor.clone",
+          "lineNumber": 250
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "expect![[r#\"\n            [\n                I32(\n                    12345,\n                ),\n                Message(\n                    DynamicMessage {\n                        desc: MessageDescriptor {\n                            name: \"Any\",\n                            full_name: \"google.protobuf.Any\",\n                            is_map_entry: false,\n                            fields: [\n                                FieldDescriptor {\n                                    name: \"type_url\",\n                                    full_name: \"google.protobuf.Any.type_url\",\n                                    json_name: \"typeUrl\",\n                                    number: 1,\n                                    kind: string,\n                                    cardinality: Optional,\n                                    containing_oneof: None,\n                                    default_value: String(\n                                        \"\",\n                                    ),\n                                    is_group: false,\n                                    is_list: false,\n                                    is_map: false,\n                                    is_packed: false,\n                                    supports_presence: false,\n                                },\n                                FieldDescriptor {\n                                    name: \"value\",\n                                    full_name: \"google.protobuf.Any.value\",\n                                    json_name: \"value\",\n                                    number: 2,\n                                    kind: bytes,\n                                    cardinality: Optional,\n                                    containing_oneof: None,\n                                    default_value: Bytes(\n                                        b\"\",\n                                    ),\n                                    is_group: false,\n                                    is_list: false,\n                                    is_map: false,\n                                    is_packed: false,\n                                    supports_presence: false,\n                                },\n                            ],\n                            oneofs: [],\n                        },\n                        fields: DynamicMessageFieldSet {\n                            fields: {\n                                1: Value(\n                                    String(\n                                        \"type.googleapis.com/test.Int32Value\",\n                                    ),\n                                ),\n                                2: Value(\n                                    Bytes(\n                                        b\"\\x08\\xd2\\xfe\\x06\",\n                                    ),\n                                ),\n                            },\n                        },\n                    },\n                ),\n            ]\n        \"#]].assert_debug_eq",
+          "lineNumber": 251
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "value1.fields().map(|f| f.1).collect_vec",
+          "lineNumber": 318
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "value1.fields().map",
+          "lineNumber": 318
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "value1.fields",
+          "lineNumber": 318
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "DynamicMessage::decode(message_descriptor.clone(), ANY_DATA_2).unwrap",
+          "lineNumber": 320
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "DynamicMessage::decode",
+          "lineNumber": 320
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "message_descriptor.clone",
+          "lineNumber": 320
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "expect![[r#\"\n            [\n                I32(\n                    12345,\n                ),\n                Message(\n                    DynamicMessage {\n                        desc: MessageDescriptor {\n                            name: \"Any\",\n                            full_name: \"google.protobuf.Any\",\n                            is_map_entry: false,\n                            fields: [\n                                FieldDescriptor {\n                                    name: \"type_url\",\n                                    full_name: \"google.protobuf.Any.type_url\",\n                                    json_name: \"typeUrl\",\n                                    number: 1,\n                                    kind: string,\n                                    cardinality: Optional,\n                                    containing_oneof: None,\n                                    default_value: String(\n                                        \"\",\n                                    ),\n                                    is_group: false,\n                                    is_list: false,\n                                    is_map: false,\n                                    is_packed: false,\n                                    supports_presence: false,\n                                },\n                                FieldDescriptor {\n                                    name: \"value\",\n                                    full_name: \"google.protobuf.Any.value\",\n                                    json_name: \"value\",\n                                    number: 2,\n                                    kind: bytes,\n                                    cardinality: Optional,\n                                    containing_oneof: None,\n                                    default_value: Bytes(\n                                        b\"\",\n                                    ),\n                                    is_group: false,\n                                    is_list: false,\n                                    is_map: false,\n                                    is_packed: false,\n                                    supports_presence: false,\n                                },\n                            ],\n                            oneofs: [],\n                        },\n                        fields: DynamicMessageFieldSet {\n                            fields: {\n                                1: Value(\n                                    String(\n                                        \"type.googleapis.com/test.AnyValue\",\n                                    ),\n                                ),\n                                2: Value(\n                                    Bytes(\n                                        b\"\\n0\\n$type.googleapis.com/test.StringValue\\x12\\x08\\n\\x06114514\\x12+\\n#type.googleapis.com/test.Int32Value\\x12\\x04\\x08\\xd2\\xfe\\x06\",\n                                    ),\n                                ),\n                            },\n                        },\n                    },\n                ),\n            ]\n        \"#]].assert_debug_eq",
+          "lineNumber": 321
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "value2.fields().map(|f| f.1).collect_vec",
+          "lineNumber": 388
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "value2.fields().map",
+          "lineNumber": 388
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "value2.fields",
+          "lineNumber": 388
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "DynamicMessage::decode(message_descriptor.clone(), ANY_DATA_INVALID).unwrap",
+          "lineNumber": 390
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "DynamicMessage::decode",
+          "lineNumber": 390
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "message_descriptor.clone",
+          "lineNumber": 390
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "expect![[r#\"\n            [\n                I32(\n                    12345,\n                ),\n                Message(\n                    DynamicMessage {\n                        desc: MessageDescriptor {\n                            name: \"Any\",\n                            full_name: \"google.protobuf.Any\",\n                            is_map_entry: false,\n                            fields: [\n                                FieldDescriptor {\n                                    name: \"type_url\",\n                                    full_name: \"google.protobuf.Any.type_url\",\n                                    json_name: \"typeUrl\",\n                                    number: 1,\n                                    kind: string,\n                                    cardinality: Optional,\n                                    containing_oneof: None,\n                                    default_value: String(\n                                        \"\",\n                                    ),\n                                    is_group: false,\n                                    is_list: false,\n                                    is_map: false,\n                                    is_packed: false,\n                                    supports_presence: false,\n                                },\n                                FieldDescriptor {\n                                    name: \"value\",\n                                    full_name: \"google.protobuf.Any.value\",\n                                    json_name: \"value\",\n                                    number: 2,\n                                    kind: bytes,\n                                    cardinality: Optional,\n                                    containing_oneof: None,\n                                    default_value: Bytes(\n                                        b\"\",\n                                    ),\n                                    is_group: false,\n                                    is_list: false,\n                                    is_map: false,\n                                    is_packed: false,\n                                    supports_presence: false,\n                                },\n                            ],\n                            oneofs: [],\n                        },\n                        fields: DynamicMessageFieldSet {\n                            fields: {\n                                1: Value(\n                                    String(\n                                        \"type.googleapis.com/test.StringXalue\",\n                                    ),\n                                ),\n                                2: Value(\n                                    Bytes(\n                                        b\"\\n\\x08John Doe\",\n                                    ),\n                                ),\n                            },\n                        },\n                    },\n                ),\n            ]\n        \"#]].assert_debug_eq",
+          "lineNumber": 391
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "value3.fields().map(|f| f.1).collect_vec",
+          "lineNumber": 458
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "value3.fields().map",
+          "lineNumber": 458
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "value3.fields",
+          "lineNumber": 458
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "check",
+          "lineNumber": 461
+        },
+        {
+          "caller": "test_any_schema",
+          "callee": "Ok",
+          "lineNumber": 501
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "load_message_descriptor(\"all-types.proto\", \"all_types.AllTypes\").unwrap",
+          "lineNumber": 510
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "load_message_descriptor",
+          "lineNumber": 510
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"Hello, Prost!\".to_owned",
+          "lineNumber": 527
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "b\"byte data\".to_vec",
+          "lineNumber": 528
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "Some",
+          "lineNumber": 530
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"Nested\".to_owned",
+          "lineNumber": 532
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "HashMap::from_iter",
+          "lineNumber": 535
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"key1\".to_owned",
+          "lineNumber": 536
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"key2\".to_owned",
+          "lineNumber": 537
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"key3\".to_owned",
+          "lineNumber": 538
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "Some",
+          "lineNumber": 540
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "Some",
+          "lineNumber": 544
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "Some",
+          "lineNumber": 548
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"type.googleapis.com/my_custom_type\".to_owned",
+          "lineNumber": 549
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "b\"My custom data\".to_vec",
+          "lineNumber": 550
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "Some",
+          "lineNumber": 552
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "Some",
+          "lineNumber": 553
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"Hello, Wrapper!\".to_owned",
+          "lineNumber": 553
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "Some",
+          "lineNumber": 554
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "ExampleOneof::OneofInt32",
+          "lineNumber": 554
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "HashMap::from_iter",
+          "lineNumber": 555
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"key1\".to_owned",
+          "lineNumber": 557
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"A\".to_owned",
+          "lineNumber": 560
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"key2\".to_owned",
+          "lineNumber": 564
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "\"B\".to_owned",
+          "lineNumber": 567
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "HashMap::from_iter",
+          "lineNumber": 571
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "Vec::new",
+          "lineNumber": 577
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "data.encode(&mut data_bytes).unwrap",
+          "lineNumber": 578
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "data.encode",
+          "lineNumber": 578
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "check",
+          "lineNumber": 580
+        },
+        {
+          "caller": "test_all_types",
+          "callee": "Ok",
+          "lineNumber": 710
+        },
+        {
+          "caller": "test_recursive",
+          "callee": "load_message_descriptor(\"recursive.proto\", \"recursive.ComplexRecursiveMessage\").unwrap",
+          "lineNumber": 716
+        },
+        {
+          "caller": "test_recursive",
+          "callee": "load_message_descriptor",
+          "lineNumber": 716
+        },
+        {
+          "caller": "test_recursive",
+          "callee": "check",
+          "lineNumber": 718
+        },
+        {
+          "caller": "test_recursive",
+          "callee": "Ok",
+          "lineNumber": 730
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/connector/codec/tests/integration_tests/utils.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 175,
+      "nonEmptyLines": 156,
+      "functions": [
+        {
+          "name": "fmt",
+          "startLine": 26,
+          "endLine": 65,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 72,
+          "endLine": 109,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 116,
+          "endLine": 118,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 125,
+          "endLine": 130,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 137,
+          "endLine": 139,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 146,
+          "endLine": 161,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 168,
+          "endLine": 174,
+          "params": [
+            "f"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DataTypeTestDisplay",
+          "startLine": 23,
+          "endLine": 23,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "ScalarRefImplTestDisplay",
+          "startLine": 69,
+          "endLine": 69,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "ScalarImplTestDisplay",
+          "startLine": 113,
+          "endLine": 113,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "DatumRefTestDisplay",
+          "startLine": 122,
+          "endLine": 122,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "DatumTestDisplay",
+          "startLine": 134,
+          "endLine": 134,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "DatumCowTestDisplay",
+          "startLine": 143,
+          "endLine": 143,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "FieldTestDisplay",
+          "startLine": 165,
+          "endLine": 165,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DataTypeTestDisplay",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "ScalarRefImplTestDisplay",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "ScalarImplTestDisplay",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "DatumRefTestDisplay",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "DatumTestDisplay",
+          "line": 134,
+          "isDefault": false
+        },
+        {
+          "name": "DatumCowTestDisplay",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "FieldTestDisplay",
+          "line": 165,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fmt",
+          "callee": "s.len",
+          "lineNumber": 29
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.iter().next().unwrap",
+          "lineNumber": 31
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.iter().next",
+          "lineNumber": 31
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.iter",
+          "lineNumber": 31
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct",
+          "lineNumber": 35
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.iter",
+          "lineNumber": 36
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.field",
+          "lineNumber": 37
+        },
+        {
+          "caller": "fmt",
+          "callee": "DataTypeTestDisplay",
+          "lineNumber": 37
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.finish",
+          "lineNumber": 39
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 40
+        },
+        {
+          "caller": "fmt",
+          "callee": "l.elem",
+          "lineNumber": 43
+        },
+        {
+          "caller": "fmt",
+          "callee": "t.is_struct",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_tuple(\"List\")\n                        .field(&DataTypeTestDisplay(t)).finish",
+          "lineNumber": 45
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_tuple(\"List\").field",
+          "lineNumber": 45
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_tuple",
+          "lineNumber": 45
+        },
+        {
+          "caller": "fmt",
+          "callee": "DataTypeTestDisplay",
+          "lineNumber": 46
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.iter_fields_ref().len",
+          "lineNumber": 75
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.iter_fields_ref",
+          "lineNumber": 75
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.iter_fields_ref().next().unwrap",
+          "lineNumber": 77
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.iter_fields_ref().next",
+          "lineNumber": 77
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.iter_fields_ref",
+          "lineNumber": 77
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_tuple",
+          "lineNumber": 81
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.iter_fields_ref",
+          "lineNumber": 82
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.field",
+          "lineNumber": 83
+        },
+        {
+          "caller": "fmt",
+          "callee": "DatumRefTestDisplay",
+          "lineNumber": 83
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.finish",
+          "lineNumber": 85
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 86
+        },
+        {
+          "caller": "fmt",
+          "callee": "f\n                .debug_list()\n                .entries(l.iter().map(DatumRefTestDisplay)).finish",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fmt",
+          "callee": "f\n                .debug_list().entries",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_list",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fmt",
+          "callee": "l.iter().map",
+          "lineNumber": 90
+        },
+        {
+          "caller": "fmt",
+          "callee": "l.iter",
+          "lineNumber": 90
+        },
+        {
+          "caller": "fmt",
+          "callee": "f\n                .debug_list()\n                .entries(m.inner().iter().map(DatumRefTestDisplay)).finish",
+          "lineNumber": 92
+        },
+        {
+          "caller": "fmt",
+          "callee": "f\n                .debug_list().entries",
+          "lineNumber": 92
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_list",
+          "lineNumber": 92
+        },
+        {
+          "caller": "fmt",
+          "callee": "m.inner().iter().map",
+          "lineNumber": 94
+        },
+        {
+          "caller": "fmt",
+          "callee": "m.inner().iter",
+          "lineNumber": 94
+        },
+        {
+          "caller": "fmt",
+          "callee": "m.inner",
+          "lineNumber": 94
+        },
+        {
+          "caller": "fmt",
+          "callee": "compact_str.len",
+          "lineNumber": 98
+        },
+        {
+          "caller": "fmt",
+          "callee": "ScalarRefImplTestDisplay(self.0.as_scalar_ref_impl()).fmt",
+          "lineNumber": 117
+        },
+        {
+          "caller": "fmt",
+          "callee": "ScalarRefImplTestDisplay",
+          "lineNumber": 117
+        },
+        {
+          "caller": "fmt",
+          "callee": "self.0.as_scalar_ref_impl",
+          "lineNumber": 117
+        },
+        {
+          "caller": "fmt",
+          "callee": "ScalarRefImplTestDisplay(scalar).fmt",
+          "lineNumber": 127
+        },
+        {
+          "caller": "fmt",
+          "callee": "ScalarRefImplTestDisplay",
+          "lineNumber": 127
+        },
+        {
+          "caller": "fmt",
+          "callee": "DatumRefTestDisplay(self.0.to_datum_ref()).fmt",
+          "lineNumber": 138
+        },
+        {
+          "caller": "fmt",
+          "callee": "DatumRefTestDisplay",
+          "lineNumber": 138
+        },
+        {
+          "caller": "fmt",
+          "callee": "self.0.to_datum_ref",
+          "lineNumber": 138
+        },
+        {
+          "caller": "fmt",
+          "callee": "DatumRefTestDisplay(*datum_ref).fmt",
+          "lineNumber": 151
+        },
+        {
+          "caller": "fmt",
+          "callee": "DatumRefTestDisplay",
+          "lineNumber": 151
+        },
+        {
+          "caller": "fmt",
+          "callee": "DatumTestDisplay(datum).fmt",
+          "lineNumber": 156
+        },
+        {
+          "caller": "fmt",
+          "callee": "DatumTestDisplay",
+          "lineNumber": 156
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 160
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 173
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 7
+      }
+    }
+  ]
+}

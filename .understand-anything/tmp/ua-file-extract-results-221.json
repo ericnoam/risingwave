@@ -1,0 +1,299 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/starrocks-sink/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 36,
+      "sections": [
+        {
+          "heading": "Demo: Sinking to Starrocks",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/starrocks-sink/create_mv.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 15,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/starrocks-sink/create_sink.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 93,
+      "nonEmptyLines": 86,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/starrocks-sink/create_source.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 66,
+      "nonEmptyLines": 60,
+      "definitions": [
+        {
+          "name": "user_behaviors",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "target_type",
+            "event_timestamp",
+            "behavior_type",
+            "parent_target_type",
+            "parent_target_id",
+            "target_id",
+            "target_type",
+            "event_timestamp",
+            "behavior_type",
+            "parent_target_type",
+            "parent_target_id"
+          ],
+          "startLine": 1,
+          "endLine": 27
+        },
+        {
+          "name": "upsert_user_behaviors",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "target_type",
+            "event_timestamp",
+            "behavior_type",
+            "parent_target_type",
+            "parent_target_id"
+          ],
+          "startLine": 18,
+          "endLine": 27
+        },
+        {
+          "name": "starrocks_types",
+          "kind": "table",
+          "fields": [
+            "types_id",
+            "c_boolean",
+            "c_smallint",
+            "c_integer",
+            "c_bigint",
+            "c_decimal",
+            "c_real",
+            "c_double_precision",
+            "c_varchar",
+            "c_date",
+            "c_timestamp",
+            "c_jsonb",
+            "c_boolean_array",
+            "c_smallint_array",
+            "c_integer_array",
+            "c_bigint_array",
+            "c_decimal_array",
+            "c_real_array",
+            "c_double_precision_array",
+            "c_varchar_array",
+            "c_date_array",
+            "c_timestamp_array",
+            "c_jsonb_array"
+          ],
+          "startLine": 35,
+          "endLine": 60
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/starrocks-sink/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 74,
+      "nonEmptyLines": 74,
+      "sections": [
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 61
+        },
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/starrocks-sink/prepare.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 6,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/starrocks-sink/starrocks_prepare.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 76,
+      "nonEmptyLines": 69,
+      "definitions": [
+        {
+          "name": "demo_primary_table",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "event_timestamp_local"
+          ],
+          "startLine": 4,
+          "endLine": 10
+        },
+        {
+          "name": "upsert_table",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "event_timestamp_local"
+          ],
+          "startLine": 12,
+          "endLine": 18
+        },
+        {
+          "name": "demo_duplicate_table",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "event_timestamp_local"
+          ],
+          "startLine": 20,
+          "endLine": 26
+        },
+        {
+          "name": "demo_aggregate_table",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "event_timestamp_local"
+          ],
+          "startLine": 28,
+          "endLine": 34
+        },
+        {
+          "name": "demo_unique_table",
+          "kind": "table",
+          "fields": [
+            "user_id",
+            "target_id",
+            "event_timestamp_local"
+          ],
+          "startLine": 36,
+          "endLine": 42
+        },
+        {
+          "name": "starrocks_types",
+          "kind": "table",
+          "fields": [
+            "types_id",
+            "c_boolean",
+            "c_smallint",
+            "c_integer",
+            "c_bigint",
+            "c_decimal",
+            "c_real",
+            "c_double_precision",
+            "c_varchar",
+            "c_date",
+            "c_timestamp",
+            "c_jsonb",
+            "c_boolean_array",
+            "c_smallint_array",
+            "c_integer_array",
+            "c_bigint_array",
+            "c_decimal_array",
+            "c_real_array",
+            "c_double_precision_array",
+            "c_varchar_array",
+            "c_date_array",
+            "c_timestamp_array",
+            "c_jsonb_array"
+          ],
+          "startLine": 44,
+          "endLine": 73
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 6
+      }
+    },
+    {
+      "path": "integration_tests/starrocks-sink/update_delete.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 5,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    }
+  ]
+}

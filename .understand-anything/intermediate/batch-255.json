@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "config:src/risedevtool/schemas/profile.json",
+      "type": "config",
+      "name": "profile.json",
+      "filePath": "src/risedevtool/schemas/profile.json",
+      "summary": "JSON Schema defining the structure of a single RiseDev profile entry, using patternProperties to allow arbitrary named component arrays in cluster profiles.",
+      "tags": ["configuration", "schema-definition", "developer-tools"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/risedevtool/schemas/risedev-profiles.user.json",
+      "type": "config",
+      "name": "risedev-profiles.user.json",
+      "filePath": "src/risedevtool/schemas/risedev-profiles.user.json",
+      "summary": "JSON Schema stub for user-defined RiseDev profiles, referencing the main profile schema.",
+      "tags": ["configuration", "schema-definition", "developer-tools"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/risedevtool/schemas/risedev.json",
+      "type": "config",
+      "name": "risedev.json",
+      "filePath": "src/risedevtool/schemas/risedev.json",
+      "summary": "JSON Schema for risedev.yml defining required top-level fields (profile) and optional fields (template, env) for the RiseDev cluster configuration.",
+      "tags": ["configuration", "schema-definition", "developer-tools"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:src/risedevtool/schemas/risedev-profiles.user.json",
+      "target": "config:src/risedevtool/schemas/profile.json",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:src/risedevtool/schemas/risedev.json",
+      "target": "config:src/risedevtool/schemas/profile.json",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

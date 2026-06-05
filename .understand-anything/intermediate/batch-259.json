@@ -1,0 +1,247 @@
+{
+  "nodes": [
+    {
+      "id": "config:src/storage/backup/integration_tests/Makefile.toml",
+      "type": "config",
+      "name": "Makefile.toml",
+      "filePath": "src/storage/backup/integration_tests/Makefile.toml",
+      "summary": "Cargo Make task definition for running the meta-backup-restore integration test suite.",
+      "tags": ["configuration", "testing", "automation", "backup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/storage/backup/integration_tests/common.sh",
+      "type": "file",
+      "name": "common.sh",
+      "filePath": "src/storage/backup/integration_tests/common.sh",
+      "summary": "Shared shell library for backup integration tests providing cluster lifecycle management, backup/restore operations, SQL execution helpers, SST file inspection, and integrity validation functions.",
+      "tags": ["script", "backup", "testing", "shell"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/storage/backup/integration_tests/common.sh:backup",
+      "type": "function",
+      "name": "backup",
+      "filePath": "src/storage/backup/integration_tests/common.sh",
+      "lineRange": [68, 75],
+      "summary": "Triggers a backup operation by calling the risectl meta backup-meta command and waits for completion.",
+      "tags": ["backup", "utility", "shell"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/storage/backup/integration_tests/common.sh:restore",
+      "type": "function",
+      "name": "restore",
+      "filePath": "src/storage/backup/integration_tests/common.sh",
+      "lineRange": [83, 101],
+      "summary": "Restores from a backup snapshot by stopping the cluster, running risectl meta restore-meta, and restarting.",
+      "tags": ["backup", "restore", "shell"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/integration_tests/common.sh:restore_with_overwrite",
+      "type": "function",
+      "name": "restore_with_overwrite",
+      "filePath": "src/storage/backup/integration_tests/common.sh",
+      "lineRange": [119, 149],
+      "summary": "Restores from a backup to a different endpoint by copying bucket data and running restore with overwrite flags.",
+      "tags": ["backup", "restore", "shell"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/integration_tests/common.sh:restore_fail_integrity_validation",
+      "type": "function",
+      "name": "restore_fail_integrity_validation",
+      "filePath": "src/storage/backup/integration_tests/common.sh",
+      "lineRange": [151, 174],
+      "summary": "Tests that restore fails with proper error when SST integrity validation detects corrupted backup data.",
+      "tags": ["backup", "validation", "shell"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/integration_tests/common.sh:execute_sql_and_expect",
+      "type": "function",
+      "name": "execute_sql_and_expect",
+      "filePath": "src/storage/backup/integration_tests/common.sh",
+      "lineRange": [188, 200],
+      "summary": "Executes a SQL query and asserts that the output matches an expected value, failing the test on mismatch.",
+      "tags": ["testing", "sql", "assertion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/storage/backup/integration_tests/run_all.sh",
+      "type": "file",
+      "name": "run_all.sh",
+      "filePath": "src/storage/backup/integration_tests/run_all.sh",
+      "summary": "Orchestrates all backup integration tests by sourcing common.sh and sequentially running all test_*.sh scripts.",
+      "tags": ["script", "backup", "testing", "shell"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/storage/backup/integration_tests/test_basic.sh",
+      "type": "file",
+      "name": "test_basic.sh",
+      "filePath": "src/storage/backup/integration_tests/test_basic.sh",
+      "summary": "Integration test verifying basic backup and restore correctness: creates materialized views, backs up, drops, restores, and validates data consistency.",
+      "tags": ["script", "backup", "testing", "shell"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/backup/integration_tests/test_overwrite_endpoint.sh",
+      "type": "file",
+      "name": "test_overwrite_endpoint.sh",
+      "filePath": "src/storage/backup/integration_tests/test_overwrite_endpoint.sh",
+      "summary": "Integration test verifying backup restore with endpoint overwrite functionality.",
+      "tags": ["script", "backup", "testing", "shell"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/backup/integration_tests/test_pin_sst.sh",
+      "type": "file",
+      "name": "test_pin_sst.sh",
+      "filePath": "src/storage/backup/integration_tests/test_pin_sst.sh",
+      "summary": "Integration test verifying that SST files referenced by backup snapshots are pinned during GC operations.",
+      "tags": ["script", "backup", "testing", "shell"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/backup/integration_tests/test_query_backup.sh",
+      "type": "file",
+      "name": "test_query_backup.sh",
+      "filePath": "src/storage/backup/integration_tests/test_query_backup.sh",
+      "summary": "Integration test verifying that backup metadata can be queried for inspection and list operations.",
+      "tags": ["script", "backup", "testing", "shell"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/backup/integration_tests/test_set_config.sh",
+      "type": "file",
+      "name": "test_set_config.sh",
+      "filePath": "src/storage/backup/integration_tests/test_set_config.sh",
+      "summary": "Integration test verifying backup and restore with configuration setting changes (SET commands) across the restore cycle.",
+      "tags": ["script", "backup", "testing", "shell"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/storage/backup/integration_tests/common.sh",
+      "target": "function:src/storage/backup/integration_tests/common.sh:backup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/common.sh",
+      "target": "function:src/storage/backup/integration_tests/common.sh:restore",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/common.sh",
+      "target": "function:src/storage/backup/integration_tests/common.sh:restore_with_overwrite",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/common.sh",
+      "target": "function:src/storage/backup/integration_tests/common.sh:restore_fail_integrity_validation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/common.sh",
+      "target": "function:src/storage/backup/integration_tests/common.sh:execute_sql_and_expect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/run_all.sh",
+      "target": "file:src/storage/backup/integration_tests/common.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/run_all.sh",
+      "target": "file:src/storage/backup/integration_tests/test_basic.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/run_all.sh",
+      "target": "file:src/storage/backup/integration_tests/test_overwrite_endpoint.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/run_all.sh",
+      "target": "file:src/storage/backup/integration_tests/test_pin_sst.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/run_all.sh",
+      "target": "file:src/storage/backup/integration_tests/test_query_backup.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/run_all.sh",
+      "target": "file:src/storage/backup/integration_tests/test_set_config.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/test_basic.sh",
+      "target": "file:src/storage/backup/integration_tests/common.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/test_overwrite_endpoint.sh",
+      "target": "file:src/storage/backup/integration_tests/common.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/test_pin_sst.sh",
+      "target": "file:src/storage/backup/integration_tests/common.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/test_query_backup.sh",
+      "target": "file:src/storage/backup/integration_tests/common.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/storage/backup/integration_tests/test_set_config.sh",
+      "target": "file:src/storage/backup/integration_tests/common.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:src/storage/backup/integration_tests/Makefile.toml",
+      "target": "file:src/storage/backup/integration_tests/run_all.sh",
+      "type": "triggers",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

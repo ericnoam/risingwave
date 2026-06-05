@@ -1,0 +1,189 @@
+{
+  "nodes": [
+    {
+      "id": "file:ci/scripts/sql/nexmark/ddl.sql",
+      "type": "table",
+      "name": "ddl.sql",
+      "filePath": "ci/scripts/sql/nexmark/ddl.sql",
+      "summary": "NexMark benchmark DDL that creates Kafka source tables and convenience views (`bid`, `auction`, `person`) over the NexMark event stream.",
+      "tags": ["database", "schema-definition", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q0-temporal-filter.drop.sql",
+      "type": "file",
+      "name": "q0-temporal-filter.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q0-temporal-filter.drop.sql",
+      "summary": "Drops the q0 temporal-filter NexMark materialized view after benchmark completion.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q0-temporal-filter.sql",
+      "type": "file",
+      "name": "q0-temporal-filter.sql",
+      "filePath": "ci/scripts/sql/nexmark/q0-temporal-filter.sql",
+      "summary": "NexMark q0 benchmark query with temporal filter: a passthrough query over recent bids within a time window.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q0.drop.sql",
+      "type": "file",
+      "name": "q0.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q0.drop.sql",
+      "summary": "Drops the q0 NexMark materialized view after benchmark completion.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q0.sql",
+      "type": "file",
+      "name": "q0.sql",
+      "filePath": "ci/scripts/sql/nexmark/q0.sql",
+      "summary": "NexMark q0 benchmark query: a passthrough query that measures baseline streaming throughput with no aggregation.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q1-temporal-filter.drop.sql",
+      "type": "file",
+      "name": "q1-temporal-filter.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q1-temporal-filter.drop.sql",
+      "summary": "Drops the q1 temporal-filter NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q1-temporal-filter.sql",
+      "type": "file",
+      "name": "q1-temporal-filter.sql",
+      "filePath": "ci/scripts/sql/nexmark/q1-temporal-filter.sql",
+      "summary": "NexMark q1 benchmark query with temporal filter: currency conversion on bid prices within a sliding time window.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q1.drop.sql",
+      "type": "file",
+      "name": "q1.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q1.drop.sql",
+      "summary": "Drops the q1 NexMark materialized view after benchmark completion.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q1.sql",
+      "type": "file",
+      "name": "q1.sql",
+      "filePath": "ci/scripts/sql/nexmark/q1.sql",
+      "summary": "NexMark q1 benchmark query: converts bid prices from USD to EUR using a streaming projection.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q10-temporal-filter.drop.sql",
+      "type": "file",
+      "name": "q10-temporal-filter.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q10-temporal-filter.drop.sql",
+      "summary": "Drops the q10 temporal-filter NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q10-temporal-filter.sql",
+      "type": "file",
+      "name": "q10-temporal-filter.sql",
+      "filePath": "ci/scripts/sql/nexmark/q10-temporal-filter.sql",
+      "summary": "NexMark q10 benchmark query with temporal filter: logs all bids to a side table within a time window.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q10.drop.sql",
+      "type": "file",
+      "name": "q10.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q10.drop.sql",
+      "summary": "Drops the q10 NexMark materialized view after benchmark completion.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q10.sql",
+      "type": "file",
+      "name": "q10.sql",
+      "filePath": "ci/scripts/sql/nexmark/q10.sql",
+      "summary": "NexMark q10 benchmark query: logs all bids including their auction and bidder IDs to measure throughput of append-only sinks.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q101-temporal-filter.drop.sql",
+      "type": "file",
+      "name": "q101-temporal-filter.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q101-temporal-filter.drop.sql",
+      "summary": "Drops the q101 temporal-filter NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q101-temporal-filter.sql",
+      "type": "file",
+      "name": "q101-temporal-filter.sql",
+      "filePath": "ci/scripts/sql/nexmark/q101-temporal-filter.sql",
+      "summary": "NexMark q101 benchmark query with temporal filter: computes the total bid amount per auction within a time window.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q101.drop.sql",
+      "type": "file",
+      "name": "q101.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q101.drop.sql",
+      "summary": "Drops the q101 NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q101.sql",
+      "type": "file",
+      "name": "q101.sql",
+      "filePath": "ci/scripts/sql/nexmark/q101.sql",
+      "summary": "NexMark q101 benchmark query: computes total bid amount per auction, joining bids with auctions.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q102-temporal-filter.drop.sql",
+      "type": "file",
+      "name": "q102-temporal-filter.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q102-temporal-filter.drop.sql",
+      "summary": "Drops the q102 temporal-filter NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q102-temporal-filter.sql",
+      "type": "file",
+      "name": "q102-temporal-filter.sql",
+      "filePath": "ci/scripts/sql/nexmark/q102-temporal-filter.sql",
+      "summary": "NexMark q102 benchmark query with temporal filter: counts the number of bids above reserve price per auction within a time window.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q102.drop.sql",
+      "type": "file",
+      "name": "q102.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q102.drop.sql",
+      "summary": "Drops the q102 NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "file:ci/scripts/sql/nexmark/ddl.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "file:ci/scripts/sql/nexmark/q0.sql", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "file:ci/scripts/sql/nexmark/q1.sql", "type": "depends_on", "direction": "forward", "weight": 0.6}
+  ]
+}

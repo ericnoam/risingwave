@@ -1,0 +1,836 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/utils/futures_util/src/buffered_with_fence.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 201,
+      "nonEmptyLines": 177,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 53,
+          "endLine": 60,
+          "params": [
+            "stream",
+            "n"
+          ]
+        },
+        {
+          "name": "poll_next",
+          "startLine": 70,
+          "endLine": 107,
+          "params": [
+            "self",
+            "cx"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 123,
+          "endLine": 125,
+          "params": [
+            "inner",
+            "is_fence"
+          ]
+        },
+        {
+          "name": "poll",
+          "startLine": 134,
+          "endLine": 138,
+          "params": [
+            "self",
+            "cx"
+          ]
+        },
+        {
+          "name": "is_terminated",
+          "startLine": 145,
+          "endLine": 147,
+          "params": []
+        },
+        {
+          "name": "is_fence",
+          "startLine": 154,
+          "endLine": 156,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MaybeFence",
+          "startLine": 26,
+          "endLine": 30,
+          "methods": [
+            "is_fence"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MaybeFence",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 123,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "stream.into_stream().fuse",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new",
+          "callee": "stream.into_stream",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new",
+          "callee": "FuturesOrdered::new",
+          "lineNumber": 56
+        },
+        {
+          "caller": "poll_next",
+          "callee": "self.project",
+          "lineNumber": 71
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.in_progress_queue.is_empty",
+          "lineNumber": 73
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.in_progress_queue.len",
+          "lineNumber": 79
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.stream.as_mut().poll_next",
+          "lineNumber": 80
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.stream.as_mut",
+          "lineNumber": 80
+        },
+        {
+          "caller": "poll_next",
+          "callee": "fut.is_fence",
+          "lineNumber": 82
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.in_progress_queue.push_back",
+          "lineNumber": 83
+        },
+        {
+          "caller": "poll_next",
+          "callee": "TryFutureExt::into_future",
+          "lineNumber": 84
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.in_progress_queue.poll_next_unpin",
+          "lineNumber": 96
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.stream.is_done",
+          "lineNumber": 102
+        },
+        {
+          "caller": "poll_next",
+          "callee": "Poll::Ready",
+          "lineNumber": 103
+        },
+        {
+          "caller": "poll",
+          "callee": "self.project",
+          "lineNumber": 135
+        },
+        {
+          "caller": "poll",
+          "callee": "this.inner.poll",
+          "lineNumber": 137
+        },
+        {
+          "caller": "is_terminated",
+          "callee": "self.inner.is_terminated",
+          "lineNumber": 146
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "(0..n).map(|_| Arc::new(Mutex::new(false))).collect",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "(0..n).map",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "Arc::new",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "Mutex::new",
+          "lineNumber": 171
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "polled_flags.iter().cloned().enumerate().map",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "polled_flags.iter().cloned().enumerate",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "polled_flags.iter().cloned",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "polled_flags.iter",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "polled_flags.clone",
+          "lineNumber": 173
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "async move {\n                {\n                    let mut flag = flag.lock().unwrap();\n                    *flag = true;\n                }\n                tokio::time::sleep(Duration::from_millis(10 * (n - i) as u64)).await;\n                if is_fence {\n                    let all_later_unpolled = polled_flags2[(i + 1)..n].iter().all(|flag| {\n                        let flag = flag.lock().unwrap();\n                        !*flag\n                    });\n                    assert!(all_later_unpolled);\n                }\n                tokio::time::sleep(Duration::from_millis(10 * (n - i) as u64)).await;\n\n                Ok::<_, ()>(())\n            }.with_fence",
+          "lineNumber": 176
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "flag.lock().unwrap",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "flag.lock",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 181
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "Duration::from_millis",
+          "lineNumber": 181
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "polled_flags2[(i + 1)..n].iter().all",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "polled_flags2[(i + 1)..n].iter",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "flag.lock().unwrap",
+          "lineNumber": 184
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "flag.lock",
+          "lineNumber": 184
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 189
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "Duration::from_millis",
+          "lineNumber": 189
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "Ok::<_, ()>",
+          "lineNumber": 191
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "futures::stream::iter(futs)\n            .map(Ok).try_buffered_with_fence",
+          "lineNumber": 195
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "futures::stream::iter(futs).map",
+          "lineNumber": 195
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "futures::stream::iter",
+          "lineNumber": 195
+        },
+        {
+          "caller": "test_buffered_with_fence",
+          "callee": "st.count",
+          "lineNumber": 198
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/utils/futures_util/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "pausable",
+          "startLine": 29,
+          "endLine": 34,
+          "params": [
+            "stream"
+          ]
+        },
+        {
+          "name": "try_buffered_with_fence",
+          "startLine": 52,
+          "endLine": 58,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "with_fence",
+          "startLine": 68,
+          "endLine": 70,
+          "params": [
+            "is_fence"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RwTryStreamExt",
+          "startLine": 36,
+          "endLine": 46,
+          "methods": [
+            "try_buffered_with_fence"
+          ],
+          "properties": []
+        },
+        {
+          "name": "RwFutureExt",
+          "startLine": 61,
+          "endLine": 65,
+          "methods": [
+            "with_fence"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "pausable",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "RwTryStreamExt",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "RwFutureExt",
+          "line": 61,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pausable",
+          "callee": "Pausable::new",
+          "lineNumber": 33
+        },
+        {
+          "caller": "try_buffered_with_fence",
+          "callee": "TryBufferedWithFence::new",
+          "lineNumber": 57
+        },
+        {
+          "caller": "with_fence",
+          "callee": "Fenced::new",
+          "lineNumber": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/utils/futures_util/src/misc.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 127,
+      "nonEmptyLines": 115,
+      "functions": [
+        {
+          "name": "select_all",
+          "startLine": 24,
+          "endLine": 30,
+          "params": [
+            "streams"
+          ]
+        },
+        {
+          "name": "pending_on_none",
+          "startLine": 32,
+          "endLine": 39,
+          "params": [
+            "future"
+          ]
+        },
+        {
+          "name": "drop_either_future",
+          "startLine": 41,
+          "endLine": 48,
+          "params": [
+            "either"
+          ]
+        },
+        {
+          "name": "await_future_with_monitor_error_stream",
+          "startLine": 60,
+          "endLine": 79,
+          "params": [
+            "peek_stream",
+            "future"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 93,
+          "endLine": 98,
+          "params": [
+            "inner",
+            "item"
+          ]
+        },
+        {
+          "name": "into_inner",
+          "startLine": 100,
+          "endLine": 105,
+          "params": []
+        },
+        {
+          "name": "item",
+          "startLine": 107,
+          "endLine": 111,
+          "params": []
+        },
+        {
+          "name": "poll",
+          "startLine": 117,
+          "endLine": 126,
+          "params": [
+            "self",
+            "cx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AttachedFuture",
+          "startLine": 87,
+          "endLine": 90,
+          "methods": [],
+          "properties": [
+            "inner",
+            "item"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "select_all",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "pending_on_none",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "drop_either_future",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "await_future_with_monitor_error_stream",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "AttachedFuture",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "into_inner",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "item",
+          "line": 107,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "select_all",
+          "callee": "futures::stream::select_all",
+          "lineNumber": 29
+        },
+        {
+          "caller": "pending_on_none",
+          "callee": "future.then",
+          "lineNumber": 33
+        },
+        {
+          "caller": "pending_on_none",
+          "callee": "pending::<I>",
+          "lineNumber": 36
+        },
+        {
+          "caller": "drop_either_future",
+          "callee": "Either::Left",
+          "lineNumber": 45
+        },
+        {
+          "caller": "drop_either_future",
+          "callee": "Either::Right",
+          "lineNumber": 46
+        },
+        {
+          "caller": "await_future_with_monitor_error_stream",
+          "callee": "select",
+          "lineNumber": 65
+        },
+        {
+          "caller": "await_future_with_monitor_error_stream",
+          "callee": "Err",
+          "lineNumber": 67
+        },
+        {
+          "caller": "await_future_with_monitor_error_stream",
+          "callee": "peek_stream.next().now_or_never",
+          "lineNumber": 69
+        },
+        {
+          "caller": "await_future_with_monitor_error_stream",
+          "callee": "peek_stream.next",
+          "lineNumber": 69
+        },
+        {
+          "caller": "await_future_with_monitor_error_stream",
+          "callee": "Err",
+          "lineNumber": 73
+        },
+        {
+          "caller": "await_future_with_monitor_error_stream",
+          "callee": "Some",
+          "lineNumber": 73
+        },
+        {
+          "caller": "await_future_with_monitor_error_stream",
+          "callee": "Ok",
+          "lineNumber": 75
+        },
+        {
+          "caller": "await_future_with_monitor_error_stream",
+          "callee": "Ok",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new",
+          "callee": "Some",
+          "lineNumber": 96
+        },
+        {
+          "caller": "into_inner",
+          "callee": "self.item.expect",
+          "lineNumber": 103
+        },
+        {
+          "caller": "item",
+          "callee": "self.item\n            .as_ref().expect",
+          "lineNumber": 108
+        },
+        {
+          "caller": "item",
+          "callee": "self.item.as_ref",
+          "lineNumber": 108
+        },
+        {
+          "caller": "poll",
+          "callee": "self.get_mut",
+          "lineNumber": 118
+        },
+        {
+          "caller": "poll",
+          "callee": "Poll::Ready",
+          "lineNumber": 120
+        },
+        {
+          "caller": "poll",
+          "callee": "this.item\n                .take().expect",
+          "lineNumber": 122
+        },
+        {
+          "caller": "poll",
+          "callee": "this.item.take",
+          "lineNumber": 122
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/utils/futures_util/src/pausable.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 86,
+      "functions": [
+        {
+          "name": "pause",
+          "startLine": 45,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "resume",
+          "startLine": 50,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 62,
+          "endLine": 73,
+          "params": [
+            "stream"
+          ]
+        },
+        {
+          "name": "poll_next",
+          "startLine": 82,
+          "endLine": 91,
+          "params": [
+            "self",
+            "cx"
+          ]
+        },
+        {
+          "name": "size_hint",
+          "startLine": 93,
+          "endLine": 95,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Valve",
+          "startLine": 38,
+          "endLine": 41,
+          "methods": [
+            "pause",
+            "resume"
+          ],
+          "properties": [
+            "paused",
+            "waker"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Valve",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "pause",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "resume",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 62,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pause",
+          "callee": "self.paused.store",
+          "lineNumber": 46
+        },
+        {
+          "caller": "resume",
+          "callee": "self.paused.store",
+          "lineNumber": 51
+        },
+        {
+          "caller": "resume",
+          "callee": "self.waker.lock().unwrap().as_ref",
+          "lineNumber": 52
+        },
+        {
+          "caller": "resume",
+          "callee": "self.waker.lock().unwrap",
+          "lineNumber": 52
+        },
+        {
+          "caller": "resume",
+          "callee": "self.waker.lock",
+          "lineNumber": 52
+        },
+        {
+          "caller": "resume",
+          "callee": "waker.wake_by_ref",
+          "lineNumber": 53
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new",
+          "callee": "AtomicBool::new",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new",
+          "callee": "Mutex::new",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new",
+          "callee": "paused.clone",
+          "lineNumber": 68
+        },
+        {
+          "caller": "new",
+          "callee": "waker.clone",
+          "lineNumber": 69
+        },
+        {
+          "caller": "poll_next",
+          "callee": "self.project",
+          "lineNumber": 83
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.paused.load",
+          "lineNumber": 84
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.waker.lock().unwrap",
+          "lineNumber": 85
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.waker.lock",
+          "lineNumber": 85
+        },
+        {
+          "caller": "poll_next",
+          "callee": "Some",
+          "lineNumber": 86
+        },
+        {
+          "caller": "poll_next",
+          "callee": "cx.waker().clone",
+          "lineNumber": 86
+        },
+        {
+          "caller": "poll_next",
+          "callee": "cx.waker",
+          "lineNumber": 86
+        },
+        {
+          "caller": "poll_next",
+          "callee": "this.stream.poll_next",
+          "lineNumber": 89
+        },
+        {
+          "caller": "size_hint",
+          "callee": "self.stream.size_hint",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    }
+  ]
+}

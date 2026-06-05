@@ -1,0 +1,229 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/feature-store/server/model/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "integration_tests/feature-store/server/model/__init__.py",
+      "summary": "Package initialization file for the feature-store model Python gRPC service module.",
+      "tags": ["entry-point", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/feature-store/server/model/__main__.py",
+      "type": "file",
+      "name": "__main__.py",
+      "filePath": "integration_tests/feature-store/server/model/__main__.py",
+      "summary": "Entry point script that launches the feature-store model gRPC training service.",
+      "tags": ["entry-point", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/feature-store/server/model/model.py",
+      "type": "file",
+      "name": "model.py",
+      "filePath": "integration_tests/feature-store/server/model/model.py",
+      "summary": "Implements the TrainingModelService gRPC servicer that trains a GradientBoosting model against RisingWave data and serves predictions for taxi fare amounts.",
+      "tags": ["service", "api-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/feature-store/server/model/model_pb2.py",
+      "type": "file",
+      "name": "model_pb2.py",
+      "filePath": "integration_tests/feature-store/server/model/model_pb2.py",
+      "summary": "Auto-generated protobuf descriptor module for the feature-store model gRPC service messages.",
+      "tags": ["service", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "type": "file",
+      "name": "model_pb2_grpc.py",
+      "filePath": "integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "summary": "Auto-generated gRPC stub and servicer classes (ModelStub, ModelServicer, Model) for the feature-store model service, providing GetAmount and Training RPC methods.",
+      "tags": ["service", "api-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/feature-store/server/model/sql.py",
+      "type": "file",
+      "name": "sql.py",
+      "filePath": "integration_tests/feature-store/server/model/sql.py",
+      "summary": "Contains SQL query constants used by the feature-store model training service to fetch data from RisingWave.",
+      "tags": ["utility", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:integration_tests/feature-store/server/model/model.py:TrainingModelService",
+      "type": "class",
+      "name": "TrainingModelService",
+      "filePath": "integration_tests/feature-store/server/model/model.py",
+      "lineRange": [24, 82],
+      "summary": "gRPC servicer implementing Training (model training from RisingWave data) and GetAmount (ML inference) RPC methods, managing a psycopg DB connection and a GradientBoostingRegressor.",
+      "tags": ["service", "api-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:integration_tests/feature-store/server/model/model_pb2_grpc.py:ModelStub",
+      "type": "class",
+      "name": "ModelStub",
+      "filePath": "integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "lineRange": [28, 46],
+      "summary": "gRPC client stub for the Model service exposing GetAmount and Training channel methods.",
+      "tags": ["service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:integration_tests/feature-store/server/model/model_pb2_grpc.py:ModelServicer",
+      "type": "class",
+      "name": "ModelServicer",
+      "filePath": "integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "lineRange": [49, 62],
+      "summary": "Base gRPC servicer interface for the Model service; concrete implementations should override GetAmount and Training.",
+      "tags": ["service", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:integration_tests/feature-store/server/model/model_pb2_grpc.py:Model",
+      "type": "class",
+      "name": "Model",
+      "filePath": "integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "lineRange": [85, 140],
+      "summary": "Experimental gRPC service class wrapping GetAmount and Training unary RPC handlers for the Model service.",
+      "tags": ["service", "api-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:integration_tests/feature-store/server/model/model_pb2_grpc.py:add_ModelServicer_to_server",
+      "type": "function",
+      "name": "add_ModelServicer_to_server",
+      "filePath": "integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "lineRange": [65, 81],
+      "summary": "Registers the ModelServicer implementation into a gRPC server by adding generic RPC handlers for GetAmount and Training methods.",
+      "tags": ["service", "utility"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/feature-store/server/model/__main__.py",
+      "target": "file:integration_tests/feature-store/server/model/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/__main__.py",
+      "target": "file:integration_tests/feature-store/server/model/model.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model.py",
+      "target": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model.py",
+      "target": "file:integration_tests/feature-store/server/model/model_pb2.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model.py",
+      "target": "file:integration_tests/feature-store/server/model/sql.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "target": "file:integration_tests/feature-store/server/model/model_pb2.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model.py",
+      "target": "class:integration_tests/feature-store/server/model/model.py:TrainingModelService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model.py",
+      "target": "class:integration_tests/feature-store/server/model/model.py:TrainingModelService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "target": "class:integration_tests/feature-store/server/model/model_pb2_grpc.py:ModelStub",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "target": "class:integration_tests/feature-store/server/model/model_pb2_grpc.py:ModelServicer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "target": "class:integration_tests/feature-store/server/model/model_pb2_grpc.py:Model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "target": "function:integration_tests/feature-store/server/model/model_pb2_grpc.py:add_ModelServicer_to_server",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "target": "class:integration_tests/feature-store/server/model/model_pb2_grpc.py:ModelStub",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "target": "class:integration_tests/feature-store/server/model/model_pb2_grpc.py:ModelServicer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "target": "class:integration_tests/feature-store/server/model/model_pb2_grpc.py:Model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "target": "function:integration_tests/feature-store/server/model/model_pb2_grpc.py:add_ModelServicer_to_server",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:integration_tests/feature-store/server/model/model.py:TrainingModelService",
+      "target": "class:integration_tests/feature-store/server/model/model_pb2_grpc.py:ModelServicer",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

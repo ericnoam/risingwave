@@ -1,0 +1,282 @@
+{
+  "nodes": [
+    {
+      "id": "config:src/tests/libpq_test/Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "src/tests/libpq_test/Cargo.toml",
+      "summary": "Cargo manifest for the libpq integration test binary, declaring the tokio and libpq dependencies needed to test RisingWave's Postgres wire protocol via the C libpq client.",
+      "tags": ["configuration", "build-system", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/tests/libpq_test/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/tests/libpq_test/README.md",
+      "summary": "Brief documentation for the RisingWave libpq integration tests.",
+      "tags": ["documentation", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/libpq_test/src/main.rs",
+      "type": "file",
+      "name": "main.rs",
+      "filePath": "src/tests/libpq_test/src/main.rs",
+      "summary": "Entry point for the libpq integration test binary that connects to RisingWave via the native Postgres C client, executes prepared statements and verifies describe/exec round-trips.",
+      "tags": ["entry-point", "test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/tests/libpq_test/src/main.rs:TestOptions",
+      "type": "class",
+      "name": "TestOptions",
+      "filePath": "src/tests/libpq_test/src/main.rs",
+      "lineRange": [20, 40],
+      "summary": "CLI argument struct (parsed via clap) holding connection parameters (host, port, db, user, pass) for the libpq test.",
+      "tags": ["config", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/tests/libpq_test/src/main.rs:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "src/tests/libpq_test/src/main.rs",
+      "lineRange": [42, 71],
+      "summary": "Main test runner that parses options, establishes a libpq connection, and exercises prepare/describe/exec_prepared against RisingWave.",
+      "tags": ["entry-point", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src/tests/mysql_test/Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "src/tests/mysql_test/Cargo.toml",
+      "summary": "Cargo manifest for the MySQL async connection pool integration test, declaring mysql_async, tokio, and test dependencies.",
+      "tags": ["configuration", "build-system", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/mysql_test/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/tests/mysql_test/src/lib.rs",
+      "summary": "Library root for the MySQL test crate; provides shared test utilities or re-exports used by the integration tests.",
+      "tags": ["test", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/mysql_test/tests/mysql_async_connection_pool.rs",
+      "type": "file",
+      "name": "mysql_async_connection_pool.rs",
+      "filePath": "src/tests/mysql_test/tests/mysql_async_connection_pool.rs",
+      "summary": "Async integration test that validates MySQL connection pool behavior: inserting rows, streaming queries with and without timeouts, and connection recycling.",
+      "tags": ["test", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/tests/mysql_test/tests/mysql_async_connection_pool.rs:test_mysql_async_with_connection_pool",
+      "type": "function",
+      "name": "test_mysql_async_with_connection_pool",
+      "filePath": "src/tests/mysql_test/tests/mysql_async_connection_pool.rs",
+      "lineRange": [22, 116],
+      "summary": "Comprehensive test verifying mysql_async pool lifecycle: table creation, bulk inserts, streaming reads, timeout handling, and connection disconnect.",
+      "tags": ["test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:src/tests/regress/Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "src/tests/regress/Cargo.toml",
+      "summary": "Cargo manifest for the PostgreSQL regression test runner, declaring dependencies on tokio, psql client, and madsim for simulation mode.",
+      "tags": ["configuration", "build-system", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/COPYRIGHT",
+      "type": "file",
+      "name": "COPYRIGHT",
+      "filePath": "src/tests/regress/data/COPYRIGHT",
+      "summary": "PostgreSQL copyright notice accompanying the regression test data files, indicating their origin from the PostgreSQL project.",
+      "tags": ["documentation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/agg.data",
+      "type": "file",
+      "name": "agg.data",
+      "filePath": "src/tests/regress/data/data/agg.data",
+      "summary": "Small tab-separated data fixture for aggregate function regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/array.data",
+      "type": "file",
+      "name": "array.data",
+      "filePath": "src/tests/regress/data/data/array.data",
+      "summary": "Tab-separated data fixture containing 103 rows for PostgreSQL array type regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/constrf.data",
+      "type": "file",
+      "name": "constrf.data",
+      "filePath": "src/tests/regress/data/data/constrf.data",
+      "summary": "Minimal data fixture for constraint regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/constro.data",
+      "type": "file",
+      "name": "constro.data",
+      "filePath": "src/tests/regress/data/data/constro.data",
+      "summary": "Minimal data fixture for constraint override regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/dept.data",
+      "type": "file",
+      "name": "dept.data",
+      "filePath": "src/tests/regress/data/data/dept.data",
+      "summary": "Minimal department table seed data used in PostgreSQL regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/desc.data",
+      "type": "file",
+      "name": "desc.data",
+      "filePath": "src/tests/regress/data/data/desc.data",
+      "summary": "Large 10,000-row data fixture for sort/descriptor regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/emp.data",
+      "type": "file",
+      "name": "emp.data",
+      "filePath": "src/tests/regress/data/data/emp.data",
+      "summary": "Small employee table seed data for PostgreSQL regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/hash.data",
+      "type": "file",
+      "name": "hash.data",
+      "filePath": "src/tests/regress/data/data/hash.data",
+      "summary": "Large 10,000-row data fixture for hash index regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/jsonb.data",
+      "type": "file",
+      "name": "jsonb.data",
+      "filePath": "src/tests/regress/data/data/jsonb.data",
+      "summary": "1,012-row JSONB data fixture used in PostgreSQL JSONB type regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/onek.data",
+      "type": "file",
+      "name": "onek.data",
+      "filePath": "src/tests/regress/data/data/onek.data",
+      "summary": "1,000-row data fixture representing the classic PostgreSQL 'onek' test table.",
+      "tags": ["test", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/person.data",
+      "type": "file",
+      "name": "person.data",
+      "filePath": "src/tests/regress/data/data/person.data",
+      "summary": "50-row person table seed data for PostgreSQL regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/real_city.data",
+      "type": "file",
+      "name": "real_city.data",
+      "filePath": "src/tests/regress/data/data/real_city.data",
+      "summary": "Tiny city seed data for geometric/real type regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/rect.data",
+      "type": "file",
+      "name": "rect.data",
+      "filePath": "src/tests/regress/data/data/rect.data",
+      "summary": "3,378-row rectangle/geometric data fixture for PostgreSQL box/rect regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/streets.data",
+      "type": "file",
+      "name": "streets.data",
+      "filePath": "src/tests/regress/data/data/streets.data",
+      "summary": "5,124-row street address data fixture for PostgreSQL geometric regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/stud_emp.data",
+      "type": "file",
+      "name": "stud_emp.data",
+      "filePath": "src/tests/regress/data/data/stud_emp.data",
+      "summary": "Minimal student-employee combination seed data for inheritance regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/student.data",
+      "type": "file",
+      "name": "student.data",
+      "filePath": "src/tests/regress/data/data/student.data",
+      "summary": "Minimal student seed data for PostgreSQL regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/data/data/tenk.data",
+      "type": "file",
+      "name": "tenk.data",
+      "filePath": "src/tests/regress/data/data/tenk.data",
+      "summary": "Large 10,000-row 'tenk' table seed data — the primary benchmark fixture for PostgreSQL regression tests.",
+      "tags": ["test", "data-model"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/tests/libpq_test/src/main.rs",
+      "target": "class:src/tests/libpq_test/src/main.rs:TestOptions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/libpq_test/src/main.rs",
+      "target": "function:src/tests/libpq_test/src/main.rs:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/mysql_test/tests/mysql_async_connection_pool.rs",
+      "target": "function:src/tests/mysql_test/tests/mysql_async_connection_pool.rs:test_mysql_async_with_connection_pool",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

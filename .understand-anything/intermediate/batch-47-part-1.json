@@ -1,0 +1,902 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/frontend/src/observer/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/frontend/src/observer/mod.rs",
+      "summary": "Module barrel re-exporting frontend observer manager.",
+      "tags": [
+        "barrel",
+        "frontend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/src/observer/observer_manager.rs",
+      "type": "file",
+      "name": "observer_manager.rs",
+      "filePath": "src/frontend/src/observer/observer_manager.rs",
+      "summary": "Frontend observer manager handling catalog, user, and worker node notifications from the meta service.",
+      "tags": [
+        "service",
+        "frontend",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/optimizer/backfill_order_strategy.rs",
+      "type": "file",
+      "name": "backfill_order_strategy.rs",
+      "filePath": "src/frontend/src/optimizer/backfill_order_strategy.rs",
+      "summary": "Implements backfill ordering strategies for materialized view creation, determining dependency order.",
+      "tags": [
+        "service",
+        "frontend",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/optimizer/property/distribution.rs",
+      "type": "file",
+      "name": "distribution.rs",
+      "filePath": "src/frontend/src/optimizer/property/distribution.rs",
+      "summary": "Defines distribution property types and derivation logic for query plan nodes.",
+      "tags": [
+        "data-model",
+        "frontend",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/optimizer/property/order.rs",
+      "type": "file",
+      "name": "order.rs",
+      "filePath": "src/frontend/src/optimizer/property/order.rs",
+      "summary": "Defines ordering property types and validation for query plan nodes.",
+      "tags": [
+        "data-model",
+        "frontend",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/rpc/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/frontend/src/rpc/mod.rs",
+      "summary": "Frontend RPC module integrating handler routing, monitor service, and gRPC server setup.",
+      "tags": [
+        "api-handler",
+        "rpc",
+        "frontend"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/rpc/monitor_service.rs",
+      "type": "file",
+      "name": "monitor_service.rs",
+      "filePath": "src/frontend/src/rpc/monitor_service.rs",
+      "summary": "Implements the monitor gRPC service for frontend introspection and profiling.",
+      "tags": [
+        "api-handler",
+        "rpc",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/fast_insert.rs",
+      "type": "file",
+      "name": "fast_insert.rs",
+      "filePath": "src/frontend/src/scheduler/fast_insert.rs",
+      "summary": "Implements fast-path insert scheduling for DML operations on the frontend.",
+      "tags": [
+        "service",
+        "frontend",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/local.rs",
+      "type": "file",
+      "name": "local.rs",
+      "filePath": "src/frontend/src/scheduler/local.rs",
+      "summary": "Implements local execution scheduler that runs batch query plans directly on the frontend node.",
+      "tags": [
+        "service",
+        "frontend",
+        "api-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/streaming_manager.rs",
+      "type": "file",
+      "name": "streaming_manager.rs",
+      "filePath": "src/frontend/src/scheduler/streaming_manager.rs",
+      "summary": "Manages streaming job subscriptions and maintains view-to-fragment mapping for the frontend scheduler.",
+      "tags": [
+        "service",
+        "frontend",
+        "singleton"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/scheduler/task_context.rs",
+      "type": "file",
+      "name": "task_context.rs",
+      "filePath": "src/frontend/src/scheduler/task_context.rs",
+      "summary": "Provides task execution context for frontend-local batch execution including catalog access.",
+      "tags": [
+        "data-model",
+        "frontend",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/session.rs",
+      "type": "file",
+      "name": "session.rs",
+      "filePath": "src/frontend/src/session.rs",
+      "summary": "Core frontend session implementation managing user connections, query execution, and session state.",
+      "tags": [
+        "service",
+        "frontend",
+        "singleton",
+        "entry-point"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/session/current.rs",
+      "type": "file",
+      "name": "current.rs",
+      "filePath": "src/frontend/src/session/current.rs",
+      "summary": "Provides thread-local current session accessors for use in deeply nested call stacks.",
+      "tags": [
+        "utility",
+        "frontend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/src/session/cursor_manager.rs",
+      "type": "file",
+      "name": "cursor_manager.rs",
+      "filePath": "src/frontend/src/session/cursor_manager.rs",
+      "summary": "Manages database cursors for streaming and batch query result iteration across multiple fetches.",
+      "tags": [
+        "service",
+        "frontend",
+        "api-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/session/transaction.rs",
+      "type": "file",
+      "name": "transaction.rs",
+      "filePath": "src/frontend/src/session/transaction.rs",
+      "summary": "Implements transaction management for frontend sessions including begin, commit, and rollback.",
+      "tags": [
+        "service",
+        "frontend",
+        "api-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/frontend/src/telemetry.rs",
+      "type": "file",
+      "name": "telemetry.rs",
+      "filePath": "src/frontend/src/telemetry.rs",
+      "summary": "Collects frontend telemetry data for usage reporting.",
+      "tags": [
+        "monitoring",
+        "frontend",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/frontend/src/session.rs:FrontendEnv",
+      "type": "class",
+      "name": "FrontendEnv",
+      "filePath": "src/frontend/src/session.rs",
+      "lineRange": [
+        1,
+        2037
+      ],
+      "summary": "Core frontend session environment holding all shared state for query processing.",
+      "tags": [
+        "service",
+        "frontend",
+        "singleton"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/frontend/src/session/cursor_manager.rs:CursorManager",
+      "type": "class",
+      "name": "CursorManager",
+      "filePath": "src/frontend/src/session/cursor_manager.rs",
+      "lineRange": [
+        1,
+        1227
+      ],
+      "summary": "Manages cursor lifecycle for streaming result iteration across multiple fetch calls.",
+      "tags": [
+        "service",
+        "frontend"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/frontend/src/observer/observer_manager.rs:ObserverManager",
+      "type": "class",
+      "name": "ObserverManager",
+      "filePath": "src/frontend/src/observer/observer_manager.rs",
+      "lineRange": [
+        1,
+        582
+      ],
+      "summary": "Handles meta service notifications for catalog, user, and worker node updates.",
+      "tags": [
+        "service",
+        "frontend",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/frontend/src/scheduler/local.rs:LocalQueryExecution",
+      "type": "class",
+      "name": "LocalQueryExecution",
+      "filePath": "src/frontend/src/scheduler/local.rs",
+      "lineRange": [
+        1,
+        694
+      ],
+      "summary": "Executes batch query plans locally on the frontend node.",
+      "tags": [
+        "service",
+        "frontend"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/frontend/src/observer/mod.rs",
+      "target": "file:src/frontend/src/observer/observer_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/observer/observer_manager.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/observer/observer_manager.rs",
+      "target": "file:src/frontend/src/catalog/root_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/observer/observer_manager.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/observer/observer_manager.rs",
+      "target": "file:src/frontend/src/user/user_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/optimizer/backfill_order_strategy.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/optimizer/backfill_order_strategy.rs",
+      "target": "file:src/frontend/src/optimizer/backfill_order_strategy.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/optimizer/backfill_order_strategy.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/optimizer/backfill_order_strategy.rs",
+      "target": "file:src/frontend/src/session.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/optimizer/property/distribution.rs",
+      "target": "file:src/frontend/src/catalog/catalog_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/optimizer/property/distribution.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/optimizer/property/distribution.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/optimizer/property/distribution.rs",
+      "target": "file:src/frontend/src/optimizer/property/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/optimizer/property/order.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/rpc/mod.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/rpc/mod.rs",
+      "target": "file:src/frontend/src/handler/create_source.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/rpc/mod.rs",
+      "target": "file:src/frontend/src/handler/kill_process.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/rpc/mod.rs",
+      "target": "file:src/frontend/src/handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/rpc/mod.rs",
+      "target": "file:src/frontend/src/rpc/monitor_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/rpc/mod.rs",
+      "target": "file:src/frontend/src/session.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/fast_insert.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/fast_insert.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/fast_insert.rs",
+      "target": "file:src/frontend/src/session.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/local.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/local.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/local.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/local.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/local.rs",
+      "target": "file:src/frontend/src/scheduler/plan_fragmenter.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/local.rs",
+      "target": "file:src/frontend/src/scheduler/task_context.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/local.rs",
+      "target": "file:src/frontend/src/session.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/streaming_manager.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/streaming_manager.rs",
+      "target": "file:src/frontend/src/meta_client.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/task_context.rs",
+      "target": "file:src/frontend/src/catalog/system_catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/task_context.rs",
+      "target": "file:src/frontend/src/metrics_reader.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/task_context.rs",
+      "target": "file:src/frontend/src/session.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/binder/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/catalog/catalog_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/catalog/connection_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/catalog/root_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/catalog/secret_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/catalog/source_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/catalog/subscription_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/handler/describe.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/handler/extended_handle.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/handler/privilege.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/handler/show.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/handler/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/handler/variable.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/health_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/meta_client.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/observer/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/rpc/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/scheduler/streaming_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/telemetry.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/user/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/user/user_authentication.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/user/user_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "file:src/frontend/src/user/user_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/catalog/subscription_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/expr/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/handler/declare_cursor.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/handler/query.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/handler/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/optimizer/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/optimizer/property/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "file:src/frontend/src/utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/transaction.rs",
+      "target": "file:src/frontend/src/catalog/catalog_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/transaction.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/transaction.rs",
+      "target": "file:src/frontend/src/scheduler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session/transaction.rs",
+      "target": "file:src/frontend/src/user/user_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "class:src/frontend/src/session.rs:FrontendEnv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/session.rs",
+      "target": "class:src/frontend/src/session.rs:FrontendEnv",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "class:src/frontend/src/session/cursor_manager.rs:CursorManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/session/cursor_manager.rs",
+      "target": "class:src/frontend/src/session/cursor_manager.rs:CursorManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/observer/observer_manager.rs",
+      "target": "class:src/frontend/src/observer/observer_manager.rs:ObserverManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/observer/observer_manager.rs",
+      "target": "class:src/frontend/src/observer/observer_manager.rs:ObserverManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/local.rs",
+      "target": "class:src/frontend/src/scheduler/local.rs:LocalQueryExecution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/scheduler/local.rs",
+      "target": "class:src/frontend/src/scheduler/local.rs:LocalQueryExecution",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

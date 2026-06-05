@@ -1,0 +1,604 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/risedevtool/src/config.rs",
+      "type": "file",
+      "name": "config.rs",
+      "filePath": "src/risedevtool/src/config.rs",
+      "summary": "Parses risedev.yml cluster profile configurations into typed structs.",
+      "tags": [
+        "config",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/risedevtool/src/config_gen.rs",
+      "type": "file",
+      "name": "config_gen.rs",
+      "filePath": "src/risedevtool/src/config_gen.rs",
+      "summary": "Generates configuration files for risedev services from parsed profiles.",
+      "tags": [
+        "config",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/risedevtool/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/risedevtool/src/lib.rs",
+      "summary": "Barrel/entry point for the risedevtool crate.",
+      "tags": [
+        "barrel",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/risedevtool/src/preflight_check.rs",
+      "type": "file",
+      "name": "preflight_check.rs",
+      "filePath": "src/risedevtool/src/preflight_check.rs",
+      "summary": "Validates system prerequisites before starting RisingWave development services.",
+      "tags": [
+        "utility",
+        "validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/risedev_env.rs",
+      "type": "file",
+      "name": "risedev_env.rs",
+      "filePath": "src/risedevtool/src/risedev_env.rs",
+      "summary": "Manages the risedev environment file tracking started service endpoints.",
+      "tags": [
+        "config",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/service_config.rs",
+      "type": "file",
+      "name": "service_config.rs",
+      "filePath": "src/risedevtool/src/service_config.rs",
+      "summary": "Type definitions for all risedev service configurations (meta, compute, frontend, etc.).",
+      "tags": [
+        "config",
+        "data-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/compactor_service.rs",
+      "type": "file",
+      "name": "compactor_service.rs",
+      "filePath": "src/risedevtool/src/task/compactor_service.rs",
+      "summary": "Risedev task for starting and configuring the compactor service.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/compute_node_service.rs",
+      "type": "file",
+      "name": "compute_node_service.rs",
+      "filePath": "src/risedevtool/src/task/compute_node_service.rs",
+      "summary": "Risedev task for starting and configuring compute node instances.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/configure_tmux_service.rs",
+      "type": "file",
+      "name": "configure_tmux_service.rs",
+      "filePath": "src/risedevtool/src/task/configure_tmux_service.rs",
+      "summary": "Risedev task for configuring the tmux session layout.",
+      "tags": [
+        "service",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/docker_service.rs",
+      "type": "file",
+      "name": "docker_service.rs",
+      "filePath": "src/risedevtool/src/task/docker_service.rs",
+      "summary": "Risedev task managing Docker container lifecycle for external services.",
+      "tags": [
+        "service",
+        "infrastructure"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/dummy_service.rs",
+      "type": "file",
+      "name": "dummy_service.rs",
+      "filePath": "src/risedevtool/src/task/dummy_service.rs",
+      "summary": "Placeholder risedev task for optional disabled services.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/ensure_stop_service.rs",
+      "type": "file",
+      "name": "ensure_stop_service.rs",
+      "filePath": "src/risedevtool/src/task/ensure_stop_service.rs",
+      "summary": "Risedev task ensuring a service process is stopped before restarting.",
+      "tags": [
+        "service",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/frontend_service.rs",
+      "type": "file",
+      "name": "frontend_service.rs",
+      "filePath": "src/risedevtool/src/task/frontend_service.rs",
+      "summary": "Risedev task for starting and configuring the frontend service.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/grafana_service.rs",
+      "type": "file",
+      "name": "grafana_service.rs",
+      "filePath": "src/risedevtool/src/task/grafana_service.rs",
+      "summary": "Risedev task for starting and configuring the Grafana monitoring service.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/kafka_service.rs",
+      "type": "file",
+      "name": "kafka_service.rs",
+      "filePath": "src/risedevtool/src/task/kafka_service.rs",
+      "summary": "Risedev task for starting the Kafka broker service.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/lakekeeper_service.rs",
+      "type": "file",
+      "name": "lakekeeper_service.rs",
+      "filePath": "src/risedevtool/src/task/lakekeeper_service.rs",
+      "summary": "Risedev task for starting and configuring the Lakekeeper Iceberg catalog service.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/meta_node_service.rs",
+      "type": "file",
+      "name": "meta_node_service.rs",
+      "filePath": "src/risedevtool/src/task/meta_node_service.rs",
+      "summary": "Risedev task for starting and configuring the meta node service.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/minio_service.rs",
+      "type": "file",
+      "name": "minio_service.rs",
+      "filePath": "src/risedevtool/src/task/minio_service.rs",
+      "summary": "Risedev task for starting and configuring MinIO object storage.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/moat_service.rs",
+      "type": "file",
+      "name": "moat_service.rs",
+      "filePath": "src/risedevtool/src/task/moat_service.rs",
+      "summary": "Risedev task for starting the Moat access control service.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/risedevtool/src/task/mod.rs",
+      "summary": "Barrel module for all risedev task implementations and task trait definitions.",
+      "tags": [
+        "barrel",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/risedevtool/src/task/mqtt_service.rs",
+      "type": "file",
+      "name": "mqtt_service.rs",
+      "filePath": "src/risedevtool/src/task/mqtt_service.rs",
+      "summary": "Risedev task for starting the MQTT broker service.",
+      "tags": [
+        "service"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/risedevtool/src/lib.rs",
+      "target": "file:src/risedevtool/src/config_gen.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/lib.rs",
+      "target": "file:src/risedevtool/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/lib.rs",
+      "target": "file:src/risedevtool/src/preflight_check.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/lib.rs",
+      "target": "file:src/risedevtool/src/risedev_env.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/lib.rs",
+      "target": "file:src/risedevtool/src/service_config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/lib.rs",
+      "target": "file:src/risedevtool/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/lib.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/lib.rs",
+      "target": "file:src/risedevtool/src/wait.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/compactor_service.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/compute_node_service.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/configure_tmux_service.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/frontend_service.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/grafana_service.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/lakekeeper_service.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/meta_node_service.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/minio_service.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/moat_service.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/compactor_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/compute_node_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/configure_tmux_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/docker_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/dummy_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/ensure_stop_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/frontend_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/grafana_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/kafka_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/lakekeeper_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/meta_node_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/minio_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/moat_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/mqtt_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/mysql_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/nats_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/postgres_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/prometheus_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/pubsub_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/pulsar_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/redis_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/schema_registry_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/sql_server_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/task_configure_minio.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/task_db_ready_check.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/task_kafka_ready_check.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/task_log_ready_check.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/task_pubsub_emu_ready_check.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/task_redis_ready_check.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/task_tcp_ready_check.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/tempo_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/task/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/risedevtool/src/task/mod.rs",
+      "target": "file:src/risedevtool/src/wait.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

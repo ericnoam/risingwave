@@ -1,0 +1,213 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/tests/sqlsmith/tests/testdata/alltypes.sql",
+      "type": "file",
+      "name": "alltypes.sql",
+      "filePath": "src/tests/sqlsmith/tests/testdata/alltypes.sql",
+      "summary": "SQL test fixture for sqlsmith defining three 'alltypes' tables with columns covering all major data types, used as test input for SQL fuzzing.",
+      "tags": ["test", "database", "fuzz-testing", "schema-definition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:src/tests/sqlsmith/tests/testdata/alltypes.sql:alltypes1",
+      "type": "table",
+      "name": "alltypes1",
+      "filePath": "src/tests/sqlsmith/tests/testdata/alltypes.sql",
+      "lineRange": [1, 19],
+      "summary": "Test table with 16 columns covering all major SQL data types for sqlsmith fuzzing.",
+      "tags": ["database", "test", "fuzz-testing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:src/tests/sqlsmith/tests/testdata/alltypes.sql:alltypes2",
+      "type": "table",
+      "name": "alltypes2",
+      "filePath": "src/tests/sqlsmith/tests/testdata/alltypes.sql",
+      "lineRange": [21, 39],
+      "summary": "Second test table with 16 columns covering all major SQL data types for sqlsmith fuzzing.",
+      "tags": ["database", "test", "fuzz-testing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:src/tests/sqlsmith/tests/testdata/alltypes.sql:alltypes3",
+      "type": "table",
+      "name": "alltypes3",
+      "filePath": "src/tests/sqlsmith/tests/testdata/alltypes.sql",
+      "lineRange": [41, 46],
+      "summary": "Third minimal test table for sqlsmith fuzzing.",
+      "tags": ["database", "test", "fuzz-testing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/tests/testdata/drop_alltypes.sql",
+      "type": "file",
+      "name": "drop_alltypes.sql",
+      "filePath": "src/tests/sqlsmith/tests/testdata/drop_alltypes.sql",
+      "summary": "Teardown SQL script that drops the alltypes test tables created by alltypes.sql, used for sqlsmith test cleanup.",
+      "tags": ["test", "database", "fuzz-testing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/tests/testdata/drop_nexmark.sql",
+      "type": "file",
+      "name": "drop_nexmark.sql",
+      "filePath": "src/tests/sqlsmith/tests/testdata/drop_nexmark.sql",
+      "summary": "Teardown SQL script that drops the nexmark test tables (person, auction, bid) used for sqlsmith fuzzing.",
+      "tags": ["test", "database", "fuzz-testing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/tests/testdata/drop_tpch.sql",
+      "type": "file",
+      "name": "drop_tpch.sql",
+      "filePath": "src/tests/sqlsmith/tests/testdata/drop_tpch.sql",
+      "summary": "Teardown SQL script that drops all 8 TPC-H benchmark tables used for sqlsmith fuzzing tests.",
+      "tags": ["test", "database", "fuzz-testing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/tests/testdata/nexmark.sql",
+      "type": "file",
+      "name": "nexmark.sql",
+      "filePath": "src/tests/sqlsmith/tests/testdata/nexmark.sql",
+      "summary": "SQL fixture defining the three Nexmark benchmark tables (person, auction, bid) used as input data for sqlsmith SQL fuzzing tests.",
+      "tags": ["test", "benchmark", "fuzz-testing", "nexmark"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:src/tests/sqlsmith/tests/testdata/nexmark.sql:person",
+      "type": "table",
+      "name": "person",
+      "filePath": "src/tests/sqlsmith/tests/testdata/nexmark.sql",
+      "lineRange": [1, 11],
+      "summary": "Nexmark person event table with id, name, email, credit card, city, state, timestamp, and extra fields.",
+      "tags": ["database", "benchmark", "nexmark"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:src/tests/sqlsmith/tests/testdata/nexmark.sql:auction",
+      "type": "table",
+      "name": "auction",
+      "filePath": "src/tests/sqlsmith/tests/testdata/nexmark.sql",
+      "lineRange": [13, 25],
+      "summary": "Nexmark auction event table with id, item details, bid/reserve prices, timestamps, seller, category, and extra fields.",
+      "tags": ["database", "benchmark", "nexmark"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:src/tests/sqlsmith/tests/testdata/nexmark.sql:bid",
+      "type": "table",
+      "name": "bid",
+      "filePath": "src/tests/sqlsmith/tests/testdata/nexmark.sql",
+      "lineRange": [27, 35],
+      "summary": "Nexmark bid event table with auction, bidder, price, channel, url, timestamp, and extra fields.",
+      "tags": ["database", "benchmark", "nexmark"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/tests/testdata/tpch.sql",
+      "type": "file",
+      "name": "tpch.sql",
+      "filePath": "src/tests/sqlsmith/tests/testdata/tpch.sql",
+      "summary": "SQL fixture defining all 8 standard TPC-H benchmark tables (supplier, part, partsupp, customer, orders, lineitem, nation, region) used for sqlsmith fuzzing.",
+      "tags": ["test", "benchmark", "fuzz-testing", "database"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:src/tests/sqlsmith/tests/testdata/tpch.sql:supplier",
+      "type": "table",
+      "name": "supplier",
+      "filePath": "src/tests/sqlsmith/tests/testdata/tpch.sql",
+      "lineRange": [1, 10],
+      "summary": "TPC-H supplier table with suppkey, name, address, nationkey, phone, acctbal, and comment columns.",
+      "tags": ["database", "benchmark", "tpch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:src/tests/sqlsmith/tests/testdata/tpch.sql:orders",
+      "type": "table",
+      "name": "orders",
+      "filePath": "src/tests/sqlsmith/tests/testdata/tpch.sql",
+      "lineRange": [46, 57],
+      "summary": "TPC-H orders table with orderkey, custkey, status, totalprice, orderdate, priority, clerk, shippriority, and comment columns.",
+      "tags": ["database", "benchmark", "tpch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:src/tests/sqlsmith/tests/testdata/tpch.sql:lineitem",
+      "type": "table",
+      "name": "lineitem",
+      "filePath": "src/tests/sqlsmith/tests/testdata/tpch.sql",
+      "lineRange": [59, 77],
+      "summary": "TPC-H lineitem table with 16 columns including orderkey, partkey, suppkey, quantities, prices, dates, and shipping details.",
+      "tags": ["database", "benchmark", "tpch"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/tests/sqlsmith/tests/testdata/alltypes.sql",
+      "target": "table:src/tests/sqlsmith/tests/testdata/alltypes.sql:alltypes1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/tests/testdata/alltypes.sql",
+      "target": "table:src/tests/sqlsmith/tests/testdata/alltypes.sql:alltypes2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/tests/testdata/alltypes.sql",
+      "target": "table:src/tests/sqlsmith/tests/testdata/alltypes.sql:alltypes3",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/tests/testdata/nexmark.sql",
+      "target": "table:src/tests/sqlsmith/tests/testdata/nexmark.sql:person",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/tests/testdata/nexmark.sql",
+      "target": "table:src/tests/sqlsmith/tests/testdata/nexmark.sql:auction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/tests/testdata/nexmark.sql",
+      "target": "table:src/tests/sqlsmith/tests/testdata/nexmark.sql:bid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/tests/testdata/tpch.sql",
+      "target": "table:src/tests/sqlsmith/tests/testdata/tpch.sql:supplier",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/tests/testdata/tpch.sql",
+      "target": "table:src/tests/sqlsmith/tests/testdata/tpch.sql:orders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/tests/testdata/tpch.sql",
+      "target": "table:src/tests/sqlsmith/tests/testdata/tpch.sql:lineitem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

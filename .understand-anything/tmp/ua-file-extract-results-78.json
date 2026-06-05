@@ -1,0 +1,679 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 54,
+      "metrics": {
+        "importCount": 41,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_am.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 25,
+      "classes": [
+        {
+          "name": "PgAmColumn",
+          "startLine": 22,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "oid",
+            "amname",
+            "amhandler",
+            "amtype"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_attrdef.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 28,
+      "classes": [
+        {
+          "name": "PgAttrdef",
+          "startLine": 23,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "oid",
+            "adrelid",
+            "adnum",
+            "adbin"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_attribute.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 65,
+      "classes": [
+        {
+          "name": "PgAttribute",
+          "startLine": 52,
+          "endLine": 67,
+          "methods": [],
+          "properties": [
+            "attrelid",
+            "attname",
+            "atttypid",
+            "attndims",
+            "attlen",
+            "attnum",
+            "attnotnull",
+            "atthasdef",
+            "attisdropped",
+            "attidentity",
+            "attgenerated",
+            "atttypmod",
+            "attoptions",
+            "attcollation"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_auth_members.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 28,
+      "classes": [
+        {
+          "name": "PgAuthMember",
+          "startLine": 22,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "oid",
+            "roleid",
+            "member",
+            "grantor",
+            "admin_option",
+            "inherit_option",
+            "set_option"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_cast.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "read_pg_cast",
+          "startLine": 34,
+          "endLine": 46,
+          "params": [
+            "_"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PgCast",
+          "startLine": 25,
+          "endLine": 31,
+          "methods": [],
+          "properties": [
+            "oid",
+            "castsource",
+            "casttarget",
+            "castcontext"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "read_pg_cast",
+          "callee": "CAST_TABLE\n        .iter()\n        .sorted()\n        .enumerate()\n        .map(|(idx, ((src, target), ctx))| PgCast {\n            oid: idx as i32,\n            castsource: DataType::try_from(*src).unwrap().to_oid(),\n            casttarget: DataType::try_from(*target).unwrap().to_oid(),\n            castcontext: ctx.to_string(),\n        }).collect",
+          "lineNumber": 35
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "CAST_TABLE\n        .iter()\n        .sorted()\n        .enumerate().map",
+          "lineNumber": 35
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "CAST_TABLE\n        .iter()\n        .sorted().enumerate",
+          "lineNumber": 35
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "CAST_TABLE\n        .iter().sorted",
+          "lineNumber": 35
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "CAST_TABLE.iter",
+          "lineNumber": 35
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "DataType::try_from(*src).unwrap().to_oid",
+          "lineNumber": 41
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "DataType::try_from(*src).unwrap",
+          "lineNumber": 41
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "DataType::try_from",
+          "lineNumber": 41
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "DataType::try_from(*target).unwrap().to_oid",
+          "lineNumber": 42
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "DataType::try_from(*target).unwrap",
+          "lineNumber": 42
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "DataType::try_from",
+          "lineNumber": 42
+        },
+        {
+          "caller": "read_pg_cast",
+          "callee": "ctx.to_string",
+          "lineNumber": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_collation.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 32,
+      "classes": [
+        {
+          "name": "PgCollation",
+          "startLine": 22,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "oid",
+            "collname",
+            "collnamespace",
+            "collowner",
+            "collprovider",
+            "collisdeterministic",
+            "collencoding",
+            "collcollate",
+            "collctype",
+            "colliculocale",
+            "collversion"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_conversion.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 30,
+      "classes": [
+        {
+          "name": "PgConversion",
+          "startLine": 23,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "oid",
+            "conname",
+            "connamespace",
+            "conowner",
+            "conforencoding",
+            "contoencoding",
+            "conproc",
+            "condefault"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_database.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 60,
+      "classes": [
+        {
+          "name": "PgDatabase",
+          "startLine": 50,
+          "endLine": 62,
+          "methods": [],
+          "properties": [
+            "oid",
+            "datname",
+            "datdba",
+            "encoding",
+            "datcollate",
+            "datctype",
+            "datistemplate",
+            "datallowconn",
+            "datconnlimit",
+            "dattablespace",
+            "datacl"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_depend.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 28,
+      "classes": [
+        {
+          "name": "PgDepend",
+          "startLine": 22,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "classid",
+            "objid",
+            "objsubid",
+            "refclassid",
+            "refobjid",
+            "refobjsubid",
+            "deptype"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_description.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 38,
+      "classes": [
+        {
+          "name": "PgDescription",
+          "startLine": 35,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "objoid",
+            "classoid",
+            "objsubid",
+            "description"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_enum.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 26,
+      "classes": [
+        {
+          "name": "PgEnum",
+          "startLine": 23,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "oid",
+            "enumtypid",
+            "enumsortorder",
+            "enumlabel"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_extension.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 32,
+      "classes": [
+        {
+          "name": "PgExtension",
+          "startLine": 25,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "oid",
+            "extname",
+            "extowner",
+            "extnamespace",
+            "extrelocatable",
+            "extversion",
+            "extconfig",
+            "extcondition"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_index.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 99,
+      "nonEmptyLines": 96,
+      "classes": [
+        {
+          "name": "PgIndex",
+          "startLine": 72,
+          "endLine": 99,
+          "methods": [],
+          "properties": [
+            "indexrelid",
+            "indrelid",
+            "indnatts",
+            "indnkeyatts",
+            "indisunique",
+            "indkey",
+            "indoption",
+            "indexprs",
+            "indpred",
+            "indisprimary",
+            "indclass",
+            "indisexclusion",
+            "indimmediate",
+            "indisclustered",
+            "indisvalid",
+            "indcheckxmin",
+            "indisready",
+            "indislive",
+            "indisreplident"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_indexes.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 60,
+      "classes": [
+        {
+          "name": "PgIndexes",
+          "startLine": 56,
+          "endLine": 62,
+          "methods": [],
+          "properties": [
+            "schemaname",
+            "tablename",
+            "indexname",
+            "tablespace",
+            "indexdef"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_inherits.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 26,
+      "classes": [
+        {
+          "name": "PgInherits",
+          "startLine": 23,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "inhrelid",
+            "inhparent",
+            "inhseqno",
+            "inhdetachpending"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_language.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 32,
+      "classes": [
+        {
+          "name": "PgLanguage",
+          "startLine": 23,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "oid",
+            "lanname",
+            "lanowner",
+            "lanispl",
+            "lanpltrusted",
+            "lanplcallfoid",
+            "laninline",
+            "lanvalidator",
+            "lanacl"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_locks.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 39,
+      "classes": [
+        {
+          "name": "PgLock",
+          "startLine": 24,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "locktype",
+            "database",
+            "relation",
+            "page",
+            "tuple",
+            "virtualxid",
+            "transactionid",
+            "classid",
+            "objid",
+            "objsubid",
+            "virtualtransaction",
+            "pid",
+            "mode",
+            "granted",
+            "fastpath",
+            "waitstart"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_matviews.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 42,
+      "classes": [
+        {
+          "name": "PgMatview",
+          "startLine": 36,
+          "endLine": 44,
+          "methods": [],
+          "properties": [
+            "schemaname",
+            "matviewname",
+            "matviewowner",
+            "tablespace",
+            "hasindexes",
+            "ispopulated",
+            "definition"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/frontend/src/catalog/system_catalog/pg_catalog/pg_namespace.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 30,
+      "classes": [
+        {
+          "name": "PgNamespace",
+          "startLine": 27,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "oid",
+            "nspname",
+            "nspowner",
+            "nspacl"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

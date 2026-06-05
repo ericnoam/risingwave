@@ -1,0 +1,136 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/utils/futures_util/src/buffered_with_fence.rs",
+      "type": "file",
+      "name": "buffered_with_fence.rs",
+      "filePath": "src/utils/futures_util/src/buffered_with_fence.rs",
+      "summary": "Implements a `BufferedWithFence` stream combinator that buffers up to N concurrent futures but respects fence items that must be awaited before processing subsequent items.",
+      "tags": ["utility", "async", "streaming"],
+      "complexity": "complex",
+      "languageNotes": "Uses a custom Future/Stream implementation with explicit waker management; fence items act as synchronization barriers in the buffered pipeline."
+    },
+    {
+      "id": "file:src/utils/futures_util/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/utils/futures_util/src/lib.rs",
+      "summary": "Entry point for the futures_util crate, defining the RwTryStreamExt and RwFutureExt extension traits and re-exporting buffered-with-fence, pausable, and miscellaneous async utilities.",
+      "tags": ["entry-point", "utility", "async"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/utils/futures_util/src/misc.rs",
+      "type": "file",
+      "name": "misc.rs",
+      "filePath": "src/utils/futures_util/src/misc.rs",
+      "summary": "Miscellaneous async utilities including AttachedFuture for coupling a value to a future result and `await_future_with_monitor_error_stream` for racing a future against an error signal.",
+      "tags": ["utility", "async", "helper"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/utils/futures_util/src/pausable.rs",
+      "type": "file",
+      "name": "pausable.rs",
+      "filePath": "src/utils/futures_util/src/pausable.rs",
+      "summary": "Implements a Valve type and `pausable` stream adaptor that allows externally pausing and resuming a stream by toggling a shared atomic flag.",
+      "tags": ["utility", "async", "streaming"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/utils/futures_util/src/lib.rs:RwTryStreamExt",
+      "type": "class",
+      "name": "RwTryStreamExt",
+      "filePath": "src/utils/futures_util/src/lib.rs",
+      "lineRange": [1, 50],
+      "summary": "Extension trait for TryStream adding RisingWave-specific combinators such as `buffered_with_fence` and `pausable`.",
+      "tags": ["utility", "async", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/utils/futures_util/src/pausable.rs:Valve",
+      "type": "class",
+      "name": "Valve",
+      "filePath": "src/utils/futures_util/src/pausable.rs",
+      "lineRange": [1, 50],
+      "summary": "A shared handle for externally pausing and resuming a pausable stream by toggling an atomic boolean state.",
+      "tags": ["utility", "async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/utils/futures_util/src/misc.rs:await_future_with_monitor_error_stream",
+      "type": "function",
+      "name": "await_future_with_monitor_error_stream",
+      "filePath": "src/utils/futures_util/src/misc.rs",
+      "lineRange": [50, 90],
+      "summary": "Races a future against an error monitor stream, returning either the future's output or the first error from the monitor, whichever completes first.",
+      "tags": ["utility", "async", "error-handling"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/utils/futures_util/src/lib.rs",
+      "target": "file:src/utils/futures_util/src/buffered_with_fence.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/futures_util/src/lib.rs",
+      "target": "file:src/utils/futures_util/src/misc.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/futures_util/src/lib.rs",
+      "target": "file:src/utils/futures_util/src/pausable.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/utils/futures_util/src/lib.rs",
+      "target": "class:src/utils/futures_util/src/lib.rs:RwTryStreamExt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/futures_util/src/lib.rs",
+      "target": "class:src/utils/futures_util/src/lib.rs:RwTryStreamExt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/futures_util/src/pausable.rs",
+      "target": "class:src/utils/futures_util/src/pausable.rs:Valve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/futures_util/src/pausable.rs",
+      "target": "class:src/utils/futures_util/src/pausable.rs:Valve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/utils/futures_util/src/misc.rs",
+      "target": "function:src/utils/futures_util/src/misc.rs:await_future_with_monitor_error_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/utils/futures_util/src/misc.rs",
+      "target": "function:src/utils/futures_util/src/misc.rs:await_future_with_monitor_error_stream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

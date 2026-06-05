@@ -1,0 +1,3442 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/pipeline/ChangeEventSourceCoordinator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 642,
+      "nonEmptyLines": 561,
+      "functions": [
+        {
+          "name": "ChangeEventSourceCoordinator",
+          "startLine": 118,
+          "endLine": 148,
+          "params": [
+            "previousOffsets",
+            "errorHandler",
+            "connectorType",
+            "connectorConfig",
+            "changeEventSourceFactory",
+            "changeEventSourceMetricsFactory",
+            "eventDispatcher",
+            "schema",
+            "signalProcessor",
+            "notificationService",
+            "snapshotterService"
+          ]
+        },
+        {
+          "name": "start",
+          "startLine": 150,
+          "endLine": 208,
+          "params": [
+            "taskContext",
+            "changeEventQueueMetrics",
+            "metadataProvider"
+          ]
+        },
+        {
+          "name": "registerSignalActionsAndStartProcessor",
+          "startLine": 210,
+          "endLine": 232,
+          "params": [
+            "signalProcessor",
+            "dispatcher",
+            "changeEventSourceCoordinator",
+            "connectorConfig"
+          ]
+        },
+        {
+          "name": "getSignalProcessor",
+          "startLine": 234,
+          "endLine": 239,
+          "params": [
+            "previousOffset"
+          ]
+        },
+        {
+          "name": "executeChangeEventSources",
+          "startLine": 241,
+          "endLine": 267,
+          "params": [
+            "taskContext",
+            "snapshotSource",
+            "previousOffsets",
+            "previousLogContext",
+            "context"
+          ]
+        },
+        {
+          "name": "delayStreamingIfNeeded",
+          "startLine": 273,
+          "endLine": 298,
+          "params": [
+            "context"
+          ]
+        },
+        {
+          "name": "doBlockingSnapshot",
+          "startLine": 300,
+          "endLine": 338,
+          "params": [
+            "partition",
+            "offsetContext",
+            "snapshotConfiguration"
+          ]
+        },
+        {
+          "name": "resumeStreaming",
+          "startLine": 340,
+          "endLine": 344,
+          "params": [
+            "partition"
+          ]
+        },
+        {
+          "name": "doSnapshot",
+          "startLine": 346,
+          "endLine": 357,
+          "params": [
+            "snapshotSource",
+            "context",
+            "partition",
+            "previousOffset"
+          ]
+        },
+        {
+          "name": "doSnapshot",
+          "startLine": 359,
+          "endLine": 386,
+          "params": [
+            "snapshotSource",
+            "context",
+            "partition",
+            "previousOffset",
+            "snapshottingTask"
+          ]
+        },
+        {
+          "name": "executeCatchUpStreaming",
+          "startLine": 388,
+          "endLine": 395,
+          "params": [
+            "context",
+            "snapshotSource",
+            "partition",
+            "previousOffset"
+          ]
+        },
+        {
+          "name": "streamEvents",
+          "startLine": 397,
+          "endLine": 426,
+          "params": [
+            "context",
+            "partition",
+            "offsetContext"
+          ]
+        },
+        {
+          "name": "initStreamEvents",
+          "startLine": 428,
+          "endLine": 488,
+          "params": [
+            "partition",
+            "offsetContext"
+          ]
+        },
+        {
+          "name": "commitOffset",
+          "startLine": 490,
+          "endLine": 498,
+          "params": [
+            "partition",
+            "offset"
+          ]
+        },
+        {
+          "name": "stop",
+          "startLine": 501,
+          "endLine": 553,
+          "params": []
+        },
+        {
+          "name": "getErrorHandler",
+          "startLine": 555,
+          "endLine": 557,
+          "params": []
+        },
+        {
+          "name": "streamingConnected",
+          "startLine": 627,
+          "endLine": 632,
+          "params": [
+            "status"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ChangeEventSourceCoordinator",
+          "startLine": 81,
+          "endLine": 642,
+          "methods": [
+            "ChangeEventSourceCoordinator",
+            "start",
+            "registerSignalActionsAndStartProcessor",
+            "getSignalProcessor",
+            "executeChangeEventSources",
+            "delayStreamingIfNeeded",
+            "doBlockingSnapshot",
+            "resumeStreaming",
+            "doSnapshot",
+            "doSnapshot",
+            "executeCatchUpStreaming",
+            "streamEvents",
+            "initStreamEvents",
+            "commitOffset",
+            "stop",
+            "getErrorHandler",
+            "streamingConnected"
+          ],
+          "properties": [
+            "LOGGER",
+            "previousOffsets",
+            "errorHandler",
+            "changeEventSourceFactory",
+            "changeEventSourceMetricsFactory",
+            "snapshotterService",
+            "executor",
+            "blockingSnapshotExecutor",
+            "eventDispatcher",
+            "schema",
+            "signalProcessor",
+            "notificationService",
+            "connectorConfig",
+            "running",
+            "paused",
+            "streaming",
+            "streamingSource",
+            "commitOffsetLock",
+            "snapshotMetrics",
+            "streamingMetrics",
+            "context",
+            "snapshotSource",
+            "previousLogContext",
+            "taskContext"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ChangeEventSourceCoordinator",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "getSignalProcessor",
+          "line": 234,
+          "isDefault": false
+        },
+        {
+          "name": "doBlockingSnapshot",
+          "line": 300,
+          "isDefault": false
+        },
+        {
+          "name": "commitOffset",
+          "line": 490,
+          "isDefault": false
+        },
+        {
+          "name": "stop",
+          "line": 501,
+          "isDefault": false
+        },
+        {
+          "name": "getErrorHandler",
+          "line": 555,
+          "isDefault": false
+        },
+        {
+          "name": "ChangeEventSourceCoordinator",
+          "line": 81,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ChangeEventSourceCoordinator",
+          "callee": "Threads.newSingleThreadExecutor",
+          "lineNumber": 136
+        },
+        {
+          "caller": "ChangeEventSourceCoordinator",
+          "callee": "connectorConfig.getLogicalName",
+          "lineNumber": 138
+        },
+        {
+          "caller": "ChangeEventSourceCoordinator",
+          "callee": "Threads.newSingleThreadExecutor",
+          "lineNumber": 141
+        },
+        {
+          "caller": "ChangeEventSourceCoordinator",
+          "callee": "connectorConfig.getLogicalName",
+          "lineNumber": 142
+        },
+        {
+          "caller": "start",
+          "callee": "new AtomicReference<>",
+          "lineNumber": 155
+        },
+        {
+          "caller": "start",
+          "callee": "changeEventSourceMetricsFactory.getSnapshotMetrics",
+          "lineNumber": 159
+        },
+        {
+          "caller": "start",
+          "callee": "changeEventSourceMetricsFactory.getStreamingMetrics",
+          "lineNumber": 162
+        },
+        {
+          "caller": "start",
+          "callee": "executor.submit",
+          "lineNumber": 167
+        },
+        {
+          "caller": "start",
+          "callee": "previousLogContext.set",
+          "lineNumber": 170
+        },
+        {
+          "caller": "start",
+          "callee": "taskContext.configureLoggingContext",
+          "lineNumber": 170
+        },
+        {
+          "caller": "start",
+          "callee": "snapshotMetrics.register",
+          "lineNumber": 171
+        },
+        {
+          "caller": "start",
+          "callee": "streamingMetrics.register",
+          "lineNumber": 172
+        },
+        {
+          "caller": "start",
+          "callee": "LOGGER.info",
+          "lineNumber": 173
+        },
+        {
+          "caller": "start",
+          "callee": "new ChangeEventSourceContextImpl",
+          "lineNumber": 175
+        },
+        {
+          "caller": "start",
+          "callee": "LOGGER.info",
+          "lineNumber": 176
+        },
+        {
+          "caller": "start",
+          "callee": "schema.isHistorized",
+          "lineNumber": 178
+        },
+        {
+          "caller": "start",
+          "callee": "((HistorizedDatabaseSchema) schema)\n                                            .getSchemaHistory().exists",
+          "lineNumber": 179
+        },
+        {
+          "caller": "start",
+          "callee": "((HistorizedDatabaseSchema) schema).getSchemaHistory",
+          "lineNumber": 179
+        },
+        {
+          "caller": "start",
+          "callee": "((HistorizedDatabaseSchema<?>) schema).recover",
+          "lineNumber": 182
+        },
+        {
+          "caller": "start",
+          "callee": "changeEventSourceFactory.getSnapshotChangeEventSource",
+          "lineNumber": 186
+        },
+        {
+          "caller": "start",
+          "callee": "executeChangeEventSources",
+          "lineNumber": 188
+        },
+        {
+          "caller": "start",
+          "callee": "Thread.currentThread().interrupt",
+          "lineNumber": 195
+        },
+        {
+          "caller": "start",
+          "callee": "Thread.currentThread",
+          "lineNumber": 195
+        },
+        {
+          "caller": "start",
+          "callee": "LOGGER.warn",
+          "lineNumber": 196
+        },
+        {
+          "caller": "start",
+          "callee": "errorHandler.setProducerThrowable",
+          "lineNumber": 198
+        },
+        {
+          "caller": "start",
+          "callee": "streamingConnected",
+          "lineNumber": 200
+        },
+        {
+          "caller": "start",
+          "callee": "previousLogContext.get",
+          "lineNumber": 204
+        },
+        {
+          "caller": "start",
+          "callee": "previousLogContext.get().restore",
+          "lineNumber": 205
+        },
+        {
+          "caller": "start",
+          "callee": "previousLogContext.get",
+          "lineNumber": 205
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "StreamSupport.stream(\n                                ServiceLoader.load(SignalActionProvider.class).spliterator(), false).collect",
+          "lineNumber": 218
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "StreamSupport.stream",
+          "lineNumber": 218
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "ServiceLoader.load(SignalActionProvider.class).spliterator",
+          "lineNumber": 219
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "ServiceLoader.load",
+          "lineNumber": 219
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "Collectors.toList",
+          "lineNumber": 220
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "actionProviders.stream()\n                .map(\n                        provider ->\n                                provider.createActions(\n                                        dispatcher, changeEventSourceCoordinator, connectorConfig))\n                .flatMap(e -> e.entrySet().stream())\n                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)).forEach",
+          "lineNumber": 222
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "actionProviders.stream()\n                .map(\n                        provider ->\n                                provider.createActions(\n                                        dispatcher, changeEventSourceCoordinator, connectorConfig))\n                .flatMap(e -> e.entrySet().stream()).collect",
+          "lineNumber": 222
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "actionProviders.stream()\n                .map(\n                        provider ->\n                                provider.createActions(\n                                        dispatcher, changeEventSourceCoordinator, connectorConfig)).flatMap",
+          "lineNumber": 222
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "actionProviders.stream().map",
+          "lineNumber": 222
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "actionProviders.stream",
+          "lineNumber": 222
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "provider.createActions",
+          "lineNumber": 225
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "e.entrySet().stream",
+          "lineNumber": 227
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "e.entrySet",
+          "lineNumber": 227
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "Collectors.toMap",
+          "lineNumber": 228
+        },
+        {
+          "caller": "registerSignalActionsAndStartProcessor",
+          "callee": "signalProcessor.start",
+          "lineNumber": 231
+        },
+        {
+          "caller": "getSignalProcessor",
+          "callee": "previousOffset.getOffsets().size",
+          "lineNumber": 236
+        },
+        {
+          "caller": "getSignalProcessor",
+          "callee": "previousOffset.getOffsets",
+          "lineNumber": 236
+        },
+        {
+          "caller": "getSignalProcessor",
+          "callee": "Optional.ofNullable",
+          "lineNumber": 237
+        },
+        {
+          "caller": "getSignalProcessor",
+          "callee": "Optional.empty",
+          "lineNumber": 238
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "previousOffsets.getTheOnlyPartition",
+          "lineNumber": 248
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "previousOffsets.getTheOnlyOffset",
+          "lineNumber": 249
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "previousLogContext.set",
+          "lineNumber": 251
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "taskContext.configureLoggingContext",
+          "lineNumber": 251
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "doSnapshot",
+          "lineNumber": 253
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "getSignalProcessor(previousOffsets).ifPresent",
+          "lineNumber": 255
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "getSignalProcessor",
+          "lineNumber": 255
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "s.setContext",
+          "lineNumber": 256
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "snapshotResult.getOffset",
+          "lineNumber": 256
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "LOGGER.debug",
+          "lineNumber": 258
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "snapshotResult.isCompletedOrSkipped",
+          "lineNumber": 260
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "snapshotResult.isCompleted",
+          "lineNumber": 261
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "delayStreamingIfNeeded",
+          "lineNumber": 262
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "previousLogContext.set",
+          "lineNumber": 264
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "taskContext.configureLoggingContext",
+          "lineNumber": 264
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "streamEvents",
+          "lineNumber": 265
+        },
+        {
+          "caller": "executeChangeEventSources",
+          "callee": "snapshotResult.getOffset",
+          "lineNumber": 265
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "snapshotterService.getSnapshotter().shouldStream",
+          "lineNumber": 275
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "snapshotterService.getSnapshotter",
+          "lineNumber": 275
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "connectorConfig.getStreamingDelay",
+          "lineNumber": 279
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "streamingDelay.isZero",
+          "lineNumber": 280
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "streamingDelay.isNegative",
+          "lineNumber": 280
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "Threads.timer",
+          "lineNumber": 284
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "Metronome.parker",
+          "lineNumber": 286
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "timer.expired",
+          "lineNumber": 288
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "context.isRunning",
+          "lineNumber": 289
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "new InterruptedException",
+          "lineNumber": 290
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "LOGGER.info",
+          "lineNumber": 293
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "timer.remaining().getSeconds",
+          "lineNumber": 295
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "timer.remaining",
+          "lineNumber": 295
+        },
+        {
+          "caller": "delayStreamingIfNeeded",
+          "callee": "metronome.pause",
+          "lineNumber": 296
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "blockingSnapshotExecutor.submit",
+          "lineNumber": 303
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "previousLogContext.set",
+          "lineNumber": 305
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "taskContext.configureLoggingContext",
+          "lineNumber": 306
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "context.waitStreamingPaused",
+          "lineNumber": 313
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "previousLogContext.set",
+          "lineNumber": 315
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "taskContext.configureLoggingContext",
+          "lineNumber": 315
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "LOGGER.info",
+          "lineNumber": 316
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "snapshotSource.getBlockingSnapshottingTask",
+          "lineNumber": 319
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "doSnapshot",
+          "lineNumber": 322
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "LOGGER.warn",
+          "lineNumber": 329
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "eventDispatcher.setEventListener",
+          "lineNumber": 331
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "resumeStreaming",
+          "lineNumber": 332
+        },
+        {
+          "caller": "doBlockingSnapshot",
+          "callee": "new DebeziumException",
+          "lineNumber": 335
+        },
+        {
+          "caller": "resumeStreaming",
+          "callee": "previousLogContext.set",
+          "lineNumber": 341
+        },
+        {
+          "caller": "resumeStreaming",
+          "callee": "taskContext.configureLoggingContext",
+          "lineNumber": 341
+        },
+        {
+          "caller": "resumeStreaming",
+          "callee": "context.resumeStreaming",
+          "lineNumber": 343
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "snapshotSource.getSnapshottingTask",
+          "lineNumber": 354
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "doSnapshot",
+          "lineNumber": 356
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "executeCatchUpStreaming",
+          "lineNumber": 368
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "streamingConnected",
+          "lineNumber": 370
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "commitOffsetLock.lock",
+          "lineNumber": 371
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "commitOffsetLock.unlock",
+          "lineNumber": 373
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "eventDispatcher.setEventListener",
+          "lineNumber": 375
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "snapshotSource.execute",
+          "lineNumber": 378
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "LOGGER.info",
+          "lineNumber": 379
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "snapshotResult.getStatus",
+          "lineNumber": 381
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "schema.tableInformationComplete",
+          "lineNumber": 382
+        },
+        {
+          "caller": "doSnapshot",
+          "callee": "schema.assureNonEmptySchema",
+          "lineNumber": 383
+        },
+        {
+          "caller": "executeCatchUpStreaming",
+          "callee": "new CatchUpStreamingResult",
+          "lineNumber": 394
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "initStreamEvents",
+          "lineNumber": 400
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "getSignalProcessor(previousOffsets).ifPresent",
+          "lineNumber": 401
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "getSignalProcessor",
+          "lineNumber": 401
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "registerSignalActionsAndStartProcessor",
+          "lineNumber": 404
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "snapshotterService.getSnapshotter().shouldStream",
+          "lineNumber": 410
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "snapshotterService.getSnapshotter",
+          "lineNumber": 410
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "LOGGER.info",
+          "lineNumber": 411
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "snapshotterService.getSnapshotter().name",
+          "lineNumber": 413
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "snapshotterService.getSnapshotter",
+          "lineNumber": 413
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "LOGGER.info",
+          "lineNumber": 417
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "streamingSource.execute",
+          "lineNumber": 418
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "LOGGER.info",
+          "lineNumber": 419
+        },
+        {
+          "caller": "streamEvents",
+          "callee": "streamingSource.close",
+          "lineNumber": 423
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "changeEventSourceFactory.getStreamingChangeEventSource",
+          "lineNumber": 430
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "eventDispatcher.setEventListener",
+          "lineNumber": 431
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "pgSource.setOnConnectedCallback",
+          "lineNumber": 439
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "streamingConnected",
+          "lineNumber": 439
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "mysqlSource.setOnConnectedCallback",
+          "lineNumber": 445
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "streamingConnected",
+          "lineNumber": 445
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "sqlServerSource.setOnConnectedCallback",
+          "lineNumber": 452
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "streamingConnected",
+          "lineNumber": 452
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "streamingConnected",
+          "lineNumber": 457
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "streamingSource.init",
+          "lineNumber": 460
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "getSignalProcessor(previousOffsets).ifPresent",
+          "lineNumber": 462
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "getSignalProcessor",
+          "lineNumber": 462
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "s.setContext",
+          "lineNumber": 463
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "streamingSource.getOffsetContext",
+          "lineNumber": 463
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "changeEventSourceFactory.getIncrementalSnapshotChangeEventSource",
+          "lineNumber": 467
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "eventDispatcher.setIncrementalSnapshotChangeEventSource",
+          "lineNumber": 472
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "incrementalSnapshotChangeEventSource.ifPresent",
+          "lineNumber": 474
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "x.init",
+          "lineNumber": 474
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "eventDispatcher.heartbeatsEnabled",
+          "lineNumber": 478
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "offsetContext.getOffset",
+          "lineNumber": 480
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "offsetContext.getOffset().isEmpty",
+          "lineNumber": 481
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "offsetContext.getOffset",
+          "lineNumber": 481
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "LOGGER.info",
+          "lineNumber": 482
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "LOGGER.info",
+          "lineNumber": 485
+        },
+        {
+          "caller": "initStreamEvents",
+          "callee": "eventDispatcher.alwaysDispatchHeartbeatEvent",
+          "lineNumber": 486
+        },
+        {
+          "caller": "commitOffset",
+          "callee": "commitOffsetLock.isLocked",
+          "lineNumber": 492
+        },
+        {
+          "caller": "commitOffset",
+          "callee": "streamingSource.commitOffset",
+          "lineNumber": 493
+        },
+        {
+          "caller": "commitOffset",
+          "callee": "errorHandler.setProducerThrowable",
+          "lineNumber": 496
+        },
+        {
+          "caller": "stop",
+          "callee": "Thread.interrupted",
+          "lineNumber": 506
+        },
+        {
+          "caller": "stop",
+          "callee": "executor.shutdown",
+          "lineNumber": 507
+        },
+        {
+          "caller": "stop",
+          "callee": "blockingSnapshotExecutor.shutdown",
+          "lineNumber": 508
+        },
+        {
+          "caller": "stop",
+          "callee": "connectorConfig.getExecutorShutdownTimeout().toMillis",
+          "lineNumber": 510
+        },
+        {
+          "caller": "stop",
+          "callee": "connectorConfig.getExecutorShutdownTimeout",
+          "lineNumber": 510
+        },
+        {
+          "caller": "stop",
+          "callee": "executor.awaitTermination",
+          "lineNumber": 512
+        },
+        {
+          "caller": "stop",
+          "callee": "blockingSnapshotExecutor.awaitTermination",
+          "lineNumber": 514
+        },
+        {
+          "caller": "stop",
+          "callee": "LOGGER.warn",
+          "lineNumber": 518
+        },
+        {
+          "caller": "stop",
+          "callee": "Thread.interrupted",
+          "lineNumber": 522
+        },
+        {
+          "caller": "stop",
+          "callee": "executor.shutdownNow",
+          "lineNumber": 523
+        },
+        {
+          "caller": "stop",
+          "callee": "executor.awaitTermination",
+          "lineNumber": 524
+        },
+        {
+          "caller": "stop",
+          "callee": "LOGGER.warn",
+          "lineNumber": 528
+        },
+        {
+          "caller": "stop",
+          "callee": "Thread.interrupted",
+          "lineNumber": 532
+        },
+        {
+          "caller": "stop",
+          "callee": "blockingSnapshotExecutor.shutdownNow",
+          "lineNumber": 533
+        },
+        {
+          "caller": "stop",
+          "callee": "blockingSnapshotExecutor.awaitTermination",
+          "lineNumber": 534
+        },
+        {
+          "caller": "stop",
+          "callee": "getSignalProcessor",
+          "lineNumber": 538
+        },
+        {
+          "caller": "stop",
+          "callee": "processor.isPresent",
+          "lineNumber": 539
+        },
+        {
+          "caller": "stop",
+          "callee": "processor.get().stop",
+          "lineNumber": 540
+        },
+        {
+          "caller": "stop",
+          "callee": "processor.get",
+          "lineNumber": 540
+        },
+        {
+          "caller": "stop",
+          "callee": "notificationService.stop",
+          "lineNumber": 544
+        },
+        {
+          "caller": "stop",
+          "callee": "eventDispatcher.close",
+          "lineNumber": 546
+        },
+        {
+          "caller": "stop",
+          "callee": "connectorConfig.getServiceRegistry().close",
+          "lineNumber": 548
+        },
+        {
+          "caller": "stop",
+          "callee": "connectorConfig.getServiceRegistry",
+          "lineNumber": 548
+        },
+        {
+          "caller": "stop",
+          "callee": "snapshotMetrics.unregister",
+          "lineNumber": 550
+        },
+        {
+          "caller": "stop",
+          "callee": "streamingMetrics.unregister",
+          "lineNumber": 551
+        },
+        {
+          "caller": "resumeStreaming",
+          "callee": "lock.lock",
+          "lineNumber": 577
+        },
+        {
+          "caller": "resumeStreaming",
+          "callee": "snapshotFinished.signalAll",
+          "lineNumber": 579
+        },
+        {
+          "caller": "resumeStreaming",
+          "callee": "LOGGER.trace",
+          "lineNumber": 580
+        },
+        {
+          "caller": "resumeStreaming",
+          "callee": "lock.unlock",
+          "lineNumber": 582
+        },
+        {
+          "caller": "waitSnapshotCompletion",
+          "callee": "lock.lock",
+          "lineNumber": 588
+        },
+        {
+          "caller": "waitSnapshotCompletion",
+          "callee": "LOGGER.trace",
+          "lineNumber": 591
+        },
+        {
+          "caller": "waitSnapshotCompletion",
+          "callee": "snapshotFinished.await",
+          "lineNumber": 592
+        },
+        {
+          "caller": "waitSnapshotCompletion",
+          "callee": "lock.unlock",
+          "lineNumber": 596
+        },
+        {
+          "caller": "streamingPaused",
+          "callee": "lock.lock",
+          "lineNumber": 602
+        },
+        {
+          "caller": "streamingPaused",
+          "callee": "LOGGER.trace",
+          "lineNumber": 604
+        },
+        {
+          "caller": "streamingPaused",
+          "callee": "streamingPaused.signalAll",
+          "lineNumber": 606
+        },
+        {
+          "caller": "streamingPaused",
+          "callee": "lock.unlock",
+          "lineNumber": 608
+        },
+        {
+          "caller": "waitStreamingPaused",
+          "callee": "lock.lock",
+          "lineNumber": 614
+        },
+        {
+          "caller": "waitStreamingPaused",
+          "callee": "LOGGER.trace",
+          "lineNumber": 617
+        },
+        {
+          "caller": "waitStreamingPaused",
+          "callee": "streamingPaused.await",
+          "lineNumber": 619
+        },
+        {
+          "caller": "waitStreamingPaused",
+          "callee": "lock.unlock",
+          "lineNumber": 622
+        },
+        {
+          "caller": "streamingConnected",
+          "callee": "changeEventSourceMetricsFactory.connectionMetricHandledByCoordinator",
+          "lineNumber": 628
+        },
+        {
+          "caller": "streamingConnected",
+          "callee": "streamingMetrics.connected",
+          "lineNumber": 629
+        },
+        {
+          "caller": "streamingConnected",
+          "callee": "LOGGER.info",
+          "lineNumber": 630
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 17,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-source-cdc/src/main/resources/META-INF/services/io.debezium.spi.snapshot.Snapshotter",
+      "language": "snapshotter",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/s3-common/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 38,
+      "nonEmptyLines": 34,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/s3-common/src/main/java/com/risingwave/connector/common/S3Utils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 47,
+      "functions": [
+        {
+          "name": "getHadoopConf",
+          "startLine": 30,
+          "endLine": 52,
+          "params": [
+            "config"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "S3Utils",
+          "startLine": 23,
+          "endLine": 53,
+          "methods": [
+            "getHadoopConf"
+          ],
+          "properties": [
+            "confEndpoint",
+            "confKey",
+            "confSecret",
+            "confPathStyleAccess"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getHadoopConf",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "S3Utils",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getHadoopConf",
+          "callee": "new Configuration",
+          "lineNumber": 31
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "hadoopConf.setBoolean",
+          "lineNumber": 32
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "config.hasS3Endpoint",
+          "lineNumber": 33
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "INVALID_ARGUMENT\n                    .withDescription(String.format(\"Should set `%s`\", confEndpoint)).asRuntimeException",
+          "lineNumber": 34
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "INVALID_ARGUMENT.withDescription",
+          "lineNumber": 34
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "String.format",
+          "lineNumber": 35
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "hadoopConf.set",
+          "lineNumber": 38
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "config.getS3Endpoint",
+          "lineNumber": 38
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "config.hasS3AccessKey",
+          "lineNumber": 39
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "INVALID_ARGUMENT\n                    .withDescription(String.format(\"Should set `%s`\", confKey)).asRuntimeException",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "INVALID_ARGUMENT.withDescription",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "String.format",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "hadoopConf.set",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "config.getS3AccessKey",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "config.hasS3SecretKey",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "INVALID_ARGUMENT\n                    .withDescription(String.format(\"Should set `%s`\", confSecret)).asRuntimeException",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "INVALID_ARGUMENT.withDescription",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "String.format",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "hadoopConf.set",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getHadoopConf",
+          "callee": "config.getS3SecretKey",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/tracing/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 40,
+      "nonEmptyLines": 36,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/tracing/src/main/java/com/risingwave/tracing/TracingSlf4jAdapter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 90,
+      "nonEmptyLines": 74,
+      "functions": [
+        {
+          "name": "TracingSlf4jAdapter",
+          "startLine": 34,
+          "endLine": 36,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "isTraceEnabled",
+          "startLine": 38,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "isDebugEnabled",
+          "startLine": 43,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "isInfoEnabled",
+          "startLine": 48,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "isWarnEnabled",
+          "startLine": 53,
+          "endLine": 56,
+          "params": []
+        },
+        {
+          "name": "isErrorEnabled",
+          "startLine": 58,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "getFullyQualifiedCallerName",
+          "startLine": 63,
+          "endLine": 66,
+          "params": []
+        },
+        {
+          "name": "handleNormalizedLoggingCall",
+          "startLine": 68,
+          "endLine": 89,
+          "params": [
+            "level",
+            "marker",
+            "messagePattern",
+            "arguments",
+            "throwable"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TracingSlf4jAdapter",
+          "startLine": 30,
+          "endLine": 90,
+          "methods": [
+            "TracingSlf4jAdapter",
+            "isTraceEnabled",
+            "isDebugEnabled",
+            "isInfoEnabled",
+            "isWarnEnabled",
+            "isErrorEnabled",
+            "getFullyQualifiedCallerName",
+            "handleNormalizedLoggingCall"
+          ],
+          "properties": [
+            "name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TracingSlf4jAdapter",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "isTraceEnabled",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "isDebugEnabled",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "isInfoEnabled",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "isWarnEnabled",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "isErrorEnabled",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "TracingSlf4jAdapter",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "isTraceEnabled",
+          "callee": "TracingSlf4jImpl.isEnabled",
+          "lineNumber": 40
+        },
+        {
+          "caller": "isDebugEnabled",
+          "callee": "TracingSlf4jImpl.isEnabled",
+          "lineNumber": 45
+        },
+        {
+          "caller": "isInfoEnabled",
+          "callee": "TracingSlf4jImpl.isEnabled",
+          "lineNumber": 50
+        },
+        {
+          "caller": "isWarnEnabled",
+          "callee": "TracingSlf4jImpl.isEnabled",
+          "lineNumber": 55
+        },
+        {
+          "caller": "isErrorEnabled",
+          "callee": "TracingSlf4jImpl.isEnabled",
+          "lineNumber": 60
+        },
+        {
+          "caller": "handleNormalizedLoggingCall",
+          "callee": "TracingSlf4jImpl.isEnabled",
+          "lineNumber": 76
+        },
+        {
+          "caller": "handleNormalizedLoggingCall",
+          "callee": "new ParameterizedMessage",
+          "lineNumber": 80
+        },
+        {
+          "caller": "handleNormalizedLoggingCall",
+          "callee": "pm.getFormattedMessage",
+          "lineNumber": 81
+        },
+        {
+          "caller": "handleNormalizedLoggingCall",
+          "callee": "ExceptionUtils.getStackTrace",
+          "lineNumber": 85
+        },
+        {
+          "caller": "handleNormalizedLoggingCall",
+          "callee": "TracingSlf4jImpl.event",
+          "lineNumber": 88
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/tracing/src/main/java/com/risingwave/tracing/TracingSlf4jLoggerFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "getLogger",
+          "startLine": 26,
+          "endLine": 29,
+          "params": [
+            "name"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TracingSlf4jLoggerFactory",
+          "startLine": 25,
+          "endLine": 30,
+          "methods": [
+            "getLogger"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getLogger",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "TracingSlf4jLoggerFactory",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getLogger",
+          "callee": "new TracingSlf4jAdapter",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/tracing/src/main/java/com/risingwave/tracing/TracingSlf4jServiceProvider.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 47,
+      "functions": [
+        {
+          "name": "getLoggerFactory",
+          "startLine": 35,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "getMarkerFactory",
+          "startLine": 40,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "getMDCAdapter",
+          "startLine": 45,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "getRequestedApiVersion",
+          "startLine": 50,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "initialize",
+          "startLine": 55,
+          "endLine": 56,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TracingSlf4jServiceProvider",
+          "startLine": 29,
+          "endLine": 57,
+          "methods": [
+            "getLoggerFactory",
+            "getMarkerFactory",
+            "getMDCAdapter",
+            "getRequestedApiVersion",
+            "initialize"
+          ],
+          "properties": [
+            "loggerFactory",
+            "markerFactory",
+            "mdcAdapter"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getLoggerFactory",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "getMarkerFactory",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "getMDCAdapter",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "getRequestedApiVersion",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "initialize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "TracingSlf4jServiceProvider",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/tracing/src/main/resources/META-INF/services/org.slf4j.spi.SLF4JServiceProvider",
+      "language": "slf4jserviceprovider",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "java/dev.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 71,
+      "nonEmptyLines": 53,
+      "sections": [
+        {
+          "heading": "Developer Manual",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Code Formatting Manually",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Set Up Formatter for IDE",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Intellij IDEA",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "macOS Setup",
+          "level": 2,
+          "line": 44
+        },
+        {
+          "heading": "VS Code (WIP)",
+          "level": 3,
+          "line": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "java/java-binding-benchmark/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 45,
+      "nonEmptyLines": 41,
+      "metrics": {}
+    },
+    {
+      "path": "java/java-binding-benchmark/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "sections": [
+        {
+          "heading": "Run the benchmark",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding-benchmark/src/main/java/com/risingwave/java/binding/ArrayListBenchmark.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "getRow",
+          "startLine": 33,
+          "endLine": 50,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getValue",
+          "startLine": 52,
+          "endLine": 60,
+          "params": [
+            "rowData"
+          ]
+        },
+        {
+          "name": "arrayListTest",
+          "startLine": 62,
+          "endLine": 67,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ArrayListBenchmark",
+          "startLine": 23,
+          "endLine": 68,
+          "methods": [
+            "getRow",
+            "getValue",
+            "arrayListTest"
+          ],
+          "properties": [
+            "loopTime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getRow",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "getValue",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "arrayListTest",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "ArrayListBenchmark",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getRow",
+          "callee": "new ArrayList<>",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getRow",
+          "callee": "rowData.add",
+          "lineNumber": 42
+        },
+        {
+          "caller": "getRow",
+          "callee": "rowData.add",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getRow",
+          "callee": "rowData.add",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getRow",
+          "callee": "rowData.add",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getRow",
+          "callee": "rowData.add",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getRow",
+          "callee": "rowData.add",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getRow",
+          "callee": "rowData.add",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getValue",
+          "callee": "rowData.get",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getValue",
+          "callee": "rowData.get",
+          "lineNumber": 54
+        },
+        {
+          "caller": "getValue",
+          "callee": "rowData.get",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getValue",
+          "callee": "rowData.get",
+          "lineNumber": 56
+        },
+        {
+          "caller": "getValue",
+          "callee": "rowData.get",
+          "lineNumber": 57
+        },
+        {
+          "caller": "getValue",
+          "callee": "rowData.get",
+          "lineNumber": 58
+        },
+        {
+          "caller": "getValue",
+          "callee": "rowData.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "arrayListTest",
+          "callee": "getValue",
+          "lineNumber": 65
+        },
+        {
+          "caller": "arrayListTest",
+          "callee": "getRow",
+          "lineNumber": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding-benchmark/src/main/java/com/risingwave/java/binding/BenchmarkRunner.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 25,
+          "endLine": 33,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BenchmarkRunner",
+          "startLine": 24,
+          "endLine": 34,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "BenchmarkRunner",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "new OptionsBuilder()\n                        .include(ArrayListBenchmark.class.getSimpleName())\n                        .include(StreamchunkBenchmark.class.getSimpleName()).build",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "new OptionsBuilder()\n                        .include(ArrayListBenchmark.class.getSimpleName()).include",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "new OptionsBuilder().include",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "new OptionsBuilder",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "ArrayListBenchmark.class.getSimpleName",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "StreamchunkBenchmark.class.getSimpleName",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "new Runner(opt).run",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "new Runner",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding-benchmark/src/main/java/com/risingwave/java/binding/StreamchunkBenchmark.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "setup",
+          "startLine": 34,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "getValue",
+          "startLine": 45,
+          "endLine": 53,
+          "params": [
+            "row"
+          ]
+        },
+        {
+          "name": "streamchunkTest",
+          "startLine": 55,
+          "endLine": 71,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "StreamchunkBenchmark",
+          "startLine": 22,
+          "endLine": 72,
+          "methods": [
+            "setup",
+            "getValue",
+            "streamchunkTest"
+          ],
+          "properties": [
+            "loopTime",
+            "chunk"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "setup",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "getValue",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "streamchunkTest",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "StreamchunkBenchmark",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setup",
+          "callee": "String.format",
+          "lineNumber": 40
+        },
+        {
+          "caller": "setup",
+          "callee": "StreamChunk.fromPretty",
+          "lineNumber": 42
+        },
+        {
+          "caller": "getValue",
+          "callee": "row.getInt",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getValue",
+          "callee": "row.getInt",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getValue",
+          "callee": "row.getLong",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getValue",
+          "callee": "row.getFloat",
+          "lineNumber": 49
+        },
+        {
+          "caller": "getValue",
+          "callee": "row.getDouble",
+          "lineNumber": 50
+        },
+        {
+          "caller": "getValue",
+          "callee": "row.getBoolean",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getValue",
+          "callee": "row.isNull",
+          "lineNumber": 52
+        },
+        {
+          "caller": "streamchunkTest",
+          "callee": "new StreamChunkIterator",
+          "lineNumber": 57
+        },
+        {
+          "caller": "streamchunkTest",
+          "callee": "iter.next",
+          "lineNumber": 60
+        },
+        {
+          "caller": "streamchunkTest",
+          "callee": "getValue",
+          "lineNumber": 65
+        },
+        {
+          "caller": "streamchunkTest",
+          "callee": "new RuntimeException",
+          "lineNumber": 68
+        },
+        {
+          "caller": "streamchunkTest",
+          "callee": "String.format",
+          "lineNumber": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding-integration-test/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 35,
+      "nonEmptyLines": 31,
+      "metrics": {}
+    },
+    {
+      "path": "java/java-binding-integration-test/src/main/java/com/risingwave/java/binding/HummockReadDemo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 35,
+          "endLine": 105,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "HummockReadDemo",
+          "startLine": 34,
+          "endLine": 106,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "HummockReadDemo",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.getenv",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "System.getenv",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "System.getenv",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "System.getenv",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "System.getenv",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "new ScheduledThreadPoolExecutor",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "KeyRange.newBuilder()\n                        .setRightBound(Bound.UNBOUNDED)\n                        .setLeftBound(Bound.UNBOUNDED).build",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "KeyRange.newBuilder()\n                        .setRightBound(Bound.UNBOUNDED).setLeftBound",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "KeyRange.newBuilder().setRightBound",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "KeyRange.newBuilder",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "new MetaClient",
+          "lineNumber": 49
+        },
+        {
+          "caller": "main",
+          "callee": "metaClient.startHeartbeatLoop",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "Duration.ofMillis",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "metaClient.pinVersion",
+          "lineNumber": 52
+        },
+        {
+          "caller": "main",
+          "callee": "metaClient.getTable",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "Binding.defaultVnodeCount",
+          "lineNumber": 55
+        },
+        {
+          "caller": "main",
+          "callee": "tableCatalog.hasMaybeVnodeCount",
+          "lineNumber": 56
+        },
+        {
+          "caller": "main",
+          "callee": "tableCatalog.getMaybeVnodeCount",
+          "lineNumber": 57
+        },
+        {
+          "caller": "main",
+          "callee": "new ArrayList<>",
+          "lineNumber": 60
+        },
+        {
+          "caller": "main",
+          "callee": "vnodeList.add",
+          "lineNumber": 62
+        },
+        {
+          "caller": "main",
+          "callee": "version.getStateTableInfo().containsKey",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "version.getStateTableInfo",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "tableCatalog.getId",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "version.getStateTableInfo().get(tableCatalog.getId()).getCommittedEpoch",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "version.getStateTableInfo().get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "version.getStateTableInfo",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "tableCatalog.getId",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "ReadPlan.newBuilder()\n                            .setDataDir(dataDir)\n                            .setObjectStoreUrl(objectStore)\n                            .setKeyRange(keyRange)\n                            .setTableId(tableCatalog.getId())\n                            .setEpoch(epoch)\n                            .setVersion(version)\n                            .setTableCatalog(tableCatalog)\n                            .addAllVnodeIds(vnodeList).build",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "ReadPlan.newBuilder()\n                            .setDataDir(dataDir)\n                            .setObjectStoreUrl(objectStore)\n                            .setKeyRange(keyRange)\n                            .setTableId(tableCatalog.getId())\n                            .setEpoch(epoch)\n                            .setVersion(version)\n                            .setTableCatalog(tableCatalog).addAllVnodeIds",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "ReadPlan.newBuilder()\n                            .setDataDir(dataDir)\n                            .setObjectStoreUrl(objectStore)\n                            .setKeyRange(keyRange)\n                            .setTableId(tableCatalog.getId())\n                            .setEpoch(epoch)\n                            .setVersion(version).setTableCatalog",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "ReadPlan.newBuilder()\n                            .setDataDir(dataDir)\n                            .setObjectStoreUrl(objectStore)\n                            .setKeyRange(keyRange)\n                            .setTableId(tableCatalog.getId())\n                            .setEpoch(epoch).setVersion",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "ReadPlan.newBuilder()\n                            .setDataDir(dataDir)\n                            .setObjectStoreUrl(objectStore)\n                            .setKeyRange(keyRange)\n                            .setTableId(tableCatalog.getId()).setEpoch",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "ReadPlan.newBuilder()\n                            .setDataDir(dataDir)\n                            .setObjectStoreUrl(objectStore)\n                            .setKeyRange(keyRange).setTableId",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "ReadPlan.newBuilder()\n                            .setDataDir(dataDir)\n                            .setObjectStoreUrl(objectStore).setKeyRange",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "ReadPlan.newBuilder()\n                            .setDataDir(dataDir).setObjectStoreUrl",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "ReadPlan.newBuilder().setDataDir",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "ReadPlan.newBuilder",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "tableCatalog.getId",
+          "lineNumber": 76
+        },
+        {
+          "caller": "main",
+          "callee": "new HummockIterator",
+          "lineNumber": 83
+        },
+        {
+          "caller": "main",
+          "callee": "iter.next",
+          "lineNumber": 86
+        },
+        {
+          "caller": "main",
+          "callee": "validateRow",
+          "lineNumber": 91
+        },
+        {
+          "caller": "main",
+          "callee": "new RuntimeException",
+          "lineNumber": 95
+        },
+        {
+          "caller": "main",
+          "callee": "String.format",
+          "lineNumber": 96
+        },
+        {
+          "caller": "main",
+          "callee": "metaClient.unpinVersion",
+          "lineNumber": 99
+        },
+        {
+          "caller": "main",
+          "callee": "heartbeatFuture.cancel",
+          "lineNumber": 100
+        },
+        {
+          "caller": "main",
+          "callee": "scheduledThreadPool.shutdown",
+          "lineNumber": 103
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding-integration-test/src/main/java/com/risingwave/java/binding/StreamChunkDemo.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 25,
+          "endLine": 45,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StreamChunkDemo",
+          "startLine": 23,
+          "endLine": 46,
+          "methods": [
+            "main"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "StreamChunkDemo",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "System.in.readAllBytes",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "StreamChunk.fromPayload",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "new StreamChunkIterator",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "iter.next",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "validateRow",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "new RuntimeException",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "String.format",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding-integration-test/src/main/java/com/risingwave/java/binding/Utils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "validateRow",
+          "startLine": 22,
+          "endLine": 70,
+          "params": [
+            "row"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Utils",
+          "startLine": 21,
+          "endLine": 71,
+          "methods": [
+            "validateRow"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "validateRow",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Utils",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "validateRow",
+          "callee": "row.getShort",
+          "lineNumber": 25
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getInt",
+          "lineNumber": 26
+        },
+        {
+          "caller": "validateRow",
+          "callee": "new RuntimeException",
+          "lineNumber": 27
+        },
+        {
+          "caller": "validateRow",
+          "callee": "String.format",
+          "lineNumber": 28
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getInt",
+          "lineNumber": 28
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getLong",
+          "lineNumber": 30
+        },
+        {
+          "caller": "validateRow",
+          "callee": "new RuntimeException",
+          "lineNumber": 31
+        },
+        {
+          "caller": "validateRow",
+          "callee": "String.format",
+          "lineNumber": 32
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getLong",
+          "lineNumber": 32
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getFloat",
+          "lineNumber": 34
+        },
+        {
+          "caller": "validateRow",
+          "callee": "new RuntimeException",
+          "lineNumber": 35
+        },
+        {
+          "caller": "validateRow",
+          "callee": "String.format",
+          "lineNumber": 36
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getFloat",
+          "lineNumber": 36
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getDouble",
+          "lineNumber": 38
+        },
+        {
+          "caller": "validateRow",
+          "callee": "new RuntimeException",
+          "lineNumber": 39
+        },
+        {
+          "caller": "validateRow",
+          "callee": "String.format",
+          "lineNumber": 40
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getDouble",
+          "lineNumber": 40
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getBoolean",
+          "lineNumber": 42
+        },
+        {
+          "caller": "validateRow",
+          "callee": "new RuntimeException",
+          "lineNumber": 43
+        },
+        {
+          "caller": "validateRow",
+          "callee": "String.format",
+          "lineNumber": 44
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getBoolean",
+          "lineNumber": 45
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getString(6).equals",
+          "lineNumber": 47
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getString",
+          "lineNumber": 47
+        },
+        {
+          "caller": "validateRow",
+          "callee": "((Short) rowIndex).toString().repeat",
+          "lineNumber": 47
+        },
+        {
+          "caller": "validateRow",
+          "callee": "((Short) rowIndex).toString",
+          "lineNumber": 47
+        },
+        {
+          "caller": "validateRow",
+          "callee": "new RuntimeException",
+          "lineNumber": 48
+        },
+        {
+          "caller": "validateRow",
+          "callee": "String.format",
+          "lineNumber": 49
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getString",
+          "lineNumber": 51
+        },
+        {
+          "caller": "validateRow",
+          "callee": "((Short) rowIndex).toString().repeat",
+          "lineNumber": 52
+        },
+        {
+          "caller": "validateRow",
+          "callee": "((Short) rowIndex).toString",
+          "lineNumber": 52
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getTimestamp(7).toInstant(ZoneOffset.UTC).toEpochMilli",
+          "lineNumber": 55
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getTimestamp(7).toInstant",
+          "lineNumber": 55
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getTimestamp",
+          "lineNumber": 55
+        },
+        {
+          "caller": "validateRow",
+          "callee": "new RuntimeException",
+          "lineNumber": 56
+        },
+        {
+          "caller": "validateRow",
+          "callee": "String.format",
+          "lineNumber": 57
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getTimestamp",
+          "lineNumber": 57
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getDecimal(8).intValue",
+          "lineNumber": 60
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getDecimal",
+          "lineNumber": 60
+        },
+        {
+          "caller": "validateRow",
+          "callee": "new RuntimeException",
+          "lineNumber": 61
+        },
+        {
+          "caller": "validateRow",
+          "callee": "String.format",
+          "lineNumber": 62
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.getDecimal",
+          "lineNumber": 62
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.isNull",
+          "lineNumber": 65
+        },
+        {
+          "caller": "validateRow",
+          "callee": "new RuntimeException",
+          "lineNumber": 66
+        },
+        {
+          "caller": "validateRow",
+          "callee": "String.format",
+          "lineNumber": 67
+        },
+        {
+          "caller": "validateRow",
+          "callee": "row.isNull",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 100,
+      "nonEmptyLines": 92,
+      "metrics": {}
+    },
+    {
+      "path": "java/java-binding/src/main/java/com/risingwave/java/binding/BaseRow.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "BaseRow",
+          "startLine": 22,
+          "endLine": 24,
+          "params": [
+            "pointer"
+          ]
+        },
+        {
+          "name": "isNull",
+          "startLine": 26,
+          "endLine": 28,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getShort",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getInt",
+          "startLine": 34,
+          "endLine": 36,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getLong",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getFloat",
+          "startLine": 42,
+          "endLine": 44,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getDouble",
+          "startLine": 46,
+          "endLine": 48,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getBoolean",
+          "startLine": 50,
+          "endLine": 52,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getString",
+          "startLine": 54,
+          "endLine": 56,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getTimestamp",
+          "startLine": 58,
+          "endLine": 60,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getTimestamptz",
+          "startLine": 62,
+          "endLine": 64,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getTime",
+          "startLine": 66,
+          "endLine": 68,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getDecimal",
+          "startLine": 70,
+          "endLine": 72,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getDate",
+          "startLine": 74,
+          "endLine": 76,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getInterval",
+          "startLine": 79,
+          "endLine": 81,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getJsonb",
+          "startLine": 84,
+          "endLine": 86,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getBytea",
+          "startLine": 88,
+          "endLine": 90,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "getArray",
+          "startLine": 98,
+          "endLine": 102,
+          "params": [
+            "index",
+            "clazz"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseRow",
+          "startLine": 19,
+          "endLine": 103,
+          "methods": [
+            "BaseRow",
+            "isNull",
+            "getShort",
+            "getInt",
+            "getLong",
+            "getFloat",
+            "getDouble",
+            "getBoolean",
+            "getString",
+            "getTimestamp",
+            "getTimestamptz",
+            "getTime",
+            "getDecimal",
+            "getDate",
+            "getInterval",
+            "getJsonb",
+            "getBytea",
+            "getArray"
+          ],
+          "properties": [
+            "pointer"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "isNull",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "getShort",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "getInt",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "getLong",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "getFloat",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "getDouble",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "getBoolean",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "getString",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "getTimestamp",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "getTimestamptz",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "getTime",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "getDecimal",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "getDate",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "getInterval",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "getJsonb",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "getBytea",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "getArray",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "BaseRow",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "isNull",
+          "callee": "Binding.iteratorIsNull",
+          "lineNumber": 27
+        },
+        {
+          "caller": "getShort",
+          "callee": "Binding.iteratorGetInt16Value",
+          "lineNumber": 31
+        },
+        {
+          "caller": "getInt",
+          "callee": "Binding.iteratorGetInt32Value",
+          "lineNumber": 35
+        },
+        {
+          "caller": "getLong",
+          "callee": "Binding.iteratorGetInt64Value",
+          "lineNumber": 39
+        },
+        {
+          "caller": "getFloat",
+          "callee": "Binding.iteratorGetFloatValue",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getDouble",
+          "callee": "Binding.iteratorGetDoubleValue",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getBoolean",
+          "callee": "Binding.iteratorGetBooleanValue",
+          "lineNumber": 51
+        },
+        {
+          "caller": "getString",
+          "callee": "Binding.iteratorGetStringValue",
+          "lineNumber": 55
+        },
+        {
+          "caller": "getTimestamp",
+          "callee": "Binding.iteratorGetTimestampValue",
+          "lineNumber": 59
+        },
+        {
+          "caller": "getTimestamptz",
+          "callee": "Binding.iteratorGetTimestamptzValue",
+          "lineNumber": 63
+        },
+        {
+          "caller": "getTime",
+          "callee": "Binding.iteratorGetTimeValue",
+          "lineNumber": 67
+        },
+        {
+          "caller": "getDecimal",
+          "callee": "Binding.iteratorGetDecimalValue",
+          "lineNumber": 71
+        },
+        {
+          "caller": "getDate",
+          "callee": "Binding.iteratorGetDateValue",
+          "lineNumber": 75
+        },
+        {
+          "caller": "getInterval",
+          "callee": "Binding.iteratorGetIntervalValue",
+          "lineNumber": 80
+        },
+        {
+          "caller": "getJsonb",
+          "callee": "Binding.iteratorGetJsonbValue",
+          "lineNumber": 85
+        },
+        {
+          "caller": "getBytea",
+          "callee": "Binding.iteratorGetByteaValue",
+          "lineNumber": 89
+        },
+        {
+          "caller": "getArray",
+          "callee": "Binding.iteratorGetArrayValue",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 18,
+        "functionCount": 18,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding/src/main/java/com/risingwave/java/binding/HummockIterator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "iteratorNewHummock",
+          "startLine": 31,
+          "endLine": 31,
+          "params": [
+            "readPlan"
+          ]
+        },
+        {
+          "name": "HummockIterator",
+          "startLine": 33,
+          "endLine": 36,
+          "params": [
+            "readPlan"
+          ]
+        },
+        {
+          "name": "next",
+          "startLine": 38,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "close",
+          "startLine": 46,
+          "endLine": 52,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "HummockIterator",
+          "startLine": 21,
+          "endLine": 53,
+          "methods": [
+            "iteratorNewHummock",
+            "HummockIterator",
+            "next",
+            "close"
+          ],
+          "properties": [
+            "pointer",
+            "isClosed"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "HummockIterator",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "next",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "HummockIterator",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "HummockIterator",
+          "callee": "iteratorNewHummock",
+          "lineNumber": 34
+        },
+        {
+          "caller": "HummockIterator",
+          "callee": "readPlan.toByteArray",
+          "lineNumber": 34
+        },
+        {
+          "caller": "next",
+          "callee": "Binding.iteratorNext",
+          "lineNumber": 39
+        },
+        {
+          "caller": "next",
+          "callee": "new KeyedRow",
+          "lineNumber": 43
+        },
+        {
+          "caller": "close",
+          "callee": "Binding.iteratorClose",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/java-binding/src/main/java/com/risingwave/java/binding/KeyedRow.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "KeyedRow",
+          "startLine": 20,
+          "endLine": 22,
+          "params": [
+            "pointer"
+          ]
+        },
+        {
+          "name": "getKey",
+          "startLine": 24,
+          "endLine": 26,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "KeyedRow",
+          "startLine": 19,
+          "endLine": 27,
+          "methods": [
+            "KeyedRow",
+            "getKey"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "KeyedRow",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "getKey",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "KeyedRow",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getKey",
+          "callee": "Binding.iteratorGetKey",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 562,
+      "nonEmptyLines": 542,
+      "metrics": {}
+    },
+    {
+      "path": "java/proto/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 81,
+      "nonEmptyLines": 75,
+      "metrics": {}
+    }
+  ]
+}

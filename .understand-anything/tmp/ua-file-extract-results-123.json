@@ -1,0 +1,1440 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 430,
+      "nonEmptyLines": 387,
+      "functions": [
+        {
+          "name": "BinlogOffsetContext",
+          "startLine": 74,
+          "endLine": 92,
+          "params": [
+            "snapshot",
+            "snapshotCompleted",
+            "transactionContext",
+            "incrementalSnapshotContext",
+            "sourceInfo"
+          ]
+        },
+        {
+          "name": "getOffset",
+          "startLine": 94,
+          "endLine": 104,
+          "params": []
+        },
+        {
+          "name": "getSourceInfoSchema",
+          "startLine": 106,
+          "endLine": 109,
+          "params": []
+        },
+        {
+          "name": "event",
+          "startLine": 111,
+          "endLine": 115,
+          "params": [
+            "tableId",
+            "timestamp"
+          ]
+        },
+        {
+          "name": "getTransactionContext",
+          "startLine": 117,
+          "endLine": 120,
+          "params": []
+        },
+        {
+          "name": "getIncrementalSnapshotContext",
+          "startLine": 122,
+          "endLine": 125,
+          "params": []
+        },
+        {
+          "name": "isSnapshotCompleted",
+          "startLine": 127,
+          "endLine": 129,
+          "params": []
+        },
+        {
+          "name": "getTransactionId",
+          "startLine": 131,
+          "endLine": 133,
+          "params": []
+        },
+        {
+          "name": "setInitialSkips",
+          "startLine": 135,
+          "endLine": 138,
+          "params": [
+            "restartEventsToSkip",
+            "restartRowsToSkip"
+          ]
+        },
+        {
+          "name": "databaseEvent",
+          "startLine": 140,
+          "endLine": 144,
+          "params": [
+            "database",
+            "timestamp"
+          ]
+        },
+        {
+          "name": "tableEvent",
+          "startLine": 146,
+          "endLine": 150,
+          "params": [
+            "database",
+            "tableIds",
+            "timestamp"
+          ]
+        },
+        {
+          "name": "setBinlogStartPoint",
+          "startLine": 158,
+          "endLine": 170,
+          "params": [
+            "binlogFilename",
+            "positionOfFirstEvent"
+          ]
+        },
+        {
+          "name": "setCompletedGtidSet",
+          "startLine": 179,
+          "endLine": 186,
+          "params": [
+            "gtidSet"
+          ]
+        },
+        {
+          "name": "setServerIdFromOffset",
+          "startLine": 188,
+          "endLine": 190,
+          "params": [
+            "serverId"
+          ]
+        },
+        {
+          "name": "setTsSecFromOffset",
+          "startLine": 192,
+          "endLine": 194,
+          "params": [
+            "tsSec"
+          ]
+        },
+        {
+          "name": "gtidSet",
+          "startLine": 201,
+          "endLine": 203,
+          "params": []
+        },
+        {
+          "name": "startGtid",
+          "startLine": 213,
+          "endLine": 224,
+          "params": [
+            "gtid",
+            "gtidSet"
+          ]
+        },
+        {
+          "name": "getSource",
+          "startLine": 226,
+          "endLine": 228,
+          "params": []
+        },
+        {
+          "name": "startNextTransaction",
+          "startLine": 230,
+          "endLine": 238,
+          "params": []
+        },
+        {
+          "name": "commitTransaction",
+          "startLine": 240,
+          "endLine": 249,
+          "params": []
+        },
+        {
+          "name": "completeEvent",
+          "startLine": 252,
+          "endLine": 254,
+          "params": []
+        },
+        {
+          "name": "setEventPosition",
+          "startLine": 262,
+          "endLine": 273,
+          "params": [
+            "positionOfCurrentEvent",
+            "eventSizeInBytes"
+          ]
+        },
+        {
+          "name": "setQuery",
+          "startLine": 280,
+          "endLine": 282,
+          "params": [
+            "query"
+          ]
+        },
+        {
+          "name": "changeEventCompleted",
+          "startLine": 284,
+          "endLine": 286,
+          "params": []
+        },
+        {
+          "name": "eventsToSkipUponRestart",
+          "startLine": 295,
+          "endLine": 297,
+          "params": []
+        },
+        {
+          "name": "rowsToSkipUponRestart",
+          "startLine": 305,
+          "endLine": 307,
+          "params": []
+        },
+        {
+          "name": "setRowNumber",
+          "startLine": 321,
+          "endLine": 332,
+          "params": [
+            "eventRowNumber",
+            "totalNumberOfRows"
+          ]
+        },
+        {
+          "name": "setBinlogServerId",
+          "startLine": 334,
+          "endLine": 336,
+          "params": [
+            "serverId"
+          ]
+        },
+        {
+          "name": "setBinlogThread",
+          "startLine": 338,
+          "endLine": 340,
+          "params": [
+            "threadId"
+          ]
+        },
+        {
+          "name": "setTransactionId",
+          "startLine": 342,
+          "endLine": 353,
+          "params": []
+        },
+        {
+          "name": "resetTransactionId",
+          "startLine": 355,
+          "endLine": 357,
+          "params": []
+        },
+        {
+          "name": "offsetUsingPosition",
+          "startLine": 359,
+          "endLine": 384,
+          "params": [
+            "rowsToSkip"
+          ]
+        },
+        {
+          "name": "toString",
+          "startLine": 393,
+          "endLine": 429,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "BinlogOffsetContext",
+          "startLine": 51,
+          "endLine": 430,
+          "methods": [
+            "BinlogOffsetContext",
+            "getOffset",
+            "getSourceInfoSchema",
+            "event",
+            "getTransactionContext",
+            "getIncrementalSnapshotContext",
+            "isSnapshotCompleted",
+            "getTransactionId",
+            "setInitialSkips",
+            "databaseEvent",
+            "tableEvent",
+            "setBinlogStartPoint",
+            "setCompletedGtidSet",
+            "setServerIdFromOffset",
+            "setTsSecFromOffset",
+            "gtidSet",
+            "startGtid",
+            "getSource",
+            "startNextTransaction",
+            "commitTransaction",
+            "completeEvent",
+            "setEventPosition",
+            "setQuery",
+            "changeEventCompleted",
+            "eventsToSkipUponRestart",
+            "rowsToSkipUponRestart",
+            "setRowNumber",
+            "setBinlogServerId",
+            "setBinlogThread",
+            "setTransactionId",
+            "resetTransactionId",
+            "offsetUsingPosition",
+            "toString"
+          ],
+          "properties": [
+            "LOGGER",
+            "EVENTS_TO_SKIP_OFFSET_KEY",
+            "TIMESTAMP_KEY",
+            "GTID_SET_KEY",
+            "NON_GTID_TRANSACTION_ID_FORMAT",
+            "sourceInfoSchema",
+            "transactionContext",
+            "incrementalSnapshotContext",
+            "restartGtidSet",
+            "currentGtidSet",
+            "restartBinlogFilename",
+            "restartBinlogPosition",
+            "restartRowsToSkip",
+            "restartEventsToSkip",
+            "currentEventLengthInBytes",
+            "inTransaction",
+            "transactionId",
+            "serverIdFromOffset",
+            "tsSecFromOffset"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "EVENTS_TO_SKIP_OFFSET_KEY",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "TIMESTAMP_KEY",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "GTID_SET_KEY",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "NON_GTID_TRANSACTION_ID_FORMAT",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "BinlogOffsetContext",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "getOffset",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "getSourceInfoSchema",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "event",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "getTransactionContext",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "getIncrementalSnapshotContext",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "isSnapshotCompleted",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "getTransactionId",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "setInitialSkips",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "databaseEvent",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "tableEvent",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "setBinlogStartPoint",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "setCompletedGtidSet",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "setServerIdFromOffset",
+          "line": 188,
+          "isDefault": false
+        },
+        {
+          "name": "setTsSecFromOffset",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "gtidSet",
+          "line": 201,
+          "isDefault": false
+        },
+        {
+          "name": "startGtid",
+          "line": 213,
+          "isDefault": false
+        },
+        {
+          "name": "getSource",
+          "line": 226,
+          "isDefault": false
+        },
+        {
+          "name": "startNextTransaction",
+          "line": 230,
+          "isDefault": false
+        },
+        {
+          "name": "commitTransaction",
+          "line": 240,
+          "isDefault": false
+        },
+        {
+          "name": "completeEvent",
+          "line": 252,
+          "isDefault": false
+        },
+        {
+          "name": "setEventPosition",
+          "line": 262,
+          "isDefault": false
+        },
+        {
+          "name": "setQuery",
+          "line": 280,
+          "isDefault": false
+        },
+        {
+          "name": "changeEventCompleted",
+          "line": 284,
+          "isDefault": false
+        },
+        {
+          "name": "eventsToSkipUponRestart",
+          "line": 295,
+          "isDefault": false
+        },
+        {
+          "name": "rowsToSkipUponRestart",
+          "line": 305,
+          "isDefault": false
+        },
+        {
+          "name": "setRowNumber",
+          "line": 321,
+          "isDefault": false
+        },
+        {
+          "name": "setBinlogServerId",
+          "line": 334,
+          "isDefault": false
+        },
+        {
+          "name": "setBinlogThread",
+          "line": 338,
+          "isDefault": false
+        },
+        {
+          "name": "toString",
+          "line": 393,
+          "isDefault": false
+        },
+        {
+          "name": "BinlogOffsetContext",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "BinlogOffsetContext",
+          "callee": "sourceInfo.schema",
+          "lineNumber": 81
+        },
+        {
+          "caller": "BinlogOffsetContext",
+          "callee": "postSnapshotCompletion",
+          "lineNumber": 84
+        },
+        {
+          "caller": "BinlogOffsetContext",
+          "callee": "setSnapshot",
+          "lineNumber": 86
+        },
+        {
+          "caller": "BinlogOffsetContext",
+          "callee": "sourceInfo.setSnapshot",
+          "lineNumber": 87
+        },
+        {
+          "caller": "getOffset",
+          "callee": "offsetUsingPosition",
+          "lineNumber": 96
+        },
+        {
+          "caller": "getOffset",
+          "callee": "getSnapshot().isPresent",
+          "lineNumber": 97
+        },
+        {
+          "caller": "getOffset",
+          "callee": "getSnapshot",
+          "lineNumber": 97
+        },
+        {
+          "caller": "getOffset",
+          "callee": "offset.put",
+          "lineNumber": 98
+        },
+        {
+          "caller": "getOffset",
+          "callee": "getSnapshot().get().toString",
+          "lineNumber": 98
+        },
+        {
+          "caller": "getOffset",
+          "callee": "getSnapshot().get",
+          "lineNumber": 98
+        },
+        {
+          "caller": "getOffset",
+          "callee": "getSnapshot",
+          "lineNumber": 98
+        },
+        {
+          "caller": "getOffset",
+          "callee": "sourceInfo.isSnapshot",
+          "lineNumber": 101
+        },
+        {
+          "caller": "getOffset",
+          "callee": "incrementalSnapshotContext.store",
+          "lineNumber": 103
+        },
+        {
+          "caller": "getOffset",
+          "callee": "transactionContext.store",
+          "lineNumber": 103
+        },
+        {
+          "caller": "event",
+          "callee": "sourceInfo.setSourceTime",
+          "lineNumber": 113
+        },
+        {
+          "caller": "event",
+          "callee": "sourceInfo.tableEvent",
+          "lineNumber": 114
+        },
+        {
+          "caller": "databaseEvent",
+          "callee": "sourceInfo.setSourceTime",
+          "lineNumber": 141
+        },
+        {
+          "caller": "databaseEvent",
+          "callee": "sourceInfo.databaseEvent",
+          "lineNumber": 142
+        },
+        {
+          "caller": "databaseEvent",
+          "callee": "sourceInfo.tableEvent",
+          "lineNumber": 143
+        },
+        {
+          "caller": "tableEvent",
+          "callee": "sourceInfo.setSourceTime",
+          "lineNumber": 147
+        },
+        {
+          "caller": "tableEvent",
+          "callee": "sourceInfo.databaseEvent",
+          "lineNumber": 148
+        },
+        {
+          "caller": "tableEvent",
+          "callee": "sourceInfo.tableEvent",
+          "lineNumber": 149
+        },
+        {
+          "caller": "setBinlogStartPoint",
+          "callee": "sourceInfo.setBinlogPosition",
+          "lineNumber": 161
+        },
+        {
+          "caller": "setBinlogStartPoint",
+          "callee": "sourceInfo.setBinlogPosition",
+          "lineNumber": 164
+        },
+        {
+          "caller": "setBinlogStartPoint",
+          "callee": "sourceInfo.getCurrentBinlogFilename",
+          "lineNumber": 165
+        },
+        {
+          "caller": "setCompletedGtidSet",
+          "callee": "gtidSet.trim().isEmpty",
+          "lineNumber": 180
+        },
+        {
+          "caller": "setCompletedGtidSet",
+          "callee": "gtidSet.trim",
+          "lineNumber": 180
+        },
+        {
+          "caller": "setCompletedGtidSet",
+          "callee": "gtidSet.replace(\"\\n\", \"\").replace",
+          "lineNumber": 182
+        },
+        {
+          "caller": "setCompletedGtidSet",
+          "callee": "gtidSet.replace",
+          "lineNumber": 182
+        },
+        {
+          "caller": "startGtid",
+          "callee": "sourceInfo.startGtid",
+          "lineNumber": 214
+        },
+        {
+          "caller": "startGtid",
+          "callee": "gtidSet.trim().isEmpty",
+          "lineNumber": 215
+        },
+        {
+          "caller": "startGtid",
+          "callee": "gtidSet.trim",
+          "lineNumber": 215
+        },
+        {
+          "caller": "startGtid",
+          "callee": "gtidSet.replace(\"\\n\", \"\").replace",
+          "lineNumber": 217
+        },
+        {
+          "caller": "startGtid",
+          "callee": "gtidSet.replace",
+          "lineNumber": 217
+        },
+        {
+          "caller": "startGtid",
+          "callee": "Strings.defaultIfBlank",
+          "lineNumber": 220
+        },
+        {
+          "caller": "startNextTransaction",
+          "callee": "sourceInfo.binlogFilename",
+          "lineNumber": 234
+        },
+        {
+          "caller": "startNextTransaction",
+          "callee": "sourceInfo.binlogPosition",
+          "lineNumber": 235
+        },
+        {
+          "caller": "startNextTransaction",
+          "callee": "setTransactionId",
+          "lineNumber": 237
+        },
+        {
+          "caller": "commitTransaction",
+          "callee": "sourceInfo.binlogFilename",
+          "lineNumber": 242
+        },
+        {
+          "caller": "commitTransaction",
+          "callee": "sourceInfo.binlogPosition",
+          "lineNumber": 243
+        },
+        {
+          "caller": "commitTransaction",
+          "callee": "sourceInfo.setQuery",
+          "lineNumber": 247
+        },
+        {
+          "caller": "commitTransaction",
+          "callee": "resetTransactionId",
+          "lineNumber": 248
+        },
+        {
+          "caller": "setEventPosition",
+          "callee": "sourceInfo.setEventPosition",
+          "lineNumber": 263
+        },
+        {
+          "caller": "setQuery",
+          "callee": "sourceInfo.setQuery",
+          "lineNumber": 281
+        },
+        {
+          "caller": "setRowNumber",
+          "callee": "sourceInfo.setRowNumber",
+          "lineNumber": 322
+        },
+        {
+          "caller": "setBinlogServerId",
+          "callee": "sourceInfo.setBinlogServerId",
+          "lineNumber": 335
+        },
+        {
+          "caller": "setBinlogThread",
+          "callee": "sourceInfo.setBinlogThread",
+          "lineNumber": 339
+        },
+        {
+          "caller": "setTransactionId",
+          "callee": "sourceInfo.getCurrentGtid",
+          "lineNumber": 344
+        },
+        {
+          "caller": "setTransactionId",
+          "callee": "sourceInfo.getCurrentGtid",
+          "lineNumber": 345
+        },
+        {
+          "caller": "setTransactionId",
+          "callee": "String.format",
+          "lineNumber": 348
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "new HashMap<>",
+          "lineNumber": 360
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "sourceInfo.getServerId",
+          "lineNumber": 361
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "map.put",
+          "lineNumber": 362
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "sourceInfo.getServerId",
+          "lineNumber": 362
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "map.put",
+          "lineNumber": 364
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "map.put",
+          "lineNumber": 368
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "map.put",
+          "lineNumber": 370
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "map.put",
+          "lineNumber": 371
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "map.put",
+          "lineNumber": 373
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "map.put",
+          "lineNumber": 376
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "sourceInfo.timestamp",
+          "lineNumber": 378
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "map.put",
+          "lineNumber": 379
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "sourceInfo.timestamp().getEpochSecond",
+          "lineNumber": 379
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "sourceInfo.timestamp",
+          "lineNumber": 379
+        },
+        {
+          "caller": "offsetUsingPosition",
+          "callee": "map.put",
+          "lineNumber": 381
+        },
+        {
+          "caller": "isTrue",
+          "callee": "Boolean.TRUE.equals",
+          "lineNumber": 389
+        },
+        {
+          "caller": "isTrue",
+          "callee": "offset.get",
+          "lineNumber": 389
+        },
+        {
+          "caller": "isTrue",
+          "callee": "\"true\".equals",
+          "lineNumber": 389
+        },
+        {
+          "caller": "isTrue",
+          "callee": "offset.get",
+          "lineNumber": 389
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 35,
+        "functionCount": 33,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/history/BinlogHistoryRecordComparator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 304,
+      "nonEmptyLines": 276,
+      "functions": [
+        {
+          "name": "BinlogHistoryRecordComparator",
+          "startLine": 48,
+          "endLine": 52,
+          "params": [
+            "gtidSourceFilter",
+            "gtidSetFactory"
+          ]
+        },
+        {
+          "name": "isPositionAtOrBefore",
+          "startLine": 72,
+          "endLine": 171,
+          "params": [
+            "recorded",
+            "desired"
+          ]
+        },
+        {
+          "name": "getGtidSet",
+          "startLine": 179,
+          "endLine": 181,
+          "params": [
+            "document"
+          ]
+        },
+        {
+          "name": "getServerId",
+          "startLine": 189,
+          "endLine": 191,
+          "params": [
+            "document"
+          ]
+        },
+        {
+          "name": "isSnapshot",
+          "startLine": 199,
+          "endLine": 201,
+          "params": [
+            "document"
+          ]
+        },
+        {
+          "name": "getTimestamp",
+          "startLine": 209,
+          "endLine": 211,
+          "params": [
+            "document"
+          ]
+        },
+        {
+          "name": "getBinlogFileName",
+          "startLine": 219,
+          "endLine": 221,
+          "params": [
+            "document"
+          ]
+        },
+        {
+          "name": "getBinlogPosition",
+          "startLine": 229,
+          "endLine": 231,
+          "params": [
+            "document"
+          ]
+        },
+        {
+          "name": "getEventsToSkip",
+          "startLine": 239,
+          "endLine": 241,
+          "params": [
+            "document"
+          ]
+        },
+        {
+          "name": "getBinlogRowInEvent",
+          "startLine": 249,
+          "endLine": 251,
+          "params": [
+            "document"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BinlogHistoryRecordComparator",
+          "startLine": 41,
+          "endLine": 304,
+          "methods": [
+            "BinlogHistoryRecordComparator",
+            "isPositionAtOrBefore",
+            "getGtidSet",
+            "getServerId",
+            "isSnapshot",
+            "getTimestamp",
+            "getBinlogFileName",
+            "getBinlogPosition",
+            "getEventsToSkip",
+            "getBinlogRowInEvent"
+          ],
+          "properties": [
+            "LOGGER",
+            "gtidSourceFilter",
+            "gtidSetFactory"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BinlogHistoryRecordComparator",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "isPositionAtOrBefore",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "BinlogHistoryRecordComparator",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "LOGGER.debug",
+          "lineNumber": 75
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "LOGGER.debug",
+          "lineNumber": 76
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getGtidSet",
+          "lineNumber": 77
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getGtidSet",
+          "lineNumber": 78
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "gtidSetFactory.createGtidSet",
+          "lineNumber": 83
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "gtidSetFactory.createGtidSet",
+          "lineNumber": 84
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "recordedGtidSet.retainAll",
+          "lineNumber": 87
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "desiredGtidSet.retainAll",
+          "lineNumber": 88
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "recordedGtidSet.equals",
+          "lineNumber": 90
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "isSnapshot",
+          "lineNumber": 92
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "isSnapshot",
+          "lineNumber": 92
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "recorded.getInteger",
+          "lineNumber": 100
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "desired.getInteger",
+          "lineNumber": 102
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "recordedGtidSet.isContainedWithin",
+          "lineNumber": 111
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getServerId",
+          "lineNumber": 134
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getServerId",
+          "lineNumber": 134
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getTimestamp",
+          "lineNumber": 139
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getTimestamp",
+          "lineNumber": 139
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getBinlogFileName",
+          "lineNumber": 143
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getBinlogFileName",
+          "lineNumber": 144
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "recordedFileName.compareTo",
+          "lineNumber": 145
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getBinlogPosition",
+          "lineNumber": 151
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getBinlogPosition",
+          "lineNumber": 152
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getEventsToSkip",
+          "lineNumber": 159
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getEventsToSkip",
+          "lineNumber": 160
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getBinlogRowInEvent",
+          "lineNumber": 167
+        },
+        {
+          "caller": "isPositionAtOrBefore",
+          "callee": "getBinlogRowInEvent",
+          "lineNumber": 168
+        },
+        {
+          "caller": "getGtidSet",
+          "callee": "document.getString",
+          "lineNumber": 180
+        },
+        {
+          "caller": "getServerId",
+          "callee": "document.getInteger",
+          "lineNumber": 190
+        },
+        {
+          "caller": "isSnapshot",
+          "callee": "document.has",
+          "lineNumber": 200
+        },
+        {
+          "caller": "getTimestamp",
+          "callee": "document.getLong",
+          "lineNumber": 210
+        },
+        {
+          "caller": "getBinlogFileName",
+          "callee": "BinlogFileName.of",
+          "lineNumber": 220
+        },
+        {
+          "caller": "getBinlogFileName",
+          "callee": "document.getString",
+          "lineNumber": 220
+        },
+        {
+          "caller": "getBinlogPosition",
+          "callee": "document.getInteger",
+          "lineNumber": 230
+        },
+        {
+          "caller": "getEventsToSkip",
+          "callee": "document.getInteger",
+          "lineNumber": 240
+        },
+        {
+          "caller": "getBinlogRowInEvent",
+          "callee": "document.getInteger",
+          "lineNumber": 250
+        },
+        {
+          "caller": "compareTo",
+          "callee": "baseName.equals",
+          "lineNumber": 264
+        },
+        {
+          "caller": "compareTo",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 265
+        },
+        {
+          "caller": "compareTo",
+          "callee": "Long.compare",
+          "lineNumber": 268
+        },
+        {
+          "caller": "of",
+          "callee": "fileName.lastIndexOf",
+          "lineNumber": 284
+        },
+        {
+          "caller": "of",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 286
+        },
+        {
+          "caller": "of",
+          "callee": "fileName.substring",
+          "lineNumber": 290
+        },
+        {
+          "caller": "of",
+          "callee": "fileName.substring",
+          "lineNumber": 291
+        },
+        {
+          "caller": "of",
+          "callee": "Long.parseLong",
+          "lineNumber": 295
+        },
+        {
+          "caller": "of",
+          "callee": "new IllegalArgumentException",
+          "lineNumber": 297
+        },
+        {
+          "caller": "of",
+          "callee": "new BinlogFileName",
+          "lineNumber": 301
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 111,
+      "nonEmptyLines": 99,
+      "functions": [
+        {
+          "name": "MySqlOffsetContext",
+          "startLine": 41,
+          "endLine": 53,
+          "params": [
+            "snapshot",
+            "snapshotCompleted",
+            "transactionContext",
+            "incrementalSnapshotContext",
+            "sourceInfo"
+          ]
+        },
+        {
+          "name": "initial",
+          "startLine": 55,
+          "endLine": 67,
+          "params": [
+            "config"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MySqlOffsetContext",
+          "startLine": 38,
+          "endLine": 111,
+          "methods": [
+            "MySqlOffsetContext",
+            "initial"
+          ],
+          "properties": [
+            "LOGGER"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MySqlOffsetContext",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "initial",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "MySqlOffsetContext",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "initial",
+          "callee": "new MySqlOffsetContext",
+          "lineNumber": 57
+        },
+        {
+          "caller": "initial",
+          "callee": "new TransactionContext",
+          "lineNumber": 60
+        },
+        {
+          "caller": "initial",
+          "callee": "config.isReadOnlyConnection",
+          "lineNumber": 61
+        },
+        {
+          "caller": "initial",
+          "callee": "new MySqlReadOnlyIncrementalSnapshotContext<>",
+          "lineNumber": 62
+        },
+        {
+          "caller": "initial",
+          "callee": "new SignalBasedIncrementalSnapshotContext<>",
+          "lineNumber": 63
+        },
+        {
+          "caller": "initial",
+          "callee": "new SourceInfo",
+          "lineNumber": 64
+        },
+        {
+          "caller": "initial",
+          "callee": "offset.setBinlogStartPoint",
+          "lineNumber": 65
+        },
+        {
+          "caller": "load",
+          "callee": "offset.get",
+          "lineNumber": 80
+        },
+        {
+          "caller": "load",
+          "callee": "new ConnectException",
+          "lineNumber": 82
+        },
+        {
+          "caller": "load",
+          "callee": "longOffsetValue",
+          "lineNumber": 87
+        },
+        {
+          "caller": "load",
+          "callee": "new MySqlOffsetContext",
+          "lineNumber": 89
+        },
+        {
+          "caller": "load",
+          "callee": "loadSnapshot(offset).orElse",
+          "lineNumber": 90
+        },
+        {
+          "caller": "load",
+          "callee": "loadSnapshot",
+          "lineNumber": 90
+        },
+        {
+          "caller": "load",
+          "callee": "loadSnapshotCompleted",
+          "lineNumber": 91
+        },
+        {
+          "caller": "load",
+          "callee": "TransactionContext.load",
+          "lineNumber": 92
+        },
+        {
+          "caller": "load",
+          "callee": "connectorConfig.isReadOnlyConnection",
+          "lineNumber": 93
+        },
+        {
+          "caller": "load",
+          "callee": "MySqlReadOnlyIncrementalSnapshotContext.load",
+          "lineNumber": 94
+        },
+        {
+          "caller": "load",
+          "callee": "SignalBasedIncrementalSnapshotContext.load",
+          "lineNumber": 95
+        },
+        {
+          "caller": "load",
+          "callee": "new SourceInfo",
+          "lineNumber": 96
+        },
+        {
+          "caller": "load",
+          "callee": "offsetContext.setBinlogStartPoint",
+          "lineNumber": 97
+        },
+        {
+          "caller": "load",
+          "callee": "offsetContext.setInitialSkips",
+          "lineNumber": 98
+        },
+        {
+          "caller": "load",
+          "callee": "longOffsetValue",
+          "lineNumber": 99
+        },
+        {
+          "caller": "load",
+          "callee": "longOffsetValue",
+          "lineNumber": 100
+        },
+        {
+          "caller": "load",
+          "callee": "offsetContext.setCompletedGtidSet",
+          "lineNumber": 101
+        },
+        {
+          "caller": "load",
+          "callee": "offset.get",
+          "lineNumber": 101
+        },
+        {
+          "caller": "load",
+          "callee": "LOGGER.debug",
+          "lineNumber": 103
+        },
+        {
+          "caller": "load",
+          "callee": "longOffsetValue",
+          "lineNumber": 104
+        },
+        {
+          "caller": "load",
+          "callee": "offsetContext.setServerIdFromOffset",
+          "lineNumber": 105
+        },
+        {
+          "caller": "load",
+          "callee": "longOffsetValue",
+          "lineNumber": 106
+        },
+        {
+          "caller": "load",
+          "callee": "offsetContext.setTsSecFromOffset",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    }
+  ]
+}

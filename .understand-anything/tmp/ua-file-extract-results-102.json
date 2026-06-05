@@ -1,0 +1,1814 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/common/proc_macro/src/config.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "type_is_option",
+          "startLine": 33,
+          "endLine": 42,
+          "params": [
+            "ty"
+          ]
+        },
+        {
+          "name": "produce_override_config",
+          "startLine": 44,
+          "endLine": 98,
+          "params": [
+            "input"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "OverrideOpts",
+          "startLine": 22,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "path",
+            "if_absent"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OverrideOpts",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "produce_override_config",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "type_is_option",
+          "callee": "path.segments.last",
+          "lineNumber": 35
+        },
+        {
+          "caller": "produce_override_config",
+          "callee": "Vec::new",
+          "lineNumber": 49
+        },
+        {
+          "caller": "produce_override_config",
+          "callee": "type_is_option",
+          "lineNumber": 52
+        },
+        {
+          "caller": "produce_override_config",
+          "callee": "OverrideOpts::try_from_attributes(std::slice::from_ref(attr)).expect_or_abort",
+          "lineNumber": 57
+        },
+        {
+          "caller": "produce_override_config",
+          "callee": "OverrideOpts::try_from_attributes",
+          "lineNumber": 57
+        },
+        {
+          "caller": "produce_override_config",
+          "callee": "std::slice::from_ref",
+          "lineNumber": 57
+        },
+        {
+          "caller": "produce_override_config",
+          "callee": "if_absent.is_some",
+          "lineNumber": 77
+        },
+        {
+          "caller": "produce_override_config",
+          "callee": "override_stmts.push",
+          "lineNumber": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/proc_macro/src/config_doc.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 164,
+      "nonEmptyLines": 149,
+      "functions": [
+        {
+          "name": "generate_config_doc_fn",
+          "startLine": 19,
+          "endLine": 38,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "extract_comment",
+          "startLine": 40,
+          "endLine": 65,
+          "params": [
+            "attrs"
+          ]
+        },
+        {
+          "name": "is_nested_config_field",
+          "startLine": 67,
+          "endLine": 75,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "is_omitted_config_field",
+          "startLine": 77,
+          "endLine": 85,
+          "params": [
+            "field"
+          ]
+        },
+        {
+          "name": "field_name",
+          "startLine": 87,
+          "endLine": 92,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 102,
+          "endLine": 107,
+          "params": []
+        },
+        {
+          "name": "extract_field_docs",
+          "startLine": 109,
+          "endLine": 132,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "token_vec_fields",
+          "startLine": 134,
+          "endLine": 146,
+          "params": []
+        },
+        {
+          "name": "token_call_nested_fields",
+          "startLine": 148,
+          "endLine": 163,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "StructFieldDocs",
+          "startLine": 94,
+          "endLine": 99,
+          "methods": [
+            "new",
+            "extract_field_docs",
+            "token_vec_fields",
+            "token_call_nested_fields"
+          ],
+          "properties": [
+            "nested_fields",
+            "fields"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "generate_config_doc_fn",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generate_config_doc_fn",
+          "callee": "StructFieldDocs::new",
+          "lineNumber": 20
+        },
+        {
+          "caller": "generate_config_doc_fn",
+          "callee": "doc.extract_field_docs",
+          "lineNumber": 24
+        },
+        {
+          "caller": "generate_config_doc_fn",
+          "callee": "doc.token_vec_fields",
+          "lineNumber": 28
+        },
+        {
+          "caller": "generate_config_doc_fn",
+          "callee": "doc.token_call_nested_fields",
+          "lineNumber": 29
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "attrs\n        .iter()\n        .filter_map(|attr| {\n            if let Ok(meta) = attr.parse_meta()\n                && meta.path().is_ident(\"doc\")\n                && let syn::Meta::NameValue(syn::MetaNameValue {\n                    lit: syn::Lit::Str(comment),\n                    ..\n                }) = meta\n            {\n                Some(comment.value())\n            } else {\n                None\n            }\n        })\n        .filter_map(|comment| {\n            let trimmed = comment.trim();\n            if trimmed.is_empty() {\n                None\n            } else {\n                Some(trimmed.to_owned())\n            }\n        }).join",
+          "lineNumber": 41
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "attrs\n        .iter()\n        .filter_map(|attr| {\n            if let Ok(meta) = attr.parse_meta()\n                && meta.path().is_ident(\"doc\")\n                && let syn::Meta::NameValue(syn::MetaNameValue {\n                    lit: syn::Lit::Str(comment),\n                    ..\n                }) = meta\n            {\n                Some(comment.value())\n            } else {\n                None\n            }\n        }).filter_map",
+          "lineNumber": 41
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "attrs\n        .iter().filter_map",
+          "lineNumber": 41
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "attrs.iter",
+          "lineNumber": 41
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "attr.parse_meta",
+          "lineNumber": 44
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "meta.path().is_ident",
+          "lineNumber": 45
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "meta.path",
+          "lineNumber": 45
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "Some",
+          "lineNumber": 51
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "comment.value",
+          "lineNumber": 51
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "comment.trim",
+          "lineNumber": 57
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "trimmed.is_empty",
+          "lineNumber": 58
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "Some",
+          "lineNumber": 61
+        },
+        {
+          "caller": "extract_comment",
+          "callee": "trimmed.to_owned",
+          "lineNumber": 61
+        },
+        {
+          "caller": "is_nested_config_field",
+          "callee": "field.attrs.iter().any",
+          "lineNumber": 68
+        },
+        {
+          "caller": "is_nested_config_field",
+          "callee": "field.attrs.iter",
+          "lineNumber": 68
+        },
+        {
+          "caller": "is_nested_config_field",
+          "callee": "attr.path.get_ident",
+          "lineNumber": 69
+        },
+        {
+          "caller": "is_nested_config_field",
+          "callee": "attr.tokens.to_string",
+          "lineNumber": 70
+        },
+        {
+          "caller": "is_omitted_config_field",
+          "callee": "field.attrs.iter().any",
+          "lineNumber": 78
+        },
+        {
+          "caller": "is_omitted_config_field",
+          "callee": "field.attrs.iter",
+          "lineNumber": 78
+        },
+        {
+          "caller": "is_omitted_config_field",
+          "callee": "attr.path.get_ident",
+          "lineNumber": 79
+        },
+        {
+          "caller": "is_omitted_config_field",
+          "callee": "attr.tokens.to_string",
+          "lineNumber": 80
+        },
+        {
+          "caller": "field_name",
+          "callee": "f.ident\n        .as_ref()\n        .expect(\"field name should not be empty\").to_string",
+          "lineNumber": 88
+        },
+        {
+          "caller": "field_name",
+          "callee": "f.ident\n        .as_ref().expect",
+          "lineNumber": 88
+        },
+        {
+          "caller": "field_name",
+          "callee": "f.ident.as_ref",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "fields\n                    .named\n                    .iter()\n                    .filter_map(|field| {\n                        if is_omitted_config_field(field) {\n                            return None;\n                        }\n                        if is_nested_config_field(field) {\n                            self.nested_fields\n                                .push((field_name(field), field.ty.clone()));\n                            return None;\n                        }\n                        let field_name = field.ident.as_ref()?.to_string();\n                        let rustdoc = extract_comment(&field.attrs);\n                        Some((field_name, rustdoc))\n                    }).collect_vec",
+          "lineNumber": 112
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "fields\n                    .named\n                    .iter().filter_map",
+          "lineNumber": 112
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "fields\n                    .named.iter",
+          "lineNumber": 112
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "is_omitted_config_field",
+          "lineNumber": 116
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "is_nested_config_field",
+          "lineNumber": 119
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "self.nested_fields.push",
+          "lineNumber": 120
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "field_name",
+          "lineNumber": 121
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "field.ty.clone",
+          "lineNumber": 121
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "field.ident.as_ref()?.to_string",
+          "lineNumber": 124
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "field.ident.as_ref",
+          "lineNumber": 124
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "extract_comment",
+          "lineNumber": 125
+        },
+        {
+          "caller": "extract_field_docs",
+          "callee": "Some",
+          "lineNumber": 126
+        },
+        {
+          "caller": "token_vec_fields",
+          "callee": "self\n            .fields\n            .iter()\n            .map(|(name, doc)| {\n                quote! { (#name.to_string(), #doc.to_string()) }\n            }).collect",
+          "lineNumber": 135
+        },
+        {
+          "caller": "token_vec_fields",
+          "callee": "self\n            .fields\n            .iter().map",
+          "lineNumber": 135
+        },
+        {
+          "caller": "token_vec_fields",
+          "callee": "self\n            .fields.iter",
+          "lineNumber": 135
+        },
+        {
+          "caller": "token_call_nested_fields",
+          "callee": "self\n            .nested_fields\n            .iter()\n            .map(|(ident, ty)| {\n                quote! {\n                    if name.is_empty() {\n                        #ty::config_docs(#ident.to_string(), docs);\n                    } else {\n                        #ty::config_docs(format!(\"{}.{}\", name, #ident), docs);\n                    }\n                }\n            }).collect",
+          "lineNumber": 149
+        },
+        {
+          "caller": "token_call_nested_fields",
+          "callee": "self\n            .nested_fields\n            .iter().map",
+          "lineNumber": 149
+        },
+        {
+          "caller": "token_call_nested_fields",
+          "callee": "self\n            .nested_fields.iter",
+          "lineNumber": 149
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/proc_macro/src/estimate_size.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 147,
+      "nonEmptyLines": 134,
+      "functions": [
+        {
+          "name": "has_nested_flag_attribute",
+          "startLine": 35,
+          "endLine": 58,
+          "params": [
+            "attr",
+            "name",
+            "flag"
+          ]
+        },
+        {
+          "name": "has_nested_flag_attribute_list",
+          "startLine": 60,
+          "endLine": 72,
+          "params": [
+            "list",
+            "name",
+            "flag"
+          ]
+        },
+        {
+          "name": "extract_ignored_generics_list",
+          "startLine": 74,
+          "endLine": 84,
+          "params": [
+            "list"
+          ]
+        },
+        {
+          "name": "extract_ignored_generics",
+          "startLine": 86,
+          "endLine": 126,
+          "params": [
+            "attr"
+          ]
+        },
+        {
+          "name": "add_trait_bounds",
+          "startLine": 129,
+          "endLine": 147,
+          "params": [
+            "generics",
+            "ignored"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "has_nested_flag_attribute_list",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "extract_ignored_generics_list",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "extract_ignored_generics",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "add_trait_bounds",
+          "line": 129,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "has_nested_flag_attribute",
+          "callee": "attr.parse_meta",
+          "lineNumber": 40
+        },
+        {
+          "caller": "has_nested_flag_attribute",
+          "callee": "meta.path().get_ident",
+          "lineNumber": 41
+        },
+        {
+          "caller": "has_nested_flag_attribute",
+          "callee": "meta.path",
+          "lineNumber": 41
+        },
+        {
+          "caller": "has_nested_flag_attribute",
+          "callee": "path\n                    .get_ident()\n                    .expect(\"Invalid attribute syntax! (no ident)\").to_string",
+          "lineNumber": 47
+        },
+        {
+          "caller": "has_nested_flag_attribute",
+          "callee": "path\n                    .get_ident().expect",
+          "lineNumber": 47
+        },
+        {
+          "caller": "has_nested_flag_attribute",
+          "callee": "path.get_ident",
+          "lineNumber": 47
+        },
+        {
+          "caller": "has_nested_flag_attribute_list",
+          "callee": "has_nested_flag_attribute",
+          "lineNumber": 66
+        },
+        {
+          "caller": "extract_ignored_generics_list",
+          "callee": "Vec::new",
+          "lineNumber": 75
+        },
+        {
+          "caller": "extract_ignored_generics_list",
+          "callee": "extract_ignored_generics",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extract_ignored_generics_list",
+          "callee": "collection.append",
+          "lineNumber": 80
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "Vec::new",
+          "lineNumber": 87
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "attr.parse_meta",
+          "lineNumber": 89
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "meta.path().get_ident",
+          "lineNumber": 90
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "meta.path",
+          "lineNumber": 90
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "ident.to_string",
+          "lineNumber": 92
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "nmeta\n                        .path()\n                        .get_ident().expect",
+          "lineNumber": 98
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "nmeta\n                        .path().get_ident",
+          "lineNumber": 98
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "nmeta.path",
+          "lineNumber": 98
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "ident.to_string",
+          "lineNumber": 102
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "path\n                                    .get_ident()\n                                    .expect(\"Invalid attribute syntax! (no ident)\").to_string",
+          "lineNumber": 112
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "path\n                                    .get_ident().expect",
+          "lineNumber": 112
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "path.get_ident",
+          "lineNumber": 112
+        },
+        {
+          "caller": "extract_ignored_generics",
+          "callee": "collection.push",
+          "lineNumber": 116
+        },
+        {
+          "caller": "add_trait_bounds",
+          "callee": "type_param.ident.to_string",
+          "lineNumber": 132
+        },
+        {
+          "caller": "add_trait_bounds",
+          "callee": "type_param.bounds.push",
+          "lineNumber": 143
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/proc_macro/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 327,
+      "nonEmptyLines": 282,
+      "functions": [
+        {
+          "name": "override_config",
+          "startLine": 60,
+          "endLine": 66,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "derive_estimate_size",
+          "startLine": 71,
+          "endLine": 251,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "session_config",
+          "startLine": 264,
+          "endLine": 267,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "config_doc",
+          "startLine": 303,
+          "endLine": 309,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "serde_prefix_all",
+          "startLine": 319,
+          "endLine": 327,
+          "params": [
+            "attrs",
+            "item"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "override_config",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "derive_estimate_size",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "session_config",
+          "line": 264,
+          "isDefault": false
+        },
+        {
+          "name": "config_doc",
+          "line": 303,
+          "isDefault": false
+        },
+        {
+          "name": "serde_prefix_all",
+          "line": 319,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "override_config",
+          "callee": "config::produce_override_config",
+          "lineNumber": 63
+        },
+        {
+          "caller": "override_config",
+          "callee": "r#gen.into",
+          "lineNumber": 65
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "syn::parse(input).unwrap",
+          "lineNumber": 74
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "syn::parse",
+          "lineNumber": 74
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "extract_ignored_generics_list",
+          "lineNumber": 80
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "add_trait_bounds",
+          "lineNumber": 83
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "generics.split_for_impl",
+          "lineNumber": 86
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "data_enum.variants.is_empty",
+          "lineNumber": 91
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "r#gen.into",
+          "lineNumber": 100
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 103
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "data_enum.variants.len",
+          "lineNumber": 103
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "unnamed_fields.unnamed.len",
+          "lineNumber": 110
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 112
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "String::from",
+          "lineNumber": 114
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "i.to_string",
+          "lineNumber": 114
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "syn::parse_str::<syn::Ident>(&field_ident).unwrap",
+          "lineNumber": 115
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "syn::parse_str::<syn::Ident>",
+          "lineNumber": 115
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "field_idents.push",
+          "lineNumber": 117
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 120
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "unnamed_fields.unnamed.iter().enumerate",
+          "lineNumber": 122
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "unnamed_fields.unnamed.iter",
+          "lineNumber": 122
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "String::from",
+          "lineNumber": 123
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "i.to_string",
+          "lineNumber": 123
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "syn::parse_str::<syn::Ident>(&field_ident).unwrap",
+          "lineNumber": 124
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "syn::parse_str::<syn::Ident>",
+          "lineNumber": 124
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "field_cmds.push",
+          "lineNumber": 126
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "cmds.push",
+          "lineNumber": 131
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "named_fields.named.len",
+          "lineNumber": 142
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 144
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 146
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "field.ident.as_ref().unwrap",
+          "lineNumber": 149
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "field.ident.as_ref",
+          "lineNumber": 149
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "field_idents.push",
+          "lineNumber": 151
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "field_cmds.push",
+          "lineNumber": 153
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "cmds.push",
+          "lineNumber": 158
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "cmds.push",
+          "lineNumber": 169
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "r#gen.into",
+          "lineNumber": 186
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "data_struct.fields.is_empty",
+          "lineNumber": 192
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "r#gen.into",
+          "lineNumber": 201
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 204
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "data_struct.fields.len",
+          "lineNumber": 204
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "unnamed_fields.unnamed.iter().enumerate",
+          "lineNumber": 208
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "unnamed_fields.unnamed.iter",
+          "lineNumber": 208
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "has_nested_flag_attribute_list",
+          "lineNumber": 210
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "syn::Index::from",
+          "lineNumber": 214
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "field_cmds.push",
+          "lineNumber": 215
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "has_nested_flag_attribute_list",
+          "lineNumber": 223
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "field.ident.as_ref().unwrap",
+          "lineNumber": 227
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "field.ident.as_ref",
+          "lineNumber": 227
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "field_cmds.push",
+          "lineNumber": 228
+        },
+        {
+          "caller": "derive_estimate_size",
+          "callee": "r#gen.into",
+          "lineNumber": 248
+        },
+        {
+          "caller": "session_config",
+          "callee": "session_config::derive_config(input).into",
+          "lineNumber": 266
+        },
+        {
+          "caller": "session_config",
+          "callee": "session_config::derive_config",
+          "lineNumber": 266
+        },
+        {
+          "caller": "config_doc",
+          "callee": "config_doc::generate_config_doc_fn",
+          "lineNumber": 306
+        },
+        {
+          "caller": "config_doc",
+          "callee": "r#gen.into",
+          "lineNumber": 308
+        },
+        {
+          "caller": "serde_prefix_all",
+          "callee": "serde_prefix_all::try_prefix_all",
+          "lineNumber": 323
+        },
+        {
+          "caller": "serde_prefix_all",
+          "callee": "err.into_compile_error().into",
+          "lineNumber": 325
+        },
+        {
+          "caller": "serde_prefix_all",
+          "callee": "err.into_compile_error",
+          "lineNumber": 325
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/proc_macro/src/serde_prefix_all.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 230,
+      "nonEmptyLines": 205,
+      "functions": [
+        {
+          "name": "parse_args",
+          "startLine": 61,
+          "endLine": 118,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "try_prefix_all",
+          "startLine": 120,
+          "endLine": 142,
+          "params": [
+            "args",
+            "input"
+          ]
+        },
+        {
+          "name": "create_attribute",
+          "startLine": 144,
+          "endLine": 150,
+          "params": [
+            "prefix",
+            "field_name",
+            "mode"
+          ]
+        },
+        {
+          "name": "take_skip_attr",
+          "startLine": 152,
+          "endLine": 200,
+          "params": [
+            "attrs"
+          ]
+        },
+        {
+          "name": "handle_enum",
+          "startLine": 202,
+          "endLine": 215,
+          "params": [
+            "input",
+            "prefix",
+            "mode"
+          ]
+        },
+        {
+          "name": "handle_struct",
+          "startLine": 217,
+          "endLine": 230,
+          "params": [
+            "input",
+            "prefix",
+            "mode"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Mode",
+          "startLine": 50,
+          "endLine": 53,
+          "methods": [],
+          "properties": [
+            "Rename",
+            "Alias"
+          ]
+        },
+        {
+          "name": "ParsedArgs",
+          "startLine": 55,
+          "endLine": 59,
+          "methods": [],
+          "properties": [
+            "prefix",
+            "prefix_span",
+            "mode"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "try_prefix_all",
+          "line": 120,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parse_args",
+          "callee": "prefix.is_none",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Some",
+          "lineNumber": 68
+        },
+        {
+          "caller": "parse_args",
+          "callee": "lit_str.value",
+          "lineNumber": 68
+        },
+        {
+          "caller": "parse_args",
+          "callee": "lit_str.span",
+          "lineNumber": 68
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Err",
+          "lineNumber": 71
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Error::new",
+          "lineNumber": 71
+        },
+        {
+          "caller": "parse_args",
+          "callee": "lit_str.span",
+          "lineNumber": 72
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Err",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Error::new",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse_args",
+          "callee": "lit.span",
+          "lineNumber": 77
+        },
+        {
+          "caller": "parse_args",
+          "callee": "path.is_ident",
+          "lineNumber": 80
+        },
+        {
+          "caller": "parse_args",
+          "callee": "mode.is_some",
+          "lineNumber": 82
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Err",
+          "lineNumber": 83
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Error::new",
+          "lineNumber": 83
+        },
+        {
+          "caller": "parse_args",
+          "callee": "path.span",
+          "lineNumber": 83
+        },
+        {
+          "caller": "parse_args",
+          "callee": "lit_str.value().as_str",
+          "lineNumber": 87
+        },
+        {
+          "caller": "parse_args",
+          "callee": "lit_str.value",
+          "lineNumber": 87
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Err",
+          "lineNumber": 91
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Error::new",
+          "lineNumber": 91
+        },
+        {
+          "caller": "parse_args",
+          "callee": "lit_str.span",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Err",
+          "lineNumber": 97
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Error::new",
+          "lineNumber": 97
+        },
+        {
+          "caller": "parse_args",
+          "callee": "lit.span",
+          "lineNumber": 97
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Some",
+          "lineNumber": 100
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Err",
+          "lineNumber": 103
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Error::new",
+          "lineNumber": 103
+        },
+        {
+          "caller": "parse_args",
+          "callee": "meta.span",
+          "lineNumber": 104
+        },
+        {
+          "caller": "parse_args",
+          "callee": "prefix.ok_or_else",
+          "lineNumber": 112
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Error::new",
+          "lineNumber": 112
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Span::call_site",
+          "lineNumber": 112
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Ok",
+          "lineNumber": 113
+        },
+        {
+          "caller": "parse_args",
+          "callee": "mode.unwrap_or",
+          "lineNumber": 116
+        },
+        {
+          "caller": "try_prefix_all",
+          "callee": "parse_args",
+          "lineNumber": 128
+        },
+        {
+          "caller": "try_prefix_all",
+          "callee": "handle_enum",
+          "lineNumber": 131
+        },
+        {
+          "caller": "try_prefix_all",
+          "callee": "handle_struct",
+          "lineNumber": 132
+        },
+        {
+          "caller": "try_prefix_all",
+          "callee": "Err",
+          "lineNumber": 134
+        },
+        {
+          "caller": "try_prefix_all",
+          "callee": "Error::new",
+          "lineNumber": 134
+        },
+        {
+          "caller": "try_prefix_all",
+          "callee": "Ok",
+          "lineNumber": 141
+        },
+        {
+          "caller": "try_prefix_all",
+          "callee": "input.to_token_stream().into",
+          "lineNumber": 141
+        },
+        {
+          "caller": "try_prefix_all",
+          "callee": "input.to_token_stream",
+          "lineNumber": 141
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 154
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "attrs.len",
+          "lineNumber": 154
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "attrs.drain",
+          "lineNumber": 156
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "attr.path.is_ident",
+          "lineNumber": 157
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "filtered.push",
+          "lineNumber": 158
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "attr.parse_meta",
+          "lineNumber": 162
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "path.is_ident",
+          "lineNumber": 168
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "Err",
+          "lineNumber": 172
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "Error::new",
+          "lineNumber": 172
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "nested.span",
+          "lineNumber": 173
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "Err",
+          "lineNumber": 181
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "Error::new",
+          "lineNumber": 181
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "list.span",
+          "lineNumber": 182
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "Err",
+          "lineNumber": 190
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "Error::new",
+          "lineNumber": 190
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "meta.span",
+          "lineNumber": 191
+        },
+        {
+          "caller": "take_skip_attr",
+          "callee": "Ok",
+          "lineNumber": 199
+        },
+        {
+          "caller": "handle_enum",
+          "callee": "variants.iter_mut",
+          "lineNumber": 204
+        },
+        {
+          "caller": "handle_enum",
+          "callee": "take_skip_attr",
+          "lineNumber": 205
+        },
+        {
+          "caller": "handle_enum",
+          "callee": "variant.ident.to_string",
+          "lineNumber": 209
+        },
+        {
+          "caller": "handle_enum",
+          "callee": "create_attribute",
+          "lineNumber": 210
+        },
+        {
+          "caller": "handle_enum",
+          "callee": "variant.attrs.push",
+          "lineNumber": 211
+        },
+        {
+          "caller": "handle_enum",
+          "callee": "Ok",
+          "lineNumber": 214
+        },
+        {
+          "caller": "handle_struct",
+          "callee": "fields.iter_mut",
+          "lineNumber": 219
+        },
+        {
+          "caller": "handle_struct",
+          "callee": "take_skip_attr",
+          "lineNumber": 220
+        },
+        {
+          "caller": "handle_struct",
+          "callee": "field.ident.as_ref().unwrap().to_string",
+          "lineNumber": 224
+        },
+        {
+          "caller": "handle_struct",
+          "callee": "field.ident.as_ref().unwrap",
+          "lineNumber": 224
+        },
+        {
+          "caller": "handle_struct",
+          "callee": "field.ident.as_ref",
+          "lineNumber": 224
+        },
+        {
+          "caller": "handle_struct",
+          "callee": "create_attribute",
+          "lineNumber": 225
+        },
+        {
+          "caller": "handle_struct",
+          "callee": "field.attrs.push",
+          "lineNumber": 226
+        },
+        {
+          "caller": "handle_struct",
+          "callee": "Ok",
+          "lineNumber": 229
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 6,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/common/proc_macro/src/session_config.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 348,
+      "nonEmptyLines": 298,
+      "functions": [
+        {
+          "name": "derive_config",
+          "startLine": 30,
+          "endLine": 348,
+          "params": [
+            "input"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Parameter",
+          "startLine": 22,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "rename",
+            "alias",
+            "default",
+            "flags",
+            "check_hook"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "derive_config",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "derive_config",
+          "callee": "field.ident.expect_or_abort",
+          "lineNumber": 48
+        },
+        {
+          "caller": "derive_config",
+          "callee": "attr.path.is_ident",
+          "lineNumber": 53
+        },
+        {
+          "caller": "derive_config",
+          "callee": "attr.parse_meta().expect_or_abort",
+          "lineNumber": 54
+        },
+        {
+          "caller": "derive_config",
+          "callee": "attr.parse_meta",
+          "lineNumber": 54
+        },
+        {
+          "caller": "derive_config",
+          "callee": "doc_list.push",
+          "lineNumber": 58
+        },
+        {
+          "caller": "derive_config",
+          "callee": "desc.value().trim().to_owned",
+          "lineNumber": 58
+        },
+        {
+          "caller": "derive_config",
+          "callee": "desc.value().trim",
+          "lineNumber": 58
+        },
+        {
+          "caller": "derive_config",
+          "callee": "desc.value",
+          "lineNumber": 58
+        },
+        {
+          "caller": "derive_config",
+          "callee": "format!(\"r#\\\"{}\\\"#\", doc_list.join(\" \")).parse().unwrap",
+          "lineNumber": 63
+        },
+        {
+          "caller": "derive_config",
+          "callee": "format!(\"r#\\\"{}\\\"#\", doc_list.join(\" \")).parse",
+          "lineNumber": 63
+        },
+        {
+          "caller": "derive_config",
+          "callee": "Parameter::from_attributes(&field.attrs).expect_or_abort",
+          "lineNumber": 66
+        },
+        {
+          "caller": "derive_config",
+          "callee": "Parameter::from_attributes",
+          "lineNumber": 66
+        },
+        {
+          "caller": "derive_config",
+          "callee": "rename.value().is_ascii",
+          "lineNumber": 76
+        },
+        {
+          "caller": "derive_config",
+          "callee": "rename.value",
+          "lineNumber": 76
+        },
+        {
+          "caller": "derive_config",
+          "callee": "rename.value().to_ascii_lowercase",
+          "lineNumber": 76
+        },
+        {
+          "caller": "derive_config",
+          "callee": "rename.value",
+          "lineNumber": 76
+        },
+        {
+          "caller": "derive_config",
+          "callee": "rename.value",
+          "lineNumber": 76
+        },
+        {
+          "caller": "derive_config",
+          "callee": "alias_to_entry_name_branches.push",
+          "lineNumber": 87
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.map(|f| f.value()).unwrap_or_default",
+          "lineNumber": 92
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.map",
+          "lineNumber": 92
+        },
+        {
+          "caller": "derive_config",
+          "callee": "f.value",
+          "lineNumber": 92
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.split('|').map(|str| str.trim()).collect",
+          "lineNumber": 93
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.split('|').map",
+          "lineNumber": 93
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.split",
+          "lineNumber": 93
+        },
+        {
+          "caller": "derive_config",
+          "callee": "str.trim",
+          "lineNumber": 93
+        },
+        {
+          "caller": "derive_config",
+          "callee": "default_fields.push",
+          "lineNumber": 95
+        },
+        {
+          "caller": "derive_config",
+          "callee": "format!(\"r#\\\"Set parameter {} by a typed value.\\\"#\", entry_name)\n                .parse().unwrap",
+          "lineNumber": 104
+        },
+        {
+          "caller": "derive_config",
+          "callee": "format!(\"r#\\\"Set parameter {} by a typed value.\\\"#\", entry_name).parse",
+          "lineNumber": 104
+        },
+        {
+          "caller": "derive_config",
+          "callee": "format!(\"r#\\\"Set parameter {} by a string.\\\"#\", entry_name)\n            .parse().unwrap",
+          "lineNumber": 107
+        },
+        {
+          "caller": "derive_config",
+          "callee": "format!(\"r#\\\"Set parameter {} by a string.\\\"#\", entry_name).parse",
+          "lineNumber": 107
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.contains",
+          "lineNumber": 111
+        },
+        {
+          "caller": "derive_config",
+          "callee": "set_t_inner_func_name.clone",
+          "lineNumber": 112
+        },
+        {
+          "caller": "derive_config",
+          "callee": "set_t_func_name.clone",
+          "lineNumber": 114
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.contains",
+          "lineNumber": 131
+        },
+        {
+          "caller": "derive_config",
+          "callee": "quote!(#ty).to_string",
+          "lineNumber": 142
+        },
+        {
+          "caller": "derive_config",
+          "callee": "struct_impl_set.push",
+          "lineNumber": 148
+        },
+        {
+          "caller": "derive_config",
+          "callee": "struct_impl_reset.push",
+          "lineNumber": 182
+        },
+        {
+          "caller": "derive_config",
+          "callee": "format!(\"r#\\\"Get a value string of parameter {} \\\"#\", entry_name)\n                .parse().unwrap",
+          "lineNumber": 196
+        },
+        {
+          "caller": "derive_config",
+          "callee": "format!(\"r#\\\"Get a value string of parameter {} \\\"#\", entry_name).parse",
+          "lineNumber": 196
+        },
+        {
+          "caller": "derive_config",
+          "callee": "format!(\"r#\\\"Get a typed value of parameter {} \\\"#\", entry_name)\n                .parse().unwrap",
+          "lineNumber": 200
+        },
+        {
+          "caller": "derive_config",
+          "callee": "format!(\"r#\\\"Get a typed value of parameter {} \\\"#\", entry_name).parse",
+          "lineNumber": 200
+        },
+        {
+          "caller": "derive_config",
+          "callee": "struct_impl_get.push",
+          "lineNumber": 204
+        },
+        {
+          "caller": "derive_config",
+          "callee": "get_match_branches.push",
+          "lineNumber": 217
+        },
+        {
+          "caller": "derive_config",
+          "callee": "set_match_branches.push",
+          "lineNumber": 221
+        },
+        {
+          "caller": "derive_config",
+          "callee": "reset_match_branches.push",
+          "lineNumber": 225
+        },
+        {
+          "caller": "derive_config",
+          "callee": "list_all_list.push",
+          "lineNumber": 236
+        },
+        {
+          "caller": "derive_config",
+          "callee": "var_info.clone",
+          "lineNumber": 236
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.contains",
+          "lineNumber": 238
+        },
+        {
+          "caller": "derive_config",
+          "callee": "no_show_all.to_string().parse().unwrap",
+          "lineNumber": 239
+        },
+        {
+          "caller": "derive_config",
+          "callee": "no_show_all.to_string().parse",
+          "lineNumber": 239
+        },
+        {
+          "caller": "derive_config",
+          "callee": "no_show_all.to_string",
+          "lineNumber": 239
+        },
+        {
+          "caller": "derive_config",
+          "callee": "show_all_list.push",
+          "lineNumber": 241
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.contains(&\"NO_ALTER_SYS\").to_string().parse().unwrap",
+          "lineNumber": 245
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.contains(&\"NO_ALTER_SYS\").to_string().parse",
+          "lineNumber": 245
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.contains(&\"NO_ALTER_SYS\").to_string",
+          "lineNumber": 245
+        },
+        {
+          "caller": "derive_config",
+          "callee": "flags.contains",
+          "lineNumber": 245
+        },
+        {
+          "caller": "derive_config",
+          "callee": "entry_name_flags.push",
+          "lineNumber": 247
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

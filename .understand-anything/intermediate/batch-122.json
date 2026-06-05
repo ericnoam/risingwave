@@ -1,0 +1,119 @@
+{
+  "nodes": [
+    {
+      "id": "file:java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java",
+      "type": "file",
+      "name": "JDBCSqlRunner.java",
+      "filePath": "java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java",
+      "summary": "Entry point for the JDBC SQL runner that executes SQL files against a Snowflake database using JDBC, driven by SnowflakeJDBCSinkConfig for connection parameters.",
+      "tags": ["entry-point", "connector", "database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-jdbc-runner/src/test/java/com/risingwave/runner/JDBCSqlRunnerTest.java",
+      "type": "file",
+      "name": "JDBCSqlRunnerTest.java",
+      "filePath": "java/connector-node/risingwave-jdbc-runner/src/test/java/com/risingwave/runner/JDBCSqlRunnerTest.java",
+      "summary": "Unit tests for JDBCSqlRunner, verifying JDBC connection setup and SQL execution against a mock or test Snowflake configuration.",
+      "tags": ["test", "connector", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java",
+      "type": "file",
+      "name": "SnowflakeJDBCSinkConfig.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java",
+      "summary": "Parses and validates Snowflake JDBC sink configuration, handling both password and private-key authentication and building the JDBC connection URL and properties.",
+      "tags": ["configuration", "connector", "database"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java:SnowflakeJDBCSinkConfig",
+      "type": "class",
+      "name": "SnowflakeJDBCSinkConfig",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java",
+      "lineRange": [1, 242],
+      "summary": "Configuration class for the Snowflake JDBC sink, encapsulating account, database, schema, warehouse, and authentication (password or RSA private key) settings.",
+      "tags": ["configuration", "connector", "type-definition"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java:handleSnowflakeAuth",
+      "type": "function",
+      "name": "handleSnowflakeAuth",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java",
+      "lineRange": [100, 133],
+      "summary": "Selects and applies the appropriate Snowflake authentication method (password or private key JWT) to the JDBC properties object.",
+      "tags": ["configuration", "security", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java:JDBCSqlRunner",
+      "type": "class",
+      "name": "JDBCSqlRunner",
+      "filePath": "java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java",
+      "lineRange": [1, 88],
+      "summary": "Reads SQL statements from a file and executes them sequentially against a Snowflake JDBC connection configured by SnowflakeJDBCSinkConfig.",
+      "tags": ["connector", "database", "utility"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-jdbc-runner/src/test/java/com/risingwave/runner/JDBCSqlRunnerTest.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java:SnowflakeJDBCSinkConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java",
+      "target": "function:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java:handleSnowflakeAuth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/SnowflakeJDBCSinkConfig.java:SnowflakeJDBCSinkConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java",
+      "target": "class:java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java:JDBCSqlRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java",
+      "target": "class:java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java:JDBCSqlRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-jdbc-runner/src/test/java/com/risingwave/runner/JDBCSqlRunnerTest.java",
+      "target": "file:java/connector-node/risingwave-jdbc-runner/src/main/java/com/risingwave/runner/JDBCSqlRunner.java",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

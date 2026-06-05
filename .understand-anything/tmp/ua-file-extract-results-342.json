@@ -1,0 +1,2688 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "java/common-utils/src/main/java/com/risingwave/java/utils/ObjectSerde.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "serializeObject",
+          "startLine": 27,
+          "endLine": 41,
+          "params": [
+            "obj"
+          ]
+        },
+        {
+          "name": "deserializeObject",
+          "startLine": 43,
+          "endLine": 52,
+          "params": [
+            "payload"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ObjectSerde",
+          "startLine": 26,
+          "endLine": 53,
+          "methods": [
+            "serializeObject",
+            "deserializeObject"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "serializeObject",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "deserializeObject",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "ObjectSerde",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "serializeObject",
+          "callee": "new ByteArrayOutputStream",
+          "lineNumber": 28
+        },
+        {
+          "caller": "serializeObject",
+          "callee": "new ObjectOutputStream",
+          "lineNumber": 31
+        },
+        {
+          "caller": "serializeObject",
+          "callee": "stream.writeObject",
+          "lineNumber": 32
+        },
+        {
+          "caller": "serializeObject",
+          "callee": "stream.flush",
+          "lineNumber": 33
+        },
+        {
+          "caller": "serializeObject",
+          "callee": "output.toByteArray",
+          "lineNumber": 34
+        },
+        {
+          "caller": "serializeObject",
+          "callee": "output.close",
+          "lineNumber": 36
+        },
+        {
+          "caller": "serializeObject",
+          "callee": "new RuntimeException",
+          "lineNumber": 39
+        },
+        {
+          "caller": "deserializeObject",
+          "callee": "new ByteArrayInputStream",
+          "lineNumber": 45
+        },
+        {
+          "caller": "deserializeObject",
+          "callee": "new ObjectInputStream",
+          "lineNumber": 46
+        },
+        {
+          "caller": "deserializeObject",
+          "callee": "stream.readObject",
+          "lineNumber": 47
+        },
+        {
+          "caller": "deserializeObject",
+          "callee": "new RuntimeException",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/common-utils/src/main/java/com/risingwave/java/utils/UrlParser.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "parseLocationScheme",
+          "startLine": 25,
+          "endLine": 41,
+          "params": [
+            "location"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UrlParser",
+          "startLine": 24,
+          "endLine": 42,
+          "methods": [
+            "parseLocationScheme"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "parseLocationScheme",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "UrlParser",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseLocationScheme",
+          "callee": "new URI",
+          "lineNumber": 27
+        },
+        {
+          "caller": "parseLocationScheme",
+          "callee": "uri.getScheme",
+          "lineNumber": 28
+        },
+        {
+          "caller": "parseLocationScheme",
+          "callee": "INVALID_ARGUMENT\n                        .withDescription(\"location should set scheme (e.g. s3a://)\").asRuntimeException",
+          "lineNumber": 30
+        },
+        {
+          "caller": "parseLocationScheme",
+          "callee": "INVALID_ARGUMENT.withDescription",
+          "lineNumber": 30
+        },
+        {
+          "caller": "parseLocationScheme",
+          "callee": "INVALID_ARGUMENT\n                    .withDescription(String.format(\"invalid location uri: %s\", e.getMessage()))\n                    .withCause(e).asRuntimeException",
+          "lineNumber": 36
+        },
+        {
+          "caller": "parseLocationScheme",
+          "callee": "INVALID_ARGUMENT\n                    .withDescription(String.format(\"invalid location uri: %s\", e.getMessage())).withCause",
+          "lineNumber": 36
+        },
+        {
+          "caller": "parseLocationScheme",
+          "callee": "INVALID_ARGUMENT.withDescription",
+          "lineNumber": 36
+        },
+        {
+          "caller": "parseLocationScheme",
+          "callee": "String.format",
+          "lineNumber": 37
+        },
+        {
+          "caller": "parseLocationScheme",
+          "callee": "e.getMessage",
+          "lineNumber": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/common-utils/src/main/java/com/risingwave/java/utils/VnodeHelper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "splitGroup",
+          "startLine": 24,
+          "endLine": 44,
+          "params": [
+            "groupCount",
+            "vnodeCount",
+            "groupBuilder"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "VnodeHelper",
+          "startLine": 23,
+          "endLine": 45,
+          "methods": [
+            "splitGroup"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "splitGroup",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "VnodeHelper",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "splitGroup",
+          "callee": "new ArrayList<>",
+          "lineNumber": 26
+        },
+        {
+          "caller": "splitGroup",
+          "callee": "new ArrayList<>",
+          "lineNumber": 31
+        },
+        {
+          "caller": "splitGroup",
+          "callee": "vnodeIds.add",
+          "lineNumber": 33
+        },
+        {
+          "caller": "splitGroup",
+          "callee": "vnodeIds.add",
+          "lineNumber": 38
+        },
+        {
+          "caller": "splitGroup",
+          "callee": "groups.add",
+          "lineNumber": 41
+        },
+        {
+          "caller": "splitGroup",
+          "callee": "groupBuilder.apply",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/common-utils/src/test/java/com/risingwave/connector/utils/VnodeHelperTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "testVnodeSplit",
+          "startLine": 27,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "testSplitGroupInner",
+          "startLine": 33,
+          "endLine": 47,
+          "params": [
+            "splitCount",
+            "vnodeCount"
+          ]
+        },
+        {
+          "name": "assertContinuous",
+          "startLine": 49,
+          "endLine": 53,
+          "params": [
+            "vnodeIds"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "VnodeHelperTest",
+          "startLine": 26,
+          "endLine": 54,
+          "methods": [
+            "testVnodeSplit",
+            "testSplitGroupInner",
+            "assertContinuous"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "testVnodeSplit",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "VnodeHelperTest",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "testVnodeSplit",
+          "callee": "testSplitGroupInner",
+          "lineNumber": 29
+        },
+        {
+          "caller": "testVnodeSplit",
+          "callee": "testSplitGroupInner",
+          "lineNumber": 30
+        },
+        {
+          "caller": "testSplitGroupInner",
+          "callee": "VnodeHelper.splitGroup",
+          "lineNumber": 35
+        },
+        {
+          "caller": "testSplitGroupInner",
+          "callee": "new HashSet<Integer>",
+          "lineNumber": 36
+        },
+        {
+          "caller": "testSplitGroupInner",
+          "callee": "assertContinuous",
+          "lineNumber": 39
+        },
+        {
+          "caller": "testSplitGroupInner",
+          "callee": "vnodeSet.add",
+          "lineNumber": 41
+        },
+        {
+          "caller": "testSplitGroupInner",
+          "callee": "Assert.assertTrue",
+          "lineNumber": 43
+        },
+        {
+          "caller": "testSplitGroupInner",
+          "callee": "vnodeGroup.size",
+          "lineNumber": 44
+        },
+        {
+          "caller": "testSplitGroupInner",
+          "callee": "vnodeGroup.size",
+          "lineNumber": 44
+        },
+        {
+          "caller": "testSplitGroupInner",
+          "callee": "Assert.assertEquals",
+          "lineNumber": 46
+        },
+        {
+          "caller": "testSplitGroupInner",
+          "callee": "vnodeSet.size",
+          "lineNumber": 46
+        },
+        {
+          "caller": "assertContinuous",
+          "callee": "vnodeIds.size",
+          "lineNumber": 50
+        },
+        {
+          "caller": "assertContinuous",
+          "callee": "Assert.assertEquals",
+          "lineNumber": 51
+        },
+        {
+          "caller": "assertContinuous",
+          "callee": "vnodeIds.get",
+          "lineNumber": 51
+        },
+        {
+          "caller": "assertContinuous",
+          "callee": "vnodeIds.get",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/assembly/assembly.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 58,
+      "nonEmptyLines": 53,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/assembly/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 99,
+      "nonEmptyLines": 94,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/assembly/scripts/start-service.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 28,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "usage",
+          "startLine": 3,
+          "endLine": 3,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "java/connector-node/connector-api/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 42,
+      "nonEmptyLines": 38,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/ColumnDesc.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "ColumnDesc",
+          "startLine": 25,
+          "endLine": 28,
+          "params": [
+            "name",
+            "dataType"
+          ]
+        },
+        {
+          "name": "getName",
+          "startLine": 30,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "setName",
+          "startLine": 34,
+          "endLine": 36,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getDataType",
+          "startLine": 38,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "setDataType",
+          "startLine": 42,
+          "endLine": 44,
+          "params": [
+            "dataType"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ColumnDesc",
+          "startLine": 21,
+          "endLine": 45,
+          "methods": [
+            "ColumnDesc",
+            "getName",
+            "setName",
+            "getDataType",
+            "setDataType"
+          ],
+          "properties": [
+            "name",
+            "dataType"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ColumnDesc",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "getName",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "setName",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "getDataType",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "setDataType",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "ColumnDesc",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/Monitor.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "dumpStackTrace",
+          "startLine": 25,
+          "endLine": 32,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Monitor",
+          "startLine": 23,
+          "endLine": 33,
+          "methods": [
+            "dumpStackTrace"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "dumpStackTrace",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "Monitor",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "dumpStackTrace",
+          "callee": "new StringBuilder",
+          "lineNumber": 26
+        },
+        {
+          "caller": "dumpStackTrace",
+          "callee": "ManagementFactory.getThreadMXBean",
+          "lineNumber": 27
+        },
+        {
+          "caller": "dumpStackTrace",
+          "callee": "threadMxBean.dumpAllThreads",
+          "lineNumber": 28
+        },
+        {
+          "caller": "dumpStackTrace",
+          "callee": "builder.append",
+          "lineNumber": 29
+        },
+        {
+          "caller": "dumpStackTrace",
+          "callee": "ti.toString",
+          "lineNumber": 29
+        },
+        {
+          "caller": "dumpStackTrace",
+          "callee": "builder.toString",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/PkComparator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "compare",
+          "startLine": 25,
+          "endLine": 42,
+          "params": [
+            "objects1",
+            "objects2"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PkComparator",
+          "startLine": 23,
+          "endLine": 43,
+          "methods": [
+            "compare"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "compare",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "PkComparator",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "compare",
+          "callee": "objects1.size",
+          "lineNumber": 27
+        },
+        {
+          "caller": "compare",
+          "callee": "objects2.size",
+          "lineNumber": 28
+        },
+        {
+          "caller": "compare",
+          "callee": "Status.FAILED_PRECONDITION\n                    .withDescription(\n                            String.format(\"primary key lengths %d and %d do not match\", cnt1, cnt2)).asRuntimeException",
+          "lineNumber": 30
+        },
+        {
+          "caller": "compare",
+          "callee": "Status.FAILED_PRECONDITION.withDescription",
+          "lineNumber": 30
+        },
+        {
+          "caller": "compare",
+          "callee": "String.format",
+          "lineNumber": 32
+        },
+        {
+          "caller": "compare",
+          "callee": "objects1.get(i).compareTo",
+          "lineNumber": 36
+        },
+        {
+          "caller": "compare",
+          "callee": "objects1.get",
+          "lineNumber": 36
+        },
+        {
+          "caller": "compare",
+          "callee": "objects2.get",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/sink/TrivialCloseIterable.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "TrivialCloseIterable",
+          "startLine": 25,
+          "endLine": 27,
+          "params": [
+            "inner"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 29,
+          "endLine": 30,
+          "params": []
+        },
+        {
+          "name": "iterator",
+          "startLine": 32,
+          "endLine": 35,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TrivialCloseIterable",
+          "startLine": 21,
+          "endLine": 36,
+          "methods": [
+            "TrivialCloseIterable",
+            "close",
+            "iterator"
+          ],
+          "properties": [
+            "inner"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TrivialCloseIterable",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "iterator",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "TrivialCloseIterable",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "iterator",
+          "callee": "inner.iterator",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/CdcEngine.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 23,
+      "classes": [
+        {
+          "name": "CdcEngine",
+          "startLine": 22,
+          "endLine": 28,
+          "methods": [
+            "getId",
+            "stop",
+            "getOutputChannel"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CdcEngine",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/CdcEngineRunner.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 22,
+      "classes": [
+        {
+          "name": "CdcEngineRunner",
+          "startLine": 19,
+          "endLine": 27,
+          "methods": [
+            "start",
+            "stop",
+            "getEngine",
+            "isRunning"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CdcEngineRunner",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/connector-api/src/main/java/com/risingwave/connector/api/source/SourceConfig.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 23,
+      "classes": [
+        {
+          "name": "SourceConfig",
+          "startLine": 21,
+          "endLine": 29,
+          "methods": [
+            "getId",
+            "getSourceName",
+            "getSourceType",
+            "getProperties"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SourceConfig",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/python-client/data/sink_input.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 27,
+      "nonEmptyLines": 27,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "java/connector-node/python-client/data/upsert_sink_input.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 39,
+      "nonEmptyLines": 39,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "java/connector-node/python-client/integration_tests.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 325,
+      "nonEmptyLines": 287,
+      "functions": [
+        {
+          "name": "make_mock_schema",
+          "startLine": 26,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "make_mock_schema_stream_chunk",
+          "startLine": 42,
+          "endLine": 69,
+          "params": []
+        },
+        {
+          "name": "load_input",
+          "startLine": 72,
+          "endLine": 75,
+          "params": [
+            "input_file"
+          ]
+        },
+        {
+          "name": "load_binary_input",
+          "startLine": 78,
+          "endLine": 81,
+          "params": [
+            "input_file"
+          ]
+        },
+        {
+          "name": "load_json_payload",
+          "startLine": 84,
+          "endLine": 103,
+          "params": [
+            "input_file"
+          ]
+        },
+        {
+          "name": "load_stream_chunk_payload",
+          "startLine": 106,
+          "endLine": 116,
+          "params": [
+            "input_file"
+          ]
+        },
+        {
+          "name": "test_sink",
+          "startLine": 119,
+          "endLine": 202,
+          "params": [
+            "prop",
+            "payload_input",
+            "table_schema",
+            "is_coordinated"
+          ]
+        },
+        {
+          "name": "test_file_sink",
+          "startLine": 205,
+          "endLine": 210,
+          "params": [
+            "param"
+          ]
+        },
+        {
+          "name": "test_elasticsearch_sink",
+          "startLine": 213,
+          "endLine": 219,
+          "params": [
+            "param"
+          ]
+        },
+        {
+          "name": "test_iceberg_sink",
+          "startLine": 222,
+          "endLine": 233,
+          "params": [
+            "param"
+          ]
+        },
+        {
+          "name": "test_upsert_iceberg_sink",
+          "startLine": 236,
+          "endLine": 249,
+          "params": [
+            "param"
+          ]
+        },
+        {
+          "name": "test_deltalake_sink",
+          "startLine": 252,
+          "endLine": 260,
+          "params": [
+            "param"
+          ]
+        },
+        {
+          "name": "test_stream_chunk_data_format",
+          "startLine": 263,
+          "endLine": 268,
+          "params": [
+            "param"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "make_mock_schema",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "make_mock_schema_stream_chunk",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "load_input",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "load_binary_input",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "load_json_payload",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "load_stream_chunk_payload",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "test_sink",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "test_file_sink",
+          "line": 205,
+          "isDefault": false
+        },
+        {
+          "name": "test_elasticsearch_sink",
+          "line": 213,
+          "isDefault": false
+        },
+        {
+          "name": "test_iceberg_sink",
+          "line": 222,
+          "isDefault": false
+        },
+        {
+          "name": "test_upsert_iceberg_sink",
+          "line": 236,
+          "isDefault": false
+        },
+        {
+          "name": "test_deltalake_sink",
+          "line": 252,
+          "isDefault": false
+        },
+        {
+          "name": "test_stream_chunk_data_format",
+          "line": 263,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "make_mock_schema",
+          "callee": "connector_service_pb2.TableSchema",
+          "lineNumber": 28
+        },
+        {
+          "caller": "make_mock_schema",
+          "callee": "plan_common_pb2.ColumnDesc",
+          "lineNumber": 30
+        },
+        {
+          "caller": "make_mock_schema",
+          "callee": "data_pb2.DataType",
+          "lineNumber": 31
+        },
+        {
+          "caller": "make_mock_schema",
+          "callee": "plan_common_pb2.ColumnDesc",
+          "lineNumber": 33
+        },
+        {
+          "caller": "make_mock_schema",
+          "callee": "data_pb2.DataType",
+          "lineNumber": 34
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "connector_service_pb2.TableSchema",
+          "lineNumber": 43
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "plan_common_pb2.ColumnDesc",
+          "lineNumber": 45
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "data_pb2.DataType",
+          "lineNumber": 46
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "plan_common_pb2.ColumnDesc",
+          "lineNumber": 48
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "data_pb2.DataType",
+          "lineNumber": 49
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "plan_common_pb2.ColumnDesc",
+          "lineNumber": 51
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "data_pb2.DataType",
+          "lineNumber": 52
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "plan_common_pb2.ColumnDesc",
+          "lineNumber": 54
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "data_pb2.DataType",
+          "lineNumber": 55
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "plan_common_pb2.ColumnDesc",
+          "lineNumber": 57
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "data_pb2.DataType",
+          "lineNumber": 58
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "plan_common_pb2.ColumnDesc",
+          "lineNumber": 60
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "data_pb2.DataType",
+          "lineNumber": 61
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "plan_common_pb2.ColumnDesc",
+          "lineNumber": 63
+        },
+        {
+          "caller": "make_mock_schema_stream_chunk",
+          "callee": "data_pb2.DataType",
+          "lineNumber": 64
+        },
+        {
+          "caller": "load_input",
+          "callee": "open",
+          "lineNumber": 73
+        },
+        {
+          "caller": "load_input",
+          "callee": "json.load",
+          "lineNumber": 74
+        },
+        {
+          "caller": "load_binary_input",
+          "callee": "open",
+          "lineNumber": 79
+        },
+        {
+          "caller": "load_binary_input",
+          "callee": "file.read",
+          "lineNumber": 80
+        },
+        {
+          "caller": "load_json_payload",
+          "callee": "load_input",
+          "lineNumber": 85
+        },
+        {
+          "caller": "load_json_payload",
+          "callee": "row_ops.append",
+          "lineNumber": 90
+        },
+        {
+          "caller": "load_json_payload",
+          "callee": "connector_service_pb2.SinkWriterStreamRequest.WriteBatch.JsonPayload.RowOp",
+          "lineNumber": 91
+        },
+        {
+          "caller": "load_json_payload",
+          "callee": "str",
+          "lineNumber": 92
+        },
+        {
+          "caller": "load_json_payload",
+          "callee": "payloads.append",
+          "lineNumber": 96
+        },
+        {
+          "caller": "load_json_payload",
+          "callee": "connector_service_pb2.SinkWriterStreamRequest.WriteBatch.JsonPayload",
+          "lineNumber": 98
+        },
+        {
+          "caller": "load_stream_chunk_payload",
+          "callee": "load_binary_input",
+          "lineNumber": 108
+        },
+        {
+          "caller": "load_stream_chunk_payload",
+          "callee": "payloads.append",
+          "lineNumber": 109
+        },
+        {
+          "caller": "load_stream_chunk_payload",
+          "callee": "connector_service_pb2.SinkWriterStreamRequest.WriteBatch.StreamChunkPayload",
+          "lineNumber": 111
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkParam",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkWriterStreamRequest",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkWriterStreamRequest.StartSink",
+          "lineNumber": 129
+        },
+        {
+          "caller": "test_sink",
+          "callee": "grpc.insecure_channel",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2_grpc.ConnectorServiceStub",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test_sink",
+          "callee": "request_list.append",
+          "lineNumber": 142
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkWriterStreamRequest",
+          "lineNumber": 143
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkWriterStreamRequest.WriteBatch",
+          "lineNumber": 144
+        },
+        {
+          "caller": "test_sink",
+          "callee": "request_list.append",
+          "lineNumber": 150
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkWriterStreamRequest",
+          "lineNumber": 151
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkWriterStreamRequest.Barrier",
+          "lineNumber": 152
+        },
+        {
+          "caller": "test_sink",
+          "callee": "epoch_list.append",
+          "lineNumber": 157
+        },
+        {
+          "caller": "test_sink",
+          "callee": "stub.SinkWriterStream",
+          "lineNumber": 161
+        },
+        {
+          "caller": "test_sink",
+          "callee": "iter",
+          "lineNumber": 161
+        },
+        {
+          "caller": "test_sink",
+          "callee": "next",
+          "lineNumber": 164
+        },
+        {
+          "caller": "test_sink",
+          "callee": "response.HasField",
+          "lineNumber": 165
+        },
+        {
+          "caller": "test_sink",
+          "callee": "next",
+          "lineNumber": 167
+        },
+        {
+          "caller": "test_sink",
+          "callee": "response.HasField",
+          "lineNumber": 168
+        },
+        {
+          "caller": "test_sink",
+          "callee": "metadata_list.append",
+          "lineNumber": 170
+        },
+        {
+          "caller": "test_sink",
+          "callee": "print",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_sink",
+          "callee": "exit",
+          "lineNumber": 173
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkCoordinatorStreamRequest",
+          "lineNumber": 177
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkCoordinatorStreamRequest.StartCoordinator",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkCoordinatorStreamRequest",
+          "lineNumber": 184
+        },
+        {
+          "caller": "test_sink",
+          "callee": "connector_service_pb2.SinkCoordinatorStreamRequest.CommitMetadata",
+          "lineNumber": 185
+        },
+        {
+          "caller": "test_sink",
+          "callee": "stub.SinkCoordinatorStream",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_sink",
+          "callee": "iter",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_sink",
+          "callee": "next",
+          "lineNumber": 194
+        },
+        {
+          "caller": "test_sink",
+          "callee": "response.HasField",
+          "lineNumber": 195
+        },
+        {
+          "caller": "test_sink",
+          "callee": "next",
+          "lineNumber": 197
+        },
+        {
+          "caller": "test_sink",
+          "callee": "response.HasField",
+          "lineNumber": 198
+        },
+        {
+          "caller": "test_sink",
+          "callee": "print",
+          "lineNumber": 201
+        },
+        {
+          "caller": "test_sink",
+          "callee": "exit",
+          "lineNumber": 202
+        },
+        {
+          "caller": "test_file_sink",
+          "callee": "test_sink",
+          "lineNumber": 210
+        },
+        {
+          "caller": "test_elasticsearch_sink",
+          "callee": "test_sink",
+          "lineNumber": 219
+        },
+        {
+          "caller": "test_iceberg_sink",
+          "callee": "test_sink",
+          "lineNumber": 233
+        },
+        {
+          "caller": "test_upsert_iceberg_sink",
+          "callee": "test_sink",
+          "lineNumber": 249
+        },
+        {
+          "caller": "test_deltalake_sink",
+          "callee": "test_sink",
+          "lineNumber": 260
+        },
+        {
+          "caller": "test_stream_chunk_data_format",
+          "callee": "test_sink",
+          "lineNumber": 268
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 13,
+        "functionCount": 13,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "java/connector-node/python-client/proto/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 13,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "java/connector-node/python-client/pyspark-util.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 195,
+      "nonEmptyLines": 162,
+      "functions": [
+        {
+          "name": "init_iceberg_spark",
+          "startLine": 20,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "init_deltalake_spark",
+          "startLine": 39,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "create_iceberg_table",
+          "startLine": 58,
+          "endLine": 63,
+          "params": []
+        },
+        {
+          "name": "drop_iceberg_table",
+          "startLine": 66,
+          "endLine": 69,
+          "params": []
+        },
+        {
+          "name": "read_iceberg_table",
+          "startLine": 72,
+          "endLine": 74,
+          "params": []
+        },
+        {
+          "name": "test_table",
+          "startLine": 77,
+          "endLine": 95,
+          "params": [
+            "input_file",
+            "actual_list"
+          ]
+        },
+        {
+          "name": "test_iceberg_table",
+          "startLine": 98,
+          "endLine": 101,
+          "params": [
+            "input_file"
+          ]
+        },
+        {
+          "name": "test_upsert_iceberg_table",
+          "startLine": 104,
+          "endLine": 136,
+          "params": [
+            "input_file"
+          ]
+        },
+        {
+          "name": "read_deltalake_table",
+          "startLine": 139,
+          "endLine": 141,
+          "params": []
+        },
+        {
+          "name": "create_deltalake_table",
+          "startLine": 144,
+          "endLine": 149,
+          "params": []
+        },
+        {
+          "name": "delete_deltalake_table_data",
+          "startLine": 152,
+          "endLine": 155,
+          "params": []
+        },
+        {
+          "name": "test_deltalake_table",
+          "startLine": 158,
+          "endLine": 161,
+          "params": [
+            "input_file"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init_iceberg_spark",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "init_deltalake_spark",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "create_iceberg_table",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "drop_iceberg_table",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "read_iceberg_table",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "test_table",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "test_iceberg_table",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "test_upsert_iceberg_table",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "read_deltalake_table",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "create_deltalake_table",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "delete_deltalake_table_data",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "test_deltalake_table",
+          "line": 158,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init_iceberg_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.0.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.catalog.demo\", \"org.apache.iceberg.spark.SparkCatalog\")\n        .config(\"spark.sql.catalog.demo.type\", \"hadoop\")\n        .config(\"spark.sql.catalog.demo.warehouse\", \"s3a://bucket/\")\n        .config(\n            \"spark.sql.catalog.demo.hadoop.fs.s3a.endpoint\", \"http://127.0.0.1:9000\"\n        )\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.access.key\", \"minioadmin\")\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.secret.key\", \"minioadmin\")\n        .getOrCreate",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init_iceberg_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.0.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.catalog.demo\", \"org.apache.iceberg.spark.SparkCatalog\")\n        .config(\"spark.sql.catalog.demo.type\", \"hadoop\")\n        .config(\"spark.sql.catalog.demo.warehouse\", \"s3a://bucket/\")\n        .config(\n            \"spark.sql.catalog.demo.hadoop.fs.s3a.endpoint\", \"http://127.0.0.1:9000\"\n        )\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.access.key\", \"minioadmin\")\n        .config",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init_iceberg_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.0.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.catalog.demo\", \"org.apache.iceberg.spark.SparkCatalog\")\n        .config(\"spark.sql.catalog.demo.type\", \"hadoop\")\n        .config(\"spark.sql.catalog.demo.warehouse\", \"s3a://bucket/\")\n        .config(\n            \"spark.sql.catalog.demo.hadoop.fs.s3a.endpoint\", \"http://127.0.0.1:9000\"\n        )\n        .config",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init_iceberg_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.0.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.catalog.demo\", \"org.apache.iceberg.spark.SparkCatalog\")\n        .config(\"spark.sql.catalog.demo.type\", \"hadoop\")\n        .config(\"spark.sql.catalog.demo.warehouse\", \"s3a://bucket/\")\n        .config",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init_iceberg_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.0.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.catalog.demo\", \"org.apache.iceberg.spark.SparkCatalog\")\n        .config(\"spark.sql.catalog.demo.type\", \"hadoop\")\n        .config",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init_iceberg_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.0.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.catalog.demo\", \"org.apache.iceberg.spark.SparkCatalog\")\n        .config",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init_iceberg_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.0.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init_iceberg_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init_iceberg_spark",
+          "callee": "SparkSession.builder.master",
+          "lineNumber": 22
+        },
+        {
+          "caller": "init_deltalake_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"io.delta:delta-core_2.12:2.2.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.extensions\", \"io.delta.sql.DeltaSparkSessionExtension\")\n        .config(\n            \"spark.sql.catalog.spark_catalog\",\n            \"org.apache.spark.sql.delta.catalog.DeltaCatalog\",\n        )\n        .config(\"spark.hadoop.fs.s3a.endpoint\", \"http://127.0.0.1:9000\")\n        .config(\"spark.hadoop.fs.s3a.access.key\", \"minioadmin\")\n        .config(\"spark.hadoop.fs.s3a.secret.key\", \"minioadmin\")\n        .getOrCreate",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init_deltalake_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"io.delta:delta-core_2.12:2.2.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.extensions\", \"io.delta.sql.DeltaSparkSessionExtension\")\n        .config(\n            \"spark.sql.catalog.spark_catalog\",\n            \"org.apache.spark.sql.delta.catalog.DeltaCatalog\",\n        )\n        .config(\"spark.hadoop.fs.s3a.endpoint\", \"http://127.0.0.1:9000\")\n        .config(\"spark.hadoop.fs.s3a.access.key\", \"minioadmin\")\n        .config",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init_deltalake_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"io.delta:delta-core_2.12:2.2.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.extensions\", \"io.delta.sql.DeltaSparkSessionExtension\")\n        .config(\n            \"spark.sql.catalog.spark_catalog\",\n            \"org.apache.spark.sql.delta.catalog.DeltaCatalog\",\n        )\n        .config(\"spark.hadoop.fs.s3a.endpoint\", \"http://127.0.0.1:9000\")\n        .config",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init_deltalake_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"io.delta:delta-core_2.12:2.2.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.extensions\", \"io.delta.sql.DeltaSparkSessionExtension\")\n        .config(\n            \"spark.sql.catalog.spark_catalog\",\n            \"org.apache.spark.sql.delta.catalog.DeltaCatalog\",\n        )\n        .config",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init_deltalake_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"io.delta:delta-core_2.12:2.2.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config(\"spark.sql.extensions\", \"io.delta.sql.DeltaSparkSessionExtension\")\n        .config",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init_deltalake_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config(\n            \"spark.jars.packages\",\n            \"io.delta:delta-core_2.12:2.2.0,org.apache.hadoop:hadoop-aws:3.3.2\",\n        )\n        .config",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init_deltalake_spark",
+          "callee": "SparkSession.builder.master(\"local\")\n        .config",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init_deltalake_spark",
+          "callee": "SparkSession.builder.master",
+          "lineNumber": 41
+        },
+        {
+          "caller": "create_iceberg_table",
+          "callee": "init_iceberg_spark",
+          "lineNumber": 59
+        },
+        {
+          "caller": "create_iceberg_table",
+          "callee": "spark.sql",
+          "lineNumber": 60
+        },
+        {
+          "caller": "create_iceberg_table",
+          "callee": "print",
+          "lineNumber": 63
+        },
+        {
+          "caller": "drop_iceberg_table",
+          "callee": "init_iceberg_spark",
+          "lineNumber": 67
+        },
+        {
+          "caller": "drop_iceberg_table",
+          "callee": "spark.sql",
+          "lineNumber": 68
+        },
+        {
+          "caller": "drop_iceberg_table",
+          "callee": "print",
+          "lineNumber": 69
+        },
+        {
+          "caller": "read_iceberg_table",
+          "callee": "init_iceberg_spark",
+          "lineNumber": 73
+        },
+        {
+          "caller": "read_iceberg_table",
+          "callee": "spark.sql(\"select * from demo.demo_db.demo_table;\").show",
+          "lineNumber": 74
+        },
+        {
+          "caller": "read_iceberg_table",
+          "callee": "spark.sql",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_table",
+          "callee": "actual.append",
+          "lineNumber": 80
+        },
+        {
+          "caller": "test_table",
+          "callee": "row.asDict",
+          "lineNumber": 80
+        },
+        {
+          "caller": "test_table",
+          "callee": "sorted",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test_table",
+          "callee": "sorted",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test_table",
+          "callee": "ele.items",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test_table",
+          "callee": "open",
+          "lineNumber": 83
+        },
+        {
+          "caller": "test_table",
+          "callee": "json.load",
+          "lineNumber": 84
+        },
+        {
+          "caller": "test_table",
+          "callee": "expected.append",
+          "lineNumber": 88
+        },
+        {
+          "caller": "test_table",
+          "callee": "sorted",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test_table",
+          "callee": "sorted",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test_table",
+          "callee": "ele.items",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test_table",
+          "callee": "print",
+          "lineNumber": 92
+        },
+        {
+          "caller": "test_table",
+          "callee": "print",
+          "lineNumber": 94
+        },
+        {
+          "caller": "test_table",
+          "callee": "Exception",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_iceberg_table",
+          "callee": "init_iceberg_spark",
+          "lineNumber": 99
+        },
+        {
+          "caller": "test_iceberg_table",
+          "callee": "spark.sql(\"select * from demo.demo_db.demo_table;\").collect",
+          "lineNumber": 100
+        },
+        {
+          "caller": "test_iceberg_table",
+          "callee": "spark.sql",
+          "lineNumber": 100
+        },
+        {
+          "caller": "test_iceberg_table",
+          "callee": "test_table",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "init_iceberg_spark",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "spark.sql(\"select * from demo.demo_db.demo_table;\").collect",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "spark.sql",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "actual.append",
+          "lineNumber": 109
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "row.asDict",
+          "lineNumber": 109
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "sorted",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "sorted",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "ele.items",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "open",
+          "lineNumber": 112
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "json.load",
+          "lineNumber": 113
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "expected.append",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "expected.remove",
+          "lineNumber": 122
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "expected.append",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "expected.remove",
+          "lineNumber": 126
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "Exception",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "sorted",
+          "lineNumber": 130
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "sorted",
+          "lineNumber": 130
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "ele.items",
+          "lineNumber": 130
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "print",
+          "lineNumber": 133
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "print",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_upsert_iceberg_table",
+          "callee": "Exception",
+          "lineNumber": 136
+        },
+        {
+          "caller": "read_deltalake_table",
+          "callee": "init_deltalake_spark",
+          "lineNumber": 140
+        },
+        {
+          "caller": "read_deltalake_table",
+          "callee": "spark.sql(\"select * from delta.`s3a://bucket/delta`;\").show",
+          "lineNumber": 141
+        },
+        {
+          "caller": "read_deltalake_table",
+          "callee": "spark.sql",
+          "lineNumber": 141
+        },
+        {
+          "caller": "create_deltalake_table",
+          "callee": "init_deltalake_spark",
+          "lineNumber": 145
+        },
+        {
+          "caller": "create_deltalake_table",
+          "callee": "spark.sql",
+          "lineNumber": 146
+        },
+        {
+          "caller": "create_deltalake_table",
+          "callee": "print",
+          "lineNumber": 149
+        },
+        {
+          "caller": "delete_deltalake_table_data",
+          "callee": "init_deltalake_spark",
+          "lineNumber": 153
+        },
+        {
+          "caller": "delete_deltalake_table_data",
+          "callee": "spark.sql",
+          "lineNumber": 154
+        },
+        {
+          "caller": "delete_deltalake_table_data",
+          "callee": "print",
+          "lineNumber": 155
+        },
+        {
+          "caller": "test_deltalake_table",
+          "callee": "init_deltalake_spark",
+          "lineNumber": 159
+        },
+        {
+          "caller": "test_deltalake_table",
+          "callee": "spark.sql(\"select * from delta.`s3a://bucket/delta`;\").collect",
+          "lineNumber": 160
+        },
+        {
+          "caller": "test_deltalake_table",
+          "callee": "spark.sql",
+          "lineNumber": 160
+        },
+        {
+          "caller": "test_deltalake_table",
+          "callee": "test_table",
+          "lineNumber": 161
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 12,
+        "functionCount": 12,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "java/connector-node/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 120,
+      "nonEmptyLines": 83,
+      "sections": [
+        {
+          "heading": "RisingWave Connector Node",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Up and running",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Docker image",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "Integration test",
+          "level": 2,
+          "line": 56
+        },
+        {
+          "heading": "Python file format",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "JDBC test",
+          "level": 3,
+          "line": 76
+        },
+        {
+          "heading": "Connect with RisingWave",
+          "level": 2,
+          "line": 100
+        },
+        {
+          "heading": "Sinks",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "Sources",
+          "level": 3,
+          "line": 110
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-connector-service/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 141,
+      "nonEmptyLines": 136,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/DatabaseValidator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "validateAll",
+          "startLine": 21,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "validateDbConfig",
+          "startLine": 32,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "validateUserPrivilege",
+          "startLine": 35,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "validateTable",
+          "startLine": 38,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "isCdcSourceJob",
+          "startLine": 41,
+          "endLine": 41,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DatabaseValidator",
+          "startLine": 19,
+          "endLine": 42,
+          "methods": [
+            "validateAll",
+            "validateDbConfig",
+            "validateUserPrivilege",
+            "validateTable",
+            "isCdcSourceJob"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "validateAll",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "DatabaseValidator",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "validateAll",
+          "callee": "validateDbConfig",
+          "lineNumber": 22
+        },
+        {
+          "caller": "validateAll",
+          "callee": "validateUserPrivilege",
+          "lineNumber": 23
+        },
+        {
+          "caller": "validateAll",
+          "callee": "isCdcSourceJob",
+          "lineNumber": 26
+        },
+        {
+          "caller": "validateAll",
+          "callee": "validateTable",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/common/MongoDbValidator.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 202,
+      "nonEmptyLines": 180,
+      "functions": [
+        {
+          "name": "close",
+          "startLine": 41,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "MongoDbValidator",
+          "startLine": 53,
+          "endLine": 58,
+          "params": [
+            "userProps"
+          ]
+        },
+        {
+          "name": "validateDbConfig",
+          "startLine": 60,
+          "endLine": 116,
+          "params": []
+        },
+        {
+          "name": "checkReadRoleForAdminDb",
+          "startLine": 118,
+          "endLine": 132,
+          "params": [
+            "roles"
+          ]
+        },
+        {
+          "name": "validateUserPrivilege",
+          "startLine": 134,
+          "endLine": 191,
+          "params": []
+        },
+        {
+          "name": "validateTable",
+          "startLine": 193,
+          "endLine": 196,
+          "params": []
+        },
+        {
+          "name": "isCdcSourceJob",
+          "startLine": 198,
+          "endLine": 201,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MongoDbValidator",
+          "startLine": 32,
+          "endLine": 202,
+          "methods": [
+            "close",
+            "MongoDbValidator",
+            "validateDbConfig",
+            "checkReadRoleForAdminDb",
+            "validateUserPrivilege",
+            "validateTable",
+            "isCdcSourceJob"
+          ],
+          "properties": [
+            "LOG",
+            "mongodbUrl",
+            "isShardedCluster",
+            "connStr",
+            "client",
+            "USERS",
+            "ROLES",
+            "INHERITED_ROLES",
+            "INHERITED_PRIVILEGES"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "close",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "MongoDbValidator",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "validateDbConfig",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "MongoDbValidator",
+          "line": 32,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "close",
+          "callee": "client.close",
+          "lineNumber": 44
+        },
+        {
+          "caller": "MongoDbValidator",
+          "callee": "userProps.get",
+          "lineNumber": 54
+        },
+        {
+          "caller": "MongoDbValidator",
+          "callee": "new ConnectionString",
+          "lineNumber": 55
+        },
+        {
+          "caller": "MongoDbValidator",
+          "callee": "MongoClients.create",
+          "lineNumber": 57
+        },
+        {
+          "caller": "MongoDbValidator",
+          "callee": "connStr.toString",
+          "lineNumber": 57
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "new ConnectionString",
+          "lineNumber": 67
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "MongoClientSettings.builder()\n                            .applyConnectionString(connStr)\n                            // Set shorter timeouts for validation\n                            .applyToServerSettings(\n                                    builder ->\n                                            builder.heartbeatFrequency(\n                                                    validationTimeoutSeconds * 1000,\n                                                    TimeUnit.MILLISECONDS))\n                            .applyToSocketSettings(\n                                    builder ->\n                                            builder.connectTimeout(\n                                                            validationTimeoutSeconds,\n                                                            TimeUnit.SECONDS)\n                                                    .readTimeout(\n                                                            validationTimeoutSeconds,\n                                                            TimeUnit.SECONDS))\n                            .applyToClusterSettings(\n                                    builder ->\n                                            builder.serverSelectionTimeout(\n                                                    validationTimeoutSeconds, TimeUnit.SECONDS)).build",
+          "lineNumber": 69
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "MongoClientSettings.builder()\n                            .applyConnectionString(connStr)\n                            // Set shorter timeouts for validation\n                            .applyToServerSettings(\n                                    builder ->\n                                            builder.heartbeatFrequency(\n                                                    validationTimeoutSeconds * 1000,\n                                                    TimeUnit.MILLISECONDS))\n                            .applyToSocketSettings(\n                                    builder ->\n                                            builder.connectTimeout(\n                                                            validationTimeoutSeconds,\n                                                            TimeUnit.SECONDS)\n                                                    .readTimeout(\n                                                            validationTimeoutSeconds,\n                                                            TimeUnit.SECONDS)).applyToClusterSettings",
+          "lineNumber": 69
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "MongoClientSettings.builder()\n                            .applyConnectionString(connStr)\n                            // Set shorter timeouts for validation\n                            .applyToServerSettings(\n                                    builder ->\n                                            builder.heartbeatFrequency(\n                                                    validationTimeoutSeconds * 1000,\n                                                    TimeUnit.MILLISECONDS)).applyToSocketSettings",
+          "lineNumber": 69
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "MongoClientSettings.builder()\n                            .applyConnectionString(connStr).applyToServerSettings",
+          "lineNumber": 69
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "MongoClientSettings.builder().applyConnectionString",
+          "lineNumber": 69
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "MongoClientSettings.builder",
+          "lineNumber": 69
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "builder.heartbeatFrequency",
+          "lineNumber": 74
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "builder.connectTimeout(\n                                                            validationTimeoutSeconds,\n                                                            TimeUnit.SECONDS).readTimeout",
+          "lineNumber": 79
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "builder.connectTimeout",
+          "lineNumber": 79
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "builder.serverSelectionTimeout",
+          "lineNumber": 87
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "MongoClients.create",
+          "lineNumber": 91
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "mongoClient\n                        .getDatabase(\"admin\").runCommand",
+          "lineNumber": 94
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "mongoClient.getDatabase",
+          "lineNumber": 94
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "org.bson.BsonDocument.parse",
+          "lineNumber": 96
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "LOG.info",
+          "lineNumber": 97
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "LOG.error",
+          "lineNumber": 101
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "e.getMessage",
+          "lineNumber": 101
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "LOG.error",
+          "lineNumber": 105
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "new CdcConnectorException",
+          "lineNumber": 110
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "String.format",
+          "lineNumber": 111
+        },
+        {
+          "caller": "validateDbConfig",
+          "callee": "e.getMessage",
+          "lineNumber": 113
+        },
+        {
+          "caller": "checkReadRoleForAdminDb",
+          "callee": "roleDoc.getString",
+          "lineNumber": 120
+        },
+        {
+          "caller": "checkReadRoleForAdminDb",
+          "callee": "roleDoc.getString",
+          "lineNumber": 121
+        },
+        {
+          "caller": "checkReadRoleForAdminDb",
+          "callee": "db.equals",
+          "lineNumber": 122
+        },
+        {
+          "caller": "checkReadRoleForAdminDb",
+          "callee": "role.equals",
+          "lineNumber": 123
+        },
+        {
+          "caller": "checkReadRoleForAdminDb",
+          "callee": "role.equals",
+          "lineNumber": 124
+        },
+        {
+          "caller": "checkReadRoleForAdminDb",
+          "callee": "role.equals",
+          "lineNumber": 125
+        },
+        {
+          "caller": "checkReadRoleForAdminDb",
+          "callee": "role.equals",
+          "lineNumber": 126
+        },
+        {
+          "caller": "checkReadRoleForAdminDb",
+          "callee": "LOG.info",
+          "lineNumber": 127
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "connStr.getCredential",
+          "lineNumber": 143
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "connStr.getCredential",
+          "lineNumber": 144
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "client.getDatabase",
+          "lineNumber": 145
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "secret.getSource",
+          "lineNumber": 145
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "BsonDocument.parse",
+          "lineNumber": 148
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "String.format",
+          "lineNumber": 149
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "secret.getUserName",
+          "lineNumber": 151
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "authDb.runCommand",
+          "lineNumber": 153
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "LOG.info",
+          "lineNumber": 154
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "ret.toJson",
+          "lineNumber": 154
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "ret.getEmbedded",
+          "lineNumber": 156
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "List.of",
+          "lineNumber": 156
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "LOG.info",
+          "lineNumber": 157
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "users.isEmpty",
+          "lineNumber": 158
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "new CdcConnectorException",
+          "lineNumber": 159
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "users.get",
+          "lineNumber": 165
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "user.getEmbedded",
+          "lineNumber": 166
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "List.of",
+          "lineNumber": 166
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "roles.isEmpty",
+          "lineNumber": 168
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "checkReadRoleForAdminDb",
+          "lineNumber": 170
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "user.getEmbedded",
+          "lineNumber": 174
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "List.of",
+          "lineNumber": 174
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "inheriRoles.isEmpty",
+          "lineNumber": 175
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "checkReadRoleForAdminDb",
+          "lineNumber": 176
+        },
+        {
+          "caller": "validateUserPrivilege",
+          "callee": "new CdcConnectorException",
+          "lineNumber": 181
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/DbzJsonConverter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "asJsonSchema",
+          "startLine": 37,
+          "endLine": 40,
+          "params": [
+            "schema"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DbzJsonConverter",
+          "startLine": 36,
+          "endLine": 41,
+          "methods": [
+            "asJsonSchema"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "asJsonSchema",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "DbzJsonConverter",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

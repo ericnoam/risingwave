@@ -1,0 +1,194 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "ci/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 760,
+      "nonEmptyLines": 701,
+      "sections": [
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "ci/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 98,
+      "nonEmptyLines": 80,
+      "services": [
+        {
+          "name": "risingwave-build-env",
+          "image": "ubuntu:24.04",
+          "ports": [],
+          "startLine": 6,
+          "endLine": 99
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM ubuntu:24.04 AS risingwave-build-env",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "ENV LANG=en_US.utf8",
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "RUN sed -i 's|http://archive.ubuntu.com/ubuntu|http://us-east-2.",
+          "startLine": 11,
+          "endLine": 11
+        },
+        {
+          "name": "RUN apt-get update -yy && \\",
+          "startLine": 12,
+          "endLine": 12
+        },
+        {
+          "name": "ENV PYO3_PYTHON=python3.12",
+          "startLine": 21,
+          "endLine": 21
+        },
+        {
+          "name": "ENV NVM_DIR=/root/.nvm",
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "ENV NODE_VERSION=20.11.1",
+          "startLine": 25,
+          "endLine": 25
+        },
+        {
+          "name": "RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.",
+          "startLine": 26,
+          "endLine": 26
+        },
+        {
+          "name": "ENV PATH=$NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH",
+          "startLine": 29,
+          "endLine": 29
+        },
+        {
+          "name": "RUN npm install -g zx",
+          "startLine": 30,
+          "endLine": 30
+        },
+        {
+          "name": "RUN mkdir -p /risingwave",
+          "startLine": 34,
+          "endLine": 34
+        },
+        {
+          "name": "WORKDIR /risingwave",
+          "startLine": 36,
+          "endLine": 36
+        },
+        {
+          "name": "COPY rust-toolchain rust-toolchain",
+          "startLine": 38,
+          "endLine": 38
+        },
+        {
+          "name": "RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | ",
+          "startLine": 40,
+          "endLine": 40
+        },
+        {
+          "name": "ENV PATH=/root/.cargo/bin/:$PATH",
+          "startLine": 42,
+          "endLine": 42
+        },
+        {
+          "name": "RUN rustup toolchain install --profile minimal && \\",
+          "startLine": 44,
+          "endLine": 44
+        },
+        {
+          "name": "RUN curl -sSL \"https://github.com/bufbuild/buf/releases/download",
+          "startLine": 50,
+          "endLine": 50
+        },
+        {
+          "name": "RUN pip3 install --break-system-packages pytest codecov-cli",
+          "startLine": 54,
+          "endLine": 54
+        },
+        {
+          "name": "RUN curl -sSL https://install.python-poetry.org | python3 -",
+          "startLine": 57,
+          "endLine": 57
+        },
+        {
+          "name": "RUN if [ \"$(uname -m)\" = \"amd64\" ] || [ \"$(uname -m)\" = \"x86_64\"",
+          "startLine": 59,
+          "endLine": 59
+        },
+        {
+          "name": "ENV PATH=/root/.local/bin:$PATH",
+          "startLine": 68,
+          "endLine": 68
+        },
+        {
+          "name": "ENV CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse",
+          "startLine": 70,
+          "endLine": 70
+        },
+        {
+          "name": "RUN curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubus",
+          "startLine": 73,
+          "endLine": 73
+        },
+        {
+          "name": "RUN cargo binstall -y --locked cargo-llvm-cov cargo-nextest carg",
+          "startLine": 74,
+          "endLine": 74
+        },
+        {
+          "name": "RUN cargo install --locked cargo-dylint@4.1.0 dylint-link@4.1.0",
+          "startLine": 83,
+          "endLine": 83
+        },
+        {
+          "name": "COPY <<EOF /root/.cargo/bin/risedev",
+          "startLine": 86,
+          "endLine": 86
+        },
+        {
+          "name": "RUN chmod +x /root/.cargo/bin/risedev",
+          "startLine": 92,
+          "endLine": 92
+        },
+        {
+          "name": "ENTRYPOINT [ \"/usr/bin/dumb-init\", \"--rewrite\", \"15:2\", \"--\" ]",
+          "startLine": 98,
+          "endLine": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 28
+      }
+    }
+  ]
+}

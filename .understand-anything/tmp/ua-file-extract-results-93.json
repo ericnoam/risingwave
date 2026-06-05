@@ -1,0 +1,1438 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/error/src/anyhow.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 185,
+      "nonEmptyLines": 177,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/error/src/code.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 951,
+      "nonEmptyLines": 903,
+      "functions": [
+        {
+          "name": "is_success",
+          "startLine": 631,
+          "endLine": 633,
+          "params": []
+        },
+        {
+          "name": "is_warning",
+          "startLine": 636,
+          "endLine": 638,
+          "params": []
+        },
+        {
+          "name": "is_error",
+          "startLine": 641,
+          "endLine": 643,
+          "params": []
+        },
+        {
+          "name": "sqlstate",
+          "startLine": 646,
+          "endLine": 950,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "PostgresErrorCode",
+          "startLine": 25,
+          "endLine": 627,
+          "methods": [
+            "is_success",
+            "is_warning",
+            "is_error",
+            "sqlstate"
+          ],
+          "properties": [
+            "SuccessfulCompletion",
+            "Warning",
+            "DynamicResultSetsReturned",
+            "ImplicitZeroBitPadding",
+            "NullValueEliminatedInSetFunction",
+            "PrivilegeNotGranted",
+            "PrivilegeNotRevoked",
+            "StringDataRightTruncation01004",
+            "DeprecatedFeature",
+            "NoData",
+            "NoAdditionalDynamicResultSetsReturned",
+            "SqlStatementNotYetComplete",
+            "ConnectionException",
+            "ConnectionDoesNotExist",
+            "ConnectionFailure",
+            "SqlclientUnableToEstablishSqlconnection",
+            "SqlserverRejectedEstablishmentOfSqlconnection",
+            "TransactionResolutionUnknown",
+            "ProtocolViolation",
+            "TriggeredActionException",
+            "FeatureNotSupported",
+            "InvalidTransactionInitiation",
+            "LocatorException",
+            "InvalidLocatorSpecification",
+            "InvalidGrantor",
+            "InvalidGrantOperation",
+            "InvalidRoleSpecification",
+            "DiagnosticsException",
+            "StackedDiagnosticsAccessedWithoutActiveHandler",
+            "CaseNotFound",
+            "CardinalityViolation",
+            "DataException",
+            "ArraySubscriptError",
+            "CharacterNotInRepertoire",
+            "DatetimeFieldOverflow",
+            "DivisionByZero",
+            "ErrorInAssignment",
+            "EscapeCharacterConflict",
+            "IndicatorOverflow",
+            "IntervalFieldOverflow",
+            "InvalidArgumentForLogarithm",
+            "InvalidArgumentForNtileFunction",
+            "InvalidArgumentForNthValueFunction",
+            "InvalidArgumentForPowerFunction",
+            "InvalidArgumentForWidthBucketFunction",
+            "InvalidCharacterValueForCast",
+            "InvalidDatetimeFormat",
+            "InvalidEscapeCharacter",
+            "InvalidEscapeOctet",
+            "InvalidEscapeSequence",
+            "NonstandardUseOfEscapeCharacter",
+            "InvalidIndicatorParameterValue",
+            "InvalidParameterValue",
+            "InvalidPrecedingOrFollowingSize",
+            "InvalidRegularExpression",
+            "InvalidRowCountInLimitClause",
+            "InvalidRowCountInResultOffsetClause",
+            "InvalidTablesampleArgument",
+            "InvalidTablesampleRepeat",
+            "InvalidTimeZoneDisplacementValue",
+            "InvalidUseOfEscapeCharacter",
+            "MostSpecificTypeMismatch",
+            "NullValueNotAllowed22004",
+            "NullValueNoIndicatorParameter",
+            "NumericValueOutOfRange",
+            "SequenceGeneratorLimitExceeded",
+            "StringDataLengthMismatch",
+            "StringDataRightTruncation22001",
+            "SubstringError",
+            "TrimError",
+            "UnterminatedCString",
+            "ZeroLengthCharacterString",
+            "FloatingPointException",
+            "InvalidTextRepresentation",
+            "InvalidBinaryRepresentation",
+            "BadCopyFileFormat",
+            "UntranslatableCharacter",
+            "NotAnXmlDocument",
+            "InvalidXmlDocument",
+            "InvalidXmlContent",
+            "InvalidXmlComment",
+            "InvalidXmlProcessingInstruction",
+            "DuplicateJsonObjectKeyValue",
+            "InvalidArgumentForSqlJsonDatetimeFunction",
+            "InvalidJsonText",
+            "InvalidSqlJsonSubscript",
+            "MoreThanOneSqlJsonItem",
+            "NoSqlJsonItem",
+            "NonNumericSqlJsonItem",
+            "NonUniqueKeysInAJsonObject",
+            "SingletonSqlJsonItemRequired",
+            "SqlJsonArrayNotFound",
+            "SqlJsonMemberNotFound",
+            "SqlJsonNumberNotFound",
+            "SqlJsonObjectNotFound",
+            "TooManyJsonArrayElements",
+            "TooManyJsonObjectMembers",
+            "SqlJsonScalarRequired",
+            "IntegrityConstraintViolation",
+            "RestrictViolation",
+            "NotNullViolation",
+            "ForeignKeyViolation",
+            "UniqueViolation",
+            "CheckViolation",
+            "ExclusionViolation",
+            "InvalidCursorState",
+            "InvalidTransactionState",
+            "ActiveSqlTransaction",
+            "BranchTransactionAlreadyActive",
+            "HeldCursorRequiresSameIsolationLevel",
+            "InappropriateAccessModeForBranchTransaction",
+            "InappropriateIsolationLevelForBranchTransaction",
+            "NoActiveSqlTransactionForBranchTransaction",
+            "ReadOnlySqlTransaction",
+            "SchemaAndDataStatementMixingNotSupported",
+            "NoActiveSqlTransaction",
+            "InFailedSqlTransaction",
+            "IdleInTransactionSessionTimeout",
+            "InvalidSqlStatementName",
+            "TriggeredDataChangeViolation",
+            "InvalidAuthorizationSpecification",
+            "InvalidPassword",
+            "DependentPrivilegeDescriptorsStillExist",
+            "DependentObjectsStillExist",
+            "InvalidTransactionTermination",
+            "SqlRoutineException",
+            "FunctionExecutedNoReturnStatement",
+            "ModifyingSqlDataNotPermitted2F002",
+            "ProhibitedSqlStatementAttempted2F003",
+            "ReadingSqlDataNotPermitted2F004",
+            "InvalidCursorName",
+            "ExternalRoutineException",
+            "ContainingSqlNotPermitted",
+            "ModifyingSqlDataNotPermitted38002",
+            "ProhibitedSqlStatementAttempted38003",
+            "ReadingSqlDataNotPermitted38004",
+            "ExternalRoutineInvocationException",
+            "InvalidSqlstateReturned",
+            "NullValueNotAllowed39004",
+            "TriggerProtocolViolated",
+            "SrfProtocolViolated",
+            "EventTriggerProtocolViolated",
+            "SavepointException",
+            "InvalidSavepointSpecification",
+            "InvalidCatalogName",
+            "InvalidSchemaName",
+            "TransactionRollback",
+            "TransactionIntegrityConstraintViolation",
+            "SerializationFailure",
+            "StatementCompletionUnknown",
+            "DeadlockDetected",
+            "SyntaxErrorOrAccessRuleViolation",
+            "SyntaxError",
+            "InsufficientPrivilege",
+            "CannotCoerce",
+            "GroupingError",
+            "WindowingError",
+            "InvalidRecursion",
+            "InvalidForeignKey",
+            "InvalidName",
+            "NameTooLong",
+            "ReservedName",
+            "DatatypeMismatch",
+            "IndeterminateDatatype",
+            "CollationMismatch",
+            "IndeterminateCollation",
+            "WrongObjectType",
+            "GeneratedAlways",
+            "UndefinedColumn",
+            "UndefinedFunction",
+            "UndefinedTable",
+            "UndefinedParameter",
+            "UndefinedObject",
+            "DuplicateColumn",
+            "DuplicateCursor",
+            "DuplicateDatabase",
+            "DuplicateFunction",
+            "DuplicatePreparedStatement",
+            "DuplicateSchema",
+            "DuplicateTable",
+            "DuplicateAlias",
+            "DuplicateObject",
+            "AmbiguousColumn",
+            "AmbiguousFunction",
+            "AmbiguousParameter",
+            "AmbiguousAlias",
+            "InvalidColumnReference",
+            "InvalidColumnDefinition",
+            "InvalidCursorDefinition",
+            "InvalidDatabaseDefinition",
+            "InvalidFunctionDefinition",
+            "InvalidPreparedStatementDefinition",
+            "InvalidSchemaDefinition",
+            "InvalidTableDefinition",
+            "InvalidObjectDefinition",
+            "WithCheckOptionViolation",
+            "InsufficientResources",
+            "DiskFull",
+            "OutOfMemory53200",
+            "TooManyConnections",
+            "ConfigurationLimitExceeded",
+            "ProgramLimitExceeded",
+            "StatementTooComplex",
+            "TooManyColumns",
+            "TooManyArguments",
+            "ObjectNotInPrerequisiteState",
+            "ObjectInUse",
+            "CantChangeRuntimeParam",
+            "LockNotAvailable",
+            "UnsafeNewEnumValueUsage",
+            "OperatorIntervention",
+            "QueryCanceled",
+            "AdminShutdown",
+            "CrashShutdown",
+            "CannotConnectNow",
+            "DatabaseDropped",
+            "SystemError",
+            "IoError",
+            "UndefinedFile",
+            "DuplicateFile",
+            "SnapshotTooOld",
+            "ConfigFileError",
+            "LockFileExists",
+            "FdwError",
+            "FdwColumnNameNotFound",
+            "FdwDynamicParameterValueNeeded",
+            "FdwFunctionSequenceError",
+            "FdwInconsistentDescriptorInformation",
+            "FdwInvalidAttributeValue",
+            "FdwInvalidColumnName",
+            "FdwInvalidColumnNumber",
+            "FdwInvalidDataType",
+            "FdwInvalidDataTypeDescriptors",
+            "FdwInvalidDescriptorFieldIdentifier",
+            "FdwInvalidHandle",
+            "FdwInvalidOptionIndex",
+            "FdwInvalidOptionName",
+            "FdwInvalidStringLengthOrBufferLength",
+            "FdwInvalidStringFormat",
+            "FdwInvalidUseOfNullPointer",
+            "FdwTooManyHandles",
+            "OutOfMemoryHV001",
+            "FdwNoSchemas",
+            "FdwOptionNameNotFound",
+            "FdwReplyHandle",
+            "FdwSchemaNotFound",
+            "FdwTableNotFound",
+            "FdwUnableToCreateExecution",
+            "FdwUnableToCreateReply",
+            "FdwUnableToEstablishConnection",
+            "PlpgsqlError",
+            "RaiseException",
+            "NoDataFound",
+            "TooManyRows",
+            "AssertFailure",
+            "InternalError",
+            "DataCorrupted",
+            "IndexCorrupted"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PostgresErrorCode",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "is_success",
+          "line": 631,
+          "isDefault": false
+        },
+        {
+          "name": "is_warning",
+          "line": 636,
+          "isDefault": false
+        },
+        {
+          "name": "is_error",
+          "line": 641,
+          "isDefault": false
+        },
+        {
+          "name": "sqlstate",
+          "line": 646,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/error/src/common.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 75,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 26,
+          "endLine": 28,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "none",
+          "startLine": 30,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 36,
+          "endLine": 38,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 42,
+          "endLine": 44,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 48,
+          "endLine": 59,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 80,
+          "endLine": 86,
+          "params": [
+            "f"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TrackingIssue",
+          "startLine": 23,
+          "endLine": 23,
+          "methods": [
+            "new",
+            "none",
+            "from",
+            "from",
+            "fmt"
+          ],
+          "properties": []
+        },
+        {
+          "name": "NotImplemented",
+          "startLine": 65,
+          "endLine": 69,
+          "methods": [],
+          "properties": [
+            "feature",
+            "issue"
+          ]
+        },
+        {
+          "name": "NoFunction",
+          "startLine": 73,
+          "endLine": 77,
+          "methods": [
+            "fmt"
+          ],
+          "properties": [
+            "sig",
+            "candidates"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TrackingIssue",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "none",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "NotImplemented",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "NoFunction",
+          "line": 73,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "TrackingIssue",
+          "lineNumber": 27
+        },
+        {
+          "caller": "new",
+          "callee": "Some",
+          "lineNumber": 27
+        },
+        {
+          "caller": "none",
+          "callee": "TrackingIssue",
+          "lineNumber": 31
+        },
+        {
+          "caller": "from",
+          "callee": "TrackingIssue",
+          "lineNumber": 37
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 37
+        },
+        {
+          "caller": "from",
+          "callee": "TrackingIssue",
+          "lineNumber": 43
+        },
+        {
+          "caller": "fmt",
+          "callee": "Ok",
+          "lineNumber": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 6,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/error/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "error_request_copy",
+          "startLine": 46,
+          "endLine": 48,
+          "params": [
+            "err"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "error_request_copy",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "error_request_copy",
+          "callee": "std::error::request_value(err).or_else",
+          "lineNumber": 47
+        },
+        {
+          "caller": "error_request_copy",
+          "callee": "std::error::request_value",
+          "lineNumber": 47
+        },
+        {
+          "caller": "error_request_copy",
+          "callee": "std::error::request_ref(err).copied",
+          "lineNumber": 47
+        },
+        {
+          "caller": "error_request_copy",
+          "callee": "std::error::request_ref",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/error/src/macros.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 272,
+      "nonEmptyLines": 252,
+      "callGraph": [
+        {
+          "caller": "test_ensure",
+          "callee": "(|| {\n                ensure!(a < 0);\n                Ok::<_, MyError>(())\n            })().unwrap_err",
+          "lineNumber": 165
+        },
+        {
+          "caller": "test_ensure",
+          "callee": "(|| {\n                ensure!(a < 0);\n                Ok::<_, MyError>(())\n            })",
+          "lineNumber": 165
+        },
+        {
+          "caller": "test_ensure",
+          "callee": "Ok::<_, MyError>",
+          "lineNumber": 167
+        },
+        {
+          "caller": "test_ensure",
+          "callee": "(|| {\n                ensure!(a < 0, \"error msg without args\");\n                Ok::<_, MyError>(())\n            })().unwrap_err",
+          "lineNumber": 176
+        },
+        {
+          "caller": "test_ensure",
+          "callee": "(|| {\n                ensure!(a < 0, \"error msg without args\");\n                Ok::<_, MyError>(())\n            })",
+          "lineNumber": 176
+        },
+        {
+          "caller": "test_ensure",
+          "callee": "Ok::<_, MyError>",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_ensure",
+          "callee": "(|| {\n                ensure!(a < 0, \"error msg with args: {}\", \"xx\");\n                Ok::<_, MyError>(())\n            })().unwrap_err",
+          "lineNumber": 185
+        },
+        {
+          "caller": "test_ensure",
+          "callee": "(|| {\n                ensure!(a < 0, \"error msg with args: {}\", \"xx\");\n                Ok::<_, MyError>(())\n            })",
+          "lineNumber": 185
+        },
+        {
+          "caller": "test_ensure",
+          "callee": "Ok::<_, MyError>",
+          "lineNumber": 187
+        },
+        {
+          "caller": "ensure_a_equals_b",
+          "callee": "Ok",
+          "lineNumber": 203
+        },
+        {
+          "caller": "test_ensure_eq",
+          "callee": "ensure_a_equals_b().unwrap_err",
+          "lineNumber": 205
+        },
+        {
+          "caller": "test_ensure_eq",
+          "callee": "ensure_a_equals_b",
+          "lineNumber": 205
+        },
+        {
+          "caller": "test_try_match",
+          "callee": "Ok",
+          "lineNumber": 240
+        },
+        {
+          "caller": "test_must_match",
+          "callee": "B::Bar",
+          "lineNumber": 263
+        },
+        {
+          "caller": "test_must_match",
+          "callee": "Ok",
+          "lineNumber": 270
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/error/src/tonic.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 295,
+      "nonEmptyLines": 258,
+      "functions": [
+        {
+          "name": "fmt",
+          "startLine": 44,
+          "endLine": 46,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "source",
+          "startLine": 50,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "provide",
+          "startLine": 54,
+          "endLine": 59,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "to_status",
+          "startLine": 62,
+          "endLine": 85,
+          "params": [
+            "error",
+            "code",
+            "service_name"
+          ]
+        },
+        {
+          "name": "to_status",
+          "startLine": 96,
+          "endLine": 102,
+          "params": [
+            "code",
+            "service_name"
+          ]
+        },
+        {
+          "name": "to_status_unnamed",
+          "startLine": 108,
+          "endLine": 110,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "is_from_tonic_server_impl",
+          "startLine": 123,
+          "endLine": 125,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 156,
+          "endLine": 180,
+          "params": [
+            "status"
+          ]
+        },
+        {
+          "name": "inner",
+          "startLine": 183,
+          "endLine": 185,
+          "params": []
+        },
+        {
+          "name": "into_inner",
+          "startLine": 188,
+          "endLine": 190,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 194,
+          "endLine": 196,
+          "params": [
+            "status"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 200,
+          "endLine": 224,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "with_client_side_service_name",
+          "startLine": 235,
+          "endLine": 242,
+          "params": [
+            "service_name"
+          ]
+        },
+        {
+          "name": "source",
+          "startLine": 246,
+          "endLine": 249,
+          "params": []
+        },
+        {
+          "name": "provide",
+          "startLine": 251,
+          "endLine": 256,
+          "params": [
+            "request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ServerError",
+          "startLine": 37,
+          "endLine": 41,
+          "methods": [
+            "fmt",
+            "source",
+            "provide"
+          ],
+          "properties": [
+            "error",
+            "service_name",
+            "extra"
+          ]
+        },
+        {
+          "name": "TonicStatusWrapper",
+          "startLine": 131,
+          "endLine": 151,
+          "methods": [
+            "new",
+            "inner",
+            "into_inner",
+            "from",
+            "fmt",
+            "source",
+            "provide"
+          ],
+          "properties": [
+            "inner",
+            "call",
+            "client_side_service_name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "to_status",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "to_status_unnamed",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "is_from_tonic_server_impl",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "TonicStatusWrapper",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "inner",
+          "line": 183,
+          "isDefault": false
+        },
+        {
+          "name": "into_inner",
+          "line": 188,
+          "isDefault": false
+        },
+        {
+          "name": "with_client_side_service_name",
+          "line": 235,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fmt",
+          "callee": "self.error.fmt",
+          "lineNumber": 45
+        },
+        {
+          "caller": "source",
+          "callee": "self.error.source",
+          "lineNumber": 51
+        },
+        {
+          "caller": "provide",
+          "callee": "request.provide_ref",
+          "lineNumber": 56
+        },
+        {
+          "caller": "provide",
+          "callee": "self.extra.provide",
+          "lineNumber": 58
+        },
+        {
+          "caller": "to_status",
+          "callee": "serde_error::Error::new",
+          "lineNumber": 70
+        },
+        {
+          "caller": "to_status",
+          "callee": "extra::Extra::new",
+          "lineNumber": 72
+        },
+        {
+          "caller": "to_status",
+          "callee": "bincode::serialize(&source).unwrap",
+          "lineNumber": 74
+        },
+        {
+          "caller": "to_status",
+          "callee": "bincode::serialize",
+          "lineNumber": 74
+        },
+        {
+          "caller": "to_status",
+          "callee": "MetadataMap::new",
+          "lineNumber": 76
+        },
+        {
+          "caller": "to_status",
+          "callee": "metadata.insert_bin",
+          "lineNumber": 77
+        },
+        {
+          "caller": "to_status",
+          "callee": "MetadataValue::from_bytes",
+          "lineNumber": 77
+        },
+        {
+          "caller": "to_status",
+          "callee": "tonic::Status::with_metadata",
+          "lineNumber": 79
+        },
+        {
+          "caller": "to_status",
+          "callee": "error.to_report_string",
+          "lineNumber": 79
+        },
+        {
+          "caller": "to_status",
+          "callee": "status.set_source",
+          "lineNumber": 83
+        },
+        {
+          "caller": "to_status",
+          "callee": "Arc::new",
+          "lineNumber": 83
+        },
+        {
+          "caller": "to_status",
+          "callee": "to_status",
+          "lineNumber": 101
+        },
+        {
+          "caller": "to_status",
+          "callee": "Some",
+          "lineNumber": 101
+        },
+        {
+          "caller": "to_status",
+          "callee": "service_name.into",
+          "lineNumber": 101
+        },
+        {
+          "caller": "to_status_unnamed",
+          "callee": "to_status",
+          "lineNumber": 109
+        },
+        {
+          "caller": "is_from_tonic_server_impl",
+          "callee": "std::error::request_ref::<ServerError>(self).is_some",
+          "lineNumber": 124
+        },
+        {
+          "caller": "is_from_tonic_server_impl",
+          "callee": "std::error::request_ref::<ServerError>",
+          "lineNumber": 124
+        },
+        {
+          "caller": "new",
+          "callee": "status.source().is_none",
+          "lineNumber": 157
+        },
+        {
+          "caller": "new",
+          "callee": "status.source",
+          "lineNumber": 157
+        },
+        {
+          "caller": "new",
+          "callee": "status.metadata().get_bin",
+          "lineNumber": 158
+        },
+        {
+          "caller": "new",
+          "callee": "status.metadata",
+          "lineNumber": 158
+        },
+        {
+          "caller": "new",
+          "callee": "value.to_bytes().ok().and_then",
+          "lineNumber": 160
+        },
+        {
+          "caller": "new",
+          "callee": "value.to_bytes().ok",
+          "lineNumber": 160
+        },
+        {
+          "caller": "new",
+          "callee": "value.to_bytes",
+          "lineNumber": 160
+        },
+        {
+          "caller": "new",
+          "callee": "bincode::deserialize::<ServerError>(serialized.as_ref()).ok",
+          "lineNumber": 161
+        },
+        {
+          "caller": "new",
+          "callee": "bincode::deserialize::<ServerError>",
+          "lineNumber": 161
+        },
+        {
+          "caller": "new",
+          "callee": "serialized.as_ref",
+          "lineNumber": 161
+        },
+        {
+          "caller": "new",
+          "callee": "status.set_source",
+          "lineNumber": 163
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 163
+        },
+        {
+          "caller": "new",
+          "callee": "status\n            .metadata()\n            .get(CALL_KEY)\n            .and_then(|value| value.to_str().ok()).map",
+          "lineNumber": 169
+        },
+        {
+          "caller": "new",
+          "callee": "status\n            .metadata()\n            .get(CALL_KEY).and_then",
+          "lineNumber": 169
+        },
+        {
+          "caller": "new",
+          "callee": "status\n            .metadata().get",
+          "lineNumber": 169
+        },
+        {
+          "caller": "new",
+          "callee": "status.metadata",
+          "lineNumber": 169
+        },
+        {
+          "caller": "new",
+          "callee": "value.to_str().ok",
+          "lineNumber": 172
+        },
+        {
+          "caller": "new",
+          "callee": "value.to_str",
+          "lineNumber": 172
+        },
+        {
+          "caller": "from",
+          "callee": "Self::new",
+          "lineNumber": 195
+        },
+        {
+          "caller": "fmt",
+          "callee": "self\n            .source()\n            .and_then(|s| s.downcast_ref::<ServerError>())\n            .and_then(|s| s.service_name.as_ref()).or",
+          "lineNumber": 203
+        },
+        {
+          "caller": "fmt",
+          "callee": "self\n            .source()\n            .and_then(|s| s.downcast_ref::<ServerError>()).and_then",
+          "lineNumber": 203
+        },
+        {
+          "caller": "fmt",
+          "callee": "self\n            .source().and_then",
+          "lineNumber": 203
+        },
+        {
+          "caller": "fmt",
+          "callee": "self.source",
+          "lineNumber": 203
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.downcast_ref::<ServerError>",
+          "lineNumber": 205
+        },
+        {
+          "caller": "fmt",
+          "callee": "s.service_name.as_ref",
+          "lineNumber": 206
+        },
+        {
+          "caller": "fmt",
+          "callee": "self.client_side_service_name.as_ref",
+          "lineNumber": 208
+        },
+        {
+          "caller": "fmt",
+          "callee": "self.source",
+          "lineNumber": 218
+        },
+        {
+          "caller": "with_client_side_service_name",
+          "callee": "self.into",
+          "lineNumber": 239
+        },
+        {
+          "caller": "with_client_side_service_name",
+          "callee": "Some",
+          "lineNumber": 240
+        },
+        {
+          "caller": "with_client_side_service_name",
+          "callee": "service_name.into",
+          "lineNumber": 240
+        },
+        {
+          "caller": "source",
+          "callee": "self.inner.source",
+          "lineNumber": 248
+        },
+        {
+          "caller": "provide",
+          "callee": "self.source",
+          "lineNumber": 253
+        },
+        {
+          "caller": "provide",
+          "callee": "source.provide",
+          "lineNumber": 254
+        },
+        {
+          "caller": "test_source_chain_preserved",
+          "callee": "Some",
+          "lineNumber": 274
+        },
+        {
+          "caller": "test_source_chain_preserved",
+          "callee": "Box::new",
+          "lineNumber": 274
+        },
+        {
+          "caller": "test_source_chain_preserved",
+          "callee": "original.to_status",
+          "lineNumber": 280
+        },
+        {
+          "caller": "test_source_chain_preserved",
+          "callee": "server_status.into_http::<()>",
+          "lineNumber": 281
+        },
+        {
+          "caller": "test_source_chain_preserved",
+          "callee": "tonic::Status::from_header_map(body.headers()).unwrap",
+          "lineNumber": 282
+        },
+        {
+          "caller": "test_source_chain_preserved",
+          "callee": "tonic::Status::from_header_map",
+          "lineNumber": 282
+        },
+        {
+          "caller": "test_source_chain_preserved",
+          "callee": "body.headers",
+          "lineNumber": 282
+        },
+        {
+          "caller": "test_source_chain_preserved",
+          "callee": "TonicStatusWrapper::new",
+          "lineNumber": 284
+        },
+        {
+          "caller": "test_source_chain_preserved",
+          "callee": "wrapper.source().unwrap",
+          "lineNumber": 290
+        },
+        {
+          "caller": "test_source_chain_preserved",
+          "callee": "wrapper.source",
+          "lineNumber": 290
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 15,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/error/src/tonic/extra.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 73,
+      "functions": [
+        {
+          "name": "fmt",
+          "startLine": 35,
+          "endLine": 37,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "source",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "provide",
+          "startLine": 45,
+          "endLine": 49,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 64,
+          "endLine": 72,
+          "params": [
+            "error"
+          ]
+        },
+        {
+          "name": "provide",
+          "startLine": 75,
+          "endLine": 82,
+          "params": [
+            "request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Score",
+          "startLine": 25,
+          "endLine": 25,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "ScoredError",
+          "startLine": 29,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "error",
+            "score"
+          ]
+        },
+        {
+          "name": "Extra",
+          "startLine": 57,
+          "endLine": 60,
+          "methods": [
+            "new",
+            "provide"
+          ],
+          "properties": [
+            "score",
+            "code"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Score",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "ScoredError",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "Extra",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "provide",
+          "line": 75,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fmt",
+          "callee": "self.error.fmt",
+          "lineNumber": 36
+        },
+        {
+          "caller": "source",
+          "callee": "self.error.source",
+          "lineNumber": 42
+        },
+        {
+          "caller": "provide",
+          "callee": "self.error.provide",
+          "lineNumber": 46
+        },
+        {
+          "caller": "provide",
+          "callee": "request.provide_value",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new",
+          "callee": "error_request_copy",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new",
+          "callee": "error_request_copy",
+          "lineNumber": 70
+        },
+        {
+          "caller": "provide",
+          "callee": "request.provide_value",
+          "lineNumber": 77
+        },
+        {
+          "caller": "provide",
+          "callee": "request.provide_value",
+          "lineNumber": 80
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/error/src/wrappers.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "fmt",
+          "startLine": 21,
+          "endLine": 23,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "provide",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "source",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 37,
+          "endLine": 39,
+          "params": [
+            "value"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "IcebergError",
+          "startLine": 18,
+          "endLine": 18,
+          "methods": [
+            "fmt",
+            "provide",
+            "source",
+            "from"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IcebergError",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fmt",
+          "callee": "self.0.fmt",
+          "lineNumber": 22
+        },
+        {
+          "caller": "provide",
+          "callee": "request.provide_ref::<std::backtrace::Backtrace>",
+          "lineNumber": 28
+        },
+        {
+          "caller": "provide",
+          "callee": "self.0.backtrace",
+          "lineNumber": 28
+        },
+        {
+          "caller": "source",
+          "callee": "self.0.source",
+          "lineNumber": 32
+        },
+        {
+          "caller": "from",
+          "callee": "IcebergError",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    }
+  ]
+}

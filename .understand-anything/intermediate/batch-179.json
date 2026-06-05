@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/cassandra-and-scylladb-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/cassandra-and-scylladb-sink/README.md",
+      "summary": "Setup and execution guide for the Cassandra and ScyllaDB sink integration test demo, with instructions for creating keyspaces, running the test, and verifying results.",
+      "tags": ["documentation", "test", "infrastructure"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/cassandra-and-scylladb-sink/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/cassandra-and-scylladb-sink/create_mv.sql",
+      "summary": "Creates a RisingWave materialized view over the user_behaviors source for the Cassandra/ScyllaDB sink integration test.",
+      "tags": ["test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/cassandra-and-scylladb-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/cassandra-and-scylladb-sink/create_sink.sql",
+      "summary": "Defines RisingWave Cassandra and ScyllaDB sink connectors writing materialized view data to prepared Cassandra/ScyllaDB destination tables.",
+      "tags": ["test", "database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/cassandra-and-scylladb-sink/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/cassandra-and-scylladb-sink/create_source.sql",
+      "summary": "Defines RisingWave Kafka sources (user_behaviors, cassandra_types) with full type schemas for the Cassandra/ScyllaDB sink integration test.",
+      "tags": ["test", "database", "schema-definition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:integration_tests/cassandra-and-scylladb-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/cassandra-and-scylladb-sink/docker-compose.yml",
+      "summary": "Docker Compose configuration for the Cassandra/ScyllaDB sink integration test, orchestrating RisingWave, Kafka, Cassandra, and ScyllaDB containers.",
+      "tags": ["infrastructure", "orchestration", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/cassandra-and-scylladb-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/cassandra-and-scylladb-sink/prepare.sh",
+      "summary": "Shell script that creates Cassandra/ScyllaDB keyspaces and runs the prepare SQL DDL to set up destination tables before the integration test.",
+      "tags": ["script", "test", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/cassandra-and-scylladb-sink/prepare_cassandra_and_scylladb.sql",
+      "type": "table",
+      "name": "prepare_cassandra_and_scylladb.sql",
+      "filePath": "integration_tests/cassandra-and-scylladb-sink/prepare_cassandra_and_scylladb.sql",
+      "summary": "Creates Cassandra/ScyllaDB destination tables (demo_bhv_table, cassandra_types) in the target keyspace for the sink integration test.",
+      "tags": ["database", "test", "migration"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/cassandra-and-scylladb-sink/create_mv.sql",
+      "target": "table:integration_tests/cassandra-and-scylladb-sink/create_source.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/cassandra-and-scylladb-sink/create_sink.sql",
+      "target": "file:integration_tests/cassandra-and-scylladb-sink/create_mv.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/cassandra-and-scylladb-sink/prepare.sh",
+      "target": "table:integration_tests/cassandra-and-scylladb-sink/prepare_cassandra_and_scylladb.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/cassandra-and-scylladb-sink/create_sink.sql",
+      "target": "table:integration_tests/cassandra-and-scylladb-sink/prepare_cassandra_and_scylladb.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/cassandra-and-scylladb-sink/docker-compose.yml",
+      "target": "table:integration_tests/cassandra-and-scylladb-sink/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:integration_tests/cassandra-and-scylladb-sink/README.md",
+      "target": "file:integration_tests/cassandra-and-scylladb-sink/prepare.sh",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

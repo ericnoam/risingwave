@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "service:integration_tests/iceberg-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/iceberg-sink/docker-compose.yml",
+      "summary": "Docker Compose file for the Iceberg sink integration test, orchestrating Airflow (for DAG scheduling), Spark (for Iceberg table operations), MinIO (S3-compatible storage), and RisingWave with shared volume mounts.",
+      "tags": ["orchestration", "infrastructure", "test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "service:integration_tests/iceberg-sink/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "integration_tests/iceberg-sink/Dockerfile",
+      "summary": "Two-stage Dockerfile building custom Airflow (with Java 11 and iceberg-spark connectors) and Spark (with AWS S3 and Iceberg JAR dependencies) images for the Iceberg sink integration test.",
+      "tags": ["containerization", "infrastructure", "test"],
+      "complexity": "moderate",
+      "languageNotes": "Two named stages: airflow (apache/airflow:2.6.2-python3.10) and spark (bitnami/spark:3.3), each extended with additional JARs and packages."
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:integration_tests/iceberg-sink/docker-compose.yml",
+      "target": "service:integration_tests/iceberg-sink/Dockerfile",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

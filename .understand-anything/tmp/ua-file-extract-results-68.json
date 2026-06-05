@@ -1,0 +1,3360 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 24,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/meta/model/src/iceberg_tables.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 31,
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 21,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "catalog_name",
+            "table_namespace",
+            "table_name",
+            "metadata_location",
+            "previous_metadata_location"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 32,
+          "endLine": 32,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 32,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/index.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 76,
+      "functions": [
+        {
+          "name": "to",
+          "startLine": 64,
+          "endLine": 66,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 72,
+          "endLine": 82,
+          "params": [
+            "pb_index"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 24,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "index_id",
+            "name",
+            "index_table_id",
+            "primary_table_id",
+            "index_items",
+            "index_column_properties",
+            "index_columns_len"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 36,
+          "endLine": 61,
+          "methods": [],
+          "properties": [
+            "Object",
+            "Table2",
+            "Table1"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Object.def",
+          "lineNumber": 65
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 74
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 75
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 76
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 77
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 78
+        },
+        {
+          "caller": "from",
+          "callee": "pb_index.index_item.into",
+          "lineNumber": 78
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 79
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 80
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 80
+        },
+        {
+          "caller": "from",
+          "callee": "pb_index.index_column_properties.into",
+          "lineNumber": 80
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 476,
+      "nonEmptyLines": 418,
+      "functions": [
+        {
+          "name": "from",
+          "startLine": 97,
+          "endLine": 103,
+          "params": [
+            "job_status"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 108,
+          "endLine": 114,
+          "params": [
+            "status"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 127,
+          "endLine": 132,
+          "params": [
+            "create_type"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 136,
+          "endLine": 142,
+          "params": [
+            "create_type"
+          ]
+        },
+        {
+          "name": "as_str",
+          "startLine": 146,
+          "endLine": 151,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 331,
+          "endLine": 333,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "into_u32_array",
+          "startLine": 337,
+          "endLine": 339,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 456,
+          "endLine": 464,
+          "params": [
+            "val"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 468,
+          "endLine": 475,
+          "params": [
+            "val"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JobStatus",
+          "startLine": 87,
+          "endLine": 94,
+          "methods": [],
+          "properties": [
+            "Initial",
+            "Creating",
+            "Created"
+          ]
+        },
+        {
+          "name": "CreateType",
+          "startLine": 119,
+          "endLine": 124,
+          "methods": [
+            "from",
+            "as_str"
+          ],
+          "properties": [
+            "Background",
+            "Foreground"
+          ]
+        },
+        {
+          "name": "StreamingParallelism",
+          "startLine": 432,
+          "endLine": 436,
+          "methods": [],
+          "properties": [
+            "Adaptive",
+            "Fixed",
+            "Custom"
+          ]
+        },
+        {
+          "name": "DispatcherType",
+          "startLine": 444,
+          "endLine": 453,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "Hash",
+            "Broadcast",
+            "Simple",
+            "NoShuffle"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "JobStatus",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "CreateType",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "as_str",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "into_u32_array",
+          "line": 337,
+          "isDefault": false
+        },
+        {
+          "name": "StreamingParallelism",
+          "line": 432,
+          "isDefault": false
+        },
+        {
+          "name": "DispatcherType",
+          "line": 444,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from",
+          "callee": "Self",
+          "lineNumber": 332
+        },
+        {
+          "caller": "from",
+          "callee": "value.into_iter().map(|id| id as _).collect",
+          "lineNumber": 332
+        },
+        {
+          "caller": "from",
+          "callee": "value.into_iter().map",
+          "lineNumber": 332
+        },
+        {
+          "caller": "from",
+          "callee": "value.into_iter",
+          "lineNumber": 332
+        },
+        {
+          "caller": "into_u32_array",
+          "callee": "self.0.into_iter().map(|id| id as _).collect",
+          "lineNumber": 338
+        },
+        {
+          "caller": "into_u32_array",
+          "callee": "self.0.into_iter().map",
+          "lineNumber": 338
+        },
+        {
+          "caller": "into_u32_array",
+          "callee": "self.0.into_iter",
+          "lineNumber": 338
+        }
+      ],
+      "metrics": {
+        "importCount": 48,
+        "exportCount": 6,
+        "functionCount": 9,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "src/meta/model/src/object.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 258,
+      "nonEmptyLines": 236,
+      "functions": [
+        {
+          "name": "as_str",
+          "startLine": 51,
+          "endLine": 65,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 69,
+          "endLine": 86,
+          "params": [
+            "pb_object_type"
+          ]
+        },
+        {
+          "name": "to",
+          "startLine": 175,
+          "endLine": 177,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 181,
+          "endLine": 183,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 187,
+          "endLine": 189,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 193,
+          "endLine": 195,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 199,
+          "endLine": 201,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 205,
+          "endLine": 207,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 211,
+          "endLine": 213,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 217,
+          "endLine": 219,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 223,
+          "endLine": 225,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 229,
+          "endLine": 231,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 235,
+          "endLine": 237,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 241,
+          "endLine": 243,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 247,
+          "endLine": 249,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 253,
+          "endLine": 255,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ObjectType",
+          "startLine": 25,
+          "endLine": 48,
+          "methods": [
+            "as_str",
+            "from"
+          ],
+          "properties": [
+            "Database",
+            "Schema",
+            "Table",
+            "Source",
+            "Sink",
+            "View",
+            "Index",
+            "Function",
+            "Connection",
+            "Subscription",
+            "Secret"
+          ]
+        },
+        {
+          "name": "Model",
+          "startLine": 91,
+          "endLine": 102,
+          "methods": [],
+          "properties": [
+            "oid",
+            "obj_type",
+            "owner_id",
+            "schema_id",
+            "database_id",
+            "initialized_at",
+            "created_at",
+            "initialized_at_cluster_version",
+            "created_at_cluster_version"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 105,
+          "endLine": 172,
+          "methods": [],
+          "properties": [
+            "Connection",
+            "Database",
+            "Fragment",
+            "Function",
+            "Index",
+            "SelfRef2",
+            "SelfRef1",
+            "Database2",
+            "Schema",
+            "Sink",
+            "Subscription",
+            "Source",
+            "Table",
+            "StreamingJob",
+            "User",
+            "UserPrivilege",
+            "View",
+            "Schema2"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ObjectType",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "as_str",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "Model",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 105,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Connection.def",
+          "lineNumber": 176
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Database.def",
+          "lineNumber": 182
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Fragment.def",
+          "lineNumber": 188
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Function.def",
+          "lineNumber": 194
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Index.def",
+          "lineNumber": 200
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Schema.def",
+          "lineNumber": 206
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Sink.def",
+          "lineNumber": 212
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Subscription.def",
+          "lineNumber": 218
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Source.def",
+          "lineNumber": 224
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Table.def",
+          "lineNumber": 230
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::StreamingJob.def",
+          "lineNumber": 236
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::User.def",
+          "lineNumber": 242
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::UserPrivilege.def",
+          "lineNumber": 248
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::View.def",
+          "lineNumber": 254
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 16,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/meta/model/src/object_dependency.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 53,
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 22,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "id",
+            "oid",
+            "used_by"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 30,
+          "endLine": 57,
+          "methods": [],
+          "properties": [
+            "Object2",
+            "Object1",
+            "Source"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/pending_sink_state.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 57,
+      "classes": [
+        {
+          "name": "SinkState",
+          "startLine": 22,
+          "endLine": 29,
+          "methods": [],
+          "properties": [
+            "Pending",
+            "Committed",
+            "Aborted"
+          ]
+        },
+        {
+          "name": "Model",
+          "startLine": 33,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "sink_id",
+            "epoch",
+            "sink_state",
+            "metadata",
+            "schema_change"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 46,
+          "endLine": 63,
+          "methods": [],
+          "properties": [
+            "Sink",
+            "Object"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SinkState",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Model",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/meta/model/src/prelude.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 50,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/meta/model/src/refresh_job.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 86,
+      "functions": [
+        {
+          "name": "from",
+          "startLine": 35,
+          "endLine": 41,
+          "params": [
+            "refresh_state"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 45,
+          "endLine": 54,
+          "params": [
+            "refresh_state"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 58,
+          "endLine": 64,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "to",
+          "startLine": 91,
+          "endLine": 93,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RefreshState",
+          "startLine": 22,
+          "endLine": 32,
+          "methods": [
+            "from",
+            "fmt"
+          ],
+          "properties": [
+            "Idle",
+            "Refreshing",
+            "Finishing"
+          ]
+        },
+        {
+          "name": "Model",
+          "startLine": 69,
+          "endLine": 76,
+          "methods": [],
+          "properties": [
+            "table_id",
+            "last_trigger_time",
+            "trigger_interval_secs",
+            "current_status",
+            "last_success_time"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 79,
+          "endLine": 88,
+          "methods": [],
+          "properties": [
+            "Table"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RefreshState",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Model",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 79,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Table.def",
+          "lineNumber": 92
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/meta/model/src/schema.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "to",
+          "startLine": 43,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 51,
+          "endLine": 56,
+          "params": [
+            "schema"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 24,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "schema_id",
+            "name"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 31,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "Object"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Object.def",
+          "lineNumber": 44
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 53
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/secret.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "to",
+          "startLine": 44,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 52,
+          "endLine": 58,
+          "params": [
+            "secret"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 24,
+          "endLine": 29,
+          "methods": [],
+          "properties": [
+            "secret_id",
+            "name",
+            "value"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 32,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "Object"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 32,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Object.def",
+          "lineNumber": 45
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 54
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 55
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/serde_seaql_migration.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 28,
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 22,
+          "endLine": 26,
+          "methods": [],
+          "properties": [
+            "version",
+            "applied_at"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 29,
+          "endLine": 29,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/session_parameter.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 25,
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 19,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "name",
+            "value",
+            "description"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 27,
+          "endLine": 27,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/sink.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 144,
+      "nonEmptyLines": 132,
+      "functions": [
+        {
+          "name": "from",
+          "startLine": 37,
+          "endLine": 43,
+          "params": [
+            "sink_type"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 47,
+          "endLine": 56,
+          "params": [
+            "sink_type"
+          ]
+        },
+        {
+          "name": "to",
+          "startLine": 105,
+          "endLine": 107,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 111,
+          "endLine": 113,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 119,
+          "endLine": 143,
+          "params": [
+            "pb_sink"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SinkType",
+          "startLine": 27,
+          "endLine": 34,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "AppendOnly",
+            "Upsert",
+            "Retract"
+          ]
+        },
+        {
+          "name": "Model",
+          "startLine": 61,
+          "endLine": 82,
+          "methods": [],
+          "properties": [
+            "sink_id",
+            "name",
+            "columns",
+            "plan_pk",
+            "distribution_key",
+            "downstream_pk",
+            "sink_type",
+            "ignore_delete",
+            "properties",
+            "definition",
+            "connection_id",
+            "db_name",
+            "sink_from_name",
+            "sink_format_desc",
+            "target_table",
+            "secret_ref",
+            "original_target_columns",
+            "auto_refresh_schema_from_table"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 85,
+          "endLine": 102,
+          "methods": [],
+          "properties": [
+            "Connection",
+            "Object"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SinkType",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "Model",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 85,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Connection.def",
+          "lineNumber": 106
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Object.def",
+          "lineNumber": 112
+        },
+        {
+          "caller": "from",
+          "callee": "pb_sink.sink_type",
+          "lineNumber": 120
+        },
+        {
+          "caller": "from",
+          "callee": "pb_sink.ignore_delete",
+          "lineNumber": 121
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 124
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 125
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 126
+        },
+        {
+          "caller": "from",
+          "callee": "pb_sink.columns.into",
+          "lineNumber": 126
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 127
+        },
+        {
+          "caller": "from",
+          "callee": "pb_sink.plan_pk.into",
+          "lineNumber": 127
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 128
+        },
+        {
+          "caller": "from",
+          "callee": "pb_sink.distribution_key.into",
+          "lineNumber": 128
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 129
+        },
+        {
+          "caller": "from",
+          "callee": "pb_sink.downstream_pk.into",
+          "lineNumber": 129
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 130
+        },
+        {
+          "caller": "from",
+          "callee": "sink_type.into",
+          "lineNumber": 130
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 131
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 132
+        },
+        {
+          "caller": "from",
+          "callee": "pb_sink.properties.into",
+          "lineNumber": 132
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 133
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 134
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 135
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 136
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 137
+        },
+        {
+          "caller": "from",
+          "callee": "pb_sink.format_desc.as_ref().map",
+          "lineNumber": 137
+        },
+        {
+          "caller": "from",
+          "callee": "pb_sink.format_desc.as_ref",
+          "lineNumber": 137
+        },
+        {
+          "caller": "from",
+          "callee": "x.into",
+          "lineNumber": 137
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 138
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 139
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 139
+        },
+        {
+          "caller": "from",
+          "callee": "SecretRef::from",
+          "lineNumber": 139
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 140
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 140
+        },
+        {
+          "caller": "from",
+          "callee": "pb_sink.original_target_columns.into",
+          "lineNumber": 140
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 141
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 5,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/meta/model/src/source.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 108,
+      "functions": [
+        {
+          "name": "to",
+          "startLine": 70,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 76,
+          "endLine": 78,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 82,
+          "endLine": 84,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 90,
+          "endLine": 109,
+          "params": [
+            "source"
+          ]
+        },
+        {
+          "name": "is_shared",
+          "startLine": 113,
+          "endLine": 117,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 27,
+          "endLine": 45,
+          "methods": [
+            "is_shared"
+          ],
+          "properties": [
+            "source_id",
+            "name",
+            "row_id_index",
+            "columns",
+            "pk_column_ids",
+            "with_properties",
+            "definition",
+            "source_info",
+            "watermark_descs",
+            "optional_associated_table_id",
+            "connection_id",
+            "version",
+            "secret_ref",
+            "rate_limit",
+            "refresh_mode"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 48,
+          "endLine": 67,
+          "methods": [],
+          "properties": [
+            "Connection",
+            "Object",
+            "Table"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "is_shared",
+          "line": 113,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Connection.def",
+          "lineNumber": 71
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Object.def",
+          "lineNumber": 77
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Table.def",
+          "lineNumber": 83
+        },
+        {
+          "caller": "from",
+          "callee": "source.optional_associated_table_id.map",
+          "lineNumber": 91
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 93
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 94
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 95
+        },
+        {
+          "caller": "from",
+          "callee": "source.row_id_index.map",
+          "lineNumber": 95
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 96
+        },
+        {
+          "caller": "from",
+          "callee": "ColumnCatalogArray::from",
+          "lineNumber": 96
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 97
+        },
+        {
+          "caller": "from",
+          "callee": "I32Array",
+          "lineNumber": 97
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 98
+        },
+        {
+          "caller": "from",
+          "callee": "Property",
+          "lineNumber": 98
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 99
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 100
+        },
+        {
+          "caller": "from",
+          "callee": "source.info.as_ref().map",
+          "lineNumber": 100
+        },
+        {
+          "caller": "from",
+          "callee": "source.info.as_ref",
+          "lineNumber": 100
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 101
+        },
+        {
+          "caller": "from",
+          "callee": "WatermarkDescArray::from",
+          "lineNumber": 101
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 102
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 103
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 104
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 105
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 105
+        },
+        {
+          "caller": "from",
+          "callee": "SecretRef::from",
+          "lineNumber": 105
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 106
+        },
+        {
+          "caller": "from",
+          "callee": "source.rate_limit.map",
+          "lineNumber": 106
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 107
+        },
+        {
+          "caller": "from",
+          "callee": "source.refresh_mode.as_ref().map",
+          "lineNumber": 107
+        },
+        {
+          "caller": "from",
+          "callee": "source.refresh_mode.as_ref",
+          "lineNumber": 107
+        },
+        {
+          "caller": "is_shared",
+          "callee": "self.source_info\n            .as_ref().is_some_and",
+          "lineNumber": 114
+        },
+        {
+          "caller": "is_shared",
+          "callee": "self.source_info.as_ref",
+          "lineNumber": 114
+        },
+        {
+          "caller": "is_shared",
+          "callee": "s.to_protobuf().is_shared",
+          "lineNumber": 116
+        },
+        {
+          "caller": "is_shared",
+          "callee": "s.to_protobuf",
+          "lineNumber": 116
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/streaming_job.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "to",
+          "startLine": 70,
+          "endLine": 72,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 27,
+          "endLine": 45,
+          "methods": [],
+          "properties": [
+            "job_id",
+            "job_status",
+            "create_type",
+            "timezone",
+            "config_override",
+            "adaptive_parallelism_strategy",
+            "parallelism",
+            "backfill_parallelism",
+            "backfill_adaptive_parallelism_strategy",
+            "backfill_orders",
+            "max_parallelism",
+            "specific_resource_group",
+            "is_serverless_backfill",
+            "refresh_interval_sec"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 58,
+          "endLine": 67,
+          "methods": [],
+          "properties": [
+            "Object"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 58,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Object.def",
+          "lineNumber": 71
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/subscription.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "to",
+          "startLine": 48,
+          "endLine": 50,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 56,
+          "endLine": 65,
+          "params": [
+            "pb_subscription"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 25,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "subscription_id",
+            "name",
+            "retention_seconds",
+            "definition",
+            "subscription_state",
+            "dependent_table_id"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 36,
+          "endLine": 45,
+          "methods": [],
+          "properties": [
+            "Object"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Object.def",
+          "lineNumber": 49
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 58
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 59
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 60
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 61
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 62
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 63
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/system_parameter.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 27,
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 19,
+          "endLine": 25,
+          "methods": [],
+          "properties": [
+            "name",
+            "value",
+            "is_mutable",
+            "description"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 28,
+          "endLine": 28,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/table.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 400,
+      "nonEmptyLines": 375,
+      "functions": [
+        {
+          "name": "from",
+          "startLine": 48,
+          "endLine": 56,
+          "params": [
+            "table_type"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 60,
+          "endLine": 69,
+          "params": [
+            "table_type"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 86,
+          "endLine": 93,
+          "params": [
+            "handle_conflict_behavior"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 97,
+          "endLine": 107,
+          "params": [
+            "handle_conflict_behavior"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 120,
+          "endLine": 125,
+          "params": [
+            "engine"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 129,
+          "endLine": 135,
+          "params": [
+            "engine"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 156,
+          "endLine": 165,
+          "params": [
+            "cdc_table_type"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 169,
+          "endLine": 178,
+          "params": [
+            "cdc_table_type"
+          ]
+        },
+        {
+          "name": "to",
+          "startLine": 279,
+          "endLine": 281,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 285,
+          "endLine": 287,
+          "params": []
+        },
+        {
+          "name": "job_id",
+          "startLine": 293,
+          "endLine": 296,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 300,
+          "endLine": 399,
+          "params": [
+            "pb_table"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TableType",
+          "startLine": 34,
+          "endLine": 45,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "Table",
+            "MaterializedView",
+            "Index",
+            "Internal",
+            "VectorIndex"
+          ]
+        },
+        {
+          "name": "HandleConflictBehavior",
+          "startLine": 74,
+          "endLine": 83,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "Overwrite",
+            "Ignore",
+            "NoCheck",
+            "DoUpdateIfNotNull"
+          ]
+        },
+        {
+          "name": "Engine",
+          "startLine": 112,
+          "endLine": 117,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "Hummock",
+            "Iceberg"
+          ]
+        },
+        {
+          "name": "CdcTableType",
+          "startLine": 140,
+          "endLine": 153,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "Unspecified",
+            "Postgres",
+            "Mysql",
+            "Sqlserver",
+            "Mongo",
+            "Citus"
+          ]
+        },
+        {
+          "name": "Model",
+          "startLine": 185,
+          "endLine": 222,
+          "methods": [
+            "job_id"
+          ],
+          "properties": [
+            "table_id",
+            "name",
+            "optional_associated_source_id",
+            "table_type",
+            "belongs_to_job_id",
+            "columns",
+            "pk",
+            "distribution_key",
+            "stream_key",
+            "append_only",
+            "fragment_id",
+            "vnode_col_index",
+            "row_id_index",
+            "value_indices",
+            "definition",
+            "handle_pk_conflict_behavior",
+            "version_column_indices",
+            "read_prefix_len_hint",
+            "watermark_indices",
+            "dist_key_in_pk",
+            "dml_fragment_id",
+            "cardinality",
+            "cleaned_by_watermark",
+            "description",
+            "version",
+            "retention_seconds",
+            "cdc_table_id",
+            "vnode_count",
+            "webhook_info",
+            "engine",
+            "clean_watermark_index_in_pk",
+            "clean_watermark_indices",
+            "refreshable",
+            "vector_index_info",
+            "cdc_table_type"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 225,
+          "endLine": 276,
+          "methods": [],
+          "properties": [
+            "Fragment2",
+            "Fragment1",
+            "Object2",
+            "Object1",
+            "Source",
+            "ObjectDependency"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TableType",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "HandleConflictBehavior",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "Engine",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "CdcTableType",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "Model",
+          "line": 185,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 225,
+          "isDefault": false
+        },
+        {
+          "name": "job_id",
+          "line": 293,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Object1.def",
+          "lineNumber": 280
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Source.def",
+          "lineNumber": 286
+        },
+        {
+          "caller": "job_id",
+          "callee": "self.belongs_to_job_id.unwrap_or_else",
+          "lineNumber": 294
+        },
+        {
+          "caller": "job_id",
+          "callee": "self.table_id.as_job_id",
+          "lineNumber": 295
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.table_type",
+          "lineNumber": 301
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.handle_pk_conflict_behavior",
+          "lineNumber": 302
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n            .vnode_count_inner()\n            .value_opt()\n            .map(|v| v as _).map_or",
+          "lineNumber": 307
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n            .vnode_count_inner()\n            .value_opt().map",
+          "lineNumber": 307
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n            .vnode_count_inner().value_opt",
+          "lineNumber": 307
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.vnode_count_inner",
+          "lineNumber": 307
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 315
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 315
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n            .dml_fragment_id\n            .map(|x| Set(Some(x))).unwrap_or_default",
+          "lineNumber": 317
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n            .dml_fragment_id.map",
+          "lineNumber": 317
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 319
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 319
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 323
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 323
+        },
+        {
+          "caller": "from",
+          "callee": "src_id.into",
+          "lineNumber": 323
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 329
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 330
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 332
+        },
+        {
+          "caller": "from",
+          "callee": "table_type.into",
+          "lineNumber": 332
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 333
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 334
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.columns.into",
+          "lineNumber": 334
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 335
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.pk.into",
+          "lineNumber": 335
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 336
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.distribution_key.into",
+          "lineNumber": 336
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 337
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.stream_key.into",
+          "lineNumber": 337
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 338
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 340
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.vnode_col_index.map",
+          "lineNumber": 340
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 341
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.row_id_index.map",
+          "lineNumber": 341
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 342
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.value_indices.into",
+          "lineNumber": 342
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 343
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 344
+        },
+        {
+          "caller": "from",
+          "callee": "handle_pk_conflict_behavior.into",
+          "lineNumber": 344
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 345
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 345
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                    .version_column_indices\n                    .iter()\n                    .map(|x| *x as i32)\n                    .collect::<Vec<_>>().into",
+          "lineNumber": 346
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                    .version_column_indices\n                    .iter()\n                    .map(|x| *x as i32)\n                    .collect::<Vec<_>>",
+          "lineNumber": 346
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                    .version_column_indices\n                    .iter().map",
+          "lineNumber": 346
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                    .version_column_indices.iter",
+          "lineNumber": 346
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 353
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 354
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.watermark_indices.into",
+          "lineNumber": 354
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 355
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.dist_key_in_pk.into",
+          "lineNumber": 355
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 357
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.cardinality.as_ref().map",
+          "lineNumber": 357
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.cardinality.as_ref",
+          "lineNumber": 357
+        },
+        {
+          "caller": "from",
+          "callee": "x.into",
+          "lineNumber": 357
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 359
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 360
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 361
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.version.as_ref().map",
+          "lineNumber": 361
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.version.as_ref",
+          "lineNumber": 361
+        },
+        {
+          "caller": "from",
+          "callee": "v.into",
+          "lineNumber": 361
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 362
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.retention_seconds.map",
+          "lineNumber": 362
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 363
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 365
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.webhook_info.as_ref().map",
+          "lineNumber": 365
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.webhook_info.as_ref",
+          "lineNumber": 365
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 366
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                .engine.map",
+          "lineNumber": 366
+        },
+        {
+          "caller": "from",
+          "callee": "Engine::from",
+          "lineNumber": 368
+        },
+        {
+          "caller": "from",
+          "callee": "PbEngine::try_from(engine).expect",
+          "lineNumber": 368
+        },
+        {
+          "caller": "from",
+          "callee": "PbEngine::try_from",
+          "lineNumber": 368
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 370
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 371
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.clean_watermark_indices.is_empty",
+          "lineNumber": 371
+        },
+        {
+          "caller": "from",
+          "callee": "Some",
+          "lineNumber": 374
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                        .clean_watermark_indices\n                        .iter()\n                        .map(|x| *x as i32)\n                        .collect::<Vec<_>>().into",
+          "lineNumber": 375
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                        .clean_watermark_indices\n                        .iter()\n                        .map(|x| *x as i32)\n                        .collect::<Vec<_>>",
+          "lineNumber": 375
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                        .clean_watermark_indices\n                        .iter().map",
+          "lineNumber": 375
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                        .clean_watermark_indices.iter",
+          "lineNumber": 375
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 383
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 384
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                .vector_index_info\n                .as_ref().map",
+          "lineNumber": 384
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table\n                .vector_index_info.as_ref",
+          "lineNumber": 384
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 388
+        },
+        {
+          "caller": "from",
+          "callee": "pb_table.cdc_table_type.map",
+          "lineNumber": 388
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 12,
+        "classCount": 6
+      }
+    },
+    {
+      "path": "src/meta/model/src/user.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 74,
+      "functions": [
+        {
+          "name": "to",
+          "startLine": 45,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 53,
+          "endLine": 65,
+          "params": [
+            "user"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 69,
+          "endLine": 81,
+          "params": [
+            "val"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 25,
+          "endLine": 36,
+          "methods": [],
+          "properties": [
+            "user_id",
+            "name",
+            "is_super",
+            "can_create_db",
+            "can_create_user",
+            "can_login",
+            "is_admin",
+            "auth_info"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 39,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "Object"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Object.def",
+          "lineNumber": 46
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 54
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 57
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 58
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 59
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 60
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 61
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 62
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 63
+        },
+        {
+          "caller": "from",
+          "callee": "user.auth_info.as_ref().map",
+          "lineNumber": 63
+        },
+        {
+          "caller": "from",
+          "callee": "user.auth_info.as_ref",
+          "lineNumber": 63
+        },
+        {
+          "caller": "from",
+          "callee": "val.auth_info.map",
+          "lineNumber": 78
+        },
+        {
+          "caller": "from",
+          "callee": "x.to_protobuf",
+          "lineNumber": 78
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/user_default_privilege.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 87,
+      "functions": [
+        {
+          "name": "to",
+          "startLine": 83,
+          "endLine": 85,
+          "params": []
+        },
+        {
+          "name": "to",
+          "startLine": 89,
+          "endLine": 91,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 24,
+          "endLine": 36,
+          "methods": [],
+          "properties": [
+            "id",
+            "database_id",
+            "schema_id",
+            "object_type",
+            "for_materialized_view",
+            "user_id",
+            "grantee",
+            "granted_by",
+            "action",
+            "with_grant_option"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 39,
+          "endLine": 80,
+          "methods": [],
+          "properties": [
+            "Database",
+            "Schema",
+            "User3",
+            "User2",
+            "User1"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Database.def",
+          "lineNumber": 84
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::Schema.def",
+          "lineNumber": 90
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/user_privilege.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 130,
+      "nonEmptyLines": 121,
+      "functions": [
+        {
+          "name": "from",
+          "startLine": 45,
+          "endLine": 57,
+          "params": [
+            "action"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 61,
+          "endLine": 72,
+          "params": [
+            "action"
+          ]
+        },
+        {
+          "name": "to",
+          "startLine": 125,
+          "endLine": 127,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Action",
+          "startLine": 25,
+          "endLine": 42,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "Insert",
+            "Select",
+            "Update",
+            "Delete",
+            "Usage",
+            "Create",
+            "Connect",
+            "Execute"
+          ]
+        },
+        {
+          "name": "Model",
+          "startLine": 77,
+          "endLine": 86,
+          "methods": [],
+          "properties": [
+            "id",
+            "dependent_id",
+            "user_id",
+            "oid",
+            "granted_by",
+            "action",
+            "with_grant_option"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 89,
+          "endLine": 122,
+          "methods": [],
+          "properties": [
+            "Object",
+            "User2",
+            "User1",
+            "SelfRef"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Action",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "Model",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 89,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Object.def",
+          "lineNumber": 126
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/meta/model/src/view.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "to",
+          "startLine": 46,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 54,
+          "endLine": 62,
+          "params": [
+            "view"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 24,
+          "endLine": 31,
+          "methods": [],
+          "properties": [
+            "view_id",
+            "name",
+            "properties",
+            "definition",
+            "columns"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 34,
+          "endLine": 43,
+          "methods": [],
+          "properties": [
+            "Object"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Object.def",
+          "lineNumber": 47
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 56
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 57
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 58
+        },
+        {
+          "caller": "from",
+          "callee": "Property",
+          "lineNumber": 58
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 59
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 60
+        },
+        {
+          "caller": "from",
+          "callee": "view.columns.into",
+          "lineNumber": 60
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/src/worker.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 129,
+      "nonEmptyLines": 116,
+      "functions": [
+        {
+          "name": "from",
+          "startLine": 39,
+          "endLine": 48,
+          "params": [
+            "worker_type"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 52,
+          "endLine": 60,
+          "params": [
+            "worker_type"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 73,
+          "endLine": 79,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 83,
+          "endLine": 88,
+          "params": [
+            "status"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 92,
+          "endLine": 102,
+          "params": [
+            "worker"
+          ]
+        },
+        {
+          "name": "to",
+          "startLine": 124,
+          "endLine": 126,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "WorkerType",
+          "startLine": 25,
+          "endLine": 36,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "Frontend",
+            "ComputeNode",
+            "RiseCtl",
+            "Compactor",
+            "Meta"
+          ]
+        },
+        {
+          "name": "WorkerStatus",
+          "startLine": 65,
+          "endLine": 70,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "Starting",
+            "Running"
+          ]
+        },
+        {
+          "name": "Model",
+          "startLine": 107,
+          "endLine": 115,
+          "methods": [],
+          "properties": [
+            "worker_id",
+            "worker_type",
+            "host",
+            "port",
+            "status",
+            "transaction_id"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 118,
+          "endLine": 121,
+          "methods": [],
+          "properties": [
+            "WorkerProperty"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WorkerType",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "WorkerStatus",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "Model",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 118,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from",
+          "callee": "worker.host.clone().unwrap",
+          "lineNumber": 93
+        },
+        {
+          "caller": "from",
+          "callee": "worker.host.clone",
+          "lineNumber": 93
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 95
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 96
+        },
+        {
+          "caller": "from",
+          "callee": "worker.r#type().into",
+          "lineNumber": 96
+        },
+        {
+          "caller": "from",
+          "callee": "worker.r#type",
+          "lineNumber": 96
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 97
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 98
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 99
+        },
+        {
+          "caller": "from",
+          "callee": "worker.state().into",
+          "lineNumber": 99
+        },
+        {
+          "caller": "from",
+          "callee": "worker.state",
+          "lineNumber": 99
+        },
+        {
+          "caller": "from",
+          "callee": "Set",
+          "lineNumber": 100
+        },
+        {
+          "caller": "from",
+          "callee": "worker.transactional_id.map",
+          "lineNumber": 100
+        },
+        {
+          "caller": "to",
+          "callee": "Relation::WorkerProperty.def",
+          "lineNumber": 125
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 6,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "src/meta/model/src/worker_property.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "to",
+          "startLine": 47,
+          "endLine": 49,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Model",
+          "startLine": 22,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "worker_id",
+            "parallelism",
+            "is_streaming",
+            "is_serving",
+            "is_unschedulable",
+            "internal_rpc_host_addr",
+            "resource_group",
+            "is_iceberg_compactor"
+          ]
+        },
+        {
+          "name": "Relation",
+          "startLine": 35,
+          "endLine": 44,
+          "methods": [],
+          "properties": [
+            "Worker"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Model",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Relation",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to",
+          "callee": "Relation::Worker.def",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 2
+      }
+    }
+  ]
+}

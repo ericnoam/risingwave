@@ -1,0 +1,88 @@
+{
+  "nodes": [
+    {
+      "id": "config:integration_tests/twitter/avro.json",
+      "type": "config",
+      "name": "avro.json",
+      "filePath": "integration_tests/twitter/avro.json",
+      "summary": "Avro schema definition for the Twitter event record, specifying field names and types used when ingesting data via the Avro connector in the integration test.",
+      "tags": ["configuration", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/twitter/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/twitter/create_source.sql",
+      "summary": "Defines the RisingWave source reading Twitter-like events, configurable to use either Avro or Protobuf encoding depending on the test variant.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/twitter/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/twitter/create_mv.sql",
+      "summary": "Creates materialized views joining tweet and user data from the Twitter source for analytics and hashtag trend queries in the integration test.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/twitter/query.sql",
+      "type": "table",
+      "name": "query.sql",
+      "filePath": "integration_tests/twitter/query.sql",
+      "summary": "Validation queries against the Twitter materialized views verifying that streaming data is correctly ingested and aggregated.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/twitter/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/twitter/docker-compose.yml",
+      "summary": "Docker Compose file orchestrating RisingWave and a message producer service for the Twitter (Kafka/Avro) integration test.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "schema:integration_tests/twitter/twitter.proto",
+      "type": "schema",
+      "name": "twitter.proto",
+      "filePath": "integration_tests/twitter/twitter.proto",
+      "summary": "Protobuf schema defining the Event, TweetData, and User message types for the Twitter integration test, shared across Protobuf-based test variants.",
+      "tags": ["schema-definition", "protobuf", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "table:integration_tests/twitter/create_source.sql",
+      "target": "config:integration_tests/twitter/avro.json",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "table:integration_tests/twitter/create_source.sql",
+      "target": "schema:integration_tests/twitter/twitter.proto",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/twitter/docker-compose.yml",
+      "target": "table:integration_tests/twitter/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/twitter/docker-compose.yml",
+      "target": "table:integration_tests/twitter/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

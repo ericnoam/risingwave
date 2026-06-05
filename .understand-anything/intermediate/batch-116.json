@@ -1,0 +1,190 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cmd_all/src/common.rs",
+      "type": "file",
+      "name": "common.rs",
+      "filePath": "src/cmd_all/src/common.rs",
+      "summary": "Shared initialization helpers for the cmd_all crate, providing common startup logic (e.g., signal handling, metadata address defaults) used by single-node and standalone launch modes.",
+      "tags": ["utility", "runtime", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cmd_all/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/cmd_all/src/lib.rs",
+      "summary": "Barrel file for the cmd_all crate, re-exporting the common, single_node, and standalone launch modules.",
+      "tags": ["entry-point", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cmd_all/src/single_node.rs",
+      "type": "file",
+      "name": "single_node.rs",
+      "filePath": "src/cmd_all/src/single_node.rs",
+      "summary": "Implements the single-node all-in-one launch mode, mapping SingleNodeOpts CLI arguments to standalone component options and starting all RisingWave services in a single process.",
+      "tags": ["entry-point", "runtime", "configuration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/cmd_all/src/standalone.rs",
+      "type": "file",
+      "name": "standalone.rs",
+      "filePath": "src/cmd_all/src/standalone.rs",
+      "summary": "Implements the standalone (multi-process-in-one) launch mode with StandaloneOpts CLI parsing and the async `standalone` startup function that launches meta, compute, frontend, and compactor services.",
+      "tags": ["entry-point", "runtime", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cmd_all/src/single_node.rs:SingleNodeOpts",
+      "type": "class",
+      "name": "SingleNodeOpts",
+      "filePath": "src/cmd_all/src/single_node.rs",
+      "lineRange": [1, 60],
+      "summary": "Clap-derived CLI options struct for the single-node all-in-one binary, exposing per-component option overrides and shared settings.",
+      "tags": ["configuration", "cli", "type-definition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cmd_all/src/single_node.rs:map_single_node_opts_to_standalone_opts",
+      "type": "function",
+      "name": "map_single_node_opts_to_standalone_opts",
+      "filePath": "src/cmd_all/src/single_node.rs",
+      "lineRange": [100, 234],
+      "summary": "Converts SingleNodeOpts into a StandaloneOpts by applying default addresses and propagating shared flags to each component (meta, compute, frontend, compactor).",
+      "tags": ["configuration", "factory", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/cmd_all/src/standalone.rs:StandaloneOpts",
+      "type": "class",
+      "name": "StandaloneOpts",
+      "filePath": "src/cmd_all/src/standalone.rs",
+      "lineRange": [1, 80],
+      "summary": "Clap-derived CLI options struct for standalone mode, holding optional component-specific config strings for meta, compute, frontend, and compactor.",
+      "tags": ["configuration", "cli", "type-definition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cmd_all/src/standalone.rs:parse_standalone_opt_args",
+      "type": "function",
+      "name": "parse_standalone_opt_args",
+      "filePath": "src/cmd_all/src/standalone.rs",
+      "lineRange": [100, 178],
+      "summary": "Parses the raw string option arguments in StandaloneOpts into typed per-component option structs (MetaNodeOpts, ComputeNodeOpts, etc.).",
+      "tags": ["configuration", "parsing", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cmd_all/src/standalone.rs:standalone",
+      "type": "function",
+      "name": "standalone",
+      "filePath": "src/cmd_all/src/standalone.rs",
+      "lineRange": [200, 348],
+      "summary": "Async entry point for standalone mode: spawns meta, compute, frontend, and compactor service tasks concurrently and waits until one exits or a signal is received.",
+      "tags": ["entry-point", "runtime", "service"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cmd_all/src/lib.rs",
+      "target": "file:src/cmd_all/src/common.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cmd_all/src/lib.rs",
+      "target": "file:src/cmd_all/src/single_node.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cmd_all/src/lib.rs",
+      "target": "file:src/cmd_all/src/standalone.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cmd_all/src/standalone.rs",
+      "target": "file:src/cmd_all/src/common.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/cmd_all/src/single_node.rs",
+      "target": "class:src/cmd_all/src/single_node.rs:SingleNodeOpts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cmd_all/src/single_node.rs",
+      "target": "function:src/cmd_all/src/single_node.rs:map_single_node_opts_to_standalone_opts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cmd_all/src/single_node.rs",
+      "target": "class:src/cmd_all/src/single_node.rs:SingleNodeOpts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cmd_all/src/single_node.rs",
+      "target": "function:src/cmd_all/src/single_node.rs:map_single_node_opts_to_standalone_opts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cmd_all/src/standalone.rs",
+      "target": "class:src/cmd_all/src/standalone.rs:StandaloneOpts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cmd_all/src/standalone.rs",
+      "target": "function:src/cmd_all/src/standalone.rs:parse_standalone_opt_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cmd_all/src/standalone.rs",
+      "target": "function:src/cmd_all/src/standalone.rs:standalone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cmd_all/src/standalone.rs",
+      "target": "class:src/cmd_all/src/standalone.rs:StandaloneOpts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cmd_all/src/standalone.rs",
+      "target": "function:src/cmd_all/src/standalone.rs:parse_standalone_opt_args",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/cmd_all/src/standalone.rs",
+      "target": "function:src/cmd_all/src/standalone.rs:standalone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

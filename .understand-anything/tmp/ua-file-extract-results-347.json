@@ -1,0 +1,5511 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/bench/sink_bench/main.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 569,
+      "nonEmptyLines": 529,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 87,
+          "endLine": 90,
+          "params": []
+        },
+        {
+          "name": "next_item",
+          "startLine": 92,
+          "endLine": 132,
+          "params": []
+        },
+        {
+          "name": "truncate",
+          "startLine": 134,
+          "endLine": 136,
+          "params": [
+            "_offset"
+          ]
+        },
+        {
+          "name": "rewind",
+          "startLine": 138,
+          "endLine": 140,
+          "params": []
+        },
+        {
+          "name": "start_from",
+          "startLine": 142,
+          "endLine": 144,
+          "params": [
+            "_start_offset"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 148,
+          "endLine": 162,
+          "params": [
+            "mock_source",
+            "throughput_metric",
+            "stop_rx",
+            "result_tx"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 172,
+          "endLine": 199,
+          "params": []
+        },
+        {
+          "name": "add_metric",
+          "startLine": 201,
+          "endLine": 204,
+          "params": [
+            "chunk_size"
+          ]
+        },
+        {
+          "name": "print_throughput",
+          "startLine": 206,
+          "endLine": 279,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 286,
+          "endLine": 327,
+          "params": [
+            "rows_per_second",
+            "source_schema",
+            "split_num"
+          ]
+        },
+        {
+          "name": "source_to_data_stream",
+          "startLine": 330,
+          "endLine": 341,
+          "params": []
+        },
+        {
+          "name": "into_stream",
+          "startLine": 344,
+          "endLine": 364,
+          "params": []
+        },
+        {
+          "name": "barrier_to_message_stream",
+          "startLine": 367,
+          "endLine": 376,
+          "params": []
+        },
+        {
+          "name": "consume_log_stream",
+          "startLine": 379,
+          "endLine": 395,
+          "params": [
+            "sink",
+            "log_reader",
+            "sink_writer_param"
+          ]
+        },
+        {
+          "name": "get_source_schema",
+          "startLine": 406,
+          "endLine": 415,
+          "params": []
+        },
+        {
+          "name": "get_sink_schema",
+          "startLine": 417,
+          "endLine": 424,
+          "params": []
+        },
+        {
+          "name": "deserialize_datatype",
+          "startLine": 433,
+          "endLine": 439,
+          "params": [
+            "deserializer"
+          ]
+        },
+        {
+          "name": "read_table_schema_from_yml",
+          "startLine": 441,
+          "endLine": 445,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "read_sink_option_from_yml",
+          "startLine": 447,
+          "endLine": 452,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "mock_from_legacy_type",
+          "startLine": 472,
+          "endLine": 500,
+          "params": [
+            "connector",
+            "r#type"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 503,
+          "endLine": 569,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MockRangeLogReader",
+          "startLine": 77,
+          "endLine": 84,
+          "methods": [
+            "init",
+            "next_item",
+            "truncate",
+            "rewind",
+            "start_from",
+            "new"
+          ],
+          "properties": [
+            "upstreams",
+            "current_epoch",
+            "chunk_id",
+            "throughput_metric",
+            "stop_rx",
+            "result_tx"
+          ]
+        },
+        {
+          "name": "ThroughputMetric",
+          "startLine": 165,
+          "endLine": 169,
+          "methods": [
+            "new",
+            "add_metric",
+            "print_throughput"
+          ],
+          "properties": [
+            "accumulate_chunk_size",
+            "stop_tx",
+            "vec_rx"
+          ]
+        },
+        {
+          "name": "MockDatagenSource",
+          "startLine": 282,
+          "endLine": 284,
+          "methods": [
+            "new",
+            "source_to_data_stream",
+            "into_stream",
+            "barrier_to_message_stream"
+          ],
+          "properties": [
+            "datagen_split_readers"
+          ]
+        },
+        {
+          "name": "TableSchemaFromYml",
+          "startLine": 399,
+          "endLine": 403,
+          "methods": [
+            "get_source_schema",
+            "get_sink_schema"
+          ],
+          "properties": [
+            "table_name",
+            "pk_indices",
+            "columns"
+          ]
+        },
+        {
+          "name": "ColumnDescFromYml",
+          "startLine": 427,
+          "endLine": 431,
+          "methods": [],
+          "properties": [
+            "name",
+            "r#type"
+          ]
+        },
+        {
+          "name": "Config",
+          "startLine": 455,
+          "endLine": 470,
+          "methods": [],
+          "properties": [
+            "schema_path",
+            "option_path",
+            "sink",
+            "rows_per_second",
+            "split_num"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MockRangeLogReader",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "add_metric",
+          "line": 201,
+          "isDefault": false
+        },
+        {
+          "name": "print_throughput",
+          "line": 206,
+          "isDefault": false
+        },
+        {
+          "name": "MockDatagenSource",
+          "line": 282,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 286,
+          "isDefault": false
+        },
+        {
+          "name": "source_to_data_stream",
+          "line": 330,
+          "isDefault": false
+        },
+        {
+          "name": "into_stream",
+          "line": 344,
+          "isDefault": false
+        },
+        {
+          "name": "barrier_to_message_stream",
+          "line": 367,
+          "isDefault": false
+        },
+        {
+          "name": "get_source_schema",
+          "line": 406,
+          "isDefault": false
+        },
+        {
+          "name": "get_sink_schema",
+          "line": 417,
+          "isDefault": false
+        },
+        {
+          "name": "Config",
+          "line": 455,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "self.throughput_metric.as_mut().unwrap().add_metric",
+          "lineNumber": 88
+        },
+        {
+          "caller": "init",
+          "callee": "self.throughput_metric.as_mut().unwrap",
+          "lineNumber": 88
+        },
+        {
+          "caller": "init",
+          "callee": "self.throughput_metric.as_mut",
+          "lineNumber": 88
+        },
+        {
+          "caller": "init",
+          "callee": "Ok",
+          "lineNumber": 89
+        },
+        {
+          "caller": "truncate",
+          "callee": "Ok",
+          "lineNumber": 135
+        },
+        {
+          "caller": "rewind",
+          "callee": "Err",
+          "lineNumber": 139
+        },
+        {
+          "caller": "start_from",
+          "callee": "Ok",
+          "lineNumber": 143
+        },
+        {
+          "caller": "new",
+          "callee": "mock_source.into_stream().boxed",
+          "lineNumber": 155
+        },
+        {
+          "caller": "new",
+          "callee": "mock_source.into_stream",
+          "lineNumber": 155
+        },
+        {
+          "caller": "new",
+          "callee": "Some",
+          "lineNumber": 158
+        },
+        {
+          "caller": "new",
+          "callee": "Some",
+          "lineNumber": 160
+        },
+        {
+          "caller": "new",
+          "callee": "oneshot::channel::<()>",
+          "lineNumber": 173
+        },
+        {
+          "caller": "new",
+          "callee": "oneshot::channel::<Vec<u64>>",
+          "lineNumber": 174
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 175
+        },
+        {
+          "caller": "new",
+          "callee": "AtomicU64::new",
+          "lineNumber": 175
+        },
+        {
+          "caller": "new",
+          "callee": "accumulate_chunk_size.clone",
+          "lineNumber": 176
+        },
+        {
+          "caller": "new",
+          "callee": "tokio::spawn",
+          "lineNumber": 177
+        },
+        {
+          "caller": "add_metric",
+          "callee": "self.accumulate_chunk_size.fetch_add",
+          "lineNumber": 202
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "self.stop_tx.send(()).unwrap",
+          "lineNumber": 207
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "self.stop_tx.send",
+          "lineNumber": 207
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "self.vec_rx.await.unwrap",
+          "lineNumber": 208
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_sum_vec\n            .iter()\n            .zip(throughput_sum_vec.iter().skip(1))\n            .map(|(current, next)| (next - current) * 1000 / THROUGHPUT_METRIC_RECORD_INTERVAL).collect_vec",
+          "lineNumber": 210
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_sum_vec\n            .iter()\n            .zip(throughput_sum_vec.iter().skip(1)).map",
+          "lineNumber": 210
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_sum_vec\n            .iter().zip",
+          "lineNumber": 210
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_sum_vec.iter",
+          "lineNumber": 210
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_sum_vec.iter().skip",
+          "lineNumber": 212
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_sum_vec.iter",
+          "lineNumber": 212
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec.is_empty",
+          "lineNumber": 215
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec.iter().sum::<u64>",
+          "lineNumber": 219
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec.iter",
+          "lineNumber": 219
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec.len",
+          "lineNumber": 219
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec.iter().sorted().collect_vec",
+          "lineNumber": 220
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec.iter().sorted",
+          "lineNumber": 220
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec.iter",
+          "lineNumber": 220
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec_sorted.len",
+          "lineNumber": 221
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec_sorted.len",
+          "lineNumber": 222
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec_sorted.len",
+          "lineNumber": 223
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec\n            .iter()\n            .enumerate()\n            .map(|(index, &value)| {\n                (\n                    (index as f32) * (THROUGHPUT_METRIC_RECORD_INTERVAL as f32 / 1000_f32),\n                    value as f32,\n                )\n            }).collect",
+          "lineNumber": 229
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec\n            .iter()\n            .enumerate().map",
+          "lineNumber": 229
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec\n            .iter().enumerate",
+          "lineNumber": 229
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec.iter",
+          "lineNumber": 229
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "SVGBackend::new(\"throughput.svg\", (640, 480)).into_drawing_area",
+          "lineNumber": 240
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "SVGBackend::new",
+          "lineNumber": 240
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "root.fill(&WHITE).unwrap",
+          "lineNumber": 241
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "root.fill",
+          "lineNumber": 241
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "root.margin",
+          "lineNumber": 242
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "ChartBuilder::on(&root)\n            .caption(\"Throughput Sink\", (\"sans-serif\", 40).into_font())\n            .x_label_area_size(20)\n            .y_label_area_size(40)\n            .build_cartesian_2d(\n                0.0..BENCH_TIME as f32,\n                **throughput_vec_sorted.first().unwrap() as f32\n                    ..**throughput_vec_sorted.last().unwrap() as f32,\n            ).unwrap",
+          "lineNumber": 243
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "ChartBuilder::on(&root)\n            .caption(\"Throughput Sink\", (\"sans-serif\", 40).into_font())\n            .x_label_area_size(20)\n            .y_label_area_size(40).build_cartesian_2d",
+          "lineNumber": 243
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "ChartBuilder::on(&root)\n            .caption(\"Throughput Sink\", (\"sans-serif\", 40).into_font())\n            .x_label_area_size(20).y_label_area_size",
+          "lineNumber": 243
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "ChartBuilder::on(&root)\n            .caption(\"Throughput Sink\", (\"sans-serif\", 40).into_font()).x_label_area_size",
+          "lineNumber": 243
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "ChartBuilder::on(&root).caption",
+          "lineNumber": 243
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "ChartBuilder::on",
+          "lineNumber": 243
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "(\"sans-serif\", 40).into_font",
+          "lineNumber": 244
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec_sorted.first().unwrap",
+          "lineNumber": 249
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec_sorted.first",
+          "lineNumber": 249
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec_sorted.last().unwrap",
+          "lineNumber": 250
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "throughput_vec_sorted.last",
+          "lineNumber": 250
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "chart\n            .configure_mesh()\n            .x_labels(5)\n            .y_labels(5)\n            .y_label_formatter(&|x| format!(\"{:.0}\", x))\n            .draw().unwrap",
+          "lineNumber": 254
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "chart\n            .configure_mesh()\n            .x_labels(5)\n            .y_labels(5)\n            .y_label_formatter(&|x| format!(\"{:.0}\", x)).draw",
+          "lineNumber": 254
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "chart\n            .configure_mesh()\n            .x_labels(5)\n            .y_labels(5).y_label_formatter",
+          "lineNumber": 254
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "chart\n            .configure_mesh()\n            .x_labels(5).y_labels",
+          "lineNumber": 254
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "chart\n            .configure_mesh().x_labels",
+          "lineNumber": 254
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "chart.configure_mesh",
+          "lineNumber": 254
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "chart\n            .draw_series(LineSeries::new(draw_vec.clone(), &RED)).unwrap",
+          "lineNumber": 262
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "chart.draw_series",
+          "lineNumber": 262
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "LineSeries::new",
+          "lineNumber": 263
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "draw_vec.clone",
+          "lineNumber": 263
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "chart\n            .draw_series(PointSeries::of_element(draw_vec, 5, &RED, &|c, s, st| {\n                EmptyElement::at(c) + Circle::new((0, 0), s, st.filled())\n            })).unwrap",
+          "lineNumber": 265
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "chart.draw_series",
+          "lineNumber": 265
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "PointSeries::of_element",
+          "lineNumber": 266
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "EmptyElement::at",
+          "lineNumber": 267
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "Circle::new",
+          "lineNumber": 267
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "st.filled",
+          "lineNumber": 267
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "root.present().unwrap",
+          "lineNumber": 270
+        },
+        {
+          "caller": "print_throughput",
+          "callee": "root.present",
+          "lineNumber": 270
+        },
+        {
+          "caller": "new",
+          "callee": "Some",
+          "lineNumber": 292
+        },
+        {
+          "caller": "new",
+          "callee": "HashMap::default",
+          "lineNumber": 294
+        },
+        {
+          "caller": "new",
+          "callee": "DatagenSplitEnumerator::new(\n            properties.clone(),\n            SourceEnumeratorContext::dummy().into(),\n        )\n        .await.unwrap",
+          "lineNumber": 296
+        },
+        {
+          "caller": "new",
+          "callee": "DatagenSplitEnumerator::new",
+          "lineNumber": 296
+        },
+        {
+          "caller": "new",
+          "callee": "properties.clone",
+          "lineNumber": 297
+        },
+        {
+          "caller": "new",
+          "callee": "SourceEnumeratorContext::dummy().into",
+          "lineNumber": 298
+        },
+        {
+          "caller": "new",
+          "callee": "SourceEnumeratorContext::dummy",
+          "lineNumber": 298
+        },
+        {
+          "caller": "new",
+          "callee": "Default::default",
+          "lineNumber": 307
+        },
+        {
+          "caller": "new",
+          "callee": "datagen_enumerator.list_splits().await.unwrap",
+          "lineNumber": 310
+        },
+        {
+          "caller": "new",
+          "callee": "datagen_enumerator.list_splits",
+          "lineNumber": 310
+        },
+        {
+          "caller": "new",
+          "callee": "datagen_splits.pop",
+          "lineNumber": 311
+        },
+        {
+          "caller": "new",
+          "callee": "datagen_split_readers.push",
+          "lineNumber": 312
+        },
+        {
+          "caller": "new",
+          "callee": "DatagenSplitReader::new(\n                    properties.clone(),\n                    vec![splits],\n                    parser_config.clone(),\n                    SourceContext::dummy().into(),\n                    Some(source_schema.clone()),\n                )\n                .await.unwrap",
+          "lineNumber": 313
+        },
+        {
+          "caller": "new",
+          "callee": "DatagenSplitReader::new",
+          "lineNumber": 313
+        },
+        {
+          "caller": "new",
+          "callee": "properties.clone",
+          "lineNumber": 314
+        },
+        {
+          "caller": "new",
+          "callee": "parser_config.clone",
+          "lineNumber": 316
+        },
+        {
+          "caller": "new",
+          "callee": "SourceContext::dummy().into",
+          "lineNumber": 317
+        },
+        {
+          "caller": "new",
+          "callee": "SourceContext::dummy",
+          "lineNumber": 317
+        },
+        {
+          "caller": "new",
+          "callee": "Some",
+          "lineNumber": 318
+        },
+        {
+          "caller": "new",
+          "callee": "source_schema.clone",
+          "lineNumber": 318
+        },
+        {
+          "caller": "source_to_data_stream",
+          "callee": "self.datagen_split_readers.pop",
+          "lineNumber": 332
+        },
+        {
+          "caller": "source_to_data_stream",
+          "callee": "readers.push",
+          "lineNumber": 333
+        },
+        {
+          "caller": "source_to_data_stream",
+          "callee": "reader.into_stream",
+          "lineNumber": 333
+        },
+        {
+          "caller": "source_to_data_stream",
+          "callee": "i.next().await.unwrap().unwrap",
+          "lineNumber": 337
+        },
+        {
+          "caller": "source_to_data_stream",
+          "callee": "i.next().await.unwrap",
+          "lineNumber": 337
+        },
+        {
+          "caller": "source_to_data_stream",
+          "callee": "i.next",
+          "lineNumber": 337
+        },
+        {
+          "caller": "source_to_data_stream",
+          "callee": "Message::Chunk",
+          "lineNumber": 338
+        },
+        {
+          "caller": "into_stream",
+          "callee": "select_with_strategy",
+          "lineNumber": 345
+        },
+        {
+          "caller": "into_stream",
+          "callee": "Self::barrier_to_message_stream().map_ok",
+          "lineNumber": 346
+        },
+        {
+          "caller": "into_stream",
+          "callee": "Self::barrier_to_message_stream",
+          "lineNumber": 346
+        },
+        {
+          "caller": "into_stream",
+          "callee": "self.source_to_data_stream().map_ok",
+          "lineNumber": 347
+        },
+        {
+          "caller": "into_stream",
+          "callee": "self.source_to_data_stream",
+          "lineNumber": 347
+        },
+        {
+          "caller": "into_stream",
+          "callee": "message.unwrap",
+          "lineNumber": 352
+        },
+        {
+          "caller": "into_stream",
+          "callee": "Message::Barrier",
+          "lineNumber": 354
+        },
+        {
+          "caller": "into_stream",
+          "callee": "Message::Chunk",
+          "lineNumber": 356
+        },
+        {
+          "caller": "into_stream",
+          "callee": "Err",
+          "lineNumber": 358
+        },
+        {
+          "caller": "into_stream",
+          "callee": "StreamExecutorError::from",
+          "lineNumber": 358
+        },
+        {
+          "caller": "into_stream",
+          "callee": "\"Can't assert message type\".to_owned",
+          "lineNumber": 359
+        },
+        {
+          "caller": "barrier_to_message_stream",
+          "callee": "Barrier::with_prev_epoch_for_test",
+          "lineNumber": 372
+        },
+        {
+          "caller": "barrier_to_message_stream",
+          "callee": "Message::Barrier",
+          "lineNumber": 373
+        },
+        {
+          "caller": "barrier_to_message_stream",
+          "callee": "sleep",
+          "lineNumber": 374
+        },
+        {
+          "caller": "barrier_to_message_stream",
+          "callee": "tokio::time::Duration::from_millis",
+          "lineNumber": 374
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "sink.new_coordinator",
+          "lineNumber": 384
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "Some",
+          "lineNumber": 385
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "SinkMetaClient::MockMetaClient",
+          "lineNumber": 385
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "MockMetaClient::new",
+          "lineNumber": 385
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "Some",
+          "lineNumber": 388
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "Bitmap::ones",
+          "lineNumber": 388
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "sink.new_log_sinker(sink_writer_param).await.unwrap",
+          "lineNumber": 390
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "sink.new_log_sinker",
+          "lineNumber": 390
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "log_sinker.consume_log_and_sink",
+          "lineNumber": 391
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "Err",
+          "lineNumber": 392
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "\"Stream closed\".to_owned",
+          "lineNumber": 392
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "Err",
+          "lineNumber": 393
+        },
+        {
+          "caller": "consume_log_stream",
+          "callee": "e.to_report_string",
+          "lineNumber": 393
+        },
+        {
+          "caller": "get_source_schema",
+          "callee": "self.columns\n            .iter()\n            .map(|column| Column {\n                name: column.name.clone(),\n                data_type: column.r#type.clone(),\n                is_visible: true,\n            }).collect",
+          "lineNumber": 407
+        },
+        {
+          "caller": "get_source_schema",
+          "callee": "self.columns\n            .iter().map",
+          "lineNumber": 407
+        },
+        {
+          "caller": "get_source_schema",
+          "callee": "self.columns.iter",
+          "lineNumber": 407
+        },
+        {
+          "caller": "get_source_schema",
+          "callee": "column.name.clone",
+          "lineNumber": 410
+        },
+        {
+          "caller": "get_source_schema",
+          "callee": "column.r#type.clone",
+          "lineNumber": 411
+        },
+        {
+          "caller": "get_sink_schema",
+          "callee": "self.columns\n            .iter()\n            .map(|column| {\n                ColumnDesc::named(column.name.clone(), ColumnId::new(1), column.r#type.clone())\n            }).collect",
+          "lineNumber": 418
+        },
+        {
+          "caller": "get_sink_schema",
+          "callee": "self.columns\n            .iter().map",
+          "lineNumber": 418
+        },
+        {
+          "caller": "get_sink_schema",
+          "callee": "self.columns.iter",
+          "lineNumber": 418
+        },
+        {
+          "caller": "get_sink_schema",
+          "callee": "ColumnDesc::named",
+          "lineNumber": 421
+        },
+        {
+          "caller": "get_sink_schema",
+          "callee": "column.name.clone",
+          "lineNumber": 421
+        },
+        {
+          "caller": "get_sink_schema",
+          "callee": "ColumnId::new",
+          "lineNumber": 421
+        },
+        {
+          "caller": "get_sink_schema",
+          "callee": "column.r#type.clone",
+          "lineNumber": 421
+        },
+        {
+          "caller": "deserialize_datatype",
+          "callee": "Deserialize::deserialize",
+          "lineNumber": 437
+        },
+        {
+          "caller": "deserialize_datatype",
+          "callee": "DataType::from_str(s).map_err",
+          "lineNumber": 438
+        },
+        {
+          "caller": "deserialize_datatype",
+          "callee": "DataType::from_str",
+          "lineNumber": 438
+        },
+        {
+          "caller": "read_table_schema_from_yml",
+          "callee": "std::fs::read_to_string(path).unwrap",
+          "lineNumber": 442
+        },
+        {
+          "caller": "read_table_schema_from_yml",
+          "callee": "std::fs::read_to_string",
+          "lineNumber": 442
+        },
+        {
+          "caller": "read_table_schema_from_yml",
+          "callee": "serde_yaml::from_str(&data).unwrap",
+          "lineNumber": 443
+        },
+        {
+          "caller": "read_table_schema_from_yml",
+          "callee": "serde_yaml::from_str",
+          "lineNumber": 443
+        },
+        {
+          "caller": "read_sink_option_from_yml",
+          "callee": "std::fs::read_to_string(path).unwrap",
+          "lineNumber": 448
+        },
+        {
+          "caller": "read_sink_option_from_yml",
+          "callee": "std::fs::read_to_string",
+          "lineNumber": 448
+        },
+        {
+          "caller": "read_sink_option_from_yml",
+          "callee": "serde_yaml::from_str(&data).unwrap",
+          "lineNumber": 450
+        },
+        {
+          "caller": "read_sink_option_from_yml",
+          "callee": "serde_yaml::from_str",
+          "lineNumber": 450
+        },
+        {
+          "caller": "mock_from_legacy_type",
+          "callee": "connector.eq",
+          "lineNumber": 478
+        },
+        {
+          "caller": "mock_from_legacy_type",
+          "callee": "Err",
+          "lineNumber": 483
+        },
+        {
+          "caller": "mock_from_legacy_type",
+          "callee": "SinkError::Config",
+          "lineNumber": 483
+        },
+        {
+          "caller": "mock_from_legacy_type",
+          "callee": "Ok",
+          "lineNumber": 489
+        },
+        {
+          "caller": "mock_from_legacy_type",
+          "callee": "Some",
+          "lineNumber": 489
+        },
+        {
+          "caller": "mock_from_legacy_type",
+          "callee": "Default::default",
+          "lineNumber": 492
+        },
+        {
+          "caller": "mock_from_legacy_type",
+          "callee": "Default::default",
+          "lineNumber": 493
+        },
+        {
+          "caller": "mock_from_legacy_type",
+          "callee": "SinkFormatDesc::from_legacy_type",
+          "lineNumber": 498
+        },
+        {
+          "caller": "main",
+          "callee": "Config::parse",
+          "lineNumber": 504
+        },
+        {
+          "caller": "main",
+          "callee": "read_table_schema_from_yml",
+          "lineNumber": 505
+        },
+        {
+          "caller": "main",
+          "callee": "MockDatagenSource::new",
+          "lineNumber": 506
+        },
+        {
+          "caller": "main",
+          "callee": "table_schema.get_source_schema",
+          "lineNumber": 508
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::sync::oneshot::channel::<ThroughputMetric>",
+          "lineNumber": 512
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::sync::mpsc::channel::<()>",
+          "lineNumber": 513
+        },
+        {
+          "caller": "main",
+          "callee": "ThroughputMetric::new",
+          "lineNumber": 514
+        },
+        {
+          "caller": "main",
+          "callee": "MockRangeLogReader::new",
+          "lineNumber": 516
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.sink.eq",
+          "lineNumber": 522
+        },
+        {
+          "caller": "main",
+          "callee": "BENCH_TEST.to_owned",
+          "lineNumber": 522
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::spawn",
+          "lineNumber": 524
+        },
+        {
+          "caller": "main",
+          "callee": "mock_range_log_reader.init().await.unwrap",
+          "lineNumber": 525
+        },
+        {
+          "caller": "main",
+          "callee": "mock_range_log_reader.init",
+          "lineNumber": 525
+        },
+        {
+          "caller": "main",
+          "callee": "mock_range_log_reader.next_item().await.unwrap",
+          "lineNumber": 527
+        },
+        {
+          "caller": "main",
+          "callee": "mock_range_log_reader.next_item",
+          "lineNumber": 527
+        },
+        {
+          "caller": "main",
+          "callee": "read_sink_option_from_yml(&cfg.option_path)\n            .get(&cfg.sink)\n            .expect(\"Sink type error\").clone",
+          "lineNumber": 531
+        },
+        {
+          "caller": "main",
+          "callee": "read_sink_option_from_yml(&cfg.option_path)\n            .get(&cfg.sink).expect",
+          "lineNumber": 531
+        },
+        {
+          "caller": "main",
+          "callee": "read_sink_option_from_yml(&cfg.option_path).get",
+          "lineNumber": 531
+        },
+        {
+          "caller": "main",
+          "callee": "read_sink_option_from_yml",
+          "lineNumber": 531
+        },
+        {
+          "caller": "main",
+          "callee": "properties.get(\"connector\").unwrap().clone",
+          "lineNumber": 536
+        },
+        {
+          "caller": "main",
+          "callee": "properties.get(\"connector\").unwrap",
+          "lineNumber": 536
+        },
+        {
+          "caller": "main",
+          "callee": "properties.get",
+          "lineNumber": 536
+        },
+        {
+          "caller": "main",
+          "callee": "mock_from_legacy_type(\n            &connector,\n            properties.get(\"type\").unwrap_or(&\"append-only\".to_owned()),\n        ).unwrap",
+          "lineNumber": 537
+        },
+        {
+          "caller": "main",
+          "callee": "mock_from_legacy_type",
+          "lineNumber": 537
+        },
+        {
+          "caller": "main",
+          "callee": "properties.get(\"type\").unwrap_or",
+          "lineNumber": 539
+        },
+        {
+          "caller": "main",
+          "callee": "properties.get",
+          "lineNumber": 539
+        },
+        {
+          "caller": "main",
+          "callee": "\"append-only\".to_owned",
+          "lineNumber": 539
+        },
+        {
+          "caller": "main",
+          "callee": "SinkId::new",
+          "lineNumber": 543
+        },
+        {
+          "caller": "main",
+          "callee": "cfg.sink.clone",
+          "lineNumber": 544
+        },
+        {
+          "caller": "main",
+          "callee": "table_schema.get_sink_schema",
+          "lineNumber": 546
+        },
+        {
+          "caller": "main",
+          "callee": "\"not_need_set\".to_owned",
+          "lineNumber": 551
+        },
+        {
+          "caller": "main",
+          "callee": "\"not_need_set\".to_owned",
+          "lineNumber": 552
+        },
+        {
+          "caller": "main",
+          "callee": "build_sink(sink_param).unwrap",
+          "lineNumber": 554
+        },
+        {
+          "caller": "main",
+          "callee": "build_sink",
+          "lineNumber": 554
+        },
+        {
+          "caller": "main",
+          "callee": "SinkWriterParam::for_test",
+          "lineNumber": 555
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::spawn",
+          "lineNumber": 557
+        },
+        {
+          "caller": "main",
+          "callee": "dispatch_sink!(sink, sink, {\n                consume_log_stream(*sink, mock_range_log_reader, sink_writer_param).boxed()\n            })\n            .await.unwrap",
+          "lineNumber": 558
+        },
+        {
+          "caller": "main",
+          "callee": "sleep",
+          "lineNumber": 565
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::time::Duration::from_secs",
+          "lineNumber": 565
+        },
+        {
+          "caller": "main",
+          "callee": "stop_tx.send(()).await.unwrap",
+          "lineNumber": 567
+        },
+        {
+          "caller": "main",
+          "callee": "stop_tx.send",
+          "lineNumber": 567
+        },
+        {
+          "caller": "main",
+          "callee": "data_size_rx.await.unwrap().print_throughput",
+          "lineNumber": 568
+        },
+        {
+          "caller": "main",
+          "callee": "data_size_rx.await.unwrap",
+          "lineNumber": 568
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 12,
+        "functionCount": 21,
+        "classCount": 6
+      }
+    },
+    {
+      "path": "src/bench/sink_bench/schema.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "sections": [
+        {
+          "heading": "table_name",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "pk_indices",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "columns",
+          "level": 1,
+          "line": 4
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "src/bench/sink_bench/sink_option.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 107,
+      "nonEmptyLines": 107,
+      "sections": [
+        {
+          "heading": "Clickhouse",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Redis",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "Kafka",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "Pulsar",
+          "level": 1,
+          "line": 20
+        },
+        {
+          "heading": "Iceberg",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "Mysql",
+          "level": 1,
+          "line": 45
+        },
+        {
+          "heading": "Postgres",
+          "level": 1,
+          "line": 51
+        },
+        {
+          "heading": "DeltaLake",
+          "level": 1,
+          "line": 57
+        },
+        {
+          "heading": "ElasticSearch",
+          "level": 1,
+          "line": 65
+        },
+        {
+          "heading": "Cassandra",
+          "level": 1,
+          "line": 72
+        },
+        {
+          "heading": "Doris",
+          "level": 1,
+          "line": 80
+        },
+        {
+          "heading": "Starrocks",
+          "level": 1,
+          "line": 89
+        },
+        {
+          "heading": "BigQuery",
+          "level": 1,
+          "line": 100
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 13
+      }
+    },
+    {
+      "path": "src/cmd_all/build.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 18,
+          "endLine": 23,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "EmitBuilder::builder().git_sha(true).fail_on_error().emit",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "EmitBuilder::builder().git_sha(true).fail_on_error",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "EmitBuilder::builder().git_sha",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "EmitBuilder::builder",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/cmd_all/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 89,
+      "nonEmptyLines": 81,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "package.metadata.cargo-machete",
+          "level": 3,
+          "line": 10
+        },
+        {
+          "heading": "package.metadata.cargo-udeps.ignore",
+          "level": 4,
+          "line": 19
+        },
+        {
+          "heading": "features",
+          "level": 1,
+          "line": 28
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 43
+        },
+        {
+          "heading": "dev-dependencies",
+          "level": 1,
+          "line": 72
+        },
+        {
+          "heading": "build-dependencies",
+          "level": 1,
+          "line": 75
+        },
+        {
+          "heading": "[[bin]]",
+          "level": 1,
+          "line": 83
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 88
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "src/cmd_all/src/bin/risingwave.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 329,
+      "nonEmptyLines": 295,
+      "functions": [
+        {
+          "name": "start",
+          "startLine": 113,
+          "endLine": 129,
+          "params": [
+            "matches"
+          ]
+        },
+        {
+          "name": "aliases",
+          "startLine": 132,
+          "endLine": 143,
+          "params": []
+        },
+        {
+          "name": "augment_args",
+          "startLine": 146,
+          "endLine": 158,
+          "params": [
+            "cmd"
+          ]
+        },
+        {
+          "name": "commands",
+          "startLine": 161,
+          "endLine": 169,
+          "params": []
+        },
+        {
+          "name": "parse_args",
+          "startLine": 173,
+          "endLine": 216,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 218,
+          "endLine": 224,
+          "params": []
+        },
+        {
+          "name": "standalone",
+          "startLine": 226,
+          "endLine": 233,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "single_node",
+          "startLine": 238,
+          "endLine": 249,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "playground",
+          "startLine": 251,
+          "endLine": 253,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Component",
+          "startLine": 94,
+          "endLine": 109,
+          "methods": [
+            "start",
+            "aliases",
+            "augment_args",
+            "commands"
+          ],
+          "properties": [
+            "Compute",
+            "Meta",
+            "Frontend",
+            "Compactor",
+            "Ctl",
+            "Playground",
+            "Standalone",
+            "SingleNode"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parse_opts",
+          "callee": "T::from_arg_matches(matches).map_err(|e| e.exit()).unwrap",
+          "lineNumber": 117
+        },
+        {
+          "caller": "parse_opts",
+          "callee": "T::from_arg_matches(matches).map_err",
+          "lineNumber": 117
+        },
+        {
+          "caller": "parse_opts",
+          "callee": "T::from_arg_matches",
+          "lineNumber": 117
+        },
+        {
+          "caller": "parse_opts",
+          "callee": "e.exit",
+          "lineNumber": 117
+        },
+        {
+          "caller": "start",
+          "callee": "compute",
+          "lineNumber": 120
+        },
+        {
+          "caller": "start",
+          "callee": "parse_opts",
+          "lineNumber": 120
+        },
+        {
+          "caller": "start",
+          "callee": "meta",
+          "lineNumber": 121
+        },
+        {
+          "caller": "start",
+          "callee": "parse_opts",
+          "lineNumber": 121
+        },
+        {
+          "caller": "start",
+          "callee": "frontend",
+          "lineNumber": 122
+        },
+        {
+          "caller": "start",
+          "callee": "parse_opts",
+          "lineNumber": 122
+        },
+        {
+          "caller": "start",
+          "callee": "compactor",
+          "lineNumber": 123
+        },
+        {
+          "caller": "start",
+          "callee": "parse_opts",
+          "lineNumber": 123
+        },
+        {
+          "caller": "start",
+          "callee": "ctl",
+          "lineNumber": 124
+        },
+        {
+          "caller": "start",
+          "callee": "parse_opts",
+          "lineNumber": 124
+        },
+        {
+          "caller": "start",
+          "callee": "playground",
+          "lineNumber": 125
+        },
+        {
+          "caller": "start",
+          "callee": "standalone",
+          "lineNumber": 126
+        },
+        {
+          "caller": "start",
+          "callee": "parse_opts",
+          "lineNumber": 126
+        },
+        {
+          "caller": "start",
+          "callee": "single_node",
+          "lineNumber": 127
+        },
+        {
+          "caller": "start",
+          "callee": "parse_opts",
+          "lineNumber": 127
+        },
+        {
+          "caller": "augment_args",
+          "callee": "ComputeNodeOpts::augment_args",
+          "lineNumber": 148
+        },
+        {
+          "caller": "augment_args",
+          "callee": "MetaNodeOpts::augment_args",
+          "lineNumber": 149
+        },
+        {
+          "caller": "augment_args",
+          "callee": "FrontendOpts::augment_args",
+          "lineNumber": 150
+        },
+        {
+          "caller": "augment_args",
+          "callee": "CompactorOpts::augment_args",
+          "lineNumber": 151
+        },
+        {
+          "caller": "augment_args",
+          "callee": "CtlOpts::augment_args",
+          "lineNumber": 152
+        },
+        {
+          "caller": "augment_args",
+          "callee": "cmd.about",
+          "lineNumber": 153
+        },
+        {
+          "caller": "augment_args",
+          "callee": "StandaloneOpts::augment_args",
+          "lineNumber": 155
+        },
+        {
+          "caller": "augment_args",
+          "callee": "SingleNodeOpts::augment_args",
+          "lineNumber": 156
+        },
+        {
+          "caller": "commands",
+          "callee": "Self::iter()\n            .map(|c| {\n                let name: &'static str = c.into();\n                let command = Command::new(name).visible_aliases(c.aliases());\n                c.augment_args(command)\n            }).collect",
+          "lineNumber": 162
+        },
+        {
+          "caller": "commands",
+          "callee": "Self::iter().map",
+          "lineNumber": 162
+        },
+        {
+          "caller": "commands",
+          "callee": "Self::iter",
+          "lineNumber": 162
+        },
+        {
+          "caller": "commands",
+          "callee": "c.into",
+          "lineNumber": 164
+        },
+        {
+          "caller": "commands",
+          "callee": "Command::new(name).visible_aliases",
+          "lineNumber": 165
+        },
+        {
+          "caller": "commands",
+          "callee": "Command::new",
+          "lineNumber": 165
+        },
+        {
+          "caller": "commands",
+          "callee": "c.aliases",
+          "lineNumber": 165
+        },
+        {
+          "caller": "commands",
+          "callee": "c.augment_args",
+          "lineNumber": 166
+        },
+        {
+          "caller": "parse_args",
+          "callee": "command!(BINARY_NAME)\n            .about(\"All-in-one executable for components of RisingWave\")\n            .version(VERSION).propagate_version",
+          "lineNumber": 179
+        },
+        {
+          "caller": "parse_args",
+          "callee": "command!(BINARY_NAME)\n            .about(\"All-in-one executable for components of RisingWave\").version",
+          "lineNumber": 179
+        },
+        {
+          "caller": "parse_args",
+          "callee": "command!(BINARY_NAME).about",
+          "lineNumber": 179
+        },
+        {
+          "caller": "parse_args",
+          "callee": "risingwave()\n        // `$ ./meta <args>`\n        .multicall(true)\n        .subcommands(Component::commands()).subcommand",
+          "lineNumber": 184
+        },
+        {
+          "caller": "parse_args",
+          "callee": "risingwave()\n        // `$ ./meta <args>`\n        .multicall(true).subcommands",
+          "lineNumber": 184
+        },
+        {
+          "caller": "parse_args",
+          "callee": "risingwave().multicall",
+          "lineNumber": 184
+        },
+        {
+          "caller": "parse_args",
+          "callee": "risingwave",
+          "lineNumber": 184
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Component::commands",
+          "lineNumber": 187
+        },
+        {
+          "caller": "parse_args",
+          "callee": "risingwave()\n                .subcommand_value_name(\"COMPONENT\")\n                .subcommand_help_heading(\"Components\")\n                .subcommands(Component::commands())\n                // Make single node the \"default subcommand\"\n                .args_conflicts_with_subcommands(true).args",
+          "lineNumber": 190
+        },
+        {
+          "caller": "parse_args",
+          "callee": "risingwave()\n                .subcommand_value_name(\"COMPONENT\")\n                .subcommand_help_heading(\"Components\")\n                .subcommands(Component::commands()).args_conflicts_with_subcommands",
+          "lineNumber": 190
+        },
+        {
+          "caller": "parse_args",
+          "callee": "risingwave()\n                .subcommand_value_name(\"COMPONENT\")\n                .subcommand_help_heading(\"Components\").subcommands",
+          "lineNumber": 190
+        },
+        {
+          "caller": "parse_args",
+          "callee": "risingwave()\n                .subcommand_value_name(\"COMPONENT\").subcommand_help_heading",
+          "lineNumber": 190
+        },
+        {
+          "caller": "parse_args",
+          "callee": "risingwave().subcommand_value_name",
+          "lineNumber": 190
+        },
+        {
+          "caller": "parse_args",
+          "callee": "risingwave",
+          "lineNumber": 190
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Component::commands",
+          "lineNumber": 193
+        },
+        {
+          "caller": "parse_args",
+          "callee": "SingleNodeOpts::command().get_arguments",
+          "lineNumber": 196
+        },
+        {
+          "caller": "parse_args",
+          "callee": "SingleNodeOpts::command",
+          "lineNumber": 196
+        },
+        {
+          "caller": "parse_args",
+          "callee": "command.try_get_matches_from",
+          "lineNumber": 199
+        },
+        {
+          "caller": "parse_args",
+          "callee": "matches.subcommand().unwrap",
+          "lineNumber": 200
+        },
+        {
+          "caller": "parse_args",
+          "callee": "matches.subcommand",
+          "lineNumber": 200
+        },
+        {
+          "caller": "parse_args",
+          "callee": "(multicall.1)\n            .subcommand().unwrap_or_else",
+          "lineNumber": 204
+        },
+        {
+          "caller": "parse_args",
+          "callee": "(multicall.1).subcommand",
+          "lineNumber": 204
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Component::SingleNode.into",
+          "lineNumber": 207
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Component::from_str(component_name).unwrap",
+          "lineNumber": 212
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Component::from_str",
+          "lineNumber": 212
+        },
+        {
+          "caller": "parse_args",
+          "callee": "matches.clone",
+          "lineNumber": 213
+        },
+        {
+          "caller": "parse_args",
+          "callee": "Ok",
+          "lineNumber": 215
+        },
+        {
+          "caller": "main",
+          "callee": "parse_args(std::env::args_os())\n        .map_err(|e| e.exit()).unwrap",
+          "lineNumber": 219
+        },
+        {
+          "caller": "main",
+          "callee": "parse_args(std::env::args_os()).map_err",
+          "lineNumber": 219
+        },
+        {
+          "caller": "main",
+          "callee": "parse_args",
+          "lineNumber": 219
+        },
+        {
+          "caller": "main",
+          "callee": "std::env::args_os",
+          "lineNumber": 219
+        },
+        {
+          "caller": "main",
+          "callee": "e.exit",
+          "lineNumber": 220
+        },
+        {
+          "caller": "main",
+          "callee": "component.start",
+          "lineNumber": 223
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_cmd_all::parse_standalone_opt_args",
+          "lineNumber": 227
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_rt::LoggerSettings::from_opts(&opts)\n        .with_target(\"risingwave_storage\", Level::WARN).with_thread_name",
+          "lineNumber": 228
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_rt::LoggerSettings::from_opts(&opts).with_target",
+          "lineNumber": 228
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_rt::LoggerSettings::from_opts",
+          "lineNumber": 228
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_rt::init_risingwave_logger",
+          "lineNumber": 231
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_rt::main_okk",
+          "lineNumber": 232
+        },
+        {
+          "caller": "standalone",
+          "callee": "risingwave_cmd_all::standalone",
+          "lineNumber": 232
+        },
+        {
+          "caller": "single_node",
+          "callee": "env::var(TELEMETRY_CLUSTER_TYPE).is_err",
+          "lineNumber": 239
+        },
+        {
+          "caller": "single_node",
+          "callee": "env::var",
+          "lineNumber": 239
+        },
+        {
+          "caller": "single_node",
+          "callee": "env::set_var",
+          "lineNumber": 241
+        },
+        {
+          "caller": "single_node",
+          "callee": "risingwave_cmd_all::map_single_node_opts_to_standalone_opts",
+          "lineNumber": 243
+        },
+        {
+          "caller": "single_node",
+          "callee": "risingwave_rt::LoggerSettings::from_opts(&opts)\n        .with_target(\"risingwave_storage\", Level::WARN).with_thread_name",
+          "lineNumber": 244
+        },
+        {
+          "caller": "single_node",
+          "callee": "risingwave_rt::LoggerSettings::from_opts(&opts).with_target",
+          "lineNumber": 244
+        },
+        {
+          "caller": "single_node",
+          "callee": "risingwave_rt::LoggerSettings::from_opts",
+          "lineNumber": 244
+        },
+        {
+          "caller": "single_node",
+          "callee": "risingwave_rt::init_risingwave_logger",
+          "lineNumber": 247
+        },
+        {
+          "caller": "single_node",
+          "callee": "risingwave_rt::main_okk",
+          "lineNumber": 248
+        },
+        {
+          "caller": "single_node",
+          "callee": "risingwave_cmd_all::standalone",
+          "lineNumber": 248
+        },
+        {
+          "caller": "playground",
+          "callee": "single_node",
+          "lineNumber": 252
+        },
+        {
+          "caller": "playground",
+          "callee": "SingleNodeOpts::new_for_playground",
+          "lineNumber": 252
+        },
+        {
+          "caller": "test_basic",
+          "callee": "parse_args([\"./risingwave\", \"meta\", \"--advertise-addr\", \"1.2.3.4:5678\"]).unwrap",
+          "lineNumber": 266
+        },
+        {
+          "caller": "test_basic",
+          "callee": "parse_args",
+          "lineNumber": 266
+        },
+        {
+          "caller": "test_multicall",
+          "callee": "parse_args([\"./meta-node\", \"--advertise-addr\", \"1.2.3.4:5678\"]).unwrap",
+          "lineNumber": 272
+        },
+        {
+          "caller": "test_multicall",
+          "callee": "parse_args",
+          "lineNumber": 272
+        },
+        {
+          "caller": "test_missing_sub_subcommand",
+          "callee": "parse_args([\"./risingwave\", \"ctl\"]).unwrap_err",
+          "lineNumber": 278
+        },
+        {
+          "caller": "test_missing_sub_subcommand",
+          "callee": "parse_args",
+          "lineNumber": 278
+        },
+        {
+          "caller": "test_sub_expected_subcommand_but_got_unknown_arg",
+          "callee": "parse_args([\"./risingwave\", \"ctl\", \"--foo\"]).unwrap_err",
+          "lineNumber": 287
+        },
+        {
+          "caller": "test_sub_expected_subcommand_but_got_unknown_arg",
+          "callee": "parse_args",
+          "lineNumber": 287
+        },
+        {
+          "caller": "test_issue_16065",
+          "callee": "parse_args([\n            \"./risingwave\",\n            \"ctl\",\n            \"meta\",\n            \"unregister-worker\",\n            \"my-bad-arg\",\n        ]).unwrap_err",
+          "lineNumber": 293
+        },
+        {
+          "caller": "test_issue_16065",
+          "callee": "parse_args",
+          "lineNumber": 293
+        },
+        {
+          "caller": "test_default_subcommand_single_node",
+          "callee": "parse_args([\"./risingwave\"]).unwrap",
+          "lineNumber": 307
+        },
+        {
+          "caller": "test_default_subcommand_single_node",
+          "callee": "parse_args",
+          "lineNumber": 307
+        },
+        {
+          "caller": "test_default_subcommand_single_node_with_args",
+          "callee": "parse_args([\"./risingwave\", \"--in-memory\"]).unwrap",
+          "lineNumber": 313
+        },
+        {
+          "caller": "test_default_subcommand_single_node_with_args",
+          "callee": "parse_args",
+          "lineNumber": 313
+        },
+        {
+          "caller": "test_default_subcommand_single_node_with_unknown_args",
+          "callee": "parse_args([\"./risingwave\", \"--foo\"]).unwrap_err",
+          "lineNumber": 319
+        },
+        {
+          "caller": "test_default_subcommand_single_node_with_unknown_args",
+          "callee": "parse_args",
+          "lineNumber": 319
+        },
+        {
+          "caller": "test_default_subcommand_single_node_with_other_explicit_subcommand",
+          "callee": "parse_args([\"./risingwave\", \"--in-memory\", \"ctl\"]).unwrap_err",
+          "lineNumber": 325
+        },
+        {
+          "caller": "test_default_subcommand_single_node_with_other_explicit_subcommand",
+          "callee": "parse_args",
+          "lineNumber": 325
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/cmd_all/src/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 30,
+      "nonEmptyLines": 19,
+      "sections": [
+        {
+          "heading": "Risingwave All-in-One",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Playground",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Standalone Mode",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Examples of using standalone mode",
+          "level": 3,
+          "line": 21
+        },
+        {
+          "heading": "Internals",
+          "level": 3,
+          "line": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "src/cmd/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 57,
+      "nonEmptyLines": 49,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "package.metadata.cargo-machete",
+          "level": 3,
+          "line": 10
+        },
+        {
+          "heading": "package.metadata.cargo-udeps.ignore",
+          "level": 4,
+          "line": 19
+        },
+        {
+          "heading": "lib",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "features",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "[[bin]]",
+          "level": 1,
+          "line": 51
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "src/cmd/src/bin/ctl.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 15,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/cmd/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "compute",
+          "startLine": 40,
+          "endLine": 43,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "meta",
+          "startLine": 45,
+          "endLine": 48,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "frontend",
+          "startLine": 50,
+          "endLine": 53,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "compactor",
+          "startLine": 55,
+          "endLine": 58,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "ctl",
+          "startLine": 60,
+          "endLine": 63,
+          "params": [
+            "opts"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "compute",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "meta",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "frontend",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "compactor",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "ctl",
+          "line": 60,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "compute",
+          "callee": "init_risingwave_logger",
+          "lineNumber": 41
+        },
+        {
+          "caller": "compute",
+          "callee": "LoggerSettings::from_opts",
+          "lineNumber": 41
+        },
+        {
+          "caller": "compute",
+          "callee": "main_okk",
+          "lineNumber": 42
+        },
+        {
+          "caller": "compute",
+          "callee": "risingwave_compute::start",
+          "lineNumber": 42
+        },
+        {
+          "caller": "meta",
+          "callee": "init_risingwave_logger",
+          "lineNumber": 46
+        },
+        {
+          "caller": "meta",
+          "callee": "LoggerSettings::from_opts",
+          "lineNumber": 46
+        },
+        {
+          "caller": "meta",
+          "callee": "main_okk",
+          "lineNumber": 47
+        },
+        {
+          "caller": "meta",
+          "callee": "risingwave_meta_node::start",
+          "lineNumber": 47
+        },
+        {
+          "caller": "frontend",
+          "callee": "init_risingwave_logger",
+          "lineNumber": 51
+        },
+        {
+          "caller": "frontend",
+          "callee": "LoggerSettings::from_opts",
+          "lineNumber": 51
+        },
+        {
+          "caller": "frontend",
+          "callee": "main_okk",
+          "lineNumber": 52
+        },
+        {
+          "caller": "frontend",
+          "callee": "risingwave_frontend::start",
+          "lineNumber": 52
+        },
+        {
+          "caller": "compactor",
+          "callee": "init_risingwave_logger",
+          "lineNumber": 56
+        },
+        {
+          "caller": "compactor",
+          "callee": "LoggerSettings::from_opts",
+          "lineNumber": 56
+        },
+        {
+          "caller": "compactor",
+          "callee": "main_okk",
+          "lineNumber": 57
+        },
+        {
+          "caller": "compactor",
+          "callee": "risingwave_compactor::start",
+          "lineNumber": 57
+        },
+        {
+          "caller": "ctl",
+          "callee": "init_risingwave_logger",
+          "lineNumber": 61
+        },
+        {
+          "caller": "ctl",
+          "callee": "LoggerSettings::new(\"ctl\").stderr",
+          "lineNumber": 61
+        },
+        {
+          "caller": "ctl",
+          "callee": "LoggerSettings::new",
+          "lineNumber": 61
+        },
+        {
+          "caller": "ctl",
+          "callee": "main_okk",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ctl",
+          "callee": "risingwave_ctl::start",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/benches/bench_array.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "bench_bigint",
+          "startLine": 21,
+          "endLine": 36,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "bench_bigint",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "bench_bigint",
+          "callee": "c.bench_function",
+          "lineNumber": 22
+        },
+        {
+          "caller": "bench_bigint",
+          "callee": "b.iter_batched",
+          "lineNumber": 23
+        },
+        {
+          "caller": "bench_bigint",
+          "callee": "ArrayBuilderImpl::with_type",
+          "lineNumber": 24
+        },
+        {
+          "caller": "bench_bigint",
+          "callee": "black_box",
+          "lineNumber": 24
+        },
+        {
+          "caller": "bench_bigint",
+          "callee": "black_box",
+          "lineNumber": 26
+        },
+        {
+          "caller": "bench_bigint",
+          "callee": "black_box",
+          "lineNumber": 27
+        },
+        {
+          "caller": "bench_bigint",
+          "callee": "Some",
+          "lineNumber": 28
+        },
+        {
+          "caller": "bench_bigint",
+          "callee": "datum.into",
+          "lineNumber": 28
+        },
+        {
+          "caller": "bench_bigint",
+          "callee": "builder.append_n",
+          "lineNumber": 29
+        },
+        {
+          "caller": "bench_bigint",
+          "callee": "black_box",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/benches/bench_column_aware_row_encoding.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 279,
+      "nonEmptyLines": 245,
+      "functions": [
+        {
+          "name": "bench_column_aware_encoding_16_columns",
+          "startLine": 28,
+          "endLine": 107,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "bench_column_aware_encoding_4_columns",
+          "startLine": 109,
+          "endLine": 148,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "bench_column_aware_encoding_struct",
+          "startLine": 150,
+          "endLine": 205,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "bench_column_aware_encoding_composite",
+          "startLine": 207,
+          "endLine": 270,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "rand::rngs::StdRng::seed_from_u64",
+          "lineNumber": 29
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "Arc::new",
+          "lineNumber": 32
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "OwnedRow::new",
+          "lineNumber": 50
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "(1..=data_types.len())\n        .map(|i| ColumnId::from(i as i32))\n        .collect::<Vec<_>>",
+          "lineNumber": 69
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "(1..=data_types.len()).map",
+          "lineNumber": 69
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "data_types.len",
+          "lineNumber": 69
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "ColumnId::from",
+          "lineNumber": 70
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "c.bench_function",
+          "lineNumber": 73
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "Serializer::new",
+          "lineNumber": 74
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "data_types.iter().cloned",
+          "lineNumber": 74
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "data_types.iter",
+          "lineNumber": 74
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "b.iter",
+          "lineNumber": 75
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "black_box",
+          "lineNumber": 76
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "serializer.serialize",
+          "lineNumber": 76
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "c.bench_function",
+          "lineNumber": 80
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "b.iter",
+          "lineNumber": 82
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "black_box",
+          "lineNumber": 83
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "serializer.serialize",
+          "lineNumber": 83
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "c.bench_function",
+          "lineNumber": 87
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "Serializer::new",
+          "lineNumber": 88
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "data_types.iter().cloned",
+          "lineNumber": 88
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "data_types.iter",
+          "lineNumber": 88
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "serializer.serialize",
+          "lineNumber": 89
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "Deserializer::new",
+          "lineNumber": 91
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "data_types.clone",
+          "lineNumber": 91
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "std::iter::empty",
+          "lineNumber": 91
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "b.iter",
+          "lineNumber": 92
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "deserializer.deserialize(&encoded).unwrap",
+          "lineNumber": 93
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "deserializer.deserialize",
+          "lineNumber": 93
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "black_box",
+          "lineNumber": 94
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "c.bench_function",
+          "lineNumber": 98
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "serializer.serialize",
+          "lineNumber": 100
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "BasicDeserializer::new",
+          "lineNumber": 101
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "data_types.as_slice",
+          "lineNumber": 101
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "b.iter",
+          "lineNumber": 102
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "deserializer.deserialize(encoded.as_slice()).unwrap",
+          "lineNumber": 103
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "deserializer.deserialize",
+          "lineNumber": 103
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "encoded.as_slice",
+          "lineNumber": 103
+        },
+        {
+          "caller": "bench_column_aware_encoding_16_columns",
+          "callee": "black_box",
+          "lineNumber": 104
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "rand::rngs::StdRng::seed_from_u64",
+          "lineNumber": 110
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "Arc::new",
+          "lineNumber": 113
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "OwnedRow::new",
+          "lineNumber": 119
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "(1..=data_types.len())\n        .map(|i| ColumnId::from(i as i32))\n        .collect::<Vec<_>>",
+          "lineNumber": 126
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "(1..=data_types.len()).map",
+          "lineNumber": 126
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "data_types.len",
+          "lineNumber": 126
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "ColumnId::from",
+          "lineNumber": 127
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "c.bench_function",
+          "lineNumber": 130
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "Serializer::new",
+          "lineNumber": 131
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "data_types.iter().cloned",
+          "lineNumber": 131
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "data_types.iter",
+          "lineNumber": 131
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "b.iter",
+          "lineNumber": 132
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "black_box",
+          "lineNumber": 133
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "serializer.serialize",
+          "lineNumber": 133
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "Serializer::new",
+          "lineNumber": 137
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "data_types.iter().cloned",
+          "lineNumber": 137
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "data_types.iter",
+          "lineNumber": 137
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "serializer.serialize",
+          "lineNumber": 138
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "c.bench_function",
+          "lineNumber": 140
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "Deserializer::new",
+          "lineNumber": 142
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "data_types.clone",
+          "lineNumber": 142
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "std::iter::empty",
+          "lineNumber": 142
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "b.iter",
+          "lineNumber": 143
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "deserializer.deserialize(&encoded).unwrap",
+          "lineNumber": 144
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "deserializer.deserialize",
+          "lineNumber": 144
+        },
+        {
+          "caller": "bench_column_aware_encoding_4_columns",
+          "callee": "black_box",
+          "lineNumber": 145
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "StructType::new",
+          "lineNumber": 156
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "inner_struct.with_ids",
+          "lineNumber": 158
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "ColumnId::new",
+          "lineNumber": 158
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "ColumnId::new",
+          "lineNumber": 158
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "inner_struct.into",
+          "lineNumber": 160
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "StructType::new",
+          "lineNumber": 161
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "outer_struct.with_ids",
+          "lineNumber": 163
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "ColumnId::new",
+          "lineNumber": 163
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "ColumnId::new",
+          "lineNumber": 163
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "outer_struct.into",
+          "lineNumber": 165
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "StructValue::new",
+          "lineNumber": 167
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "StructValue::new",
+          "lineNumber": 169
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "Serializer::new",
+          "lineNumber": 171
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "ColumnId::new",
+          "lineNumber": 171
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "outer_struct.clone",
+          "lineNumber": 171
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "Deserializer::new",
+          "lineNumber": 172
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "ColumnId::new",
+          "lineNumber": 173
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "[outer_struct].into",
+          "lineNumber": 174
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "std::iter::empty",
+          "lineNumber": 175
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "OwnedRow::new",
+          "lineNumber": 177
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "make",
+          "lineNumber": 189
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "c.bench_function",
+          "lineNumber": 191
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "b.iter",
+          "lineNumber": 192
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "black_box",
+          "lineNumber": 193
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "serializer.serialize",
+          "lineNumber": 193
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "serializer.serialize",
+          "lineNumber": 197
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "c.bench_function",
+          "lineNumber": 198
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "b.iter",
+          "lineNumber": 199
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "deserializer.deserialize(&encoded).unwrap",
+          "lineNumber": 200
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "deserializer.deserialize",
+          "lineNumber": 200
+        },
+        {
+          "caller": "bench_column_aware_encoding_struct",
+          "callee": "black_box",
+          "lineNumber": 201
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "StructType::new",
+          "lineNumber": 213
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "inner_struct.with_ids",
+          "lineNumber": 215
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "ColumnId::new",
+          "lineNumber": 215
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "ColumnId::new",
+          "lineNumber": 215
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "inner_struct.into",
+          "lineNumber": 217
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "DataType::list",
+          "lineNumber": 218
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "inner_struct.clone",
+          "lineNumber": 218
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "MapType::from_kv(DataType::Varchar, list.clone()).into",
+          "lineNumber": 219
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "MapType::from_kv",
+          "lineNumber": 219
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "list.clone",
+          "lineNumber": 219
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "StructType::new",
+          "lineNumber": 220
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "outer_struct.with_ids",
+          "lineNumber": 222
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "ColumnId::new",
+          "lineNumber": 222
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "ColumnId::new",
+          "lineNumber": 222
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "outer_struct.into",
+          "lineNumber": 224
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "StructValue::new",
+          "lineNumber": 226
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "ListValue::from_datum_iter",
+          "lineNumber": 228
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "Some",
+          "lineNumber": 228
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "Struct",
+          "lineNumber": 228
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "MapValue::try_from_kv(\n            ListValue::from_datum_iter(&DataType::Varchar, [Some(Utf8(\"key\".into()))]),\n            ListValue::from_datum_iter(&list, [Some(List(list_value))]),\n        ).unwrap",
+          "lineNumber": 229
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "MapValue::try_from_kv",
+          "lineNumber": 229
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "ListValue::from_datum_iter",
+          "lineNumber": 230
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "Some",
+          "lineNumber": 230
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "Utf8",
+          "lineNumber": 230
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "\"key\".into",
+          "lineNumber": 230
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "ListValue::from_datum_iter",
+          "lineNumber": 231
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "Some",
+          "lineNumber": 231
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "List",
+          "lineNumber": 231
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "StructValue::new",
+          "lineNumber": 234
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "Serializer::new",
+          "lineNumber": 236
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "ColumnId::new",
+          "lineNumber": 236
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "outer_struct.clone",
+          "lineNumber": 236
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "Deserializer::new",
+          "lineNumber": 237
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "ColumnId::new",
+          "lineNumber": 238
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "[outer_struct].into",
+          "lineNumber": 239
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "std::iter::empty",
+          "lineNumber": 240
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "OwnedRow::new",
+          "lineNumber": 242
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "make",
+          "lineNumber": 254
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "c.bench_function",
+          "lineNumber": 256
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "b.iter",
+          "lineNumber": 257
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "black_box",
+          "lineNumber": 258
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "serializer.serialize",
+          "lineNumber": 258
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "serializer.serialize",
+          "lineNumber": 262
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "c.bench_function",
+          "lineNumber": 263
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "b.iter",
+          "lineNumber": 264
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "deserializer.deserialize(&encoded).unwrap",
+          "lineNumber": 265
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "deserializer.deserialize",
+          "lineNumber": 265
+        },
+        {
+          "caller": "bench_column_aware_encoding_composite",
+          "callee": "black_box",
+          "lineNumber": 266
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/benches/bench_data_chunk_compact.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 29,
+          "endLine": 34,
+          "params": [
+            "name",
+            "data_types"
+          ]
+        },
+        {
+          "name": "bench_data_chunk_compact",
+          "startLine": 37,
+          "endLine": 69,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DataChunkBenchCase",
+          "startLine": 23,
+          "endLine": 26,
+          "methods": [
+            "new"
+          ],
+          "properties": [
+            "name",
+            "data_types"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "new",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "name.to_owned",
+          "lineNumber": 31
+        },
+        {
+          "caller": "bench_data_chunk_compact",
+          "callee": "rand_chunk::gen_chunk",
+          "lineNumber": 47
+        },
+        {
+          "caller": "bench_data_chunk_compact",
+          "callee": "chunk.set_visibility",
+          "lineNumber": 49
+        },
+        {
+          "caller": "bench_data_chunk_compact",
+          "callee": "rand_bitmap::gen_rand_bitmap",
+          "lineNumber": 49
+        },
+        {
+          "caller": "bench_data_chunk_compact",
+          "callee": "c.bench_function",
+          "lineNumber": 55
+        },
+        {
+          "caller": "bench_data_chunk_compact",
+          "callee": "b.iter",
+          "lineNumber": 61
+        },
+        {
+          "caller": "bench_data_chunk_compact",
+          "callee": "chunk.clone().compact_vis",
+          "lineNumber": 62
+        },
+        {
+          "caller": "bench_data_chunk_compact",
+          "callee": "chunk.clone",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/benches/bench_data_chunk_encoding.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 71,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 31,
+          "endLine": 36,
+          "params": [
+            "name",
+            "data_types"
+          ]
+        },
+        {
+          "name": "bench_data_chunk_encoding",
+          "startLine": 39,
+          "endLine": 74,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DataChunkBenchCase",
+          "startLine": 25,
+          "endLine": 28,
+          "methods": [
+            "new"
+          ],
+          "properties": [
+            "name",
+            "data_types"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "new",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "name.to_owned",
+          "lineNumber": 33
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "rand_chunk::gen_chunk",
+          "lineNumber": 57
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "c.benchmark_group",
+          "lineNumber": 58
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "group.bench_function",
+          "lineNumber": 62
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "b.iter",
+          "lineNumber": 62
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "chunk.serialize",
+          "lineNumber": 62
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "group.bench_function",
+          "lineNumber": 63
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "b.iter",
+          "lineNumber": 64
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "chunk\n                            .rows()\n                            .map(|x| x.value_serialize_bytes()).collect_vec",
+          "lineNumber": 65
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "chunk\n                            .rows().map",
+          "lineNumber": 65
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "chunk.rows",
+          "lineNumber": 65
+        },
+        {
+          "caller": "bench_data_chunk_encoding",
+          "callee": "x.value_serialize_bytes",
+          "lineNumber": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/benches/bench_encoding.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 191,
+      "nonEmptyLines": 175,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 38,
+          "endLine": 44,
+          "params": [
+            "name",
+            "ty",
+            "scalar"
+          ]
+        },
+        {
+          "name": "key_serialization",
+          "startLine": 47,
+          "endLine": 54,
+          "params": [
+            "datum"
+          ]
+        },
+        {
+          "name": "value_serialization",
+          "startLine": 56,
+          "endLine": 58,
+          "params": [
+            "datum"
+          ]
+        },
+        {
+          "name": "key_deserialization",
+          "startLine": 60,
+          "endLine": 63,
+          "params": [
+            "ty",
+            "datum"
+          ]
+        },
+        {
+          "name": "value_deserialization",
+          "startLine": 65,
+          "endLine": 68,
+          "params": [
+            "ty",
+            "datum"
+          ]
+        },
+        {
+          "name": "bench_encoding",
+          "startLine": 70,
+          "endLine": 181,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Case",
+          "startLine": 31,
+          "endLine": 35,
+          "methods": [
+            "new"
+          ],
+          "properties": [
+            "name",
+            "ty",
+            "datum"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "new",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "name.to_owned",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new",
+          "callee": "Some",
+          "lineNumber": 42
+        },
+        {
+          "caller": "key_serialization",
+          "callee": "memcmp_encoding::encode_value(\n        datum.as_ref().map(ScalarImpl::as_scalar_ref_impl),\n        OrderType::default(),\n    ).unwrap",
+          "lineNumber": 48
+        },
+        {
+          "caller": "key_serialization",
+          "callee": "memcmp_encoding::encode_value",
+          "lineNumber": 48
+        },
+        {
+          "caller": "key_serialization",
+          "callee": "datum.as_ref().map",
+          "lineNumber": 49
+        },
+        {
+          "caller": "key_serialization",
+          "callee": "datum.as_ref",
+          "lineNumber": 49
+        },
+        {
+          "caller": "key_serialization",
+          "callee": "OrderType::default",
+          "lineNumber": 50
+        },
+        {
+          "caller": "key_serialization",
+          "callee": "black_box",
+          "lineNumber": 53
+        },
+        {
+          "caller": "value_serialization",
+          "callee": "black_box",
+          "lineNumber": 57
+        },
+        {
+          "caller": "value_serialization",
+          "callee": "value_encoding::serialize_datum",
+          "lineNumber": 57
+        },
+        {
+          "caller": "key_deserialization",
+          "callee": "memcmp_encoding::decode_value(ty, datum, OrderType::default()).unwrap",
+          "lineNumber": 61
+        },
+        {
+          "caller": "key_deserialization",
+          "callee": "memcmp_encoding::decode_value",
+          "lineNumber": 61
+        },
+        {
+          "caller": "key_deserialization",
+          "callee": "OrderType::default",
+          "lineNumber": 61
+        },
+        {
+          "caller": "key_deserialization",
+          "callee": "black_box",
+          "lineNumber": 62
+        },
+        {
+          "caller": "value_deserialization",
+          "callee": "value_encoding::deserialize_datum",
+          "lineNumber": 66
+        },
+        {
+          "caller": "value_deserialization",
+          "callee": "black_box",
+          "lineNumber": 67
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "env::var(ENV_CASE).unwrap_or_else",
+          "lineNumber": 132
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "env::var",
+          "lineNumber": 132
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "\"\".to_owned",
+          "lineNumber": 132
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "cases\n        .into_iter()\n        .filter(|case| case.name.contains(&filter))\n        .collect::<Vec<_>>",
+          "lineNumber": 133
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "cases\n        .into_iter().filter",
+          "lineNumber": 133
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "cases.into_iter",
+          "lineNumber": 133
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "case.name.contains",
+          "lineNumber": 135
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "env::var(ENV_BENCH_SER)\n        .unwrap_or_else(|_| \"1\".to_owned()).eq",
+          "lineNumber": 137
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "env::var(ENV_BENCH_SER).unwrap_or_else",
+          "lineNumber": 137
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "env::var",
+          "lineNumber": 137
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "\"1\".to_owned",
+          "lineNumber": 138
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "env::var(ENV_BENCH_DE)\n        .unwrap_or_else(|_| \"1\".to_owned()).eq",
+          "lineNumber": 140
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "env::var(ENV_BENCH_DE).unwrap_or_else",
+          "lineNumber": 140
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "env::var",
+          "lineNumber": 140
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "\"1\".to_owned",
+          "lineNumber": 141
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "key_serialization(&case.datum).len",
+          "lineNumber": 147
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "key_serialization",
+          "lineNumber": 147
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "c.bench_function",
+          "lineNumber": 149
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "format!(\"bench {} (key encoding serialization)\", case.name).as_str",
+          "lineNumber": 150
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "bencher.iter",
+          "lineNumber": 151
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "key_serialization",
+          "lineNumber": 151
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "value_serialization(&case.datum).len",
+          "lineNumber": 155
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "value_serialization",
+          "lineNumber": 155
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "c.bench_function",
+          "lineNumber": 157
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "format!(\"bench {} (value encoding serialization)\", case.name).as_str",
+          "lineNumber": 158
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "bencher.iter",
+          "lineNumber": 159
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "value_serialization",
+          "lineNumber": 159
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "key_serialization",
+          "lineNumber": 167
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "c.bench_function",
+          "lineNumber": 168
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "format!(\"bench {} (key encoding deserialization)\", case.name).as_str",
+          "lineNumber": 169
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "bencher.iter",
+          "lineNumber": 170
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "key_deserialization",
+          "lineNumber": 170
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "value_serialization",
+          "lineNumber": 174
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "c.bench_function",
+          "lineNumber": 175
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "format!(\"bench {} (value encoding deserialization)\", case.name).as_str",
+          "lineNumber": 176
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "bencher.iter",
+          "lineNumber": 177
+        },
+        {
+          "caller": "bench_encoding",
+          "callee": "value_deserialization",
+          "lineNumber": 177
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/benches/bench_hash_key_encoding.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 231,
+      "nonEmptyLines": 217,
+      "functions": [
+        {
+          "name": "gen_cases",
+          "startLine": 36,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "dispatch_impl",
+          "startLine": 43,
+          "endLine": 64,
+          "params": []
+        },
+        {
+          "name": "data_types",
+          "startLine": 66,
+          "endLine": 68,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 80,
+          "endLine": 92,
+          "params": [
+            "id",
+            "input_chunk",
+            "data_types"
+          ]
+        },
+        {
+          "name": "bench_vec_ser",
+          "startLine": 94,
+          "endLine": 99,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "bench_vec_deser",
+          "startLine": 101,
+          "endLine": 117,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "bench_deser",
+          "startLine": 119,
+          "endLine": 128,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "bench",
+          "startLine": 131,
+          "endLine": 135,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "case_builders",
+          "startLine": 138,
+          "endLine": 217,
+          "params": []
+        },
+        {
+          "name": "bench_hash_key_encoding",
+          "startLine": 219,
+          "endLine": 226,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Case",
+          "startLine": 26,
+          "endLine": 28,
+          "methods": [
+            "bench"
+          ],
+          "properties": []
+        },
+        {
+          "name": "HashKeyBenchCaseBuilder",
+          "startLine": 31,
+          "endLine": 34,
+          "methods": [
+            "gen_cases",
+            "dispatch_impl",
+            "data_types"
+          ],
+          "properties": [
+            "data_types",
+            "describe"
+          ]
+        },
+        {
+          "name": "HashKeyBenchCase",
+          "startLine": 71,
+          "endLine": 77,
+          "methods": [],
+          "properties": [
+            "id",
+            "input_chunk",
+            "keys",
+            "data_types",
+            "col_idxes"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "gen_cases",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "bench_vec_ser",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "bench_vec_deser",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "bench_deser",
+          "line": 119,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "gen_cases",
+          "callee": "self.dispatch",
+          "lineNumber": 37
+        },
+        {
+          "caller": "dispatch_impl",
+          "callee": "rand_chunk::gen_chunk",
+          "lineNumber": 55
+        },
+        {
+          "caller": "dispatch_impl",
+          "callee": "self.data_types",
+          "lineNumber": 55
+        },
+        {
+          "caller": "dispatch_impl",
+          "callee": "ret.push",
+          "lineNumber": 56
+        },
+        {
+          "caller": "dispatch_impl",
+          "callee": "Box::new",
+          "lineNumber": 56
+        },
+        {
+          "caller": "dispatch_impl",
+          "callee": "HashKeyBenchCase::<K>::new",
+          "lineNumber": 56
+        },
+        {
+          "caller": "dispatch_impl",
+          "callee": "self.data_types.clone",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new",
+          "callee": "(0..input_chunk.columns().len()).collect_vec",
+          "lineNumber": 83
+        },
+        {
+          "caller": "new",
+          "callee": "input_chunk.columns().len",
+          "lineNumber": 83
+        },
+        {
+          "caller": "new",
+          "callee": "input_chunk.columns",
+          "lineNumber": 83
+        },
+        {
+          "caller": "new",
+          "callee": "HashKey::build_many",
+          "lineNumber": 84
+        },
+        {
+          "caller": "bench_vec_ser",
+          "callee": "\"vec ser \".to_owned",
+          "lineNumber": 95
+        },
+        {
+          "caller": "bench_vec_ser",
+          "callee": "c.bench_function",
+          "lineNumber": 96
+        },
+        {
+          "caller": "bench_vec_ser",
+          "callee": "b.iter",
+          "lineNumber": 97
+        },
+        {
+          "caller": "bench_vec_ser",
+          "callee": "K::build_many",
+          "lineNumber": 97
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "\"vec deser \".to_owned",
+          "lineNumber": 102
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "c.bench_function",
+          "lineNumber": 103
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "self\n                .input_chunk\n                .columns()\n                .iter()\n                .map(|c| c.create_builder(self.input_chunk.capacity()))\n                .collect::<Vec<ArrayBuilderImpl>>",
+          "lineNumber": 104
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "self\n                .input_chunk\n                .columns()\n                .iter().map",
+          "lineNumber": 104
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "self\n                .input_chunk\n                .columns().iter",
+          "lineNumber": 104
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "self\n                .input_chunk.columns",
+          "lineNumber": 104
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "c.create_builder",
+          "lineNumber": 108
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "self.input_chunk.capacity",
+          "lineNumber": 108
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "b.iter",
+          "lineNumber": 110
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "key.deserialize_to_builders(&mut array_builders[..], &self.data_types).unwrap",
+          "lineNumber": 112
+        },
+        {
+          "caller": "bench_vec_deser",
+          "callee": "key.deserialize_to_builders",
+          "lineNumber": 112
+        },
+        {
+          "caller": "bench_deser",
+          "callee": "\"row deser \".to_owned",
+          "lineNumber": 120
+        },
+        {
+          "caller": "bench_deser",
+          "callee": "c.bench_function",
+          "lineNumber": 121
+        },
+        {
+          "caller": "bench_deser",
+          "callee": "b.iter",
+          "lineNumber": 122
+        },
+        {
+          "caller": "bench_deser",
+          "callee": "key.deserialize(&self.data_types).unwrap",
+          "lineNumber": 124
+        },
+        {
+          "caller": "bench_deser",
+          "callee": "key.deserialize",
+          "lineNumber": 124
+        },
+        {
+          "caller": "bench",
+          "callee": "self.bench_vec_ser",
+          "lineNumber": 132
+        },
+        {
+          "caller": "bench",
+          "callee": "self.bench_vec_deser",
+          "lineNumber": 133
+        },
+        {
+          "caller": "bench",
+          "callee": "self.bench_deser",
+          "lineNumber": 134
+        },
+        {
+          "caller": "bench_hash_key_encoding",
+          "callee": "case_builders",
+          "lineNumber": 220
+        },
+        {
+          "caller": "bench_hash_key_encoding",
+          "callee": "case_builder.gen_cases",
+          "lineNumber": 221
+        },
+        {
+          "caller": "bench_hash_key_encoding",
+          "callee": "case.bench",
+          "lineNumber": 223
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 10,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/common/benches/bench_lru.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 90,
+      "nonEmptyLines": 82,
+      "functions": [
+        {
+          "name": "lru",
+          "startLine": 24,
+          "endLine": 41,
+          "params": [
+            "loops",
+            "_evict_ratio"
+          ]
+        },
+        {
+          "name": "rw_lru",
+          "startLine": 43,
+          "endLine": 58,
+          "params": [
+            "loops",
+            "evict_ratio"
+          ]
+        },
+        {
+          "name": "benchmark",
+          "startLine": 60,
+          "endLine": 82,
+          "params": [
+            "name",
+            "threads",
+            "loops",
+            "f"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 84,
+          "endLine": 90,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "lru",
+          "callee": "LruCache::unbounded",
+          "lineNumber": 25
+        },
+        {
+          "caller": "lru",
+          "callee": "Instant::now",
+          "lineNumber": 27
+        },
+        {
+          "caller": "lru",
+          "callee": "lru.put",
+          "lineNumber": 37
+        },
+        {
+          "caller": "lru",
+          "callee": "now.elapsed",
+          "lineNumber": 40
+        },
+        {
+          "caller": "rw_lru",
+          "callee": "RwLruCache::unbounded",
+          "lineNumber": 44
+        },
+        {
+          "caller": "rw_lru",
+          "callee": "Instant::now",
+          "lineNumber": 46
+        },
+        {
+          "caller": "rw_lru",
+          "callee": "SEQUENCE_GLOBAL.load",
+          "lineNumber": 49
+        },
+        {
+          "caller": "rw_lru",
+          "callee": "lru.pop_with_sequence(sequence).is_some",
+          "lineNumber": 50
+        },
+        {
+          "caller": "rw_lru",
+          "callee": "lru.pop_with_sequence",
+          "lineNumber": 50
+        },
+        {
+          "caller": "rw_lru",
+          "callee": "lru.put",
+          "lineNumber": 54
+        },
+        {
+          "caller": "rw_lru",
+          "callee": "now.elapsed",
+          "lineNumber": 57
+        },
+        {
+          "caller": "benchmark",
+          "callee": "(0..threads)\n        .map(|_| std::thread::spawn(black_box(f.clone()))).collect_vec",
+          "lineNumber": 64
+        },
+        {
+          "caller": "benchmark",
+          "callee": "(0..threads).map",
+          "lineNumber": 64
+        },
+        {
+          "caller": "benchmark",
+          "callee": "std::thread::spawn",
+          "lineNumber": 65
+        },
+        {
+          "caller": "benchmark",
+          "callee": "black_box",
+          "lineNumber": 65
+        },
+        {
+          "caller": "benchmark",
+          "callee": "f.clone",
+          "lineNumber": 65
+        },
+        {
+          "caller": "benchmark",
+          "callee": "Duration::from_nanos",
+          "lineNumber": 67
+        },
+        {
+          "caller": "benchmark",
+          "callee": "handle.join().unwrap",
+          "lineNumber": 70
+        },
+        {
+          "caller": "benchmark",
+          "callee": "handle.join",
+          "lineNumber": 70
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 87
+        },
+        {
+          "caller": "main",
+          "callee": "lru",
+          "lineNumber": 87
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 88
+        },
+        {
+          "caller": "main",
+          "callee": "rw_lru",
+          "lineNumber": 88
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/benches/bench_sequencer.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 168,
+      "nonEmptyLines": 150,
+      "functions": [
+        {
+          "name": "coarse",
+          "startLine": 33,
+          "endLine": 39,
+          "params": [
+            "loops"
+          ]
+        },
+        {
+          "name": "primitive",
+          "startLine": 42,
+          "endLine": 50,
+          "params": [
+            "loops"
+          ]
+        },
+        {
+          "name": "atomic",
+          "startLine": 52,
+          "endLine": 58,
+          "params": [
+            "loops",
+            "atomic"
+          ]
+        },
+        {
+          "name": "atomic_skip",
+          "startLine": 60,
+          "endLine": 73,
+          "params": [
+            "loops",
+            "atomic",
+            "skip"
+          ]
+        },
+        {
+          "name": "sequencer",
+          "startLine": 75,
+          "endLine": 90,
+          "params": [
+            "loops",
+            "step",
+            "lag_amp"
+          ]
+        },
+        {
+          "name": "benchmark",
+          "startLine": 92,
+          "endLine": 110,
+          "params": [
+            "name",
+            "threads",
+            "loops",
+            "f"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 112,
+          "endLine": 168,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "coarse",
+          "callee": "Instant::now",
+          "lineNumber": 34
+        },
+        {
+          "caller": "coarse",
+          "callee": "coarsetime::Instant::now",
+          "lineNumber": 36
+        },
+        {
+          "caller": "coarse",
+          "callee": "now.elapsed",
+          "lineNumber": 38
+        },
+        {
+          "caller": "primitive",
+          "callee": "Instant::now",
+          "lineNumber": 44
+        },
+        {
+          "caller": "primitive",
+          "callee": "now.elapsed",
+          "lineNumber": 49
+        },
+        {
+          "caller": "atomic",
+          "callee": "Instant::now",
+          "lineNumber": 53
+        },
+        {
+          "caller": "atomic",
+          "callee": "atomic.fetch_add",
+          "lineNumber": 55
+        },
+        {
+          "caller": "atomic",
+          "callee": "now.elapsed",
+          "lineNumber": 57
+        },
+        {
+          "caller": "atomic_skip",
+          "callee": "Instant::now",
+          "lineNumber": 62
+        },
+        {
+          "caller": "atomic_skip",
+          "callee": "cnt.is_multiple_of",
+          "lineNumber": 66
+        },
+        {
+          "caller": "atomic_skip",
+          "callee": "atomic.fetch_add",
+          "lineNumber": 67
+        },
+        {
+          "caller": "atomic_skip",
+          "callee": "atomic.load",
+          "lineNumber": 69
+        },
+        {
+          "caller": "atomic_skip",
+          "callee": "now.elapsed",
+          "lineNumber": 72
+        },
+        {
+          "caller": "sequencer",
+          "callee": "Instant::now",
+          "lineNumber": 85
+        },
+        {
+          "caller": "sequencer",
+          "callee": "sequencer.with",
+          "lineNumber": 87
+        },
+        {
+          "caller": "sequencer",
+          "callee": "s.borrow_mut().alloc",
+          "lineNumber": 87
+        },
+        {
+          "caller": "sequencer",
+          "callee": "s.borrow_mut",
+          "lineNumber": 87
+        },
+        {
+          "caller": "sequencer",
+          "callee": "now.elapsed",
+          "lineNumber": 89
+        },
+        {
+          "caller": "benchmark",
+          "callee": "(0..threads)\n        .map(|_| std::thread::spawn(black_box(f.clone()))).collect_vec",
+          "lineNumber": 96
+        },
+        {
+          "caller": "benchmark",
+          "callee": "(0..threads).map",
+          "lineNumber": 96
+        },
+        {
+          "caller": "benchmark",
+          "callee": "std::thread::spawn",
+          "lineNumber": 97
+        },
+        {
+          "caller": "benchmark",
+          "callee": "black_box",
+          "lineNumber": 97
+        },
+        {
+          "caller": "benchmark",
+          "callee": "f.clone",
+          "lineNumber": 97
+        },
+        {
+          "caller": "benchmark",
+          "callee": "Duration::from_nanos",
+          "lineNumber": 99
+        },
+        {
+          "caller": "benchmark",
+          "callee": "handle.join().unwrap",
+          "lineNumber": 101
+        },
+        {
+          "caller": "benchmark",
+          "callee": "handle.join",
+          "lineNumber": 101
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 122
+        },
+        {
+          "caller": "main",
+          "callee": "primitive",
+          "lineNumber": 122
+        },
+        {
+          "caller": "main",
+          "callee": "Arc::new",
+          "lineNumber": 124
+        },
+        {
+          "caller": "main",
+          "callee": "AtomicUsize::new",
+          "lineNumber": 124
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 125
+        },
+        {
+          "caller": "main",
+          "callee": "atomic",
+          "lineNumber": 125
+        },
+        {
+          "caller": "main",
+          "callee": "a.clone",
+          "lineNumber": 125
+        },
+        {
+          "caller": "main",
+          "callee": "Arc::new",
+          "lineNumber": 127
+        },
+        {
+          "caller": "main",
+          "callee": "AtomicUsize::new",
+          "lineNumber": 127
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 128
+        },
+        {
+          "caller": "main",
+          "callee": "atomic_skip",
+          "lineNumber": 129
+        },
+        {
+          "caller": "main",
+          "callee": "a.clone",
+          "lineNumber": 129
+        },
+        {
+          "caller": "main",
+          "callee": "Arc::new",
+          "lineNumber": 132
+        },
+        {
+          "caller": "main",
+          "callee": "AtomicUsize::new",
+          "lineNumber": 132
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 133
+        },
+        {
+          "caller": "main",
+          "callee": "atomic_skip",
+          "lineNumber": 134
+        },
+        {
+          "caller": "main",
+          "callee": "a.clone",
+          "lineNumber": 134
+        },
+        {
+          "caller": "main",
+          "callee": "Arc::new",
+          "lineNumber": 137
+        },
+        {
+          "caller": "main",
+          "callee": "AtomicUsize::new",
+          "lineNumber": 137
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 138
+        },
+        {
+          "caller": "main",
+          "callee": "atomic_skip",
+          "lineNumber": 139
+        },
+        {
+          "caller": "main",
+          "callee": "a.clone",
+          "lineNumber": 139
+        },
+        {
+          "caller": "main",
+          "callee": "Arc::new",
+          "lineNumber": 142
+        },
+        {
+          "caller": "main",
+          "callee": "AtomicUsize::new",
+          "lineNumber": 142
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 143
+        },
+        {
+          "caller": "main",
+          "callee": "atomic_skip",
+          "lineNumber": 144
+        },
+        {
+          "caller": "main",
+          "callee": "a.clone",
+          "lineNumber": 144
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 147
+        },
+        {
+          "caller": "main",
+          "callee": "sequencer",
+          "lineNumber": 148
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 150
+        },
+        {
+          "caller": "main",
+          "callee": "sequencer",
+          "lineNumber": 151
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 153
+        },
+        {
+          "caller": "main",
+          "callee": "sequencer",
+          "lineNumber": 154
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 156
+        },
+        {
+          "caller": "main",
+          "callee": "sequencer",
+          "lineNumber": 157
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 159
+        },
+        {
+          "caller": "main",
+          "callee": "sequencer",
+          "lineNumber": 160
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 162
+        },
+        {
+          "caller": "main",
+          "callee": "sequencer",
+          "lineNumber": 163
+        },
+        {
+          "caller": "main",
+          "callee": "benchmark",
+          "lineNumber": 166
+        },
+        {
+          "caller": "main",
+          "callee": "coarse",
+          "lineNumber": 166
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/benches/bitmap.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 90,
+      "functions": [
+        {
+          "name": "bench_bitmap",
+          "startLine": 21,
+          "endLine": 56,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "bench_bitmap_iter",
+          "startLine": 59,
+          "endLine": 86,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "iter_all",
+          "startLine": 89,
+          "endLine": 93,
+          "params": [
+            "iter"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "bench_bitmap",
+          "callee": "Bitmap::zeros",
+          "lineNumber": 24
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "Bitmap::ones",
+          "lineNumber": 25
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "Bitmap::from_bytes",
+          "lineNumber": 26
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "Bitmap::from_bytes",
+          "lineNumber": 27
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "sparse.clone",
+          "lineNumber": 28
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "dense.clone",
+          "lineNumber": 29
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 31
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 31
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "Bitmap::zeros",
+          "lineNumber": 31
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 32
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 32
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "Bitmap::ones",
+          "lineNumber": 32
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 33
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 33
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "Bitmap::from_bytes",
+          "lineNumber": 33
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 34
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 34
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "ones.is_set",
+          "lineNumber": 34
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 35
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 35
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "x.is_set",
+          "lineNumber": 35
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 36
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 36
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 37
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 37
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 38
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 38
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 39
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 39
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 40
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 40
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "iter_all",
+          "lineNumber": 40
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "x.iter",
+          "lineNumber": 40
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 41
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 41
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "iter_all",
+          "lineNumber": 41
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "ones.iter",
+          "lineNumber": 41
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 42
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 43
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "iter_all",
+          "lineNumber": 43
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "zeros.iter_ones",
+          "lineNumber": 43
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 45
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 46
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "iter_all",
+          "lineNumber": 46
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "ones.iter_ones",
+          "lineNumber": 46
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 48
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 49
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "iter_all",
+          "lineNumber": 49
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "sparse.iter_ones",
+          "lineNumber": 49
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 51
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 52
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "iter_all",
+          "lineNumber": 52
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "dense.iter_ones",
+          "lineNumber": 52
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "c.bench_function",
+          "lineNumber": 55
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "b.iter",
+          "lineNumber": 55
+        },
+        {
+          "caller": "bench_bitmap",
+          "callee": "iter_all",
+          "lineNumber": 55
+        },
+        {
+          "caller": "make_iterators",
+          "callee": "bitmaps.iter().map(|bitmap| bitmap.iter()).collect_vec",
+          "lineNumber": 63
+        },
+        {
+          "caller": "make_iterators",
+          "callee": "bitmaps.iter().map",
+          "lineNumber": 63
+        },
+        {
+          "caller": "make_iterators",
+          "callee": "bitmaps.iter",
+          "lineNumber": 63
+        },
+        {
+          "caller": "make_iterators",
+          "callee": "bitmap.iter",
+          "lineNumber": 63
+        },
+        {
+          "caller": "bench_bitmap_iter_inner",
+          "callee": "make_iterators",
+          "lineNumber": 67
+        },
+        {
+          "caller": "bench_bitmap_iter_inner",
+          "callee": "c.bench_function",
+          "lineNumber": 68
+        },
+        {
+          "caller": "bench_bitmap_iter_inner",
+          "callee": "b.iter_batched",
+          "lineNumber": 69
+        },
+        {
+          "caller": "bench_bitmap_iter_inner",
+          "callee": "black_box",
+          "lineNumber": 74
+        },
+        {
+          "caller": "bench_bitmap_iter",
+          "callee": "Bitmap::zeros",
+          "lineNumber": 82
+        },
+        {
+          "caller": "bench_bitmap_iter",
+          "callee": "bench_bitmap_iter_inner",
+          "lineNumber": 83
+        },
+        {
+          "caller": "bench_bitmap_iter",
+          "callee": "Bitmap::ones",
+          "lineNumber": 84
+        },
+        {
+          "caller": "bench_bitmap_iter",
+          "callee": "bench_bitmap_iter_inner",
+          "lineNumber": 85
+        },
+        {
+          "caller": "iter_all",
+          "callee": "black_box",
+          "lineNumber": 91
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 175,
+      "nonEmptyLines": 162,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "target.'cfg(not(madsim))'.dependencies",
+          "level": 3,
+          "line": 121
+        },
+        {
+          "heading": "dev-dependencies",
+          "level": 1,
+          "line": 127
+        },
+        {
+          "heading": "[[bench]]",
+          "level": 1,
+          "line": 138
+        },
+        {
+          "heading": "[[bench]]",
+          "level": 1,
+          "line": 142
+        },
+        {
+          "heading": "[[bench]]",
+          "level": 1,
+          "line": 146
+        },
+        {
+          "heading": "[[bench]]",
+          "level": 1,
+          "line": 150
+        },
+        {
+          "heading": "[[bench]]",
+          "level": 1,
+          "line": 154
+        },
+        {
+          "heading": "[[bench]]",
+          "level": 1,
+          "line": 158
+        },
+        {
+          "heading": "[[bench]]",
+          "level": 1,
+          "line": 162
+        },
+        {
+          "heading": "[[bench]]",
+          "level": 1,
+          "line": 166
+        },
+        {
+          "heading": "[[bench]]",
+          "level": 1,
+          "line": 170
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 174
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 14
+      }
+    },
+    {
+      "path": "src/common/common_service/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 33,
+      "nonEmptyLines": 30,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "target.'cfg(not(madsim))'.dependencies",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "src/common/estimate_size/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 21,
+      "nonEmptyLines": 19,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "src/common/fields-derive/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 21,
+      "nonEmptyLines": 18,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lib",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "dev-dependencies",
+          "level": 1,
+          "line": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "src/common/fields-derive/src/gen/test_empty_pk.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "fields",
+          "startLine": 3,
+          "endLine": 14,
+          "params": []
+        },
+        {
+          "name": "into_owned_row",
+          "startLine": 15,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 25,
+          "endLine": 33,
+          "params": [
+            "v"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "into_owned_row",
+          "callee": "::risingwave_common::row::OwnedRow::new",
+          "lineNumber": 16
+        },
+        {
+          "caller": "from",
+          "callee": "::risingwave_common::types::StructValue::new(\n                vec![\n                    ::risingwave_common::types::ToOwnedDatum::to_owned_datum(v.v1),\n                    ::risingwave_common::types::ToOwnedDatum::to_owned_datum(v.v2),\n                ],\n            ).into",
+          "lineNumber": 26
+        },
+        {
+          "caller": "from",
+          "callee": "::risingwave_common::types::StructValue::new",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/fields-derive/src/gen/test_no_pk.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "fields",
+          "startLine": 3,
+          "endLine": 14,
+          "params": []
+        },
+        {
+          "name": "into_owned_row",
+          "startLine": 15,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 25,
+          "endLine": 33,
+          "params": [
+            "v"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "into_owned_row",
+          "callee": "::risingwave_common::row::OwnedRow::new",
+          "lineNumber": 16
+        },
+        {
+          "caller": "from",
+          "callee": "::risingwave_common::types::StructValue::new(\n                vec![\n                    ::risingwave_common::types::ToOwnedDatum::to_owned_datum(v.v1),\n                    ::risingwave_common::types::ToOwnedDatum::to_owned_datum(v.v2),\n                ],\n            ).into",
+          "lineNumber": 26
+        },
+        {
+          "caller": "from",
+          "callee": "::risingwave_common::types::StructValue::new",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    }
+  ]
+}

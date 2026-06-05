@@ -1,0 +1,264 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/feature-store/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 113,
+      "nonEmptyLines": 109,
+      "sections": [
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 103
+        },
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 112
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 63,
+      "nonEmptyLines": 50,
+      "services": [
+        {
+          "name": "feature-store-server",
+          "image": "ubuntu:20.04",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 64
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM ubuntu:20.04 AS feature-store-server",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "ARG BUILD_ARG",
+          "startLine": 2,
+          "endLine": 2
+        },
+        {
+          "name": "ENV DEBIAN_FRONTEND=noninteractive",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "USER root",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "ENV WORK_DIR /opt/feature-store",
+          "startLine": 7,
+          "endLine": 7
+        },
+        {
+          "name": "RUN mkdir -p $WORK_DIR",
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "WORKDIR $WORK_DIR",
+          "startLine": 10,
+          "endLine": 10
+        },
+        {
+          "name": "RUN apt update",
+          "startLine": 12,
+          "endLine": 12
+        },
+        {
+          "name": "RUN apt install -y lsof curl openssl libssl-dev pkg-config build",
+          "startLine": 13,
+          "endLine": 13
+        },
+        {
+          "name": "ADD ./server/model/requirements.txt $WORK_DIR/model-pipreqs.txt",
+          "startLine": 19,
+          "endLine": 19
+        },
+        {
+          "name": "ADD ./generator/requirements.txt $WORK_DIR/generator-pipreqs.txt",
+          "startLine": 20,
+          "endLine": 20
+        },
+        {
+          "name": "RUN pip3 install --upgrade pip",
+          "startLine": 21,
+          "endLine": 21
+        },
+        {
+          "name": "RUN pip3 install -r $WORK_DIR/model-pipreqs.txt",
+          "startLine": 22,
+          "endLine": 22
+        },
+        {
+          "name": "RUN pip3 install -r $WORK_DIR/generator-pipreqs.txt",
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "RUN pip3 install risingwave",
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | ",
+          "startLine": 26,
+          "endLine": 26
+        },
+        {
+          "name": "ENV PATH /root/.cargo/bin/:$PATH",
+          "startLine": 27,
+          "endLine": 27
+        },
+        {
+          "name": "RUN wget https://packages.microsoft.com/config/debian/11/package",
+          "startLine": 30,
+          "endLine": 30
+        },
+        {
+          "name": "RUN dpkg -i packages-microsoft-prod.deb",
+          "startLine": 31,
+          "endLine": 31
+        },
+        {
+          "name": "RUN rm packages-microsoft-prod.deb",
+          "startLine": 32,
+          "endLine": 32
+        },
+        {
+          "name": "RUN apt-get update && apt-get install -y dotnet-sdk-6.0",
+          "startLine": 33,
+          "endLine": 33
+        },
+        {
+          "name": "RUN apt install -y liblttng-ust0",
+          "startLine": 34,
+          "endLine": 34
+        },
+        {
+          "name": "ADD ./server $WORK_DIR/build/server",
+          "startLine": 37,
+          "endLine": 37
+        },
+        {
+          "name": "ADD ./simulator $WORK_DIR/build/simulator",
+          "startLine": 38,
+          "endLine": 38
+        },
+        {
+          "name": "RUN cargo build --manifest-path $WORK_DIR/build/server/Cargo.tom",
+          "startLine": 39,
+          "endLine": 39
+        },
+        {
+          "name": "RUN cargo build --manifest-path $WORK_DIR/build/simulator/Cargo.",
+          "startLine": 40,
+          "endLine": 40
+        },
+        {
+          "name": "RUN cp $WORK_DIR/build/server/target/release/server $WORK_DIR/fe",
+          "startLine": 42,
+          "endLine": 42
+        },
+        {
+          "name": "RUN cp $WORK_DIR/build/simulator/target/release/simulator $WORK_",
+          "startLine": 43,
+          "endLine": 43
+        },
+        {
+          "name": "RUN rm -rf $WORK_DIR/build",
+          "startLine": 44,
+          "endLine": 44
+        },
+        {
+          "name": "ADD ./server/model $WORK_DIR/server/model",
+          "startLine": 46,
+          "endLine": 46
+        },
+        {
+          "name": "ADD ./server/udf.py $WORK_DIR/udf.py",
+          "startLine": 47,
+          "endLine": 47
+        },
+        {
+          "name": "ADD ./generator $WORK_DIR/generator",
+          "startLine": 48,
+          "endLine": 48
+        },
+        {
+          "name": "ADD ./taxi-start.sql $WORK_DIR/taxi-start.sql",
+          "startLine": 49,
+          "endLine": 49
+        },
+        {
+          "name": "ADD ./mfa-start.sql $WORK_DIR/mfa-start.sql",
+          "startLine": 50,
+          "endLine": 50
+        },
+        {
+          "name": "RUN mkdir $WORK_DIR/run-sh",
+          "startLine": 51,
+          "endLine": 51
+        },
+        {
+          "name": "ADD ./run.sh $WORK_DIR/run-sh/",
+          "startLine": 52,
+          "endLine": 52
+        },
+        {
+          "name": "ADD ./run-mfa.sh $WORK_DIR/run-sh/",
+          "startLine": 53,
+          "endLine": 53
+        },
+        {
+          "name": "RUN if [ \"$BUILD_ARG\" = \"mfa\" ]; then \\",
+          "startLine": 55,
+          "endLine": 55
+        },
+        {
+          "name": "RUN chmod +x $WORK_DIR/run.sh && rm -rf $WORK_DIR/run-sh",
+          "startLine": 61,
+          "endLine": 61
+        },
+        {
+          "name": "CMD [\"sh\", \"-c\", \"sleep 10 && ./run.sh\"]",
+          "startLine": 63,
+          "endLine": 63
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 40
+      }
+    }
+  ]
+}

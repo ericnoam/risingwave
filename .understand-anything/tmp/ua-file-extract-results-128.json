@@ -1,0 +1,1092 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/tests/e2e_extended_mode/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 43,
+      "functions": [
+        {
+          "name": "run_test_suit",
+          "startLine": 25,
+          "endLine": 47,
+          "params": [
+            "db_name",
+            "user_name",
+            "server_host",
+            "server_port",
+            "password"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run_test_suit",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run_test_suit",
+          "callee": "TestSuite::new",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run_test_suit",
+          "callee": "test_suite.test",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/tests/e2e_extended_mode/src/opts.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 31,
+      "classes": [
+        {
+          "name": "Opts",
+          "startLine": 18,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "pg_db_name",
+            "pg_user_name",
+            "pg_server_host",
+            "pg_server_port",
+            "pg_password"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Opts",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/tests/e2e_extended_mode/src/test.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 598,
+      "nonEmptyLines": 505,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 47,
+          "endLine": 66,
+          "params": [
+            "db_name",
+            "user_name",
+            "server_host",
+            "server_port",
+            "password"
+          ]
+        },
+        {
+          "name": "init_logger",
+          "startLine": 68,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "test",
+          "startLine": 75,
+          "endLine": 89,
+          "params": []
+        },
+        {
+          "name": "create_client",
+          "startLine": 91,
+          "endLine": 109,
+          "params": [
+            "is_distributed"
+          ]
+        },
+        {
+          "name": "binary_param_and_result",
+          "startLine": 111,
+          "endLine": 224,
+          "params": []
+        },
+        {
+          "name": "dql_dml_with_param",
+          "startLine": 226,
+          "endLine": 289,
+          "params": []
+        },
+        {
+          "name": "max_row",
+          "startLine": 291,
+          "endLine": 339,
+          "params": []
+        },
+        {
+          "name": "multiple_on_going_portal",
+          "startLine": 341,
+          "endLine": 370,
+          "params": []
+        },
+        {
+          "name": "create_with_parameter",
+          "startLine": 373,
+          "endLine": 392,
+          "params": []
+        },
+        {
+          "name": "create_mview_with_parameter",
+          "startLine": 394,
+          "endLine": 422,
+          "params": []
+        },
+        {
+          "name": "simple_cancel",
+          "startLine": 424,
+          "endLine": 468,
+          "params": [
+            "is_distributed"
+          ]
+        },
+        {
+          "name": "complex_cancel",
+          "startLine": 470,
+          "endLine": 584,
+          "params": [
+            "is_distributed"
+          ]
+        },
+        {
+          "name": "subquery_with_param",
+          "startLine": 586,
+          "endLine": 597,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestSuite",
+          "startLine": 23,
+          "endLine": 25,
+          "methods": [
+            "new",
+            "init_logger",
+            "test",
+            "create_client",
+            "binary_param_and_result",
+            "dql_dml_with_param",
+            "max_row",
+            "multiple_on_going_portal",
+            "create_with_parameter",
+            "create_mview_with_parameter",
+            "simple_cancel",
+            "complex_cancel",
+            "subquery_with_param"
+          ],
+          "properties": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestSuite",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "test",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "binary_param_and_result",
+          "line": 111,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "password.is_empty",
+          "lineNumber": 54
+        },
+        {
+          "caller": "init_logger",
+          "callee": "tracing_subscriber::fmt()\n            .with_env_filter(tracing_subscriber::EnvFilter::from_default_env())\n            .with_ansi(false).try_init",
+          "lineNumber": 69
+        },
+        {
+          "caller": "init_logger",
+          "callee": "tracing_subscriber::fmt()\n            .with_env_filter(tracing_subscriber::EnvFilter::from_default_env()).with_ansi",
+          "lineNumber": 69
+        },
+        {
+          "caller": "init_logger",
+          "callee": "tracing_subscriber::fmt().with_env_filter",
+          "lineNumber": 69
+        },
+        {
+          "caller": "init_logger",
+          "callee": "tracing_subscriber::fmt",
+          "lineNumber": 69
+        },
+        {
+          "caller": "init_logger",
+          "callee": "tracing_subscriber::EnvFilter::from_default_env",
+          "lineNumber": 70
+        },
+        {
+          "caller": "test",
+          "callee": "Self::init_logger",
+          "lineNumber": 76
+        },
+        {
+          "caller": "test",
+          "callee": "self.binary_param_and_result",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test",
+          "callee": "self.dql_dml_with_param",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test",
+          "callee": "self.max_row",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test",
+          "callee": "self.multiple_on_going_portal",
+          "lineNumber": 80
+        },
+        {
+          "caller": "test",
+          "callee": "self.create_with_parameter",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test",
+          "callee": "self.simple_cancel",
+          "lineNumber": 82
+        },
+        {
+          "caller": "test",
+          "callee": "self.simple_cancel",
+          "lineNumber": 83
+        },
+        {
+          "caller": "test",
+          "callee": "self.complex_cancel",
+          "lineNumber": 84
+        },
+        {
+          "caller": "test",
+          "callee": "self.complex_cancel",
+          "lineNumber": 85
+        },
+        {
+          "caller": "test",
+          "callee": "self.subquery_with_param",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test",
+          "callee": "self.create_mview_with_parameter",
+          "lineNumber": 87
+        },
+        {
+          "caller": "test",
+          "callee": "Ok",
+          "lineNumber": 88
+        },
+        {
+          "caller": "create_client",
+          "callee": "tokio_postgres::connect",
+          "lineNumber": 92
+        },
+        {
+          "caller": "create_client",
+          "callee": "tokio::spawn",
+          "lineNumber": 96
+        },
+        {
+          "caller": "create_client",
+          "callee": "client.execute",
+          "lineNumber": 103
+        },
+        {
+          "caller": "create_client",
+          "callee": "client.execute",
+          "lineNumber": 105
+        },
+        {
+          "caller": "create_client",
+          "callee": "Ok",
+          "lineNumber": 108
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "self.create_client",
+          "lineNumber": 112
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 114
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 115
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 119
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 120
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 124
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 125
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 129
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "Decimal::try_from(2.33454_f32).ok",
+          "lineNumber": 132
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "Decimal::try_from",
+          "lineNumber": 132
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 136
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 140
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 141
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 145
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 146
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 150
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 154
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 158
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveDate::from_ymd_opt(2022, 1, 1).unwrap",
+          "lineNumber": 161
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveDate::from_ymd_opt",
+          "lineNumber": 161
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 165
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 169
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveTime::from_hms_opt(10, 0, 0).unwrap",
+          "lineNumber": 172
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveTime::from_hms_opt",
+          "lineNumber": 172
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 176
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 180
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveDate::from_ymd_opt(2022, 1, 1)\n                    .unwrap()\n                    .and_hms_opt(10, 0, 0).unwrap",
+          "lineNumber": 183
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveDate::from_ymd_opt(2022, 1, 1)\n                    .unwrap().and_hms_opt",
+          "lineNumber": 183
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveDate::from_ymd_opt(2022, 1, 1).unwrap",
+          "lineNumber": 183
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveDate::from_ymd_opt",
+          "lineNumber": 183
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 190
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "DateTime::<Utc>::from_naive_utc_and_offset",
+          "lineNumber": 200
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveDate::from_ymd_opt(2022, 1, 1)\n                .unwrap()\n                .and_hms_opt(10, 0, 0).unwrap",
+          "lineNumber": 201
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveDate::from_ymd_opt(2022, 1, 1)\n                .unwrap().and_hms_opt",
+          "lineNumber": 201
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveDate::from_ymd_opt(2022, 1, 1).unwrap",
+          "lineNumber": 201
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "NaiveDate::from_ymd_opt",
+          "lineNumber": 201
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 207
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 211
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "client.query",
+          "lineNumber": 215
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "Interval::new",
+          "lineNumber": 216
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "row.try_get",
+          "lineNumber": 219
+        },
+        {
+          "caller": "binary_param_and_result",
+          "callee": "Ok",
+          "lineNumber": 223
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "self.create_client",
+          "lineNumber": 227
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.query",
+          "lineNumber": 229
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.prepare_typed",
+          "lineNumber": 231
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.execute",
+          "lineNumber": 236
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.execute",
+          "lineNumber": 238
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.prepare_typed",
+          "lineNumber": 240
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.prepare_typed",
+          "lineNumber": 246
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.prepare_typed",
+          "lineNumber": 252
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.query",
+          "lineNumber": 257
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "row.try_get",
+          "lineNumber": 258
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.execute",
+          "lineNumber": 264
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.execute",
+          "lineNumber": 267
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.query",
+          "lineNumber": 270
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.execute",
+          "lineNumber": 275
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.execute",
+          "lineNumber": 276
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.query",
+          "lineNumber": 279
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "row.try_get",
+          "lineNumber": 280
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "client.execute",
+          "lineNumber": 286
+        },
+        {
+          "caller": "dql_dml_with_param",
+          "callee": "Ok",
+          "lineNumber": 288
+        },
+        {
+          "caller": "max_row",
+          "callee": "self.create_client",
+          "lineNumber": 292
+        },
+        {
+          "caller": "max_row",
+          "callee": "client.query",
+          "lineNumber": 294
+        },
+        {
+          "caller": "max_row",
+          "callee": "client.prepare_typed",
+          "lineNumber": 296
+        },
+        {
+          "caller": "max_row",
+          "callee": "client.execute",
+          "lineNumber": 301
+        },
+        {
+          "caller": "max_row",
+          "callee": "client.execute",
+          "lineNumber": 303
+        },
+        {
+          "caller": "max_row",
+          "callee": "client.transaction",
+          "lineNumber": 305
+        },
+        {
+          "caller": "max_row",
+          "callee": "transaction.prepare_typed",
+          "lineNumber": 306
+        },
+        {
+          "caller": "max_row",
+          "callee": "transaction.bind",
+          "lineNumber": 309
+        },
+        {
+          "caller": "max_row",
+          "callee": "transaction.query_portal",
+          "lineNumber": 312
+        },
+        {
+          "caller": "max_row",
+          "callee": "rows.first().unwrap",
+          "lineNumber": 314
+        },
+        {
+          "caller": "max_row",
+          "callee": "rows.first",
+          "lineNumber": 314
+        },
+        {
+          "caller": "max_row",
+          "callee": "row.get",
+          "lineNumber": 315
+        },
+        {
+          "caller": "max_row",
+          "callee": "transaction.query_portal",
+          "lineNumber": 320
+        },
+        {
+          "caller": "max_row",
+          "callee": "row.get",
+          "lineNumber": 321
+        },
+        {
+          "caller": "max_row",
+          "callee": "transaction.query_portal",
+          "lineNumber": 327
+        },
+        {
+          "caller": "max_row",
+          "callee": "row.get",
+          "lineNumber": 328
+        },
+        {
+          "caller": "max_row",
+          "callee": "transaction.rollback",
+          "lineNumber": 334
+        },
+        {
+          "caller": "max_row",
+          "callee": "client.execute",
+          "lineNumber": 336
+        },
+        {
+          "caller": "max_row",
+          "callee": "Ok",
+          "lineNumber": 338
+        },
+        {
+          "caller": "multiple_on_going_portal",
+          "callee": "self.create_client",
+          "lineNumber": 342
+        },
+        {
+          "caller": "multiple_on_going_portal",
+          "callee": "client.transaction",
+          "lineNumber": 344
+        },
+        {
+          "caller": "multiple_on_going_portal",
+          "callee": "transaction.prepare_typed",
+          "lineNumber": 345
+        },
+        {
+          "caller": "multiple_on_going_portal",
+          "callee": "transaction.bind",
+          "lineNumber": 348
+        },
+        {
+          "caller": "multiple_on_going_portal",
+          "callee": "transaction.bind",
+          "lineNumber": 349
+        },
+        {
+          "caller": "multiple_on_going_portal",
+          "callee": "transaction.query_portal",
+          "lineNumber": 351
+        },
+        {
+          "caller": "multiple_on_going_portal",
+          "callee": "transaction.query_portal",
+          "lineNumber": 355
+        },
+        {
+          "caller": "multiple_on_going_portal",
+          "callee": "transaction.query_portal",
+          "lineNumber": 359
+        },
+        {
+          "caller": "multiple_on_going_portal",
+          "callee": "transaction.query_portal",
+          "lineNumber": 365
+        },
+        {
+          "caller": "multiple_on_going_portal",
+          "callee": "Ok",
+          "lineNumber": 369
+        },
+        {
+          "caller": "create_with_parameter",
+          "callee": "self.create_client",
+          "lineNumber": 374
+        },
+        {
+          "caller": "create_with_parameter",
+          "callee": "Ok",
+          "lineNumber": 391
+        },
+        {
+          "caller": "create_mview_with_parameter",
+          "callee": "self.create_client",
+          "lineNumber": 395
+        },
+        {
+          "caller": "create_mview_with_parameter",
+          "callee": "client.prepare_typed",
+          "lineNumber": 397
+        },
+        {
+          "caller": "create_mview_with_parameter",
+          "callee": "client.execute",
+          "lineNumber": 404
+        },
+        {
+          "caller": "create_mview_with_parameter",
+          "callee": "client.query",
+          "lineNumber": 406
+        },
+        {
+          "caller": "create_mview_with_parameter",
+          "callee": "client.execute",
+          "lineNumber": 411
+        },
+        {
+          "caller": "create_mview_with_parameter",
+          "callee": "client.query",
+          "lineNumber": 415
+        },
+        {
+          "caller": "create_mview_with_parameter",
+          "callee": "client.execute",
+          "lineNumber": 419
+        },
+        {
+          "caller": "create_mview_with_parameter",
+          "callee": "Ok",
+          "lineNumber": 421
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "self.create_client",
+          "lineNumber": 425
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "client.execute",
+          "lineNumber": 426
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "client.prepare_typed",
+          "lineNumber": 428
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "client.execute",
+          "lineNumber": 433
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "client.execute",
+          "lineNumber": 436
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "client.cancel_token",
+          "lineNumber": 438
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "tokio::spawn",
+          "lineNumber": 440
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "client.query(\"select * from t\", &[]).await.unwrap",
+          "lineNumber": 441
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "client.query",
+          "lineNumber": 441
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "self.create_client",
+          "lineNumber": 453
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "new_client.query",
+          "lineNumber": 455
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "rows.iter().enumerate",
+          "lineNumber": 460
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "rows.iter",
+          "lineNumber": 460
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "row.get",
+          "lineNumber": 461
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "new_client.execute",
+          "lineNumber": 465
+        },
+        {
+          "caller": "simple_cancel",
+          "callee": "Ok",
+          "lineNumber": 467
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "self.create_client",
+          "lineNumber": 471
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.execute",
+          "lineNumber": 473
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.execute",
+          "lineNumber": 476
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.execute",
+          "lineNumber": 479
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.prepare_typed",
+          "lineNumber": 483
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.prepare_typed",
+          "lineNumber": 486
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.prepare_typed",
+          "lineNumber": 489
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.execute",
+          "lineNumber": 493
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "i.to_string",
+          "lineNumber": 494
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.execute",
+          "lineNumber": 496
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "i.to_string",
+          "lineNumber": 497
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.execute",
+          "lineNumber": 499
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "i.to_string",
+          "lineNumber": 500
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.execute",
+          "lineNumber": 504
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.execute",
+          "lineNumber": 506
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.cancel_token",
+          "lineNumber": 508
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "tokio::spawn",
+          "lineNumber": 530
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "client.query",
+          "lineNumber": 531
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "self.create_client",
+          "lineNumber": 551
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "new_client.query",
+          "lineNumber": 553
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "rows.iter().enumerate",
+          "lineNumber": 568
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "rows.iter",
+          "lineNumber": 568
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "new_client.execute",
+          "lineNumber": 580
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "new_client.execute",
+          "lineNumber": 581
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "new_client.execute",
+          "lineNumber": 582
+        },
+        {
+          "caller": "complex_cancel",
+          "callee": "Ok",
+          "lineNumber": 583
+        },
+        {
+          "caller": "subquery_with_param",
+          "callee": "self.create_client",
+          "lineNumber": 587
+        },
+        {
+          "caller": "subquery_with_param",
+          "callee": "client\n            .query(\"select (select $1::SMALLINT)\", &[&1024_i16])\n            .await.unwrap",
+          "lineNumber": 589
+        },
+        {
+          "caller": "subquery_with_param",
+          "callee": "client.query",
+          "lineNumber": 589
+        },
+        {
+          "caller": "subquery_with_param",
+          "callee": "Ok",
+          "lineNumber": 596
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    }
+  ]
+}

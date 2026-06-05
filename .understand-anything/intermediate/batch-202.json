@@ -1,0 +1,216 @@
+{
+  "nodes": [
+    {
+      "id": "config:integration_tests/kafka-cdc-sink/Makefile.toml",
+      "type": "config",
+      "name": "Makefile.toml",
+      "filePath": "integration_tests/kafka-cdc-sink/Makefile.toml",
+      "summary": "Cargo make task definitions for the kafka-cdc-sink integration test, orchestrating build, cluster setup, preparation, and result verification tasks for PostgreSQL, MySQL, and Flink compatibility checks.",
+      "tags": ["configuration", "build-system", "integration-test", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:integration_tests/kafka-cdc-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/kafka-cdc-sink/README.md",
+      "summary": "Documentation for the kafka-cdc-sink integration test covering requirements, commands, and pipeline description for sinking CDC changes to Kafka.",
+      "tags": ["documentation", "integration-test", "kafka"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/kafka-cdc-sink/compatibility-rw-flink.sql",
+      "type": "file",
+      "name": "compatibility-rw-flink.sql",
+      "filePath": "integration_tests/kafka-cdc-sink/compatibility-rw-flink.sql",
+      "summary": "Defines the RisingWave `kafka_flink_types` source table for verifying type compatibility between RisingWave and Apache Flink via Kafka CDC sink.",
+      "tags": ["database", "schema-definition", "integration-test", "kafka"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/kafka-cdc-sink/compatibility-rw-flink.sql:kafka_flink_types",
+      "type": "table",
+      "name": "kafka_flink_types",
+      "filePath": "integration_tests/kafka-cdc-sink/compatibility-rw-flink.sql",
+      "lineRange": [3, 14],
+      "summary": "RisingWave source table mapping Flink-compatible column types including boolean, integer, decimal, and varchar types for Kafka CDC sink compatibility verification.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/kafka-cdc-sink/compatibility-rw.sql",
+      "type": "file",
+      "name": "compatibility-rw.sql",
+      "filePath": "integration_tests/kafka-cdc-sink/compatibility-rw.sql",
+      "summary": "Defines the RisingWave `kafka_all_types` source table covering the full set of supported column types for Kafka CDC sink compatibility testing.",
+      "tags": ["database", "schema-definition", "integration-test", "kafka"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/kafka-cdc-sink/compatibility-rw.sql:kafka_all_types",
+      "type": "table",
+      "name": "kafka_all_types",
+      "filePath": "integration_tests/kafka-cdc-sink/compatibility-rw.sql",
+      "lineRange": [3, 20],
+      "summary": "RisingWave source table with all supported data types (boolean, integer, decimal, varchar, date, time, timestamp, interval, jsonb) for full type coverage in Kafka CDC sink tests.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/kafka-cdc-sink/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/kafka-cdc-sink/create_mv.sql",
+      "summary": "Creates a materialized view aggregating CDC source data for the kafka-cdc-sink integration test.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/kafka-cdc-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/kafka-cdc-sink/create_sink.sql",
+      "summary": "Creates a Kafka CDC sink in RisingWave to publish change data capture events to a Kafka topic.",
+      "tags": ["database", "kafka", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/kafka-cdc-sink/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/kafka-cdc-sink/create_source.sql",
+      "summary": "Defines the RisingWave `metrics` source table backed by a Kafka CDC source for the kafka-cdc-sink integration test.",
+      "tags": ["database", "schema-definition", "integration-test", "kafka"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/kafka-cdc-sink/create_source.sql:metrics",
+      "type": "table",
+      "name": "metrics",
+      "filePath": "integration_tests/kafka-cdc-sink/create_source.sql",
+      "lineRange": [1, 6],
+      "summary": "RisingWave source table ingesting metrics events from a Kafka CDC topic.",
+      "tags": ["database", "integration-test", "kafka"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/kafka-cdc-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/kafka-cdc-sink/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the kafka-cdc-sink integration test, spinning up RisingWave, Kafka, Zookeeper, Debezium Kafka Connect, PostgreSQL, and MySQL services.",
+      "tags": ["orchestration", "infrastructure", "integration-test", "kafka"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/kafka-cdc-sink/postgres_prepare.sql",
+      "type": "file",
+      "name": "postgres_prepare.sql",
+      "filePath": "integration_tests/kafka-cdc-sink/postgres_prepare.sql",
+      "summary": "Creates PostgreSQL target tables (counts, flinkcounts, types, flink_types) and populates them with test data for the kafka-cdc-sink compatibility verification.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/kafka-cdc-sink/postgres_prepare.sql:counts",
+      "type": "table",
+      "name": "counts",
+      "filePath": "integration_tests/kafka-cdc-sink/postgres_prepare.sql",
+      "lineRange": [1, 5],
+      "summary": "PostgreSQL target table accumulating id and sum counts for CDC sink verification.",
+      "tags": ["database", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/kafka-cdc-sink/postgres_prepare.sql:types",
+      "type": "table",
+      "name": "types",
+      "filePath": "integration_tests/kafka-cdc-sink/postgres_prepare.sql",
+      "lineRange": [13, 31],
+      "summary": "PostgreSQL target table mirroring the full set of RisingWave data types for end-to-end CDC sink type compatibility checks.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/kafka-cdc-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/kafka-cdc-sink/prepare.sh",
+      "summary": "Shell script that bootstraps the kafka-cdc-sink integration test environment by configuring Kafka Connect and initializing database schemas.",
+      "tags": ["script", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/kafka-cdc-sink/compatibility-rw-flink.sql",
+      "target": "table:integration_tests/kafka-cdc-sink/compatibility-rw-flink.sql:kafka_flink_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/kafka-cdc-sink/compatibility-rw.sql",
+      "target": "table:integration_tests/kafka-cdc-sink/compatibility-rw.sql:kafka_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/kafka-cdc-sink/create_source.sql",
+      "target": "table:integration_tests/kafka-cdc-sink/create_source.sql:metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/kafka-cdc-sink/postgres_prepare.sql",
+      "target": "table:integration_tests/kafka-cdc-sink/postgres_prepare.sql:counts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/kafka-cdc-sink/postgres_prepare.sql",
+      "target": "table:integration_tests/kafka-cdc-sink/postgres_prepare.sql:types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "document:integration_tests/kafka-cdc-sink/README.md",
+      "target": "service:integration_tests/kafka-cdc-sink/docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:integration_tests/kafka-cdc-sink/Makefile.toml",
+      "target": "file:integration_tests/kafka-cdc-sink/prepare.sh",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:integration_tests/kafka-cdc-sink/docker-compose.yml",
+      "target": "file:integration_tests/kafka-cdc-sink/prepare.sh",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/kafka-cdc-sink/create_source.sql",
+      "target": "file:integration_tests/kafka-cdc-sink/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/kafka-cdc-sink/create_mv.sql",
+      "target": "file:integration_tests/kafka-cdc-sink/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

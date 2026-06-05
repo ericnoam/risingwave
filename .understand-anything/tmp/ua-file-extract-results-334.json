@@ -1,0 +1,2445 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "e2e_test/vector_search/raw_column_index.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 93,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/vector_search/stream_index_lookup.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 185,
+      "nonEmptyLines": 144,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/vector_search/time_travel.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 124,
+      "nonEmptyLines": 97,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/vector_search/vector_index.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/visibility_mode/barrier.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 3,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/visibility_mode/checkpoint.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/webhook/check_1.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 79,
+      "nonEmptyLines": 66,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/webhook/check_2.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 89,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/webhook/check_3.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 122,
+      "nonEmptyLines": 108,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/webhook/create_table.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 175,
+      "nonEmptyLines": 157,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/webhook/drop_table.slt.part",
+      "language": "part",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 30,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/webhook/expect_failure.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "generate_signature_hmac",
+          "startLine": 11,
+          "endLine": 16,
+          "params": [
+            "secret",
+            "payload"
+          ]
+        },
+        {
+          "name": "parse_header",
+          "startLine": 19,
+          "endLine": 25,
+          "params": [
+            "header"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 28,
+          "endLine": 60,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "generate_signature_hmac",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "parse_header",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "hmac.new(\n        secret.encode(\"utf-8\"),\n        payload.encode(\"utf-8\"),\n        digestmod=hashlib.sha1,\n    ).hexdigest",
+          "lineNumber": 12
+        },
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "hmac.new",
+          "lineNumber": 12
+        },
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "secret.encode",
+          "lineNumber": 13
+        },
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "payload.encode",
+          "lineNumber": 14
+        },
+        {
+          "caller": "parse_header",
+          "callee": "header.partition",
+          "lineNumber": 20
+        },
+        {
+          "caller": "parse_header",
+          "callee": "name.strip",
+          "lineNumber": 21
+        },
+        {
+          "caller": "parse_header",
+          "callee": "argparse.ArgumentTypeError",
+          "lineNumber": 22
+        },
+        {
+          "caller": "parse_header",
+          "callee": "name.strip",
+          "lineNumber": 25
+        },
+        {
+          "caller": "parse_header",
+          "callee": "value.strip",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "generate_signature_hmac",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "headers.update",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "dict",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "requests.post",
+          "lineNumber": 50
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/webhook/sender.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 316,
+      "nonEmptyLines": 261,
+      "functions": [
+        {
+          "name": "generate_signature_hmac",
+          "startLine": 24,
+          "endLine": 35,
+          "params": [
+            "secret",
+            "payload",
+            "auth_algo",
+            "prefix"
+          ]
+        },
+        {
+          "name": "send_webhook",
+          "startLine": 38,
+          "endLine": 46,
+          "params": [
+            "url",
+            "headers",
+            "payload_json"
+          ]
+        },
+        {
+          "name": "send_github_hmac_sha1",
+          "startLine": 49,
+          "endLine": 62,
+          "params": [
+            "secret"
+          ]
+        },
+        {
+          "name": "send_test_primary_key",
+          "startLine": 65,
+          "endLine": 78,
+          "params": [
+            "secret"
+          ]
+        },
+        {
+          "name": "send_validate_raw_string",
+          "startLine": 81,
+          "endLine": 94,
+          "params": [
+            "secret"
+          ]
+        },
+        {
+          "name": "send_github_hmac_sha256",
+          "startLine": 97,
+          "endLine": 110,
+          "params": [
+            "secret"
+          ]
+        },
+        {
+          "name": "send_rudderstack",
+          "startLine": 113,
+          "endLine": 127,
+          "params": [
+            "secret"
+          ]
+        },
+        {
+          "name": "send_segment_hmac_sha1",
+          "startLine": 130,
+          "endLine": 143,
+          "params": [
+            "secret"
+          ]
+        },
+        {
+          "name": "send_hubspot_sha256_v2",
+          "startLine": 146,
+          "endLine": 160,
+          "params": [
+            "secret"
+          ]
+        },
+        {
+          "name": "send_batched",
+          "startLine": 162,
+          "endLine": 176,
+          "params": [
+            "secret"
+          ]
+        },
+        {
+          "name": "send_multi_column_validate",
+          "startLine": 179,
+          "endLine": 193,
+          "params": [
+            "secret"
+          ]
+        },
+        {
+          "name": "send_multi_column_no_pk",
+          "startLine": 196,
+          "endLine": 208,
+          "params": []
+        },
+        {
+          "name": "send_multi_column_with_options",
+          "startLine": 211,
+          "endLine": 225,
+          "params": []
+        },
+        {
+          "name": "send_multi_column_batched",
+          "startLine": 229,
+          "endLine": 239,
+          "params": []
+        },
+        {
+          "name": "send_multi_column_timestamp_option",
+          "startLine": 242,
+          "endLine": 254,
+          "params": []
+        },
+        {
+          "name": "send_multi_column_time_option",
+          "startLine": 257,
+          "endLine": 269,
+          "params": []
+        },
+        {
+          "name": "send_multi_column_bigint_precise_option",
+          "startLine": 272,
+          "endLine": 284,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "generate_signature_hmac",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "send_webhook",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "send_github_hmac_sha1",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "send_test_primary_key",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "send_validate_raw_string",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "send_github_hmac_sha256",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "send_rudderstack",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "send_segment_hmac_sha1",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "send_hubspot_sha256_v2",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "send_batched",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "send_multi_column_validate",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "send_multi_column_no_pk",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "send_multi_column_with_options",
+          "line": 211,
+          "isDefault": false
+        },
+        {
+          "name": "send_multi_column_batched",
+          "line": 229,
+          "isDefault": false
+        },
+        {
+          "name": "send_multi_column_timestamp_option",
+          "line": 242,
+          "isDefault": false
+        },
+        {
+          "name": "send_multi_column_time_option",
+          "line": 257,
+          "isDefault": false
+        },
+        {
+          "name": "send_multi_column_bigint_precise_option",
+          "line": 272,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "bytes",
+          "lineNumber": 25
+        },
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "bytes",
+          "lineNumber": 26
+        },
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "hmac.new(secret_bytes, payload_bytes, digestmod=hashlib.sha1).hexdigest",
+          "lineNumber": 29
+        },
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "hmac.new",
+          "lineNumber": 29
+        },
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "hmac.new(secret_bytes, payload_bytes, digestmod=hashlib.sha256).hexdigest",
+          "lineNumber": 31
+        },
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "hmac.new",
+          "lineNumber": 31
+        },
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "print",
+          "lineNumber": 33
+        },
+        {
+          "caller": "generate_signature_hmac",
+          "callee": "sys.exit",
+          "lineNumber": 34
+        },
+        {
+          "caller": "send_webhook",
+          "callee": "requests.post",
+          "lineNumber": 39
+        },
+        {
+          "caller": "send_webhook",
+          "callee": "print",
+          "lineNumber": 43
+        },
+        {
+          "caller": "send_webhook",
+          "callee": "print",
+          "lineNumber": 45
+        },
+        {
+          "caller": "send_webhook",
+          "callee": "sys.exit",
+          "lineNumber": 46
+        },
+        {
+          "caller": "send_github_hmac_sha1",
+          "callee": "json.dumps",
+          "lineNumber": 55
+        },
+        {
+          "caller": "send_github_hmac_sha1",
+          "callee": "generate_signature_hmac",
+          "lineNumber": 56
+        },
+        {
+          "caller": "send_github_hmac_sha1",
+          "callee": "send_webhook",
+          "lineNumber": 62
+        },
+        {
+          "caller": "send_test_primary_key",
+          "callee": "json.dumps",
+          "lineNumber": 71
+        },
+        {
+          "caller": "send_test_primary_key",
+          "callee": "generate_signature_hmac",
+          "lineNumber": 72
+        },
+        {
+          "caller": "send_test_primary_key",
+          "callee": "send_webhook",
+          "lineNumber": 78
+        },
+        {
+          "caller": "send_validate_raw_string",
+          "callee": "json.dumps",
+          "lineNumber": 87
+        },
+        {
+          "caller": "send_validate_raw_string",
+          "callee": "generate_signature_hmac",
+          "lineNumber": 88
+        },
+        {
+          "caller": "send_validate_raw_string",
+          "callee": "send_webhook",
+          "lineNumber": 94
+        },
+        {
+          "caller": "send_github_hmac_sha256",
+          "callee": "json.dumps",
+          "lineNumber": 103
+        },
+        {
+          "caller": "send_github_hmac_sha256",
+          "callee": "generate_signature_hmac",
+          "lineNumber": 104
+        },
+        {
+          "caller": "send_github_hmac_sha256",
+          "callee": "send_webhook",
+          "lineNumber": 110
+        },
+        {
+          "caller": "send_rudderstack",
+          "callee": "json.dumps",
+          "lineNumber": 120
+        },
+        {
+          "caller": "send_rudderstack",
+          "callee": "send_webhook",
+          "lineNumber": 127
+        },
+        {
+          "caller": "send_segment_hmac_sha1",
+          "callee": "json.dumps",
+          "lineNumber": 136
+        },
+        {
+          "caller": "send_segment_hmac_sha1",
+          "callee": "generate_signature_hmac",
+          "lineNumber": 137
+        },
+        {
+          "caller": "send_segment_hmac_sha1",
+          "callee": "send_webhook",
+          "lineNumber": 143
+        },
+        {
+          "caller": "send_hubspot_sha256_v2",
+          "callee": "json.dumps",
+          "lineNumber": 152
+        },
+        {
+          "caller": "send_hubspot_sha256_v2",
+          "callee": "str",
+          "lineNumber": 153
+        },
+        {
+          "caller": "send_hubspot_sha256_v2",
+          "callee": "hashlib.sha256(payload.encode('utf-8')).hexdigest",
+          "lineNumber": 154
+        },
+        {
+          "caller": "send_hubspot_sha256_v2",
+          "callee": "hashlib.sha256",
+          "lineNumber": 154
+        },
+        {
+          "caller": "send_hubspot_sha256_v2",
+          "callee": "payload.encode",
+          "lineNumber": 154
+        },
+        {
+          "caller": "send_hubspot_sha256_v2",
+          "callee": "send_webhook",
+          "lineNumber": 160
+        },
+        {
+          "caller": "send_batched",
+          "callee": "'\\n'.join",
+          "lineNumber": 168
+        },
+        {
+          "caller": "send_batched",
+          "callee": "json.dumps",
+          "lineNumber": 168
+        },
+        {
+          "caller": "send_batched",
+          "callee": "range",
+          "lineNumber": 168
+        },
+        {
+          "caller": "send_batched",
+          "callee": "generate_signature_hmac",
+          "lineNumber": 170
+        },
+        {
+          "caller": "send_batched",
+          "callee": "send_webhook",
+          "lineNumber": 176
+        },
+        {
+          "caller": "send_multi_column_validate",
+          "callee": "json.dumps",
+          "lineNumber": 187
+        },
+        {
+          "caller": "send_multi_column_validate",
+          "callee": "generate_signature_hmac",
+          "lineNumber": 188
+        },
+        {
+          "caller": "send_multi_column_validate",
+          "callee": "send_webhook",
+          "lineNumber": 193
+        },
+        {
+          "caller": "send_multi_column_no_pk",
+          "callee": "json.dumps",
+          "lineNumber": 204
+        },
+        {
+          "caller": "send_multi_column_no_pk",
+          "callee": "send_webhook",
+          "lineNumber": 208
+        },
+        {
+          "caller": "send_multi_column_with_options",
+          "callee": "json.dumps",
+          "lineNumber": 218
+        },
+        {
+          "caller": "send_multi_column_with_options",
+          "callee": "send_webhook",
+          "lineNumber": 225
+        },
+        {
+          "caller": "send_multi_column_batched",
+          "callee": "'\\n'.join",
+          "lineNumber": 235
+        },
+        {
+          "caller": "send_multi_column_batched",
+          "callee": "json.dumps",
+          "lineNumber": 235
+        },
+        {
+          "caller": "send_multi_column_batched",
+          "callee": "send_webhook",
+          "lineNumber": 239
+        },
+        {
+          "caller": "send_multi_column_timestamp_option",
+          "callee": "json.dumps",
+          "lineNumber": 249
+        },
+        {
+          "caller": "send_multi_column_timestamp_option",
+          "callee": "send_webhook",
+          "lineNumber": 254
+        },
+        {
+          "caller": "send_multi_column_time_option",
+          "callee": "json.dumps",
+          "lineNumber": 264
+        },
+        {
+          "caller": "send_multi_column_time_option",
+          "callee": "send_webhook",
+          "lineNumber": 269
+        },
+        {
+          "caller": "send_multi_column_bigint_precise_option",
+          "callee": "json.dumps",
+          "lineNumber": 279
+        },
+        {
+          "caller": "send_multi_column_bigint_precise_option",
+          "callee": "send_webhook",
+          "lineNumber": 284
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 17,
+        "functionCount": 17,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/webhook/webhook_source_recovery.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/webhook/webhook_source.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 36,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/webhook/websocket_ingest.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 255,
+      "nonEmptyLines": 215,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/webhook/websocket_sender.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 783,
+      "nonEmptyLines": 693,
+      "functions": [
+        {
+          "name": "parse_header",
+          "startLine": 237,
+          "endLine": 243,
+          "params": [
+            "header"
+          ]
+        },
+        {
+          "name": "parse_args",
+          "startLine": 246,
+          "endLine": 287,
+          "params": []
+        },
+        {
+          "name": "sign_payload",
+          "startLine": 290,
+          "endLine": 292,
+          "params": [
+            "secret",
+            "payload"
+          ]
+        },
+        {
+          "name": "wait_for",
+          "startLine": 295,
+          "endLine": 301,
+          "params": [
+            "predicate",
+            "timeout",
+            "description"
+          ]
+        },
+        {
+          "name": "connect_and_init",
+          "startLine": 304,
+          "endLine": 368,
+          "params": [
+            "host",
+            "port",
+            "database",
+            "schema",
+            "table",
+            "secret",
+            "extra_headers",
+            "init_message",
+            "signature_secret"
+          ]
+        },
+        {
+          "name": "send_batch",
+          "startLine": 371,
+          "endLine": 378,
+          "params": [
+            "ws",
+            "dml_batch_id",
+            "items"
+          ]
+        },
+        {
+          "name": "expect_no_fatal",
+          "startLine": 381,
+          "endLine": 383,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "expect_fatal_and_close",
+          "startLine": 386,
+          "endLine": 400,
+          "params": [
+            "state",
+            "expected_batch_id",
+            "expected_error_substring"
+          ]
+        },
+        {
+          "name": "scenario_success",
+          "startLine": 403,
+          "endLine": 465,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_empty_payload",
+          "startLine": 468,
+          "endLine": 477,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_multi_column_no_pk",
+          "startLine": 480,
+          "endLine": 510,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_single_jsonb_no_pk",
+          "startLine": 513,
+          "endLine": 543,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_delete_only_pk",
+          "startLine": 546,
+          "endLine": 574,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_error_missing_pk",
+          "startLine": 577,
+          "endLine": 583,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_error_incomplete_composite_pk_insert",
+          "startLine": 586,
+          "endLine": 603,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_error_incomplete_composite_pk_delete",
+          "startLine": 606,
+          "endLine": 636,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_error_type",
+          "startLine": 639,
+          "endLine": 645,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_timestamp_milli",
+          "startLine": 648,
+          "endLine": 655,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_time_milli",
+          "startLine": 658,
+          "endLine": 665,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_bigint_precise",
+          "startLine": 668,
+          "endLine": 675,
+          "params": [
+            "ws",
+            "state"
+          ]
+        },
+        {
+          "name": "scenario_invalid_decoder_header",
+          "startLine": 678,
+          "endLine": 690,
+          "params": [
+            "ws",
+            "state",
+            "expected_fatal_substring"
+          ]
+        },
+        {
+          "name": "scenario_expect_fatal",
+          "startLine": 693,
+          "endLine": 698,
+          "params": [
+            "state",
+            "expected_fatal_substring"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 701,
+          "endLine": 779,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "SimpleWebSocketApp",
+          "startLine": 21,
+          "endLine": 225,
+          "methods": [
+            "__init__",
+            "run_forever",
+            "send",
+            "close",
+            "_send_frame",
+            "_recv_until",
+            "_recv_exact",
+            "_recv_frame",
+            "_validate_handshake",
+            "_decode_close_payload"
+          ],
+          "properties": []
+        },
+        {
+          "name": "WsState",
+          "startLine": 229,
+          "endLine": 234,
+          "methods": [],
+          "properties": [
+            "acks_received",
+            "fatal",
+            "ws_connected",
+            "ws_closed",
+            "connect_error"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SimpleWebSocketApp",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "WsState",
+          "line": 228,
+          "isDefault": false
+        },
+        {
+          "name": "parse_header",
+          "line": 237,
+          "isDefault": false
+        },
+        {
+          "name": "parse_args",
+          "line": 246,
+          "isDefault": false
+        },
+        {
+          "name": "sign_payload",
+          "line": 290,
+          "isDefault": false
+        },
+        {
+          "name": "wait_for",
+          "line": 295,
+          "isDefault": false
+        },
+        {
+          "name": "connect_and_init",
+          "line": 304,
+          "isDefault": false
+        },
+        {
+          "name": "send_batch",
+          "line": 371,
+          "isDefault": false
+        },
+        {
+          "name": "expect_no_fatal",
+          "line": 381,
+          "isDefault": false
+        },
+        {
+          "name": "expect_fatal_and_close",
+          "line": 386,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_success",
+          "line": 403,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_empty_payload",
+          "line": 468,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_multi_column_no_pk",
+          "line": 480,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_single_jsonb_no_pk",
+          "line": 513,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_delete_only_pk",
+          "line": 546,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_error_missing_pk",
+          "line": 577,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_error_incomplete_composite_pk_insert",
+          "line": 586,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_error_incomplete_composite_pk_delete",
+          "line": 606,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_error_type",
+          "line": 639,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_timestamp_milli",
+          "line": 648,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_time_milli",
+          "line": 658,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_bigint_precise",
+          "line": 668,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_invalid_decoder_header",
+          "line": 678,
+          "isDefault": false
+        },
+        {
+          "name": "scenario_expect_fatal",
+          "line": 693,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 701,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "bytearray",
+          "lineNumber": 38
+        },
+        {
+          "caller": "__init__",
+          "callee": "threading.Lock",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run_forever",
+          "callee": "urlparse",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run_forever",
+          "callee": "RuntimeError",
+          "lineNumber": 48
+        },
+        {
+          "caller": "run_forever",
+          "callee": "RuntimeError",
+          "lineNumber": 50
+        },
+        {
+          "caller": "run_forever",
+          "callee": "base64.b64encode(os.urandom(16)).decode",
+          "lineNumber": 52
+        },
+        {
+          "caller": "run_forever",
+          "callee": "base64.b64encode",
+          "lineNumber": 52
+        },
+        {
+          "caller": "run_forever",
+          "callee": "os.urandom",
+          "lineNumber": 52
+        },
+        {
+          "caller": "run_forever",
+          "callee": "socket.create_connection",
+          "lineNumber": 57
+        },
+        {
+          "caller": "run_forever",
+          "callee": "sock.settimeout",
+          "lineNumber": 58
+        },
+        {
+          "caller": "run_forever",
+          "callee": "\"\".join",
+          "lineNumber": 61
+        },
+        {
+          "caller": "run_forever",
+          "callee": "sock.sendall",
+          "lineNumber": 71
+        },
+        {
+          "caller": "run_forever",
+          "callee": "handshake.encode",
+          "lineNumber": 71
+        },
+        {
+          "caller": "run_forever",
+          "callee": "self._recv_until",
+          "lineNumber": 72
+        },
+        {
+          "caller": "run_forever",
+          "callee": "self._validate_handshake",
+          "lineNumber": 73
+        },
+        {
+          "caller": "run_forever",
+          "callee": "response.decode",
+          "lineNumber": 73
+        },
+        {
+          "caller": "run_forever",
+          "callee": "sock.settimeout",
+          "lineNumber": 74
+        },
+        {
+          "caller": "run_forever",
+          "callee": "self.on_open",
+          "lineNumber": 75
+        },
+        {
+          "caller": "run_forever",
+          "callee": "self._recv_frame",
+          "lineNumber": 78
+        },
+        {
+          "caller": "run_forever",
+          "callee": "self.on_message",
+          "lineNumber": 80
+        },
+        {
+          "caller": "run_forever",
+          "callee": "payload.decode",
+          "lineNumber": 80
+        },
+        {
+          "caller": "run_forever",
+          "callee": "self._decode_close_payload",
+          "lineNumber": 82
+        },
+        {
+          "caller": "run_forever",
+          "callee": "self._send_frame",
+          "lineNumber": 85
+        },
+        {
+          "caller": "run_forever",
+          "callee": "RuntimeError",
+          "lineNumber": 89
+        },
+        {
+          "caller": "run_forever",
+          "callee": "str",
+          "lineNumber": 91
+        },
+        {
+          "caller": "run_forever",
+          "callee": "self.on_error",
+          "lineNumber": 92
+        },
+        {
+          "caller": "run_forever",
+          "callee": "self._socket.close",
+          "lineNumber": 97
+        },
+        {
+          "caller": "run_forever",
+          "callee": "self.on_close",
+          "lineNumber": 101
+        },
+        {
+          "caller": "send",
+          "callee": "self._send_frame",
+          "lineNumber": 104
+        },
+        {
+          "caller": "send",
+          "callee": "text.encode",
+          "lineNumber": 104
+        },
+        {
+          "caller": "close",
+          "callee": "self._send_frame",
+          "lineNumber": 111
+        },
+        {
+          "caller": "close",
+          "callee": "self._socket.close",
+          "lineNumber": 116
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "RuntimeError",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "len",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "bytes",
+          "lineNumber": 129
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "bytes",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "payload_len.to_bytes",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "bytes",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "payload_len.to_bytes",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "os.urandom",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "bytes",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "len",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "enumerate",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_send_frame",
+          "callee": "self._socket.sendall",
+          "lineNumber": 143
+        },
+        {
+          "caller": "_recv_until",
+          "callee": "RuntimeError",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_recv_until",
+          "callee": "self._socket.recv",
+          "lineNumber": 150
+        },
+        {
+          "caller": "_recv_until",
+          "callee": "RuntimeError",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_recv_until",
+          "callee": "self._read_buffer.extend",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_recv_until",
+          "callee": "self._read_buffer.index",
+          "lineNumber": 155
+        },
+        {
+          "caller": "_recv_until",
+          "callee": "len",
+          "lineNumber": 155
+        },
+        {
+          "caller": "_recv_until",
+          "callee": "bytes",
+          "lineNumber": 156
+        },
+        {
+          "caller": "_recv_exact",
+          "callee": "RuntimeError",
+          "lineNumber": 162
+        },
+        {
+          "caller": "_recv_exact",
+          "callee": "len",
+          "lineNumber": 164
+        },
+        {
+          "caller": "_recv_exact",
+          "callee": "self._socket.recv",
+          "lineNumber": 165
+        },
+        {
+          "caller": "_recv_exact",
+          "callee": "len",
+          "lineNumber": 165
+        },
+        {
+          "caller": "_recv_exact",
+          "callee": "RuntimeError",
+          "lineNumber": 167
+        },
+        {
+          "caller": "_recv_exact",
+          "callee": "self._read_buffer.extend",
+          "lineNumber": 168
+        },
+        {
+          "caller": "_recv_exact",
+          "callee": "bytes",
+          "lineNumber": 170
+        },
+        {
+          "caller": "_recv_frame",
+          "callee": "self._recv_exact",
+          "lineNumber": 175
+        },
+        {
+          "caller": "_recv_frame",
+          "callee": "int.from_bytes",
+          "lineNumber": 181
+        },
+        {
+          "caller": "_recv_frame",
+          "callee": "self._recv_exact",
+          "lineNumber": 181
+        },
+        {
+          "caller": "_recv_frame",
+          "callee": "int.from_bytes",
+          "lineNumber": 183
+        },
+        {
+          "caller": "_recv_frame",
+          "callee": "self._recv_exact",
+          "lineNumber": 183
+        },
+        {
+          "caller": "_recv_frame",
+          "callee": "self._recv_exact",
+          "lineNumber": 185
+        },
+        {
+          "caller": "_recv_frame",
+          "callee": "self._recv_exact",
+          "lineNumber": 186
+        },
+        {
+          "caller": "_recv_frame",
+          "callee": "bytes",
+          "lineNumber": 188
+        },
+        {
+          "caller": "_recv_frame",
+          "callee": "len",
+          "lineNumber": 189
+        },
+        {
+          "caller": "_recv_frame",
+          "callee": "enumerate",
+          "lineNumber": 189
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "response.split",
+          "lineNumber": 195
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "RuntimeError",
+          "lineNumber": 197
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "line.split",
+          "lineNumber": 203
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "name.strip().lower",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "name.strip",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "value.strip",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "base64.b64encode(\n            sha1(\n                (\n                    request_key + \"258EAFA5-E914-47DA-95CA-C5AB0DC85B11\"\n                ).encode()\n            ).digest()\n        ).decode",
+          "lineNumber": 206
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "base64.b64encode",
+          "lineNumber": 206
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "sha1(\n                (\n                    request_key + \"258EAFA5-E914-47DA-95CA-C5AB0DC85B11\"\n                ).encode()\n            ).digest",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "sha1",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "(\n                    request_key + \"258EAFA5-E914-47DA-95CA-C5AB0DC85B11\"\n                ).encode",
+          "lineNumber": 208
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "headers.get",
+          "lineNumber": 213
+        },
+        {
+          "caller": "_validate_handshake",
+          "callee": "RuntimeError",
+          "lineNumber": 215
+        },
+        {
+          "caller": "_decode_close_payload",
+          "callee": "len",
+          "lineNumber": 221
+        },
+        {
+          "caller": "_decode_close_payload",
+          "callee": "int.from_bytes",
+          "lineNumber": 222
+        },
+        {
+          "caller": "_decode_close_payload",
+          "callee": "payload[2:].decode",
+          "lineNumber": 223
+        },
+        {
+          "caller": "_decode_close_payload",
+          "callee": "len",
+          "lineNumber": 223
+        },
+        {
+          "caller": "parse_header",
+          "callee": "header.partition",
+          "lineNumber": 238
+        },
+        {
+          "caller": "parse_header",
+          "callee": "name.strip",
+          "lineNumber": 239
+        },
+        {
+          "caller": "parse_header",
+          "callee": "argparse.ArgumentTypeError",
+          "lineNumber": 240
+        },
+        {
+          "caller": "parse_header",
+          "callee": "name.strip",
+          "lineNumber": 243
+        },
+        {
+          "caller": "parse_header",
+          "callee": "value.strip",
+          "lineNumber": 243
+        },
+        {
+          "caller": "parse_args",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 247
+        },
+        {
+          "caller": "parse_args",
+          "callee": "parser.add_argument",
+          "lineNumber": 248
+        },
+        {
+          "caller": "parse_args",
+          "callee": "parser.add_argument",
+          "lineNumber": 249
+        },
+        {
+          "caller": "parse_args",
+          "callee": "parser.add_argument",
+          "lineNumber": 250
+        },
+        {
+          "caller": "parse_args",
+          "callee": "parser.add_argument",
+          "lineNumber": 251
+        },
+        {
+          "caller": "parse_args",
+          "callee": "parser.add_argument",
+          "lineNumber": 252
+        },
+        {
+          "caller": "parse_args",
+          "callee": "parser.add_argument",
+          "lineNumber": 253
+        },
+        {
+          "caller": "parse_args",
+          "callee": "parser.add_argument",
+          "lineNumber": 254
+        },
+        {
+          "caller": "parse_args",
+          "callee": "parser.add_argument",
+          "lineNumber": 275
+        },
+        {
+          "caller": "parse_args",
+          "callee": "parser.add_argument",
+          "lineNumber": 282
+        },
+        {
+          "caller": "parse_args",
+          "callee": "parser.parse_args",
+          "lineNumber": 287
+        },
+        {
+          "caller": "sign_payload",
+          "callee": "hmac.new(secret.encode(), payload.encode(), hashlib.sha256).hexdigest",
+          "lineNumber": 291
+        },
+        {
+          "caller": "sign_payload",
+          "callee": "hmac.new",
+          "lineNumber": 291
+        },
+        {
+          "caller": "sign_payload",
+          "callee": "secret.encode",
+          "lineNumber": 291
+        },
+        {
+          "caller": "sign_payload",
+          "callee": "payload.encode",
+          "lineNumber": 291
+        },
+        {
+          "caller": "wait_for",
+          "callee": "time.time",
+          "lineNumber": 296
+        },
+        {
+          "caller": "wait_for",
+          "callee": "time.time",
+          "lineNumber": 297
+        },
+        {
+          "caller": "wait_for",
+          "callee": "predicate",
+          "lineNumber": 298
+        },
+        {
+          "caller": "wait_for",
+          "callee": "time.sleep",
+          "lineNumber": 300
+        },
+        {
+          "caller": "wait_for",
+          "callee": "RuntimeError",
+          "lineNumber": 301
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "WsState",
+          "lineNumber": 316
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "json.dumps",
+          "lineNumber": 318
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "int",
+          "lineNumber": 319
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "time.time",
+          "lineNumber": 319
+        },
+        {
+          "caller": "on_message",
+          "callee": "json.loads",
+          "lineNumber": 324
+        },
+        {
+          "caller": "on_message",
+          "callee": "print",
+          "lineNumber": 325
+        },
+        {
+          "caller": "on_message",
+          "callee": "state.acks_received.append",
+          "lineNumber": 327
+        },
+        {
+          "caller": "on_message",
+          "callee": "state.fatal.append",
+          "lineNumber": 329
+        },
+        {
+          "caller": "on_error",
+          "callee": "str",
+          "lineNumber": 332
+        },
+        {
+          "caller": "on_error",
+          "callee": "print",
+          "lineNumber": 333
+        },
+        {
+          "caller": "on_close",
+          "callee": "state.ws_closed.set",
+          "lineNumber": 336
+        },
+        {
+          "caller": "on_close",
+          "callee": "print",
+          "lineNumber": 337
+        },
+        {
+          "caller": "on_open",
+          "callee": "state.ws_connected.set",
+          "lineNumber": 340
+        },
+        {
+          "caller": "on_open",
+          "callee": "print",
+          "lineNumber": 341
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "sign_payload",
+          "lineNumber": 344
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "headers.update",
+          "lineNumber": 346
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "SimpleWebSocketApp",
+          "lineNumber": 347
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "headers.items",
+          "lineNumber": 349
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "threading.Thread",
+          "lineNumber": 356
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "thread.start",
+          "lineNumber": 357
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "state.ws_connected.wait",
+          "lineNumber": 359
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "RuntimeError",
+          "lineNumber": 360
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "print",
+          "lineNumber": 364
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "print",
+          "lineNumber": 365
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "ws.send",
+          "lineNumber": 366
+        },
+        {
+          "caller": "connect_and_init",
+          "callee": "time.sleep",
+          "lineNumber": 367
+        },
+        {
+          "caller": "send_batch",
+          "callee": "json.dumps",
+          "lineNumber": 372
+        },
+        {
+          "caller": "send_batch",
+          "callee": "print",
+          "lineNumber": 376
+        },
+        {
+          "caller": "send_batch",
+          "callee": "print",
+          "lineNumber": 377
+        },
+        {
+          "caller": "send_batch",
+          "callee": "ws.send",
+          "lineNumber": 378
+        },
+        {
+          "caller": "expect_no_fatal",
+          "callee": "RuntimeError",
+          "lineNumber": 383
+        },
+        {
+          "caller": "expect_fatal_and_close",
+          "callee": "wait_for",
+          "lineNumber": 389
+        },
+        {
+          "caller": "expect_fatal_and_close",
+          "callee": "bool",
+          "lineNumber": 390
+        },
+        {
+          "caller": "expect_fatal_and_close",
+          "callee": "RuntimeError",
+          "lineNumber": 395
+        },
+        {
+          "caller": "expect_fatal_and_close",
+          "callee": "RuntimeError",
+          "lineNumber": 399
+        },
+        {
+          "caller": "expect_fatal_and_close",
+          "callee": "wait_for",
+          "lineNumber": 400
+        },
+        {
+          "caller": "scenario_success",
+          "callee": "send_batch",
+          "lineNumber": 404
+        },
+        {
+          "caller": "scenario_success",
+          "callee": "wait_for",
+          "lineNumber": 458
+        },
+        {
+          "caller": "scenario_success",
+          "callee": "len",
+          "lineNumber": 459
+        },
+        {
+          "caller": "scenario_success",
+          "callee": "bool",
+          "lineNumber": 459
+        },
+        {
+          "caller": "scenario_success",
+          "callee": "expect_no_fatal",
+          "lineNumber": 463
+        },
+        {
+          "caller": "scenario_success",
+          "callee": "RuntimeError",
+          "lineNumber": 465
+        },
+        {
+          "caller": "scenario_empty_payload",
+          "callee": "send_batch",
+          "lineNumber": 469
+        },
+        {
+          "caller": "scenario_empty_payload",
+          "callee": "wait_for",
+          "lineNumber": 470
+        },
+        {
+          "caller": "scenario_empty_payload",
+          "callee": "len",
+          "lineNumber": 471
+        },
+        {
+          "caller": "scenario_empty_payload",
+          "callee": "bool",
+          "lineNumber": 471
+        },
+        {
+          "caller": "scenario_empty_payload",
+          "callee": "expect_no_fatal",
+          "lineNumber": 475
+        },
+        {
+          "caller": "scenario_empty_payload",
+          "callee": "RuntimeError",
+          "lineNumber": 477
+        },
+        {
+          "caller": "scenario_multi_column_no_pk",
+          "callee": "send_batch",
+          "lineNumber": 481
+        },
+        {
+          "caller": "scenario_multi_column_no_pk",
+          "callee": "wait_for",
+          "lineNumber": 503
+        },
+        {
+          "caller": "scenario_multi_column_no_pk",
+          "callee": "len",
+          "lineNumber": 504
+        },
+        {
+          "caller": "scenario_multi_column_no_pk",
+          "callee": "bool",
+          "lineNumber": 504
+        },
+        {
+          "caller": "scenario_multi_column_no_pk",
+          "callee": "expect_no_fatal",
+          "lineNumber": 508
+        },
+        {
+          "caller": "scenario_multi_column_no_pk",
+          "callee": "RuntimeError",
+          "lineNumber": 510
+        },
+        {
+          "caller": "scenario_single_jsonb_no_pk",
+          "callee": "send_batch",
+          "lineNumber": 514
+        },
+        {
+          "caller": "scenario_single_jsonb_no_pk",
+          "callee": "wait_for",
+          "lineNumber": 536
+        },
+        {
+          "caller": "scenario_single_jsonb_no_pk",
+          "callee": "len",
+          "lineNumber": 537
+        },
+        {
+          "caller": "scenario_single_jsonb_no_pk",
+          "callee": "bool",
+          "lineNumber": 537
+        },
+        {
+          "caller": "scenario_single_jsonb_no_pk",
+          "callee": "expect_no_fatal",
+          "lineNumber": 541
+        },
+        {
+          "caller": "scenario_single_jsonb_no_pk",
+          "callee": "RuntimeError",
+          "lineNumber": 543
+        },
+        {
+          "caller": "scenario_delete_only_pk",
+          "callee": "send_batch",
+          "lineNumber": 547
+        },
+        {
+          "caller": "scenario_delete_only_pk",
+          "callee": "wait_for",
+          "lineNumber": 567
+        },
+        {
+          "caller": "scenario_delete_only_pk",
+          "callee": "len",
+          "lineNumber": 568
+        },
+        {
+          "caller": "scenario_delete_only_pk",
+          "callee": "bool",
+          "lineNumber": 568
+        },
+        {
+          "caller": "scenario_delete_only_pk",
+          "callee": "expect_no_fatal",
+          "lineNumber": 572
+        },
+        {
+          "caller": "scenario_delete_only_pk",
+          "callee": "RuntimeError",
+          "lineNumber": 574
+        },
+        {
+          "caller": "scenario_error_missing_pk",
+          "callee": "send_batch",
+          "lineNumber": 578
+        },
+        {
+          "caller": "scenario_error_missing_pk",
+          "callee": "expect_fatal_and_close",
+          "lineNumber": 583
+        },
+        {
+          "caller": "scenario_error_incomplete_composite_pk_insert",
+          "callee": "send_batch",
+          "lineNumber": 589
+        },
+        {
+          "caller": "scenario_error_incomplete_composite_pk_insert",
+          "callee": "expect_fatal_and_close",
+          "lineNumber": 603
+        },
+        {
+          "caller": "scenario_error_incomplete_composite_pk_delete",
+          "callee": "send_batch",
+          "lineNumber": 609
+        },
+        {
+          "caller": "scenario_error_incomplete_composite_pk_delete",
+          "callee": "wait_for",
+          "lineNumber": 624
+        },
+        {
+          "caller": "scenario_error_incomplete_composite_pk_delete",
+          "callee": "bool",
+          "lineNumber": 625
+        },
+        {
+          "caller": "scenario_error_incomplete_composite_pk_delete",
+          "callee": "expect_no_fatal",
+          "lineNumber": 629
+        },
+        {
+          "caller": "scenario_error_incomplete_composite_pk_delete",
+          "callee": "send_batch",
+          "lineNumber": 631
+        },
+        {
+          "caller": "scenario_error_incomplete_composite_pk_delete",
+          "callee": "expect_fatal_and_close",
+          "lineNumber": 636
+        },
+        {
+          "caller": "scenario_error_type",
+          "callee": "send_batch",
+          "lineNumber": 640
+        },
+        {
+          "caller": "scenario_error_type",
+          "callee": "expect_fatal_and_close",
+          "lineNumber": 645
+        },
+        {
+          "caller": "scenario_timestamp_milli",
+          "callee": "send_batch",
+          "lineNumber": 649
+        },
+        {
+          "caller": "scenario_timestamp_milli",
+          "callee": "wait_for",
+          "lineNumber": 654
+        },
+        {
+          "caller": "scenario_timestamp_milli",
+          "callee": "bool",
+          "lineNumber": 654
+        },
+        {
+          "caller": "scenario_timestamp_milli",
+          "callee": "expect_no_fatal",
+          "lineNumber": 655
+        },
+        {
+          "caller": "scenario_time_milli",
+          "callee": "send_batch",
+          "lineNumber": 659
+        },
+        {
+          "caller": "scenario_time_milli",
+          "callee": "wait_for",
+          "lineNumber": 664
+        },
+        {
+          "caller": "scenario_time_milli",
+          "callee": "bool",
+          "lineNumber": 664
+        },
+        {
+          "caller": "scenario_time_milli",
+          "callee": "expect_no_fatal",
+          "lineNumber": 665
+        },
+        {
+          "caller": "scenario_bigint_precise",
+          "callee": "send_batch",
+          "lineNumber": 669
+        },
+        {
+          "caller": "scenario_bigint_precise",
+          "callee": "wait_for",
+          "lineNumber": 674
+        },
+        {
+          "caller": "scenario_bigint_precise",
+          "callee": "bool",
+          "lineNumber": 674
+        },
+        {
+          "caller": "scenario_bigint_precise",
+          "callee": "expect_no_fatal",
+          "lineNumber": 675
+        },
+        {
+          "caller": "scenario_invalid_decoder_header",
+          "callee": "send_batch",
+          "lineNumber": 681
+        },
+        {
+          "caller": "scenario_invalid_decoder_header",
+          "callee": "wait_for",
+          "lineNumber": 686
+        },
+        {
+          "caller": "scenario_invalid_decoder_header",
+          "callee": "bool",
+          "lineNumber": 686
+        },
+        {
+          "caller": "scenario_invalid_decoder_header",
+          "callee": "RuntimeError",
+          "lineNumber": 688
+        },
+        {
+          "caller": "scenario_expect_fatal",
+          "callee": "wait_for",
+          "lineNumber": 694
+        },
+        {
+          "caller": "scenario_expect_fatal",
+          "callee": "bool",
+          "lineNumber": 694
+        },
+        {
+          "caller": "scenario_expect_fatal",
+          "callee": "RuntimeError",
+          "lineNumber": 696
+        },
+        {
+          "caller": "main",
+          "callee": "parse_args",
+          "lineNumber": 702
+        },
+        {
+          "caller": "main",
+          "callee": "json.dumps",
+          "lineNumber": 716
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_headers.update",
+          "lineNumber": 720
+        },
+        {
+          "caller": "main",
+          "callee": "dict",
+          "lineNumber": 720
+        },
+        {
+          "caller": "main",
+          "callee": "connect_and_init",
+          "lineNumber": 722
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_success",
+          "lineNumber": 736
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_empty_payload",
+          "lineNumber": 738
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_multi_column_no_pk",
+          "lineNumber": 740
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_single_jsonb_no_pk",
+          "lineNumber": 742
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_delete_only_pk",
+          "lineNumber": 744
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_error_missing_pk",
+          "lineNumber": 746
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_error_incomplete_composite_pk_insert",
+          "lineNumber": 748
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_error_incomplete_composite_pk_delete",
+          "lineNumber": 750
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_error_type",
+          "lineNumber": 752
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_timestamp_milli",
+          "lineNumber": 754
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_time_milli",
+          "lineNumber": 756
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_bigint_precise",
+          "lineNumber": 758
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_expect_fatal",
+          "lineNumber": 760
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_expect_fatal",
+          "lineNumber": 762
+        },
+        {
+          "caller": "main",
+          "callee": "scenario_invalid_decoder_header",
+          "lineNumber": 764
+        },
+        {
+          "caller": "main",
+          "callee": "RuntimeError",
+          "lineNumber": 768
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 770
+        },
+        {
+          "caller": "main",
+          "callee": "ws.close",
+          "lineNumber": 773
+        },
+        {
+          "caller": "main",
+          "callee": "time.sleep",
+          "lineNumber": 774
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 776
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 777
+        },
+        {
+          "caller": "main",
+          "callee": "sorted",
+          "lineNumber": 777
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 778
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 25,
+        "functionCount": 23,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "grafana/dashboard/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/ad-click/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/ad-ctr/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/big-query-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 22,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/cassandra-and-scylladb-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 34,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/cdn-metrics/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/citus-cdc/cdc_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/citus-cdc/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    }
+  ]
+}

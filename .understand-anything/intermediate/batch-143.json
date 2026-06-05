@@ -1,0 +1,161 @@
+{
+  "nodes": [
+    {
+      "id": "config:.bk.yaml",
+      "type": "config",
+      "name": ".bk.yaml",
+      "filePath": ".bk.yaml",
+      "summary": "Minimal Buildkite CLI configuration file specifying the selected organization for the `bk` command-line tool.",
+      "tags": ["configuration", "ci-cd", "buildkite"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.dockerignore",
+      "type": "config",
+      "name": ".dockerignore",
+      "filePath": ".dockerignore",
+      "summary": "Docker build context exclusion rules, omitting target directories, test data, documentation, and large non-production files to keep Docker builds fast and images small.",
+      "tags": ["configuration", "infrastructure", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.pre-commit-config.yaml",
+      "type": "config",
+      "name": ".pre-commit-config.yaml",
+      "filePath": ".pre-commit-config.yaml",
+      "summary": "Pre-commit hook configuration running Cargo fmt and Clippy checks, typo detection, and TOML formatting before each commit.",
+      "tags": ["configuration", "code-quality", "development"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.typos.toml",
+      "type": "config",
+      "name": ".typos.toml",
+      "filePath": ".typos.toml",
+      "summary": "Typos spell-checker configuration with an extensive allowlist of domain-specific terms (SQL keywords, Rust identifiers, protocol names) that would otherwise be flagged as typos.",
+      "tags": ["configuration", "code-quality", "documentation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:AGENTS.md",
+      "type": "document",
+      "name": "AGENTS.md",
+      "filePath": "AGENTS.md",
+      "summary": "Comprehensive coding agent instructions covering project overview, coding style, build/run/test workflows, PR labeling, connector development, and repo skill plugins for AI coding assistants.",
+      "tags": ["documentation", "development", "ai-tooling"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:CLAUDE.md",
+      "type": "document",
+      "name": "CLAUDE.md",
+      "filePath": "CLAUDE.md",
+      "summary": "Coding agent instructions for Claude AI covering project overview, build/test commands, PR submission labels, and repo skill plugins — mirrors AGENTS.md content.",
+      "tags": ["documentation", "development", "ai-tooling"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:CONTRIBUTING.md",
+      "type": "document",
+      "name": "CONTRIBUTING.md",
+      "filePath": "CONTRIBUTING.md",
+      "summary": "Short contributing guide directing contributors to sign the CLA and read the full developer guide before submitting changes.",
+      "tags": ["documentation", "contributing", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "Cargo.toml",
+      "summary": "Rust workspace manifest listing all crate members, shared workspace dependencies with pinned versions, lint rules (clippy and rustdoc), and multiple build profiles (dev, release, ci-dev, ci-sim, production).",
+      "tags": ["configuration", "build-system", "rust"],
+      "complexity": "complex",
+      "languageNotes": "Defines a Cargo workspace with ~80 member crates and centralized [workspace.dependencies] to enforce version consistency across the monorepo."
+    },
+    {
+      "id": "config:Makefile.toml",
+      "type": "config",
+      "name": "Makefile.toml",
+      "filePath": "Makefile.toml",
+      "summary": "cargo-make task file defining all risedev developer commands: build, test, check, deploy (dev cluster), SQL shell, simulation tests, SLT runners, benchmarks, and release helpers.",
+      "tags": ["configuration", "build-system", "development"],
+      "complexity": "complex",
+      "languageNotes": "Uses cargo-make TOML task syntax with 100+ tasks; `risedev` is a thin wrapper around `cargo make`."
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Main project README for RisingWave, covering the event-streaming database positioning, quick-start guide, architecture overview (ingest, process, serve, Iceberg store), use cases, design decisions, deployment options, and community links.",
+      "tags": ["documentation", "entry-point", "overview"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:SECURITY.md",
+      "type": "document",
+      "name": "SECURITY.md",
+      "filePath": "SECURITY.md",
+      "summary": "Security policy specifying supported versions and instructions for reporting vulnerabilities responsibly to the RisingWave Labs security team.",
+      "tags": ["documentation", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:clippy.toml",
+      "type": "config",
+      "name": "clippy.toml",
+      "filePath": "clippy.toml",
+      "summary": "Clippy linter configuration file setting project-wide lint rules and thresholds such as maximum function complexity and cognitive complexity limits.",
+      "tags": ["configuration", "code-quality", "rust"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:codecov.yml",
+      "type": "config",
+      "name": "codecov.yml",
+      "filePath": "codecov.yml",
+      "summary": "Codecov configuration controlling coverage targets, patch coverage thresholds, ignored paths (tests, generated code), and PR comment behavior.",
+      "tags": ["configuration", "ci-cd", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:licenserc.toml",
+      "type": "config",
+      "name": "licenserc.toml",
+      "filePath": "licenserc.toml",
+      "summary": "License header compliance configuration specifying the Apache-2.0 SPDX identifier for Rust, Python, and YAML files while listing ignored paths.",
+      "tags": ["configuration", "compliance", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:risedev.yml",
+      "type": "config",
+      "name": "risedev.yml",
+      "filePath": "risedev.yml",
+      "summary": "RiseDev developer environment configuration defining service component profiles (MinIO, Kafka, etcd, Prometheus, Grafana, etc.) and templates for local cluster setups used by `risedev dev`.",
+      "tags": ["configuration", "development", "infrastructure"],
+      "complexity": "complex",
+      "languageNotes": "Defines ~20+ named profiles and templates used by the risedev tooling to spin up local multi-component development clusters."
+    },
+    {
+      "id": "config:rustfmt.toml",
+      "type": "config",
+      "name": "rustfmt.toml",
+      "filePath": "rustfmt.toml",
+      "summary": "Rust code formatter configuration enforcing project style rules such as import grouping, max line width, trailing commas, and edition settings.",
+      "tags": ["configuration", "code-quality", "rust"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tomlfmt.toml",
+      "type": "config",
+      "name": "tomlfmt.toml",
+      "filePath": "tomlfmt.toml",
+      "summary": "TOML formatter configuration controlling indentation, array formatting, and sorting rules for `taplo` formatter.",
+      "tags": ["configuration", "code-quality", "tooling"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

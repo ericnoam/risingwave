@@ -1,0 +1,50 @@
+{
+  "nodes": [
+    {
+      "id": "table:ci/scripts/sql/backfill/basic/create_base_table.sql",
+      "type": "table",
+      "name": "create_base_table.sql",
+      "filePath": "ci/scripts/sql/backfill/basic/create_base_table.sql",
+      "summary": "Creates the base table `t1` with `_id` and `data` columns used as the upstream source in basic backfill CI tests.",
+      "tags": ["database", "schema-definition", "test", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/backfill/basic/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "ci/scripts/sql/backfill/basic/create_mv.sql",
+      "summary": "Defines multiple materialized views over the `t1` base table, including count, sum, join, and aggregation patterns for basic backfill testing scenarios.",
+      "tags": ["database", "schema-definition", "test", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/backfill/basic/drop.sql",
+      "type": "table",
+      "name": "drop.sql",
+      "filePath": "ci/scripts/sql/backfill/basic/drop.sql",
+      "summary": "Drops all materialized views and the base table created during the basic backfill test suite to clean up CI state.",
+      "tags": ["database", "test", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/backfill/basic/insert.sql",
+      "type": "table",
+      "name": "insert.sql",
+      "filePath": "ci/scripts/sql/backfill/basic/insert.sql",
+      "summary": "Inserts sample rows into the `t1` table to seed data for the basic backfill CI test scenarios.",
+      "tags": ["database", "test", "backfill"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/backfill/basic/select.sql",
+      "type": "table",
+      "name": "select.sql",
+      "filePath": "ci/scripts/sql/backfill/basic/select.sql",
+      "summary": "Placeholder select script for the basic backfill test suite (empty file).",
+      "tags": ["database", "test", "backfill"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

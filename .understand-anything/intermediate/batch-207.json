@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "service:integration_tests/mongodb/Dockerfile.generator",
+      "type": "service",
+      "name": "Dockerfile.generator",
+      "filePath": "integration_tests/mongodb/Dockerfile.generator",
+      "summary": "Dockerfile building a Python-based data generator container that produces and inserts synthetic data into MongoDB for the mongodb integration test.",
+      "tags": ["containerization", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/mongodb/docker-compose.yaml",
+      "type": "service",
+      "name": "docker-compose.yaml",
+      "filePath": "integration_tests/mongodb/docker-compose.yaml",
+      "summary": "Docker Compose orchestration for the mongodb integration test, running MongoDB, the data generator container, and RisingWave together.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:integration_tests/mongodb/requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "integration_tests/mongodb/requirements.txt",
+      "summary": "Python package requirements for the MongoDB data generator used in the mongodb integration test.",
+      "tags": ["documentation", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:integration_tests/mongodb/docker-compose.yaml",
+      "target": "service:integration_tests/mongodb/Dockerfile.generator",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:integration_tests/mongodb/Dockerfile.generator",
+      "target": "document:integration_tests/mongodb/requirements.txt",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

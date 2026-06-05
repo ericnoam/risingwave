@@ -1,0 +1,238 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/feature-store/generator/__main__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "generate",
+          "startLine": 14,
+          "endLine": 19,
+          "params": [
+            "num_users",
+            "dump_users",
+            "types"
+          ]
+        },
+        {
+          "name": "get_data_from_azure",
+          "startLine": 21,
+          "endLine": 27,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "generate",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "get_data_from_azure",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generate",
+          "callee": "get_data_from_azure",
+          "lineNumber": 16
+        },
+        {
+          "caller": "generate",
+          "callee": "user.new_user",
+          "lineNumber": 18
+        },
+        {
+          "caller": "generate",
+          "callee": "range",
+          "lineNumber": 18
+        },
+        {
+          "caller": "generate",
+          "callee": "json.dump",
+          "lineNumber": 19
+        },
+        {
+          "caller": "generate",
+          "callee": "open",
+          "lineNumber": 19
+        },
+        {
+          "caller": "get_data_from_azure",
+          "callee": "parser.parse",
+          "lineNumber": 22
+        },
+        {
+          "caller": "get_data_from_azure",
+          "callee": "parser.parse",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_data_from_azure",
+          "callee": "print",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_data_from_azure",
+          "callee": "\"Getting data from {} to {}\".format",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_data_from_azure",
+          "callee": "NycTlcGreen",
+          "lineNumber": 25
+        },
+        {
+          "caller": "get_data_from_azure",
+          "callee": "nyc_tlc.to_pandas_dataframe",
+          "lineNumber": 26
+        },
+        {
+          "caller": "get_data_from_azure",
+          "callee": "nyc_tlc_df.iloc[0:10000].to_csv",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/generator/preference.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "_chain",
+          "startLine": 5,
+          "endLine": 14,
+          "params": [
+            "*funcs"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "UserProperties",
+          "startLine": 18,
+          "endLine": 29,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_chain",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "UserProperties",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "inner",
+          "callee": "f",
+          "lineNumber": 10
+        },
+        {
+          "caller": "inner",
+          "callee": "f",
+          "lineNumber": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/generator/user.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 14,
+      "functions": [
+        {
+          "name": "new_user",
+          "startLine": 8,
+          "endLine": 16,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "new_user",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_user",
+          "callee": "str",
+          "lineNumber": 9
+        },
+        {
+          "caller": "new_user",
+          "callee": "np.random.randint",
+          "lineNumber": 9
+        },
+        {
+          "caller": "new_user",
+          "callee": "np.exp",
+          "lineNumber": 11
+        },
+        {
+          "caller": "new_user",
+          "callee": "np.random.lognormal",
+          "lineNumber": 11
+        },
+        {
+          "caller": "new_user",
+          "callee": "dict",
+          "lineNumber": 12
+        },
+        {
+          "caller": "new_user",
+          "callee": "UserProperties.generators.items",
+          "lineNumber": 14
+        },
+        {
+          "caller": "new_user",
+          "callee": "float",
+          "lineNumber": 15
+        },
+        {
+          "caller": "new_user",
+          "callee": "gen",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

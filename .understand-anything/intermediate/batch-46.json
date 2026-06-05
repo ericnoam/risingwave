@@ -1,0 +1,1355 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/batch/src/error.rs",
+      "type": "file",
+      "name": "error.rs",
+      "filePath": "src/batch/src/error.rs",
+      "summary": "Defines BatchError enum with all batch-layer error variants using thiserror, covering storage, expression, RPC, and spill errors.",
+      "tags": [
+        "error-handling",
+        "data-model",
+        "batch"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/exchange_source.rs",
+      "type": "file",
+      "name": "exchange_source.rs",
+      "filePath": "src/batch/src/exchange_source.rs",
+      "summary": "Defines the ExchangeSource trait and ExchangeSourceImpl enum for abstracting data exchange between batch executors over gRPC or local channels.",
+      "tags": [
+        "api-handler",
+        "service",
+        "batch"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/execution/grpc_exchange.rs",
+      "type": "file",
+      "name": "grpc_exchange.rs",
+      "filePath": "src/batch/src/execution/grpc_exchange.rs",
+      "summary": "Implements gRPC-based exchange source for fetching batch data from remote compute nodes.",
+      "tags": [
+        "service",
+        "batch",
+        "rpc"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/execution/local_exchange.rs",
+      "type": "file",
+      "name": "local_exchange.rs",
+      "filePath": "src/batch/src/execution/local_exchange.rs",
+      "summary": "Implements local in-process exchange source for fetching data chunks within the same compute node.",
+      "tags": [
+        "service",
+        "batch",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/execution/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/batch/src/execution/mod.rs",
+      "summary": "Module barrel re-exporting gRPC and local exchange source implementations.",
+      "tags": [
+        "barrel",
+        "batch"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/batch/src/executor/fast_insert.rs",
+      "type": "file",
+      "name": "fast_insert.rs",
+      "filePath": "src/batch/src/executor/fast_insert.rs",
+      "summary": "Implements FastInsertExecutor for high-throughput DML insert operations, bypassing normal executor overhead.",
+      "tags": [
+        "api-handler",
+        "batch",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/executor/managed.rs",
+      "type": "file",
+      "name": "managed.rs",
+      "filePath": "src/batch/src/executor/managed.rs",
+      "summary": "Wraps any executor with memory management and spilling capabilities for bounded memory usage.",
+      "tags": [
+        "middleware",
+        "batch",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/executor/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/batch/src/executor/mod.rs",
+      "summary": "Defines the core Executor trait and BoxedExecutor type, along with executor builder infrastructure and re-exports.",
+      "tags": [
+        "api-handler",
+        "batch",
+        "entry-point"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/executor/test_utils.rs",
+      "type": "file",
+      "name": "test_utils.rs",
+      "filePath": "src/batch/src/executor/test_utils.rs",
+      "summary": "Provides mock executors (FakeExchangeSource, MockExecutor, BlockExecutor) for unit testing batch query execution.",
+      "tags": [
+        "test",
+        "utility",
+        "batch"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/batch/src/lib.rs",
+      "summary": "Root library file for the batch compute crate, re-exporting all batch engine submodules.",
+      "tags": [
+        "entry-point",
+        "barrel",
+        "batch"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/batch/src/monitor/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/batch/src/monitor/mod.rs",
+      "summary": "Module barrel re-exporting batch monitoring metrics.",
+      "tags": [
+        "barrel",
+        "batch",
+        "monitoring"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/batch/src/monitor/stats.rs",
+      "type": "file",
+      "name": "stats.rs",
+      "filePath": "src/batch/src/monitor/stats.rs",
+      "summary": "Defines Prometheus metrics structs for batch executor performance monitoring including spill and memory stats.",
+      "tags": [
+        "monitoring",
+        "data-model",
+        "batch"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/rpc/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/batch/src/rpc/mod.rs",
+      "summary": "Module barrel for batch RPC service implementations.",
+      "tags": [
+        "barrel",
+        "batch",
+        "rpc"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/batch/src/rpc/service/exchange.rs",
+      "type": "file",
+      "name": "exchange.rs",
+      "filePath": "src/batch/src/rpc/service/exchange.rs",
+      "summary": "Implements the gRPC exchange writer service for streaming data chunks to remote batch clients.",
+      "tags": [
+        "api-handler",
+        "rpc",
+        "batch"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/rpc/service/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/batch/src/rpc/service/mod.rs",
+      "summary": "Module barrel re-exporting exchange and task service RPC implementations.",
+      "tags": [
+        "barrel",
+        "rpc",
+        "batch"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/batch/src/rpc/service/task_service.rs",
+      "type": "file",
+      "name": "task_service.rs",
+      "filePath": "src/batch/src/rpc/service/task_service.rs",
+      "summary": "Implements the BatchService gRPC service handling task creation, cancellation, fast insert, and DML ingestion.",
+      "tags": [
+        "api-handler",
+        "rpc",
+        "service",
+        "batch"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/batch/src/spill/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/batch/src/spill/mod.rs",
+      "summary": "Module barrel re-exporting spill operation utilities.",
+      "tags": [
+        "barrel",
+        "batch"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/batch/src/spill/spill_op.rs",
+      "type": "file",
+      "name": "spill_op.rs",
+      "filePath": "src/batch/src/spill/spill_op.rs",
+      "summary": "Implements disk-based spill operations for batch executors when memory limits are exceeded.",
+      "tags": [
+        "service",
+        "batch",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/task/broadcast_channel.rs",
+      "type": "file",
+      "name": "broadcast_channel.rs",
+      "filePath": "src/batch/src/task/broadcast_channel.rs",
+      "summary": "Implements broadcast sender channel for replicating data chunks to multiple batch task outputs.",
+      "tags": [
+        "service",
+        "batch",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/task/channel.rs",
+      "type": "file",
+      "name": "channel.rs",
+      "filePath": "src/batch/src/task/channel.rs",
+      "summary": "Defines ChanSender/ChanReceiver traits and the create_output_channel factory for batch task output routing.",
+      "tags": [
+        "api-handler",
+        "batch",
+        "factory"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/task/consistent_hash_shuffle_channel.rs",
+      "type": "file",
+      "name": "consistent_hash_shuffle_channel.rs",
+      "filePath": "src/batch/src/task/consistent_hash_shuffle_channel.rs",
+      "summary": "Implements consistent-hash based shuffle channel for routing batch data chunks by hash partitioning.",
+      "tags": [
+        "service",
+        "batch",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/task/context.rs",
+      "type": "file",
+      "name": "context.rs",
+      "filePath": "src/batch/src/task/context.rs",
+      "summary": "Defines BatchTaskContext trait and ComputeNodeContext for providing task-level resources like memory quota and worker info.",
+      "tags": [
+        "api-handler",
+        "batch",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/task/data_chunk_in_channel.rs",
+      "type": "file",
+      "name": "data_chunk_in_channel.rs",
+      "filePath": "src/batch/src/task/data_chunk_in_channel.rs",
+      "summary": "Wraps DataChunk with serialization to protobuf for channel transmission.",
+      "tags": [
+        "data-model",
+        "batch",
+        "serialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/batch/src/task/env.rs",
+      "type": "file",
+      "name": "env.rs",
+      "filePath": "src/batch/src/task/env.rs",
+      "summary": "Defines BatchEnvironment holding global resources like the batch manager metrics and worker manager.",
+      "tags": [
+        "data-model",
+        "batch",
+        "config"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/task/fifo_channel.rs",
+      "type": "file",
+      "name": "fifo_channel.rs",
+      "filePath": "src/batch/src/task/fifo_channel.rs",
+      "summary": "Implements first-in-first-out channel for single-consumer batch task output.",
+      "tags": [
+        "service",
+        "batch",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/task/hash_shuffle_channel.rs",
+      "type": "file",
+      "name": "hash_shuffle_channel.rs",
+      "filePath": "src/batch/src/task/hash_shuffle_channel.rs",
+      "summary": "Implements hash shuffle channel for distributing batch data chunks across multiple output consumers.",
+      "tags": [
+        "service",
+        "batch",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/batch/src/task/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/batch/src/task/mod.rs",
+      "summary": "Module barrel for all batch task types including channels, context, env, execution, and management.",
+      "tags": [
+        "barrel",
+        "batch",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/batch/src/task/task_execution.rs",
+      "type": "file",
+      "name": "task_execution.rs",
+      "filePath": "src/batch/src/task/task_execution.rs",
+      "summary": "Core batch task execution engine managing task lifecycle, output routing, and result streaming.",
+      "tags": [
+        "service",
+        "batch",
+        "api-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/batch/src/task/task_manager.rs",
+      "type": "file",
+      "name": "task_manager.rs",
+      "filePath": "src/batch/src/task/task_manager.rs",
+      "summary": "Manages the lifecycle of all batch tasks on a compute node including creation, cancellation, and output tracking.",
+      "tags": [
+        "service",
+        "batch",
+        "singleton"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/batch/src/worker_manager/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/batch/src/worker_manager/mod.rs",
+      "summary": "Module barrel re-exporting worker node manager.",
+      "tags": [
+        "barrel",
+        "batch"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/batch/src/worker_manager/worker_node_manager.rs",
+      "type": "file",
+      "name": "worker_node_manager.rs",
+      "filePath": "src/batch/src/worker_manager/worker_node_manager.rs",
+      "summary": "Manages the set of available worker nodes and their vnode mapping for batch task scheduling.",
+      "tags": [
+        "service",
+        "batch",
+        "singleton"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/batch/src/error.rs:BatchError",
+      "type": "class",
+      "name": "BatchError",
+      "filePath": "src/batch/src/error.rs",
+      "lineRange": [
+        42,
+        159
+      ],
+      "summary": "Error enum for all batch-layer failures.",
+      "tags": [
+        "error-handling",
+        "data-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/batch/src/executor/mod.rs:Executor",
+      "type": "class",
+      "name": "Executor",
+      "filePath": "src/batch/src/executor/mod.rs",
+      "lineRange": [
+        46,
+        59
+      ],
+      "summary": "Core trait for batch query executors producing data chunks.",
+      "tags": [
+        "api-handler",
+        "batch"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/batch/src/monitor/stats.rs:BatchExecutorMetrics",
+      "type": "class",
+      "name": "BatchExecutorMetrics",
+      "filePath": "src/batch/src/monitor/stats.rs",
+      "lineRange": [
+        31,
+        34
+      ],
+      "summary": "Prometheus metrics for per-executor batch performance.",
+      "tags": [
+        "monitoring",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/batch/src/rpc/service/task_service.rs:BatchServiceImpl",
+      "type": "class",
+      "name": "BatchServiceImpl",
+      "filePath": "src/batch/src/rpc/service/task_service.rs",
+      "lineRange": [
+        46,
+        49
+      ],
+      "summary": "gRPC service implementation for batch task operations.",
+      "tags": [
+        "api-handler",
+        "rpc",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/batch/src/task/task_execution.rs:BatchTaskExecution",
+      "type": "class",
+      "name": "BatchTaskExecution",
+      "filePath": "src/batch/src/task/task_execution.rs",
+      "lineRange": [
+        1,
+        703
+      ],
+      "summary": "Core structure managing execution lifecycle of a single batch task.",
+      "tags": [
+        "service",
+        "batch"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/batch/src/task/task_manager.rs:BatchManager",
+      "type": "class",
+      "name": "BatchManager",
+      "filePath": "src/batch/src/task/task_manager.rs",
+      "lineRange": [
+        1,
+        391
+      ],
+      "summary": "Singleton managing all batch tasks on a compute node.",
+      "tags": [
+        "service",
+        "batch",
+        "singleton"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/batch/src/worker_manager/worker_node_manager.rs:WorkerNodeManager",
+      "type": "class",
+      "name": "WorkerNodeManager",
+      "filePath": "src/batch/src/worker_manager/worker_node_manager.rs",
+      "lineRange": [
+        1,
+        480
+      ],
+      "summary": "Tracks available worker nodes and vnode assignments for batch scheduling.",
+      "tags": [
+        "service",
+        "batch",
+        "singleton"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/batch/src/task/context.rs:BatchTaskContext",
+      "type": "class",
+      "name": "BatchTaskContext",
+      "filePath": "src/batch/src/task/context.rs",
+      "lineRange": [
+        37,
+        74
+      ],
+      "summary": "Trait providing task-scoped resources for batch executors.",
+      "tags": [
+        "api-handler",
+        "batch"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/batch/src/executor/fast_insert.rs:FastInsertExecutor",
+      "type": "class",
+      "name": "FastInsertExecutor",
+      "filePath": "src/batch/src/executor/fast_insert.rs",
+      "lineRange": [
+        41,
+        50
+      ],
+      "summary": "Executor for high-throughput DML inserts in batch mode.",
+      "tags": [
+        "api-handler",
+        "batch"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/batch/src/spill/spill_op.rs:SpillOp",
+      "type": "class",
+      "name": "SpillOp",
+      "filePath": "src/batch/src/spill/spill_op.rs",
+      "lineRange": [
+        50,
+        52
+      ],
+      "summary": "Manages disk spill operations for batch executors under memory pressure.",
+      "tags": [
+        "service",
+        "batch",
+        "utility"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/batch/src/exchange_source.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/exchange_source.rs",
+      "target": "file:src/batch/src/execution/grpc_exchange.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/exchange_source.rs",
+      "target": "file:src/batch/src/execution/local_exchange.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/exchange_source.rs",
+      "target": "file:src/batch/src/executor/test_utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/exchange_source.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/execution/grpc_exchange.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/execution/grpc_exchange.rs",
+      "target": "file:src/batch/src/exchange_source.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/execution/grpc_exchange.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/execution/local_exchange.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/execution/local_exchange.rs",
+      "target": "file:src/batch/src/exchange_source.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/execution/local_exchange.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/execution/mod.rs",
+      "target": "file:src/batch/src/execution/grpc_exchange.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/execution/mod.rs",
+      "target": "file:src/batch/src/execution/local_exchange.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/fast_insert.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/managed.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/managed.rs",
+      "target": "file:src/batch/src/executor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/managed.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/mod.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/mod.rs",
+      "target": "file:src/batch/src/executor/fast_insert.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/mod.rs",
+      "target": "file:src/batch/src/executor/managed.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/mod.rs",
+      "target": "file:src/batch/src/executor/test_utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/mod.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/test_utils.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/test_utils.rs",
+      "target": "file:src/batch/src/exchange_source.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/executor/test_utils.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/lib.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/lib.rs",
+      "target": "file:src/batch/src/exchange_source.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/lib.rs",
+      "target": "file:src/batch/src/execution/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/lib.rs",
+      "target": "file:src/batch/src/executor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/lib.rs",
+      "target": "file:src/batch/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/lib.rs",
+      "target": "file:src/batch/src/rpc/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/lib.rs",
+      "target": "file:src/batch/src/spill/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/lib.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/lib.rs",
+      "target": "file:src/batch/src/worker_manager/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/monitor/mod.rs",
+      "target": "file:src/batch/src/monitor/stats.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/rpc/mod.rs",
+      "target": "file:src/batch/src/rpc/service/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/rpc/service/exchange.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/rpc/service/mod.rs",
+      "target": "file:src/batch/src/rpc/service/exchange.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/rpc/service/mod.rs",
+      "target": "file:src/batch/src/rpc/service/task_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/rpc/service/task_service.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/rpc/service/task_service.rs",
+      "target": "file:src/batch/src/executor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/rpc/service/task_service.rs",
+      "target": "file:src/batch/src/rpc/service/exchange.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/rpc/service/task_service.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/spill/mod.rs",
+      "target": "file:src/batch/src/spill/spill_op.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/spill/spill_op.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/spill/spill_op.rs",
+      "target": "file:src/batch/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/broadcast_channel.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/broadcast_channel.rs",
+      "target": "file:src/batch/src/task/channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/broadcast_channel.rs",
+      "target": "file:src/batch/src/task/data_chunk_in_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/channel.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/channel.rs",
+      "target": "file:src/batch/src/task/broadcast_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/channel.rs",
+      "target": "file:src/batch/src/task/consistent_hash_shuffle_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/channel.rs",
+      "target": "file:src/batch/src/task/data_chunk_in_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/channel.rs",
+      "target": "file:src/batch/src/task/fifo_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/channel.rs",
+      "target": "file:src/batch/src/task/hash_shuffle_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/consistent_hash_shuffle_channel.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/consistent_hash_shuffle_channel.rs",
+      "target": "file:src/batch/src/task/channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/consistent_hash_shuffle_channel.rs",
+      "target": "file:src/batch/src/task/data_chunk_in_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/context.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/context.rs",
+      "target": "file:src/batch/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/context.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/context.rs",
+      "target": "file:src/batch/src/worker_manager/worker_node_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/env.rs",
+      "target": "file:src/batch/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/env.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/fifo_channel.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/fifo_channel.rs",
+      "target": "file:src/batch/src/task/channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/fifo_channel.rs",
+      "target": "file:src/batch/src/task/data_chunk_in_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/hash_shuffle_channel.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/hash_shuffle_channel.rs",
+      "target": "file:src/batch/src/task/channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/hash_shuffle_channel.rs",
+      "target": "file:src/batch/src/task/data_chunk_in_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/mod.rs",
+      "target": "file:src/batch/src/task/broadcast_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/mod.rs",
+      "target": "file:src/batch/src/task/channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/mod.rs",
+      "target": "file:src/batch/src/task/consistent_hash_shuffle_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/mod.rs",
+      "target": "file:src/batch/src/task/context.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/mod.rs",
+      "target": "file:src/batch/src/task/data_chunk_in_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/mod.rs",
+      "target": "file:src/batch/src/task/env.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/mod.rs",
+      "target": "file:src/batch/src/task/fifo_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/mod.rs",
+      "target": "file:src/batch/src/task/hash_shuffle_channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/mod.rs",
+      "target": "file:src/batch/src/task/task_execution.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/mod.rs",
+      "target": "file:src/batch/src/task/task_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/task_execution.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/task_execution.rs",
+      "target": "file:src/batch/src/executor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/task_execution.rs",
+      "target": "file:src/batch/src/rpc/service/exchange.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/task_execution.rs",
+      "target": "file:src/batch/src/rpc/service/task_service.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/task_execution.rs",
+      "target": "file:src/batch/src/task/channel.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/task_execution.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/task_manager.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/task_manager.rs",
+      "target": "file:src/batch/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/task_manager.rs",
+      "target": "file:src/batch/src/rpc/service/exchange.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/task/task_manager.rs",
+      "target": "file:src/batch/src/task/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/worker_manager/mod.rs",
+      "target": "file:src/batch/src/worker_manager/worker_node_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/worker_manager/worker_node_manager.rs",
+      "target": "file:src/batch/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/batch/src/error.rs",
+      "target": "class:src/batch/src/error.rs:BatchError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/batch/src/error.rs",
+      "target": "class:src/batch/src/error.rs:BatchError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/batch/src/executor/mod.rs",
+      "target": "class:src/batch/src/executor/mod.rs:Executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/batch/src/executor/mod.rs",
+      "target": "class:src/batch/src/executor/mod.rs:Executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/batch/src/monitor/stats.rs",
+      "target": "class:src/batch/src/monitor/stats.rs:BatchExecutorMetrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/batch/src/monitor/stats.rs",
+      "target": "class:src/batch/src/monitor/stats.rs:BatchExecutorMetrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/batch/src/rpc/service/task_service.rs",
+      "target": "class:src/batch/src/rpc/service/task_service.rs:BatchServiceImpl",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/batch/src/rpc/service/task_service.rs",
+      "target": "class:src/batch/src/rpc/service/task_service.rs:BatchServiceImpl",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/batch/src/task/task_execution.rs",
+      "target": "class:src/batch/src/task/task_execution.rs:BatchTaskExecution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/batch/src/task/task_execution.rs",
+      "target": "class:src/batch/src/task/task_execution.rs:BatchTaskExecution",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/batch/src/task/task_manager.rs",
+      "target": "class:src/batch/src/task/task_manager.rs:BatchManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/batch/src/task/task_manager.rs",
+      "target": "class:src/batch/src/task/task_manager.rs:BatchManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/batch/src/worker_manager/worker_node_manager.rs",
+      "target": "class:src/batch/src/worker_manager/worker_node_manager.rs:WorkerNodeManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/batch/src/worker_manager/worker_node_manager.rs",
+      "target": "class:src/batch/src/worker_manager/worker_node_manager.rs:WorkerNodeManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/batch/src/task/context.rs",
+      "target": "class:src/batch/src/task/context.rs:BatchTaskContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/batch/src/task/context.rs",
+      "target": "class:src/batch/src/task/context.rs:BatchTaskContext",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/batch/src/executor/fast_insert.rs",
+      "target": "class:src/batch/src/executor/fast_insert.rs:FastInsertExecutor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/batch/src/executor/fast_insert.rs",
+      "target": "class:src/batch/src/executor/fast_insert.rs:FastInsertExecutor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/batch/src/spill/spill_op.rs",
+      "target": "class:src/batch/src/spill/spill_op.rs:SpillOp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/batch/src/spill/spill_op.rs",
+      "target": "class:src/batch/src/spill/spill_op.rs:SpillOp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

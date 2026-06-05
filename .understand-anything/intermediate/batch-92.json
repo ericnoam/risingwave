@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {"id":"file:src/batch/executors/benches/expand.rs","type":"file","name":"expand.rs","filePath":"src/batch/executors/benches/expand.rs","summary":"Criterion benchmark for the batch Expand executor, measuring throughput of duplicating rows with different repeat counts.","tags":["benchmark","test"],"complexity":"simple"},
+    {"id":"file:src/batch/executors/benches/filter.rs","type":"file","name":"filter.rs","filePath":"src/batch/executors/benches/filter.rs","summary":"Criterion benchmark for the batch Filter executor, measuring row filtering throughput across different predicate selectivities.","tags":["benchmark","test"],"complexity":"simple"},
+    {"id":"file:src/batch/executors/benches/hash_agg.rs","type":"file","name":"hash_agg.rs","filePath":"src/batch/executors/benches/hash_agg.rs","summary":"Criterion benchmark for the batch HashAgg executor, measuring grouping and aggregation throughput with various group-key cardinalities.","tags":["benchmark","test"],"complexity":"moderate"},
+    {"id":"file:src/batch/executors/benches/hash_join.rs","type":"file","name":"hash_join.rs","filePath":"src/batch/executors/benches/hash_join.rs","summary":"Criterion benchmark for the batch HashJoin executor, measuring join throughput for inner joins with varying build/probe side sizes.","tags":["benchmark","test"],"complexity":"moderate"},
+    {"id":"file:src/batch/executors/benches/limit.rs","type":"file","name":"limit.rs","filePath":"src/batch/executors/benches/limit.rs","summary":"Criterion benchmark for the batch Limit executor, measuring the cost of truncating result sets to N rows.","tags":["benchmark","test"],"complexity":"simple"},
+    {"id":"file:src/batch/executors/benches/nested_loop_join.rs","type":"file","name":"nested_loop_join.rs","filePath":"src/batch/executors/benches/nested_loop_join.rs","summary":"Criterion benchmark for the batch NestedLoopJoin executor, measuring cross-join and filtered join performance.","tags":["benchmark","test"],"complexity":"simple"},
+    {"id":"file:src/batch/executors/benches/sort.rs","type":"file","name":"sort.rs","filePath":"src/batch/executors/benches/sort.rs","summary":"Criterion benchmark for the batch Sort executor, measuring sort throughput across different chunk sizes and key types.","tags":["benchmark","test"],"complexity":"simple"},
+    {"id":"file:src/batch/executors/benches/top_n.rs","type":"file","name":"top_n.rs","filePath":"src/batch/executors/benches/top_n.rs","summary":"Criterion benchmark for the batch TopN executor, measuring heap-based top-k selection performance.","tags":["benchmark","test"],"complexity":"simple"},
+    {"id":"file:src/batch/executors/benches/utils/mod.rs","type":"file","name":"mod.rs","filePath":"src/batch/executors/benches/utils/mod.rs","summary":"Shared benchmark utilities for batch executor benchmarks: data generation, executor setup, and common benchmark harness helpers.","tags":["utility","test","factory"],"complexity":"simple"}
+  ],
+  "edges": [
+    {"source":"file:src/batch/executors/benches/expand.rs","target":"file:src/batch/executors/benches/utils/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/batch/executors/benches/filter.rs","target":"file:src/batch/executors/benches/utils/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/batch/executors/benches/hash_agg.rs","target":"file:src/batch/executors/benches/utils/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/batch/executors/benches/hash_join.rs","target":"file:src/batch/executors/benches/utils/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/batch/executors/benches/limit.rs","target":"file:src/batch/executors/benches/utils/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/batch/executors/benches/nested_loop_join.rs","target":"file:src/batch/executors/benches/utils/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/batch/executors/benches/sort.rs","target":"file:src/batch/executors/benches/utils/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/batch/executors/benches/top_n.rs","target":"file:src/batch/executors/benches/utils/mod.rs","type":"imports","direction":"forward","weight":0.7}
+  ]
+}

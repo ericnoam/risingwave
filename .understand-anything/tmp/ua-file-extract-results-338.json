@@ -1,0 +1,1105 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/iceberg-sink2/docker/rest/spark-script/spark-connect-server.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/storage/config.ini",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 19,
+      "nonEmptyLines": 18,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/storage/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 75,
+      "nonEmptyLines": 64,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 66
+        },
+        {
+          "heading": "networks",
+          "level": 1,
+          "line": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/storage/spark-script/spark-connect-server.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/python/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 144,
+      "nonEmptyLines": 118,
+      "functions": [
+        {
+          "name": "read_config",
+          "startLine": 9,
+          "endLine": 13,
+          "params": [
+            "filename"
+          ]
+        },
+        {
+          "name": "init_spark_table",
+          "startLine": 38,
+          "endLine": 61,
+          "params": [
+            "docker"
+          ]
+        },
+        {
+          "name": "init_risingwave_mv",
+          "startLine": 64,
+          "endLine": 112,
+          "params": [
+            "docker"
+          ]
+        },
+        {
+          "name": "check_spark_table",
+          "startLine": 115,
+          "endLine": 128,
+          "params": [
+            "docker"
+          ]
+        },
+        {
+          "name": "run_case",
+          "startLine": 130,
+          "endLine": 136,
+          "params": [
+            "case"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DockerCompose",
+          "startLine": 16,
+          "endLine": 35,
+          "methods": [
+            "__init__",
+            "case_dir",
+            "get_ip",
+            "__enter__",
+            "__exit__"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "read_config",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "DockerCompose",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "init_spark_table",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "init_risingwave_mv",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "check_spark_table",
+          "line": 115,
+          "isDefault": false
+        },
+        {
+          "name": "run_case",
+          "line": 130,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "read_config",
+          "callee": "configparser.ConfigParser",
+          "lineNumber": 10
+        },
+        {
+          "caller": "read_config",
+          "callee": "config.read",
+          "lineNumber": 11
+        },
+        {
+          "caller": "read_config",
+          "callee": "print",
+          "lineNumber": 12
+        },
+        {
+          "caller": "read_config",
+          "callee": "dict",
+          "lineNumber": 12
+        },
+        {
+          "caller": "read_config",
+          "callee": "config.sections",
+          "lineNumber": 12
+        },
+        {
+          "caller": "get_ip",
+          "callee": "subprocess.check_output([\n            \"docker\", \"inspect\", \"-f\", \"{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}\",\n            container_name], cwd=self.case_dir()).decode(\"utf-8\").rstrip",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_ip",
+          "callee": "subprocess.check_output([\n            \"docker\", \"inspect\", \"-f\", \"{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}\",\n            container_name], cwd=self.case_dir()).decode",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_ip",
+          "callee": "subprocess.check_output",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_ip",
+          "callee": "self.case_dir",
+          "lineNumber": 26
+        },
+        {
+          "caller": "__enter__",
+          "callee": "subprocess.run",
+          "lineNumber": 29
+        },
+        {
+          "caller": "__enter__",
+          "callee": "self.case_dir",
+          "lineNumber": 29
+        },
+        {
+          "caller": "__exit__",
+          "callee": "subprocess.run",
+          "lineNumber": 33
+        },
+        {
+          "caller": "__exit__",
+          "callee": "self.case_dir",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "docker.get_ip",
+          "lineNumber": 39
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "print",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "SparkSession.builder.remote(url).getOrCreate",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "SparkSession.builder.remote",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "print",
+          "lineNumber": 60
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "spark.sql",
+          "lineNumber": 61
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "read_config",
+          "lineNumber": 65
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "docker.case_dir",
+          "lineNumber": 65
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "\",\\n\".join",
+          "lineNumber": 67
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "sink_config.items",
+          "lineNumber": 67
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "psycopg2.connect",
+          "lineNumber": 107
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "conn.cursor",
+          "lineNumber": 109
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "print",
+          "lineNumber": 111
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "cursor.execute",
+          "lineNumber": 112
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "docker.get_ip",
+          "lineNumber": 116
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "print",
+          "lineNumber": 118
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "SparkSession.builder.remote(url).getOrCreate",
+          "lineNumber": 119
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "SparkSession.builder.remote",
+          "lineNumber": 119
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "print",
+          "lineNumber": 126
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "spark.sql(sql).collect",
+          "lineNumber": 127
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "spark.sql",
+          "lineNumber": 127
+        },
+        {
+          "caller": "run_case",
+          "callee": "DockerCompose",
+          "lineNumber": 131
+        },
+        {
+          "caller": "run_case",
+          "callee": "init_spark_table",
+          "lineNumber": 132
+        },
+        {
+          "caller": "run_case",
+          "callee": "init_risingwave_mv",
+          "lineNumber": 133
+        },
+        {
+          "caller": "run_case",
+          "callee": "print",
+          "lineNumber": 134
+        },
+        {
+          "caller": "run_case",
+          "callee": "time.sleep",
+          "lineNumber": 135
+        },
+        {
+          "caller": "run_case",
+          "callee": "check_spark_table",
+          "lineNumber": 136
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/python/pyproject.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "sections": [
+        {
+          "heading": "tool.poetry",
+          "level": 2,
+          "line": 1
+        },
+        {
+          "heading": "tool.poetry.dependencies",
+          "level": 3,
+          "line": 9
+        },
+        {
+          "heading": "build-system",
+          "level": 1,
+          "line": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 15,
+      "nonEmptyLines": 11,
+      "sections": [
+        {
+          "heading": "How to run the test",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "How to override risingwave image version:",
+          "level": 1,
+          "line": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/run.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/hive/config.ini",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 18,
+      "nonEmptyLines": 17,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/hive/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 116,
+      "nonEmptyLines": 105,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 106
+        },
+        {
+          "heading": "networks",
+          "level": 1,
+          "line": 114
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/hive/spark-script/spark-connect-server.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 23,
+      "nonEmptyLines": 19,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/jdbc/config.ini",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 20,
+      "nonEmptyLines": 19,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/jdbc/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 96,
+      "nonEmptyLines": 85,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 86
+        },
+        {
+          "heading": "networks",
+          "level": 1,
+          "line": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/jdbc/spark-script/spark-connect-server.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 25,
+      "nonEmptyLines": 21,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/rest/config.ini",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 18,
+      "nonEmptyLines": 17,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/rest/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 99,
+      "nonEmptyLines": 87,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 90
+        },
+        {
+          "heading": "networks",
+          "level": 1,
+          "line": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/rest/spark-script/spark-connect-server.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/storage/config.ini",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 15,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/storage/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 75,
+      "nonEmptyLines": 64,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 66
+        },
+        {
+          "heading": "networks",
+          "level": 1,
+          "line": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/docker/storage/spark-script/spark-connect-server.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/python/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 122,
+      "nonEmptyLines": 98,
+      "functions": [
+        {
+          "name": "read_config",
+          "startLine": 9,
+          "endLine": 13,
+          "params": [
+            "filename"
+          ]
+        },
+        {
+          "name": "init_spark_table",
+          "startLine": 38,
+          "endLine": 61,
+          "params": [
+            "docker"
+          ]
+        },
+        {
+          "name": "init_risingwave_source",
+          "startLine": 64,
+          "endLine": 85,
+          "params": [
+            "docker"
+          ]
+        },
+        {
+          "name": "check_risingwave_iceberg_source",
+          "startLine": 87,
+          "endLine": 105,
+          "params": [
+            "docker"
+          ]
+        },
+        {
+          "name": "run_case",
+          "startLine": 108,
+          "endLine": 114,
+          "params": [
+            "case"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DockerCompose",
+          "startLine": 16,
+          "endLine": 35,
+          "methods": [
+            "__init__",
+            "case_dir",
+            "get_ip",
+            "__enter__",
+            "__exit__"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "read_config",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "DockerCompose",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "init_spark_table",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "init_risingwave_source",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "check_risingwave_iceberg_source",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "run_case",
+          "line": 108,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "read_config",
+          "callee": "configparser.ConfigParser",
+          "lineNumber": 10
+        },
+        {
+          "caller": "read_config",
+          "callee": "config.read",
+          "lineNumber": 11
+        },
+        {
+          "caller": "read_config",
+          "callee": "print",
+          "lineNumber": 12
+        },
+        {
+          "caller": "read_config",
+          "callee": "dict",
+          "lineNumber": 12
+        },
+        {
+          "caller": "read_config",
+          "callee": "config.sections",
+          "lineNumber": 12
+        },
+        {
+          "caller": "get_ip",
+          "callee": "subprocess.check_output([\n            \"docker\", \"inspect\", \"-f\", \"{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}\",\n            container_name], cwd=self.case_dir()).decode(\"utf-8\").rstrip",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_ip",
+          "callee": "subprocess.check_output([\n            \"docker\", \"inspect\", \"-f\", \"{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}\",\n            container_name], cwd=self.case_dir()).decode",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_ip",
+          "callee": "subprocess.check_output",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_ip",
+          "callee": "self.case_dir",
+          "lineNumber": 26
+        },
+        {
+          "caller": "__enter__",
+          "callee": "subprocess.run",
+          "lineNumber": 29
+        },
+        {
+          "caller": "__enter__",
+          "callee": "self.case_dir",
+          "lineNumber": 29
+        },
+        {
+          "caller": "__exit__",
+          "callee": "subprocess.run",
+          "lineNumber": 33
+        },
+        {
+          "caller": "__exit__",
+          "callee": "self.case_dir",
+          "lineNumber": 33
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "docker.get_ip",
+          "lineNumber": 39
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "print",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "SparkSession.builder.remote(url).getOrCreate",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "SparkSession.builder.remote",
+          "lineNumber": 42
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "print",
+          "lineNumber": 60
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "spark.sql",
+          "lineNumber": 61
+        },
+        {
+          "caller": "init_risingwave_source",
+          "callee": "read_config",
+          "lineNumber": 65
+        },
+        {
+          "caller": "init_risingwave_source",
+          "callee": "docker.case_dir",
+          "lineNumber": 65
+        },
+        {
+          "caller": "init_risingwave_source",
+          "callee": "\",\\n\".join",
+          "lineNumber": 68
+        },
+        {
+          "caller": "init_risingwave_source",
+          "callee": "source_config.items",
+          "lineNumber": 68
+        },
+        {
+          "caller": "init_risingwave_source",
+          "callee": "psycopg2.connect",
+          "lineNumber": 80
+        },
+        {
+          "caller": "init_risingwave_source",
+          "callee": "conn.cursor",
+          "lineNumber": 82
+        },
+        {
+          "caller": "init_risingwave_source",
+          "callee": "print",
+          "lineNumber": 84
+        },
+        {
+          "caller": "init_risingwave_source",
+          "callee": "cursor.execute",
+          "lineNumber": 85
+        },
+        {
+          "caller": "check_risingwave_iceberg_source",
+          "callee": "read_config",
+          "lineNumber": 88
+        },
+        {
+          "caller": "check_risingwave_iceberg_source",
+          "callee": "docker.case_dir",
+          "lineNumber": 88
+        },
+        {
+          "caller": "check_risingwave_iceberg_source",
+          "callee": "psycopg2.connect",
+          "lineNumber": 97
+        },
+        {
+          "caller": "check_risingwave_iceberg_source",
+          "callee": "conn.cursor",
+          "lineNumber": 99
+        },
+        {
+          "caller": "check_risingwave_iceberg_source",
+          "callee": "print",
+          "lineNumber": 101
+        },
+        {
+          "caller": "check_risingwave_iceberg_source",
+          "callee": "cursor.execute",
+          "lineNumber": 103
+        },
+        {
+          "caller": "check_risingwave_iceberg_source",
+          "callee": "cursor.fetchall",
+          "lineNumber": 104
+        },
+        {
+          "caller": "run_case",
+          "callee": "DockerCompose",
+          "lineNumber": 109
+        },
+        {
+          "caller": "run_case",
+          "callee": "init_spark_table",
+          "lineNumber": 110
+        },
+        {
+          "caller": "run_case",
+          "callee": "init_risingwave_source",
+          "lineNumber": 111
+        },
+        {
+          "caller": "run_case",
+          "callee": "print",
+          "lineNumber": 112
+        },
+        {
+          "caller": "run_case",
+          "callee": "time.sleep",
+          "lineNumber": 113
+        },
+        {
+          "caller": "run_case",
+          "callee": "check_risingwave_iceberg_source",
+          "lineNumber": 114
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/python/pyproject.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "sections": [
+        {
+          "heading": "tool.poetry",
+          "level": 2,
+          "line": 1
+        },
+        {
+          "heading": "tool.poetry.dependencies",
+          "level": 3,
+          "line": 9
+        },
+        {
+          "heading": "build-system",
+          "level": 1,
+          "line": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 15,
+      "nonEmptyLines": 11,
+      "sections": [
+        {
+          "heading": "How to run the test",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "How to override risingwave image version:",
+          "level": 1,
+          "line": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-source/run.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/kafka-cdc-sink/flink/compatibility-flink.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 41,
+      "nonEmptyLines": 39,
+      "definitions": [
+        {
+          "name": "topic_types",
+          "kind": "table",
+          "fields": [
+            "id",
+            "c_boolean",
+            "c_smallint",
+            "c_integer",
+            "c_bigint",
+            "c_decimal",
+            "c_real",
+            "c_double_precision",
+            "c_varchar",
+            "c_bytea"
+          ],
+          "startLine": 1,
+          "endLine": 20
+        },
+        {
+          "name": "pg_types",
+          "kind": "table",
+          "fields": [
+            "id",
+            "c_boolean",
+            "c_smallint",
+            "c_integer",
+            "c_bigint",
+            "c_decimal",
+            "c_real",
+            "c_double_precision",
+            "c_varchar",
+            "c_bytea"
+          ],
+          "startLine": 22,
+          "endLine": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    }
+  ]
+}

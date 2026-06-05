@@ -1,0 +1,466 @@
+{
+  "nodes": [
+    {
+      "id": "file:e2e_test/iceberg/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "e2e_test/iceberg/main.py",
+      "summary": "Entry point for Iceberg end-to-end test runner; discovers and executes TOML-configured test cases in parallel against a running RisingWave instance, collecting TestResult objects and printing a summary.",
+      "tags": ["entry-point", "test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:e2e_test/iceberg/test_utils/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "e2e_test/iceberg/test_utils/__init__.py",
+      "summary": "Package barrel for the iceberg test_utils module, re-exporting all public helpers from log, spark_utils, test_result, and test_utils submodules.",
+      "tags": ["entry-point", "barrel", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:e2e_test/iceberg/test_utils/log.py",
+      "type": "file",
+      "name": "log.py",
+      "filePath": "e2e_test/iceberg/test_utils/log.py",
+      "summary": "Provides a colored, timestamp-prefixed logging function and supporting LogLevel/Color enumerations for iceberg test output.",
+      "tags": ["utility", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:e2e_test/iceberg/test_utils/spark_utils.py",
+      "type": "file",
+      "name": "spark_utils.py",
+      "filePath": "e2e_test/iceberg/test_utils/spark_utils.py",
+      "summary": "Provides Spark session management and Iceberg table lifecycle helpers (init, compare, drop) used in Iceberg e2e test cases.",
+      "tags": ["utility", "test", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:e2e_test/iceberg/test_utils/test_result.py",
+      "type": "file",
+      "name": "test_result.py",
+      "filePath": "e2e_test/iceberg/test_utils/test_result.py",
+      "summary": "Defines the TestResult dataclass for capturing per-case success, duration, and error, plus a summary printer used at the end of the test run.",
+      "tags": ["data-model", "test", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "type": "file",
+      "name": "test_utils.py",
+      "filePath": "e2e_test/iceberg/test_utils/test_utils.py",
+      "summary": "Core Iceberg test utility module providing type converters, SLT execution, Spark result verification, test case discovery, and environment preparation helpers.",
+      "tags": ["utility", "test", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:e2e_test/iceberg/main.py:run_test_case",
+      "type": "function",
+      "name": "run_test_case",
+      "filePath": "e2e_test/iceberg/main.py",
+      "lineRange": [25, 74],
+      "summary": "Loads a TOML test case file and orchestrates the full lifecycle: Iceberg table init, SLT execution, result verification, SQL comparison, and cleanup, returning a TestResult.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:e2e_test/iceberg/main.py:get_parallel_job_info",
+      "type": "function",
+      "name": "get_parallel_job_info",
+      "filePath": "e2e_test/iceberg/main.py",
+      "lineRange": [77, 84],
+      "summary": "Reads CI parallel job index and count from environment variables for distributing test cases across parallel CI runners.",
+      "tags": ["test", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:e2e_test/iceberg/test_utils/log.py:LogLevel",
+      "type": "class",
+      "name": "LogLevel",
+      "filePath": "e2e_test/iceberg/test_utils/log.py",
+      "lineRange": [6, 13],
+      "summary": "Enum-like class defining log severity levels (INFO, WARNING, ERROR, DEBUG, SUCCESS) used to color-code test output.",
+      "tags": ["utility", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:e2e_test/iceberg/test_utils/log.py:Color",
+      "type": "class",
+      "name": "Color",
+      "filePath": "e2e_test/iceberg/test_utils/log.py",
+      "lineRange": [16, 24],
+      "summary": "Enum-like class of ANSI escape codes for terminal color output in the test logger.",
+      "tags": ["utility", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:e2e_test/iceberg/test_utils/log.py:log",
+      "type": "function",
+      "name": "log",
+      "filePath": "e2e_test/iceberg/test_utils/log.py",
+      "lineRange": [27, 70],
+      "summary": "Outputs a timestamped, colored log message to stdout with configurable log level and indentation, falling back to plain text when not in a TTY.",
+      "tags": ["utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:e2e_test/iceberg/test_utils/spark_utils.py:get_spark",
+      "type": "function",
+      "name": "get_spark",
+      "filePath": "e2e_test/iceberg/test_utils/spark_utils.py",
+      "lineRange": [12, 21],
+      "summary": "Creates and returns a PySpark remote session connected to the Spark URL from test arguments.",
+      "tags": ["utility", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:e2e_test/iceberg/test_utils/spark_utils.py:compare_sql",
+      "type": "function",
+      "name": "compare_sql",
+      "filePath": "e2e_test/iceberg/test_utils/spark_utils.py",
+      "lineRange": [36, 48],
+      "summary": "Runs two SQL statements against Spark and asserts symmetric set equality between their result DataFrames using exceptAll.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:e2e_test/iceberg/test_utils/spark_utils.py:drop_table",
+      "type": "function",
+      "name": "drop_table",
+      "filePath": "e2e_test/iceberg/test_utils/spark_utils.py",
+      "lineRange": [51, 60],
+      "summary": "Drops Iceberg tables via Spark SQL and logs remaining databases and tables for debugging.",
+      "tags": ["utility", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:e2e_test/iceberg/test_utils/test_result.py:TestResult",
+      "type": "class",
+      "name": "TestResult",
+      "filePath": "e2e_test/iceberg/test_utils/test_result.py",
+      "lineRange": [7, 11],
+      "summary": "Dataclass capturing a test case result with its name, success flag, execution duration, and optional error message.",
+      "tags": ["data-model", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:e2e_test/iceberg/test_utils/test_result.py:print_test_summary",
+      "type": "function",
+      "name": "print_test_summary",
+      "filePath": "e2e_test/iceberg/test_utils/test_result.py",
+      "lineRange": [14, 50],
+      "summary": "Formats and prints a full test run summary including per-case pass/fail status, duration, error details, and overall statistics.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:e2e_test/iceberg/test_utils/test_utils.py:verify_result",
+      "type": "function",
+      "name": "verify_result",
+      "filePath": "e2e_test/iceberg/test_utils/test_utils.py",
+      "lineRange": [35, 77],
+      "summary": "Polls Spark for query results and asserts row-by-row type-aware equality against expected data, handling int, float, bool, date, timestamp, decimal, and generic types.",
+      "tags": ["test", "validation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:e2e_test/iceberg/test_utils/test_utils.py:parse_row",
+      "type": "function",
+      "name": "parse_row",
+      "filePath": "e2e_test/iceberg/test_utils/test_utils.py",
+      "lineRange": [80, 103],
+      "summary": "Parses a raw CSV-like row string into a list of field values, correctly handling nested parentheses in complex types.",
+      "tags": ["utility", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:e2e_test/iceberg/test_utils/test_utils.py:discover_test_cases",
+      "type": "function",
+      "name": "discover_test_cases",
+      "filePath": "e2e_test/iceberg/test_utils/test_utils.py",
+      "lineRange": [106, 128],
+      "summary": "Scans the e2e_test/iceberg directory for TOML test case files, respecting inclusion filters and CI parallel job sharding.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:e2e_test/iceberg/test_utils/test_utils.py:prepare_test_env",
+      "type": "function",
+      "name": "prepare_test_env",
+      "filePath": "e2e_test/iceberg/test_utils/test_utils.py",
+      "lineRange": [131, 155],
+      "summary": "Bootstraps the Iceberg test environment by installing Python dependencies, configuring Spark catalog settings, and waiting for services to start.",
+      "tags": ["test", "utility", "service"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:e2e_test/iceberg/main.py",
+      "target": "file:e2e_test/iceberg/test_utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:e2e_test/iceberg/main.py",
+      "target": "file:e2e_test/iceberg/test_utils/log.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/__init__.py",
+      "target": "file:e2e_test/iceberg/test_utils/log.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/__init__.py",
+      "target": "file:e2e_test/iceberg/test_utils/spark_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/__init__.py",
+      "target": "file:e2e_test/iceberg/test_utils/test_result.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/__init__.py",
+      "target": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/spark_utils.py",
+      "target": "file:e2e_test/iceberg/test_utils/log.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_result.py",
+      "target": "file:e2e_test/iceberg/test_utils/log.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "target": "file:e2e_test/iceberg/test_utils/log.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "target": "file:e2e_test/iceberg/test_utils/spark_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:e2e_test/iceberg/main.py",
+      "target": "function:e2e_test/iceberg/main.py:run_test_case",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/main.py",
+      "target": "function:e2e_test/iceberg/main.py:get_parallel_job_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/main.py",
+      "target": "function:e2e_test/iceberg/main.py:run_test_case",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/main.py",
+      "target": "function:e2e_test/iceberg/main.py:get_parallel_job_info",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/log.py",
+      "target": "class:e2e_test/iceberg/test_utils/log.py:LogLevel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/log.py",
+      "target": "class:e2e_test/iceberg/test_utils/log.py:Color",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/log.py",
+      "target": "function:e2e_test/iceberg/test_utils/log.py:log",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/log.py",
+      "target": "class:e2e_test/iceberg/test_utils/log.py:LogLevel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/log.py",
+      "target": "class:e2e_test/iceberg/test_utils/log.py:Color",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/log.py",
+      "target": "function:e2e_test/iceberg/test_utils/log.py:log",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/spark_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/spark_utils.py:get_spark",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/spark_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/spark_utils.py:compare_sql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/spark_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/spark_utils.py:drop_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/spark_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/spark_utils.py:get_spark",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/spark_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/spark_utils.py:compare_sql",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/spark_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/spark_utils.py:drop_table",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_result.py",
+      "target": "class:e2e_test/iceberg/test_utils/test_result.py:TestResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_result.py",
+      "target": "function:e2e_test/iceberg/test_utils/test_result.py:print_test_summary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_result.py",
+      "target": "class:e2e_test/iceberg/test_utils/test_result.py:TestResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_result.py",
+      "target": "function:e2e_test/iceberg/test_utils/test_result.py:print_test_summary",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/test_utils.py:verify_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/test_utils.py:parse_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/test_utils.py:discover_test_cases",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/test_utils.py:prepare_test_env",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/test_utils.py:verify_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/test_utils.py:parse_row",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/test_utils.py:discover_test_cases",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:e2e_test/iceberg/test_utils/test_utils.py",
+      "target": "function:e2e_test/iceberg/test_utils/test_utils.py:prepare_test_env",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

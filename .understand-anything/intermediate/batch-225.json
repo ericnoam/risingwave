@@ -1,0 +1,135 @@
+{
+  "nodes": [
+    {
+      "id": "table:integration_tests/tidb-cdc-sink/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/tidb-cdc-sink/create_source.sql",
+      "summary": "Defines five RisingWave CDC source tables (tweet, user, datatype, tidb_cdc_types, tidb_sink_datatypes) mirroring TiDB tables, providing comprehensive MySQL-compatible type coverage for the CDC sink test.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "complex",
+      "languageNotes": "Sources use the TiDB CDC connector and cover an extensive MySQL type matrix including bit, tinyint, mediumint, datetime, JSON, and array types."
+    },
+    {
+      "id": "table:integration_tests/tidb-cdc-sink/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/tidb-cdc-sink/create_mv.sql",
+      "summary": "Creates materialized views joining or aggregating TiDB CDC source data for verification and downstream sink targets.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/tidb-cdc-sink/create_sink.sql",
+      "type": "table",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/tidb-cdc-sink/create_sink.sql",
+      "summary": "Creates the TiDB sink connector writing RisingWave materialized view output back to TiDB, exercising round-trip CDC-to-sink behavior.",
+      "tags": ["database", "sink", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/tidb-cdc-sink/tidb_create_tables.sql",
+      "type": "table",
+      "name": "tidb_create_tables.sql",
+      "filePath": "integration_tests/tidb-cdc-sink/tidb_create_tables.sql",
+      "summary": "TiDB-side DDL creating source tables (tweet, user, hot_hashtags, datatype, tidb_sink_datatypes, tidb_cdc_types) that feed the RisingWave CDC sources.",
+      "tags": ["database", "integration-test", "setup"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/tidb-cdc-sink/tidb_prepare.sql",
+      "type": "table",
+      "name": "tidb_prepare.sql",
+      "filePath": "integration_tests/tidb-cdc-sink/tidb_prepare.sql",
+      "summary": "TiDB preparation script inserting initial seed data into TiDB tables so the CDC pipeline has records to capture at test startup.",
+      "tags": ["database", "integration-test", "setup"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/tidb-cdc-sink/query.sql",
+      "type": "table",
+      "name": "query.sql",
+      "filePath": "integration_tests/tidb-cdc-sink/query.sql",
+      "summary": "Validation queries executed against RisingWave materialized views to verify CDC data ingestion and sink round-trip correctness.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/tidb-cdc-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/tidb-cdc-sink/docker-compose.yml",
+      "summary": "Docker Compose file orchestrating TiDB, TiKV, PD, TiCDC, and RisingWave services for the full TiDB CDC-to-sink integration test environment.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:integration_tests/tidb-cdc-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/tidb-cdc-sink/prepare.sh",
+      "summary": "Shell script that waits for TiDB to be ready and then executes table creation and seed data SQL to initialize the TiDB CDC integration test.",
+      "tags": ["script", "integration-test", "setup"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:integration_tests/tidb-cdc-sink/docker-compose.yml",
+      "target": "config:integration_tests/tidb-cdc-sink/config/changefeed.toml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:integration_tests/tidb-cdc-sink/docker-compose.yml",
+      "target": "config:integration_tests/tidb-cdc-sink/config/pd.toml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:integration_tests/tidb-cdc-sink/docker-compose.yml",
+      "target": "config:integration_tests/tidb-cdc-sink/config/tidb.toml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:integration_tests/tidb-cdc-sink/docker-compose.yml",
+      "target": "config:integration_tests/tidb-cdc-sink/config/tikv.toml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/tidb-cdc-sink/prepare.sh",
+      "target": "table:integration_tests/tidb-cdc-sink/tidb_create_tables.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/tidb-cdc-sink/prepare.sh",
+      "target": "table:integration_tests/tidb-cdc-sink/tidb_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/tidb-cdc-sink/prepare.sh",
+      "target": "service:integration_tests/tidb-cdc-sink/docker-compose.yml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "table:integration_tests/tidb-cdc-sink/create_source.sql",
+      "target": "table:integration_tests/tidb-cdc-sink/tidb_create_tables.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "nodes": [
+    {
+      "id": "config:src/meta/model/migration/Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "src/meta/model/migration/Cargo.toml",
+      "summary": "Cargo manifest for the meta model migration crate, which provides SeaORM migration tooling for the RisingWave meta storage schema.",
+      "tags": ["configuration", "build-system", "database", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:src/meta/model/migration/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/meta/model/migration/README.md",
+      "summary": "Documentation for running the SeaORM migrator CLI, covering how to apply migrations, add new migration files, and notes on MySQL backend differences for the meta storage schema.",
+      "tags": ["documentation", "database", "migration", "meta"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:src/meta/model/migration/clippy.toml",
+      "type": "config",
+      "name": "clippy.toml",
+      "filePath": "src/meta/model/migration/clippy.toml",
+      "summary": "Clippy linting configuration for the meta model migration crate.",
+      "tags": ["configuration", "linting", "rust"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:src/meta/model/migration/README.md",
+      "target": "config:src/meta/model/migration/Cargo.toml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

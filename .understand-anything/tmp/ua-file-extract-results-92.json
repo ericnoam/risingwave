@@ -1,0 +1,1208 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/batch/executors/benches/expand.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "create_expand_executor",
+          "startLine": 26,
+          "endLine": 35,
+          "params": [
+            "column_subsets",
+            "chunk_size",
+            "chunk_num"
+          ]
+        },
+        {
+          "name": "bench_expand",
+          "startLine": 37,
+          "endLine": 54,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_expand_executor",
+          "callee": "create_input",
+          "lineNumber": 33
+        },
+        {
+          "caller": "create_expand_executor",
+          "callee": "Box::new",
+          "lineNumber": 34
+        },
+        {
+          "caller": "create_expand_executor",
+          "callee": "ExpandExecutor::new",
+          "lineNumber": 34
+        },
+        {
+          "caller": "bench_expand",
+          "callee": "Runtime::new().unwrap",
+          "lineNumber": 39
+        },
+        {
+          "caller": "bench_expand",
+          "callee": "Runtime::new",
+          "lineNumber": 39
+        },
+        {
+          "caller": "bench_expand",
+          "callee": "c.bench_with_input",
+          "lineNumber": 41
+        },
+        {
+          "caller": "bench_expand",
+          "callee": "BenchmarkId::new",
+          "lineNumber": 42
+        },
+        {
+          "caller": "bench_expand",
+          "callee": "b.to_async(&rt).iter_batched",
+          "lineNumber": 46
+        },
+        {
+          "caller": "bench_expand",
+          "callee": "b.to_async",
+          "lineNumber": 46
+        },
+        {
+          "caller": "bench_expand",
+          "callee": "create_expand_executor",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/batch/executors/benches/filter.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "create_filter_executor",
+          "startLine": 27,
+          "endLine": 36,
+          "params": [
+            "chunk_size",
+            "chunk_num"
+          ]
+        },
+        {
+          "name": "bench_filter",
+          "startLine": 38,
+          "endLine": 55,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_filter_executor",
+          "callee": "create_input",
+          "lineNumber": 29
+        },
+        {
+          "caller": "create_filter_executor",
+          "callee": "Box::new",
+          "lineNumber": 30
+        },
+        {
+          "caller": "create_filter_executor",
+          "callee": "FilterExecutor::new",
+          "lineNumber": 30
+        },
+        {
+          "caller": "create_filter_executor",
+          "callee": "build_from_pretty",
+          "lineNumber": 31
+        },
+        {
+          "caller": "create_filter_executor",
+          "callee": "\"FilterBenchmark\".to_owned",
+          "lineNumber": 33
+        },
+        {
+          "caller": "bench_filter",
+          "callee": "Runtime::new().unwrap",
+          "lineNumber": 40
+        },
+        {
+          "caller": "bench_filter",
+          "callee": "Runtime::new",
+          "lineNumber": 40
+        },
+        {
+          "caller": "bench_filter",
+          "callee": "c.bench_with_input",
+          "lineNumber": 42
+        },
+        {
+          "caller": "bench_filter",
+          "callee": "BenchmarkId::new",
+          "lineNumber": 43
+        },
+        {
+          "caller": "bench_filter",
+          "callee": "b.to_async(&rt).iter_batched",
+          "lineNumber": 47
+        },
+        {
+          "caller": "bench_filter",
+          "callee": "b.to_async",
+          "lineNumber": 47
+        },
+        {
+          "caller": "bench_filter",
+          "callee": "create_filter_executor",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/batch/executors/benches/hash_agg.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 163,
+      "nonEmptyLines": 148,
+      "functions": [
+        {
+          "name": "create_agg_call",
+          "startLine": 36,
+          "endLine": 59,
+          "params": [
+            "input_schema",
+            "agg_type",
+            "args",
+            "return_type"
+          ]
+        },
+        {
+          "name": "create_hash_agg_executor",
+          "startLine": 61,
+          "endLine": 116,
+          "params": [
+            "group_key_columns",
+            "agg_type",
+            "arg_columns",
+            "return_type",
+            "chunk_size",
+            "chunk_num"
+          ]
+        },
+        {
+          "name": "bench_hash_agg",
+          "startLine": 118,
+          "endLine": 160,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_agg_call",
+          "callee": "agg_type.to_protobuf_simple",
+          "lineNumber": 43
+        },
+        {
+          "caller": "create_agg_call",
+          "callee": "args\n            .into_iter()\n            .map(|col_idx| PbInputRef {\n                index: col_idx as _,\n                r#type: Some(input_schema.fields()[col_idx].data_type().to_protobuf()),\n            }).collect",
+          "lineNumber": 44
+        },
+        {
+          "caller": "create_agg_call",
+          "callee": "args\n            .into_iter().map",
+          "lineNumber": 44
+        },
+        {
+          "caller": "create_agg_call",
+          "callee": "args.into_iter",
+          "lineNumber": 44
+        },
+        {
+          "caller": "create_agg_call",
+          "callee": "Some",
+          "lineNumber": 48
+        },
+        {
+          "caller": "create_agg_call",
+          "callee": "input_schema.fields()[col_idx].data_type().to_protobuf",
+          "lineNumber": 48
+        },
+        {
+          "caller": "create_agg_call",
+          "callee": "input_schema.fields()[col_idx].data_type",
+          "lineNumber": 48
+        },
+        {
+          "caller": "create_agg_call",
+          "callee": "input_schema.fields",
+          "lineNumber": 48
+        },
+        {
+          "caller": "create_agg_call",
+          "callee": "Some",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_agg_call",
+          "callee": "return_type.to_protobuf",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "create_input",
+          "lineNumber": 70
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "input.schema",
+          "lineNumber": 75
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "create_agg_call",
+          "lineNumber": 77
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "agg_calls\n        .iter()\n        .map(|agg_call| AggCall::from_protobuf(agg_call).and_then(|agg| build_agg(&agg)))\n        .try_collect().unwrap",
+          "lineNumber": 84
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "agg_calls\n        .iter()\n        .map(|agg_call| AggCall::from_protobuf(agg_call).and_then(|agg| build_agg(&agg))).try_collect",
+          "lineNumber": 84
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "agg_calls\n        .iter().map",
+          "lineNumber": 84
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "agg_calls.iter",
+          "lineNumber": 84
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "AggCall::from_protobuf(agg_call).and_then",
+          "lineNumber": 86
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "AggCall::from_protobuf",
+          "lineNumber": 86
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "build_agg",
+          "lineNumber": 86
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "group_key_columns\n        .iter()\n        .map(|i| input_schema.fields()[*i].data_type()).collect_vec",
+          "lineNumber": 90
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "group_key_columns\n        .iter().map",
+          "lineNumber": 90
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "group_key_columns.iter",
+          "lineNumber": 90
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "input_schema.fields()[*i].data_type",
+          "lineNumber": 92
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "input_schema.fields",
+          "lineNumber": 92
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "group_key_types\n        .iter()\n        .cloned()\n        .chain(agg_init_states.iter().map(|fac| fac.return_type()))\n        .map(Field::unnamed).collect_vec",
+          "lineNumber": 95
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "group_key_types\n        .iter()\n        .cloned()\n        .chain(agg_init_states.iter().map(|fac| fac.return_type())).map",
+          "lineNumber": 95
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "group_key_types\n        .iter()\n        .cloned().chain",
+          "lineNumber": 95
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "group_key_types\n        .iter().cloned",
+          "lineNumber": 95
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "group_key_types.iter",
+          "lineNumber": 95
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "agg_init_states.iter().map",
+          "lineNumber": 98
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "agg_init_states.iter",
+          "lineNumber": 98
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "fac.return_type",
+          "lineNumber": 98
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "Box::new",
+          "lineNumber": 103
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "HashAggExecutor::<hash::Key64>::new",
+          "lineNumber": 103
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "Arc::new",
+          "lineNumber": 104
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "\"HashAggExecutor\".to_owned",
+          "lineNumber": 109
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "MemoryContext::none",
+          "lineNumber": 111
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "BatchSpillMetrics::for_test",
+          "lineNumber": 113
+        },
+        {
+          "caller": "create_hash_agg_executor",
+          "callee": "ShutdownToken::empty",
+          "lineNumber": 114
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "Runtime::new().unwrap",
+          "lineNumber": 120
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "Runtime::new",
+          "lineNumber": 120
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "c.bench_with_input",
+          "lineNumber": 137
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "BenchmarkId::new",
+          "lineNumber": 138
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "b.to_async(&rt).iter_batched",
+          "lineNumber": 142
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "b.to_async",
+          "lineNumber": 142
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "create_hash_agg_executor",
+          "lineNumber": 144
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "group_key_columns.clone",
+          "lineNumber": 145
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "agg_type.into",
+          "lineNumber": 146
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "arg_columns.clone",
+          "lineNumber": 147
+        },
+        {
+          "caller": "bench_hash_agg",
+          "callee": "return_type.clone",
+          "lineNumber": 148
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/batch/executors/benches/hash_join.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 107,
+      "nonEmptyLines": 95,
+      "functions": [
+        {
+          "name": "create_hash_join_executor",
+          "startLine": 32,
+          "endLine": 84,
+          "params": [
+            "join_type",
+            "with_cond",
+            "left_chunk_size",
+            "left_chunk_num",
+            "right_chunk_size",
+            "right_chunk_num"
+          ]
+        },
+        {
+          "name": "bench_hash_join",
+          "startLine": 86,
+          "endLine": 104,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "gen_projected_data",
+          "lineNumber": 42
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "build_from_pretty",
+          "lineNumber": 45
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "gen_projected_data",
+          "lineNumber": 47
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "build_from_pretty",
+          "lineNumber": 50
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "Box::new",
+          "lineNumber": 53
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "MockExecutor::new",
+          "lineNumber": 53
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "field_n::<1>",
+          "lineNumber": 53
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "left_input.into_iter().for_each",
+          "lineNumber": 54
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "left_input.into_iter",
+          "lineNumber": 54
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "left_child.add",
+          "lineNumber": 54
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "Box::new",
+          "lineNumber": 56
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "MockExecutor::new",
+          "lineNumber": 56
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "field_n::<1>",
+          "lineNumber": 56
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "right_input.into_iter().for_each",
+          "lineNumber": 57
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "right_input.into_iter",
+          "lineNumber": 57
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "right_child.add",
+          "lineNumber": 57
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "with_cond.then",
+          "lineNumber": 65
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "build_from_pretty(\"(greater_than:int8 $0:int8 100:int8)\").into",
+          "lineNumber": 65
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "build_from_pretty",
+          "lineNumber": 65
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "Box::new",
+          "lineNumber": 67
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "HashJoinExecutor::<hash::Key64>::new",
+          "lineNumber": 67
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "\"HashJoinExecutor\".into",
+          "lineNumber": 76
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "BatchSpillMetrics::for_test",
+          "lineNumber": 80
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "ShutdownToken::empty",
+          "lineNumber": 81
+        },
+        {
+          "caller": "create_hash_join_executor",
+          "callee": "MemoryContext::none",
+          "lineNumber": 82
+        },
+        {
+          "caller": "bench_hash_join",
+          "callee": "bench_join",
+          "lineNumber": 97
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/batch/executors/benches/limit.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "create_limit_executor",
+          "startLine": 26,
+          "endLine": 40,
+          "params": [
+            "chunk_size",
+            "chunk_num",
+            "offset",
+            "limit"
+          ]
+        },
+        {
+          "name": "bench_limit",
+          "startLine": 42,
+          "endLine": 60,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_limit_executor",
+          "callee": "create_input",
+          "lineNumber": 32
+        },
+        {
+          "caller": "create_limit_executor",
+          "callee": "Box::new",
+          "lineNumber": 34
+        },
+        {
+          "caller": "create_limit_executor",
+          "callee": "LimitExecutor::new",
+          "lineNumber": 34
+        },
+        {
+          "caller": "create_limit_executor",
+          "callee": "\"LimitExecutor\".into",
+          "lineNumber": 38
+        },
+        {
+          "caller": "bench_limit",
+          "callee": "Runtime::new().unwrap",
+          "lineNumber": 44
+        },
+        {
+          "caller": "bench_limit",
+          "callee": "Runtime::new",
+          "lineNumber": 44
+        },
+        {
+          "caller": "bench_limit",
+          "callee": "c.bench_with_input",
+          "lineNumber": 47
+        },
+        {
+          "caller": "bench_limit",
+          "callee": "BenchmarkId::new",
+          "lineNumber": 48
+        },
+        {
+          "caller": "bench_limit",
+          "callee": "b.to_async(&rt).iter_batched",
+          "lineNumber": 52
+        },
+        {
+          "caller": "bench_limit",
+          "callee": "b.to_async",
+          "lineNumber": 52
+        },
+        {
+          "caller": "bench_limit",
+          "callee": "create_limit_executor",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/batch/executors/benches/nested_loop_join.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 76,
+      "functions": [
+        {
+          "name": "create_nested_loop_join_executor",
+          "startLine": 28,
+          "endLine": 61,
+          "params": [
+            "join_type",
+            "_with_cond",
+            "left_chunk_size",
+            "left_chunk_num",
+            "right_chunk_size",
+            "right_chunk_num"
+          ]
+        },
+        {
+          "name": "bench_nested_loop_join",
+          "startLine": 63,
+          "endLine": 81,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_nested_loop_join_executor",
+          "callee": "create_input",
+          "lineNumber": 37
+        },
+        {
+          "caller": "create_nested_loop_join_executor",
+          "callee": "create_input",
+          "lineNumber": 38
+        },
+        {
+          "caller": "create_nested_loop_join_executor",
+          "callee": "Box::new",
+          "lineNumber": 46
+        },
+        {
+          "caller": "create_nested_loop_join_executor",
+          "callee": "NestedLoopJoinExecutor::new",
+          "lineNumber": 46
+        },
+        {
+          "caller": "create_nested_loop_join_executor",
+          "callee": "build_from_pretty",
+          "lineNumber": 47
+        },
+        {
+          "caller": "create_nested_loop_join_executor",
+          "callee": "\"NestedLoopJoinExecutor\".into",
+          "lineNumber": 56
+        },
+        {
+          "caller": "create_nested_loop_join_executor",
+          "callee": "MemoryContext::none",
+          "lineNumber": 58
+        },
+        {
+          "caller": "create_nested_loop_join_executor",
+          "callee": "ShutdownToken::empty",
+          "lineNumber": 59
+        },
+        {
+          "caller": "bench_nested_loop_join",
+          "callee": "bench_join",
+          "lineNumber": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/batch/executors/benches/sort.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 89,
+      "functions": [
+        {
+          "name": "create_order_by_executor",
+          "startLine": 31,
+          "endLine": 70,
+          "params": [
+            "chunk_size",
+            "chunk_num",
+            "single_column"
+          ]
+        },
+        {
+          "name": "bench_order_by",
+          "startLine": 72,
+          "endLine": 95,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_order_by_executor",
+          "callee": "create_input",
+          "lineNumber": 38
+        },
+        {
+          "caller": "create_order_by_executor",
+          "callee": "create_input",
+          "lineNumber": 41
+        },
+        {
+          "caller": "create_order_by_executor",
+          "callee": "Box::new",
+          "lineNumber": 61
+        },
+        {
+          "caller": "create_order_by_executor",
+          "callee": "SortExecutor::new",
+          "lineNumber": 61
+        },
+        {
+          "caller": "create_order_by_executor",
+          "callee": "Arc::new",
+          "lineNumber": 63
+        },
+        {
+          "caller": "create_order_by_executor",
+          "callee": "\"SortExecutor\".into",
+          "lineNumber": 64
+        },
+        {
+          "caller": "create_order_by_executor",
+          "callee": "MemoryContext::none",
+          "lineNumber": 66
+        },
+        {
+          "caller": "create_order_by_executor",
+          "callee": "BatchSpillMetrics::for_test",
+          "lineNumber": 68
+        },
+        {
+          "caller": "bench_order_by",
+          "callee": "Runtime::new().unwrap",
+          "lineNumber": 74
+        },
+        {
+          "caller": "bench_order_by",
+          "callee": "Runtime::new",
+          "lineNumber": 74
+        },
+        {
+          "caller": "bench_order_by",
+          "callee": "c.bench_with_input",
+          "lineNumber": 78
+        },
+        {
+          "caller": "bench_order_by",
+          "callee": "BenchmarkId::new",
+          "lineNumber": 79
+        },
+        {
+          "caller": "bench_order_by",
+          "callee": "b.to_async(&rt).iter_batched",
+          "lineNumber": 86
+        },
+        {
+          "caller": "bench_order_by",
+          "callee": "b.to_async",
+          "lineNumber": 86
+        },
+        {
+          "caller": "bench_order_by",
+          "callee": "create_order_by_executor",
+          "lineNumber": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/batch/executors/benches/top_n.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 90,
+      "functions": [
+        {
+          "name": "create_top_n_executor",
+          "startLine": 28,
+          "endLine": 70,
+          "params": [
+            "chunk_size",
+            "chunk_num",
+            "single_column",
+            "offset",
+            "limit"
+          ]
+        },
+        {
+          "name": "bench_top_n",
+          "startLine": 72,
+          "endLine": 95,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_top_n_executor",
+          "callee": "create_input",
+          "lineNumber": 37
+        },
+        {
+          "caller": "create_top_n_executor",
+          "callee": "create_input",
+          "lineNumber": 40
+        },
+        {
+          "caller": "create_top_n_executor",
+          "callee": "Box::new",
+          "lineNumber": 60
+        },
+        {
+          "caller": "create_top_n_executor",
+          "callee": "TopNExecutor::new",
+          "lineNumber": 60
+        },
+        {
+          "caller": "create_top_n_executor",
+          "callee": "\"TopNExecutor\".into",
+          "lineNumber": 66
+        },
+        {
+          "caller": "create_top_n_executor",
+          "callee": "MemoryContext::none",
+          "lineNumber": 68
+        },
+        {
+          "caller": "bench_top_n",
+          "callee": "Runtime::new().unwrap",
+          "lineNumber": 74
+        },
+        {
+          "caller": "bench_top_n",
+          "callee": "Runtime::new",
+          "lineNumber": 74
+        },
+        {
+          "caller": "bench_top_n",
+          "callee": "c.bench_with_input",
+          "lineNumber": 78
+        },
+        {
+          "caller": "bench_top_n",
+          "callee": "BenchmarkId::new",
+          "lineNumber": 79
+        },
+        {
+          "caller": "bench_top_n",
+          "callee": "b.to_async(&rt).iter_batched",
+          "lineNumber": 86
+        },
+        {
+          "caller": "bench_top_n",
+          "callee": "b.to_async",
+          "lineNumber": 86
+        },
+        {
+          "caller": "bench_top_n",
+          "callee": "create_top_n_executor",
+          "lineNumber": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/batch/executors/benches/utils/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 82,
+      "functions": [
+        {
+          "name": "bench_join",
+          "startLine": 25,
+          "endLine": 66,
+          "params": [
+            "c",
+            "join_name",
+            "with_conds",
+            "join_types",
+            "create_join_executor"
+          ]
+        },
+        {
+          "name": "execute_executor",
+          "startLine": 68,
+          "endLine": 73,
+          "params": [
+            "executor"
+          ]
+        },
+        {
+          "name": "create_input",
+          "startLine": 75,
+          "endLine": 87,
+          "params": [
+            "input_types",
+            "chunk_size",
+            "chunk_num"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "bench_join",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "execute_executor",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "create_input",
+          "line": 75,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "bench_join",
+          "callee": "Runtime::new().unwrap",
+          "lineNumber": 34
+        },
+        {
+          "caller": "bench_join",
+          "callee": "Runtime::new",
+          "lineNumber": 34
+        },
+        {
+          "caller": "bench_join",
+          "callee": "join_types.clone",
+          "lineNumber": 36
+        },
+        {
+          "caller": "bench_join",
+          "callee": "c.bench_with_input",
+          "lineNumber": 38
+        },
+        {
+          "caller": "bench_join",
+          "callee": "BenchmarkId::new",
+          "lineNumber": 39
+        },
+        {
+          "caller": "bench_join",
+          "callee": "b.to_async(&rt).iter_batched",
+          "lineNumber": 47
+        },
+        {
+          "caller": "bench_join",
+          "callee": "b.to_async",
+          "lineNumber": 47
+        },
+        {
+          "caller": "bench_join",
+          "callee": "create_join_executor",
+          "lineNumber": 49
+        },
+        {
+          "caller": "execute_executor",
+          "callee": "executor.execute",
+          "lineNumber": 69
+        },
+        {
+          "caller": "execute_executor",
+          "callee": "stream.next",
+          "lineNumber": 70
+        },
+        {
+          "caller": "execute_executor",
+          "callee": "black_box",
+          "lineNumber": 71
+        },
+        {
+          "caller": "execute_executor",
+          "callee": "ret.unwrap",
+          "lineNumber": 71
+        },
+        {
+          "caller": "create_input",
+          "callee": "MockExecutor::new",
+          "lineNumber": 80
+        },
+        {
+          "caller": "create_input",
+          "callee": "input_types.iter().cloned().map(Field::unnamed).collect",
+          "lineNumber": 81
+        },
+        {
+          "caller": "create_input",
+          "callee": "input_types.iter().cloned().map",
+          "lineNumber": 81
+        },
+        {
+          "caller": "create_input",
+          "callee": "input_types.iter().cloned",
+          "lineNumber": 81
+        },
+        {
+          "caller": "create_input",
+          "callee": "input_types.iter",
+          "lineNumber": 81
+        },
+        {
+          "caller": "create_input",
+          "callee": "gen_data",
+          "lineNumber": 83
+        },
+        {
+          "caller": "create_input",
+          "callee": "input.add",
+          "lineNumber": 84
+        },
+        {
+          "caller": "create_input",
+          "callee": "Box::new",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    }
+  ]
+}

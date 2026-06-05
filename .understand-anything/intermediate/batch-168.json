@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    {"id": "config:e2e_test/iceberg/config.ini", "type": "config", "name": "config.ini", "filePath": "e2e_test/iceberg/config.ini", "summary": "INI configuration file for the Iceberg e2e test harness, specifying database connection details (host, port, user, database name) for the RisingWave instance under test.", "tags": ["configuration", "test", "database"], "complexity": "simple"},
+    {"id": "config:e2e_test/iceberg/pyproject.toml", "type": "config", "name": "pyproject.toml", "filePath": "e2e_test/iceberg/pyproject.toml", "summary": "Python project configuration for the Iceberg e2e test scripts, declaring Poetry dependencies (pyspark, pyiceberg, psycopg2) needed to run Spark-based Iceberg integration tests.", "tags": ["configuration", "test", "dependency-management"], "complexity": "simple"},
+    {"id": "file:e2e_test/iceberg/start_spark_connect_server.sh", "type": "file", "name": "start_spark_connect_server.sh", "filePath": "e2e_test/iceberg/start_spark_connect_server.sh", "summary": "Shell script that downloads and launches a Spark Connect server with Iceberg support, configuring the REST catalog URL and MinIO S3 endpoint for use in Iceberg e2e tests.", "tags": ["script", "test", "infrastructure"], "complexity": "moderate"}
+  ],
+  "edges": [
+    {"source": "file:e2e_test/iceberg/start_spark_connect_server.sh", "target": "config:e2e_test/iceberg/config.ini", "type": "related", "direction": "forward", "weight": 0.5}
+  ]
+}

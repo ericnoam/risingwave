@@ -1,0 +1,406 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/common/proc_macro/src/config.rs",
+      "type": "file",
+      "name": "config.rs",
+      "filePath": "src/common/proc_macro/src/config.rs",
+      "summary": "Provides the proc-macro implementation for the `override_config` attribute, parsing struct fields annotated with override options and generating field-level override logic.",
+      "tags": ["utility", "proc-macro", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/common/proc_macro/src/config_doc.rs",
+      "type": "file",
+      "name": "config_doc.rs",
+      "filePath": "src/common/proc_macro/src/config_doc.rs",
+      "summary": "Implements the `config_doc` derive macro helper, extracting rustdoc comments and nested config field metadata from structs to generate documentation tables.",
+      "tags": ["utility", "proc-macro", "documentation", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/common/proc_macro/src/estimate_size.rs",
+      "type": "file",
+      "name": "estimate_size.rs",
+      "filePath": "src/common/proc_macro/src/estimate_size.rs",
+      "summary": "Helper functions for the `EstimateSize` derive macro, including extracting generic type parameters to ignore and adding trait bounds to the generated impl.",
+      "tags": ["utility", "proc-macro", "generics"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/common/proc_macro/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/common/proc_macro/src/lib.rs",
+      "summary": "Entry point of the `risingwave_proc_macro` crate, exposing proc-macro functions including `override_config`, `derive_estimate_size`, `session_config`, `config_doc`, and `serde_prefix_all`.",
+      "tags": ["entry-point", "proc-macro", "barrel"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/common/proc_macro/src/serde_prefix_all.rs",
+      "type": "file",
+      "name": "serde_prefix_all.rs",
+      "filePath": "src/common/proc_macro/src/serde_prefix_all.rs",
+      "summary": "Implements the `serde_prefix_all` proc-macro attribute that adds a serde rename or alias prefix to all fields/variants of a struct or enum.",
+      "tags": ["utility", "proc-macro", "serialization"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/common/proc_macro/src/session_config.rs",
+      "type": "file",
+      "name": "session_config.rs",
+      "filePath": "src/common/proc_macro/src/session_config.rs",
+      "summary": "Implements the `session_config` derive macro, generating typed getter/setter/reset methods for session configuration parameters from an annotated struct.",
+      "tags": ["utility", "proc-macro", "configuration", "code-generation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/common/proc_macro/src/config.rs:OverrideOpts",
+      "type": "class",
+      "name": "OverrideOpts",
+      "filePath": "src/common/proc_macro/src/config.rs",
+      "lineRange": [22, 30],
+      "summary": "Parsed attribute options for a `#[override_opts]` field, holding the config path and optional `if_absent` flag.",
+      "tags": ["data-model", "proc-macro", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/common/proc_macro/src/config_doc.rs:StructFieldDocs",
+      "type": "class",
+      "name": "StructFieldDocs",
+      "filePath": "src/common/proc_macro/src/config_doc.rs",
+      "lineRange": [94, 99],
+      "summary": "Collects extracted rustdoc strings and nested config type references from a struct, then generates token streams for documentation table construction.",
+      "tags": ["data-model", "proc-macro", "documentation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/common/proc_macro/src/session_config.rs:Parameter",
+      "type": "class",
+      "name": "Parameter",
+      "filePath": "src/common/proc_macro/src/session_config.rs",
+      "lineRange": [22, 28],
+      "summary": "Represents parsed `#[parameter]` attribute options for a session config field, including rename, alias, default, flags, and an optional check hook.",
+      "tags": ["data-model", "proc-macro", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/config.rs:produce_override_config",
+      "type": "function",
+      "name": "produce_override_config",
+      "filePath": "src/common/proc_macro/src/config.rs",
+      "lineRange": [44, 98],
+      "summary": "Walks a struct's fields annotated with `#[override_opts]` and emits override assignment statements, handling optional fields and conditional `if_absent` semantics.",
+      "tags": ["utility", "proc-macro", "code-generation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/config_doc.rs:generate_config_doc_fn",
+      "type": "function",
+      "name": "generate_config_doc_fn",
+      "filePath": "src/common/proc_macro/src/config_doc.rs",
+      "lineRange": [19, 38],
+      "summary": "Top-level function for the `config_doc` derive, orchestrating field doc extraction and emitting a `config_docs` method on the annotated struct.",
+      "tags": ["utility", "proc-macro", "documentation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/config_doc.rs:extract_comment",
+      "type": "function",
+      "name": "extract_comment",
+      "filePath": "src/common/proc_macro/src/config_doc.rs",
+      "lineRange": [40, 65],
+      "summary": "Extracts and joins non-empty rustdoc comment lines from a list of syn attributes into a single trimmed string.",
+      "tags": ["utility", "proc-macro", "documentation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/config_doc.rs:extract_field_docs",
+      "type": "function",
+      "name": "extract_field_docs",
+      "filePath": "src/common/proc_macro/src/config_doc.rs",
+      "lineRange": [109, 132],
+      "summary": "Iterates over struct fields, separating nested config fields from regular ones and collecting their (name, doc) pairs.",
+      "tags": ["utility", "proc-macro", "documentation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/estimate_size.rs:has_nested_flag_attribute",
+      "type": "function",
+      "name": "has_nested_flag_attribute",
+      "filePath": "src/common/proc_macro/src/estimate_size.rs",
+      "lineRange": [35, 58],
+      "summary": "Checks whether a single syn attribute matches a given name and contains a specific nested flag identifier.",
+      "tags": ["utility", "proc-macro"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/estimate_size.rs:extract_ignored_generics",
+      "type": "function",
+      "name": "extract_ignored_generics",
+      "filePath": "src/common/proc_macro/src/estimate_size.rs",
+      "lineRange": [86, 126],
+      "summary": "Parses an `#[estimate_size(ignore)]` attribute to collect type parameter names that should not have the `EstimateSize` bound added.",
+      "tags": ["utility", "proc-macro", "generics"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/estimate_size.rs:add_trait_bounds",
+      "type": "function",
+      "name": "add_trait_bounds",
+      "filePath": "src/common/proc_macro/src/estimate_size.rs",
+      "lineRange": [129, 147],
+      "summary": "Adds `EstimateSize` trait bounds to generic type parameters in the provided generics, skipping any types in the ignored list.",
+      "tags": ["utility", "proc-macro", "generics"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/lib.rs:derive_estimate_size",
+      "type": "function",
+      "name": "derive_estimate_size",
+      "filePath": "src/common/proc_macro/src/lib.rs",
+      "lineRange": [71, 251],
+      "summary": "Main body of the `EstimateSize` derive macro, handling enums and structs to generate field-level `estimated_heap_size` accumulation and a complete trait impl.",
+      "tags": ["proc-macro", "code-generation", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/serde_prefix_all.rs:parse_args",
+      "type": "function",
+      "name": "parse_args",
+      "filePath": "src/common/proc_macro/src/serde_prefix_all.rs",
+      "lineRange": [61, 118],
+      "summary": "Parses the `serde_prefix_all` macro arguments, extracting the prefix string literal and the optional rename/alias mode, with detailed error messages.",
+      "tags": ["utility", "proc-macro", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/serde_prefix_all.rs:try_prefix_all",
+      "type": "function",
+      "name": "try_prefix_all",
+      "filePath": "src/common/proc_macro/src/serde_prefix_all.rs",
+      "lineRange": [120, 142],
+      "summary": "Entry point of the prefix-all logic, parsing arguments then dispatching to either the enum or struct handler and returning the modified token stream.",
+      "tags": ["utility", "proc-macro", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/serde_prefix_all.rs:take_skip_attr",
+      "type": "function",
+      "name": "take_skip_attr",
+      "filePath": "src/common/proc_macro/src/serde_prefix_all.rs",
+      "lineRange": [152, 200],
+      "summary": "Drains attributes matching `serde_prefix_all_skip` from a field or variant's attribute list, validating the attribute syntax and returning any skip flags found.",
+      "tags": ["utility", "proc-macro", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/common/proc_macro/src/session_config.rs:derive_config",
+      "type": "function",
+      "name": "derive_config",
+      "filePath": "src/common/proc_macro/src/session_config.rs",
+      "lineRange": [30, 348],
+      "summary": "Core implementation of the `session_config` derive macro — processes each field's `#[parameter]` annotation and generates typed setters, getters, reset methods, match arms, and metadata lists for the full session configuration struct.",
+      "tags": ["proc-macro", "code-generation", "configuration"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/common/proc_macro/src/lib.rs",
+      "target": "file:src/common/proc_macro/src/config_doc.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/proc_macro/src/lib.rs",
+      "target": "file:src/common/proc_macro/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/proc_macro/src/lib.rs",
+      "target": "file:src/common/proc_macro/src/estimate_size.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/proc_macro/src/lib.rs",
+      "target": "file:src/common/proc_macro/src/serde_prefix_all.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/proc_macro/src/lib.rs",
+      "target": "file:src/common/proc_macro/src/session_config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/common/proc_macro/src/config.rs",
+      "target": "class:src/common/proc_macro/src/config.rs:OverrideOpts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/config.rs",
+      "target": "class:src/common/proc_macro/src/config.rs:OverrideOpts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/proc_macro/src/config.rs",
+      "target": "function:src/common/proc_macro/src/config.rs:produce_override_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/config.rs",
+      "target": "function:src/common/proc_macro/src/config.rs:produce_override_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/proc_macro/src/config_doc.rs",
+      "target": "class:src/common/proc_macro/src/config_doc.rs:StructFieldDocs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/config_doc.rs",
+      "target": "function:src/common/proc_macro/src/config_doc.rs:generate_config_doc_fn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/config_doc.rs",
+      "target": "function:src/common/proc_macro/src/config_doc.rs:generate_config_doc_fn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/proc_macro/src/config_doc.rs",
+      "target": "function:src/common/proc_macro/src/config_doc.rs:extract_comment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/config_doc.rs",
+      "target": "function:src/common/proc_macro/src/config_doc.rs:extract_field_docs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/estimate_size.rs",
+      "target": "function:src/common/proc_macro/src/estimate_size.rs:has_nested_flag_attribute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/estimate_size.rs",
+      "target": "function:src/common/proc_macro/src/estimate_size.rs:extract_ignored_generics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/estimate_size.rs",
+      "target": "function:src/common/proc_macro/src/estimate_size.rs:extract_ignored_generics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/proc_macro/src/estimate_size.rs",
+      "target": "function:src/common/proc_macro/src/estimate_size.rs:add_trait_bounds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/estimate_size.rs",
+      "target": "function:src/common/proc_macro/src/estimate_size.rs:add_trait_bounds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/proc_macro/src/lib.rs",
+      "target": "function:src/common/proc_macro/src/lib.rs:derive_estimate_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/lib.rs",
+      "target": "function:src/common/proc_macro/src/lib.rs:derive_estimate_size",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/proc_macro/src/serde_prefix_all.rs",
+      "target": "function:src/common/proc_macro/src/serde_prefix_all.rs:parse_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/serde_prefix_all.rs",
+      "target": "function:src/common/proc_macro/src/serde_prefix_all.rs:try_prefix_all",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/serde_prefix_all.rs",
+      "target": "function:src/common/proc_macro/src/serde_prefix_all.rs:try_prefix_all",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/common/proc_macro/src/serde_prefix_all.rs",
+      "target": "function:src/common/proc_macro/src/serde_prefix_all.rs:take_skip_attr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/session_config.rs",
+      "target": "class:src/common/proc_macro/src/session_config.rs:Parameter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/session_config.rs",
+      "target": "function:src/common/proc_macro/src/session_config.rs:derive_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/common/proc_macro/src/session_config.rs",
+      "target": "function:src/common/proc_macro/src/session_config.rs:derive_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

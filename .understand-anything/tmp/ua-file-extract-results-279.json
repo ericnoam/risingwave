@@ -1,0 +1,1181 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "dashboard/next-env.d.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/next.config.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 23,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/scripts/generate_proto.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 32,
+      "nonEmptyLines": 26,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/styles/global.css",
+      "language": "css",
+      "fileCategory": "markup",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {}
+    },
+    {
+      "path": "develop/nix/devshell.nix",
+      "language": "nix",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 57,
+      "metrics": {}
+    },
+    {
+      "path": "develop/nix/flake.nix",
+      "language": "nix",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 57,
+      "metrics": {}
+    },
+    {
+      "path": "develop/nix/overlays.nix",
+      "language": "nix",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 13,
+      "metrics": {}
+    },
+    {
+      "path": "develop/sql_bench/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 227,
+      "nonEmptyLines": 183,
+      "functions": [
+        {
+          "name": "create_benchmark_script",
+          "startLine": 46,
+          "endLine": 122,
+          "params": [
+            "yaml_path",
+            "dump_output"
+          ]
+        },
+        {
+          "name": "init_benchmark",
+          "startLine": 124,
+          "endLine": 135,
+          "params": [
+            "bench_name"
+          ]
+        },
+        {
+          "name": "run_benchmark",
+          "startLine": 137,
+          "endLine": 199,
+          "params": [
+            "bench_name",
+            "profile",
+            "pg_url",
+            "dump_output"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 201,
+          "endLine": 224,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "create_benchmark_script",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "init_benchmark",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "run_benchmark",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 201,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_benchmark_script",
+          "callee": "open",
+          "lineNumber": 48
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "yaml.safe_load",
+          "lineNumber": 49
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "config.get",
+          "lineNumber": 52
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "config.get",
+          "lineNumber": 53
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "config.get",
+          "lineNumber": 54
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "config.get",
+          "lineNumber": 55
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "config.get",
+          "lineNumber": 56
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "config.get",
+          "lineNumber": 57
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "dedent",
+          "lineNumber": 60
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "script_content.format",
+          "lineNumber": 109
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "yaml_path.with_suffix",
+          "lineNumber": 119
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "script_path.write_text",
+          "lineNumber": 120
+        },
+        {
+          "caller": "create_benchmark_script",
+          "callee": "script_path.chmod",
+          "lineNumber": 121
+        },
+        {
+          "caller": "init_benchmark",
+          "callee": "Path",
+          "lineNumber": 126
+        },
+        {
+          "caller": "init_benchmark",
+          "callee": "benchmark_dir.mkdir",
+          "lineNumber": 127
+        },
+        {
+          "caller": "init_benchmark",
+          "callee": "benchmark_file.exists",
+          "lineNumber": 130
+        },
+        {
+          "caller": "init_benchmark",
+          "callee": "print",
+          "lineNumber": 131
+        },
+        {
+          "caller": "init_benchmark",
+          "callee": "sys.exit",
+          "lineNumber": 132
+        },
+        {
+          "caller": "init_benchmark",
+          "callee": "benchmark_file.write_text",
+          "lineNumber": 134
+        },
+        {
+          "caller": "init_benchmark",
+          "callee": "BENCHMARK_TEMPLATE.lstrip",
+          "lineNumber": 134
+        },
+        {
+          "caller": "init_benchmark",
+          "callee": "print",
+          "lineNumber": 135
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "Path",
+          "lineNumber": 139
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "yaml_file.exists",
+          "lineNumber": 142
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 143
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "sys.exit",
+          "lineNumber": 144
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "os.environ.copy",
+          "lineNumber": 147
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "subprocess.run",
+          "lineNumber": 154
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "create_benchmark_script",
+          "lineNumber": 162
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 165
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 166
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "subprocess.run",
+          "lineNumber": 168
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "str",
+          "lineNumber": 169
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 178
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 182
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 183
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 186
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 187
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 188
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 189
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "print",
+          "lineNumber": 190
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "sys.exit",
+          "lineNumber": 191
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "script_file.unlink",
+          "lineNumber": 194
+        },
+        {
+          "caller": "run_benchmark",
+          "callee": "subprocess.run",
+          "lineNumber": 199
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 202
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_subparsers",
+          "lineNumber": 203
+        },
+        {
+          "caller": "main",
+          "callee": "subparsers.add_parser",
+          "lineNumber": 206
+        },
+        {
+          "caller": "main",
+          "callee": "init_parser.add_argument",
+          "lineNumber": 207
+        },
+        {
+          "caller": "main",
+          "callee": "subparsers.add_parser",
+          "lineNumber": 210
+        },
+        {
+          "caller": "main",
+          "callee": "run_parser.add_argument",
+          "lineNumber": 211
+        },
+        {
+          "caller": "main",
+          "callee": "run_parser.add_argument",
+          "lineNumber": 212
+        },
+        {
+          "caller": "main",
+          "callee": "run_parser.add_argument",
+          "lineNumber": 214
+        },
+        {
+          "caller": "main",
+          "callee": "run_parser.add_argument",
+          "lineNumber": 216
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 219
+        },
+        {
+          "caller": "main",
+          "callee": "init_benchmark",
+          "lineNumber": 222
+        },
+        {
+          "caller": "main",
+          "callee": "run_benchmark",
+          "lineNumber": 224
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "develop/sql_bench/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 95,
+      "nonEmptyLines": 66,
+      "sections": [
+        {
+          "heading": "SQL Benchmarks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Background",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "Creating a New Benchmark",
+          "level": 2,
+          "line": 23
+        },
+        {
+          "heading": "Running Benchmarks",
+          "level": 2,
+          "line": 61
+        },
+        {
+          "heading": "Debugging",
+          "level": 2,
+          "line": 79
+        },
+        {
+          "heading": "Directory Structure",
+          "level": 2,
+          "line": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "develop/sql_bench/requirements.txt",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "docker/aws/aws-build.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 20,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "docker/dashboards/risingwave-dev-dashboard.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "__inputs",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "annotations",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "editable",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "gnetId",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "graphTooltip",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "hideControls",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "id",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "links",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "panels",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "refresh",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "rows",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "schemaVersion",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "sharedCrosshair",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "style",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tags",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "templating",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "time",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "timepicker",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "timezone",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "title",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "uid",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 23
+      }
+    },
+    {
+      "path": "docker/dashboards/risingwave-user-dashboard.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "__inputs",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "annotations",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "editable",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "gnetId",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "graphTooltip",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "hideControls",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "id",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "links",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "panels",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "refresh",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "rows",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "schemaVersion",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "sharedCrosshair",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "style",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tags",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "templating",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "time",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "timepicker",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "timezone",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "title",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "uid",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 23
+      }
+    },
+    {
+      "path": "docker/risingwave.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "docs/dev/book.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "sections": [
+        {
+          "heading": "book",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "preprocessor.toc",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "output.html",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "output.linkcheck2",
+          "level": 2,
+          "line": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "docs/dev/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 34,
+      "nonEmptyLines": 22,
+      "sections": [
+        {
+          "heading": "RisingWave Developer guide",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Building the book",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Table of Contents",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "Link Validations",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Images",
+          "level": 2,
+          "line": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "docs/dev/src/build-and-run/intro.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 163,
+      "nonEmptyLines": 112,
+      "sections": [
+        {
+          "heading": "How to build and run RisingWave",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Set up the development environment",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "macOS",
+          "level": 3,
+          "line": 5
+        },
+        {
+          "heading": "Debian-based Linux",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "nix shell",
+          "level": 3,
+          "line": 25
+        },
+        {
+          "heading": "Start and monitor a dev cluster",
+          "level": 2,
+          "line": 71
+        },
+        {
+          "heading": "Tips for compilation",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "Configure additional components",
+          "level": 3,
+          "line": 104
+        },
+        {
+          "heading": "Configure system variables",
+          "level": 3,
+          "line": 136
+        },
+        {
+          "heading": "Start the playground",
+          "level": 3,
+          "line": 143
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "docs/dev/src/build-and-run/profiles.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 70,
+      "nonEmptyLines": 45,
+      "sections": [
+        {
+          "heading": "Build Profiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Built-in Profiles",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Custom Profiles",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "Comparisons",
+          "level": 2,
+          "line": 49
+        },
+        {
+          "heading": "Choose a Profile",
+          "level": 2,
+          "line": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "docs/dev/src/connector/intro.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 226,
+      "nonEmptyLines": 171,
+      "sections": [
+        {
+          "heading": "Develop Connectors",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Set up the development environment",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "Escape hatch: `user-managed` mode",
+          "level": 3,
+          "line": 75
+        },
+        {
+          "heading": "End-to-end tests",
+          "level": 2,
+          "line": 93
+        },
+        {
+          "heading": "Tips for writing `system` commands",
+          "level": 3,
+          "line": 154
+        },
+        {
+          "heading": "Adding a new connector to the development framework",
+          "level": 2,
+          "line": 215
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "docs/dev/src/connector/source.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 71,
+      "nonEmptyLines": 47,
+      "sections": [
+        {
+          "heading": "Source",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Components",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "Connectors",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "Enumerators",
+          "level": 3,
+          "line": 38
+        },
+        {
+          "heading": "ConnectorSource",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "SourceExecutor",
+          "level": 3,
+          "line": 62
+        },
+        {
+          "heading": "How It Works",
+          "level": 2,
+          "line": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "docs/dev/src/tests/intro.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 201,
+      "nonEmptyLines": 138,
+      "sections": [
+        {
+          "heading": "Testing",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Lint",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Unit and integration tests",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Planner tests",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "End-to-end tests",
+          "level": 2,
+          "line": 42
+        },
+        {
+          "heading": "Fuzzing tests",
+          "level": 2,
+          "line": 85
+        },
+        {
+          "heading": "SqlSmith",
+          "level": 3,
+          "line": 87
+        },
+        {
+          "heading": "DocSlt tests",
+          "level": 2,
+          "line": 93
+        },
+        {
+          "heading": "Deterministic simulation tests",
+          "level": 2,
+          "line": 111
+        },
+        {
+          "heading": "Unit and e2e tests",
+          "level": 3,
+          "line": 120
+        },
+        {
+          "heading": "Integration tests",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "Backwards compatibility tests",
+          "level": 2,
+          "line": 191
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "docs/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 6,
+      "nonEmptyLines": 4,
+      "sections": [
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "e2e_test/.coverageignore",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 12,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/backfill/backfill_order_control_recovery_progress.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 138,
+      "nonEmptyLines": 110,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/backfill/backfill_order_control_recovery.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 60,
+      "metrics": {}
+    }
+  ]
+}

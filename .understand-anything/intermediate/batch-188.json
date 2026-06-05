@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/debezium-mysql/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/debezium-mysql/create_mv.sql",
+      "summary": "Creates RisingWave materialized views over MySQL CDC source tables to aggregate and project data for validation in the integration test.",
+      "tags": ["database", "integration-test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/debezium-mysql/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/debezium-mysql/create_source.sql",
+      "summary": "Declares four RisingWave CDC source tables (`orders`, `mysql_all_data_types`, `mysql_types2`, `mysql_types3`) sourced from Debezium MySQL change events.",
+      "tags": ["database", "integration-test", "schema-definition", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/debezium-mysql/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/debezium-mysql/docker-compose.yml",
+      "summary": "Docker Compose setup for the Debezium-MySQL integration test, orchestrating MySQL, Kafka, Zookeeper, Debezium Connect, and RisingWave containers.",
+      "tags": ["infrastructure", "orchestration", "integration-test", "containerization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/debezium-mysql/mysql_prepare.sql",
+      "type": "file",
+      "name": "mysql_prepare.sql",
+      "filePath": "integration_tests/debezium-mysql/mysql_prepare.sql",
+      "summary": "Prepares the MySQL source database by creating and populating `orders`, `mysql_all_data_types`, `mysql_types2`, and `mysql_types3` tables with test data covering all MySQL data types.",
+      "tags": ["database", "integration-test", "migration", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/debezium-mysql/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/debezium-mysql/prepare.sh",
+      "summary": "Shell script that bootstraps the Debezium-MySQL integration test environment by waiting for services to be ready, running MySQL preparation SQL, and registering the Debezium connector.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/debezium-mysql/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/debezium-mysql/query.sql",
+      "summary": "Verification query that reads from RisingWave materialized views to confirm CDC data from MySQL was correctly ingested.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/debezium-mysql/create_source.sql",
+      "target": "file:integration_tests/debezium-mysql/mysql_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-mysql/create_mv.sql",
+      "target": "file:integration_tests/debezium-mysql/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-mysql/query.sql",
+      "target": "file:integration_tests/debezium-mysql/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/debezium-mysql/prepare.sh",
+      "target": "service:integration_tests/debezium-mysql/docker-compose.yml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/debezium-mysql/prepare.sh",
+      "target": "file:integration_tests/debezium-mysql/mysql_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

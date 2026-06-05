@@ -1,0 +1,649 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 141,
+      "nonEmptyLines": 126,
+      "functions": [
+        {
+          "name": "getDialectFactory",
+          "startLine": 39,
+          "endLine": 53,
+          "params": [
+            "jdbcUrl"
+          ]
+        },
+        {
+          "name": "createBaseProperties",
+          "startLine": 63,
+          "endLine": 83,
+          "params": [
+            "jdbcUrl",
+            "user"
+          ]
+        },
+        {
+          "name": "getConnectionDefault",
+          "startLine": 93,
+          "endLine": 140,
+          "params": [
+            "config"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JdbcUtils",
+          "startLine": 33,
+          "endLine": 141,
+          "methods": [
+            "getDialectFactory",
+            "createBaseProperties",
+            "getConnectionDefault"
+          ],
+          "properties": [
+            "LOG",
+            "CONNECTION_TIMEOUT",
+            "SOCKET_TIMEOUT"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getDialectFactory",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "JdbcUtils",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getDialectFactory",
+          "callee": "jdbcUrl.startsWith",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "jdbcUrl.startsWith",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "Optional.of",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "new MySqlDialectFactory",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "jdbcUrl.startsWith",
+          "lineNumber": 42
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "Optional.of",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "new PostgresDialectFactory",
+          "lineNumber": 43
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "jdbcUrl.startsWith",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "Optional.of",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "new RedShiftDialectFactory",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "jdbcUrl.startsWith",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "Optional.of",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "new SnowflakeDialectFactory",
+          "lineNumber": 47
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "jdbcUrl.startsWith",
+          "lineNumber": 48
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "Optional.of",
+          "lineNumber": 49
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "new SqlServerDialectFactory",
+          "lineNumber": 49
+        },
+        {
+          "caller": "getDialectFactory",
+          "callee": "Optional.empty",
+          "lineNumber": 51
+        },
+        {
+          "caller": "createBaseProperties",
+          "callee": "new Properties",
+          "lineNumber": 64
+        },
+        {
+          "caller": "createBaseProperties",
+          "callee": "props.setProperty",
+          "lineNumber": 67
+        },
+        {
+          "caller": "createBaseProperties",
+          "callee": "jdbcUrl.startsWith",
+          "lineNumber": 70
+        },
+        {
+          "caller": "createBaseProperties",
+          "callee": "props.setProperty",
+          "lineNumber": 75
+        },
+        {
+          "caller": "createBaseProperties",
+          "callee": "String.valueOf",
+          "lineNumber": 75
+        },
+        {
+          "caller": "createBaseProperties",
+          "callee": "props.setProperty",
+          "lineNumber": 76
+        },
+        {
+          "caller": "createBaseProperties",
+          "callee": "String.valueOf",
+          "lineNumber": 76
+        },
+        {
+          "caller": "createBaseProperties",
+          "callee": "props.put",
+          "lineNumber": 79
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getJdbcUrl",
+          "lineNumber": 94
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "createBaseProperties",
+          "lineNumber": 95
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getUser",
+          "lineNumber": 95
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getPassword",
+          "lineNumber": 98
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "props.put",
+          "lineNumber": 99
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getPassword",
+          "lineNumber": 99
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "jdbcUrl.startsWith",
+          "lineNumber": 102
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getBatchInsertRows",
+          "lineNumber": 102
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "props.setProperty",
+          "lineNumber": 103
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "props.setProperty",
+          "lineNumber": 104
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "String.valueOf",
+          "lineNumber": 105
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getBatchInsertRows",
+          "lineNumber": 105
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.isKeepaliveEnabled",
+          "lineNumber": 110
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "LOG.info",
+          "lineNumber": 111
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getKeepaliveIdleSeconds",
+          "lineNumber": 113
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getKeepaliveIntervalSeconds",
+          "lineNumber": 114
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getKeepaliveCount",
+          "lineNumber": 115
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "JDBCKeepaliveSocketFactory.configure",
+          "lineNumber": 117
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getKeepaliveIdleSeconds",
+          "lineNumber": 118
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getKeepaliveIntervalSeconds",
+          "lineNumber": 119
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.getKeepaliveCount",
+          "lineNumber": 120
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "props.setProperty",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "JDBCKeepaliveSocketFactory.class.getName",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "DriverManager.getConnection",
+          "lineNumber": 125
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "conn.setAutoCommit",
+          "lineNumber": 127
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "config.isAutoCommit",
+          "lineNumber": 127
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "jdbcUrl.startsWith",
+          "lineNumber": 130
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "conn.setTransactionIsolation",
+          "lineNumber": 131
+        },
+        {
+          "caller": "getConnectionDefault",
+          "callee": "JDBCKeepaliveSocketFactory.clearConfig",
+          "lineNumber": 137
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "classes": [
+        {
+          "name": "JdbcDialectFactory",
+          "startLine": 21,
+          "endLine": 24,
+          "methods": [
+            "create"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "JdbcDialectFactory",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "columnSqlTypes",
+            "pkIndices"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MySqlDialectFactory",
+          "startLine": 21,
+          "endLine": 27,
+          "methods": [
+            "create"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "create",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "MySqlDialectFactory",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "new MySqlDialect",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "columnSqlTypes",
+            "pkIndices"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PostgresDialectFactory",
+          "startLine": 21,
+          "endLine": 27,
+          "methods": [
+            "create"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "create",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "PostgresDialectFactory",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "new PostgresDialect",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "columnSqlTypes",
+            "pkIndices"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RedShiftDialectFactory",
+          "startLine": 21,
+          "endLine": 27,
+          "methods": [
+            "create"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "create",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "RedShiftDialectFactory",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "new RedShiftDialect",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "columnSqlTypes",
+            "pkIndices"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SnowflakeDialectFactory",
+          "startLine": 21,
+          "endLine": 27,
+          "methods": [
+            "create"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "create",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "SnowflakeDialectFactory",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "new SnowflakeDialect",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 23,
+          "endLine": 26,
+          "params": [
+            "columnSqlTypes",
+            "pkIndices"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SqlServerDialectFactory",
+          "startLine": 21,
+          "endLine": 27,
+          "methods": [
+            "create"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "create",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "SqlServerDialectFactory",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "new SqlServerDialect",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

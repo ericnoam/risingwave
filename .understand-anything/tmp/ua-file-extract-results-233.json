@@ -1,0 +1,2530 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "proto/secret.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 46,
+      "nonEmptyLines": 39,
+      "definitions": [
+        {
+          "name": "SecretMetaBackend",
+          "kind": "message",
+          "fields": [
+            "value"
+          ],
+          "startLine": 5,
+          "endLine": 7
+        },
+        {
+          "name": "VaultTokenAuth",
+          "kind": "message",
+          "fields": [
+            "token"
+          ],
+          "startLine": 9,
+          "endLine": 11
+        },
+        {
+          "name": "VaultAppRoleAuth",
+          "kind": "message",
+          "fields": [
+            "role_id",
+            "secret_id"
+          ],
+          "startLine": 13,
+          "endLine": 16
+        },
+        {
+          "name": "SecretHashicorpVaultBackend",
+          "kind": "message",
+          "fields": [
+            "addr",
+            "path",
+            "field",
+            "token_auth",
+            "approle_auth",
+            "tls_skip_verify"
+          ],
+          "startLine": 18,
+          "endLine": 27
+        },
+        {
+          "name": "Secret",
+          "kind": "message",
+          "fields": [
+            "meta",
+            "hashicorp_vault"
+          ],
+          "startLine": 29,
+          "endLine": 35
+        },
+        {
+          "name": "SecretRef",
+          "kind": "message",
+          "fields": [
+            "secret_id",
+            "ref_as"
+          ],
+          "startLine": 37,
+          "endLine": 46
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 6,
+        "endpointCount": 0
+      }
+    },
+    {
+      "path": "proto/serverless_backfill_controller.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 24,
+      "nonEmptyLines": 19,
+      "definitions": [
+        {
+          "name": "ProvisionRequest",
+          "kind": "message",
+          "fields": [],
+          "startLine": 8,
+          "endLine": 10
+        },
+        {
+          "name": "ProvisionResponse",
+          "kind": "message",
+          "fields": [
+            "resource_group"
+          ],
+          "startLine": 12,
+          "endLine": 14
+        }
+      ],
+      "endpoints": [
+        {
+          "method": "rpc",
+          "path": "NodeGroupControllerService.Provision",
+          "startLine": 23,
+          "endLine": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2,
+        "endpointCount": 1
+      }
+    },
+    {
+      "path": "proto/source.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 35,
+      "nonEmptyLines": 27,
+      "definitions": [
+        {
+          "name": "ConnectorSplit",
+          "kind": "message",
+          "fields": [
+            "split_type",
+            "encoded_split"
+          ],
+          "startLine": 8,
+          "endLine": 11
+        },
+        {
+          "name": "ConnectorSplits",
+          "kind": "message",
+          "fields": [
+            "splits"
+          ],
+          "startLine": 13,
+          "endLine": 15
+        },
+        {
+          "name": "SourceActorInfo",
+          "kind": "message",
+          "fields": [
+            "actor_id",
+            "splits"
+          ],
+          "startLine": 17,
+          "endLine": 20
+        },
+        {
+          "name": "CdcTableSnapshotSplitsWithGeneration",
+          "kind": "message",
+          "fields": [],
+          "startLine": 22,
+          "endLine": 24
+        },
+        {
+          "name": "CdcTableSnapshotSplits",
+          "kind": "message",
+          "fields": [
+            "splits",
+            "generation"
+          ],
+          "startLine": 26,
+          "endLine": 29
+        },
+        {
+          "name": "CdcTableSnapshotSplit",
+          "kind": "message",
+          "fields": [
+            "split_id",
+            "left_bound_inclusive",
+            "right_bound_exclusive"
+          ],
+          "startLine": 31,
+          "endLine": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 6,
+        "endpointCount": 0
+      }
+    },
+    {
+      "path": "proto/stream_plan.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 1550,
+      "nonEmptyLines": 1361,
+      "definitions": [
+        {
+          "name": "Dispatchers",
+          "kind": "message",
+          "fields": [
+            "dispatchers"
+          ],
+          "startLine": 17,
+          "endLine": 19
+        },
+        {
+          "name": "UpstreamSinkInfo",
+          "kind": "message",
+          "fields": [
+            "upstream_fragment_id"
+          ],
+          "startLine": 21,
+          "endLine": 25
+        },
+        {
+          "name": "AddMutation",
+          "kind": "message",
+          "fields": [
+            "info",
+            "added_actors",
+            "pause",
+            "subscriptions_to_add",
+            "backfill_nodes_to_pause"
+          ],
+          "startLine": 27,
+          "endLine": 50
+        },
+        {
+          "name": "StopMutation",
+          "kind": "message",
+          "fields": [
+            "actors",
+            "dropped_sink_fragments"
+          ],
+          "startLine": 52,
+          "endLine": 56
+        },
+        {
+          "name": "UpdateMutation",
+          "kind": "message",
+          "fields": [
+            "actor_id",
+            "dispatcher_id",
+            "hash_mapping",
+            "added_downstream_actor_id",
+            "removed_downstream_actor_id",
+            "actor_id",
+            "upstream_fragment_id",
+            "new_upstream_fragment_id",
+            "removed_upstream_actor_id",
+            "dispatcher_update",
+            "merge_update",
+            "dropped_actors",
+            "subscriptions_to_drop"
+          ],
+          "startLine": 58,
+          "endLine": 103
+        },
+        {
+          "name": "SourceChangeSplitMutation",
+          "kind": "message",
+          "fields": [],
+          "startLine": 105,
+          "endLine": 108
+        },
+        {
+          "name": "PauseMutation",
+          "kind": "message",
+          "fields": [],
+          "startLine": 110,
+          "endLine": 110
+        },
+        {
+          "name": "ResumeMutation",
+          "kind": "message",
+          "fields": [],
+          "startLine": 112,
+          "endLine": 112
+        },
+        {
+          "name": "ThrottleMutation",
+          "kind": "message",
+          "fields": [
+            "rate_limit"
+          ],
+          "startLine": 114,
+          "endLine": 121
+        },
+        {
+          "name": "SubscriptionUpstreamInfo",
+          "kind": "message",
+          "fields": [
+            "subscriber_id",
+            "upstream_mv_table_id"
+          ],
+          "startLine": 123,
+          "endLine": 127
+        },
+        {
+          "name": "DropSubscriptionsMutation",
+          "kind": "message",
+          "fields": [
+            "info"
+          ],
+          "startLine": 129,
+          "endLine": 131
+        },
+        {
+          "name": "ConnectorPropsChangeMutation",
+          "kind": "message",
+          "fields": [],
+          "startLine": 133,
+          "endLine": 138
+        },
+        {
+          "name": "StartFragmentBackfillMutation",
+          "kind": "message",
+          "fields": [
+            "fragment_ids"
+          ],
+          "startLine": 140,
+          "endLine": 142
+        },
+        {
+          "name": "RefreshStartMutation",
+          "kind": "message",
+          "fields": [
+            "table_id",
+            "associated_source_id"
+          ],
+          "startLine": 144,
+          "endLine": 149
+        },
+        {
+          "name": "ListFinishMutation",
+          "kind": "message",
+          "fields": [
+            "associated_source_id"
+          ],
+          "startLine": 150,
+          "endLine": 153
+        },
+        {
+          "name": "LoadFinishMutation",
+          "kind": "message",
+          "fields": [
+            "associated_source_id"
+          ],
+          "startLine": 154,
+          "endLine": 157
+        },
+        {
+          "name": "ResetSourceMutation",
+          "kind": "message",
+          "fields": [
+            "source_id"
+          ],
+          "startLine": 159,
+          "endLine": 162
+        },
+        {
+          "name": "InjectSourceOffsetsMutation",
+          "kind": "message",
+          "fields": [
+            "source_id"
+          ],
+          "startLine": 166,
+          "endLine": 171
+        },
+        {
+          "name": "BarrierMutation",
+          "kind": "message",
+          "fields": [
+            "add",
+            "stop",
+            "update",
+            "splits",
+            "pause",
+            "resume",
+            "throttle",
+            "drop_subscriptions",
+            "connector_props_change",
+            "start_fragment_backfill",
+            "refresh_start",
+            "load_finish",
+            "list_finish",
+            "reset_source",
+            "inject_source_offsets"
+          ],
+          "startLine": 173,
+          "endLine": 211
+        },
+        {
+          "name": "Barrier",
+          "kind": "message",
+          "fields": [
+            "mutation",
+            "kind"
+          ],
+          "startLine": 213,
+          "endLine": 233
+        },
+        {
+          "name": "Watermark",
+          "kind": "message",
+          "fields": [],
+          "startLine": 235,
+          "endLine": 240
+        },
+        {
+          "name": "StreamMessage",
+          "kind": "message",
+          "fields": [
+            "barrier",
+            "watermark"
+          ],
+          "startLine": 242,
+          "endLine": 248
+        },
+        {
+          "name": "StreamMessageBatch",
+          "kind": "message",
+          "fields": [
+            "barriers",
+            "barrier_batch",
+            "watermark"
+          ],
+          "startLine": 250,
+          "endLine": 259
+        },
+        {
+          "name": "ActorMapping",
+          "kind": "message",
+          "fields": [
+            "original_indices",
+            "data"
+          ],
+          "startLine": 262,
+          "endLine": 265
+        },
+        {
+          "name": "Columns",
+          "kind": "message",
+          "fields": [],
+          "startLine": 267,
+          "endLine": 269
+        },
+        {
+          "name": "StreamSource",
+          "kind": "message",
+          "fields": [
+            "source_id",
+            "row_id_index",
+            "source_name",
+            "rate_limit",
+            "downstream_columns",
+            "associated_table_id"
+          ],
+          "startLine": 271,
+          "endLine": 288
+        },
+        {
+          "name": "StreamFsFetch",
+          "kind": "message",
+          "fields": [
+            "source_id",
+            "row_id_index",
+            "source_name",
+            "rate_limit",
+            "associated_table_id"
+          ],
+          "startLine": 291,
+          "endLine": 306
+        },
+        {
+          "name": "BarrierRecvNode",
+          "kind": "message",
+          "fields": [],
+          "startLine": 310,
+          "endLine": 310
+        },
+        {
+          "name": "SourceNode",
+          "kind": "message",
+          "fields": [
+            "source_inner"
+          ],
+          "startLine": 312,
+          "endLine": 316
+        },
+        {
+          "name": "StreamFsFetchNode",
+          "kind": "message",
+          "fields": [
+            "node_inner"
+          ],
+          "startLine": 318,
+          "endLine": 320
+        },
+        {
+          "name": "SourceBackfillNode",
+          "kind": "message",
+          "fields": [
+            "upstream_source_id",
+            "row_id_index",
+            "source_name",
+            "rate_limit"
+          ],
+          "startLine": 324,
+          "endLine": 339
+        },
+        {
+          "name": "SinkDesc",
+          "kind": "message",
+          "fields": [
+            "id",
+            "name",
+            "definition",
+            "downstream_pk",
+            "distribution_key",
+            "db_name",
+            "sink_from_name",
+            "target_table",
+            "extra_partition_col_idx",
+            "raw_ignore_delete"
+          ],
+          "startLine": 341,
+          "endLine": 365
+        },
+        {
+          "name": "SinkNode",
+          "kind": "message",
+          "fields": [
+            "sink_desc",
+            "log_store_type",
+            "rate_limit"
+          ],
+          "startLine": 374,
+          "endLine": 380
+        },
+        {
+          "name": "IcebergWithPkIndexWriterNode",
+          "kind": "message",
+          "fields": [
+            "sink_desc"
+          ],
+          "startLine": 382,
+          "endLine": 385
+        },
+        {
+          "name": "IcebergWithPkIndexDvMergerNode",
+          "kind": "message",
+          "fields": [
+            "sink_desc"
+          ],
+          "startLine": 387,
+          "endLine": 389
+        },
+        {
+          "name": "ProjectNode",
+          "kind": "message",
+          "fields": [
+            "watermark_input_cols",
+            "watermark_output_cols",
+            "nondecreasing_exprs",
+            "noop_update_hint"
+          ],
+          "startLine": 391,
+          "endLine": 402
+        },
+        {
+          "name": "FilterNode",
+          "kind": "message",
+          "fields": [],
+          "startLine": 404,
+          "endLine": 406
+        },
+        {
+          "name": "ChangeLogNode",
+          "kind": "message",
+          "fields": [
+            "need_op",
+            "distribution_keys"
+          ],
+          "startLine": 408,
+          "endLine": 412
+        },
+        {
+          "name": "CdcFilterNode",
+          "kind": "message",
+          "fields": [
+            "upstream_source_id"
+          ],
+          "startLine": 414,
+          "endLine": 417
+        },
+        {
+          "name": "MaterializeNode",
+          "kind": "message",
+          "fields": [
+            "table_id",
+            "cleaned_by_ttl_watermark"
+          ],
+          "startLine": 426,
+          "endLine": 468
+        },
+        {
+          "name": "AggCallState",
+          "kind": "message",
+          "fields": [
+            "included_upstream_indices",
+            "table_value_indices",
+            "value_state",
+            "materialized_input_state"
+          ],
+          "startLine": 470,
+          "endLine": 489
+        },
+        {
+          "name": "SimpleAggNode",
+          "kind": "message",
+          "fields": [
+            "agg_call_states",
+            "is_append_only",
+            "row_count_index",
+            "version",
+            "must_output_per_barrier"
+          ],
+          "startLine": 501,
+          "endLine": 518
+        },
+        {
+          "name": "HashAggNode",
+          "kind": "message",
+          "fields": [
+            "group_key",
+            "agg_call_states",
+            "is_append_only",
+            "row_count_index",
+            "emit_on_window_close",
+            "version"
+          ],
+          "startLine": 520,
+          "endLine": 532
+        },
+        {
+          "name": "TopNNode",
+          "kind": "message",
+          "fields": [
+            "limit",
+            "offset",
+            "with_ties"
+          ],
+          "startLine": 534,
+          "endLine": 541
+        },
+        {
+          "name": "GroupTopNNode",
+          "kind": "message",
+          "fields": [
+            "limit",
+            "offset",
+            "group_key",
+            "with_ties"
+          ],
+          "startLine": 543,
+          "endLine": 551
+        },
+        {
+          "name": "DeltaExpression",
+          "kind": "message",
+          "fields": [],
+          "startLine": 553,
+          "endLine": 556
+        },
+        {
+          "name": "InequalityPair",
+          "kind": "message",
+          "fields": [
+            "key_required_larger",
+            "key_required_smaller",
+            "clean_state",
+            "delta_expression"
+          ],
+          "startLine": 559,
+          "endLine": 568
+        },
+        {
+          "name": "InequalityPairV2",
+          "kind": "message",
+          "fields": [
+            "left_idx",
+            "right_idx",
+            "clean_left_state",
+            "clean_right_state",
+            "op"
+          ],
+          "startLine": 578,
+          "endLine": 589
+        },
+        {
+          "name": "JoinKeyWatermarkIndex",
+          "kind": "message",
+          "fields": [
+            "index",
+            "do_state_cleaning"
+          ],
+          "startLine": 597,
+          "endLine": 602
+        },
+        {
+          "name": "HashJoinWatermarkHandleDesc",
+          "kind": "message",
+          "fields": [
+            "watermark_indices_in_jk",
+            "inequality_pairs"
+          ],
+          "startLine": 604,
+          "endLine": 609
+        },
+        {
+          "name": "HashJoinNode",
+          "kind": "message",
+          "fields": [
+            "left_key",
+            "right_key",
+            "output_indices",
+            "left_deduped_input_pk_indices",
+            "right_deduped_input_pk_indices",
+            "null_safe",
+            "is_append_only",
+            "join_encoding_type",
+            "watermark_handle_desc"
+          ],
+          "startLine": 611,
+          "endLine": 654
+        },
+        {
+          "name": "AsOfJoinNode",
+          "kind": "message",
+          "fields": [
+            "left_key",
+            "right_key",
+            "output_indices",
+            "left_deduped_input_pk_indices",
+            "right_deduped_input_pk_indices",
+            "null_safe",
+            "join_encoding_type",
+            "use_cache"
+          ],
+          "startLine": 656,
+          "endLine": 683
+        },
+        {
+          "name": "TemporalJoinNode",
+          "kind": "message",
+          "fields": [
+            "left_key",
+            "right_key",
+            "null_safe",
+            "output_indices",
+            "table_output_indices",
+            "is_nested_loop"
+          ],
+          "startLine": 685,
+          "endLine": 701
+        },
+        {
+          "name": "DynamicFilterNode",
+          "kind": "message",
+          "fields": [
+            "left_key",
+            "condition_always_relax",
+            "cleaned_by_watermark"
+          ],
+          "startLine": 703,
+          "endLine": 720
+        },
+        {
+          "name": "DeltaIndexJoinNode",
+          "kind": "message",
+          "fields": [
+            "left_key",
+            "right_key",
+            "left_table_id",
+            "right_table_id",
+            "left_info",
+            "right_info",
+            "output_indices"
+          ],
+          "startLine": 724,
+          "endLine": 739
+        },
+        {
+          "name": "HopWindowNode",
+          "kind": "message",
+          "fields": [
+            "time_col",
+            "output_indices"
+          ],
+          "startLine": 741,
+          "endLine": 748
+        },
+        {
+          "name": "MergeNode",
+          "kind": "message",
+          "fields": [
+            "upstream_actor_id",
+            "upstream_fragment_id",
+            "upstream_dispatcher_type"
+          ],
+          "startLine": 750,
+          "endLine": 764
+        },
+        {
+          "name": "ExchangeNode",
+          "kind": "message",
+          "fields": [
+            "strategy"
+          ],
+          "startLine": 768,
+          "endLine": 770
+        },
+        {
+          "name": "StreamScanNode",
+          "kind": "message",
+          "fields": [
+            "table_id",
+            "upstream_column_ids",
+            "output_indices",
+            "stream_scan_type",
+            "rate_limit",
+            "snapshot_read_barrier_interval",
+            "snapshot_backfill_epoch"
+          ],
+          "startLine": 802,
+          "endLine": 842
+        },
+        {
+          "name": "StreamCdcScanOptions",
+          "kind": "message",
+          "fields": [
+            "disable_backfill",
+            "snapshot_barrier_interval",
+            "snapshot_batch_size",
+            "backfill_parallelism",
+            "backfill_num_rows_per_split",
+            "backfill_as_even_splits",
+            "backfill_split_pk_column_index"
+          ],
+          "startLine": 845,
+          "endLine": 860
+        },
+        {
+          "name": "StreamCdcScanNode",
+          "kind": "message",
+          "fields": [
+            "table_id",
+            "upstream_column_ids",
+            "output_indices",
+            "rate_limit",
+            "disable_backfill",
+            "options"
+          ],
+          "startLine": 862,
+          "endLine": 886
+        },
+        {
+          "name": "BatchPlanNode",
+          "kind": "message",
+          "fields": [
+            "column_ids"
+          ],
+          "startLine": 891,
+          "endLine": 894
+        },
+        {
+          "name": "ArrangementInfo",
+          "kind": "message",
+          "fields": [
+            "output_col_idx"
+          ],
+          "startLine": 896,
+          "endLine": 906
+        },
+        {
+          "name": "ArrangeNode",
+          "kind": "message",
+          "fields": [
+            "table_info",
+            "distribution_key"
+          ],
+          "startLine": 910,
+          "endLine": 920
+        },
+        {
+          "name": "LookupNode",
+          "kind": "message",
+          "fields": [
+            "arrange_key",
+            "stream_key",
+            "use_current_epoch",
+            "column_mapping",
+            "table_id",
+            "index_id",
+            "arrangement_table_info"
+          ],
+          "startLine": 923,
+          "endLine": 942
+        },
+        {
+          "name": "WatermarkFilterNode",
+          "kind": "message",
+          "fields": [],
+          "startLine": 945,
+          "endLine": 950
+        },
+        {
+          "name": "UnionNode",
+          "kind": "message",
+          "fields": [],
+          "startLine": 953,
+          "endLine": 953
+        },
+        {
+          "name": "LookupUnionNode",
+          "kind": "message",
+          "fields": [
+            "order"
+          ],
+          "startLine": 956,
+          "endLine": 958
+        },
+        {
+          "name": "ExpandNode",
+          "kind": "message",
+          "fields": [
+            "column_indices",
+            "column_subsets"
+          ],
+          "startLine": 960,
+          "endLine": 965
+        },
+        {
+          "name": "ProjectSetNode",
+          "kind": "message",
+          "fields": [
+            "watermark_input_cols",
+            "watermark_expr_indices",
+            "nondecreasing_exprs"
+          ],
+          "startLine": 967,
+          "endLine": 975
+        },
+        {
+          "name": "SortNode",
+          "kind": "message",
+          "fields": [
+            "sort_column_index"
+          ],
+          "startLine": 978,
+          "endLine": 983
+        },
+        {
+          "name": "DmlNode",
+          "kind": "message",
+          "fields": [
+            "table_id",
+            "table_version_id",
+            "rate_limit"
+          ],
+          "startLine": 986,
+          "endLine": 994
+        },
+        {
+          "name": "RowIdGenNode",
+          "kind": "message",
+          "fields": [
+            "row_id_index"
+          ],
+          "startLine": 996,
+          "endLine": 998
+        },
+        {
+          "name": "NowModeUpdateCurrent",
+          "kind": "message",
+          "fields": [],
+          "startLine": 1000,
+          "endLine": 1000
+        },
+        {
+          "name": "NowModeGenerateSeries",
+          "kind": "message",
+          "fields": [],
+          "startLine": 1002,
+          "endLine": 1005
+        },
+        {
+          "name": "NowNode",
+          "kind": "message",
+          "fields": [
+            "update_current",
+            "generate_series"
+          ],
+          "startLine": 1007,
+          "endLine": 1015
+        },
+        {
+          "name": "ValuesNode",
+          "kind": "message",
+          "fields": [
+            "tuples"
+          ],
+          "startLine": 1017,
+          "endLine": 1023
+        },
+        {
+          "name": "DedupNode",
+          "kind": "message",
+          "fields": [
+            "dedup_column_indices"
+          ],
+          "startLine": 1025,
+          "endLine": 1028
+        },
+        {
+          "name": "NoOpNode",
+          "kind": "message",
+          "fields": [],
+          "startLine": 1030,
+          "endLine": 1030
+        },
+        {
+          "name": "EowcOverWindowNode",
+          "kind": "message",
+          "fields": [
+            "partition_by"
+          ],
+          "startLine": 1032,
+          "endLine": 1040
+        },
+        {
+          "name": "OverWindowNode",
+          "kind": "message",
+          "fields": [
+            "partition_by",
+            "cache_policy"
+          ],
+          "startLine": 1050,
+          "endLine": 1057
+        },
+        {
+          "name": "LocalApproxPercentileNode",
+          "kind": "message",
+          "fields": [
+            "base",
+            "percentile_index"
+          ],
+          "startLine": 1059,
+          "endLine": 1062
+        },
+        {
+          "name": "GlobalApproxPercentileNode",
+          "kind": "message",
+          "fields": [
+            "base",
+            "quantile"
+          ],
+          "startLine": 1064,
+          "endLine": 1069
+        },
+        {
+          "name": "RowMergeNode",
+          "kind": "message",
+          "fields": [],
+          "startLine": 1071,
+          "endLine": 1074
+        },
+        {
+          "name": "SyncLogStoreNode",
+          "kind": "message",
+          "fields": [
+            "pause_duration_ms",
+            "buffer_size",
+            "aligned"
+          ],
+          "startLine": 1076,
+          "endLine": 1083
+        },
+        {
+          "name": "MaterializedExprsNode",
+          "kind": "message",
+          "fields": [
+            "state_clean_col_idx"
+          ],
+          "startLine": 1085,
+          "endLine": 1089
+        },
+        {
+          "name": "VectorIndexWriteNode",
+          "kind": "message",
+          "fields": [],
+          "startLine": 1091,
+          "endLine": 1093
+        },
+        {
+          "name": "VectorIndexLookupJoinNode",
+          "kind": "message",
+          "fields": [
+            "vector_column_idx"
+          ],
+          "startLine": 1095,
+          "endLine": 1098
+        },
+        {
+          "name": "UpstreamSinkUnionNode",
+          "kind": "message",
+          "fields": [
+            "init_upstreams"
+          ],
+          "startLine": 1100,
+          "endLine": 1104
+        },
+        {
+          "name": "LocalityProviderNode",
+          "kind": "message",
+          "fields": [
+            "locality_columns"
+          ],
+          "startLine": 1106,
+          "endLine": 1113
+        },
+        {
+          "name": "EowcGapFillNode",
+          "kind": "message",
+          "fields": [
+            "time_column_index",
+            "fill_columns",
+            "fill_strategies"
+          ],
+          "startLine": 1115,
+          "endLine": 1122
+        },
+        {
+          "name": "GapFillNode",
+          "kind": "message",
+          "fields": [
+            "time_column_index",
+            "fill_columns",
+            "fill_strategies"
+          ],
+          "startLine": 1124,
+          "endLine": 1130
+        },
+        {
+          "name": "MatchRecognizeNode",
+          "kind": "message",
+          "fields": [
+            "partition_by",
+            "order_by",
+            "measures",
+            "defines",
+            "pattern_node",
+            "after_match_skip"
+          ],
+          "startLine": 1134,
+          "endLine": 1152
+        },
+        {
+          "name": "MatchRecognizePatternNode",
+          "kind": "message",
+          "fields": [
+            "var",
+            "concat",
+            "alternation",
+            "quantified",
+            "permute"
+          ],
+          "startLine": 1157,
+          "endLine": 1170
+        },
+        {
+          "name": "MatchRecognizePatternSeq",
+          "kind": "message",
+          "fields": [
+            "patterns"
+          ],
+          "startLine": 1173,
+          "endLine": 1175
+        },
+        {
+          "name": "MatchRecognizePermutePattern",
+          "kind": "message",
+          "fields": [
+            "vars"
+          ],
+          "startLine": 1178,
+          "endLine": 1180
+        },
+        {
+          "name": "MatchRecognizeQuantifiedPattern",
+          "kind": "message",
+          "fields": [
+            "inner",
+            "quantifier",
+            "reluctant"
+          ],
+          "startLine": 1183,
+          "endLine": 1188
+        },
+        {
+          "name": "MatchRecognizeQuantifier",
+          "kind": "message",
+          "fields": [
+            "kind",
+            "min",
+            "max"
+          ],
+          "startLine": 1191,
+          "endLine": 1208
+        },
+        {
+          "name": "MatchRecognizeDefine",
+          "kind": "message",
+          "fields": [
+            "symbol",
+            "slots"
+          ],
+          "startLine": 1213,
+          "endLine": 1218
+        },
+        {
+          "name": "MatchRecognizeDefineSlot",
+          "kind": "message",
+          "fields": [
+            "kind",
+            "vars",
+            "col_idx",
+            "offset"
+          ],
+          "startLine": 1221,
+          "endLine": 1229
+        },
+        {
+          "name": "MatchRecognizeMeasure",
+          "kind": "message",
+          "fields": [
+            "name",
+            "slots"
+          ],
+          "startLine": 1234,
+          "endLine": 1239
+        },
+        {
+          "name": "MatchRecognizeMeasureSlot",
+          "kind": "message",
+          "fields": [
+            "kind",
+            "vars",
+            "col_idx"
+          ],
+          "startLine": 1242,
+          "endLine": 1261
+        },
+        {
+          "name": "StreamNode",
+          "kind": "message",
+          "fields": [
+            "source",
+            "project",
+            "filter",
+            "materialize",
+            "stateless_simple_agg",
+            "simple_agg",
+            "hash_agg",
+            "append_only_top_n",
+            "hash_join",
+            "top_n",
+            "hop_window",
+            "merge",
+            "exchange",
+            "stream_scan",
+            "batch_plan",
+            "lookup",
+            "arrange",
+            "lookup_union",
+            "union",
+            "delta_index_join",
+            "sink",
+            "expand",
+            "dynamic_filter",
+            "project_set",
+            "group_top_n",
+            "sort",
+            "watermark_filter",
+            "dml",
+            "row_id_gen",
+            "now",
+            "append_only_group_top_n",
+            "temporal_join",
+            "barrier_recv",
+            "values",
+            "append_only_dedup",
+            "no_op",
+            "eowc_over_window",
+            "over_window",
+            "stream_fs_fetch",
+            "stream_cdc_scan",
+            "cdc_filter",
+            "source_backfill",
+            "changelog",
+            "local_approx_percentile",
+            "global_approx_percentile",
+            "row_merge",
+            "as_of_join",
+            "sync_log_store",
+            "materialized_exprs",
+            "vector_index_write",
+            "upstream_sink_union",
+            "locality_provider",
+            "eowc_gap_fill",
+            "gap_fill",
+            "vector_index_lookup_join",
+            "iceberg_with_pk_index_writer",
+            "iceberg_with_pk_index_dv_merger",
+            "match_recognize",
+            "operator_id",
+            "input",
+            "stream_key",
+            "stream_kind",
+            "identity"
+          ],
+          "startLine": 1263,
+          "endLine": 1343
+        },
+        {
+          "name": "DispatchOutputMapping",
+          "kind": "message",
+          "fields": [
+            "indices",
+            "types"
+          ],
+          "startLine": 1374,
+          "endLine": 1387
+        },
+        {
+          "name": "DispatchStrategy",
+          "kind": "message",
+          "fields": [
+            "type",
+            "dist_key_indices",
+            "output_mapping"
+          ],
+          "startLine": 1391,
+          "endLine": 1395
+        },
+        {
+          "name": "Dispatcher",
+          "kind": "message",
+          "fields": [
+            "type",
+            "dist_key_indices",
+            "output_mapping",
+            "hash_mapping",
+            "dispatcher_id",
+            "downstream_actor_id"
+          ],
+          "startLine": 1399,
+          "endLine": 1414
+        },
+        {
+          "name": "StreamActor",
+          "kind": "message",
+          "fields": [
+            "actor_id",
+            "fragment_id",
+            "dispatcher",
+            "mview_definition",
+            "config_override"
+          ],
+          "startLine": 1417,
+          "endLine": 1433
+        },
+        {
+          "name": "StreamContext",
+          "kind": "message",
+          "fields": [
+            "timezone",
+            "config_override"
+          ],
+          "startLine": 1436,
+          "endLine": 1443
+        },
+        {
+          "name": "BackfillOrder",
+          "kind": "message",
+          "fields": [],
+          "startLine": 1445,
+          "endLine": 1447
+        },
+        {
+          "name": "StreamFragmentGraph",
+          "kind": "message",
+          "fields": [
+            "fragment_id",
+            "node",
+            "fragment_type_mask",
+            "requires_singleton",
+            "dispatch_strategy",
+            "link_id",
+            "upstream_id",
+            "downstream_id",
+            "parallelism",
+            "edges",
+            "dependent_table_ids",
+            "table_ids_cnt",
+            "ctx",
+            "parallelism",
+            "backfill_parallelism",
+            "adaptive_parallelism_strategy",
+            "backfill_adaptive_parallelism_strategy",
+            "max_parallelism",
+            "backfill_order"
+          ],
+          "startLine": 1453,
+          "endLine": 1518
+        },
+        {
+          "name": "SinkSchemaChange",
+          "kind": "message",
+          "fields": [
+            "add_columns",
+            "drop_columns"
+          ],
+          "startLine": 1521,
+          "endLine": 1538
+        },
+        {
+          "name": "SinkAddColumnsOp",
+          "kind": "message",
+          "fields": [],
+          "startLine": 1541,
+          "endLine": 1544
+        },
+        {
+          "name": "SinkDropColumnsOp",
+          "kind": "message",
+          "fields": [
+            "column_names"
+          ],
+          "startLine": 1547,
+          "endLine": 1550
+        },
+        {
+          "name": "SinkLogStoreType",
+          "kind": "enum",
+          "fields": [
+            "SINK_LOG_STORE_TYPE_UNSPECIFIED",
+            "SINK_LOG_STORE_TYPE_KV_LOG_STORE",
+            "SINK_LOG_STORE_TYPE_IN_MEMORY_LOG_STORE"
+          ],
+          "startLine": 367,
+          "endLine": 372
+        },
+        {
+          "name": "AggNodeVersion",
+          "kind": "enum",
+          "fields": [
+            "AGG_NODE_VERSION_UNSPECIFIED",
+            "AGG_NODE_VERSION_ISSUE_12140",
+            "AGG_NODE_VERSION_ISSUE_13465"
+          ],
+          "startLine": 491,
+          "endLine": 499
+        },
+        {
+          "name": "InequalityType",
+          "kind": "enum",
+          "fields": [
+            "INEQUALITY_TYPE_UNSPECIFIED",
+            "INEQUALITY_TYPE_LESS_THAN",
+            "INEQUALITY_TYPE_LESS_THAN_OR_EQUAL",
+            "INEQUALITY_TYPE_GREATER_THAN",
+            "INEQUALITY_TYPE_GREATER_THAN_OR_EQUAL"
+          ],
+          "startLine": 570,
+          "endLine": 576
+        },
+        {
+          "name": "JoinEncodingType",
+          "kind": "enum",
+          "fields": [
+            "UNSPECIFIED",
+            "MEMORY_OPTIMIZED",
+            "CPU_OPTIMIZED"
+          ],
+          "startLine": 591,
+          "endLine": 595
+        },
+        {
+          "name": "StreamScanType",
+          "kind": "enum",
+          "fields": [
+            "STREAM_SCAN_TYPE_UNSPECIFIED",
+            "STREAM_SCAN_TYPE_CHAIN",
+            "STREAM_SCAN_TYPE_REARRANGE",
+            "STREAM_SCAN_TYPE_BACKFILL",
+            "STREAM_SCAN_TYPE_UPSTREAM_ONLY",
+            "STREAM_SCAN_TYPE_ARRANGEMENT_BACKFILL",
+            "STREAM_SCAN_TYPE_SNAPSHOT_BACKFILL",
+            "STREAM_SCAN_TYPE_CROSS_DB_SNAPSHOT_BACKFILL"
+          ],
+          "startLine": 773,
+          "endLine": 796
+        },
+        {
+          "name": "OverWindowCachePolicy",
+          "kind": "enum",
+          "fields": [
+            "OVER_WINDOW_CACHE_POLICY_UNSPECIFIED",
+            "OVER_WINDOW_CACHE_POLICY_FULL",
+            "OVER_WINDOW_CACHE_POLICY_RECENT",
+            "OVER_WINDOW_CACHE_POLICY_RECENT_FIRST_N",
+            "OVER_WINDOW_CACHE_POLICY_RECENT_LAST_N"
+          ],
+          "startLine": 1042,
+          "endLine": 1048
+        },
+        {
+          "name": "DispatcherType",
+          "kind": "enum",
+          "fields": [
+            "DISPATCHER_TYPE_UNSPECIFIED",
+            "DISPATCHER_TYPE_HASH",
+            "DISPATCHER_TYPE_BROADCAST",
+            "DISPATCHER_TYPE_SIMPLE",
+            "DISPATCHER_TYPE_NO_SHUFFLE"
+          ],
+          "startLine": 1345,
+          "endLine": 1360
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 120,
+        "endpointCount": 0
+      }
+    },
+    {
+      "path": "proto/stream_service.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 200,
+      "nonEmptyLines": 180,
+      "definitions": [
+        {
+          "name": "InjectBarrierRequest",
+          "kind": "message",
+          "fields": [
+            "request_id",
+            "actor_ids_to_collect",
+            "table_ids_to_sync",
+            "partial_graph_id",
+            "fragment_id",
+            "actors",
+            "actor_id",
+            "mview_definition",
+            "config_override",
+            "initial_subscriber_ids",
+            "actors_to_build"
+          ],
+          "startLine": 13,
+          "endLine": 43
+        },
+        {
+          "name": "BarrierCompleteResponse",
+          "kind": "message",
+          "fields": [
+            "backfill_actor_id",
+            "done",
+            "consumed_epoch",
+            "consumed_rows",
+            "pending_epoch_lag",
+            "buffered_rows",
+            "fragment_id",
+            "actor_id",
+            "epoch",
+            "done",
+            "split_id_start_inclusive",
+            "split_id_end_inclusive",
+            "generation",
+            "fragment_id",
+            "request_id",
+            "create_mview_progress",
+            "created_at",
+            "synced_sstables",
+            "worker_id",
+            "partial_graph_id",
+            "epoch",
+            "reporter_actor_id",
+            "table_id",
+            "associated_source_id",
+            "load_finished_sources",
+            "cdc_table_backfill_progress",
+            "truncate_tables",
+            "refresh_finished_tables",
+            "reporter_actor_id",
+            "table_id",
+            "associated_source_id",
+            "list_finished_sources",
+            "reporter_actor_id",
+            "source_id",
+            "cdc_source_offset_updated"
+          ],
+          "startLine": 45,
+          "endLine": 130
+        },
+        {
+          "name": "StreamingControlStreamRequest",
+          "kind": "message",
+          "fields": [
+            "term_id",
+            "partial_graph_id",
+            "partial_graph_ids",
+            "partial_graph_ids",
+            "init",
+            "inject_barrier",
+            "remove_partial_graph",
+            "create_partial_graph",
+            "reset_partial_graphs"
+          ],
+          "startLine": 132,
+          "endLine": 160
+        },
+        {
+          "name": "ScoredError",
+          "kind": "message",
+          "fields": [
+            "err_msg",
+            "score"
+          ],
+          "startLine": 162,
+          "endLine": 165
+        },
+        {
+          "name": "StreamingControlStreamResponse",
+          "kind": "message",
+          "fields": [
+            "partial_graph_id",
+            "partial_graph_id",
+            "root_err",
+            "init",
+            "complete_barrier",
+            "shutdown",
+            "report_partial_graph_failure",
+            "reset_partial_graph"
+          ],
+          "startLine": 167,
+          "endLine": 188
+        },
+        {
+          "name": "GetMinUncommittedObjectIdRequest",
+          "kind": "message",
+          "fields": [],
+          "startLine": 190,
+          "endLine": 190
+        },
+        {
+          "name": "GetMinUncommittedObjectIdResponse",
+          "kind": "message",
+          "fields": [
+            "min_uncommitted_object_id"
+          ],
+          "startLine": 191,
+          "endLine": 193
+        }
+      ],
+      "endpoints": [
+        {
+          "method": "rpc",
+          "path": "StreamService.StreamingControlStream",
+          "startLine": 196,
+          "endLine": 196
+        },
+        {
+          "method": "rpc",
+          "path": "StreamService.GetMinUncommittedObjectId",
+          "startLine": 197,
+          "endLine": 197
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 7,
+        "endpointCount": 2
+      }
+    },
+    {
+      "path": "proto/task_service.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 199,
+      "nonEmptyLines": 169,
+      "definitions": [
+        {
+          "name": "TaskId",
+          "kind": "message",
+          "fields": [
+            "query_id",
+            "stage_id",
+            "task_id"
+          ],
+          "startLine": 15,
+          "endLine": 19
+        },
+        {
+          "name": "TaskInfoResponse",
+          "kind": "message",
+          "fields": [
+            "task_status",
+            "error_message"
+          ],
+          "startLine": 21,
+          "endLine": 37
+        },
+        {
+          "name": "CreateTaskRequest",
+          "kind": "message",
+          "fields": [],
+          "startLine": 39,
+          "endLine": 46
+        },
+        {
+          "name": "CancelTaskRequest",
+          "kind": "message",
+          "fields": [],
+          "startLine": 48,
+          "endLine": 50
+        },
+        {
+          "name": "CancelTaskResponse",
+          "kind": "message",
+          "fields": [],
+          "startLine": 52,
+          "endLine": 54
+        },
+        {
+          "name": "GetTaskInfoRequest",
+          "kind": "message",
+          "fields": [],
+          "startLine": 56,
+          "endLine": 58
+        },
+        {
+          "name": "GetDataResponse",
+          "kind": "message",
+          "fields": [],
+          "startLine": 60,
+          "endLine": 62
+        },
+        {
+          "name": "FastInsertRequest",
+          "kind": "message",
+          "fields": [
+            "table_id",
+            "table_version_id",
+            "row_id_index",
+            "request_id",
+            "wait_for_persistence"
+          ],
+          "startLine": 64,
+          "endLine": 83
+        },
+        {
+          "name": "FastInsertResponse",
+          "kind": "message",
+          "fields": [
+            "status",
+            "error_message"
+          ],
+          "startLine": 85,
+          "endLine": 93
+        },
+        {
+          "name": "IngestDmlInitRequest",
+          "kind": "message",
+          "fields": [
+            "table_id",
+            "table_version_id",
+            "request_id",
+            "row_id_index"
+          ],
+          "startLine": 95,
+          "endLine": 104
+        },
+        {
+          "name": "IngestDmlPayloadRequest",
+          "kind": "message",
+          "fields": [
+            "dml_batch_id"
+          ],
+          "startLine": 106,
+          "endLine": 111
+        },
+        {
+          "name": "IngestDmlRequest",
+          "kind": "message",
+          "fields": [
+            "init",
+            "payload"
+          ],
+          "startLine": 113,
+          "endLine": 118
+        },
+        {
+          "name": "IngestDmlInitResponse",
+          "kind": "message",
+          "fields": [],
+          "startLine": 120,
+          "endLine": 120
+        },
+        {
+          "name": "IngestDmlAckResponse",
+          "kind": "message",
+          "fields": [
+            "dml_batch_id"
+          ],
+          "startLine": 122,
+          "endLine": 124
+        },
+        {
+          "name": "IngestDmlResponse",
+          "kind": "message",
+          "fields": [
+            "init",
+            "ack"
+          ],
+          "startLine": 126,
+          "endLine": 131
+        },
+        {
+          "name": "ExecuteRequest",
+          "kind": "message",
+          "fields": [],
+          "startLine": 133,
+          "endLine": 140
+        },
+        {
+          "name": "GetDataRequest",
+          "kind": "message",
+          "fields": [],
+          "startLine": 153,
+          "endLine": 155
+        },
+        {
+          "name": "Permits",
+          "kind": "message",
+          "fields": [
+            "record",
+            "barrier"
+          ],
+          "startLine": 158,
+          "endLine": 165
+        },
+        {
+          "name": "GetStreamRequest",
+          "kind": "message",
+          "fields": [
+            "up_actor_id",
+            "down_actor_id",
+            "up_fragment_id",
+            "down_fragment_id",
+            "up_partial_graph_id",
+            "term_id",
+            "get",
+            "add_permits"
+          ],
+          "startLine": 167,
+          "endLine": 183
+        },
+        {
+          "name": "GetStreamResponse",
+          "kind": "message",
+          "fields": [
+            "permits"
+          ],
+          "startLine": 185,
+          "endLine": 191
+        }
+      ],
+      "endpoints": [
+        {
+          "method": "rpc",
+          "path": "TaskService.CreateTask",
+          "startLine": 143,
+          "endLine": 143
+        },
+        {
+          "method": "rpc",
+          "path": "TaskService.CancelTask",
+          "startLine": 145,
+          "endLine": 145
+        },
+        {
+          "method": "rpc",
+          "path": "TaskService.Execute",
+          "startLine": 146,
+          "endLine": 146
+        },
+        {
+          "method": "rpc",
+          "path": "TaskService.FastInsert",
+          "startLine": 148,
+          "endLine": 148
+        },
+        {
+          "method": "rpc",
+          "path": "TaskService.IngestDml",
+          "startLine": 150,
+          "endLine": 150
+        },
+        {
+          "method": "rpc",
+          "path": "BatchExchangeService.GetData",
+          "startLine": 194,
+          "endLine": 194
+        },
+        {
+          "method": "rpc",
+          "path": "StreamExchangeService.GetStream",
+          "startLine": 198,
+          "endLine": 198
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 20,
+        "endpointCount": 7
+      }
+    },
+    {
+      "path": "proto/telemetry.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 179,
+      "nonEmptyLines": 153,
+      "definitions": [
+        {
+          "name": "SystemMemory",
+          "kind": "message",
+          "fields": [
+            "used",
+            "total"
+          ],
+          "startLine": 30,
+          "endLine": 33
+        },
+        {
+          "name": "SystemOs",
+          "kind": "message",
+          "fields": [
+            "name",
+            "version",
+            "kernel_version"
+          ],
+          "startLine": 35,
+          "endLine": 39
+        },
+        {
+          "name": "SystemCpu",
+          "kind": "message",
+          "fields": [
+            "available"
+          ],
+          "startLine": 41,
+          "endLine": 43
+        },
+        {
+          "name": "SystemData",
+          "kind": "message",
+          "fields": [
+            "memory",
+            "os",
+            "cpu"
+          ],
+          "startLine": 45,
+          "endLine": 49
+        },
+        {
+          "name": "NodeCount",
+          "kind": "message",
+          "fields": [
+            "meta",
+            "compute",
+            "frontend",
+            "compactor"
+          ],
+          "startLine": 52,
+          "endLine": 57
+        },
+        {
+          "name": "RwVersion",
+          "kind": "message",
+          "fields": [
+            "rw_version",
+            "git_sha"
+          ],
+          "startLine": 60,
+          "endLine": 65
+        },
+        {
+          "name": "ReportBase",
+          "kind": "message",
+          "fields": [
+            "tracking_id",
+            "session_id",
+            "system_data",
+            "up_time",
+            "report_time",
+            "node_type",
+            "is_test"
+          ],
+          "startLine": 67,
+          "endLine": 83
+        },
+        {
+          "name": "MetaReport",
+          "kind": "message",
+          "fields": [
+            "base",
+            "meta_backend",
+            "node_count",
+            "rw_version",
+            "stream_job_count",
+            "stream_jobs",
+            "cluster_type",
+            "object_store_media_type",
+            "connector_usage_json_str",
+            "license_info_json_str"
+          ],
+          "startLine": 85,
+          "endLine": 112
+        },
+        {
+          "name": "StreamJobDesc",
+          "kind": "message",
+          "fields": [
+            "table_id",
+            "connector_name",
+            "plan_optimizations"
+          ],
+          "startLine": 118,
+          "endLine": 122
+        },
+        {
+          "name": "ComputeReport",
+          "kind": "message",
+          "fields": [
+            "base"
+          ],
+          "startLine": 124,
+          "endLine": 126
+        },
+        {
+          "name": "FrontendReport",
+          "kind": "message",
+          "fields": [
+            "base"
+          ],
+          "startLine": 128,
+          "endLine": 130
+        },
+        {
+          "name": "CompactorReport",
+          "kind": "message",
+          "fields": [
+            "base"
+          ],
+          "startLine": 132,
+          "endLine": 134
+        },
+        {
+          "name": "EventMessage",
+          "kind": "message",
+          "fields": [
+            "tracking_id",
+            "event_time_sec",
+            "event_stage",
+            "event_name",
+            "connector_name",
+            "object",
+            "catalog_id",
+            "attributes",
+            "node",
+            "is_test"
+          ],
+          "startLine": 154,
+          "endLine": 175
+        },
+        {
+          "name": "BatchEventMessage",
+          "kind": "message",
+          "fields": [
+            "events"
+          ],
+          "startLine": 177,
+          "endLine": 179
+        },
+        {
+          "name": "MetaBackend",
+          "kind": "enum",
+          "fields": [
+            "META_BACKEND_UNSPECIFIED",
+            "META_BACKEND_MEMORY",
+            "META_BACKEND_ETCD",
+            "META_BACKEND_RDB"
+          ],
+          "startLine": 7,
+          "endLine": 12
+        },
+        {
+          "name": "TelemetryNodeType",
+          "kind": "enum",
+          "fields": [
+            "TELEMETRY_NODE_TYPE_UNSPECIFIED",
+            "TELEMETRY_NODE_TYPE_META",
+            "TELEMETRY_NODE_TYPE_COMPUTE",
+            "TELEMETRY_NODE_TYPE_FRONTEND",
+            "TELEMETRY_NODE_TYPE_COMPACTOR"
+          ],
+          "startLine": 14,
+          "endLine": 20
+        },
+        {
+          "name": "TelemetryClusterType",
+          "kind": "enum",
+          "fields": [
+            "TELEMETRY_CLUSTER_TYPE_UNSPECIFIED",
+            "TELEMETRY_CLUSTER_TYPE_SINGLE_NODE",
+            "TELEMETRY_CLUSTER_TYPE_DOCKER_COMPOSE",
+            "TELEMETRY_CLUSTER_TYPE_KUBERNETES",
+            "TELEMETRY_CLUSTER_TYPE_CLOUD_HOSTED"
+          ],
+          "startLine": 22,
+          "endLine": 28
+        },
+        {
+          "name": "PlanOptimization",
+          "kind": "enum",
+          "fields": [
+            "TABLE_OPTIMIZATION_UNSPECIFIED"
+          ],
+          "startLine": 114,
+          "endLine": 116
+        },
+        {
+          "name": "TelemetryEventStage",
+          "kind": "enum",
+          "fields": [
+            "TELEMETRY_EVENT_STAGE_UNSPECIFIED",
+            "TELEMETRY_EVENT_STAGE_CREATE_STREAM_JOB",
+            "TELEMETRY_EVENT_STAGE_UPDATE_STREAM_JOB",
+            "TELEMETRY_EVENT_STAGE_DROP_STREAM_JOB",
+            "TELEMETRY_EVENT_STAGE_QUERY",
+            "TELEMETRY_EVENT_STAGE_RECOVERY"
+          ],
+          "startLine": 136,
+          "endLine": 143
+        },
+        {
+          "name": "TelemetryDatabaseObject",
+          "kind": "enum",
+          "fields": [
+            "TELEMETRY_DATABASE_OBJECT_UNSPECIFIED",
+            "TELEMETRY_DATABASE_OBJECT_SOURCE",
+            "TELEMETRY_DATABASE_OBJECT_MV",
+            "TELEMETRY_DATABASE_OBJECT_TABLE",
+            "TELEMETRY_DATABASE_OBJECT_SINK",
+            "TELEMETRY_DATABASE_OBJECT_INDEX"
+          ],
+          "startLine": 145,
+          "endLine": 152
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 20,
+        "endpointCount": 0
+      }
+    },
+    {
+      "path": "proto/user.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 178,
+      "nonEmptyLines": 153,
+      "definitions": [
+        {
+          "name": "AuthInfo",
+          "kind": "message",
+          "fields": [
+            "encryption_type",
+            "encrypted_value"
+          ],
+          "startLine": 11,
+          "endLine": 22
+        },
+        {
+          "name": "UserInfo",
+          "kind": "message",
+          "fields": [
+            "id",
+            "name",
+            "is_super",
+            "can_create_db",
+            "can_create_user",
+            "can_login",
+            "auth_info",
+            "grant_privileges",
+            "is_admin"
+          ],
+          "startLine": 25,
+          "endLine": 38
+        },
+        {
+          "name": "GrantPrivilege",
+          "kind": "message",
+          "fields": [
+            "action",
+            "with_grant_option",
+            "granted_by",
+            "database_id",
+            "schema_id",
+            "table_id",
+            "source_id",
+            "sink_id",
+            "view_id",
+            "function_id",
+            "subscription_id",
+            "connection_id",
+            "secret_id",
+            "action_with_opts"
+          ],
+          "startLine": 53,
+          "endLine": 73
+        },
+        {
+          "name": "CreateUserRequest",
+          "kind": "message",
+          "fields": [
+            "user"
+          ],
+          "startLine": 75,
+          "endLine": 77
+        },
+        {
+          "name": "CreateUserResponse",
+          "kind": "message",
+          "fields": [
+            "version"
+          ],
+          "startLine": 79,
+          "endLine": 82
+        },
+        {
+          "name": "DropUserRequest",
+          "kind": "message",
+          "fields": [
+            "user_id"
+          ],
+          "startLine": 84,
+          "endLine": 86
+        },
+        {
+          "name": "DropUserResponse",
+          "kind": "message",
+          "fields": [
+            "version"
+          ],
+          "startLine": 88,
+          "endLine": 91
+        },
+        {
+          "name": "UpdateUserRequest",
+          "kind": "message",
+          "fields": [
+            "user",
+            "update_fields"
+          ],
+          "startLine": 93,
+          "endLine": 106
+        },
+        {
+          "name": "UpdateUserResponse",
+          "kind": "message",
+          "fields": [
+            "version"
+          ],
+          "startLine": 108,
+          "endLine": 111
+        },
+        {
+          "name": "GrantPrivilegeRequest",
+          "kind": "message",
+          "fields": [
+            "user_ids",
+            "privileges",
+            "with_grant_option",
+            "granted_by"
+          ],
+          "startLine": 113,
+          "endLine": 118
+        },
+        {
+          "name": "GrantPrivilegeResponse",
+          "kind": "message",
+          "fields": [
+            "version"
+          ],
+          "startLine": 120,
+          "endLine": 123
+        },
+        {
+          "name": "RevokePrivilegeRequest",
+          "kind": "message",
+          "fields": [
+            "user_ids",
+            "privileges",
+            "granted_by",
+            "revoke_by",
+            "revoke_grant_option",
+            "cascade"
+          ],
+          "startLine": 125,
+          "endLine": 132
+        },
+        {
+          "name": "RevokePrivilegeResponse",
+          "kind": "message",
+          "fields": [
+            "version"
+          ],
+          "startLine": 134,
+          "endLine": 137
+        },
+        {
+          "name": "AlterDefaultPrivilegeRequest",
+          "kind": "message",
+          "fields": [
+            "user_ids",
+            "database_id",
+            "schema_ids",
+            "actions",
+            "grantees",
+            "with_grant_option",
+            "actions",
+            "grantees",
+            "revoke_grant_option",
+            "grant_privilege",
+            "revoke_privilege",
+            "granted_by"
+          ],
+          "startLine": 139,
+          "endLine": 161
+        },
+        {
+          "name": "AlterDefaultPrivilegeResponse",
+          "kind": "message",
+          "fields": [],
+          "startLine": 163,
+          "endLine": 165
+        },
+        {
+          "name": "Action",
+          "kind": "enum",
+          "fields": [
+            "UNSPECIFIED",
+            "SELECT",
+            "INSERT",
+            "UPDATE",
+            "DELETE",
+            "CREATE",
+            "CONNECT",
+            "USAGE",
+            "EXECUTE"
+          ],
+          "startLine": 40,
+          "endLine": 50
+        }
+      ],
+      "endpoints": [
+        {
+          "method": "rpc",
+          "path": "UserService.CreateUser",
+          "startLine": 168,
+          "endLine": 168
+        },
+        {
+          "method": "rpc",
+          "path": "UserService.DropUser",
+          "startLine": 169,
+          "endLine": 169
+        },
+        {
+          "method": "rpc",
+          "path": "UserService.UpdateUser",
+          "startLine": 170,
+          "endLine": 170
+        },
+        {
+          "method": "rpc",
+          "path": "UserService.GrantPrivilege",
+          "startLine": 173,
+          "endLine": 173
+        },
+        {
+          "method": "rpc",
+          "path": "UserService.RevokePrivilege",
+          "startLine": 175,
+          "endLine": 175
+        },
+        {
+          "method": "rpc",
+          "path": "UserService.AlterDefaultPrivilege",
+          "startLine": 177,
+          "endLine": 177
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 16,
+        "endpointCount": 6
+      }
+    },
+    {
+      "path": "proto/window_function.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 52,
+      "nonEmptyLines": 44,
+      "definitions": [
+        {
+          "name": "RowNumberState",
+          "kind": "message",
+          "fields": [
+            "prev_rank"
+          ],
+          "startLine": 9,
+          "endLine": 11
+        },
+        {
+          "name": "RankState",
+          "kind": "message",
+          "fields": [
+            "prev_order_key",
+            "prev_rank",
+            "prev_pos_in_peer_group"
+          ],
+          "startLine": 14,
+          "endLine": 20
+        },
+        {
+          "name": "DenseRankState",
+          "kind": "message",
+          "fields": [
+            "prev_order_key",
+            "prev_rank"
+          ],
+          "startLine": 23,
+          "endLine": 28
+        },
+        {
+          "name": "StateKey",
+          "kind": "message",
+          "fields": [
+            "order_key",
+            "pk"
+          ],
+          "startLine": 33,
+          "endLine": 36
+        },
+        {
+          "name": "WindowStateSnapshot",
+          "kind": "message",
+          "fields": [
+            "last_output_key",
+            "row_number_state",
+            "rank_state",
+            "dense_rank_state"
+          ],
+          "startLine": 40,
+          "endLine": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 5,
+        "endpointCount": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "nodes": [
+    {
+      "id": "file:ci/scripts/e2e-source-kafka-test.sh",
+      "type": "file",
+      "name": "e2e-source-kafka-test.sh",
+      "filePath": "ci/scripts/e2e-source-kafka-test.sh",
+      "summary": "CI e2e test script for Kafka source connector, starting Kafka and Schema Registry then running SLT tests for various Kafka source scenarios.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-source-mqtt-test.sh",
+      "type": "file",
+      "name": "e2e-source-mqtt-test.sh",
+      "filePath": "ci/scripts/e2e-source-mqtt-test.sh",
+      "summary": "CI e2e test script for MQTT source connector, starting an MQTT broker and running SLT tests verifying message ingestion.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-source-mysql-cdc-reset.sh",
+      "type": "file",
+      "name": "e2e-source-mysql-cdc-reset.sh",
+      "filePath": "ci/scripts/e2e-source-mysql-cdc-reset.sh",
+      "summary": "CI e2e test script that tests MySQL CDC source connector with cluster restarts and failover, verifying resumption of change capture after node recovery.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ci/scripts/e2e-source-mysql-offline-schema-change.sh",
+      "type": "file",
+      "name": "e2e-source-mysql-offline-schema-change.sh",
+      "filePath": "ci/scripts/e2e-source-mysql-offline-schema-change.sh",
+      "summary": "CI e2e test script that tests MySQL CDC source behavior during offline schema changes, verifying that schema evolution is handled correctly.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ci/scripts/e2e-source-nats-test.sh",
+      "type": "file",
+      "name": "e2e-source-nats-test.sh",
+      "filePath": "ci/scripts/e2e-source-nats-test.sh",
+      "summary": "CI e2e test script for NATS source connector, starting a NATS server and running SLT tests for message ingestion.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-source-pubsub-test.sh",
+      "type": "file",
+      "name": "e2e-source-pubsub-test.sh",
+      "filePath": "ci/scripts/e2e-source-pubsub-test.sh",
+      "summary": "CI e2e test script for Google Cloud Pub/Sub source connector, using the Pub/Sub emulator and running SLT tests for message ingestion.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-source-pulsar-test.sh",
+      "type": "file",
+      "name": "e2e-source-pulsar-test.sh",
+      "filePath": "ci/scripts/e2e-source-pulsar-test.sh",
+      "summary": "CI e2e test script for Apache Pulsar source connector, starting a Pulsar standalone cluster and running SLT tests.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-source-test.sh",
+      "type": "file",
+      "name": "e2e-source-test.sh",
+      "filePath": "ci/scripts/e2e-source-test.sh",
+      "summary": "Generic CI e2e source connector test script that runs SLT tests for source connectors not requiring dedicated external services.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-sqlserver-sink-test.sh",
+      "type": "file",
+      "name": "e2e-sqlserver-sink-test.sh",
+      "filePath": "ci/scripts/e2e-sqlserver-sink-test.sh",
+      "summary": "CI e2e test script that starts a SQL Server container and runs SLT tests verifying the SQL Server sink connector, including CDC and upsert modes.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ci/scripts/e2e-starrocks-sink-test.sh",
+      "type": "file",
+      "name": "e2e-starrocks-sink-test.sh",
+      "filePath": "ci/scripts/e2e-starrocks-sink-test.sh",
+      "summary": "CI e2e test script that starts a StarRocks container and runs SLT tests verifying RisingWave's StarRocks sink connector.",
+      "tags": ["script", "ci-cd", "test", "connector"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/e2e-starrocks-sink-test.sh:create_starrocks_tables",
+      "type": "function",
+      "name": "create_starrocks_tables",
+      "filePath": "ci/scripts/e2e-starrocks-sink-test.sh",
+      "lineRange": [26, 61],
+      "summary": "Creates required tables in StarRocks using MySQL client before running sink connector tests.",
+      "tags": ["script", "test", "database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-test-parallel-for-opendal.sh",
+      "type": "file",
+      "name": "e2e-test-parallel-for-opendal.sh",
+      "filePath": "ci/scripts/e2e-test-parallel-for-opendal.sh",
+      "summary": "CI e2e test script that runs SLT tests in parallel specifically for the OpenDAL-backed storage engine variant.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-test-parallel.sh",
+      "type": "file",
+      "name": "e2e-test-parallel.sh",
+      "filePath": "ci/scripts/e2e-test-parallel.sh",
+      "summary": "CI e2e test script that runs SLT test suites in parallel across multiple RisingWave cluster instances to reduce test duration.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/e2e-test-serial.sh",
+      "type": "file",
+      "name": "e2e-test-serial.sh",
+      "filePath": "ci/scripts/e2e-test-serial.sh",
+      "summary": "CI e2e test script that runs SLT test suites serially in a single cluster, used for tests that require isolated execution or specific cluster states.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/e2e-test-serial.sh:cluster_start",
+      "type": "function",
+      "name": "cluster_start",
+      "filePath": "ci/scripts/e2e-test-serial.sh",
+      "lineRange": [39, 59],
+      "summary": "Starts a RisingWave cluster via risedev with a given configuration profile and waits for it to become ready.",
+      "tags": ["script", "ci-cd", "infrastructure"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/e2e-test-serial.sh:cluster_stop",
+      "type": "function",
+      "name": "cluster_stop",
+      "filePath": "ci/scripts/e2e-test-serial.sh",
+      "lineRange": [61, 73],
+      "summary": "Stops the RisingWave cluster and cleans up process state after serial test execution.",
+      "tags": ["script", "ci-cd", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/e2e-time-travel-test.sh",
+      "type": "file",
+      "name": "e2e-time-travel-test.sh",
+      "filePath": "ci/scripts/e2e-time-travel-test.sh",
+      "summary": "CI e2e test script for the time-travel query feature, running SLT tests that read historical snapshots of tables.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/flamegraph-env-build.sh",
+      "type": "file",
+      "name": "flamegraph-env-build.sh",
+      "filePath": "ci/scripts/flamegraph-env-build.sh",
+      "summary": "CI script that builds RisingWave with debug symbols and profiling support for use in flamegraph performance analysis runs.",
+      "tags": ["script", "ci-cd", "performance", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/gen-flamegraph.sh",
+      "type": "file",
+      "name": "gen-flamegraph.sh",
+      "filePath": "ci/scripts/gen-flamegraph.sh",
+      "summary": "Comprehensive CI script that runs NexMark benchmark workloads, collects CPU and heap flamegraphs using nperf/heaptrack, and uploads resulting SVG profiles to S3.",
+      "tags": ["script", "ci-cd", "performance", "monitoring"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/gen-flamegraph.sh:get_nexmark_queries_to_run",
+      "type": "function",
+      "name": "get_nexmark_queries_to_run",
+      "filePath": "ci/scripts/gen-flamegraph.sh",
+      "lineRange": [21, 39],
+      "summary": "Parses Buildkite environment labels to determine which NexMark benchmark queries to include in the flamegraph run.",
+      "tags": ["script", "performance", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/gen-flamegraph.sh:install_all",
+      "type": "function",
+      "name": "install_all",
+      "filePath": "ci/scripts/gen-flamegraph.sh",
+      "lineRange": [68, 113],
+      "summary": "Installs all dependencies for flamegraph generation including nperf, heaptrack, AWS CLI, and NexMark benchmark tooling.",
+      "tags": ["script", "ci-cd", "tooling"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/gen-flamegraph.sh:configure_nexmark_bench",
+      "type": "function",
+      "name": "configure_nexmark_bench",
+      "filePath": "ci/scripts/gen-flamegraph.sh",
+      "lineRange": [117, 143],
+      "summary": "Generates the NexMark benchmark configuration file specifying query selection, event rates, and parallelism settings.",
+      "tags": ["script", "performance", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/gen-flamegraph.sh:configure_rw",
+      "type": "function",
+      "name": "configure_rw",
+      "filePath": "ci/scripts/gen-flamegraph.sh",
+      "lineRange": [145, 164],
+      "summary": "Configures the RisingWave cluster settings for performance profiling, adjusting parallelism and memory tuning parameters.",
+      "tags": ["script", "performance", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/gen-flamegraph.sh:gen_events",
+      "type": "function",
+      "name": "gen_events",
+      "filePath": "ci/scripts/gen-flamegraph.sh",
+      "lineRange": [196, 208],
+      "summary": "Generates NexMark synthetic event data and publishes it to Kafka topics for consumption by the benchmark workload.",
+      "tags": ["script", "performance", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/gen-flamegraph.sh:gen_heap_flamegraph",
+      "type": "function",
+      "name": "gen_heap_flamegraph",
+      "filePath": "ci/scripts/gen-flamegraph.sh",
+      "lineRange": [218, 240],
+      "summary": "Generates a heap memory flamegraph by running heaptrack against the RisingWave process during a benchmark run.",
+      "tags": ["script", "performance", "monitoring"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/gen-flamegraph.sh:run_heap_flamegraph",
+      "type": "function",
+      "name": "run_heap_flamegraph",
+      "filePath": "ci/scripts/gen-flamegraph.sh",
+      "lineRange": [266, 323],
+      "summary": "Orchestrates a full heap flamegraph benchmark run: starts RisingWave, loads NexMark queries, generates events, collects profile, and uploads results.",
+      "tags": ["script", "performance", "monitoring"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/gen-flamegraph.sh:run_cpu_flamegraph",
+      "type": "function",
+      "name": "run_cpu_flamegraph",
+      "filePath": "ci/scripts/gen-flamegraph.sh",
+      "lineRange": [326, 377],
+      "summary": "Orchestrates a full CPU flamegraph benchmark run: starts RisingWave with nperf attached, runs NexMark queries, collects profiles, and uploads SVG results.",
+      "tags": ["script", "performance", "monitoring"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/gen-flamegraph.sh:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "ci/scripts/gen-flamegraph.sh",
+      "lineRange": [381, 425],
+      "summary": "Entry point for the flamegraph script, parsing run type (cpu/heap) from Buildkite labels and dispatching to the appropriate profiling pipeline.",
+      "tags": ["script", "entry-point", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/gen-sqlsmith-snapshots.sh",
+      "type": "file",
+      "name": "gen-sqlsmith-snapshots.sh",
+      "filePath": "ci/scripts/gen-sqlsmith-snapshots.sh",
+      "summary": "CI script that generates and uploads sqlsmith fuzzer snapshots for use in differential testing between versions.",
+      "tags": ["script", "ci-cd", "test", "fuzzing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/integration-tests.sh",
+      "type": "file",
+      "name": "integration-tests.sh",
+      "filePath": "ci/scripts/integration-tests.sh",
+      "summary": "CI script that runs the integration test suite in the `integration_tests/` directory, including various connector and protocol integration scenarios.",
+      "tags": ["script", "ci-cd", "test", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/java-binding-test.sh",
+      "type": "file",
+      "name": "java-binding-test.sh",
+      "filePath": "ci/scripts/java-binding-test.sh",
+      "summary": "CI script that builds and runs tests for the Java client binding library, verifying interoperability between Java and RisingWave's API.",
+      "tags": ["script", "ci-cd", "test", "java"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/multi-arch-docker.sh",
+      "type": "file",
+      "name": "multi-arch-docker.sh",
+      "filePath": "ci/scripts/multi-arch-docker.sh",
+      "summary": "CI script that builds multi-architecture (amd64 + arm64) Docker manifest lists and pushes them to Docker Hub and GitHub Container Registry.",
+      "tags": ["script", "ci-cd", "containerization", "deployment"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/multi-arch-docker.sh:pushGchr",
+      "type": "function",
+      "name": "pushGchr",
+      "filePath": "ci/scripts/multi-arch-docker.sh",
+      "lineRange": [35, 45],
+      "summary": "Pushes a multi-arch Docker manifest to GitHub Container Registry (ghcr.io) with configurable tags.",
+      "tags": ["script", "ci-cd", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:ci/scripts/multi-arch-docker.sh:pushDockerhub",
+      "type": "function",
+      "name": "pushDockerhub",
+      "filePath": "ci/scripts/multi-arch-docker.sh",
+      "lineRange": [48, 58],
+      "summary": "Pushes a multi-arch Docker manifest to Docker Hub with configurable tags.",
+      "tags": ["script", "ci-cd", "containerization"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:ci/scripts/e2e-starrocks-sink-test.sh", "target": "function:ci/scripts/e2e-starrocks-sink-test.sh:create_starrocks_tables", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/e2e-test-serial.sh", "target": "function:ci/scripts/e2e-test-serial.sh:cluster_start", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/e2e-test-serial.sh", "target": "function:ci/scripts/e2e-test-serial.sh:cluster_stop", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "function:ci/scripts/gen-flamegraph.sh:get_nexmark_queries_to_run", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "function:ci/scripts/gen-flamegraph.sh:install_all", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "function:ci/scripts/gen-flamegraph.sh:configure_nexmark_bench", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "function:ci/scripts/gen-flamegraph.sh:configure_rw", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "function:ci/scripts/gen-flamegraph.sh:gen_events", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "function:ci/scripts/gen-flamegraph.sh:gen_heap_flamegraph", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "function:ci/scripts/gen-flamegraph.sh:run_heap_flamegraph", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "function:ci/scripts/gen-flamegraph.sh:run_cpu_flamegraph", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/gen-flamegraph.sh", "target": "function:ci/scripts/gen-flamegraph.sh:main", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/multi-arch-docker.sh", "target": "function:ci/scripts/multi-arch-docker.sh:pushGchr", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/multi-arch-docker.sh", "target": "function:ci/scripts/multi-arch-docker.sh:pushDockerhub", "type": "contains", "direction": "forward", "weight": 1.0}
+  ]
+}

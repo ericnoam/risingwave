@@ -1,0 +1,140 @@
+{
+  "nodes": [
+    {
+      "id": "file:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_insert.sql",
+      "type": "file",
+      "name": "sql_server_cdc_insert.sql",
+      "filePath": "e2e_test/source_inline/cdc/sql_server/sql_server_cdc_insert.sql",
+      "summary": "INSERT statements populating SQL Server CDC test tables (orders, sqlserver_all_data_types) for inline SQL Server CDC source e2e tests.",
+      "tags": ["test", "database", "data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql",
+      "type": "table",
+      "name": "sql_server_cdc_prepare.sql",
+      "filePath": "e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql",
+      "summary": "Sets up SQL Server CDC test environment by creating tables (orders, single_type, sqlserver_all_data_types, orders_without_cdc, test_pk_uuid, test_pk_binary), enabling CDC, and inserting initial data.",
+      "tags": ["database", "test", "migration", "schema-definition"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql:orders",
+      "type": "table",
+      "name": "orders",
+      "filePath": "e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql",
+      "lineRange": [5, 12],
+      "summary": "SQL Server orders table with order fields and status, used as CDC source in e2e tests.",
+      "tags": ["database", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql:sqlserver_all_data_types",
+      "type": "table",
+      "name": "sqlserver_all_data_types",
+      "filePath": "e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql",
+      "lineRange": [47, 70],
+      "summary": "Comprehensive SQL Server type coverage table including bit, numeric, char, binary, XML, and money types for CDC type-mapping tests.",
+      "tags": ["database", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql:orders_without_cdc",
+      "type": "table",
+      "name": "orders_without_cdc",
+      "filePath": "e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql",
+      "lineRange": [84, 91],
+      "summary": "SQL Server orders table variant without CDC enabled, used to test non-CDC vs CDC source behavior.",
+      "tags": ["database", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_insert.sql",
+      "type": "file",
+      "name": "sql_server_timestamp_insert.sql",
+      "filePath": "e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_insert.sql",
+      "summary": "INSERT statements for the SQL Server timestamp_test table, used in inline CDC timestamp type tests.",
+      "tags": ["test", "database", "data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_prepare.sql",
+      "type": "table",
+      "name": "sql_server_timestamp_prepare.sql",
+      "filePath": "e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_prepare.sql",
+      "summary": "Creates the timestamp_test table in SQL Server and enables CDC on it, preparing the timestamp handling e2e test.",
+      "tags": ["database", "test", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_prepare.sql:timestamp_test",
+      "type": "table",
+      "name": "timestamp_test",
+      "filePath": "e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_prepare.sql",
+      "lineRange": [12, 16],
+      "summary": "SQL Server table with id, timestamp, and time_col for testing CDC timestamp type handling.",
+      "tags": ["database", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_update.sql",
+      "type": "file",
+      "name": "sql_server_timestamp_update.sql",
+      "filePath": "e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_update.sql",
+      "summary": "UPDATE statements modifying the SQL Server timestamp_test table rows for CDC change-capture testing.",
+      "tags": ["test", "database", "data"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql",
+      "target": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql:orders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql",
+      "target": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql:sqlserver_all_data_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql",
+      "target": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql:orders_without_cdc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_prepare.sql",
+      "target": "table:e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_prepare.sql:timestamp_test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "table:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_prepare.sql",
+      "target": "file:e2e_test/source_inline/cdc/sql_server/sql_server_cdc_insert.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "table:e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_prepare.sql",
+      "target": "file:e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_insert.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "table:e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_prepare.sql",
+      "target": "file:e2e_test/source_inline/cdc/sql_server/sql_server_timestamp_update.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

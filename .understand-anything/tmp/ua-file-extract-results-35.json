@@ -1,0 +1,6042 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 33,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/stream/src/from_proto/approx_percentile/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 15,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/asof_join.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 137,
+      "nonEmptyLines": 121,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 31,
+          "endLine": 136,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AsOfJoinExecutorBuilder",
+          "startLine": 26,
+          "endLine": 26,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AsOfJoinExecutorBuilder",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Arc::new",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.expect",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_table",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_table",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "JoinParams::new",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_key()\n                .iter()\n                .map(|key| *key as usize).collect_vec",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_key()\n                .iter().map",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_key().iter",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_key",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_deduped_input_pk_indices()\n                .iter()\n                .map(|key| *key as usize).collect_vec",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_deduped_input_pk_indices()\n                .iter().map",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_deduped_input_pk_indices().iter",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_deduped_input_pk_indices",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "JoinParams::new",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_key()\n                .iter()\n                .map(|key| *key as usize).collect_vec",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_key()\n                .iter().map",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_key().iter",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_key",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_deduped_input_pk_indices()\n                .iter()\n                .map(|key| *key as usize).collect_vec",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_deduped_input_pk_indices()\n                .iter().map",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_deduped_input_pk_indices().iter",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_deduped_input_pk_indices",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_output_indices()\n            .iter()\n            .map(|&x| x as usize).collect_vec",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_output_indices()\n            .iter().map",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_output_indices().iter",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_output_indices",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_l, store.clone(), Some(vnodes.clone()))\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_l, store.clone(), Some(vnodes.clone())).enable_preload_all_rows_by_config",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "vnodes.clone",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_r, store.clone(), Some(vnodes.clone()))\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_r, store.clone(), Some(vnodes.clone())).enable_preload_all_rows_by_config",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "vnodes.clone",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_join_type",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_asof_desc",
+          "lineNumber": 83
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "AsOfDesc::from_protobuf",
+          "lineNumber": 84
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_null_safe().clone",
+          "lineNumber": 86
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_null_safe",
+          "lineNumber": 86
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.use_cache.unwrap_or",
+          "lineNumber": 87
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_join_encoding_type().map_or",
+          "lineNumber": 92
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_join_encoding_type",
+          "lineNumber": 92
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 135
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 135
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/barrier_recv.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 25,
+          "endLine": 41,
+          "params": [
+            "params",
+            "_node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BarrierRecvExecutorBuilder",
+          "startLine": 20,
+          "endLine": 20,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BarrierRecvExecutorBuilder",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .local_barrier_manager.subscribe_barrier",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "BarrierRecvExecutor::new",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/batch_query.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 28,
+          "endLine": 63,
+          "params": [
+            "params",
+            "node",
+            "state_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BatchQueryExecutorBuilder",
+          "startLine": 23,
+          "endLine": 23,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BatchQueryExecutorBuilder",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.table_desc.is_none",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "\"DummyBatchQueryExecutor\".to_owned",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(info, DummyExecutor).into",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_table_desc",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .column_ids\n            .iter()\n            .copied()\n            .map(ColumnId::from).collect",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .column_ids\n            .iter()\n            .copied().map",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .column_ids\n            .iter().copied",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .column_ids.iter",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "BatchTable::new_partial",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.map",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "BatchQueryExecutor::new",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 60
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 62
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/cdc_filter.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 266,
+      "nonEmptyLines": 231,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 37,
+          "endLine": 49,
+          "params": [
+            "params",
+            "node",
+            "_store"
+          ]
+        },
+        {
+          "name": "build_search_condition_with_compat",
+          "startLine": 52,
+          "endLine": 57,
+          "params": [
+            "node"
+          ]
+        },
+        {
+          "name": "with_legacy_sqlserver_table_name_compat",
+          "startLine": 67,
+          "endLine": 120,
+          "params": [
+            "search_condition",
+            "upstream_source_id"
+          ]
+        },
+        {
+          "name": "extract_cdc_filter_eq_condition",
+          "startLine": 122,
+          "endLine": 144,
+          "params": [
+            "search_condition"
+          ]
+        },
+        {
+          "name": "is_rw_table_name_ref",
+          "startLine": 146,
+          "endLine": 151,
+          "params": [
+            "expr"
+          ]
+        },
+        {
+          "name": "extract_varchar_literal",
+          "startLine": 153,
+          "endLine": 158,
+          "params": [
+            "expr"
+          ]
+        },
+        {
+          "name": "normalize_legacy_sqlserver_table_name",
+          "startLine": 160,
+          "endLine": 169,
+          "params": [
+            "table_name"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CdcFilterExecutorBuilder",
+          "startLine": 25,
+          "endLine": 25,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CdcFilterExecutorBuilder",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_search_condition_with_compat",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_non_strict_from_prost",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "FilterExecutor::new",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 48
+        },
+        {
+          "caller": "build_search_condition_with_compat",
+          "callee": "Ok",
+          "lineNumber": 53
+        },
+        {
+          "caller": "build_search_condition_with_compat",
+          "callee": "with_legacy_sqlserver_table_name_compat",
+          "lineNumber": 53
+        },
+        {
+          "caller": "build_search_condition_with_compat",
+          "callee": "node.get_search_condition",
+          "lineNumber": 54
+        },
+        {
+          "caller": "build_search_condition_with_compat",
+          "callee": "node.upstream_source_id.as_raw_id",
+          "lineNumber": 55
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "extract_cdc_filter_eq_condition",
+          "lineNumber": 72
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "search_condition.clone",
+          "lineNumber": 74
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "normalize_legacy_sqlserver_table_name",
+          "lineNumber": 77
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "search_condition.clone",
+          "lineNumber": 79
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "search_condition.clone",
+          "lineNumber": 84
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "table_name_literal_expr.clone",
+          "lineNumber": 94
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "normalized_literal_expr.rex_node.as_mut",
+          "lineNumber": 95
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "serialize_datum",
+          "lineNumber": 98
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "Some",
+          "lineNumber": 98
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "ScalarImpl::Utf8(normalized_table_name.into()).as_scalar_ref_impl",
+          "lineNumber": 99
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "ScalarImpl::Utf8",
+          "lineNumber": 99
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "normalized_table_name.into",
+          "lineNumber": 99
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "search_condition.clone",
+          "lineNumber": 102
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "search_condition.return_type.clone",
+          "lineNumber": 107
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "Some",
+          "lineNumber": 108
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "RexNode::FuncCall",
+          "lineNumber": 108
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "search_condition.return_type.clone",
+          "lineNumber": 115
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "Some",
+          "lineNumber": 116
+        },
+        {
+          "caller": "with_legacy_sqlserver_table_name_compat",
+          "callee": "RexNode::FuncCall",
+          "lineNumber": 116
+        },
+        {
+          "caller": "extract_cdc_filter_eq_condition",
+          "callee": "search_condition.function_type",
+          "lineNumber": 125
+        },
+        {
+          "caller": "extract_cdc_filter_eq_condition",
+          "callee": "search_condition.rex_node.as_ref",
+          "lineNumber": 128
+        },
+        {
+          "caller": "extract_cdc_filter_eq_condition",
+          "callee": "func_call.children.len",
+          "lineNumber": 131
+        },
+        {
+          "caller": "extract_cdc_filter_eq_condition",
+          "callee": "is_rw_table_name_ref",
+          "lineNumber": 137
+        },
+        {
+          "caller": "extract_cdc_filter_eq_condition",
+          "callee": "extract_varchar_literal(rhs).map",
+          "lineNumber": 138
+        },
+        {
+          "caller": "extract_cdc_filter_eq_condition",
+          "callee": "extract_varchar_literal",
+          "lineNumber": 138
+        },
+        {
+          "caller": "extract_cdc_filter_eq_condition",
+          "callee": "is_rw_table_name_ref",
+          "lineNumber": 140
+        },
+        {
+          "caller": "extract_cdc_filter_eq_condition",
+          "callee": "extract_varchar_literal(lhs).map",
+          "lineNumber": 141
+        },
+        {
+          "caller": "extract_cdc_filter_eq_condition",
+          "callee": "extract_varchar_literal",
+          "lineNumber": 141
+        },
+        {
+          "caller": "extract_varchar_literal",
+          "callee": "expr.rex_node.as_ref",
+          "lineNumber": 154
+        },
+        {
+          "caller": "extract_varchar_literal",
+          "callee": "std::str::from_utf8(&constant.body).ok",
+          "lineNumber": 157
+        },
+        {
+          "caller": "extract_varchar_literal",
+          "callee": "std::str::from_utf8",
+          "lineNumber": 157
+        },
+        {
+          "caller": "normalize_legacy_sqlserver_table_name",
+          "callee": "table_name.split",
+          "lineNumber": 161
+        },
+        {
+          "caller": "normalize_legacy_sqlserver_table_name",
+          "callee": "parts.next",
+          "lineNumber": 163
+        },
+        {
+          "caller": "normalize_legacy_sqlserver_table_name",
+          "callee": "parts.next",
+          "lineNumber": 163
+        },
+        {
+          "caller": "normalize_legacy_sqlserver_table_name",
+          "callee": "parts.next",
+          "lineNumber": 163
+        },
+        {
+          "caller": "normalize_legacy_sqlserver_table_name",
+          "callee": "parts.next",
+          "lineNumber": 163
+        },
+        {
+          "caller": "normalize_legacy_sqlserver_table_name",
+          "callee": "Some",
+          "lineNumber": 168
+        },
+        {
+          "caller": "varchar_type",
+          "callee": "Default::default",
+          "lineNumber": 180
+        },
+        {
+          "caller": "bool_type",
+          "callee": "Default::default",
+          "lineNumber": 187
+        },
+        {
+          "caller": "rw_table_name_ref_expr",
+          "callee": "Some",
+          "lineNumber": 194
+        },
+        {
+          "caller": "rw_table_name_ref_expr",
+          "callee": "varchar_type",
+          "lineNumber": 194
+        },
+        {
+          "caller": "rw_table_name_ref_expr",
+          "callee": "Some",
+          "lineNumber": 195
+        },
+        {
+          "caller": "rw_table_name_ref_expr",
+          "callee": "RexNode::InputRef",
+          "lineNumber": 195
+        },
+        {
+          "caller": "literal_expr",
+          "callee": "Some",
+          "lineNumber": 202
+        },
+        {
+          "caller": "literal_expr",
+          "callee": "varchar_type",
+          "lineNumber": 202
+        },
+        {
+          "caller": "literal_expr",
+          "callee": "Some",
+          "lineNumber": 203
+        },
+        {
+          "caller": "literal_expr",
+          "callee": "RexNode::Constant",
+          "lineNumber": 203
+        },
+        {
+          "caller": "literal_expr",
+          "callee": "v.as_bytes().to_vec",
+          "lineNumber": 204
+        },
+        {
+          "caller": "literal_expr",
+          "callee": "v.as_bytes",
+          "lineNumber": 204
+        },
+        {
+          "caller": "equal_expr",
+          "callee": "Some",
+          "lineNumber": 212
+        },
+        {
+          "caller": "equal_expr",
+          "callee": "bool_type",
+          "lineNumber": 212
+        },
+        {
+          "caller": "equal_expr",
+          "callee": "Some",
+          "lineNumber": 213
+        },
+        {
+          "caller": "equal_expr",
+          "callee": "RexNode::FuncCall",
+          "lineNumber": 213
+        },
+        {
+          "caller": "test_legacy_sqlserver_filter_rewrite",
+          "callee": "equal_expr",
+          "lineNumber": 232
+        },
+        {
+          "caller": "test_legacy_sqlserver_filter_rewrite",
+          "callee": "rw_table_name_ref_expr",
+          "lineNumber": 232
+        },
+        {
+          "caller": "test_legacy_sqlserver_filter_rewrite",
+          "callee": "literal_expr",
+          "lineNumber": 232
+        },
+        {
+          "caller": "test_legacy_sqlserver_filter_rewrite",
+          "callee": "with_legacy_sqlserver_table_name_compat",
+          "lineNumber": 233
+        },
+        {
+          "caller": "test_legacy_sqlserver_filter_rewrite",
+          "callee": "rewritten.rex_node.unwrap",
+          "lineNumber": 236
+        },
+        {
+          "caller": "test_normalized_filter_no_rewrite",
+          "callee": "equal_expr",
+          "lineNumber": 244
+        },
+        {
+          "caller": "test_normalized_filter_no_rewrite",
+          "callee": "rw_table_name_ref_expr",
+          "lineNumber": 244
+        },
+        {
+          "caller": "test_normalized_filter_no_rewrite",
+          "callee": "literal_expr",
+          "lineNumber": 244
+        },
+        {
+          "caller": "test_normalized_filter_no_rewrite",
+          "callee": "with_legacy_sqlserver_table_name_compat",
+          "lineNumber": 245
+        },
+        {
+          "caller": "test_legacy_sqlserver_rewrite_via_cdc_filter_node_entry",
+          "callee": "equal_expr",
+          "lineNumber": 252
+        },
+        {
+          "caller": "test_legacy_sqlserver_rewrite_via_cdc_filter_node_entry",
+          "callee": "rw_table_name_ref_expr",
+          "lineNumber": 252
+        },
+        {
+          "caller": "test_legacy_sqlserver_rewrite_via_cdc_filter_node_entry",
+          "callee": "literal_expr",
+          "lineNumber": 252
+        },
+        {
+          "caller": "test_legacy_sqlserver_rewrite_via_cdc_filter_node_entry",
+          "callee": "Some",
+          "lineNumber": 254
+        },
+        {
+          "caller": "test_legacy_sqlserver_rewrite_via_cdc_filter_node_entry",
+          "callee": "Default::default",
+          "lineNumber": 255
+        },
+        {
+          "caller": "test_legacy_sqlserver_rewrite_via_cdc_filter_node_entry",
+          "callee": "build_search_condition_with_compat(&node).expect",
+          "lineNumber": 258
+        },
+        {
+          "caller": "test_legacy_sqlserver_rewrite_via_cdc_filter_node_entry",
+          "callee": "build_search_condition_with_compat",
+          "lineNumber": 258
+        },
+        {
+          "caller": "test_legacy_sqlserver_rewrite_via_cdc_filter_node_entry",
+          "callee": "rewritten.rex_node.expect",
+          "lineNumber": 261
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/changelog.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 28,
+          "endLine": 53,
+          "params": [
+            "params",
+            "node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ChangeLogExecutorBuilder",
+          "startLine": 23,
+          "endLine": 23,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ChangeLogExecutorBuilder",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .vnode_bitmap.expect",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .distribution_keys\n            .iter()\n            .map(|k| *k as usize)\n            .collect::<Vec<_>>",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .distribution_keys\n            .iter().map",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .distribution_keys.iter",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "ChangeLogExecutor::new",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/dml.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 30,
+          "endLine": 51,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DmlExecutorBuilder",
+          "startLine": 25,
+          "endLine": 25,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DmlExecutorBuilder",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.column_descs.iter().map(Into::into).collect_vec",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.column_descs.iter().map",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.column_descs.iter",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "DmlExecutor::new",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.actor_context.clone",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.env.dml_manager_ref",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.rate_limit.into",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/dynamic_filter.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 74,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 32,
+          "endLine": 85,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DynamicFilterExecutorBuilder",
+          "startLine": 27,
+          "endLine": 27,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DynamicFilterExecutorBuilder",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_key",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.map",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_condition",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "prost_condition.get_function_type",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_right_table()?, store.clone(), None)\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_right_table()?, store.clone(), None).enable_preload_all_rows_by_config",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_table",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_table",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "expect",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_left_table()?, store, vnodes)\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_left_table()?, store, vnodes).enable_preload_all_rows_by_config",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_table",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "DynamicFilterExecutor::new(\n            params.actor_context,\n            params.eval_error_report,\n            params.info.schema.clone(),\n            source_l,\n            source_r,\n            key_l,\n            comparator,\n            state_table_l,\n            state_table_r,\n            params.executor_stats,\n            params.config.developer.chunk_size,\n            cleaned_by_watermark,\n        ).boxed",
+          "lineNumber": 68
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "DynamicFilterExecutor::new",
+          "lineNumber": 68
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 71
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 84
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 84
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/eowc_gap_fill.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 101,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 36,
+          "endLine": 100,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EowcGapFillExecutorBuilder",
+          "startLine": 31,
+          "endLine": 31,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "EowcGapFillExecutorBuilder",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_time_column_index",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_interval",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_non_strict_from_prost",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.eval_error_report.clone",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_columns()\n            .iter()\n            .map(|&x| x as usize).collect",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_columns()\n            .iter().map",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_columns().iter",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_fill_columns",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_strategies()\n            .iter()\n            .map(|s| match s.as_str() {\n                \"locf\" => Ok(FillStrategy::Locf),\n                \"interpolate\" => Ok(FillStrategy::Interpolate),\n                \"null\" => Ok(FillStrategy::Null),\n                _ => anyhow::bail!(\"unknown fill strategy: {}\", s),\n            })\n            .collect::<anyhow::Result<_>>",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_strategies()\n            .iter().map",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_strategies().iter",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_fill_strategies",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "s.as_str",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 60
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 62
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "fill_columns.into_iter().zip_eq(fill_strategies).collect",
+          "lineNumber": 68
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "fill_columns.into_iter().zip_eq",
+          "lineNumber": 68
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "fill_columns.into_iter",
+          "lineNumber": 68
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.map",
+          "lineNumber": 70
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(\n            node.get_buffer_table().as_ref().unwrap(),\n            store.clone(),\n            vnodes.clone(),\n        )\n        .forbid_preload_all_rows().build",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(\n            node.get_buffer_table().as_ref().unwrap(),\n            store.clone(),\n            vnodes.clone(),\n        ).forbid_preload_all_rows",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_buffer_table().as_ref().unwrap",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_buffer_table().as_ref",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_buffer_table",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 74
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "vnodes.clone",
+          "lineNumber": 75
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_prev_row_table().as_ref().unwrap(), store, vnodes)\n                .forbid_preload_all_rows().build",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_prev_row_table().as_ref().unwrap(), store, vnodes).forbid_preload_all_rows",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_prev_row_table().as_ref().unwrap",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_prev_row_table().as_ref",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_prev_row_table",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "EowcGapFillExecutor::new",
+          "lineNumber": 87
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 90
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 99
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/eowc_over_window.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 91,
+      "nonEmptyLines": 81,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 32,
+          "endLine": 90,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "EowcOverWindowExecutorBuilder",
+          "startLine": 27,
+          "endLine": 27,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "EowcOverWindowExecutorBuilder",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_calls()\n            .iter()\n            .map(WindowFuncCall::from_protobuf).try_collect",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_calls()\n            .iter().map",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_calls().iter",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_calls",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_partition_by()\n            .iter()\n            .map(|i| *i as usize).collect",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_partition_by()\n            .iter().map",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_partition_by().iter",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_partition_by",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_order_by()[0].get_column_index",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_order_by",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Arc::new",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n                .vnode_bitmap.expect",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table()?, store.clone(), vnodes.clone())\n                .with_op_consistency_level(StateTableOpConsistencyLevel::Inconsistent)\n                .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table()?, store.clone(), vnodes.clone())\n                .with_op_consistency_level(StateTableOpConsistencyLevel::Inconsistent).enable_preload_all_rows_by_config",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table()?, store.clone(), vnodes.clone()).with_op_consistency_level",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "vnodes.clone",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.intermediate_state_table.as_ref",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_pb, store, vnodes)\n                        // Use ConsistentOldValue because we update existing rows\n                        .with_op_consistency_level(StateTableOpConsistencyLevel::ConsistentOldValue)\n                        .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_pb, store, vnodes)\n                        // Use ConsistentOldValue because we update existing rows\n                        .with_op_consistency_level(StateTableOpConsistencyLevel::ConsistentOldValue).enable_preload_all_rows_by_config",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_pb, store, vnodes).with_op_consistency_level",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "EowcOverWindowExecutor::new",
+          "lineNumber": 76
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 81
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 89
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 89
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/expand.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 25,
+          "endLine": 43,
+          "params": [
+            "params",
+            "node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ExpandExecutorBuilder",
+          "startLine": 20,
+          "endLine": 20,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ExpandExecutorBuilder",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 30
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 30
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .column_subsets\n            .iter()\n            .map(|subset| {\n                subset\n                    .column_indices\n                    .iter()\n                    .map(|idx| *idx as usize)\n                    .collect_vec()\n            }).collect_vec",
+          "lineNumber": 31
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .column_subsets\n            .iter().map",
+          "lineNumber": 31
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .column_subsets.iter",
+          "lineNumber": 31
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "subset\n                    .column_indices\n                    .iter()\n                    .map(|idx| *idx as usize).collect_vec",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "subset\n                    .column_indices\n                    .iter().map",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "subset\n                    .column_indices.iter",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, ExpandExecutor::new(input, column_subsets)).into",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "ExpandExecutor::new",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/filter.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 27,
+          "endLine": 42,
+          "params": [
+            "params",
+            "node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FilterExecutorBuilder",
+          "startLine": 22,
+          "endLine": 22,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FilterExecutorBuilder",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 32
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 32
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_non_strict_from_prost",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_search_condition",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "input.stream_kind",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "UpsertFilterExecutor::new(params.actor_context, input, search_condition).boxed",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "UpsertFilterExecutor::new",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "FilterExecutor::new(params.actor_context, input, search_condition).boxed",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "FilterExecutor::new",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/gap_fill.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 73,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 34,
+          "endLine": 86,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GapFillExecutorBuilder",
+          "startLine": 29,
+          "endLine": 29,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "GapFillExecutorBuilder",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_time_column_index",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_interval",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_non_strict_from_prost",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_columns()\n            .iter()\n            .map(|&x| x as usize).collect",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_columns()\n            .iter().map",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_columns().iter",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_fill_columns",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_strategies()\n            .iter()\n            .map(|s| match s.as_str() {\n                \"locf\" => Ok(FillStrategy::Locf),\n                \"interpolate\" => Ok(FillStrategy::Interpolate),\n                \"null\" => Ok(FillStrategy::Null),\n                _ => anyhow::bail!(\"unknown fill strategy: {}\", s),\n            })\n            .collect::<anyhow::Result<_>>",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_strategies()\n            .iter().map",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_fill_strategies().iter",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_fill_strategies",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "s.as_str",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 60
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "fill_columns.into_iter().zip_eq(fill_strategies).collect",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "fill_columns.into_iter().zip_eq",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "fill_columns.into_iter",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table().as_ref().unwrap(), store, None)\n                .forbid_preload_all_rows().build",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table().as_ref().unwrap(), store, None).forbid_preload_all_rows",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table().as_ref().unwrap",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table().as_ref",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "GapFillExecutor::new",
+          "lineNumber": 74
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 85
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/group_top_n.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 131,
+      "nonEmptyLines": 118,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 33,
+          "endLine": 81,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        },
+        {
+          "name": "dispatch_impl",
+          "startLine": 103,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "data_types",
+          "startLine": 128,
+          "endLine": 130,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "GroupTopNExecutorBuilder",
+          "startLine": 28,
+          "endLine": 28,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "GroupTopNExecutorDispatcherArgs",
+          "startLine": 84,
+          "endLine": 98,
+          "methods": [],
+          "properties": [
+            "input",
+            "ctx",
+            "schema",
+            "storage_key",
+            "offset_and_limit",
+            "order_by",
+            "group_by",
+            "state_table",
+            "watermark_epoch",
+            "group_key_types",
+            "with_ties",
+            "append_only"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "GroupTopNExecutorBuilder",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_group_key()\n            .iter()\n            .map(|idx| *idx as usize).collect",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_group_key()\n            .iter().map",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_group_key().iter",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_group_key",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_table",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.map",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table, store, vnodes)\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table, store, vnodes).enable_preload_all_rows_by_config",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "table\n            .get_pk()\n            .iter()\n            .map(ColumnOrder::from_protobuf).collect",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "table\n            .get_pk()\n            .iter().map",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "table\n            .get_pk().iter",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "table.get_pk",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "group_by\n            .iter()\n            .map(|i| input.schema()[*i].data_type()).collect",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "group_by\n            .iter().map",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "group_by.iter",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "input.schema()[*i].data_type",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "input.schema",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .order_by\n            .iter()\n            .map(ColumnOrder::from_protobuf).collect",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .order_by\n            .iter().map",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .order_by.iter",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 68
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 80
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, args.dispatch()?).into",
+          "lineNumber": 80
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "args.dispatch",
+          "lineNumber": 80
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/hash_agg.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 131,
+      "nonEmptyLines": 114,
+      "functions": [
+        {
+          "name": "dispatch_impl",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "data_types",
+          "startLine": 43,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "new_boxed_executor",
+          "startLine": 53,
+          "endLine": 130,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "HashAggExecutorDispatcherArgs",
+          "startLine": 31,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "args",
+            "group_key_types"
+          ]
+        },
+        {
+          "name": "HashAggExecutorBuilder",
+          "startLine": 48,
+          "endLine": 48,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "HashAggExecutorDispatcherArgs",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "HashAggExecutorBuilder",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "dispatch_impl",
+          "callee": "Ok",
+          "lineNumber": 40
+        },
+        {
+          "caller": "dispatch_impl",
+          "callee": "HashAggExecutor::<K, S>::new(self.args)?.boxed",
+          "lineNumber": 40
+        },
+        {
+          "caller": "dispatch_impl",
+          "callee": "HashAggExecutor::<K, S>::new",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_group_key()\n            .iter()\n            .map(|key| *key as usize)\n            .collect::<Vec<_>>",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_group_key()\n            .iter().map",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_group_key().iter",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_group_key",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "group_key_indices\n            .iter()\n            .map(|idx| input.schema().fields[*idx].data_type()).collect_vec",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "group_key_indices\n            .iter().map",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "group_key_indices.iter",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "input.schema().fields[*idx].data_type",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "input.schema",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_agg_calls()\n            .iter()\n            .map(AggCall::from_protobuf).try_collect",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_agg_calls()\n            .iter().map",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_agg_calls().iter",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_agg_calls",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 75
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Arc::new",
+          "lineNumber": 75
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.expect",
+          "lineNumber": 76
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_agg_state_storages_from_proto",
+          "lineNumber": 78
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_agg_call_states",
+          "lineNumber": 79
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 80
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "vnodes.clone",
+          "lineNumber": 81
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(\n            node.get_intermediate_state_table().unwrap(),\n            store.clone(),\n            vnodes.clone(),\n        )\n        .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 86
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(\n            node.get_intermediate_state_table().unwrap(),\n            store.clone(),\n            vnodes.clone(),\n        ).enable_preload_all_rows_by_config",
+          "lineNumber": 86
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 86
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_intermediate_state_table().unwrap",
+          "lineNumber": 87
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_intermediate_state_table",
+          "lineNumber": 87
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 88
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "vnodes.clone",
+          "lineNumber": 89
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_distinct_dedup_table_from_proto",
+          "lineNumber": 94
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_distinct_dedup_tables",
+          "lineNumber": 95
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "HashAggExecutorDispatcherArgs {\n            args: AggExecutorArgs {\n                version: node.version(),\n\n                input,\n                actor_ctx: params.actor_context,\n                info: params.info.clone(),\n\n                extreme_cache_size: params.config.developer.unsafe_extreme_cache_size,\n\n                agg_calls,\n                row_count_index: node.get_row_count_index() as usize,\n                storages,\n                intermediate_state_table,\n                distinct_dedup_tables,\n                watermark_epoch: params.watermark_epoch,\n                extra: HashAggExecutorExtraArgs {\n                    group_key_indices,\n                    chunk_size: params.config.developer.chunk_size,\n                    max_dirty_groups_heap_size: (params.config.developer)\n                        .hash_agg_max_dirty_groups_heap_size,\n                    emit_on_window_close: node.get_emit_on_window_close(),\n                },\n            },\n            group_key_types,\n        }.dispatch",
+          "lineNumber": 102
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.version",
+          "lineNumber": 104
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.clone",
+          "lineNumber": 108
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_row_count_index",
+          "lineNumber": 113
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_emit_on_window_close",
+          "lineNumber": 123
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 129
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 129
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/hash_join.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 328,
+      "nonEmptyLines": 299,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 38,
+          "endLine": 170,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        },
+        {
+          "name": "resolve_clean_watermark_indices_in_jk",
+          "startLine": 199,
+          "endLine": 222,
+          "params": [
+            "desc",
+            "join_key_len"
+          ]
+        },
+        {
+          "name": "dispatch_impl",
+          "startLine": 227,
+          "endLine": 282,
+          "params": []
+        },
+        {
+          "name": "data_types",
+          "startLine": 284,
+          "endLine": 286,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "HashJoinExecutorBuilder",
+          "startLine": 33,
+          "endLine": 33,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        },
+        {
+          "name": "HashJoinExecutorDispatcherArgs",
+          "startLine": 173,
+          "endLine": 197,
+          "methods": [],
+          "properties": [
+            "ctx",
+            "info",
+            "source_l",
+            "source_r",
+            "params_l",
+            "params_r",
+            "null_safe",
+            "output_indices",
+            "cond",
+            "inequality_pairs",
+            "state_table_l",
+            "degree_state_table_l",
+            "state_table_r",
+            "degree_state_table_r",
+            "lru_manager",
+            "is_append_only",
+            "metrics",
+            "join_type_proto",
+            "join_key_data_types",
+            "chunk_size",
+            "high_join_amplification_threshold",
+            "join_encoding_type",
+            "watermark_indices_in_jk"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "HashJoinExecutorBuilder",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Arc::new",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.expect",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_table",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_degree_table",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_table",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_degree_table",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "JoinParams::new",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_key()\n                .iter()\n                .map(|key| *key as usize).collect_vec",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_key()\n                .iter().map",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_key().iter",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_key",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_deduped_input_pk_indices()\n                .iter()\n                .map(|key| *key as usize).collect_vec",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_deduped_input_pk_indices()\n                .iter().map",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_deduped_input_pk_indices().iter",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_left_deduped_input_pk_indices",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "JoinParams::new",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_key()\n                .iter()\n                .map(|key| *key as usize).collect_vec",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_key()\n                .iter().map",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_key().iter",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_key",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_deduped_input_pk_indices()\n                .iter()\n                .map(|key| *key as usize).collect_vec",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_deduped_input_pk_indices()\n                .iter().map",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_deduped_input_pk_indices().iter",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_right_deduped_input_pk_indices",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_null_safe().clone",
+          "lineNumber": 74
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_null_safe",
+          "lineNumber": 74
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_output_indices()\n            .iter()\n            .map(|&x| x as usize).collect_vec",
+          "lineNumber": 75
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_output_indices()\n            .iter().map",
+          "lineNumber": 75
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_output_indices().iter",
+          "lineNumber": 75
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_output_indices",
+          "lineNumber": 75
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_condition",
+          "lineNumber": 81
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_non_strict_from_prost",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.eval_error_report.clone",
+          "lineNumber": 84
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.watermark_handle_desc.as_ref",
+          "lineNumber": 90
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "desc\n                .inequality_pairs\n                .iter()\n                .map(|inequality_pair| InequalityPairInfo {\n                    left_idx: inequality_pair.left_idx as usize,\n                    right_idx: inequality_pair.right_idx as usize,\n                    clean_left_state: inequality_pair.clean_left_state,\n                    clean_right_state: inequality_pair.clean_right_state,\n                    op: inequality_pair.op(),\n                }).collect",
+          "lineNumber": 91
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "desc\n                .inequality_pairs\n                .iter().map",
+          "lineNumber": 91
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "desc\n                .inequality_pairs.iter",
+          "lineNumber": 91
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "inequality_pair.op",
+          "lineNumber": 99
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "resolve_clean_watermark_indices_in_jk",
+          "lineNumber": 104
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.watermark_handle_desc.as_ref",
+          "lineNumber": 105
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params_l.join_key_indices.len",
+          "lineNumber": 106
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params_l\n            .join_key_indices\n            .iter()\n            .map(|idx| source_l.schema().fields[*idx].data_type()).collect_vec",
+          "lineNumber": 109
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params_l\n            .join_key_indices\n            .iter().map",
+          "lineNumber": 109
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params_l\n            .join_key_indices.iter",
+          "lineNumber": 109
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "source_l.schema().fields[*idx].data_type",
+          "lineNumber": 112
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "source_l.schema",
+          "lineNumber": 112
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_l, store.clone(), Some(vnodes.clone()))\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 115
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_l, store.clone(), Some(vnodes.clone())).enable_preload_all_rows_by_config",
+          "lineNumber": 115
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 115
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 115
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 115
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "vnodes.clone",
+          "lineNumber": 115
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(degree_table_l, store.clone(), Some(vnodes.clone()))\n                .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 120
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(degree_table_l, store.clone(), Some(vnodes.clone())).enable_preload_all_rows_by_config",
+          "lineNumber": 120
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 120
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 120
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 120
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "vnodes.clone",
+          "lineNumber": 120
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_r, store.clone(), Some(vnodes.clone()))\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 125
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(table_r, store.clone(), Some(vnodes.clone())).enable_preload_all_rows_by_config",
+          "lineNumber": 125
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 125
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 125
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 125
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "vnodes.clone",
+          "lineNumber": 125
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(degree_table_r, store, Some(vnodes))\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 129
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(degree_table_r, store, Some(vnodes)).enable_preload_all_rows_by_config",
+          "lineNumber": 129
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 129
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 129
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_join_encoding_type().map_or",
+          "lineNumber": 137
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_join_encoding_type",
+          "lineNumber": 137
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.clone",
+          "lineNumber": 143
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_join_type",
+          "lineNumber": 159
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "args.dispatch",
+          "lineNumber": 168
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 169
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 169
+        },
+        {
+          "caller": "resolve_clean_watermark_indices_in_jk",
+          "callee": "desc\n            .watermark_indices_in_jk\n            .iter()\n            .map(\n                |JoinKeyWatermarkIndex {\n                     index,\n                     do_state_cleaning,\n                 }| (*index as usize, *do_state_cleaning),\n            ).collect_vec",
+          "lineNumber": 204
+        },
+        {
+          "caller": "resolve_clean_watermark_indices_in_jk",
+          "callee": "desc\n            .watermark_indices_in_jk\n            .iter().map",
+          "lineNumber": 204
+        },
+        {
+          "caller": "resolve_clean_watermark_indices_in_jk",
+          "callee": "desc\n            .watermark_indices_in_jk.iter",
+          "lineNumber": 204
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/hop_window.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 60,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 26,
+          "endLine": 68,
+          "params": [
+            "params",
+            "node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "HopWindowExecutorBuilder",
+          "startLine": 21,
+          "endLine": 21,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "HopWindowExecutorBuilder",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.into_iter().next().unwrap",
+          "lineNumber": 31
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.into_iter().next",
+          "lineNumber": 31
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.into_iter",
+          "lineNumber": 31
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_output_indices()\n            .iter()\n            .map(|&x| x as usize).collect_vec",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_output_indices()\n            .iter().map",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_output_indices().iter",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_output_indices",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_window_start_exprs()\n            .iter()\n            .map(|e| build_non_strict_from_prost(e, params.eval_error_report.clone())).try_collect",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_window_start_exprs()\n            .iter().map",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_window_start_exprs().iter",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_window_start_exprs",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_non_strict_from_prost",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.eval_error_report.clone",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_window_end_exprs()\n            .iter()\n            .map(|e| build_non_strict_from_prost(e, params.eval_error_report.clone())).try_collect",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_window_end_exprs()\n            .iter().map",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_window_end_exprs().iter",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_window_end_exprs",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_non_strict_from_prost",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.eval_error_report.clone",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_time_col",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_window_slide()?.into",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_window_slide",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_window_size()?.into",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_window_size",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "HopWindowExecutor::new",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 67
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/iceberg_with_pk_index/dv_merger.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 31,
+          "endLine": 51,
+          "params": [
+            "params",
+            "node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "IcebergWithPkIndexDvMergerExecutorBuilder",
+          "startLine": 26,
+          "endLine": 26,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IcebergWithPkIndexDvMergerExecutorBuilder",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.sink_desc.as_ref().unwrap",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.sink_desc.as_ref",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_id",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "LocalSecretManager::global().fill_secrets",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "LocalSecretManager::global",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_properties().clone",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_properties",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_secret_refs().clone",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_secret_refs",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "IcebergConfig::from_btreemap(properties_with_secret.clone()).map_err",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "IcebergConfig::from_btreemap",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "properties_with_secret.clone",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StreamExecutorError::from",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "DvHandlerImpl::new",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "DvMergerExecutor::new",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/iceberg_with_pk_index/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/iceberg_with_pk_index/writer.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 103,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 39,
+          "endLine": 117,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "IcebergWithPkIndexWriterExecutorBuilder",
+          "startLine": 34,
+          "endLine": 34,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "IcebergWithPkIndexWriterExecutorBuilder",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.sink_desc.as_ref().unwrap",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.sink_desc.as_ref",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_id",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_name().to_owned",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_name",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "LocalSecretManager::global().fill_secrets",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "LocalSecretManager::global",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_properties().clone",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_properties",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_secret_refs().clone",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.get_secret_refs",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "IcebergConfig::from_btreemap(properties_with_secret.clone()).map_err",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "IcebergConfig::from_btreemap",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "properties_with_secret.clone",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StreamExecutorError::from",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc\n            .downstream_pk\n            .iter()\n            .map(|&idx| idx as usize)\n            .collect::<Vec<_>>",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc\n            .downstream_pk\n            .iter().map",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc\n            .downstream_pk.iter",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "pk_indices.is_empty",
+          "lineNumber": 62
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Err",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "anyhow!(\"missing downstream pk in iceberg sink desc\").into",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_sink_param",
+          "lineNumber": 67
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "create_and_validate_table_impl(&config, &sink_param)\n            .await.map_err",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "create_and_validate_table_impl",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StreamExecutorError::sink_error",
+          "lineNumber": 71
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(\n            node.get_pk_index_table()?,\n            store,\n            params.vnode_bitmap.clone().map(Arc::new),\n        )\n        .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(\n            node.get_pk_index_table()?,\n            store,\n            params.vnode_bitmap.clone().map(Arc::new),\n        ).enable_preload_all_rows_by_config",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_pk_index_table",
+          "lineNumber": 74
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.clone().map",
+          "lineNumber": 76
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.clone",
+          "lineNumber": 76
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .env\n            .meta_client().ok_or_else",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .env.meta_client",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "SinkMetaClient::MetaClient",
+          "lineNumber": 86
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.clone",
+          "lineNumber": 90
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 91
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "sink_desc.extra_partition_col_idx.map",
+          "lineNumber": 92
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "ICEBERG_SINK.to_owned",
+          "lineNumber": 96
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.config.as_ref().clone",
+          "lineNumber": 97
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.config.as_ref",
+          "lineNumber": 97
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "IcebergWriterImpl::build",
+          "lineNumber": 100
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .info\n            .stream_key\n            .iter().all",
+          "lineNumber": 101
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .info\n            .stream_key.iter",
+          "lineNumber": 101
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "pk_indices.contains",
+          "lineNumber": 105
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "WriterExecutor::new",
+          "lineNumber": 107
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 116
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 116
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/locality_provider.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 72,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 28,
+          "endLine": 83,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LocalityProviderBuilder",
+          "startLine": 86,
+          "endLine": 86,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LocalityProviderBuilder",
+          "line": 86,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .locality_columns\n            .iter()\n            .map(|&i| i as usize)\n            .collect::<Vec<_>>",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .locality_columns\n            .iter().map",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .locality_columns.iter",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "input.schema().clone",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "input.schema",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Arc::new",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n                .vnode_bitmap.expect",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(\n            node.get_state_table().unwrap(),\n            store.clone(),\n            vnodes.clone(),\n        )\n        .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(\n            node.get_state_table().unwrap(),\n            store.clone(),\n            vnodes.clone(),\n        ).enable_preload_all_rows_by_config",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table().unwrap",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "vnodes.clone",
+          "lineNumber": 53
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_progress_table().unwrap(), store, vnodes)\n                .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_progress_table().unwrap(), store, vnodes).enable_preload_all_rows_by_config",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_progress_table().unwrap",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_progress_table",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .local_barrier_manager.register_create_mview_progress",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "LocalityProviderExecutor::new",
+          "lineNumber": 70
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.executor_stats.clone",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 82
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/lookup.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 29,
+          "endLine": 88,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LookupExecutorBuilder",
+          "startLine": 24,
+          "endLine": 24,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LookupExecutorBuilder",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .arrange_key_orders\n            .iter()\n            .map(ColumnOrder::from_protobuf).collect",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .arrange_key_orders\n            .iter().map",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .arrange_key_orders.iter",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.get_arrangement_table_info",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .column_descs\n            .iter()\n            .map(ColumnDesc::from).collect",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .column_descs\n            .iter().map",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .column_descs.iter",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.get_arrangement_table_info",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .table_desc\n            .as_ref().unwrap",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .table_desc.as_ref",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.get_arrangement_table_info",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .get_output_col_idx()\n            .iter()\n            .map(|&idx| ColumnId::new(table_desc.columns[idx as usize].column_id)).collect_vec",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .get_output_col_idx()\n            .iter().map",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?\n            .get_output_col_idx().iter",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup\n            .get_arrangement_table_info()?.get_output_col_idx",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.get_arrangement_table_info",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "ColumnId::new",
+          "lineNumber": 62
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "BatchTable::new_partial",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.map",
+          "lineNumber": 68
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "LookupExecutor::new",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.clone",
+          "lineNumber": 74
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.stream_key.iter().map(|x| *x as usize).collect",
+          "lineNumber": 80
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.stream_key.iter().map",
+          "lineNumber": 80
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.stream_key.iter",
+          "lineNumber": 80
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.arrange_key.iter().map(|x| *x as usize).collect",
+          "lineNumber": 81
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.arrange_key.iter().map",
+          "lineNumber": 81
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.arrange_key.iter",
+          "lineNumber": 81
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.column_mapping.iter().map(|x| *x as usize).collect",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.column_mapping.iter().map",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "lookup.column_mapping.iter",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 87
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/lookup_union.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 25,
+          "endLine": 32,
+          "params": [
+            "params",
+            "node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LookupUnionExecutorBuilder",
+          "startLine": 20,
+          "endLine": 20,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LookupUnionExecutorBuilder",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "LookupUnionExecutor::new",
+          "lineNumber": 30
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.order.clone",
+          "lineNumber": 30
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 31
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 31
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/match_recognize.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 90,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 33,
+          "endLine": 103,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MatchRecognizeExecutorBuilder",
+          "startLine": 28,
+          "endLine": 28,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MatchRecognizeExecutorBuilder",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.partition_by.iter().map(|&i| i as usize).collect",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.partition_by.iter().map",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.partition_by.iter",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.order_by.iter().map(|&i| i as usize).collect",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.order_by.iter().map",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.order_by.iter",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .defines\n            .iter()\n            .map(|d| CompiledDefine::from_protobuf(d, params.eval_error_report.clone()))\n            .collect::<crate::executor::StreamExecutorResult<Vec<_>>>",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .defines\n            .iter().map",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .defines.iter",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "CompiledDefine::from_protobuf",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.eval_error_report.clone",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .measures\n            .iter()\n            .map(|m| CompiledMeasure::from_protobuf(m, params.eval_error_report.clone()))\n            .collect::<crate::executor::StreamExecutorResult<Vec<_>>>",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .measures\n            .iter().map",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .measures.iter",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "CompiledMeasure::from_protobuf",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.eval_error_report.clone",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .pattern_node\n            .as_ref().ok_or_else",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .pattern_node.as_ref",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "pattern_from_protobuf(pattern_node).map_err",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "pattern_from_protobuf",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Nfa::compile",
+          "lineNumber": 60
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.after_match_skip.as_str",
+          "lineNumber": 62
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "s.starts_with",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "SkipMode::ToFirst",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "s[\"to_first:\".len()..].to_owned",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "\"to_first:\".len",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "s.starts_with",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "SkipMode::ToLast",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "s[\"to_last:\".len()..].to_owned",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "\"to_last:\".len",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .within\n            .as_ref()\n            .map(|e| build_non_strict_from_prost(e, params.eval_error_report.clone())).transpose",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .within\n            .as_ref().map",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .within.as_ref",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_non_strict_from_prost",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.eval_error_report.clone",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "input.schema().len",
+          "lineNumber": 75
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "input.schema",
+          "lineNumber": 75
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(\n            node.get_state_table().as_ref().unwrap(),\n            store,\n            params.vnode_bitmap.clone().map(std::sync::Arc::new),\n        )\n        .forbid_preload_all_rows().build",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(\n            node.get_state_table().as_ref().unwrap(),\n            store,\n            params.vnode_bitmap.clone().map(std::sync::Arc::new),\n        ).forbid_preload_all_rows",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table().as_ref().unwrap",
+          "lineNumber": 78
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table().as_ref",
+          "lineNumber": 78
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table",
+          "lineNumber": 78
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.clone().map",
+          "lineNumber": 80
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.clone",
+          "lineNumber": 80
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MatchRecognizeExecutor::new",
+          "lineNumber": 86
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 89
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 102
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 102
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/materialized_exprs.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 29,
+          "endLine": 57,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MaterializedExprsExecutorBuilder",
+          "startLine": 24,
+          "endLine": 24,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MaterializedExprsExecutorBuilder",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_exprs()\n            .iter()\n            .map(|e| build_non_strict_from_prost(e, params.eval_error_report.clone())).try_collect",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_exprs()\n            .iter().map",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_exprs().iter",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_exprs",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_non_strict_from_prost",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.eval_error_report.clone",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.map",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table()?, store, vnodes)\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table()?, store, vnodes).enable_preload_all_rows_by_config",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MaterializedExprsExecutor::new",
+          "lineNumber": 48
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.state_clean_col_idx.map",
+          "lineNumber": 53
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/merge.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 122,
+      "nonEmptyLines": 111,
+      "functions": [
+        {
+          "name": "new_input",
+          "startLine": 30,
+          "endLine": 90,
+          "params": [
+            "local_barrier_manager",
+            "executor_stats",
+            "actor_context",
+            "info",
+            "node",
+            "chunk_size"
+          ]
+        },
+        {
+          "name": "new_boxed_executor",
+          "startLine": 96,
+          "endLine": 121,
+          "params": [
+            "params",
+            "node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MergeExecutorBuilder",
+          "startLine": 27,
+          "endLine": 27,
+          "methods": [
+            "new_input",
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MergeExecutorBuilder",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "new_input",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_input",
+          "callee": "actor_context\n            .initial_upstream_actors.get",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_input",
+          "callee": "Ok",
+          "lineNumber": 42
+        },
+        {
+          "caller": "new_input",
+          "callee": "node.get_upstream_fragment_id",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_input",
+          "callee": "try_join_all",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_input",
+          "callee": "upstream_actors.actors.iter().map",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_input",
+          "callee": "upstream_actors.actors.iter",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_input",
+          "callee": "new_input",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_input",
+          "callee": "executor_stats.clone",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_input",
+          "callee": "actor_context.config.clone",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new_input",
+          "callee": "node.get_upstream_dispatcher_type",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_input",
+          "callee": "MergeExecutorUpstream::Singleton",
+          "lineNumber": 71
+        },
+        {
+          "caller": "new_input",
+          "callee": "inputs.into_iter().exactly_one().unwrap",
+          "lineNumber": 71
+        },
+        {
+          "caller": "new_input",
+          "callee": "inputs.into_iter().exactly_one",
+          "lineNumber": 71
+        },
+        {
+          "caller": "new_input",
+          "callee": "inputs.into_iter",
+          "lineNumber": 71
+        },
+        {
+          "caller": "new_input",
+          "callee": "MergeExecutorUpstream::Merge",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_input",
+          "callee": "MergeExecutor::new_merge_upstream",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_input",
+          "callee": "info.schema.clone",
+          "lineNumber": 78
+        },
+        {
+          "caller": "new_input",
+          "callee": "Ok",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_input",
+          "callee": "Some",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_input",
+          "callee": "MergeExecutorInput::new",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.local_barrier_manager.subscribe_barrier",
+          "lineNumber": 103
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 104
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Self::new_input(\n            params.local_barrier_manager,\n            params.executor_stats,\n            params.actor_context,\n            params.info,\n            node,\n            params.config.developer.chunk_size,\n        )\n        .await?\n        .ok_or_else(|| {\n            anyhow!(\n                \"no upstream actors found for actor {} in fragment {}\",\n                actor_id,\n                fragment_id\n            )\n        })?.into_executor",
+          "lineNumber": 104
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Self::new_input(\n            params.local_barrier_manager,\n            params.executor_stats,\n            params.actor_context,\n            params.info,\n            node,\n            params.config.developer.chunk_size,\n        )\n        .await?.ok_or_else",
+          "lineNumber": 104
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Self::new_input",
+          "lineNumber": 104
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 224,
+      "nonEmptyLines": 213,
+      "functions": [
+        {
+          "name": "create_executor",
+          "startLine": 158,
+          "endLine": 224,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ExecutorBuilder",
+          "startLine": 133,
+          "endLine": 142,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "create_executor",
+          "line": 158,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 37,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/mview.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 184,
+      "nonEmptyLines": 165,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 31,
+          "endLine": 134,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        },
+        {
+          "name": "new_boxed_executor",
+          "startLine": 142,
+          "endLine": 183,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MaterializeExecutorBuilder",
+          "startLine": 26,
+          "endLine": 26,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ArrangeExecutorBuilder",
+          "startLine": 137,
+          "endLine": 137,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MaterializeExecutorBuilder",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "ArrangeExecutorBuilder",
+          "line": 137,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 36
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .column_orders\n            .iter()\n            .map(ColumnOrder::from_protobuf).collect",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .column_orders\n            .iter().map",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .column_orders.iter",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_table",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "table.version.is_some",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "ConflictBehavior::from_protobuf",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "table.handle_pk_conflict_behavior",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "table.version_column_indices.clone",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "RefreshableMaterializeArgs::<_, ColumnAwareSerde>::new",
+          "lineNumber": 62
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "store.clone",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.staging_table.as_ref().unwrap",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.staging_table.as_ref",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.refresh_progress_table.as_ref().unwrap",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.refresh_progress_table.as_ref",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.clone().map",
+          "lineNumber": 67
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.clone",
+          "lineNumber": 67
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MaterializeExecutor::<_, ColumnAwareSerde>::new(\n                input,\n                params.info.schema.clone(),\n                store,\n                order_key,\n                params.actor_context,\n                params.vnode_bitmap.map(Arc::new),\n                table,\n                params.watermark_epoch,\n                conflict_behavior,\n                version_column_indices.clone(),\n                params.executor_stats.clone(),\n                Some(refresh_args),\n                node.cleaned_by_ttl_watermark,\n                params.local_barrier_manager.clone(),\n            )\n            .await.boxed",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MaterializeExecutor::<_, ColumnAwareSerde>::new",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 74
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.map",
+          "lineNumber": 78
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "version_column_indices.clone",
+          "lineNumber": 82
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.executor_stats.clone",
+          "lineNumber": 83
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 84
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.local_barrier_manager.clone",
+          "lineNumber": 86
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MaterializeExecutor::<_, ColumnAwareSerde>::new(\n                    input,\n                    params.info.schema.clone(),\n                    store,\n                    order_key,\n                    params.actor_context,\n                    params.vnode_bitmap.map(Arc::new),\n                    table,\n                    params.watermark_epoch,\n                    conflict_behavior,\n                    version_column_indices.clone(),\n                    params.executor_stats.clone(),\n                    None, // No refresh args for regular tables\n                    node.cleaned_by_ttl_watermark,\n                    params.local_barrier_manager.clone(),\n                )\n                .await.boxed",
+          "lineNumber": 93
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MaterializeExecutor::<_, ColumnAwareSerde>::new",
+          "lineNumber": 93
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 95
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.map",
+          "lineNumber": 99
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "version_column_indices.clone",
+          "lineNumber": 103
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.executor_stats.clone",
+          "lineNumber": 104
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.local_barrier_manager.clone",
+          "lineNumber": 107
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MaterializeExecutor::<_, BasicSerde>::new(\n                    input,\n                    params.info.schema.clone(),\n                    store,\n                    order_key,\n                    params.actor_context,\n                    params.vnode_bitmap.map(Arc::new),\n                    table,\n                    params.watermark_epoch,\n                    conflict_behavior,\n                    version_column_indices.clone(),\n                    params.executor_stats.clone(),\n                    None, // No refresh args for regular tables\n                    node.cleaned_by_ttl_watermark,\n                    params.local_barrier_manager.clone(),\n                )\n                .await.boxed",
+          "lineNumber": 112
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MaterializeExecutor::<_, BasicSerde>::new",
+          "lineNumber": 112
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 114
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.map",
+          "lineNumber": 118
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "version_column_indices.clone",
+          "lineNumber": 122
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.executor_stats.clone",
+          "lineNumber": 123
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.local_barrier_manager.clone",
+          "lineNumber": 126
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 133
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 133
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 147
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 147
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_table_info()?\n            .arrange_key_orders\n            .iter()\n            .map(ColumnOrder::from_protobuf).collect",
+          "lineNumber": 149
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_table_info()?\n            .arrange_key_orders\n            .iter().map",
+          "lineNumber": 149
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_table_info()?\n            .arrange_key_orders.iter",
+          "lineNumber": 149
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_table_info",
+          "lineNumber": 149
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_table",
+          "lineNumber": 156
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.vnode_bitmap.map",
+          "lineNumber": 160
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "ConflictBehavior::from_protobuf",
+          "lineNumber": 162
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "table.handle_pk_conflict_behavior",
+          "lineNumber": 162
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "table.version_column_indices.clone",
+          "lineNumber": 163
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MaterializeExecutor::<_, BasicSerde>::new",
+          "lineNumber": 164
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 166
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.executor_stats.clone",
+          "lineNumber": 175
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.local_barrier_manager.clone",
+          "lineNumber": 178
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 182
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 182
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/no_op.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 28,
+          "endLine": 35,
+          "params": [
+            "params",
+            "_node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NoOpExecutorBuilder",
+          "startLine": 23,
+          "endLine": 23,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NoOpExecutorBuilder",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, NoOpExecutor::new(params.actor_context, input)).into",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "NoOpExecutor::new",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/now.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 88,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 34,
+          "endLine": 94,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NowExecutorBuilder",
+          "startLine": 29,
+          "endLine": 29,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NowExecutorBuilder",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .local_barrier_manager.subscribe_barrier",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_mode",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Datum::from_protobuf(\n                        start_timestamp.as_ref().unwrap(),\n                        &DataType::Timestamptz,\n                    )\n                    .context(\"`start_timestamp` field is not decodable\")?\n                    .context(\"`start_timestamp` field should not be NULL\")?.into_timestamptz",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Datum::from_protobuf(\n                        start_timestamp.as_ref().unwrap(),\n                        &DataType::Timestamptz,\n                    )\n                    .context(\"`start_timestamp` field is not decodable\")?.context",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Datum::from_protobuf(\n                        start_timestamp.as_ref().unwrap(),\n                        &DataType::Timestamptz,\n                    ).context",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Datum::from_protobuf",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "start_timestamp.as_ref().unwrap",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "start_timestamp.as_ref",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Datum::from_protobuf(interval.as_ref().unwrap(), &DataType::Interval)\n                            .context(\"`interval` field is not decodable\")?\n                            .context(\"`interval` field should not be NULL\")?.into_interval",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Datum::from_protobuf(interval.as_ref().unwrap(), &DataType::Interval)\n                            .context(\"`interval` field is not decodable\")?.context",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Datum::from_protobuf(interval.as_ref().unwrap(), &DataType::Interval).context",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Datum::from_protobuf",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "interval.as_ref().unwrap",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "interval.as_ref",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table()?, store, None)\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table()?, store, None).enable_preload_all_rows_by_config",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table",
+          "lineNumber": 73
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .env\n            .system_params_manager_ref()\n            .get_params()\n            .load().barrier_interval_ms",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .env\n            .system_params_manager_ref()\n            .get_params().load",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .env\n            .system_params_manager_ref().get_params",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n            .env.system_params_manager_ref",
+          "lineNumber": 77
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "NowExecutor::new",
+          "lineNumber": 84
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.data_types",
+          "lineNumber": 85
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 93
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 93
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/over_window.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 82,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 34,
+          "endLine": 93,
+          "params": [
+            "params",
+            "node",
+            "store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "OverWindowExecutorBuilder",
+          "startLine": 29,
+          "endLine": 29,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "OverWindowExecutorBuilder",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_calls()\n            .iter()\n            .map(WindowFuncCall::from_protobuf).try_collect",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_calls()\n            .iter().map",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_calls().iter",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_calls",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_partition_by()\n            .iter()\n            .map(|i| *i as usize).collect",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_partition_by()\n            .iter().map",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_partition_by().iter",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_partition_by",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_order_by()\n            .iter()\n            .map(ColumnOrder::from_protobuf)\n            .map(|o| (o.column_index, o.order_type)).unzip",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_order_by()\n            .iter()\n            .map(ColumnOrder::from_protobuf).map",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_order_by()\n            .iter().map",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_order_by().iter",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_order_by",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Some",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Arc::new",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params\n                .vnode_bitmap.expect",
+          "lineNumber": 57
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table()?, store, vnodes)\n            .enable_preload_all_rows_by_config(&params.config).build",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new(node.get_state_table()?, store, vnodes).enable_preload_all_rows_by_config",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "StateTableBuilder::new",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_state_table",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(node.get_cache_policy()).map_or",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_cache_policy",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "OverWindowCachePolicy::from_protobuf",
+          "lineNumber": 71
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "OverWindowExecutor::new",
+          "lineNumber": 74
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.info.schema.clone",
+          "lineNumber": 79
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 92
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 92
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/project.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 28,
+          "endLine": 64,
+          "params": [
+            "params",
+            "node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProjectExecutorBuilder",
+          "startLine": 23,
+          "endLine": 23,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProjectExecutorBuilder",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 33
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_select_list()\n            .iter()\n            .map(|e| build_non_strict_from_prost(e, params.eval_error_report.clone())).try_collect",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_select_list()\n            .iter().map",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_select_list().iter",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_select_list",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "build_non_strict_from_prost",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.eval_error_report.clone",
+          "lineNumber": 37
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MultiMap::from_iter",
+          "lineNumber": 40
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_input_cols()\n                .iter()\n                .map(|idx| *idx as usize).zip_eq_fast",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_input_cols()\n                .iter().map",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_input_cols().iter",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_input_cols",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_output_cols()\n                        .iter().map",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_output_cols().iter",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_output_cols",
+          "lineNumber": 45
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_nondecreasing_exprs()\n            .iter()\n            .map(|idx| *idx as usize).collect",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_nondecreasing_exprs()\n            .iter().map",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_nondecreasing_exprs().iter",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_nondecreasing_exprs",
+          "lineNumber": 50
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "ProjectExecutor::new",
+          "lineNumber": 55
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 63
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/src/from_proto/project_set.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "new_boxed_executor",
+          "startLine": 27,
+          "endLine": 72,
+          "params": [
+            "params",
+            "node",
+            "_store"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProjectSetExecutorBuilder",
+          "startLine": 22,
+          "endLine": 22,
+          "methods": [
+            "new_boxed_executor"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProjectSetExecutorBuilder",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into().unwrap",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.input.try_into",
+          "lineNumber": 34
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_select_list()\n            .iter()\n            .map(|proto| {\n                ProjectSetSelectItem::from_prost(\n                    proto,\n                    params.eval_error_report.clone(),\n                    chunk_size,\n                )\n            }).try_collect",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_select_list()\n            .iter().map",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_select_list().iter",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_select_list",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "ProjectSetSelectItem::from_prost",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "params.eval_error_report.clone",
+          "lineNumber": 41
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "MultiMap::from_iter",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_input_cols()\n                .iter()\n                .map(|idx| *idx as usize).zip_eq_fast",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_input_cols()\n                .iter().map",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_input_cols().iter",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_input_cols",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_expr_indices()\n                        .iter().map",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_expr_indices().iter",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_watermark_expr_indices",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_nondecreasing_exprs()\n            .iter()\n            .map(|idx| *idx as usize).collect",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_nondecreasing_exprs()\n            .iter().map",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node\n            .get_nondecreasing_exprs().iter",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "node.get_nondecreasing_exprs",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "ProjectSetExecutor::new",
+          "lineNumber": 62
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "Ok",
+          "lineNumber": 71
+        },
+        {
+          "caller": "new_boxed_executor",
+          "callee": "(params.info, exec).into",
+          "lineNumber": 71
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

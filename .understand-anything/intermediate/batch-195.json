@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/elasticsearch-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/elasticsearch-sink/README.md",
+      "summary": "Setup and usage guide for the Elasticsearch sink integration test, providing step-by-step instructions for running the RisingWave-to-Elasticsearch sinking demo.",
+      "tags": ["documentation", "integration-test", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/elasticsearch-sink/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/elasticsearch-sink/create_mv.sql",
+      "summary": "Creates a RisingWave materialized view that aggregates user behavior data for use as the input to the Elasticsearch sink.",
+      "tags": ["database", "integration-test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/elasticsearch-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/elasticsearch-sink/create_sink.sql",
+      "summary": "Defines multiple RisingWave sinks targeting different Elasticsearch index configurations, covering append, upsert, and full data type testing scenarios.",
+      "tags": ["database", "integration-test", "data-pipeline"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/elasticsearch-sink/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/elasticsearch-sink/create_source.sql",
+      "summary": "Creates `user_behaviors` and `es_types` source tables in RisingWave, both with an extensive set of data type columns for comprehensive Elasticsearch sink type mapping validation.",
+      "tags": ["database", "integration-test", "schema-definition", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:integration_tests/elasticsearch-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/elasticsearch-sink/docker-compose.yml",
+      "summary": "Docker Compose configuration for the Elasticsearch sink integration test, starting Elasticsearch, Kibana, Kafka, and RisingWave containers.",
+      "tags": ["infrastructure", "orchestration", "integration-test", "containerization"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/elasticsearch-sink/README.md",
+      "target": "file:integration_tests/elasticsearch-sink/create_sink.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/elasticsearch-sink/create_sink.sql",
+      "target": "file:integration_tests/elasticsearch-sink/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/elasticsearch-sink/create_mv.sql",
+      "target": "file:integration_tests/elasticsearch-sink/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

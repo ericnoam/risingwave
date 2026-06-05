@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/iceberg-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/iceberg-sink/README.md",
+      "summary": "Comprehensive guide for the Iceberg sink integration test demo, covering setup instructions for sinking RisingWave data to Apache Iceberg tables and an Airflow-based compaction workflow.",
+      "tags": ["documentation", "integration-test", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/iceberg-sink/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/iceberg-sink/create_mv.sql",
+      "summary": "Creates a RisingWave materialized view over the user behaviors source as the data feed for the Iceberg sink integration test.",
+      "tags": ["database", "integration-test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/iceberg-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/iceberg-sink/create_sink.sql",
+      "summary": "Defines a RisingWave sink that writes materialized view data into an Apache Iceberg table using the Iceberg connector with configurable catalog and storage settings.",
+      "tags": ["database", "integration-test", "data-pipeline"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/iceberg-sink/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/iceberg-sink/create_source.sql",
+      "summary": "Creates the `user_behaviors` source table in RisingWave backed by a MySQL CDC connection, providing the upstream change data for the Iceberg sink test.",
+      "tags": ["database", "integration-test", "schema-definition", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/iceberg-sink/iceberg-query.sql",
+      "type": "file",
+      "name": "iceberg-query.sql",
+      "filePath": "integration_tests/iceberg-sink/iceberg-query.sql",
+      "summary": "Placeholder or minimal SQL file for querying data from the Iceberg table after the sink writes data, used for integration test output verification.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/iceberg-sink/mysql_prepare.sql",
+      "type": "file",
+      "name": "mysql_prepare.sql",
+      "filePath": "integration_tests/iceberg-sink/mysql_prepare.sql",
+      "summary": "Creates and seeds the `user_behaviors` table in MySQL as the CDC source for the Iceberg sink integration test.",
+      "tags": ["database", "integration-test", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/iceberg-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/iceberg-sink/prepare.sh",
+      "summary": "Shell script that initializes the Iceberg sink test environment by waiting for services and preparing MySQL source data.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/iceberg-sink/README.md",
+      "target": "file:integration_tests/iceberg-sink/create_sink.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/iceberg-sink/create_sink.sql",
+      "target": "file:integration_tests/iceberg-sink/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/iceberg-sink/create_mv.sql",
+      "target": "file:integration_tests/iceberg-sink/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/iceberg-sink/create_source.sql",
+      "target": "file:integration_tests/iceberg-sink/mysql_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/iceberg-sink/prepare.sh",
+      "target": "file:integration_tests/iceberg-sink/mysql_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/iceberg-sink/iceberg-query.sql",
+      "target": "file:integration_tests/iceberg-sink/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

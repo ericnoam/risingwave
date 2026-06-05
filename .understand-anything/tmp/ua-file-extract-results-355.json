@@ -1,0 +1,639 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/tests/libpq_test/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "workspace",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 9
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "src/tests/libpq_test/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 3,
+      "nonEmptyLines": 2,
+      "sections": [
+        {
+          "heading": "RisingWave libpq Tests",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "src/tests/libpq_test/src/main.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 42,
+          "endLine": 71,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "TestOptions",
+          "startLine": 20,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "host",
+            "port",
+            "db",
+            "user",
+            "pass"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "TestOptions::parse",
+          "lineNumber": 49
+        },
+        {
+          "caller": "main",
+          "callee": "libpq::Connection::new(&format!(\"postgresql://{user}:{pass}@{host}:{port}/{db}\")).unwrap",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "libpq::Connection::new",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "conn.prepare",
+          "lineNumber": 55
+        },
+        {
+          "caller": "main",
+          "callee": "conn.describe_prepared",
+          "lineNumber": 57
+        },
+        {
+          "caller": "main",
+          "callee": "conn.exec_prepared",
+          "lineNumber": 59
+        },
+        {
+          "caller": "main",
+          "callee": "conn.prepare",
+          "lineNumber": 64
+        },
+        {
+          "caller": "main",
+          "callee": "Some",
+          "lineNumber": 64
+        },
+        {
+          "caller": "main",
+          "callee": "conn.describe_prepared",
+          "lineNumber": 66
+        },
+        {
+          "caller": "main",
+          "callee": "Some",
+          "lineNumber": 66
+        },
+        {
+          "caller": "main",
+          "callee": "conn.exec_prepared",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "Some",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/tests/mysql_test/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "dev-dependencies",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "src/tests/mysql_test/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/tests/mysql_test/tests/mysql_async_connection_pool.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 116,
+      "nonEmptyLines": 109,
+      "functions": [
+        {
+          "name": "test_mysql_async_with_connection_pool",
+          "startLine": 22,
+          "endLine": 116,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "mysql_async::OptsBuilder::default()\n        .user(Some(\"root\"))\n        .pass(Some(\"123456\"))\n        .ip_or_hostname(\"mysql\")\n        .tcp_port(3306).db_name",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "mysql_async::OptsBuilder::default()\n        .user(Some(\"root\"))\n        .pass(Some(\"123456\"))\n        .ip_or_hostname(\"mysql\").tcp_port",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "mysql_async::OptsBuilder::default()\n        .user(Some(\"root\"))\n        .pass(Some(\"123456\")).ip_or_hostname",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "mysql_async::OptsBuilder::default()\n        .user(Some(\"root\")).pass",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "mysql_async::OptsBuilder::default().user",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "mysql_async::OptsBuilder::default",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "Some",
+          "lineNumber": 24
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "Some",
+          "lineNumber": 25
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "Some",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "mysql_async::Pool::new",
+          "lineNumber": 29
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "pool.get_conn().await.unwrap",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "pool.get_conn",
+          "lineNumber": 30
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn.exec_drop(\"DROP TABLE IF EXISTS test_table\", ())\n        .await.unwrap",
+          "lineNumber": 31
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn.exec_drop",
+          "lineNumber": 31
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn.exec_drop(\n        \"CREATE TABLE test_table (id INT PRIMARY KEY, value VARCHAR(255))\",\n        (),\n    )\n    .await.unwrap",
+          "lineNumber": 34
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn.exec_drop",
+          "lineNumber": 34
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn.exec_drop(\n            \"INSERT INTO test_table VALUES (?, ?) ON DUPLICATE KEY UPDATE value=?\",\n            (i, format!(\"value_{}\", i), format!(\"value_{}\", i)),\n        )\n        .await.unwrap",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn.exec_drop",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn\n            .exec_stream::<mysql_async::Row, _, _>(\n                \"SELECT * FROM test_table where id>100 LIMIT 10\",\n                (),\n            )\n            .await.unwrap",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn\n            .exec_stream::<mysql_async::Row, _, _>",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "Vec::new",
+          "lineNumber": 58
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "rs_stream0.next",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "rs.unwrap",
+          "lineNumber": 60
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "rows.push",
+          "lineNumber": 61
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn.exec_drop",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "tokio::time::timeout",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "Duration::from_secs",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn\n            .exec_stream::<mysql_async::Row, _, _>(\n                \"SELECT * FROM test_table where id>100 LIMIT 10\",\n                (),\n            )\n            .await.unwrap",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "conn\n            .exec_stream::<mysql_async::Row, _, _>",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "Vec::new",
+          "lineNumber": 87
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "rs_stream1.next",
+          "lineNumber": 88
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "rs.unwrap",
+          "lineNumber": 89
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "rows_err.push",
+          "lineNumber": 90
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "drop",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "pool.get_conn().await.unwrap",
+          "lineNumber": 96
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "pool.get_conn",
+          "lineNumber": 96
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "new_conn\n            .exec_stream::<mysql_async::Row, _, _>(\n                \"SELECT * FROM test_table where id>100 LIMIT 10\",\n                (),\n            )\n            .await.unwrap",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "new_conn\n            .exec_stream::<mysql_async::Row, _, _>",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "Vec::new",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "rs_stream2.next",
+          "lineNumber": 107
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "rs.unwrap",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "rows_new_conn.push",
+          "lineNumber": 109
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "drop",
+          "lineNumber": 114
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "pool.disconnect().await.unwrap",
+          "lineNumber": 115
+        },
+        {
+          "caller": "test_mysql_async_with_connection_pool",
+          "callee": "pool.disconnect",
+          "lineNumber": 115
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/tests/regress/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "target.'cfg(not(madsim))'.dependencies",
+          "level": 3,
+          "line": 19
+        },
+        {
+          "heading": "[[bin]]",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "src/tests/regress/data/COPYRIGHT",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 18,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/agg.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/array.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 103,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/constrf.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/constro.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/dept.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/desc.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 10000,
+      "nonEmptyLines": 10000,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/emp.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/hash.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 10000,
+      "nonEmptyLines": 10000,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/jsonb.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 1012,
+      "nonEmptyLines": 1012,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/onek.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 1000,
+      "nonEmptyLines": 1000,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/person.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 50,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/real_city.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/rect.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 3378,
+      "nonEmptyLines": 3378,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/streets.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 5124,
+      "nonEmptyLines": 5124,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/stud_emp.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/student.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "src/tests/regress/data/data/tenk.data",
+      "language": "data",
+      "fileCategory": "code",
+      "totalLines": 10000,
+      "nonEmptyLines": 10000,
+      "metrics": {}
+    }
+  ]
+}

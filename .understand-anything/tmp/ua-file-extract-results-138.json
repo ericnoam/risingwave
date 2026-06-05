@@ -1,0 +1,156 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/iceberg-sink/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 171,
+      "nonEmptyLines": 169,
+      "sections": [
+        {
+          "heading": "x-airflow-common",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "x-spark-common",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 160
+        },
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 171
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 35,
+      "nonEmptyLines": 24,
+      "services": [
+        {
+          "name": "airflow",
+          "image": "apache/airflow:2.6.2-python3.10",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 19
+        },
+        {
+          "name": "spark",
+          "image": "bitnamilegacy/spark:3.3",
+          "ports": [],
+          "startLine": 20,
+          "endLine": 36
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM apache/airflow:2.6.2-python3.10 as airflow",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "USER root",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "RUN apt-get update && \\",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64/",
+          "startLine": 12,
+          "endLine": 12
+        },
+        {
+          "name": "RUN export JAVA_HOME",
+          "startLine": 13,
+          "endLine": 13
+        },
+        {
+          "name": "USER airflow",
+          "startLine": 15,
+          "endLine": 15
+        },
+        {
+          "name": "RUN pip install --no-cache-dir \"apache-airflow==${AIRFLOW_VERSIO",
+          "startLine": 17,
+          "endLine": 17
+        },
+        {
+          "name": "FROM bitnamilegacy/spark:3.3 as spark",
+          "startLine": 20,
+          "endLine": 20
+        },
+        {
+          "name": "USER root",
+          "startLine": 22,
+          "endLine": 22
+        },
+        {
+          "name": "RUN apt-get update && \\",
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "USER 1001",
+          "startLine": 28,
+          "endLine": 28
+        },
+        {
+          "name": "RUN rm -r /opt/bitnami/spark/jars && \\",
+          "startLine": 30,
+          "endLine": 30
+        },
+        {
+          "name": "RUN curl https://repo1.maven.org/maven2/com/amazonaws/aws-java-s",
+          "startLine": 33,
+          "endLine": 33
+        },
+        {
+          "name": "RUN curl https://repo1.maven.org/maven2/org/apache/hadoop/hadoop",
+          "startLine": 34,
+          "endLine": 34
+        },
+        {
+          "name": "RUN curl https://repo1.maven.org/maven2/net/java/dev/jets3t/jets",
+          "startLine": 35,
+          "endLine": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 2,
+        "stepCount": 15
+      }
+    }
+  ]
+}

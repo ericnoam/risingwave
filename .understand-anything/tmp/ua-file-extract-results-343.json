@@ -1,0 +1,4607 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/core/JniDbzSourceRegistry.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "register",
+          "startLine": 30,
+          "endLine": 36,
+          "params": [
+            "handler"
+          ]
+        },
+        {
+          "name": "getSourceHandler",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "sourceId"
+          ]
+        },
+        {
+          "name": "unregister",
+          "startLine": 42,
+          "endLine": 56,
+          "params": [
+            "handler"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JniDbzSourceRegistry",
+          "startLine": 24,
+          "endLine": 57,
+          "methods": [
+            "register",
+            "getSourceHandler",
+            "unregister"
+          ],
+          "properties": [
+            "LOG",
+            "sourceHandlers"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "register",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "getSourceHandler",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "unregister",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "JniDbzSourceRegistry",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "register",
+          "callee": "handler.getSourceId",
+          "lineNumber": 31
+        },
+        {
+          "caller": "register",
+          "callee": "sourceHandlers.put",
+          "lineNumber": 32
+        },
+        {
+          "caller": "register",
+          "callee": "LOG.info",
+          "lineNumber": 34
+        },
+        {
+          "caller": "getSourceHandler",
+          "callee": "sourceHandlers.get",
+          "lineNumber": 39
+        },
+        {
+          "caller": "unregister",
+          "callee": "handler.getSourceId",
+          "lineNumber": 49
+        },
+        {
+          "caller": "unregister",
+          "callee": "sourceHandlers.remove",
+          "lineNumber": 50
+        },
+        {
+          "caller": "unregister",
+          "callee": "LOG.info",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-connector-service/src/main/java/com/risingwave/connector/source/JniSourceValidateHandler.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 47,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "validate",
+          "startLine": 30,
+          "endLine": 46,
+          "params": [
+            "validateSourceRequestBytes"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JniSourceValidateHandler",
+          "startLine": 27,
+          "endLine": 47,
+          "methods": [
+            "validate"
+          ],
+          "properties": [
+            "LOG"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "validate",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "JniSourceValidateHandler",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "validate",
+          "callee": "ConnectorServiceProto.ValidateSourceRequest.parseFrom",
+          "lineNumber": 34
+        },
+        {
+          "caller": "validate",
+          "callee": "validateSource",
+          "lineNumber": 36
+        },
+        {
+          "caller": "validate",
+          "callee": "ConnectorServiceProto.ValidateSourceResponse.newBuilder().build().toByteArray",
+          "lineNumber": 38
+        },
+        {
+          "caller": "validate",
+          "callee": "ConnectorServiceProto.ValidateSourceResponse.newBuilder().build",
+          "lineNumber": 38
+        },
+        {
+          "caller": "validate",
+          "callee": "ConnectorServiceProto.ValidateSourceResponse.newBuilder",
+          "lineNumber": 38
+        },
+        {
+          "caller": "validate",
+          "callee": "LOG.warn",
+          "lineNumber": 40
+        },
+        {
+          "caller": "validate",
+          "callee": "validateResponse(e.getMessage()).toByteArray",
+          "lineNumber": 41
+        },
+        {
+          "caller": "validate",
+          "callee": "validateResponse",
+          "lineNumber": 41
+        },
+        {
+          "caller": "validate",
+          "callee": "e.getMessage",
+          "lineNumber": 41
+        },
+        {
+          "caller": "validate",
+          "callee": "LOG.error",
+          "lineNumber": 43
+        },
+        {
+          "caller": "validate",
+          "callee": "validateResponse(\"Internal error: \" + e.getMessage()).toByteArray",
+          "lineNumber": 44
+        },
+        {
+          "caller": "validate",
+          "callee": "validateResponse",
+          "lineNumber": 44
+        },
+        {
+          "caller": "validate",
+          "callee": "e.getMessage",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-connector-service/src/test/resources/log4j2.properties",
+      "language": "properties",
+      "fileCategory": "config",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/risingwave-jdbc-runner/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 63,
+      "nonEmptyLines": 58,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/risingwave-jdbc-runner/src/test/resources/test-private-key.pem",
+      "language": "pem",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 28,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-cassandra/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 53,
+      "nonEmptyLines": 48,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-cassandra/src/main/java/com/risingwave/connector/CassandraUtil.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 174,
+      "nonEmptyLines": 167,
+      "functions": [
+        {
+          "name": "getCorrespondingCassandraType",
+          "startLine": 34,
+          "endLine": 77,
+          "params": [
+            "dataType"
+          ]
+        },
+        {
+          "name": "checkSchema",
+          "startLine": 79,
+          "endLine": 110,
+          "params": [
+            "columnDescs",
+            "cassandraColumnDescMap"
+          ]
+        },
+        {
+          "name": "checkPrimaryKey",
+          "startLine": 112,
+          "endLine": 133,
+          "params": [
+            "cassandraColumnMetadatas",
+            "columnMetadatas"
+          ]
+        },
+        {
+          "name": "convertRow",
+          "startLine": 135,
+          "endLine": 169,
+          "params": [
+            "value",
+            "typeName"
+          ]
+        },
+        {
+          "name": "convertCQLIdentifiers",
+          "startLine": 171,
+          "endLine": 173,
+          "params": [
+            "identifier"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CassandraUtil",
+          "startLine": 33,
+          "endLine": 174,
+          "methods": [
+            "getCorrespondingCassandraType",
+            "checkSchema",
+            "checkPrimaryKey",
+            "convertRow",
+            "convertCQLIdentifiers"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "checkSchema",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "checkPrimaryKey",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "convertRow",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "convertCQLIdentifiers",
+          "line": 171,
+          "isDefault": false
+        },
+        {
+          "name": "CassandraUtil",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getCorrespondingCassandraType",
+          "callee": "dataType.getTypeName",
+          "lineNumber": 35
+        },
+        {
+          "caller": "getCorrespondingCassandraType",
+          "callee": "Status.INVALID_ARGUMENT\n                        .withDescription(\n                                \"cassandra does not have a type corresponding to naive timestamp\").asRuntimeException",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getCorrespondingCassandraType",
+          "callee": "Status.INVALID_ARGUMENT.withDescription",
+          "lineNumber": 53
+        },
+        {
+          "caller": "getCorrespondingCassandraType",
+          "callee": "Status.UNIMPLEMENTED\n                        .withDescription(String.format(\"not support %s now\", dataType)).asRuntimeException",
+          "lineNumber": 67
+        },
+        {
+          "caller": "getCorrespondingCassandraType",
+          "callee": "Status.UNIMPLEMENTED.withDescription",
+          "lineNumber": 67
+        },
+        {
+          "caller": "getCorrespondingCassandraType",
+          "callee": "String.format",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getCorrespondingCassandraType",
+          "callee": "Status.INVALID_ARGUMENT\n                        .withDescription(\"unspecified type\" + dataType).asRuntimeException",
+          "lineNumber": 73
+        },
+        {
+          "caller": "getCorrespondingCassandraType",
+          "callee": "Status.INVALID_ARGUMENT.withDescription",
+          "lineNumber": 73
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "columnDescs.size",
+          "lineNumber": 82
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "cassandraColumnDescMap.size",
+          "lineNumber": 82
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "Status.FAILED_PRECONDITION\n                    .withDescription(\n                            \"The columns of the sink must be equal to or a superset of the target table's columns.\").asRuntimeException",
+          "lineNumber": 83
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "Status.FAILED_PRECONDITION.withDescription",
+          "lineNumber": 83
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "CqlIdentifier.fromInternal",
+          "lineNumber": 89
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "columnDesc.getName",
+          "lineNumber": 89
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "cassandraColumnDescMap.containsKey",
+          "lineNumber": 90
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "Status.FAILED_PRECONDITION\n                        .withDescription(\n                                String.format(\n                                        \"Name mismatch. Column `%s` on RisingWave side is not found on Cassandra side.\",\n                                        columnDesc.getName())).asRuntimeException",
+          "lineNumber": 91
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "Status.FAILED_PRECONDITION.withDescription",
+          "lineNumber": 91
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "String.format",
+          "lineNumber": 93
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "columnDesc.getName",
+          "lineNumber": 95
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "cassandraColumnDescMap.get(cql).getType().getProtocolCode",
+          "lineNumber": 98
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "cassandraColumnDescMap.get(cql).getType",
+          "lineNumber": 98
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "cassandraColumnDescMap.get",
+          "lineNumber": 98
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "getCorrespondingCassandraType",
+          "lineNumber": 99
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "columnDesc.getDataType",
+          "lineNumber": 99
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "Status.FAILED_PRECONDITION\n                        .withDescription(\n                                String.format(\n                                        \"Data type mismatch for column `%s`. Cassandra side: `%s`, RisingWave side: `%s`.\",\n                                        columnDesc.getName(),\n                                        cassandraColumnDescMap.get(cql),\n                                        columnDesc.getDataType().getTypeName())).asRuntimeException",
+          "lineNumber": 100
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "Status.FAILED_PRECONDITION.withDescription",
+          "lineNumber": 100
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "String.format",
+          "lineNumber": 102
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "columnDesc.getName",
+          "lineNumber": 104
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "cassandraColumnDescMap.get",
+          "lineNumber": 105
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "columnDesc.getDataType().getTypeName",
+          "lineNumber": 106
+        },
+        {
+          "caller": "checkSchema",
+          "callee": "columnDesc.getDataType",
+          "lineNumber": 106
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "cassandraColumnMetadatas.size",
+          "lineNumber": 114
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "columnMetadatas.size",
+          "lineNumber": 114
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "Status.FAILED_PRECONDITION\n                    .withDescription(\"Primary key length mismatch.\").asRuntimeException",
+          "lineNumber": 115
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "Status.FAILED_PRECONDITION.withDescription",
+          "lineNumber": 115
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "cassandraColumnMetadatas.stream()\n                        .map((a) -> a.getName().toString()).collect",
+          "lineNumber": 120
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "cassandraColumnMetadatas.stream().map",
+          "lineNumber": 120
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "cassandraColumnMetadatas.stream",
+          "lineNumber": 120
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "a.getName().toString",
+          "lineNumber": 121
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "a.getName",
+          "lineNumber": 121
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "Collectors.toSet",
+          "lineNumber": 122
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "cassandraColumnsSet.contains",
+          "lineNumber": 124
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "Status.FAILED_PRECONDITION\n                        .withDescription(\n                                String.format(\n                                        \"Primary key mismatch. Primary key `%s` on RisingWave side is not found on Cassandra side\",\n                                        columnMetadata)).asRuntimeException",
+          "lineNumber": 125
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "Status.FAILED_PRECONDITION.withDescription",
+          "lineNumber": 125
+        },
+        {
+          "caller": "checkPrimaryKey",
+          "callee": "String.format",
+          "lineNumber": 127
+        },
+        {
+          "caller": "convertRow",
+          "callee": "Status.INVALID_ARGUMENT\n                        .withDescription(\n                                \"cassandra does not have a type corresponding to naive timestamp\").asRuntimeException",
+          "lineNumber": 149
+        },
+        {
+          "caller": "convertRow",
+          "callee": "Status.INVALID_ARGUMENT.withDescription",
+          "lineNumber": 149
+        },
+        {
+          "caller": "convertRow",
+          "callee": "((OffsetDateTime) value).toInstant",
+          "lineNumber": 154
+        },
+        {
+          "caller": "convertRow",
+          "callee": "CqlDuration.from",
+          "lineNumber": 156
+        },
+        {
+          "caller": "convertRow",
+          "callee": "ByteBuffer.wrap",
+          "lineNumber": 158
+        },
+        {
+          "caller": "convertRow",
+          "callee": "Status.UNIMPLEMENTED\n                        .withDescription(String.format(\"not support %s now\", typeName)).asRuntimeException",
+          "lineNumber": 161
+        },
+        {
+          "caller": "convertRow",
+          "callee": "Status.UNIMPLEMENTED.withDescription",
+          "lineNumber": 161
+        },
+        {
+          "caller": "convertRow",
+          "callee": "String.format",
+          "lineNumber": 162
+        },
+        {
+          "caller": "convertRow",
+          "callee": "Status.INVALID_ARGUMENT\n                        .withDescription(\"unspecified type\" + typeName).asRuntimeException",
+          "lineNumber": 165
+        },
+        {
+          "caller": "convertRow",
+          "callee": "Status.INVALID_ARGUMENT.withDescription",
+          "lineNumber": 165
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-es-7/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 82,
+      "nonEmptyLines": 75,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/BulkListener.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 87,
+      "functions": [
+        {
+          "name": "BulkListener",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "requestTracker"
+          ]
+        },
+        {
+          "name": "beforeBulk",
+          "startLine": 34,
+          "endLine": 37,
+          "params": [
+            "executionId",
+            "request"
+          ]
+        },
+        {
+          "name": "afterBulk",
+          "startLine": 39,
+          "endLine": 54,
+          "params": [
+            "executionId",
+            "request",
+            "response"
+          ]
+        },
+        {
+          "name": "afterBulk",
+          "startLine": 57,
+          "endLine": 64,
+          "params": [
+            "executionId",
+            "request",
+            "failure"
+          ]
+        },
+        {
+          "name": "beforeBulk",
+          "startLine": 66,
+          "endLine": 69,
+          "params": [
+            "executionId",
+            "request"
+          ]
+        },
+        {
+          "name": "afterBulk",
+          "startLine": 71,
+          "endLine": 86,
+          "params": [
+            "executionId",
+            "request",
+            "response"
+          ]
+        },
+        {
+          "name": "afterBulk",
+          "startLine": 88,
+          "endLine": 96,
+          "params": [
+            "executionId",
+            "request",
+            "failure"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BulkListener",
+          "startLine": 24,
+          "endLine": 97,
+          "methods": [
+            "BulkListener",
+            "beforeBulk",
+            "afterBulk",
+            "afterBulk",
+            "beforeBulk",
+            "afterBulk",
+            "afterBulk"
+          ],
+          "properties": [
+            "LOG",
+            "requestTracker"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BulkListener",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "beforeBulk",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "afterBulk",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "afterBulk",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "beforeBulk",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "afterBulk",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "afterBulk",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "BulkListener",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "beforeBulk",
+          "callee": "LOG.debug",
+          "lineNumber": 36
+        },
+        {
+          "caller": "beforeBulk",
+          "callee": "request.numberOfActions",
+          "lineNumber": 36
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "response.hasFailures",
+          "lineNumber": 44
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "String.format",
+          "lineNumber": 46
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "request.numberOfActions",
+          "lineNumber": 48
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "response.buildFailureMessage",
+          "lineNumber": 48
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "this.requestTracker.addErrResult",
+          "lineNumber": 49
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "this.requestTracker.addOkResult",
+          "lineNumber": 51
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "request.numberOfActions",
+          "lineNumber": 51
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "LOG.debug",
+          "lineNumber": 52
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "request.numberOfActions",
+          "lineNumber": 52
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "String.format",
+          "lineNumber": 60
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "request.numberOfActions",
+          "lineNumber": 62
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "failure.getMessage",
+          "lineNumber": 62
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "this.requestTracker.addErrResult",
+          "lineNumber": 63
+        },
+        {
+          "caller": "beforeBulk",
+          "callee": "LOG.debug",
+          "lineNumber": 68
+        },
+        {
+          "caller": "beforeBulk",
+          "callee": "request.numberOfActions",
+          "lineNumber": 68
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "response.hasFailures",
+          "lineNumber": 76
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "String.format",
+          "lineNumber": 78
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "request.numberOfActions",
+          "lineNumber": 80
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "response.buildFailureMessage",
+          "lineNumber": 80
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "this.requestTracker.addErrResult",
+          "lineNumber": 81
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "this.requestTracker.addOkResult",
+          "lineNumber": 83
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "request.numberOfActions",
+          "lineNumber": 83
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "LOG.debug",
+          "lineNumber": 84
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "request.numberOfActions",
+          "lineNumber": 84
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "String.format",
+          "lineNumber": 92
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "request.numberOfActions",
+          "lineNumber": 94
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "failure.getMessage",
+          "lineNumber": 94
+        },
+        {
+          "caller": "afterBulk",
+          "callee": "this.requestTracker.addErrResult",
+          "lineNumber": 95
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/BulkProcessorAdapter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "BulkProcessorAdapter",
+          "startLine": 21,
+          "endLine": 30,
+          "methods": [
+            "addRow",
+            "deleteRow",
+            "flush",
+            "awaitClose"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BulkProcessorAdapter",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/ElasticBulkProcessorAdapter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 96,
+      "functions": [
+        {
+          "name": "ElasticBulkProcessorAdapter",
+          "startLine": 39,
+          "endLine": 66,
+          "params": [
+            "requestTracker",
+            "client",
+            "config"
+          ]
+        },
+        {
+          "name": "flush",
+          "startLine": 68,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "awaitClose",
+          "startLine": 73,
+          "endLine": 76,
+          "params": [
+            "timeout",
+            "unit"
+          ]
+        },
+        {
+          "name": "addRow",
+          "startLine": 78,
+          "endLine": 92,
+          "params": [
+            "index",
+            "key",
+            "doc",
+            "routing"
+          ]
+        },
+        {
+          "name": "deleteRow",
+          "startLine": 94,
+          "endLine": 103,
+          "params": [
+            "index",
+            "key",
+            "routing"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ElasticBulkProcessorAdapter",
+          "startLine": 33,
+          "endLine": 104,
+          "methods": [
+            "ElasticBulkProcessorAdapter",
+            "flush",
+            "awaitClose",
+            "addRow",
+            "deleteRow"
+          ],
+          "properties": [
+            "LOG",
+            "esBulkProcessor",
+            "requestTracker",
+            "retryOnConflict"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ElasticBulkProcessorAdapter",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "flush",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "awaitClose",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "addRow",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "deleteRow",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "ElasticBulkProcessorAdapter",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "BulkProcessor.builder",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "client.bulkAsync",
+          "lineNumber": 46
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "new BulkListener",
+          "lineNumber": 50
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "builder.setBulkActions",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "config.getBatchNumMessages",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "builder.setBulkSize",
+          "lineNumber": 54
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "new ByteSizeValue",
+          "lineNumber": 54
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "config.getBatchSizeKb",
+          "lineNumber": 54
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "builder.setFlushInterval",
+          "lineNumber": 56
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "TimeValue.timeValueSeconds",
+          "lineNumber": 56
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "builder.setConcurrentRequests",
+          "lineNumber": 58
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "config.getConcurrentRequests",
+          "lineNumber": 58
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "builder.setBackoffPolicy",
+          "lineNumber": 61
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "BackoffPolicy.exponentialBackoff",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "TimeValue.timeValueMillis",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "builder.build",
+          "lineNumber": 63
+        },
+        {
+          "caller": "ElasticBulkProcessorAdapter",
+          "callee": "config.getRetryOnConflict",
+          "lineNumber": 65
+        },
+        {
+          "caller": "flush",
+          "callee": "esBulkProcessor.flush",
+          "lineNumber": 70
+        },
+        {
+          "caller": "awaitClose",
+          "callee": "esBulkProcessor.awaitClose",
+          "lineNumber": 75
+        },
+        {
+          "caller": "addRow",
+          "callee": "new UpdateRequest(index, \"_doc\", key)\n                        .doc(doc, XContentType.JSON).retryOnConflict",
+          "lineNumber": 83
+        },
+        {
+          "caller": "addRow",
+          "callee": "new UpdateRequest(index, \"_doc\", key).doc",
+          "lineNumber": 83
+        },
+        {
+          "caller": "addRow",
+          "callee": "new UpdateRequest",
+          "lineNumber": 83
+        },
+        {
+          "caller": "addRow",
+          "callee": "updateRequest.routing",
+          "lineNumber": 87
+        },
+        {
+          "caller": "addRow",
+          "callee": "updateRequest.docAsUpsert",
+          "lineNumber": 89
+        },
+        {
+          "caller": "addRow",
+          "callee": "this.requestTracker.addWriteTask",
+          "lineNumber": 90
+        },
+        {
+          "caller": "addRow",
+          "callee": "this.esBulkProcessor.add",
+          "lineNumber": 91
+        },
+        {
+          "caller": "deleteRow",
+          "callee": "new DeleteRequest",
+          "lineNumber": 97
+        },
+        {
+          "caller": "deleteRow",
+          "callee": "deleteRequest.routing",
+          "lineNumber": 99
+        },
+        {
+          "caller": "deleteRow",
+          "callee": "this.requestTracker.addWriteTask",
+          "lineNumber": 101
+        },
+        {
+          "caller": "deleteRow",
+          "callee": "this.esBulkProcessor.add",
+          "lineNumber": 102
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/OpensearchBulkProcessorAdapter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 96,
+      "functions": [
+        {
+          "name": "OpensearchBulkProcessorAdapter",
+          "startLine": 39,
+          "endLine": 66,
+          "params": [
+            "requestTracker",
+            "client",
+            "config"
+          ]
+        },
+        {
+          "name": "flush",
+          "startLine": 68,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "awaitClose",
+          "startLine": 73,
+          "endLine": 76,
+          "params": [
+            "timeout",
+            "unit"
+          ]
+        },
+        {
+          "name": "addRow",
+          "startLine": 78,
+          "endLine": 92,
+          "params": [
+            "index",
+            "key",
+            "doc",
+            "routing"
+          ]
+        },
+        {
+          "name": "deleteRow",
+          "startLine": 94,
+          "endLine": 103,
+          "params": [
+            "index",
+            "key",
+            "routing"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpensearchBulkProcessorAdapter",
+          "startLine": 33,
+          "endLine": 104,
+          "methods": [
+            "OpensearchBulkProcessorAdapter",
+            "flush",
+            "awaitClose",
+            "addRow",
+            "deleteRow"
+          ],
+          "properties": [
+            "LOG",
+            "requestTracker",
+            "opensearchBulkProcessor",
+            "retryOnConflict"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OpensearchBulkProcessorAdapter",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "flush",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "awaitClose",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "addRow",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "deleteRow",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "OpensearchBulkProcessorAdapter",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "BulkProcessor.builder",
+          "lineNumber": 44
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "client.bulkAsync",
+          "lineNumber": 46
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "new BulkListener",
+          "lineNumber": 50
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "builder.setBulkActions",
+          "lineNumber": 52
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "config.getBatchNumMessages",
+          "lineNumber": 52
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "builder.setBulkSize",
+          "lineNumber": 54
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "new ByteSizeValue",
+          "lineNumber": 54
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "config.getBatchSizeKb",
+          "lineNumber": 54
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "builder.setFlushInterval",
+          "lineNumber": 56
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "TimeValue.timeValueSeconds",
+          "lineNumber": 56
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "builder.setConcurrentRequests",
+          "lineNumber": 58
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "config.getConcurrentRequests",
+          "lineNumber": 58
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "builder.setBackoffPolicy",
+          "lineNumber": 61
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "BackoffPolicy.exponentialBackoff",
+          "lineNumber": 62
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "TimeValue.timeValueMillis",
+          "lineNumber": 62
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "builder.build",
+          "lineNumber": 63
+        },
+        {
+          "caller": "OpensearchBulkProcessorAdapter",
+          "callee": "config.getRetryOnConflict",
+          "lineNumber": 65
+        },
+        {
+          "caller": "flush",
+          "callee": "opensearchBulkProcessor.flush",
+          "lineNumber": 70
+        },
+        {
+          "caller": "awaitClose",
+          "callee": "opensearchBulkProcessor.awaitClose",
+          "lineNumber": 75
+        },
+        {
+          "caller": "addRow",
+          "callee": "new UpdateRequest(index, key)\n                        .doc(doc, XContentType.JSON).retryOnConflict",
+          "lineNumber": 83
+        },
+        {
+          "caller": "addRow",
+          "callee": "new UpdateRequest(index, key).doc",
+          "lineNumber": 83
+        },
+        {
+          "caller": "addRow",
+          "callee": "new UpdateRequest",
+          "lineNumber": 83
+        },
+        {
+          "caller": "addRow",
+          "callee": "updateRequest.routing",
+          "lineNumber": 87
+        },
+        {
+          "caller": "addRow",
+          "callee": "updateRequest.docAsUpsert",
+          "lineNumber": 89
+        },
+        {
+          "caller": "addRow",
+          "callee": "this.requestTracker.addWriteTask",
+          "lineNumber": 90
+        },
+        {
+          "caller": "addRow",
+          "callee": "this.opensearchBulkProcessor.add",
+          "lineNumber": 91
+        },
+        {
+          "caller": "deleteRow",
+          "callee": "new DeleteRequest",
+          "lineNumber": 97
+        },
+        {
+          "caller": "deleteRow",
+          "callee": "deleteRequest.routing",
+          "lineNumber": 99
+        },
+        {
+          "caller": "deleteRow",
+          "callee": "this.requestTracker.addWriteTask",
+          "lineNumber": 101
+        },
+        {
+          "caller": "deleteRow",
+          "callee": "this.opensearchBulkProcessor.add",
+          "lineNumber": 102
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-es-7/src/main/java/com/risingwave/connector/OpensearchRestHighLevelClientAdapter.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 70,
+      "functions": [
+        {
+          "name": "configureRestClientBuilder",
+          "startLine": 36,
+          "endLine": 52,
+          "params": [
+            "builder",
+            "config"
+          ]
+        },
+        {
+          "name": "OpensearchRestHighLevelClientAdapter",
+          "startLine": 54,
+          "endLine": 59,
+          "params": [
+            "host",
+            "config"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 61,
+          "endLine": 64,
+          "params": []
+        },
+        {
+          "name": "ping",
+          "startLine": 66,
+          "endLine": 69,
+          "params": [
+            "options"
+          ]
+        },
+        {
+          "name": "bulkAsync",
+          "startLine": 71,
+          "endLine": 77,
+          "params": [
+            "bulkRequest",
+            "options",
+            "listener"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpensearchRestHighLevelClientAdapter",
+          "startLine": 33,
+          "endLine": 78,
+          "methods": [
+            "configureRestClientBuilder",
+            "OpensearchRestHighLevelClientAdapter",
+            "close",
+            "ping",
+            "bulkAsync"
+          ],
+          "properties": [
+            "opensearchClient"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OpensearchRestHighLevelClientAdapter",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "ping",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "bulkAsync",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "OpensearchRestHighLevelClientAdapter",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "configureRestClientBuilder",
+          "callee": "config.getPassword",
+          "lineNumber": 41
+        },
+        {
+          "caller": "configureRestClientBuilder",
+          "callee": "config.getUsername",
+          "lineNumber": 41
+        },
+        {
+          "caller": "configureRestClientBuilder",
+          "callee": "new BasicCredentialsProvider",
+          "lineNumber": 42
+        },
+        {
+          "caller": "configureRestClientBuilder",
+          "callee": "credentialsProvider.setCredentials",
+          "lineNumber": 43
+        },
+        {
+          "caller": "configureRestClientBuilder",
+          "callee": "new UsernamePasswordCredentials",
+          "lineNumber": 45
+        },
+        {
+          "caller": "configureRestClientBuilder",
+          "callee": "config.getUsername",
+          "lineNumber": 45
+        },
+        {
+          "caller": "configureRestClientBuilder",
+          "callee": "config.getPassword",
+          "lineNumber": 45
+        },
+        {
+          "caller": "configureRestClientBuilder",
+          "callee": "builder.setHttpClientConfigCallback",
+          "lineNumber": 46
+        },
+        {
+          "caller": "configureRestClientBuilder",
+          "callee": "httpClientBuilder.setDefaultCredentialsProvider",
+          "lineNumber": 48
+        },
+        {
+          "caller": "OpensearchRestHighLevelClientAdapter",
+          "callee": "new org.opensearch.client.RestHighLevelClient",
+          "lineNumber": 56
+        },
+        {
+          "caller": "OpensearchRestHighLevelClientAdapter",
+          "callee": "configureRestClientBuilder",
+          "lineNumber": 57
+        },
+        {
+          "caller": "OpensearchRestHighLevelClientAdapter",
+          "callee": "org.opensearch.client.RestClient.builder",
+          "lineNumber": 58
+        },
+        {
+          "caller": "close",
+          "callee": "opensearchClient.close",
+          "lineNumber": 63
+        },
+        {
+          "caller": "ping",
+          "callee": "opensearchClient.ping",
+          "lineNumber": 67
+        },
+        {
+          "caller": "bulkAsync",
+          "callee": "opensearchClient.bulkAsync",
+          "lineNumber": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-es-7/src/test/resources/log4j2.properties",
+      "language": "properties",
+      "fileCategory": "config",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 159,
+      "nonEmptyLines": 155,
+      "metrics": {}
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/src/main/java/com/risingwave/connector/catalog/GlueCredentialProvider.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 150,
+      "nonEmptyLines": 134,
+      "functions": [
+        {
+          "name": "GlueCredentialProvider",
+          "startLine": 40,
+          "endLine": 42,
+          "params": [
+            "credentialsProvider"
+          ]
+        },
+        {
+          "name": "GlueCredentialProvider",
+          "startLine": 44,
+          "endLine": 55,
+          "params": [
+            "credentialsProvider",
+            "closeable"
+          ]
+        },
+        {
+          "name": "create",
+          "startLine": 57,
+          "endLine": 78,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "resolveBaseCredentialsProvider",
+          "startLine": 80,
+          "endLine": 97,
+          "params": [
+            "accessKey",
+            "secretKey",
+            "useDefaultChain"
+          ]
+        },
+        {
+          "name": "assumeRole",
+          "startLine": 99,
+          "endLine": 125,
+          "params": [
+            "baseCredentialsProvider",
+            "roleArn",
+            "sessionName",
+            "region"
+          ]
+        },
+        {
+          "name": "resolveCredentials",
+          "startLine": 127,
+          "endLine": 129,
+          "params": []
+        },
+        {
+          "name": "credentialsProviderForTest",
+          "startLine": 131,
+          "endLine": 133,
+          "params": []
+        },
+        {
+          "name": "closeAssumeRoleResources",
+          "startLine": 135,
+          "endLine": 141,
+          "params": [
+            "stsClient",
+            "baseCredentialsProvider"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 143,
+          "endLine": 149,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "GlueCredentialProvider",
+          "startLine": 35,
+          "endLine": 150,
+          "methods": [
+            "GlueCredentialProvider",
+            "GlueCredentialProvider",
+            "create",
+            "resolveBaseCredentialsProvider",
+            "assumeRole",
+            "resolveCredentials",
+            "credentialsProviderForTest",
+            "closeAssumeRoleResources",
+            "close"
+          ],
+          "properties": [
+            "DEFAULT_SESSION_NAME",
+            "credentialsProvider",
+            "closeable"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "create",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "resolveCredentials",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "GlueCredentialProvider",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "GlueCredentialProvider",
+          "callee": "Validate.notNull",
+          "lineNumber": 48
+        },
+        {
+          "caller": "GlueCredentialProvider",
+          "callee": "Validate.notNull",
+          "lineNumber": 54
+        },
+        {
+          "caller": "create",
+          "callee": "Validate.notNull",
+          "lineNumber": 58
+        },
+        {
+          "caller": "create",
+          "callee": "config.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "create",
+          "callee": "config.get",
+          "lineNumber": 60
+        },
+        {
+          "caller": "create",
+          "callee": "Boolean.parseBoolean",
+          "lineNumber": 62
+        },
+        {
+          "caller": "create",
+          "callee": "config.getOrDefault",
+          "lineNumber": 63
+        },
+        {
+          "caller": "create",
+          "callee": "Boolean.FALSE.toString",
+          "lineNumber": 64
+        },
+        {
+          "caller": "create",
+          "callee": "resolveBaseCredentialsProvider",
+          "lineNumber": 67
+        },
+        {
+          "caller": "create",
+          "callee": "config.get",
+          "lineNumber": 68
+        },
+        {
+          "caller": "create",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 69
+        },
+        {
+          "caller": "create",
+          "callee": "new GlueCredentialProvider",
+          "lineNumber": 70
+        },
+        {
+          "caller": "create",
+          "callee": "assumeRole",
+          "lineNumber": 73
+        },
+        {
+          "caller": "create",
+          "callee": "config.get",
+          "lineNumber": 76
+        },
+        {
+          "caller": "create",
+          "callee": "config.get",
+          "lineNumber": 77
+        },
+        {
+          "caller": "resolveBaseCredentialsProvider",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 82
+        },
+        {
+          "caller": "resolveBaseCredentialsProvider",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 82
+        },
+        {
+          "caller": "resolveBaseCredentialsProvider",
+          "callee": "AwsBasicCredentials.create",
+          "lineNumber": 83
+        },
+        {
+          "caller": "resolveBaseCredentialsProvider",
+          "callee": "StaticCredentialsProvider.create",
+          "lineNumber": 84
+        },
+        {
+          "caller": "resolveBaseCredentialsProvider",
+          "callee": "DefaultCredentialsProvider.builder().build",
+          "lineNumber": 90
+        },
+        {
+          "caller": "resolveBaseCredentialsProvider",
+          "callee": "DefaultCredentialsProvider.builder",
+          "lineNumber": 90
+        },
+        {
+          "caller": "resolveBaseCredentialsProvider",
+          "callee": "Validate.notNull",
+          "lineNumber": 93
+        },
+        {
+          "caller": "resolveBaseCredentialsProvider",
+          "callee": "Validate.notNull",
+          "lineNumber": 94
+        },
+        {
+          "caller": "resolveBaseCredentialsProvider",
+          "callee": "AwsBasicCredentials.create",
+          "lineNumber": 95
+        },
+        {
+          "caller": "resolveBaseCredentialsProvider",
+          "callee": "StaticCredentialsProvider.create",
+          "lineNumber": 96
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "StsClient.builder().credentialsProvider",
+          "lineNumber": 104
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "StsClient.builder",
+          "lineNumber": 104
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 105
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "builder.region",
+          "lineNumber": 106
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "Region.of",
+          "lineNumber": 106
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "builder.build",
+          "lineNumber": 108
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "AssumeRoleRequest.builder()\n                        .roleArn(roleArn)\n                        .roleSessionName(\n                                StringUtils.isBlank(sessionName)\n                                        ? DEFAULT_SESSION_NAME\n                                        : sessionName).build",
+          "lineNumber": 110
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "AssumeRoleRequest.builder()\n                        .roleArn(roleArn).roleSessionName",
+          "lineNumber": 110
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "AssumeRoleRequest.builder().roleArn",
+          "lineNumber": 110
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "AssumeRoleRequest.builder",
+          "lineNumber": 110
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 113
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "StsAssumeRoleCredentialsProvider.builder()\n                        .stsClient(stsClient)\n                        .refreshRequest(request).build",
+          "lineNumber": 118
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "StsAssumeRoleCredentialsProvider.builder()\n                        .stsClient(stsClient).refreshRequest",
+          "lineNumber": 118
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "StsAssumeRoleCredentialsProvider.builder().stsClient",
+          "lineNumber": 118
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "StsAssumeRoleCredentialsProvider.builder",
+          "lineNumber": 118
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "new GlueCredentialProvider",
+          "lineNumber": 122
+        },
+        {
+          "caller": "assumeRole",
+          "callee": "closeAssumeRoleResources",
+          "lineNumber": 124
+        },
+        {
+          "caller": "resolveCredentials",
+          "callee": "this.credentialsProvider.resolveCredentials",
+          "lineNumber": 128
+        },
+        {
+          "caller": "closeAssumeRoleResources",
+          "callee": "stsClient.close",
+          "lineNumber": 137
+        },
+        {
+          "caller": "closeAssumeRoleResources",
+          "callee": "((SdkAutoCloseable) baseCredentialsProvider).close",
+          "lineNumber": 139
+        },
+        {
+          "caller": "close",
+          "callee": "((SdkAutoCloseable) credentialsProvider).close",
+          "lineNumber": 146
+        },
+        {
+          "caller": "close",
+          "callee": "closeable.close",
+          "lineNumber": 148
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/src/main/java/com/risingwave/connector/catalog/JniCatalogWrapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 212,
+      "nonEmptyLines": 195,
+      "functions": [
+        {
+          "name": "JniCatalogWrapper",
+          "startLine": 40,
+          "endLine": 42,
+          "params": [
+            "catalog"
+          ]
+        },
+        {
+          "name": "parseNamespace",
+          "startLine": 44,
+          "endLine": 54,
+          "params": [
+            "namespaceStr"
+          ]
+        },
+        {
+          "name": "loadTable",
+          "startLine": 63,
+          "endLine": 67,
+          "params": [
+            "tableIdentifier"
+          ]
+        },
+        {
+          "name": "updateTable",
+          "startLine": 76,
+          "endLine": 81,
+          "params": [
+            "updateTableRequest"
+          ]
+        },
+        {
+          "name": "createTable",
+          "startLine": 91,
+          "endLine": 97,
+          "params": [
+            "namespaceStr",
+            "createTableRequest"
+          ]
+        },
+        {
+          "name": "tableExists",
+          "startLine": 105,
+          "endLine": 108,
+          "params": [
+            "tableIdentifier"
+          ]
+        },
+        {
+          "name": "namespaceExists",
+          "startLine": 116,
+          "endLine": 123,
+          "params": [
+            "namespaceStr"
+          ]
+        },
+        {
+          "name": "createNamespace",
+          "startLine": 130,
+          "endLine": 135,
+          "params": [
+            "namespaceStr"
+          ]
+        },
+        {
+          "name": "dropTable",
+          "startLine": 143,
+          "endLine": 146,
+          "params": [
+            "tableIdentifier"
+          ]
+        },
+        {
+          "name": "listNamespaces",
+          "startLine": 154,
+          "endLine": 163,
+          "params": []
+        },
+        {
+          "name": "listTables",
+          "startLine": 172,
+          "endLine": 176,
+          "params": [
+            "namespaceStr"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 183,
+          "endLine": 187,
+          "params": []
+        },
+        {
+          "name": "create",
+          "startLine": 197,
+          "endLine": 211,
+          "params": [
+            "name",
+            "klassName",
+            "props"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JniCatalogWrapper",
+          "startLine": 37,
+          "endLine": 212,
+          "methods": [
+            "JniCatalogWrapper",
+            "parseNamespace",
+            "loadTable",
+            "updateTable",
+            "createTable",
+            "tableExists",
+            "namespaceExists",
+            "createNamespace",
+            "dropTable",
+            "listNamespaces",
+            "listTables",
+            "close",
+            "create"
+          ],
+          "properties": [
+            "catalog"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "loadTable",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "updateTable",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "createTable",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "tableExists",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "namespaceExists",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "createNamespace",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "dropTable",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "listNamespaces",
+          "line": 154,
+          "isDefault": false
+        },
+        {
+          "name": "listTables",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 183,
+          "isDefault": false
+        },
+        {
+          "name": "create",
+          "line": 197,
+          "isDefault": false
+        },
+        {
+          "name": "JniCatalogWrapper",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "JniCatalogWrapper",
+          "callee": "Objects.requireNonNull",
+          "lineNumber": 41
+        },
+        {
+          "caller": "parseNamespace",
+          "callee": "namespaceStr.isEmpty",
+          "lineNumber": 45
+        },
+        {
+          "caller": "parseNamespace",
+          "callee": "Namespace.empty",
+          "lineNumber": 46
+        },
+        {
+          "caller": "parseNamespace",
+          "callee": "namespaceStr.split",
+          "lineNumber": 48
+        },
+        {
+          "caller": "parseNamespace",
+          "callee": "checkArgument",
+          "lineNumber": 50
+        },
+        {
+          "caller": "parseNamespace",
+          "callee": "level.isEmpty",
+          "lineNumber": 50
+        },
+        {
+          "caller": "parseNamespace",
+          "callee": "Namespace.of",
+          "lineNumber": 52
+        },
+        {
+          "caller": "loadTable",
+          "callee": "TableIdentifier.parse",
+          "lineNumber": 64
+        },
+        {
+          "caller": "loadTable",
+          "callee": "CatalogHandlers.loadTable",
+          "lineNumber": 65
+        },
+        {
+          "caller": "loadTable",
+          "callee": "RESTObjectMapper.mapper().writer().writeValueAsString",
+          "lineNumber": 66
+        },
+        {
+          "caller": "loadTable",
+          "callee": "RESTObjectMapper.mapper().writer",
+          "lineNumber": 66
+        },
+        {
+          "caller": "loadTable",
+          "callee": "RESTObjectMapper.mapper",
+          "lineNumber": 66
+        },
+        {
+          "caller": "updateTable",
+          "callee": "RESTObjectMapper.mapper().readValue",
+          "lineNumber": 78
+        },
+        {
+          "caller": "updateTable",
+          "callee": "RESTObjectMapper.mapper",
+          "lineNumber": 78
+        },
+        {
+          "caller": "updateTable",
+          "callee": "CatalogHandlers.updateTable",
+          "lineNumber": 79
+        },
+        {
+          "caller": "updateTable",
+          "callee": "req.identifier",
+          "lineNumber": 79
+        },
+        {
+          "caller": "updateTable",
+          "callee": "RESTObjectMapper.mapper().writer().writeValueAsString",
+          "lineNumber": 80
+        },
+        {
+          "caller": "updateTable",
+          "callee": "RESTObjectMapper.mapper().writer",
+          "lineNumber": 80
+        },
+        {
+          "caller": "updateTable",
+          "callee": "RESTObjectMapper.mapper",
+          "lineNumber": 80
+        },
+        {
+          "caller": "createTable",
+          "callee": "parseNamespace",
+          "lineNumber": 92
+        },
+        {
+          "caller": "createTable",
+          "callee": "RESTObjectMapper.mapper().readValue",
+          "lineNumber": 94
+        },
+        {
+          "caller": "createTable",
+          "callee": "RESTObjectMapper.mapper",
+          "lineNumber": 94
+        },
+        {
+          "caller": "createTable",
+          "callee": "CatalogHandlers.createTable",
+          "lineNumber": 95
+        },
+        {
+          "caller": "createTable",
+          "callee": "RESTObjectMapper.mapper().writer().writeValueAsString",
+          "lineNumber": 96
+        },
+        {
+          "caller": "createTable",
+          "callee": "RESTObjectMapper.mapper().writer",
+          "lineNumber": 96
+        },
+        {
+          "caller": "createTable",
+          "callee": "RESTObjectMapper.mapper",
+          "lineNumber": 96
+        },
+        {
+          "caller": "tableExists",
+          "callee": "TableIdentifier.parse",
+          "lineNumber": 106
+        },
+        {
+          "caller": "tableExists",
+          "callee": "catalog.tableExists",
+          "lineNumber": 107
+        },
+        {
+          "caller": "namespaceExists",
+          "callee": "parseNamespace",
+          "lineNumber": 117
+        },
+        {
+          "caller": "namespaceExists",
+          "callee": "((SupportsNamespaces) catalog).namespaceExists",
+          "lineNumber": 119
+        },
+        {
+          "caller": "createNamespace",
+          "callee": "parseNamespace",
+          "lineNumber": 131
+        },
+        {
+          "caller": "createNamespace",
+          "callee": "((SupportsNamespaces) catalog).createNamespace",
+          "lineNumber": 133
+        },
+        {
+          "caller": "dropTable",
+          "callee": "TableIdentifier.parse",
+          "lineNumber": 144
+        },
+        {
+          "caller": "dropTable",
+          "callee": "catalog.dropTable",
+          "lineNumber": 145
+        },
+        {
+          "caller": "listNamespaces",
+          "callee": "CatalogHandlers.listNamespaces",
+          "lineNumber": 157
+        },
+        {
+          "caller": "listNamespaces",
+          "callee": "Namespace.empty",
+          "lineNumber": 157
+        },
+        {
+          "caller": "listNamespaces",
+          "callee": "RESTObjectMapper.mapper().writer().writeValueAsString",
+          "lineNumber": 158
+        },
+        {
+          "caller": "listNamespaces",
+          "callee": "RESTObjectMapper.mapper().writer",
+          "lineNumber": 158
+        },
+        {
+          "caller": "listNamespaces",
+          "callee": "RESTObjectMapper.mapper",
+          "lineNumber": 158
+        },
+        {
+          "caller": "listNamespaces",
+          "callee": "new ListNamespacesResponse",
+          "lineNumber": 160
+        },
+        {
+          "caller": "listNamespaces",
+          "callee": "RESTObjectMapper.mapper().writer().writeValueAsString",
+          "lineNumber": 161
+        },
+        {
+          "caller": "listNamespaces",
+          "callee": "RESTObjectMapper.mapper().writer",
+          "lineNumber": 161
+        },
+        {
+          "caller": "listNamespaces",
+          "callee": "RESTObjectMapper.mapper",
+          "lineNumber": 161
+        },
+        {
+          "caller": "listTables",
+          "callee": "parseNamespace",
+          "lineNumber": 173
+        },
+        {
+          "caller": "listTables",
+          "callee": "CatalogHandlers.listTables",
+          "lineNumber": 174
+        },
+        {
+          "caller": "listTables",
+          "callee": "RESTObjectMapper.mapper().writer().writeValueAsString",
+          "lineNumber": 175
+        },
+        {
+          "caller": "listTables",
+          "callee": "RESTObjectMapper.mapper().writer",
+          "lineNumber": 175
+        },
+        {
+          "caller": "listTables",
+          "callee": "RESTObjectMapper.mapper",
+          "lineNumber": 175
+        },
+        {
+          "caller": "close",
+          "callee": "((Closeable) catalog).close",
+          "lineNumber": 185
+        },
+        {
+          "caller": "create",
+          "callee": "checkArgument",
+          "lineNumber": 198
+        },
+        {
+          "caller": "create",
+          "callee": "new HashMap<>",
+          "lineNumber": 202
+        },
+        {
+          "caller": "create",
+          "callee": "config.put",
+          "lineNumber": 204
+        },
+        {
+          "caller": "create",
+          "callee": "CatalogUtil.loadCatalog",
+          "lineNumber": 206
+        },
+        {
+          "caller": "create",
+          "callee": "new JniCatalogWrapper",
+          "lineNumber": 207
+        },
+        {
+          "caller": "create",
+          "callee": "new RuntimeException",
+          "lineNumber": 209
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 12,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/src/main/java/com/risingwave/connector/catalog/RESTObjectMapper.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "RESTObjectMapper",
+          "startLine": 32,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "mapper",
+          "startLine": 34,
+          "endLine": 49,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RESTObjectMapper",
+          "startLine": 27,
+          "endLine": 50,
+          "methods": [
+            "RESTObjectMapper",
+            "mapper"
+          ],
+          "properties": [
+            "FACTORY",
+            "MAPPER",
+            "isInitialized"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "mapper",
+          "callee": "MAPPER.setVisibility",
+          "lineNumber": 38
+        },
+        {
+          "caller": "mapper",
+          "callee": "MAPPER.configure",
+          "lineNumber": 39
+        },
+        {
+          "caller": "mapper",
+          "callee": "MAPPER.setPropertyNamingStrategy",
+          "lineNumber": 40
+        },
+        {
+          "caller": "mapper",
+          "callee": "new PropertyNamingStrategy.KebabCaseStrategy",
+          "lineNumber": 41
+        },
+        {
+          "caller": "mapper",
+          "callee": "RESTSerializers.registerAll",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/src/main/java/com/risingwave/connector/catalog/S3FileIOAssumeRoleAwsClientFactory.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 143,
+      "nonEmptyLines": 130,
+      "functions": [
+        {
+          "name": "initialize",
+          "startLine": 49,
+          "endLine": 55,
+          "params": [
+            "properties"
+          ]
+        },
+        {
+          "name": "s3",
+          "startLine": 57,
+          "endLine": 71,
+          "params": []
+        },
+        {
+          "name": "s3Async",
+          "startLine": 73,
+          "endLine": 89,
+          "params": []
+        },
+        {
+          "name": "credentialsProviderForTest",
+          "startLine": 91,
+          "endLine": 93,
+          "params": []
+        },
+        {
+          "name": "createCredentialsProvider",
+          "startLine": 95,
+          "endLine": 127,
+          "params": [
+            "properties"
+          ]
+        },
+        {
+          "name": "createBaseCredentialsProvider",
+          "startLine": 129,
+          "endLine": 142,
+          "params": [
+            "accessKeyId",
+            "secretAccessKey",
+            "sessionToken"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "S3FileIOAssumeRoleAwsClientFactory",
+          "startLine": 39,
+          "endLine": 143,
+          "methods": [
+            "initialize",
+            "s3",
+            "s3Async",
+            "credentialsProviderForTest",
+            "createCredentialsProvider",
+            "createBaseCredentialsProvider"
+          ],
+          "properties": [
+            "S3_IAM_ROLE_ARN",
+            "S3_IAM_ROLE_SESSION_NAME",
+            "DEFAULT_SESSION_NAME",
+            "s3FileIOProperties",
+            "httpClientProperties",
+            "awsClientProperties",
+            "credentialsProvider"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "initialize",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "s3",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "s3Async",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "S3FileIOAssumeRoleAwsClientFactory",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "initialize",
+          "callee": "new S3FileIOProperties",
+          "lineNumber": 51
+        },
+        {
+          "caller": "initialize",
+          "callee": "new HttpClientProperties",
+          "lineNumber": 52
+        },
+        {
+          "caller": "initialize",
+          "callee": "new AwsClientProperties",
+          "lineNumber": 53
+        },
+        {
+          "caller": "initialize",
+          "callee": "createCredentialsProvider",
+          "lineNumber": 54
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin)\n                .applyMutation(httpClientProperties::applyHttpClientConfigurations)\n                .applyMutation(s3FileIOProperties::applyEndpointConfigurations)\n                .applyMutation(s3FileIOProperties::applyServiceConfigurations)\n                .credentialsProvider(credentialsProvider)\n                .applyMutation(s3FileIOProperties::applySignerConfiguration)\n                .applyMutation(s3FileIOProperties::applyS3AccessGrantsConfigurations)\n                .applyMutation(s3FileIOProperties::applyUserAgentConfigurations)\n                .applyMutation(s3FileIOProperties::applyRetryConfigurations).build",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin)\n                .applyMutation(httpClientProperties::applyHttpClientConfigurations)\n                .applyMutation(s3FileIOProperties::applyEndpointConfigurations)\n                .applyMutation(s3FileIOProperties::applyServiceConfigurations)\n                .credentialsProvider(credentialsProvider)\n                .applyMutation(s3FileIOProperties::applySignerConfiguration)\n                .applyMutation(s3FileIOProperties::applyS3AccessGrantsConfigurations)\n                .applyMutation(s3FileIOProperties::applyUserAgentConfigurations).applyMutation",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin)\n                .applyMutation(httpClientProperties::applyHttpClientConfigurations)\n                .applyMutation(s3FileIOProperties::applyEndpointConfigurations)\n                .applyMutation(s3FileIOProperties::applyServiceConfigurations)\n                .credentialsProvider(credentialsProvider)\n                .applyMutation(s3FileIOProperties::applySignerConfiguration)\n                .applyMutation(s3FileIOProperties::applyS3AccessGrantsConfigurations).applyMutation",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin)\n                .applyMutation(httpClientProperties::applyHttpClientConfigurations)\n                .applyMutation(s3FileIOProperties::applyEndpointConfigurations)\n                .applyMutation(s3FileIOProperties::applyServiceConfigurations)\n                .credentialsProvider(credentialsProvider)\n                .applyMutation(s3FileIOProperties::applySignerConfiguration).applyMutation",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin)\n                .applyMutation(httpClientProperties::applyHttpClientConfigurations)\n                .applyMutation(s3FileIOProperties::applyEndpointConfigurations)\n                .applyMutation(s3FileIOProperties::applyServiceConfigurations)\n                .credentialsProvider(credentialsProvider).applyMutation",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin)\n                .applyMutation(httpClientProperties::applyHttpClientConfigurations)\n                .applyMutation(s3FileIOProperties::applyEndpointConfigurations)\n                .applyMutation(s3FileIOProperties::applyServiceConfigurations).credentialsProvider",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin)\n                .applyMutation(httpClientProperties::applyHttpClientConfigurations)\n                .applyMutation(s3FileIOProperties::applyEndpointConfigurations).applyMutation",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin)\n                .applyMutation(httpClientProperties::applyHttpClientConfigurations).applyMutation",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin).applyMutation",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration).applyMutation",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder().applyMutation",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3",
+          "callee": "S3Client.builder",
+          "lineNumber": 59
+        },
+        {
+          "caller": "s3Async",
+          "callee": "s3FileIOProperties.isS3CRTEnabled",
+          "lineNumber": 75
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.crtBuilder()\n                    .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                    .credentialsProvider(credentialsProvider)\n                    .applyMutation(s3FileIOProperties::applyEndpointConfigurations)\n                    .applyMutation(s3FileIOProperties::applyS3CrtConfigurations).build",
+          "lineNumber": 76
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.crtBuilder()\n                    .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                    .credentialsProvider(credentialsProvider)\n                    .applyMutation(s3FileIOProperties::applyEndpointConfigurations).applyMutation",
+          "lineNumber": 76
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.crtBuilder()\n                    .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                    .credentialsProvider(credentialsProvider).applyMutation",
+          "lineNumber": 76
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.crtBuilder()\n                    .applyMutation(awsClientProperties::applyClientRegionConfiguration).credentialsProvider",
+          "lineNumber": 76
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.crtBuilder().applyMutation",
+          "lineNumber": 76
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.crtBuilder",
+          "lineNumber": 76
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .credentialsProvider(credentialsProvider)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin)\n                .applyMutation(s3FileIOProperties::applyEndpointConfigurations).build",
+          "lineNumber": 83
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .credentialsProvider(credentialsProvider)\n                .applyMutation(awsClientProperties::applyLegacyMd5Plugin).applyMutation",
+          "lineNumber": 83
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration)\n                .credentialsProvider(credentialsProvider).applyMutation",
+          "lineNumber": 83
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.builder()\n                .applyMutation(awsClientProperties::applyClientRegionConfiguration).credentialsProvider",
+          "lineNumber": 83
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.builder().applyMutation",
+          "lineNumber": 83
+        },
+        {
+          "caller": "s3Async",
+          "callee": "S3AsyncClient.builder",
+          "lineNumber": 83
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "createBaseCredentialsProvider",
+          "lineNumber": 97
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "s3FileIOProperties.accessKeyId",
+          "lineNumber": 98
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "s3FileIOProperties.secretAccessKey",
+          "lineNumber": 99
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "s3FileIOProperties.sessionToken",
+          "lineNumber": 100
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "properties.get",
+          "lineNumber": 102
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 103
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "StsClient.builder().credentialsProvider",
+          "lineNumber": 108
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "StsClient.builder",
+          "lineNumber": 108
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "awsClientProperties.clientRegion",
+          "lineNumber": 109
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 110
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "stsClientBuilder.region",
+          "lineNumber": 111
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "Region.of",
+          "lineNumber": 111
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "stsClientBuilder.build",
+          "lineNumber": 113
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "properties.get",
+          "lineNumber": 114
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "AssumeRoleRequest.builder()\n                        .roleArn(roleArn)\n                        .roleSessionName(\n                                StringUtils.isBlank(sessionName)\n                                        ? DEFAULT_SESSION_NAME\n                                        : sessionName).build",
+          "lineNumber": 116
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "AssumeRoleRequest.builder()\n                        .roleArn(roleArn).roleSessionName",
+          "lineNumber": 116
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "AssumeRoleRequest.builder().roleArn",
+          "lineNumber": 116
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "AssumeRoleRequest.builder",
+          "lineNumber": 116
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 119
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "StsAssumeRoleCredentialsProvider.builder()\n                .stsClient(stsClient)\n                .refreshRequest(request).build",
+          "lineNumber": 123
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "StsAssumeRoleCredentialsProvider.builder()\n                .stsClient(stsClient).refreshRequest",
+          "lineNumber": 123
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "StsAssumeRoleCredentialsProvider.builder().stsClient",
+          "lineNumber": 123
+        },
+        {
+          "caller": "createCredentialsProvider",
+          "callee": "StsAssumeRoleCredentialsProvider.builder",
+          "lineNumber": 123
+        },
+        {
+          "caller": "createBaseCredentialsProvider",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 131
+        },
+        {
+          "caller": "createBaseCredentialsProvider",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 131
+        },
+        {
+          "caller": "createBaseCredentialsProvider",
+          "callee": "DefaultCredentialsProvider.builder().build",
+          "lineNumber": 134
+        },
+        {
+          "caller": "createBaseCredentialsProvider",
+          "callee": "DefaultCredentialsProvider.builder",
+          "lineNumber": 134
+        },
+        {
+          "caller": "createBaseCredentialsProvider",
+          "callee": "StringUtils.isBlank",
+          "lineNumber": 138
+        },
+        {
+          "caller": "createBaseCredentialsProvider",
+          "callee": "AwsBasicCredentials.create",
+          "lineNumber": 139
+        },
+        {
+          "caller": "createBaseCredentialsProvider",
+          "callee": "AwsSessionCredentials.create",
+          "lineNumber": 140
+        },
+        {
+          "caller": "createBaseCredentialsProvider",
+          "callee": "StaticCredentialsProvider.create",
+          "lineNumber": 141
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/src/main/java/org/apache/iceberg/common/DynClasses.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 103,
+      "functions": [
+        {
+          "name": "DynClasses",
+          "startLine": 28,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "builder",
+          "startLine": 30,
+          "endLine": 32,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DynClasses",
+          "startLine": 26,
+          "endLine": 118,
+          "methods": [
+            "DynClasses",
+            "builder"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "builder",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "DynClasses",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "builder",
+          "callee": "new Builder",
+          "lineNumber": 31
+        },
+        {
+          "caller": "impl",
+          "callee": "classNames.add",
+          "lineNumber": 60
+        },
+        {
+          "caller": "impl",
+          "callee": "Class.forName",
+          "lineNumber": 67
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "new ClassNotFoundException",
+          "lineNumber": 96
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "Joiner.on(\", \").join",
+          "lineNumber": 97
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "Joiner.on",
+          "lineNumber": 97
+        },
+        {
+          "caller": "build",
+          "callee": "new RuntimeException",
+          "lineNumber": 112
+        },
+        {
+          "caller": "build",
+          "callee": "Joiner.on(\", \").join",
+          "lineNumber": 113
+        },
+        {
+          "caller": "build",
+          "callee": "Joiner.on",
+          "lineNumber": 113
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/src/main/java/org/apache/iceberg/common/DynConstructors.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 298,
+      "nonEmptyLines": 260,
+      "functions": [
+        {
+          "name": "DynConstructors",
+          "startLine": 35,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "builder",
+          "startLine": 108,
+          "endLine": 110,
+          "params": []
+        },
+        {
+          "name": "builder",
+          "startLine": 112,
+          "endLine": 114,
+          "params": [
+            "baseClass"
+          ]
+        },
+        {
+          "name": "buildCheckedException",
+          "startLine": 245,
+          "endLine": 252,
+          "params": [
+            "baseClass",
+            "problems"
+          ]
+        },
+        {
+          "name": "buildRuntimeException",
+          "startLine": 254,
+          "endLine": 261,
+          "params": [
+            "baseClass",
+            "problems"
+          ]
+        },
+        {
+          "name": "formatProblems",
+          "startLine": 263,
+          "endLine": 281,
+          "params": [
+            "problems"
+          ]
+        },
+        {
+          "name": "methodName",
+          "startLine": 283,
+          "endLine": 297,
+          "params": [
+            "targetClass"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DynConstructors",
+          "startLine": 33,
+          "endLine": 298,
+          "methods": [
+            "DynConstructors",
+            "builder",
+            "builder",
+            "buildCheckedException",
+            "buildRuntimeException",
+            "formatProblems",
+            "methodName"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "builder",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "builder",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "DynConstructors",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "newInstanceChecked",
+          "callee": "ctor.getParameterCount",
+          "lineNumber": 53
+        },
+        {
+          "caller": "newInstanceChecked",
+          "callee": "ctor.newInstance",
+          "lineNumber": 54
+        },
+        {
+          "caller": "newInstanceChecked",
+          "callee": "Arrays.copyOfRange",
+          "lineNumber": 54
+        },
+        {
+          "caller": "newInstanceChecked",
+          "callee": "ctor.getParameterCount",
+          "lineNumber": 54
+        },
+        {
+          "caller": "newInstanceChecked",
+          "callee": "ctor.newInstance",
+          "lineNumber": 56
+        },
+        {
+          "caller": "newInstanceChecked",
+          "callee": "Throwables.propagateIfInstanceOf",
+          "lineNumber": 61
+        },
+        {
+          "caller": "newInstanceChecked",
+          "callee": "e.getCause",
+          "lineNumber": 61
+        },
+        {
+          "caller": "newInstanceChecked",
+          "callee": "Throwables.propagateIfInstanceOf",
+          "lineNumber": 62
+        },
+        {
+          "caller": "newInstanceChecked",
+          "callee": "e.getCause",
+          "lineNumber": 62
+        },
+        {
+          "caller": "newInstanceChecked",
+          "callee": "Throwables.propagate",
+          "lineNumber": 63
+        },
+        {
+          "caller": "newInstanceChecked",
+          "callee": "e.getCause",
+          "lineNumber": 63
+        },
+        {
+          "caller": "newInstance",
+          "callee": "newInstanceChecked",
+          "lineNumber": 69
+        },
+        {
+          "caller": "newInstance",
+          "callee": "Throwables.propagateIfInstanceOf",
+          "lineNumber": 71
+        },
+        {
+          "caller": "newInstance",
+          "callee": "Throwables.propagate",
+          "lineNumber": 72
+        },
+        {
+          "caller": "invoke",
+          "callee": "Preconditions.checkArgument",
+          "lineNumber": 79
+        },
+        {
+          "caller": "invoke",
+          "callee": "newInstance",
+          "lineNumber": 81
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "Preconditions.checkArgument",
+          "lineNumber": 87
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "newInstanceChecked",
+          "lineNumber": 89
+        },
+        {
+          "caller": "bind",
+          "callee": "new IllegalStateException",
+          "lineNumber": 94
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass().getSimpleName",
+          "lineNumber": 104
+        },
+        {
+          "caller": "toString",
+          "callee": "getClass",
+          "lineNumber": 104
+        },
+        {
+          "caller": "builder",
+          "callee": "new Builder",
+          "lineNumber": 109
+        },
+        {
+          "caller": "builder",
+          "callee": "new Builder",
+          "lineNumber": 113
+        },
+        {
+          "caller": "impl",
+          "callee": "Class.forName",
+          "lineNumber": 148
+        },
+        {
+          "caller": "impl",
+          "callee": "impl",
+          "lineNumber": 149
+        },
+        {
+          "caller": "impl",
+          "callee": "problems.put",
+          "lineNumber": 152
+        },
+        {
+          "caller": "impl",
+          "callee": "new Ctor<T>",
+          "lineNumber": 164
+        },
+        {
+          "caller": "impl",
+          "callee": "targetClass.getConstructor",
+          "lineNumber": 164
+        },
+        {
+          "caller": "impl",
+          "callee": "problems.put",
+          "lineNumber": 167
+        },
+        {
+          "caller": "impl",
+          "callee": "methodName",
+          "lineNumber": 167
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "hiddenImpl",
+          "lineNumber": 173
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "Class.forName",
+          "lineNumber": 185
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "hiddenImpl",
+          "lineNumber": 186
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "problems.put",
+          "lineNumber": 189
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "targetClass.getDeclaredConstructor",
+          "lineNumber": 201
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "AccessController.doPrivileged",
+          "lineNumber": 202
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "new MakeAccessible",
+          "lineNumber": 202
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "new Ctor<T>",
+          "lineNumber": 203
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "problems.put",
+          "lineNumber": 206
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "methodName",
+          "lineNumber": 206
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "problems.put",
+          "lineNumber": 209
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "methodName",
+          "lineNumber": 209
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "buildCheckedException",
+          "lineNumber": 219
+        },
+        {
+          "caller": "build",
+          "callee": "buildRuntimeException",
+          "lineNumber": 227
+        },
+        {
+          "caller": "run",
+          "callee": "hidden.setAccessible",
+          "lineNumber": 240
+        },
+        {
+          "caller": "buildCheckedException",
+          "callee": "new NoSuchMethodException",
+          "lineNumber": 248
+        },
+        {
+          "caller": "buildCheckedException",
+          "callee": "formatProblems",
+          "lineNumber": 249
+        },
+        {
+          "caller": "buildCheckedException",
+          "callee": "problems.values().forEach",
+          "lineNumber": 250
+        },
+        {
+          "caller": "buildCheckedException",
+          "callee": "problems.values",
+          "lineNumber": 250
+        },
+        {
+          "caller": "buildRuntimeException",
+          "callee": "new RuntimeException",
+          "lineNumber": 257
+        },
+        {
+          "caller": "buildRuntimeException",
+          "callee": "formatProblems",
+          "lineNumber": 258
+        },
+        {
+          "caller": "buildRuntimeException",
+          "callee": "problems.values().forEach",
+          "lineNumber": 259
+        },
+        {
+          "caller": "buildRuntimeException",
+          "callee": "problems.values",
+          "lineNumber": 259
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "new StringBuilder",
+          "lineNumber": 264
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "problems.entrySet",
+          "lineNumber": 266
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "sb.append",
+          "lineNumber": 270
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "sb.append(\"\\tMissing \")\n          .append(problem.getKey())\n          .append(\" [\")\n          .append(problem.getValue().getClass().getName())\n          .append(\": \")\n          .append(problem.getValue().getMessage()).append",
+          "lineNumber": 272
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "sb.append(\"\\tMissing \")\n          .append(problem.getKey())\n          .append(\" [\")\n          .append(problem.getValue().getClass().getName())\n          .append(\": \").append",
+          "lineNumber": 272
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "sb.append(\"\\tMissing \")\n          .append(problem.getKey())\n          .append(\" [\")\n          .append(problem.getValue().getClass().getName()).append",
+          "lineNumber": 272
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "sb.append(\"\\tMissing \")\n          .append(problem.getKey())\n          .append(\" [\").append",
+          "lineNumber": 272
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "sb.append(\"\\tMissing \")\n          .append(problem.getKey()).append",
+          "lineNumber": 272
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "sb.append(\"\\tMissing \").append",
+          "lineNumber": 272
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "sb.append",
+          "lineNumber": 272
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "problem.getKey",
+          "lineNumber": 273
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "problem.getValue().getClass().getName",
+          "lineNumber": 275
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "problem.getValue().getClass",
+          "lineNumber": 275
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "problem.getValue",
+          "lineNumber": 275
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "problem.getValue().getMessage",
+          "lineNumber": 277
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "problem.getValue",
+          "lineNumber": 277
+        },
+        {
+          "caller": "formatProblems",
+          "callee": "sb.toString",
+          "lineNumber": 280
+        },
+        {
+          "caller": "methodName",
+          "callee": "new StringBuilder",
+          "lineNumber": 284
+        },
+        {
+          "caller": "methodName",
+          "callee": "sb.append(targetClass.getName()).append",
+          "lineNumber": 285
+        },
+        {
+          "caller": "methodName",
+          "callee": "sb.append",
+          "lineNumber": 285
+        },
+        {
+          "caller": "methodName",
+          "callee": "targetClass.getName",
+          "lineNumber": 285
+        },
+        {
+          "caller": "methodName",
+          "callee": "sb.append",
+          "lineNumber": 291
+        },
+        {
+          "caller": "methodName",
+          "callee": "sb.append",
+          "lineNumber": 293
+        },
+        {
+          "caller": "methodName",
+          "callee": "type.getName",
+          "lineNumber": 293
+        },
+        {
+          "caller": "methodName",
+          "callee": "sb.append",
+          "lineNumber": 295
+        },
+        {
+          "caller": "methodName",
+          "callee": "sb.toString",
+          "lineNumber": 296
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/src/main/java/org/apache/iceberg/common/DynFields.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 428,
+      "nonEmptyLines": 377,
+      "functions": [
+        {
+          "name": "DynFields",
+          "startLine": 35,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "builder",
+          "startLine": 185,
+          "endLine": 187,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DynFields",
+          "startLine": 33,
+          "endLine": 428,
+          "methods": [
+            "DynFields",
+            "builder"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "builder",
+          "line": 185,
+          "isDefault": false
+        },
+        {
+          "name": "DynFields",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get",
+          "callee": "field.get",
+          "lineNumber": 55
+        },
+        {
+          "caller": "get",
+          "callee": "Throwables.propagate",
+          "lineNumber": 57
+        },
+        {
+          "caller": "set",
+          "callee": "field.set",
+          "lineNumber": 63
+        },
+        {
+          "caller": "set",
+          "callee": "Throwables.propagate",
+          "lineNumber": 65
+        },
+        {
+          "caller": "toString",
+          "callee": "MoreObjects.toStringHelper(this)\n          .add(\"class\", field.getDeclaringClass().toString())\n          .add(\"name\", name)\n          .add(\"type\", field.getType()).toString",
+          "lineNumber": 71
+        },
+        {
+          "caller": "toString",
+          "callee": "MoreObjects.toStringHelper(this)\n          .add(\"class\", field.getDeclaringClass().toString())\n          .add(\"name\", name).add",
+          "lineNumber": 71
+        },
+        {
+          "caller": "toString",
+          "callee": "MoreObjects.toStringHelper(this)\n          .add(\"class\", field.getDeclaringClass().toString()).add",
+          "lineNumber": 71
+        },
+        {
+          "caller": "toString",
+          "callee": "MoreObjects.toStringHelper(this).add",
+          "lineNumber": 71
+        },
+        {
+          "caller": "toString",
+          "callee": "MoreObjects.toStringHelper",
+          "lineNumber": 71
+        },
+        {
+          "caller": "toString",
+          "callee": "field.getDeclaringClass().toString",
+          "lineNumber": 72
+        },
+        {
+          "caller": "toString",
+          "callee": "field.getDeclaringClass",
+          "lineNumber": 72
+        },
+        {
+          "caller": "toString",
+          "callee": "field.getType",
+          "lineNumber": 74
+        },
+        {
+          "caller": "bind",
+          "callee": "Preconditions.checkState",
+          "lineNumber": 87
+        },
+        {
+          "caller": "bind",
+          "callee": "isStatic",
+          "lineNumber": 88
+        },
+        {
+          "caller": "bind",
+          "callee": "Preconditions.checkArgument",
+          "lineNumber": 89
+        },
+        {
+          "caller": "bind",
+          "callee": "field.getDeclaringClass().isAssignableFrom",
+          "lineNumber": 90
+        },
+        {
+          "caller": "bind",
+          "callee": "field.getDeclaringClass",
+          "lineNumber": 90
+        },
+        {
+          "caller": "bind",
+          "callee": "target.getClass",
+          "lineNumber": 90
+        },
+        {
+          "caller": "bind",
+          "callee": "target.getClass",
+          "lineNumber": 93
+        },
+        {
+          "caller": "bind",
+          "callee": "new BoundField<>",
+          "lineNumber": 95
+        },
+        {
+          "caller": "asStatic",
+          "callee": "Preconditions.checkState",
+          "lineNumber": 105
+        },
+        {
+          "caller": "asStatic",
+          "callee": "isStatic",
+          "lineNumber": 105
+        },
+        {
+          "caller": "asStatic",
+          "callee": "new StaticField<>",
+          "lineNumber": 106
+        },
+        {
+          "caller": "isStatic",
+          "callee": "Modifier.isStatic",
+          "lineNumber": 111
+        },
+        {
+          "caller": "isStatic",
+          "callee": "field.getModifiers",
+          "lineNumber": 111
+        },
+        {
+          "caller": "get",
+          "callee": "field.get",
+          "lineNumber": 159
+        },
+        {
+          "caller": "set",
+          "callee": "field.set",
+          "lineNumber": 163
+        },
+        {
+          "caller": "get",
+          "callee": "field.get",
+          "lineNumber": 177
+        },
+        {
+          "caller": "set",
+          "callee": "field.set",
+          "lineNumber": 181
+        },
+        {
+          "caller": "builder",
+          "callee": "new Builder",
+          "lineNumber": 186
+        },
+        {
+          "caller": "impl",
+          "callee": "Class.forName",
+          "lineNumber": 234
+        },
+        {
+          "caller": "impl",
+          "callee": "impl",
+          "lineNumber": 235
+        },
+        {
+          "caller": "impl",
+          "callee": "candidates.add",
+          "lineNumber": 238
+        },
+        {
+          "caller": "impl",
+          "callee": "new UnboundField<>",
+          "lineNumber": 259
+        },
+        {
+          "caller": "impl",
+          "callee": "targetClass.getField",
+          "lineNumber": 259
+        },
+        {
+          "caller": "impl",
+          "callee": "candidates.add",
+          "lineNumber": 262
+        },
+        {
+          "caller": "impl",
+          "callee": "targetClass.getName",
+          "lineNumber": 262
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "Class.forName",
+          "lineNumber": 283
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "hiddenImpl",
+          "lineNumber": 284
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "candidates.add",
+          "lineNumber": 287
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "targetClass.getDeclaredField",
+          "lineNumber": 308
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "AccessController.doPrivileged",
+          "lineNumber": 309
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "new MakeFieldAccessible",
+          "lineNumber": 309
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "new UnboundField",
+          "lineNumber": 310
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "candidates.add",
+          "lineNumber": 313
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "targetClass.getName",
+          "lineNumber": 313
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "new NoSuchFieldException",
+          "lineNumber": 333
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "Joiner.on(\", \").join",
+          "lineNumber": 334
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "Joiner.on",
+          "lineNumber": 334
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "this.<T>buildChecked().bind",
+          "lineNumber": 350
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "this.buildChecked",
+          "lineNumber": 350
+        },
+        {
+          "caller": "build",
+          "callee": "new RuntimeException",
+          "lineNumber": 368
+        },
+        {
+          "caller": "build",
+          "callee": "Joiner.on(\", \").join",
+          "lineNumber": 369
+        },
+        {
+          "caller": "build",
+          "callee": "Joiner.on",
+          "lineNumber": 369
+        },
+        {
+          "caller": "build",
+          "callee": "this.<T>build().bind",
+          "lineNumber": 385
+        },
+        {
+          "caller": "build",
+          "callee": "this.build",
+          "lineNumber": 385
+        },
+        {
+          "caller": "buildStaticChecked",
+          "callee": "this.<T>buildChecked().asStatic",
+          "lineNumber": 398
+        },
+        {
+          "caller": "buildStaticChecked",
+          "callee": "this.buildChecked",
+          "lineNumber": 398
+        },
+        {
+          "caller": "buildStatic",
+          "callee": "this.<T>build().asStatic",
+          "lineNumber": 411
+        },
+        {
+          "caller": "buildStatic",
+          "callee": "this.build",
+          "lineNumber": 411
+        },
+        {
+          "caller": "run",
+          "callee": "hidden.setAccessible",
+          "lineNumber": 424
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/src/main/java/org/apache/iceberg/common/DynMethods.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 522,
+      "nonEmptyLines": 463,
+      "functions": [
+        {
+          "name": "DynMethods",
+          "startLine": 34,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "builder",
+          "startLine": 196,
+          "endLine": 198,
+          "params": [
+            "methodName"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DynMethods",
+          "startLine": 32,
+          "endLine": 522,
+          "methods": [
+            "DynMethods",
+            "builder"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "builder",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "DynMethods",
+          "line": 32,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "UnboundMethod",
+          "callee": "method.isVarArgs",
+          "lineNumber": 52
+        },
+        {
+          "caller": "UnboundMethod",
+          "callee": "method.getParameterTypes",
+          "lineNumber": 52
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "method.invoke",
+          "lineNumber": 59
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "method.invoke",
+          "lineNumber": 61
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "Arrays.copyOfRange",
+          "lineNumber": 61
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "Throwables.propagateIfInstanceOf",
+          "lineNumber": 65
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "e.getCause",
+          "lineNumber": 65
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "Throwables.propagateIfInstanceOf",
+          "lineNumber": 66
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "e.getCause",
+          "lineNumber": 66
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "Throwables.propagate",
+          "lineNumber": 67
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "e.getCause",
+          "lineNumber": 67
+        },
+        {
+          "caller": "invoke",
+          "callee": "this.invokeChecked",
+          "lineNumber": 73
+        },
+        {
+          "caller": "invoke",
+          "callee": "Throwables.propagateIfInstanceOf",
+          "lineNumber": 75
+        },
+        {
+          "caller": "invoke",
+          "callee": "Throwables.propagate",
+          "lineNumber": 76
+        },
+        {
+          "caller": "bind",
+          "callee": "Preconditions.checkState",
+          "lineNumber": 89
+        },
+        {
+          "caller": "bind",
+          "callee": "isStatic",
+          "lineNumber": 90
+        },
+        {
+          "caller": "bind",
+          "callee": "method.toGenericString",
+          "lineNumber": 90
+        },
+        {
+          "caller": "bind",
+          "callee": "Preconditions.checkArgument",
+          "lineNumber": 91
+        },
+        {
+          "caller": "bind",
+          "callee": "method.getDeclaringClass().isAssignableFrom",
+          "lineNumber": 92
+        },
+        {
+          "caller": "bind",
+          "callee": "method.getDeclaringClass",
+          "lineNumber": 92
+        },
+        {
+          "caller": "bind",
+          "callee": "receiver.getClass",
+          "lineNumber": 92
+        },
+        {
+          "caller": "bind",
+          "callee": "method.toGenericString",
+          "lineNumber": 94
+        },
+        {
+          "caller": "bind",
+          "callee": "receiver.getClass",
+          "lineNumber": 95
+        },
+        {
+          "caller": "bind",
+          "callee": "new BoundMethod",
+          "lineNumber": 97
+        },
+        {
+          "caller": "isStatic",
+          "callee": "Modifier.isStatic",
+          "lineNumber": 102
+        },
+        {
+          "caller": "isStatic",
+          "callee": "method.getModifiers",
+          "lineNumber": 102
+        },
+        {
+          "caller": "asStatic",
+          "callee": "Preconditions.checkState",
+          "lineNumber": 117
+        },
+        {
+          "caller": "asStatic",
+          "callee": "isStatic",
+          "lineNumber": 117
+        },
+        {
+          "caller": "asStatic",
+          "callee": "new StaticMethod",
+          "lineNumber": 118
+        },
+        {
+          "caller": "toString",
+          "callee": "method.toGenericString",
+          "lineNumber": 123
+        },
+        {
+          "caller": "bind",
+          "callee": "new BoundMethod",
+          "lineNumber": 136
+        },
+        {
+          "caller": "asStatic",
+          "callee": "new StaticMethod",
+          "lineNumber": 141
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "method.invokeChecked",
+          "lineNumber": 166
+        },
+        {
+          "caller": "invoke",
+          "callee": "method.invoke",
+          "lineNumber": 170
+        },
+        {
+          "caller": "invokeChecked",
+          "callee": "method.invokeChecked",
+          "lineNumber": 182
+        },
+        {
+          "caller": "invoke",
+          "callee": "method.invoke",
+          "lineNumber": 186
+        },
+        {
+          "caller": "builder",
+          "callee": "new Builder",
+          "lineNumber": 197
+        },
+        {
+          "caller": "impl",
+          "callee": "Class.forName",
+          "lineNumber": 251
+        },
+        {
+          "caller": "impl",
+          "callee": "impl",
+          "lineNumber": 252
+        },
+        {
+          "caller": "impl",
+          "callee": "impl",
+          "lineNumber": 271
+        },
+        {
+          "caller": "impl",
+          "callee": "new UnboundMethod",
+          "lineNumber": 292
+        },
+        {
+          "caller": "impl",
+          "callee": "targetClass.getMethod",
+          "lineNumber": 292
+        },
+        {
+          "caller": "impl",
+          "callee": "impl",
+          "lineNumber": 311
+        },
+        {
+          "caller": "ctorImpl",
+          "callee": "new DynConstructors.Builder().impl(targetClass, argClasses).buildChecked",
+          "lineNumber": 322
+        },
+        {
+          "caller": "ctorImpl",
+          "callee": "new DynConstructors.Builder().impl",
+          "lineNumber": 322
+        },
+        {
+          "caller": "ctorImpl",
+          "callee": "new DynConstructors.Builder",
+          "lineNumber": 322
+        },
+        {
+          "caller": "ctorImpl",
+          "callee": "new DynConstructors.Builder().impl(className, argClasses).buildChecked",
+          "lineNumber": 336
+        },
+        {
+          "caller": "ctorImpl",
+          "callee": "new DynConstructors.Builder().impl",
+          "lineNumber": 336
+        },
+        {
+          "caller": "ctorImpl",
+          "callee": "new DynConstructors.Builder",
+          "lineNumber": 336
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "Class.forName",
+          "lineNumber": 360
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "hiddenImpl",
+          "lineNumber": 361
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "hiddenImpl",
+          "lineNumber": 380
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "targetClass.getDeclaredMethod",
+          "lineNumber": 401
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "AccessController.doPrivileged",
+          "lineNumber": 402
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "new MakeAccessible",
+          "lineNumber": 402
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "new UnboundMethod",
+          "lineNumber": 403
+        },
+        {
+          "caller": "hiddenImpl",
+          "callee": "hiddenImpl",
+          "lineNumber": 422
+        },
+        {
+          "caller": "build",
+          "callee": "new RuntimeException",
+          "lineNumber": 437
+        },
+        {
+          "caller": "build",
+          "callee": "build().bind",
+          "lineNumber": 452
+        },
+        {
+          "caller": "build",
+          "callee": "build",
+          "lineNumber": 452
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "new NoSuchMethodException",
+          "lineNumber": 466
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "buildChecked().bind",
+          "lineNumber": 481
+        },
+        {
+          "caller": "buildChecked",
+          "callee": "buildChecked",
+          "lineNumber": 481
+        },
+        {
+          "caller": "buildStaticChecked",
+          "callee": "buildChecked().asStatic",
+          "lineNumber": 493
+        },
+        {
+          "caller": "buildStaticChecked",
+          "callee": "buildChecked",
+          "lineNumber": 493
+        },
+        {
+          "caller": "buildStatic",
+          "callee": "build().asStatic",
+          "lineNumber": 505
+        },
+        {
+          "caller": "buildStatic",
+          "callee": "build",
+          "lineNumber": 505
+        },
+        {
+          "caller": "run",
+          "callee": "hidden.setAccessible",
+          "lineNumber": 518
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/src/main/java/org/apache/iceberg/common/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 6,
+      "nonEmptyLines": 5,
+      "sections": [
+        {
+          "heading": "Why we need this package?",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "java/connector-node/risingwave-sink-iceberg/src/test/java/com/risingwave/connector/catalog/GlueCredentialProviderTest.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "testStaticCredentialsWithoutAssumeRole",
+          "startLine": 29,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "testAssumeRoleUsesRefreshableProvider",
+          "startLine": 41,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "startLine": 55,
+          "endLine": 66,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "GlueCredentialProviderTest",
+          "startLine": 28,
+          "endLine": 67,
+          "methods": [
+            "testStaticCredentialsWithoutAssumeRole",
+            "testAssumeRoleUsesRefreshableProvider",
+            "testDefaultCredentialChainDoesNotUseSharedSingleton"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "testStaticCredentialsWithoutAssumeRole",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "testAssumeRoleUsesRefreshableProvider",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "GlueCredentialProviderTest",
+          "line": 28,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "testStaticCredentialsWithoutAssumeRole",
+          "callee": "new HashMap<>",
+          "lineNumber": 31
+        },
+        {
+          "caller": "testStaticCredentialsWithoutAssumeRole",
+          "callee": "config.put",
+          "lineNumber": 32
+        },
+        {
+          "caller": "testStaticCredentialsWithoutAssumeRole",
+          "callee": "config.put",
+          "lineNumber": 33
+        },
+        {
+          "caller": "testStaticCredentialsWithoutAssumeRole",
+          "callee": "GlueCredentialProvider.create",
+          "lineNumber": 35
+        },
+        {
+          "caller": "testStaticCredentialsWithoutAssumeRole",
+          "callee": "assertThat(provider.resolveCredentials()).isEqualTo",
+          "lineNumber": 36
+        },
+        {
+          "caller": "testStaticCredentialsWithoutAssumeRole",
+          "callee": "assertThat",
+          "lineNumber": 36
+        },
+        {
+          "caller": "testStaticCredentialsWithoutAssumeRole",
+          "callee": "provider.resolveCredentials",
+          "lineNumber": 36
+        },
+        {
+          "caller": "testStaticCredentialsWithoutAssumeRole",
+          "callee": "AwsBasicCredentials.create",
+          "lineNumber": 37
+        },
+        {
+          "caller": "testAssumeRoleUsesRefreshableProvider",
+          "callee": "new HashMap<>",
+          "lineNumber": 43
+        },
+        {
+          "caller": "testAssumeRoleUsesRefreshableProvider",
+          "callee": "config.put",
+          "lineNumber": 44
+        },
+        {
+          "caller": "testAssumeRoleUsesRefreshableProvider",
+          "callee": "config.put",
+          "lineNumber": 45
+        },
+        {
+          "caller": "testAssumeRoleUsesRefreshableProvider",
+          "callee": "config.put",
+          "lineNumber": 46
+        },
+        {
+          "caller": "testAssumeRoleUsesRefreshableProvider",
+          "callee": "config.put",
+          "lineNumber": 47
+        },
+        {
+          "caller": "testAssumeRoleUsesRefreshableProvider",
+          "callee": "GlueCredentialProvider.create",
+          "lineNumber": 49
+        },
+        {
+          "caller": "testAssumeRoleUsesRefreshableProvider",
+          "callee": "assertThat(provider.credentialsProviderForTest()).isInstanceOf",
+          "lineNumber": 50
+        },
+        {
+          "caller": "testAssumeRoleUsesRefreshableProvider",
+          "callee": "assertThat",
+          "lineNumber": 50
+        },
+        {
+          "caller": "testAssumeRoleUsesRefreshableProvider",
+          "callee": "provider.credentialsProviderForTest",
+          "lineNumber": 50
+        },
+        {
+          "caller": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "callee": "new HashMap<>",
+          "lineNumber": 57
+        },
+        {
+          "caller": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "callee": "config.put",
+          "lineNumber": 58
+        },
+        {
+          "caller": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "callee": "GlueCredentialProvider.create",
+          "lineNumber": 60
+        },
+        {
+          "caller": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "callee": "GlueCredentialProvider.create",
+          "lineNumber": 61
+        },
+        {
+          "caller": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "callee": "assertThat(first.credentialsProviderForTest())\n                    .isInstanceOf(DefaultCredentialsProvider.class).isNotSameAs",
+          "lineNumber": 62
+        },
+        {
+          "caller": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "callee": "assertThat(first.credentialsProviderForTest()).isInstanceOf",
+          "lineNumber": 62
+        },
+        {
+          "caller": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "callee": "assertThat",
+          "lineNumber": 62
+        },
+        {
+          "caller": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "callee": "first.credentialsProviderForTest",
+          "lineNumber": 62
+        },
+        {
+          "caller": "testDefaultCredentialChainDoesNotUseSharedSingleton",
+          "callee": "second.credentialsProviderForTest",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

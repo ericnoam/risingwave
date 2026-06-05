@@ -1,0 +1,2390 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/stream/tests/integration_tests/eowc_over_window.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 741,
+      "nonEmptyLines": 709,
+      "functions": [
+        {
+          "name": "create_executor",
+          "startLine": 22,
+          "endLine": 86,
+          "params": [
+            "calls",
+            "store"
+          ]
+        },
+        {
+          "name": "create_executor_with_intermediate_state_table",
+          "startLine": 89,
+          "endLine": 182,
+          "params": [
+            "calls",
+            "store"
+          ]
+        },
+        {
+          "name": "test_over_window",
+          "startLine": 185,
+          "endLine": 286,
+          "params": []
+        },
+        {
+          "name": "test_over_window_aggregate",
+          "startLine": 289,
+          "endLine": 344,
+          "params": []
+        },
+        {
+          "name": "test_over_window_row_number_recovery",
+          "startLine": 349,
+          "endLine": 420,
+          "params": []
+        },
+        {
+          "name": "test_over_window_multiple_numbering_functions",
+          "startLine": 425,
+          "endLine": 507,
+          "params": []
+        },
+        {
+          "name": "test_over_window_interleaved_partitions",
+          "startLine": 512,
+          "endLine": 586,
+          "params": []
+        },
+        {
+          "name": "test_over_window_mixed_numbering_and_aggregate",
+          "startLine": 591,
+          "endLine": 670,
+          "params": []
+        },
+        {
+          "name": "test_over_window_legacy_without_intermediate_state_table",
+          "startLine": 675,
+          "endLine": 741,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_executor",
+          "callee": "Schema::new",
+          "lineNumber": 26
+        },
+        {
+          "caller": "create_executor",
+          "callee": "input_schema.fields.clone",
+          "lineNumber": 50
+        },
+        {
+          "caller": "create_executor",
+          "callee": "calls.iter().for_each",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_executor",
+          "callee": "calls.iter",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_executor",
+          "callee": "fields.push",
+          "lineNumber": 52
+        },
+        {
+          "caller": "create_executor",
+          "callee": "Field::unnamed",
+          "lineNumber": 52
+        },
+        {
+          "caller": "create_executor",
+          "callee": "call.return_type.clone",
+          "lineNumber": 52
+        },
+        {
+          "caller": "create_executor",
+          "callee": "StateTable::from_table_catalog_inconsistent_op",
+          "lineNumber": 57
+        },
+        {
+          "caller": "create_executor",
+          "callee": "gen_pbtable",
+          "lineNumber": 58
+        },
+        {
+          "caller": "create_executor",
+          "callee": "TableId::new",
+          "lineNumber": 59
+        },
+        {
+          "caller": "create_executor",
+          "callee": "MockSource::channel",
+          "lineNumber": 70
+        },
+        {
+          "caller": "create_executor",
+          "callee": "source.into_executor",
+          "lineNumber": 71
+        },
+        {
+          "caller": "create_executor",
+          "callee": "input_stream_key.clone",
+          "lineNumber": 71
+        },
+        {
+          "caller": "create_executor",
+          "callee": "EowcOverWindowExecutor::new",
+          "lineNumber": 72
+        },
+        {
+          "caller": "create_executor",
+          "callee": "ActorContext::for_test",
+          "lineNumber": 73
+        },
+        {
+          "caller": "create_executor",
+          "callee": "Arc::new",
+          "lineNumber": 82
+        },
+        {
+          "caller": "create_executor",
+          "callee": "AtomicU64::new",
+          "lineNumber": 82
+        },
+        {
+          "caller": "create_executor",
+          "callee": "executor.boxed().execute",
+          "lineNumber": 85
+        },
+        {
+          "caller": "create_executor",
+          "callee": "executor.boxed",
+          "lineNumber": 85
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "Schema::new",
+          "lineNumber": 93
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "input_schema.fields.clone",
+          "lineNumber": 117
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "calls.iter().for_each",
+          "lineNumber": 118
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "calls.iter",
+          "lineNumber": 118
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "fields.push",
+          "lineNumber": 119
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "Field::unnamed",
+          "lineNumber": 119
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "call.return_type.clone",
+          "lineNumber": 119
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "StateTable::from_table_catalog_inconsistent_op",
+          "lineNumber": 124
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "gen_pbtable",
+          "lineNumber": 125
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "TableId::new",
+          "lineNumber": 126
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "store.clone",
+          "lineNumber": 132
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "calls.len",
+          "lineNumber": 140
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "intermediate_table_columns.push",
+          "lineNumber": 145
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "ColumnDesc::unnamed",
+          "lineNumber": 145
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "ColumnId::new",
+          "lineNumber": 146
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "StateTable::from_table_catalog_inconsistent_op",
+          "lineNumber": 153
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "gen_pbtable",
+          "lineNumber": 154
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "TableId::new",
+          "lineNumber": 155
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "MockSource::channel",
+          "lineNumber": 166
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "source.into_executor",
+          "lineNumber": 167
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "input_stream_key.clone",
+          "lineNumber": 167
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "EowcOverWindowExecutor::new",
+          "lineNumber": 168
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "ActorContext::for_test",
+          "lineNumber": 169
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "Arc::new",
+          "lineNumber": 178
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "AtomicU64::new",
+          "lineNumber": 178
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "Some",
+          "lineNumber": 179
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "executor.boxed().execute",
+          "lineNumber": 181
+        },
+        {
+          "caller": "create_executor_with_intermediate_state_table",
+          "callee": "executor.boxed",
+          "lineNumber": 181
+        },
+        {
+          "caller": "test_over_window",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 186
+        },
+        {
+          "caller": "test_over_window",
+          "callee": "check_with_script",
+          "lineNumber": 206
+        },
+        {
+          "caller": "test_over_window",
+          "callee": "create_executor",
+          "lineNumber": 207
+        },
+        {
+          "caller": "test_over_window",
+          "callee": "calls.clone",
+          "lineNumber": 207
+        },
+        {
+          "caller": "test_over_window",
+          "callee": "store.clone",
+          "lineNumber": 207
+        },
+        {
+          "caller": "test_over_window",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 283
+        },
+        {
+          "caller": "test_over_window_aggregate",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 290
+        },
+        {
+          "caller": "test_over_window_aggregate",
+          "callee": "check_with_script",
+          "lineNumber": 299
+        },
+        {
+          "caller": "test_over_window_aggregate",
+          "callee": "create_executor",
+          "lineNumber": 300
+        },
+        {
+          "caller": "test_over_window_aggregate",
+          "callee": "calls.clone",
+          "lineNumber": 300
+        },
+        {
+          "caller": "test_over_window_aggregate",
+          "callee": "store.clone",
+          "lineNumber": 300
+        },
+        {
+          "caller": "test_over_window_aggregate",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 341
+        },
+        {
+          "caller": "test_over_window_row_number_recovery",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 350
+        },
+        {
+          "caller": "test_over_window_row_number_recovery",
+          "callee": "check_with_script",
+          "lineNumber": 359
+        },
+        {
+          "caller": "test_over_window_row_number_recovery",
+          "callee": "create_executor_with_intermediate_state_table",
+          "lineNumber": 360
+        },
+        {
+          "caller": "test_over_window_row_number_recovery",
+          "callee": "calls.clone",
+          "lineNumber": 360
+        },
+        {
+          "caller": "test_over_window_row_number_recovery",
+          "callee": "store.clone",
+          "lineNumber": 360
+        },
+        {
+          "caller": "test_over_window_row_number_recovery",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 417
+        },
+        {
+          "caller": "test_over_window_multiple_numbering_functions",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 426
+        },
+        {
+          "caller": "test_over_window_multiple_numbering_functions",
+          "callee": "check_with_script",
+          "lineNumber": 446
+        },
+        {
+          "caller": "test_over_window_multiple_numbering_functions",
+          "callee": "create_executor_with_intermediate_state_table",
+          "lineNumber": 447
+        },
+        {
+          "caller": "test_over_window_multiple_numbering_functions",
+          "callee": "calls.clone",
+          "lineNumber": 447
+        },
+        {
+          "caller": "test_over_window_multiple_numbering_functions",
+          "callee": "store.clone",
+          "lineNumber": 447
+        },
+        {
+          "caller": "test_over_window_multiple_numbering_functions",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 504
+        },
+        {
+          "caller": "test_over_window_interleaved_partitions",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 513
+        },
+        {
+          "caller": "test_over_window_interleaved_partitions",
+          "callee": "check_with_script",
+          "lineNumber": 522
+        },
+        {
+          "caller": "test_over_window_interleaved_partitions",
+          "callee": "create_executor_with_intermediate_state_table",
+          "lineNumber": 523
+        },
+        {
+          "caller": "test_over_window_interleaved_partitions",
+          "callee": "calls.clone",
+          "lineNumber": 523
+        },
+        {
+          "caller": "test_over_window_interleaved_partitions",
+          "callee": "store.clone",
+          "lineNumber": 523
+        },
+        {
+          "caller": "test_over_window_interleaved_partitions",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 583
+        },
+        {
+          "caller": "test_over_window_mixed_numbering_and_aggregate",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 592
+        },
+        {
+          "caller": "test_over_window_mixed_numbering_and_aggregate",
+          "callee": "check_with_script",
+          "lineNumber": 612
+        },
+        {
+          "caller": "test_over_window_mixed_numbering_and_aggregate",
+          "callee": "create_executor_with_intermediate_state_table",
+          "lineNumber": 613
+        },
+        {
+          "caller": "test_over_window_mixed_numbering_and_aggregate",
+          "callee": "calls.clone",
+          "lineNumber": 613
+        },
+        {
+          "caller": "test_over_window_mixed_numbering_and_aggregate",
+          "callee": "store.clone",
+          "lineNumber": 613
+        },
+        {
+          "caller": "test_over_window_mixed_numbering_and_aggregate",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 667
+        },
+        {
+          "caller": "test_over_window_legacy_without_intermediate_state_table",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 676
+        },
+        {
+          "caller": "test_over_window_legacy_without_intermediate_state_table",
+          "callee": "check_with_script",
+          "lineNumber": 686
+        },
+        {
+          "caller": "test_over_window_legacy_without_intermediate_state_table",
+          "callee": "create_executor",
+          "lineNumber": 687
+        },
+        {
+          "caller": "test_over_window_legacy_without_intermediate_state_table",
+          "callee": "calls.clone",
+          "lineNumber": 687
+        },
+        {
+          "caller": "test_over_window_legacy_without_intermediate_state_table",
+          "callee": "store.clone",
+          "lineNumber": 687
+        },
+        {
+          "caller": "test_over_window_legacy_without_intermediate_state_table",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 738
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 9,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/stream/tests/integration_tests/hash_agg.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 400,
+      "nonEmptyLines": 376,
+      "functions": [
+        {
+          "name": "test_hash_agg_count_sum",
+          "startLine": 22,
+          "endLine": 97,
+          "params": []
+        },
+        {
+          "name": "test_hash_agg_min",
+          "startLine": 100,
+          "endLine": 174,
+          "params": []
+        },
+        {
+          "name": "test_hash_agg_min_append_only",
+          "startLine": 177,
+          "endLine": 256,
+          "params": []
+        },
+        {
+          "name": "test_hash_agg_emit_on_window_close",
+          "startLine": 259,
+          "endLine": 400,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "MockSource::channel",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "source.into_executor",
+          "lineNumber": 43
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "StreamKey::new",
+          "lineNumber": 43
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "new_boxed_hash_agg_executor",
+          "lineNumber": 44
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "hash_agg.execute",
+          "lineNumber": 57
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "tx.push_barrier",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "test_epoch",
+          "lineNumber": 59
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "tx.push_chunk",
+          "lineNumber": 60
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 60
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "tx.push_barrier",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "test_epoch",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "tx.push_chunk",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "tx.push_barrier",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "test_epoch",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "check_until_pending",
+          "lineNumber": 76
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "SnapshotOptions::default().sort_chunk",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_hash_agg_count_sum",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "MockSource::channel",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "source.into_executor",
+          "lineNumber": 122
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "new_boxed_hash_agg_executor",
+          "lineNumber": 123
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "hash_agg.execute",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "tx.push_barrier",
+          "lineNumber": 138
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "test_epoch",
+          "lineNumber": 138
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "tx.push_chunk",
+          "lineNumber": 139
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 139
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "tx.push_barrier",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "test_epoch",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "tx.push_chunk",
+          "lineNumber": 146
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 146
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "tx.push_barrier",
+          "lineNumber": 152
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "test_epoch",
+          "lineNumber": 152
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "check_until_pending",
+          "lineNumber": 154
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "SnapshotOptions::default().sort_chunk",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_hash_agg_min",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 172
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "MockSource::channel",
+          "lineNumber": 197
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "source.into_executor",
+          "lineNumber": 198
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "new_boxed_hash_agg_executor",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "hash_agg.execute",
+          "lineNumber": 212
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "tx.push_barrier",
+          "lineNumber": 214
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "test_epoch",
+          "lineNumber": 214
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "tx.push_chunk",
+          "lineNumber": 215
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 215
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "tx.push_barrier",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "test_epoch",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "tx.push_chunk",
+          "lineNumber": 225
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 225
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "tx.push_barrier",
+          "lineNumber": 233
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "test_epoch",
+          "lineNumber": 233
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "check_until_pending",
+          "lineNumber": 235
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "SnapshotOptions::default().sort_chunk",
+          "lineNumber": 254
+        },
+        {
+          "caller": "test_hash_agg_min_append_only",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 254
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 260
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "MockSource::channel",
+          "lineNumber": 273
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "source.into_executor",
+          "lineNumber": 274
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "input_schema.clone",
+          "lineNumber": 274
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "StreamKey::new",
+          "lineNumber": 274
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "new_boxed_hash_agg_executor",
+          "lineNumber": 275
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "store.clone",
+          "lineNumber": 276
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "agg_calls.clone",
+          "lineNumber": 279
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "group_key_indices.clone",
+          "lineNumber": 281
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "hash_agg.execute",
+          "lineNumber": 288
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "check_with_script",
+          "lineNumber": 291
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "SnapshotOptions::default().sort_chunk",
+          "lineNumber": 397
+        },
+        {
+          "caller": "test_hash_agg_emit_on_window_close",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 397
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/stream/tests/integration_tests/hop_window.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 228,
+      "nonEmptyLines": 212,
+      "functions": [
+        {
+          "name": "create_executor",
+          "startLine": 26,
+          "endLine": 71,
+          "params": [
+            "output_indices"
+          ]
+        },
+        {
+          "name": "push_watermarks",
+          "startLine": 73,
+          "endLine": 100,
+          "params": [
+            "tx"
+          ]
+        },
+        {
+          "name": "test_watermark_full_output",
+          "startLine": 103,
+          "endLine": 147,
+          "params": []
+        },
+        {
+          "name": "test_watermark_output_indices1",
+          "startLine": 150,
+          "endLine": 180,
+          "params": []
+        },
+        {
+          "name": "test_watermark_output_indices2",
+          "startLine": 183,
+          "endLine": 228,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_executor",
+          "callee": "MockSource::channel",
+          "lineNumber": 27
+        },
+        {
+          "caller": "create_executor",
+          "callee": "source.into_executor",
+          "lineNumber": 28
+        },
+        {
+          "caller": "create_executor",
+          "callee": "Schema::new",
+          "lineNumber": 29
+        },
+        {
+          "caller": "create_executor",
+          "callee": "Interval::from_minutes",
+          "lineNumber": 37
+        },
+        {
+          "caller": "create_executor",
+          "callee": "Interval::from_minutes",
+          "lineNumber": 38
+        },
+        {
+          "caller": "create_executor",
+          "callee": "Interval::from_minutes",
+          "lineNumber": 39
+        },
+        {
+          "caller": "create_executor",
+          "callee": "make_hop_window_expression(\n        DataType::Timestamp,\n        TIME_COL_IDX,\n        window_size,\n        window_slide,\n        offset,\n    ).unwrap",
+          "lineNumber": 40
+        },
+        {
+          "caller": "create_executor",
+          "callee": "make_hop_window_expression",
+          "lineNumber": 40
+        },
+        {
+          "caller": "create_executor",
+          "callee": "HopWindowExecutor::new(\n            ActorContext::for_test(123),\n            source,\n            TIME_COL_IDX,\n            window_slide,\n            window_size,\n            window_start_exprs\n                .into_iter()\n                .map(NonStrictExpression::for_test)\n                .collect(),\n            window_end_exprs\n                .into_iter()\n                .map(NonStrictExpression::for_test)\n                .collect(),\n            output_indices,\n            CHUNK_SIZE,\n        )\n        .boxed().execute",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_executor",
+          "callee": "HopWindowExecutor::new(\n            ActorContext::for_test(123),\n            source,\n            TIME_COL_IDX,\n            window_slide,\n            window_size,\n            window_start_exprs\n                .into_iter()\n                .map(NonStrictExpression::for_test)\n                .collect(),\n            window_end_exprs\n                .into_iter()\n                .map(NonStrictExpression::for_test)\n                .collect(),\n            output_indices,\n            CHUNK_SIZE,\n        ).boxed",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_executor",
+          "callee": "HopWindowExecutor::new",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_executor",
+          "callee": "ActorContext::for_test",
+          "lineNumber": 52
+        },
+        {
+          "caller": "create_executor",
+          "callee": "window_start_exprs\n                .into_iter()\n                .map(NonStrictExpression::for_test).collect",
+          "lineNumber": 57
+        },
+        {
+          "caller": "create_executor",
+          "callee": "window_start_exprs\n                .into_iter().map",
+          "lineNumber": 57
+        },
+        {
+          "caller": "create_executor",
+          "callee": "window_start_exprs.into_iter",
+          "lineNumber": 57
+        },
+        {
+          "caller": "create_executor",
+          "callee": "window_end_exprs\n                .into_iter()\n                .map(NonStrictExpression::for_test).collect",
+          "lineNumber": 61
+        },
+        {
+          "caller": "create_executor",
+          "callee": "window_end_exprs\n                .into_iter().map",
+          "lineNumber": 61
+        },
+        {
+          "caller": "create_executor",
+          "callee": "window_end_exprs.into_iter",
+          "lineNumber": 61
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "tx.push_watermark",
+          "lineNumber": 74
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:27:03\".parse::<Timestamp>().unwrap().into",
+          "lineNumber": 77
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:27:03\".parse::<Timestamp>().unwrap",
+          "lineNumber": 77
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:27:03\".parse::<Timestamp>",
+          "lineNumber": 77
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "tx.push_watermark",
+          "lineNumber": 79
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:29:59\".parse::<Timestamp>().unwrap().into",
+          "lineNumber": 82
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:29:59\".parse::<Timestamp>().unwrap",
+          "lineNumber": 82
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:29:59\".parse::<Timestamp>",
+          "lineNumber": 82
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "tx.push_watermark",
+          "lineNumber": 84
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:30:00\".parse::<Timestamp>().unwrap().into",
+          "lineNumber": 87
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:30:00\".parse::<Timestamp>().unwrap",
+          "lineNumber": 87
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:30:00\".parse::<Timestamp>",
+          "lineNumber": 87
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "tx.push_watermark",
+          "lineNumber": 89
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "100.into",
+          "lineNumber": 89
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "tx.push_watermark",
+          "lineNumber": 90
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:43:40\".parse::<Timestamp>().unwrap().into",
+          "lineNumber": 93
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:43:40\".parse::<Timestamp>().unwrap",
+          "lineNumber": 93
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:43:40\".parse::<Timestamp>",
+          "lineNumber": 93
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "tx.push_watermark",
+          "lineNumber": 95
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:50:00\".parse::<Timestamp>().unwrap().into",
+          "lineNumber": 98
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:50:00\".parse::<Timestamp>().unwrap",
+          "lineNumber": 98
+        },
+        {
+          "caller": "push_watermarks",
+          "callee": "\"2023-07-06 18:50:00\".parse::<Timestamp>",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_watermark_full_output",
+          "callee": "create_executor",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_watermark_full_output",
+          "callee": "(0..5).collect",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_watermark_full_output",
+          "callee": "push_watermarks",
+          "lineNumber": 106
+        },
+        {
+          "caller": "test_watermark_full_output",
+          "callee": "check_until_pending",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test_watermark_full_output",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_watermark_output_indices1",
+          "callee": "create_executor",
+          "lineNumber": 152
+        },
+        {
+          "caller": "test_watermark_output_indices1",
+          "callee": "push_watermarks",
+          "lineNumber": 154
+        },
+        {
+          "caller": "test_watermark_output_indices1",
+          "callee": "check_until_pending",
+          "lineNumber": 156
+        },
+        {
+          "caller": "test_watermark_output_indices1",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_watermark_output_indices2",
+          "callee": "create_executor",
+          "lineNumber": 185
+        },
+        {
+          "caller": "test_watermark_output_indices2",
+          "callee": "push_watermarks",
+          "lineNumber": 187
+        },
+        {
+          "caller": "test_watermark_output_indices2",
+          "callee": "check_until_pending",
+          "lineNumber": 189
+        },
+        {
+          "caller": "test_watermark_output_indices2",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 226
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/stream/tests/integration_tests/main.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 28,
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/stream/tests/integration_tests/materialized_exprs.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 303,
+      "nonEmptyLines": 288,
+      "functions": [
+        {
+          "name": "create_executor",
+          "startLine": 27,
+          "endLine": 69,
+          "params": [
+            "exprs",
+            "store"
+          ]
+        },
+        {
+          "name": "snapshot_options",
+          "startLine": 71,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "test_materialize_pure_expressions",
+          "startLine": 76,
+          "endLine": 177,
+          "params": []
+        },
+        {
+          "name": "return_type",
+          "startLine": 184,
+          "endLine": 186,
+          "params": []
+        },
+        {
+          "name": "eval_v2",
+          "startLine": 188,
+          "endLine": 194,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "eval_row",
+          "startLine": 196,
+          "endLine": 198,
+          "params": [
+            "_input"
+          ]
+        },
+        {
+          "name": "test_materialize_non_pure_expressions",
+          "startLine": 202,
+          "endLine": 303,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Count",
+          "startLine": 180,
+          "endLine": 180,
+          "methods": [
+            "return_type",
+            "eval_v2",
+            "eval_row"
+          ],
+          "properties": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_executor",
+          "callee": "Schema::new",
+          "lineNumber": 31
+        },
+        {
+          "caller": "create_executor",
+          "callee": "StateTable::from_table_catalog",
+          "lineNumber": 45
+        },
+        {
+          "caller": "create_executor",
+          "callee": "gen_pbtable",
+          "lineNumber": 46
+        },
+        {
+          "caller": "create_executor",
+          "callee": "TableId::new",
+          "lineNumber": 47
+        },
+        {
+          "caller": "create_executor",
+          "callee": "MockSource::channel",
+          "lineNumber": 58
+        },
+        {
+          "caller": "create_executor",
+          "callee": "source.into_executor",
+          "lineNumber": 59
+        },
+        {
+          "caller": "create_executor",
+          "callee": "MaterializedExprsExecutor::new",
+          "lineNumber": 60
+        },
+        {
+          "caller": "create_executor",
+          "callee": "ActorContext::for_test",
+          "lineNumber": 61
+        },
+        {
+          "caller": "create_executor",
+          "callee": "Arc::new",
+          "lineNumber": 66
+        },
+        {
+          "caller": "create_executor",
+          "callee": "AtomicU64::new",
+          "lineNumber": 66
+        },
+        {
+          "caller": "create_executor",
+          "callee": "executor.boxed().execute",
+          "lineNumber": 68
+        },
+        {
+          "caller": "create_executor",
+          "callee": "executor.boxed",
+          "lineNumber": 68
+        },
+        {
+          "caller": "snapshot_options",
+          "callee": "SnapshotOptions::default().include_applied_result",
+          "lineNumber": 72
+        },
+        {
+          "caller": "snapshot_options",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test_materialize_pure_expressions",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_materialize_pure_expressions",
+          "callee": "check_with_script",
+          "lineNumber": 85
+        },
+        {
+          "caller": "test_materialize_pure_expressions",
+          "callee": "create_executor",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test_materialize_pure_expressions",
+          "callee": "build_exprs",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test_materialize_pure_expressions",
+          "callee": "store.clone",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test_materialize_pure_expressions",
+          "callee": "snapshot_options",
+          "lineNumber": 174
+        },
+        {
+          "caller": "eval_v2",
+          "callee": "self.0.fetch_add",
+          "lineNumber": 189
+        },
+        {
+          "caller": "eval_v2",
+          "callee": "Ok",
+          "lineNumber": 190
+        },
+        {
+          "caller": "eval_v2",
+          "callee": "Some",
+          "lineNumber": 191
+        },
+        {
+          "caller": "eval_v2",
+          "callee": "value.into",
+          "lineNumber": 191
+        },
+        {
+          "caller": "eval_v2",
+          "callee": "input.capacity",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_materialize_non_pure_expressions",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 203
+        },
+        {
+          "caller": "test_materialize_non_pure_expressions",
+          "callee": "check_with_script",
+          "lineNumber": 211
+        },
+        {
+          "caller": "test_materialize_non_pure_expressions",
+          "callee": "create_executor",
+          "lineNumber": 212
+        },
+        {
+          "caller": "test_materialize_non_pure_expressions",
+          "callee": "build_exprs",
+          "lineNumber": 212
+        },
+        {
+          "caller": "test_materialize_non_pure_expressions",
+          "callee": "store.clone",
+          "lineNumber": 212
+        },
+        {
+          "caller": "test_materialize_non_pure_expressions",
+          "callee": "snapshot_options",
+          "lineNumber": 300
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/stream/tests/integration_tests/over_window.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 568,
+      "nonEmptyLines": 552,
+      "functions": [
+        {
+          "name": "create_executor",
+          "startLine": 26,
+          "endLine": 100,
+          "params": [
+            "calls",
+            "store"
+          ]
+        },
+        {
+          "name": "snapshot_options",
+          "startLine": 102,
+          "endLine": 104,
+          "params": []
+        },
+        {
+          "name": "test_over_window_lag_lead_append_only",
+          "startLine": 107,
+          "endLine": 217,
+          "params": []
+        },
+        {
+          "name": "test_over_window_lag_lead_with_updates",
+          "startLine": 220,
+          "endLine": 390,
+          "params": []
+        },
+        {
+          "name": "test_over_window_sum",
+          "startLine": 393,
+          "endLine": 568,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_executor",
+          "callee": "Schema::new",
+          "lineNumber": 30
+        },
+        {
+          "caller": "create_executor",
+          "callee": "table_columns.push",
+          "lineNumber": 48
+        },
+        {
+          "caller": "create_executor",
+          "callee": "ColumnDesc::unnamed",
+          "lineNumber": 48
+        },
+        {
+          "caller": "create_executor",
+          "callee": "ColumnId::new",
+          "lineNumber": 49
+        },
+        {
+          "caller": "create_executor",
+          "callee": "table_columns.len",
+          "lineNumber": 49
+        },
+        {
+          "caller": "create_executor",
+          "callee": "call.return_type.clone",
+          "lineNumber": 50
+        },
+        {
+          "caller": "create_executor",
+          "callee": "input_schema.fields.clone",
+          "lineNumber": 61
+        },
+        {
+          "caller": "create_executor",
+          "callee": "calls.iter().for_each",
+          "lineNumber": 62
+        },
+        {
+          "caller": "create_executor",
+          "callee": "calls.iter",
+          "lineNumber": 62
+        },
+        {
+          "caller": "create_executor",
+          "callee": "fields.push",
+          "lineNumber": 63
+        },
+        {
+          "caller": "create_executor",
+          "callee": "Field::unnamed",
+          "lineNumber": 63
+        },
+        {
+          "caller": "create_executor",
+          "callee": "call.return_type.clone",
+          "lineNumber": 63
+        },
+        {
+          "caller": "create_executor",
+          "callee": "StateTable::from_table_catalog",
+          "lineNumber": 68
+        },
+        {
+          "caller": "create_executor",
+          "callee": "gen_pbtable",
+          "lineNumber": 69
+        },
+        {
+          "caller": "create_executor",
+          "callee": "TableId::new",
+          "lineNumber": 70
+        },
+        {
+          "caller": "create_executor",
+          "callee": "MockSource::channel",
+          "lineNumber": 81
+        },
+        {
+          "caller": "create_executor",
+          "callee": "source.into_executor",
+          "lineNumber": 82
+        },
+        {
+          "caller": "create_executor",
+          "callee": "input_stream_key.clone",
+          "lineNumber": 82
+        },
+        {
+          "caller": "create_executor",
+          "callee": "OverWindowExecutor::new",
+          "lineNumber": 83
+        },
+        {
+          "caller": "create_executor",
+          "callee": "ActorContext::for_test",
+          "lineNumber": 84
+        },
+        {
+          "caller": "create_executor",
+          "callee": "Arc::new",
+          "lineNumber": 94
+        },
+        {
+          "caller": "create_executor",
+          "callee": "AtomicU64::new",
+          "lineNumber": 94
+        },
+        {
+          "caller": "create_executor",
+          "callee": "Arc::new",
+          "lineNumber": 95
+        },
+        {
+          "caller": "create_executor",
+          "callee": "StreamingMetrics::unused",
+          "lineNumber": 95
+        },
+        {
+          "caller": "create_executor",
+          "callee": "executor.boxed().execute",
+          "lineNumber": 99
+        },
+        {
+          "caller": "create_executor",
+          "callee": "executor.boxed",
+          "lineNumber": 99
+        },
+        {
+          "caller": "snapshot_options",
+          "callee": "SnapshotOptions::default().include_applied_result",
+          "lineNumber": 103
+        },
+        {
+          "caller": "snapshot_options",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 103
+        },
+        {
+          "caller": "test_over_window_lag_lead_append_only",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test_over_window_lag_lead_append_only",
+          "callee": "check_with_script",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_over_window_lag_lead_append_only",
+          "callee": "create_executor",
+          "lineNumber": 129
+        },
+        {
+          "caller": "test_over_window_lag_lead_append_only",
+          "callee": "calls.clone",
+          "lineNumber": 129
+        },
+        {
+          "caller": "test_over_window_lag_lead_append_only",
+          "callee": "store.clone",
+          "lineNumber": 129
+        },
+        {
+          "caller": "test_over_window_lag_lead_append_only",
+          "callee": "snapshot_options",
+          "lineNumber": 214
+        },
+        {
+          "caller": "test_over_window_lag_lead_with_updates",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 221
+        },
+        {
+          "caller": "test_over_window_lag_lead_with_updates",
+          "callee": "check_with_script",
+          "lineNumber": 241
+        },
+        {
+          "caller": "test_over_window_lag_lead_with_updates",
+          "callee": "create_executor",
+          "lineNumber": 242
+        },
+        {
+          "caller": "test_over_window_lag_lead_with_updates",
+          "callee": "calls.clone",
+          "lineNumber": 242
+        },
+        {
+          "caller": "test_over_window_lag_lead_with_updates",
+          "callee": "store.clone",
+          "lineNumber": 242
+        },
+        {
+          "caller": "test_over_window_lag_lead_with_updates",
+          "callee": "snapshot_options",
+          "lineNumber": 387
+        },
+        {
+          "caller": "test_over_window_sum",
+          "callee": "MemoryStateStore::new",
+          "lineNumber": 394
+        },
+        {
+          "caller": "test_over_window_sum",
+          "callee": "check_with_script",
+          "lineNumber": 414
+        },
+        {
+          "caller": "test_over_window_sum",
+          "callee": "create_executor",
+          "lineNumber": 415
+        },
+        {
+          "caller": "test_over_window_sum",
+          "callee": "calls.clone",
+          "lineNumber": 415
+        },
+        {
+          "caller": "test_over_window_sum",
+          "callee": "store.clone",
+          "lineNumber": 415
+        },
+        {
+          "caller": "test_over_window_sum",
+          "callee": "snapshot_options",
+          "lineNumber": 565
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/stream/tests/integration_tests/project_set.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 95,
+      "functions": [
+        {
+          "name": "create_executor",
+          "startLine": 25,
+          "endLine": 58,
+          "params": []
+        },
+        {
+          "name": "test_project_set",
+          "startLine": 61,
+          "endLine": 104,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_executor",
+          "callee": "MockSource::channel",
+          "lineNumber": 32
+        },
+        {
+          "caller": "create_executor",
+          "callee": "source.into_executor",
+          "lineNumber": 33
+        },
+        {
+          "caller": "create_executor",
+          "callee": "StreamKey::new",
+          "lineNumber": 33
+        },
+        {
+          "caller": "create_executor",
+          "callee": "build_from_pretty",
+          "lineNumber": 35
+        },
+        {
+          "caller": "create_executor",
+          "callee": "build_from_pretty",
+          "lineNumber": 36
+        },
+        {
+          "caller": "create_executor",
+          "callee": "repeat",
+          "lineNumber": 37
+        },
+        {
+          "caller": "create_executor",
+          "callee": "build_from_pretty(\"1:int4\").into_inner",
+          "lineNumber": 37
+        },
+        {
+          "caller": "create_executor",
+          "callee": "build_from_pretty",
+          "lineNumber": 37
+        },
+        {
+          "caller": "create_executor",
+          "callee": "repeat",
+          "lineNumber": 38
+        },
+        {
+          "caller": "create_executor",
+          "callee": "build_from_pretty(\"2:int4\").into_inner",
+          "lineNumber": 38
+        },
+        {
+          "caller": "create_executor",
+          "callee": "build_from_pretty",
+          "lineNumber": 38
+        },
+        {
+          "caller": "create_executor",
+          "callee": "ProjectSetExecutor::new",
+          "lineNumber": 40
+        },
+        {
+          "caller": "create_executor",
+          "callee": "ActorContext::for_test",
+          "lineNumber": 41
+        },
+        {
+          "caller": "create_executor",
+          "callee": "MultiMap::from_iter",
+          "lineNumber": 50
+        },
+        {
+          "caller": "create_executor",
+          "callee": "std::iter::once",
+          "lineNumber": 50
+        },
+        {
+          "caller": "create_executor",
+          "callee": "ActorContext::for_test",
+          "lineNumber": 53
+        },
+        {
+          "caller": "create_executor",
+          "callee": "\"ProjectSetExecutor\".into",
+          "lineNumber": 54
+        },
+        {
+          "caller": "create_executor",
+          "callee": "project_set.boxed().execute",
+          "lineNumber": 57
+        },
+        {
+          "caller": "create_executor",
+          "callee": "project_set.boxed",
+          "lineNumber": 57
+        },
+        {
+          "caller": "test_project_set",
+          "callee": "create_executor",
+          "lineNumber": 62
+        },
+        {
+          "caller": "test_project_set",
+          "callee": "tx.push_barrier",
+          "lineNumber": 64
+        },
+        {
+          "caller": "test_project_set",
+          "callee": "test_epoch",
+          "lineNumber": 64
+        },
+        {
+          "caller": "test_project_set",
+          "callee": "tx.push_chunk",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_project_set",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_project_set",
+          "callee": "tx.push_int64_watermark",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test_project_set",
+          "callee": "tx.push_chunk",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test_project_set",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test_project_set",
+          "callee": "check_until_pending",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_project_set",
+          "callee": "SnapshotOptions::default",
+          "lineNumber": 102
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/stream/tests/integration_tests/snapshot.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 254,
+      "nonEmptyLines": 228,
+      "functions": [
+        {
+          "name": "sort_chunk",
+          "startLine": 39,
+          "endLine": 42,
+          "params": [
+            "sort_chunk"
+          ]
+        },
+        {
+          "name": "include_applied_result",
+          "startLine": 44,
+          "endLine": 47,
+          "params": [
+            "include_applied_result"
+          ]
+        },
+        {
+          "name": "check_until_pending",
+          "startLine": 76,
+          "endLine": 84,
+          "params": [
+            "executor",
+            "expect",
+            "options"
+          ]
+        },
+        {
+          "name": "check_with_script",
+          "startLine": 89,
+          "endLine": 100,
+          "params": [
+            "create_executor",
+            "test_script",
+            "expect",
+            "options"
+          ]
+        },
+        {
+          "name": "parse",
+          "startLine": 117,
+          "endLine": 119,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "executor_snapshot",
+          "startLine": 131,
+          "endLine": 175,
+          "params": [
+            "create_executor",
+            "inputs",
+            "options"
+          ]
+        },
+        {
+          "name": "run_until_pending",
+          "startLine": 177,
+          "endLine": 213,
+          "params": [
+            "executor",
+            "store",
+            "options"
+          ]
+        },
+        {
+          "name": "apply_chunk",
+          "startLine": 224,
+          "endLine": 253,
+          "params": [
+            "chunk"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SnapshotOptions",
+          "startLine": 29,
+          "endLine": 36,
+          "methods": [
+            "sort_chunk",
+            "include_applied_result"
+          ],
+          "properties": [
+            "sort_chunk",
+            "include_applied_result"
+          ]
+        },
+        {
+          "name": "SnapshotEvent",
+          "startLine": 107,
+          "endLine": 113,
+          "methods": [
+            "parse"
+          ],
+          "properties": [
+            "Barrier",
+            "Noop",
+            "Recovery",
+            "Chunk",
+            "Watermark"
+          ]
+        },
+        {
+          "name": "Snapshot",
+          "startLine": 126,
+          "endLine": 129,
+          "methods": [],
+          "properties": [
+            "input",
+            "output"
+          ]
+        },
+        {
+          "name": "Store",
+          "startLine": 217,
+          "endLine": 219,
+          "methods": [
+            "apply_chunk"
+          ],
+          "properties": [
+            "rows"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SnapshotOptions",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "sort_chunk",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "include_applied_result",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "check_until_pending",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "check_with_script",
+          "line": 89,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "check_until_pending",
+          "callee": "run_until_pending",
+          "lineNumber": 81
+        },
+        {
+          "caller": "check_until_pending",
+          "callee": "Store::default",
+          "lineNumber": 81
+        },
+        {
+          "caller": "check_until_pending",
+          "callee": "serde_yaml::to_string(&output).unwrap",
+          "lineNumber": 82
+        },
+        {
+          "caller": "check_until_pending",
+          "callee": "serde_yaml::to_string",
+          "lineNumber": 82
+        },
+        {
+          "caller": "check_until_pending",
+          "callee": "expect.assert_eq",
+          "lineNumber": 83
+        },
+        {
+          "caller": "check_with_script",
+          "callee": "executor_snapshot",
+          "lineNumber": 98
+        },
+        {
+          "caller": "check_with_script",
+          "callee": "expect.assert_eq",
+          "lineNumber": 99
+        },
+        {
+          "caller": "parse",
+          "callee": "serde_yaml::from_str(s).unwrap",
+          "lineNumber": 118
+        },
+        {
+          "caller": "parse",
+          "callee": "serde_yaml::from_str",
+          "lineNumber": 118
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "SnapshotEvent::parse",
+          "lineNumber": 140
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "create_executor",
+          "lineNumber": 142
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "Store::default",
+          "lineNumber": 144
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 145
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "inputs.len",
+          "lineNumber": 145
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "tx.push_barrier",
+          "lineNumber": 150
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "test_epoch",
+          "lineNumber": 150
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "create_executor",
+          "lineNumber": 154
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 157
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "chunk.to_pretty().to_string",
+          "lineNumber": 158
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "chunk.to_pretty",
+          "lineNumber": 158
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "tx.push_chunk",
+          "lineNumber": 159
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "tx.push_watermark",
+          "lineNumber": 161
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "val.parse::<i64>().unwrap().into",
+          "lineNumber": 164
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "val.parse::<i64>().unwrap",
+          "lineNumber": 164
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "val.parse::<i64>",
+          "lineNumber": 164
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "snapshot.push",
+          "lineNumber": 168
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "run_until_pending",
+          "lineNumber": 170
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "options.clone",
+          "lineNumber": 170
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "serde_yaml::to_string(&snapshot).unwrap",
+          "lineNumber": 174
+        },
+        {
+          "caller": "executor_snapshot",
+          "callee": "serde_yaml::to_string",
+          "lineNumber": 174
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "executor.try_next().now_or_never",
+          "lineNumber": 184
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "executor.try_next",
+          "lineNumber": 184
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "msg.unwrap",
+          "lineNumber": 185
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "output.push",
+          "lineNumber": 190
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "chunk.sort_rows",
+          "lineNumber": 193
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "chunk.to_pretty().to_string",
+          "lineNumber": 195
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "chunk.to_pretty",
+          "lineNumber": 195
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "store.apply_chunk",
+          "lineNumber": 197
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "SnapshotEvent::Chunk",
+          "lineNumber": 200
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "SnapshotEvent::Barrier",
+          "lineNumber": 204
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "test_epoch",
+          "lineNumber": 204
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "watermark.val.as_scalar_ref_impl().to_text",
+          "lineNumber": 207
+        },
+        {
+          "caller": "run_until_pending",
+          "callee": "watermark.val.as_scalar_ref_impl",
+          "lineNumber": 207
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "chunk.data_chunk().data_types",
+          "lineNumber": 225
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "chunk.data_chunk",
+          "lineNumber": 225
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "chunk.rows",
+          "lineNumber": 227
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "DefaultOrdered",
+          "lineNumber": 228
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "row.into_owned_row",
+          "lineNumber": 228
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "self.rows.entry(row).or_default",
+          "lineNumber": 232
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "self.rows.entry",
+          "lineNumber": 232
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "self.rows.entry",
+          "lineNumber": 234
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "o.get_mut",
+          "lineNumber": 237
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "o.get",
+          "lineNumber": 238
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "o.remove",
+          "lineNumber": 239
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "self\n            .rows\n            .iter()\n            .flat_map(|(row, &count)| std::iter::repeat_n(row, count)).collect_vec",
+          "lineNumber": 246
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "self\n            .rows\n            .iter().flat_map",
+          "lineNumber": 246
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "self\n            .rows.iter",
+          "lineNumber": 246
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "std::iter::repeat_n",
+          "lineNumber": 249
+        },
+        {
+          "caller": "apply_chunk",
+          "callee": "DataChunk::from_rows",
+          "lineNumber": 252
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 8,
+        "classCount": 4
+      }
+    }
+  ]
+}

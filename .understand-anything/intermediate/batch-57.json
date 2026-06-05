@@ -1,0 +1,837 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/tests/sqlsmith/src/config.rs",
+      "type": "file",
+      "name": "config.rs",
+      "filePath": "src/tests/sqlsmith/src/config.rs",
+      "summary": "SQLsmith configuration with feature flags and item generation counts.",
+      "tags": [
+        "test",
+        "configuration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/tests/sqlsmith/src/lib.rs",
+      "summary": "SQLsmith library entry point providing SQL generation, differential testing, and fuzzing functions.",
+      "tags": [
+        "test",
+        "entry-point"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/reducer.rs",
+      "type": "file",
+      "name": "reducer.rs",
+      "filePath": "src/tests/sqlsmith/src/reducer.rs",
+      "summary": "SQL reducer shrinking failing SQL queries to minimal reproducers by removing statements.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/agg.rs",
+      "type": "file",
+      "name": "agg.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/agg.rs",
+      "summary": "SQL aggregate expression generator for sqlsmith fuzzer.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/cast.rs",
+      "type": "file",
+      "name": "cast.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/cast.rs",
+      "summary": "SQL cast expression generator.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/dml.rs",
+      "type": "file",
+      "name": "dml.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/dml.rs",
+      "summary": "SQL DML statement generator producing INSERT and UPDATE statements.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/expr.rs",
+      "type": "file",
+      "name": "expr.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/expr.rs",
+      "summary": "SQL expression generator for filters, projections, and scalar operations.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/functions.rs",
+      "type": "file",
+      "name": "functions.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/functions.rs",
+      "summary": "SQL scalar function generator covering special functions like OVERLAY and DECODE.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "summary": "Core SQL generator context managing table schema and column tracking for query generation.",
+      "tags": [
+        "test",
+        "factory"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/query.rs",
+      "type": "file",
+      "name": "query.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/query.rs",
+      "summary": "SQL SELECT query generator producing complex and simple query variants.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/relation.rs",
+      "type": "file",
+      "name": "relation.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/relation.rs",
+      "summary": "SQL FROM clause and join relation generator.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/scalar.rs",
+      "type": "file",
+      "name": "scalar.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/scalar.rs",
+      "summary": "SQL scalar value generator for range and simple scalar expressions.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/table_functions.rs",
+      "type": "file",
+      "name": "table_functions.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/table_functions.rs",
+      "summary": "SQL table function generator for GENERATE_SERIES, RANGE, UNNEST, and more.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/time_window.rs",
+      "type": "file",
+      "name": "time_window.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/time_window.rs",
+      "summary": "Time window function generator for TUMBLE and HOP streaming queries.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/types.rs",
+      "type": "file",
+      "name": "types.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/types.rs",
+      "summary": "SQL data type definitions and conversion utilities for the sqlsmith generator.",
+      "tags": [
+        "test",
+        "type-definition"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sql_gen/utils.rs",
+      "type": "file",
+      "name": "utils.rs",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/utils.rs",
+      "summary": "SQL generation helper utilities.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sqlreduce/checker.rs",
+      "type": "file",
+      "name": "checker.rs",
+      "filePath": "src/tests/sqlsmith/src/sqlreduce/checker.rs",
+      "summary": "Query correctness checker running queries and comparing results for SQL reduction.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sqlreduce/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/tests/sqlsmith/src/sqlreduce/mod.rs",
+      "summary": "SQLreduce module barrel.",
+      "tags": [
+        "barrel",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sqlreduce/path.rs",
+      "type": "file",
+      "name": "path.rs",
+      "filePath": "src/tests/sqlsmith/src/sqlreduce/path.rs",
+      "summary": "AST path navigation for SQL reduction: field access, child traversal, and node mutation.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sqlreduce/reducer.rs",
+      "type": "file",
+      "name": "reducer.rs",
+      "filePath": "src/tests/sqlsmith/src/sqlreduce/reducer.rs",
+      "summary": "SQL reducer applying path-based reduction strategies to minimize failing SQL statements.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/sqlreduce/rules.rs",
+      "type": "file",
+      "name": "rules.rs",
+      "filePath": "src/tests/sqlsmith/src/sqlreduce/rules.rs",
+      "summary": "Reduction rules defining SQL AST transformation candidates for query minimization.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/test_runners/diff.rs",
+      "type": "file",
+      "name": "diff.rs",
+      "filePath": "src/tests/sqlsmith/src/test_runners/diff.rs",
+      "summary": "Differential test runner comparing stream and batch query results.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/test_runners/fuzzing.rs",
+      "type": "file",
+      "name": "fuzzing.rs",
+      "filePath": "src/tests/sqlsmith/src/test_runners/fuzzing.rs",
+      "summary": "Fuzzing test runner generating random SQL and checking for errors.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/test_runners/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/tests/sqlsmith/src/test_runners/mod.rs",
+      "summary": "Test runners module barrel.",
+      "tags": [
+        "barrel",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/test_runners/utils.rs",
+      "type": "file",
+      "name": "utils.rs",
+      "filePath": "src/tests/sqlsmith/src/test_runners/utils.rs",
+      "summary": "Shared utilities for test runners: table population and SQL test execution helpers.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/utils.rs",
+      "type": "file",
+      "name": "utils.rs",
+      "filePath": "src/tests/sqlsmith/src/utils.rs",
+      "summary": "Miscellaneous sqlsmith utilities.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/sqlsmith/src/validation.rs",
+      "type": "file",
+      "name": "validation.rs",
+      "filePath": "src/tests/sqlsmith/src/validation.rs",
+      "summary": "SQL error validation checking whether errors are permissible in fuzzing context.",
+      "tags": [
+        "test",
+        "validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/tests/sqlsmith/src/sql_gen/mod.rs:SqlGenerator",
+      "type": "class",
+      "name": "SqlGenerator",
+      "filePath": "src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "lineRange": [
+        155,
+        185
+      ],
+      "summary": "Core SQL generator context managing schema state for fuzz queries.",
+      "tags": [
+        "test",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/sqlsmith/src/sqlreduce/path.rs:AstNode",
+      "type": "class",
+      "name": "AstNode",
+      "filePath": "src/tests/sqlsmith/src/sqlreduce/path.rs",
+      "lineRange": [
+        257,
+        276
+      ],
+      "summary": "AST node wrapper supporting child access and mutation for SQL reduction.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/sqlsmith/src/sqlreduce/reducer.rs:Reducer",
+      "type": "class",
+      "name": "Reducer",
+      "filePath": "src/tests/sqlsmith/src/sqlreduce/reducer.rs",
+      "lineRange": [
+        34,
+        37
+      ],
+      "summary": "SQL reducer applying iterative reduction strategies.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/sqlsmith/src/sqlreduce/rules.rs:ReductionRules",
+      "type": "class",
+      "name": "ReductionRules",
+      "filePath": "src/tests/sqlsmith/src/sqlreduce/rules.rs",
+      "lineRange": [
+        43,
+        45
+      ],
+      "summary": "Collection of SQL AST reduction rules.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/sqlsmith/src/sqlreduce/checker.rs:Checker",
+      "type": "class",
+      "name": "Checker",
+      "filePath": "src/tests/sqlsmith/src/sqlreduce/checker.rs",
+      "lineRange": [
+        32,
+        36
+      ],
+      "summary": "Runs SQL queries checking for failures to guide reduction.",
+      "tags": [
+        "test",
+        "utility"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/tests/sqlsmith/src/lib.rs",
+      "target": "file:src/tests/sqlsmith/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/lib.rs",
+      "target": "file:src/tests/sqlsmith/src/reducer.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/lib.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/reducer.rs",
+      "target": "file:src/tests/sqlsmith/src/sqlreduce/checker.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/reducer.rs",
+      "target": "file:src/tests/sqlsmith/src/sqlreduce/reducer.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/reducer.rs",
+      "target": "file:src/tests/sqlsmith/src/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/agg.rs",
+      "target": "file:src/tests/sqlsmith/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/agg.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/agg.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/types.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/cast.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/cast.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/types.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/dml.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/expr.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/expr.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/types.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/functions.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/functions.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/types.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "target": "file:src/tests/sqlsmith/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/agg.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/cast.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/query.rs",
+      "target": "file:src/tests/sqlsmith/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/query.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/query.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/relation.rs",
+      "target": "file:src/tests/sqlsmith/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/relation.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/relation.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/types.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/scalar.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/expr.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/scalar.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/table_functions.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/table_functions.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/time_window.rs",
+      "target": "file:src/tests/sqlsmith/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/time_window.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/time_window.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/utils.rs",
+      "target": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/mod.rs",
+      "target": "file:src/tests/sqlsmith/src/sqlreduce/checker.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/mod.rs",
+      "target": "file:src/tests/sqlsmith/src/sqlreduce/path.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/mod.rs",
+      "target": "file:src/tests/sqlsmith/src/sqlreduce/reducer.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/reducer.rs",
+      "target": "file:src/tests/sqlsmith/src/sqlreduce/checker.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/reducer.rs",
+      "target": "file:src/tests/sqlsmith/src/sqlreduce/path.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/reducer.rs",
+      "target": "file:src/tests/sqlsmith/src/sqlreduce/rules.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/rules.rs",
+      "target": "file:src/tests/sqlsmith/src/sqlreduce/path.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/diff.rs",
+      "target": "file:src/tests/sqlsmith/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/diff.rs",
+      "target": "file:src/tests/sqlsmith/src/test_runners/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/fuzzing.rs",
+      "target": "file:src/tests/sqlsmith/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/fuzzing.rs",
+      "target": "file:src/tests/sqlsmith/src/test_runners/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/fuzzing.rs",
+      "target": "file:src/tests/sqlsmith/src/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/mod.rs",
+      "target": "file:src/tests/sqlsmith/src/test_runners/diff.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/mod.rs",
+      "target": "file:src/tests/sqlsmith/src/test_runners/fuzzing.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/mod.rs",
+      "target": "file:src/tests/sqlsmith/src/test_runners/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/utils.rs",
+      "target": "file:src/tests/sqlsmith/src/config.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/utils.rs",
+      "target": "file:src/tests/sqlsmith/src/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/test_runners/utils.rs",
+      "target": "file:src/tests/sqlsmith/src/validation.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "target": "class:src/tests/sqlsmith/src/sql_gen/mod.rs:SqlGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sql_gen/mod.rs",
+      "target": "class:src/tests/sqlsmith/src/sql_gen/mod.rs:SqlGenerator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/path.rs",
+      "target": "class:src/tests/sqlsmith/src/sqlreduce/path.rs:AstNode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/path.rs",
+      "target": "class:src/tests/sqlsmith/src/sqlreduce/path.rs:AstNode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/reducer.rs",
+      "target": "class:src/tests/sqlsmith/src/sqlreduce/reducer.rs:Reducer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/reducer.rs",
+      "target": "class:src/tests/sqlsmith/src/sqlreduce/reducer.rs:Reducer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/rules.rs",
+      "target": "class:src/tests/sqlsmith/src/sqlreduce/rules.rs:ReductionRules",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/rules.rs",
+      "target": "class:src/tests/sqlsmith/src/sqlreduce/rules.rs:ReductionRules",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/checker.rs",
+      "target": "class:src/tests/sqlsmith/src/sqlreduce/checker.rs:Checker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/sqlsmith/src/sqlreduce/checker.rs",
+      "target": "class:src/tests/sqlsmith/src/sqlreduce/checker.rs:Checker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

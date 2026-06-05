@@ -1,0 +1,1607 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/frontend/src/handler/create_table.rs",
+      "type": "file",
+      "name": "create_table.rs",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "summary": "Frontend SQL handler for CREATE TABLE statements, binding, planning, and submitting to the meta service.",
+      "tags": [
+        "api-handler",
+        "sql-handler",
+        "ddl"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:ensure_column_options_supported",
+      "type": "function",
+      "name": "ensure_column_options_supported",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        118,
+        131
+      ],
+      "summary": "Implements ensure column options supported logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:bind_sql_columns",
+      "type": "function",
+      "name": "bind_sql_columns",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        136,
+        209
+      ],
+      "summary": "Implements bind sql columns logic.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:check_generated_column_constraints",
+      "type": "function",
+      "name": "check_generated_column_constraints",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        211,
+        245
+      ],
+      "summary": "Implements check generated column constraints logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:bind_sql_column_constraints",
+      "type": "function",
+      "name": "bind_sql_column_constraints",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        249,
+        368
+      ],
+      "summary": "Implements bind sql column constraints logic.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:bind_table_constraints",
+      "type": "function",
+      "name": "bind_table_constraints",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        371,
+        390
+      ],
+      "summary": "Implements bind table constraints logic.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:bind_sql_pk_names",
+      "type": "function",
+      "name": "bind_sql_pk_names",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        392,
+        410
+      ],
+      "summary": "Implements bind sql pk names logic.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:bind_pk_and_row_id_on_relation",
+      "type": "function",
+      "name": "bind_pk_and_row_id_on_relation",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        420,
+        462
+      ],
+      "summary": "Implements bind pk and row id on relation logic.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan_with_source",
+      "type": "function",
+      "name": "gen_create_table_plan_with_source",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        467,
+        554
+      ],
+      "summary": "Generates create table plan with source during query planning.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan",
+      "type": "function",
+      "name": "gen_create_table_plan",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        559,
+        589
+      ],
+      "summary": "Generates create table plan during query planning.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan_without_source",
+      "type": "function",
+      "name": "gen_create_table_plan_without_source",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        592,
+        636
+      ],
+      "summary": "Generates create table plan without source during query planning.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:gen_table_plan_with_source",
+      "type": "function",
+      "name": "gen_table_plan_with_source",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        638,
+        657
+      ],
+      "summary": "Generates table plan with source during query planning.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:to_behavior",
+      "type": "function",
+      "name": "to_behavior",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        680,
+        714
+      ],
+      "summary": "Implements to behavior logic.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:gen_table_plan_inner",
+      "type": "function",
+      "name": "gen_table_plan_inner",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        744,
+        830
+      ],
+      "summary": "Generates table plan inner during query planning.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan_for_cdc_table",
+      "type": "function",
+      "name": "gen_create_table_plan_for_cdc_table",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        836,
+        988
+      ],
+      "summary": "Generates create table plan for cdc table during query planning.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:derive_with_options_for_cdc_table",
+      "type": "function",
+      "name": "derive_with_options_for_cdc_table",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        997,
+        1116
+      ],
+      "summary": "Implements derive with options for cdc table logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:parse_postgres_cdc_external_table_name",
+      "type": "function",
+      "name": "parse_postgres_cdc_external_table_name",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        1122,
+        1194
+      ],
+      "summary": "Implements parse postgres cdc external table name logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:handle_create_table_plan",
+      "type": "function",
+      "name": "handle_create_table_plan",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        1197,
+        1390
+      ],
+      "summary": "SQL command handler for create table plan statements.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:generated_columns_check_for_cdc_table",
+      "type": "function",
+      "name": "generated_columns_check_for_cdc_table",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        1393,
+        1417
+      ],
+      "summary": "Implements generated columns check for cdc table logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:not_null_check_for_cdc_table",
+      "type": "function",
+      "name": "not_null_check_for_cdc_table",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        1420,
+        1438
+      ],
+      "summary": "Implements not null check for cdc table logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:sanity_check_for_table_on_cdc_source",
+      "type": "function",
+      "name": "sanity_check_for_table_on_cdc_source",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        1441,
+        1502
+      ],
+      "summary": "Implements sanity check for table on cdc source logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:bind_cdc_table_schema_externally",
+      "type": "function",
+      "name": "bind_cdc_table_schema_externally",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        1505,
+        1529
+      ],
+      "summary": "Implements bind cdc table schema externally logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:handle_create_table",
+      "type": "function",
+      "name": "handle_create_table",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        1544,
+        1661
+      ],
+      "summary": "SQL command handler for create table statements.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:create_iceberg_engine_table",
+      "type": "function",
+      "name": "create_iceberg_engine_table",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        1672,
+        2552
+      ],
+      "summary": "Creates iceberg engine table in the catalog or streaming system.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:check_create_table_with_source",
+      "type": "function",
+      "name": "check_create_table_with_source",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        2554,
+        2578
+      ],
+      "summary": "Implements check create table with source logic.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:ensure_partition_columns_are_prefix_of_primary_key",
+      "type": "function",
+      "name": "ensure_partition_columns_are_prefix_of_primary_key",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        2580,
+        2598
+      ],
+      "summary": "Implements ensure partition columns are prefix of primary key logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:generate_stream_graph_for_replace_table",
+      "type": "function",
+      "name": "generate_stream_graph_for_replace_table",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        2601,
+        2778
+      ],
+      "summary": "Generates stream graph for replace table during query planning.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:get_source_and_resolved_table_name",
+      "type": "function",
+      "name": "get_source_and_resolved_table_name",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        2780,
+        2803
+      ],
+      "summary": "Implements get source and resolved table name logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table.rs:bind_webhook_info",
+      "type": "function",
+      "name": "bind_webhook_info",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        2806,
+        2911
+      ],
+      "summary": "Implements bind webhook info logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/frontend/src/handler/create_table.rs:EitherOnConflict",
+      "type": "class",
+      "name": "EitherOnConflict",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        661,
+        664
+      ],
+      "summary": "Struct EitherOnConflict encapsulating data and behavior for related functionality.",
+      "tags": [
+        "data-model",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/frontend/src/handler/create_table.rs:CreateTableInfo",
+      "type": "class",
+      "name": "CreateTableInfo",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        721,
+        728
+      ],
+      "summary": "Struct CreateTableInfo encapsulating data and behavior for related functionality.",
+      "tags": [
+        "data-model",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/frontend/src/handler/create_table.rs:CreateTableProps",
+      "type": "class",
+      "name": "CreateTableProps",
+      "filePath": "src/frontend/src/handler/create_table.rs",
+      "lineRange": [
+        734,
+        741
+      ],
+      "summary": "Struct CreateTableProps encapsulating data and behavior for related functionality.",
+      "tags": [
+        "data-model",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/src/handler/create_table_as.rs",
+      "type": "file",
+      "name": "create_table_as.rs",
+      "filePath": "src/frontend/src/handler/create_table_as.rs",
+      "summary": "Frontend SQL handler for CREATE TABLE_AS statements, binding, planning, and submitting to the meta service.",
+      "tags": [
+        "api-handler",
+        "sql-handler",
+        "ddl"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_table_as.rs:handle_create_as",
+      "type": "function",
+      "name": "handle_create_as",
+      "filePath": "src/frontend/src/handler/create_table_as.rs",
+      "lineRange": [
+        37,
+        175
+      ],
+      "summary": "SQL command handler for create as statements.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/handler/create_user.rs",
+      "type": "file",
+      "name": "create_user.rs",
+      "filePath": "src/frontend/src/handler/create_user.rs",
+      "summary": "Frontend SQL handler for CREATE USER statements, binding, planning, and submitting to the meta service.",
+      "tags": [
+        "api-handler",
+        "sql-handler",
+        "ddl"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_user.rs:handle_create_user",
+      "type": "function",
+      "name": "handle_create_user",
+      "filePath": "src/frontend/src/handler/create_user.rs",
+      "lineRange": [
+        30,
+        159
+      ],
+      "summary": "SQL command handler for create user statements.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/handler/create_view.rs",
+      "type": "file",
+      "name": "create_view.rs",
+      "filePath": "src/frontend/src/handler/create_view.rs",
+      "summary": "Frontend SQL handler for CREATE VIEW statements, binding, planning, and submitting to the meta service.",
+      "tags": [
+        "api-handler",
+        "sql-handler",
+        "ddl"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/create_view.rs:handle_create_view",
+      "type": "function",
+      "name": "handle_create_view",
+      "filePath": "src/frontend/src/handler/create_view.rs",
+      "lineRange": [
+        30,
+        133
+      ],
+      "summary": "SQL command handler for create view statements.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/handler/declare_cursor.rs",
+      "type": "file",
+      "name": "declare_cursor.rs",
+      "filePath": "src/frontend/src/handler/declare_cursor.rs",
+      "summary": "Frontend SQL command handler for declare cursor operations.",
+      "tags": [
+        "api-handler",
+        "sql-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/declare_cursor.rs:handle_declare_cursor",
+      "type": "function",
+      "name": "handle_declare_cursor",
+      "filePath": "src/frontend/src/handler/declare_cursor.rs",
+      "lineRange": [
+        37,
+        55
+      ],
+      "summary": "SQL command handler for declare cursor statements.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/declare_cursor.rs:handle_declare_subscription_cursor",
+      "type": "function",
+      "name": "handle_declare_subscription_cursor",
+      "filePath": "src/frontend/src/handler/declare_cursor.rs",
+      "lineRange": [
+        56,
+        106
+      ],
+      "summary": "SQL command handler for declare subscription cursor statements.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/declare_cursor.rs:check_cursor_unix_millis",
+      "type": "function",
+      "name": "check_cursor_unix_millis",
+      "filePath": "src/frontend/src/handler/declare_cursor.rs",
+      "lineRange": [
+        108,
+        123
+      ],
+      "summary": "Implements check cursor unix millis logic.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/declare_cursor.rs:handle_declare_query_cursor",
+      "type": "function",
+      "name": "handle_declare_query_cursor",
+      "filePath": "src/frontend/src/handler/declare_cursor.rs",
+      "lineRange": [
+        125,
+        138
+      ],
+      "summary": "SQL command handler for declare query cursor statements.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/declare_cursor.rs:handle_bound_declare_query_cursor",
+      "type": "function",
+      "name": "handle_bound_declare_query_cursor",
+      "filePath": "src/frontend/src/handler/declare_cursor.rs",
+      "lineRange": [
+        140,
+        155
+      ],
+      "summary": "SQL command handler for bound declare query cursor statements.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/declare_cursor.rs:create_stream_for_cursor_stmt",
+      "type": "function",
+      "name": "create_stream_for_cursor_stmt",
+      "filePath": "src/frontend/src/handler/declare_cursor.rs",
+      "lineRange": [
+        157,
+        169
+      ],
+      "summary": "Creates stream for cursor stmt in the catalog or streaming system.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/frontend/src/handler/declare_cursor.rs:create_chunk_stream_for_cursor",
+      "type": "function",
+      "name": "create_chunk_stream_for_cursor",
+      "filePath": "src/frontend/src/handler/declare_cursor.rs",
+      "lineRange": [
+        171,
+        199
+      ],
+      "summary": "Creates chunk stream for cursor in the catalog or streaming system.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/src/handler/discard.rs",
+      "type": "file",
+      "name": "discard.rs",
+      "filePath": "src/frontend/src/handler/discard.rs",
+      "summary": "Frontend SQL command handler for discard operations.",
+      "tags": [
+        "api-handler",
+        "sql-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/frontend/src/handler/drop_connection.rs",
+      "type": "file",
+      "name": "drop_connection.rs",
+      "filePath": "src/frontend/src/handler/drop_connection.rs",
+      "summary": "Frontend SQL handler for DROP CONNECTION statements, validating dependencies and invoking the meta service catalog.",
+      "tags": [
+        "api-handler",
+        "sql-handler",
+        "ddl"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/drop_connection.rs:handle_drop_connection",
+      "type": "function",
+      "name": "handle_drop_connection",
+      "filePath": "src/frontend/src/handler/drop_connection.rs",
+      "lineRange": [
+        26,
+        87
+      ],
+      "summary": "SQL command handler for drop connection statements.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/frontend/src/handler/drop_function.rs",
+      "type": "file",
+      "name": "drop_function.rs",
+      "filePath": "src/frontend/src/handler/drop_function.rs",
+      "summary": "Frontend SQL handler for DROP FUNCTION statements, validating dependencies and invoking the meta service catalog.",
+      "tags": [
+        "api-handler",
+        "sql-handler",
+        "ddl"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/frontend/src/handler/drop_function.rs:handle_drop_function",
+      "type": "function",
+      "name": "handle_drop_function",
+      "filePath": "src/frontend/src/handler/drop_function.rs",
+      "lineRange": [
+        20,
+        111
+      ],
+      "summary": "SQL command handler for drop function statements.",
+      "tags": [
+        "exported",
+        "utility"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:ensure_column_options_supported",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_sql_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_sql_columns",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:check_generated_column_constraints",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_sql_column_constraints",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_sql_column_constraints",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_table_constraints",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_table_constraints",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_sql_pk_names",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_sql_pk_names",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_pk_and_row_id_on_relation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_pk_and_row_id_on_relation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan_with_source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan_with_source",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan_without_source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan_without_source",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:gen_table_plan_with_source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:to_behavior",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:to_behavior",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:gen_table_plan_inner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan_for_cdc_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:gen_create_table_plan_for_cdc_table",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:derive_with_options_for_cdc_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:parse_postgres_cdc_external_table_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:handle_create_table_plan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:handle_create_table_plan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:generated_columns_check_for_cdc_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:not_null_check_for_cdc_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:sanity_check_for_table_on_cdc_source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_cdc_table_schema_externally",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:handle_create_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:handle_create_table",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:create_iceberg_engine_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:create_iceberg_engine_table",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:check_create_table_with_source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:check_create_table_with_source",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:ensure_partition_columns_are_prefix_of_primary_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:generate_stream_graph_for_replace_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:generate_stream_graph_for_replace_table",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:get_source_and_resolved_table_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "function:src/frontend/src/handler/create_table.rs:bind_webhook_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "class:src/frontend/src/handler/create_table.rs:EitherOnConflict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "class:src/frontend/src/handler/create_table.rs:EitherOnConflict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "class:src/frontend/src/handler/create_table.rs:CreateTableInfo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "class:src/frontend/src/handler/create_table.rs:CreateTableInfo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "class:src/frontend/src/handler/create_table.rs:CreateTableProps",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "class:src/frontend/src/handler/create_table.rs:CreateTableProps",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/binder/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/catalog/root_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/catalog/source_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/catalog/table_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/expr/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/handler/create_sink.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/handler/create_source.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/handler/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/optimizer/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/generic/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/optimizer/plan_node/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/optimizer/property/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/session.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/session/current.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table.rs",
+      "target": "file:src/frontend/src/utils/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table_as.rs",
+      "target": "function:src/frontend/src/handler/create_table_as.rs:handle_create_as",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table_as.rs",
+      "target": "function:src/frontend/src/handler/create_table_as.rs:handle_create_as",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table_as.rs",
+      "target": "file:src/frontend/src/binder/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table_as.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table_as.rs",
+      "target": "file:src/frontend/src/handler/create_table.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table_as.rs",
+      "target": "file:src/frontend/src/handler/query.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table_as.rs",
+      "target": "file:src/frontend/src/handler/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_table_as.rs",
+      "target": "file:src/frontend/src/stream_fragmenter/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_user.rs",
+      "target": "function:src/frontend/src/handler/create_user.rs:handle_create_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_user.rs",
+      "target": "function:src/frontend/src/handler/create_user.rs:handle_create_user",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_user.rs",
+      "target": "file:src/frontend/src/binder/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_user.rs",
+      "target": "file:src/frontend/src/catalog/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_user.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_user.rs",
+      "target": "file:src/frontend/src/handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_user.rs",
+      "target": "file:src/frontend/src/user/user_authentication.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_view.rs",
+      "target": "function:src/frontend/src/handler/create_view.rs:handle_create_view",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_view.rs",
+      "target": "function:src/frontend/src/handler/create_view.rs:handle_create_view",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_view.rs",
+      "target": "file:src/frontend/src/binder/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_view.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_view.rs",
+      "target": "file:src/frontend/src/handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_view.rs",
+      "target": "file:src/frontend/src/handler/util.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/create_view.rs",
+      "target": "file:src/frontend/src/optimizer/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:handle_declare_cursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:handle_declare_cursor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:handle_declare_subscription_cursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:handle_declare_subscription_cursor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:check_cursor_unix_millis",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:handle_declare_query_cursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:handle_bound_declare_query_cursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:handle_bound_declare_query_cursor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:create_stream_for_cursor_stmt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:create_stream_for_cursor_stmt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:create_chunk_stream_for_cursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "function:src/frontend/src/handler/declare_cursor.rs:create_chunk_stream_for_cursor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "file:src/frontend/src/handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "file:src/frontend/src/handler/query.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "file:src/frontend/src/session.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/declare_cursor.rs",
+      "target": "file:src/frontend/src/session/cursor_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/discard.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/discard.rs",
+      "target": "file:src/frontend/src/handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/drop_connection.rs",
+      "target": "function:src/frontend/src/handler/drop_connection.rs:handle_drop_connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/drop_connection.rs",
+      "target": "function:src/frontend/src/handler/drop_connection.rs:handle_drop_connection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/drop_connection.rs",
+      "target": "file:src/frontend/src/binder/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/drop_connection.rs",
+      "target": "file:src/frontend/src/catalog/root_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/drop_connection.rs",
+      "target": "file:src/frontend/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/drop_connection.rs",
+      "target": "file:src/frontend/src/handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/frontend/src/handler/drop_function.rs",
+      "target": "function:src/frontend/src/handler/drop_function.rs:handle_drop_function",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/frontend/src/handler/drop_function.rs",
+      "target": "function:src/frontend/src/handler/drop_function.rs:handle_drop_function",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/frontend/src/handler/drop_function.rs",
+      "target": "file:src/frontend/src/catalog/root_catalog.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

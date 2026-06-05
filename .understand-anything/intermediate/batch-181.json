@@ -1,0 +1,104 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/citus-cdc/citus_prepare.sh",
+      "type": "file",
+      "name": "citus_prepare.sh",
+      "filePath": "integration_tests/citus-cdc/citus_prepare.sh",
+      "summary": "Shell script that connects to the Citus coordinator node and runs the citus_prepare.sql DDL and distributed table setup for the CDC integration test.",
+      "tags": ["script", "test", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/citus-cdc/citus_prepare.sql",
+      "type": "file",
+      "name": "citus_prepare.sql",
+      "filePath": "integration_tests/citus-cdc/citus_prepare.sql",
+      "summary": "Minimal SQL to enable Citus extension and configure the distributed table used as a CDC source in the integration test.",
+      "tags": ["test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/citus-cdc/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/citus-cdc/create_mv.sql",
+      "summary": "Creates a RisingWave materialized view over the orders_rw CDC source for the Citus CDC integration test.",
+      "tags": ["test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/citus-cdc/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/citus-cdc/create_source.sql",
+      "summary": "Defines the RisingWave CDC table source (orders_rw) backed by the Citus distributed PostgreSQL cluster for the CDC integration test.",
+      "tags": ["test", "database", "schema-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/citus-cdc/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/citus-cdc/docker-compose.yml",
+      "summary": "Docker Compose configuration for the Citus CDC integration test, orchestrating RisingWave, Citus coordinator, and Citus worker containers.",
+      "tags": ["infrastructure", "orchestration", "test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:integration_tests/citus-cdc/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/citus-cdc/query.sql",
+      "summary": "Single validation SELECT query for the Citus CDC integration test.",
+      "tags": ["test", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/citus-cdc/worker-wait-for-manager.sh",
+      "type": "file",
+      "name": "worker-wait-for-manager.sh",
+      "filePath": "integration_tests/citus-cdc/worker-wait-for-manager.sh",
+      "summary": "Shell script that blocks Citus worker startup until the Citus manager/coordinator is ready, ensuring proper cluster initialization order.",
+      "tags": ["script", "test", "infrastructure"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/citus-cdc/citus_prepare.sh",
+      "target": "file:integration_tests/citus-cdc/citus_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/citus-cdc/create_mv.sql",
+      "target": "table:integration_tests/citus-cdc/create_source.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/citus-cdc/query.sql",
+      "target": "file:integration_tests/citus-cdc/create_mv.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:integration_tests/citus-cdc/docker-compose.yml",
+      "target": "file:integration_tests/citus-cdc/worker-wait-for-manager.sh",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:integration_tests/citus-cdc/docker-compose.yml",
+      "target": "table:integration_tests/citus-cdc/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

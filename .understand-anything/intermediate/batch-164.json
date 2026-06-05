@@ -1,0 +1,16 @@
+{
+  "nodes": [
+    {"id": "document:docs/dev/src/SUMMARY.md", "type": "document", "name": "SUMMARY.md", "filePath": "docs/dev/src/SUMMARY.md", "summary": "Table of contents for the RisingWave developer documentation mdBook, organizing chapters on building, debugging, benchmarking, specialized topics, and architecture design docs.", "tags": ["documentation", "entry-point", "development"], "complexity": "simple"},
+    {"id": "document:docs/dev/src/ci.md", "type": "document", "name": "ci.md", "filePath": "docs/dev/src/ci.md", "summary": "Developer guide explaining the CI system, CI label conventions for controlling which tests run on pull requests, and how to use the main-cron bisect pipeline for regression hunting.", "tags": ["documentation", "ci-cd", "development"], "complexity": "simple"},
+    {"id": "document:docs/dev/src/contributing.md", "type": "document", "name": "contributing.md", "filePath": "docs/dev/src/contributing.md", "summary": "Contribution guide covering finding tasks, running tests, submitting pull requests, PR title/description conventions, CLA signing, and cherry-picking to release branches.", "tags": ["documentation", "development", "contribution"], "complexity": "moderate"},
+    {"id": "document:docs/dev/src/debugging.md", "type": "document", "name": "debugging.md", "filePath": "docs/dev/src/debugging.md", "summary": "Brief debugging guide pointing to VS Code launch configuration for debugging the RisingWave playground locally.", "tags": ["documentation", "debugging", "development"], "complexity": "simple"},
+    {"id": "document:docs/dev/src/intro.md", "type": "document", "name": "intro.md", "filePath": "docs/dev/src/intro.md", "summary": "Introduction to RisingWave developer documentation, orienting new contributors to design documents, code structure, and component relationships.", "tags": ["documentation", "entry-point", "development"], "complexity": "simple"},
+    {"id": "document:docs/dev/src/metrics.md", "type": "document", "name": "metrics.md", "filePath": "docs/dev/src/metrics.md", "summary": "Developer reference for key RisingWave performance metrics, focusing on barrier latency as an indicator of system health, processing cost, and buffer capacity utilization.", "tags": ["documentation", "monitoring", "development"], "complexity": "moderate"},
+    {"id": "document:docs/dev/src/observability.md", "type": "document", "name": "observability.md", "filePath": "docs/dev/src/observability.md", "summary": "Developer guide to RisingWave observability tools including meta dashboard cluster control, Grafana monitoring, distributed tracing, the web dashboard, and log configuration.", "tags": ["documentation", "monitoring", "observability"], "complexity": "moderate"}
+  ],
+  "edges": [
+    {"source": "document:docs/dev/src/SUMMARY.md", "target": "document:docs/dev/src/intro.md", "type": "documents", "direction": "forward", "weight": 0.5},
+    {"source": "document:docs/dev/src/SUMMARY.md", "target": "document:docs/dev/src/contributing.md", "type": "documents", "direction": "forward", "weight": 0.5},
+    {"source": "document:docs/dev/src/SUMMARY.md", "target": "document:docs/dev/src/ci.md", "type": "documents", "direction": "forward", "weight": 0.5}
+  ]
+}

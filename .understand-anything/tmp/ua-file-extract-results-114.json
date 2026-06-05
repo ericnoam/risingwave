@@ -1,0 +1,423 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/client-library/nodejs/index.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "rw_client",
+          "startLine": 3,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "parseDate",
+          "startLine": 19,
+          "endLine": 21,
+          "params": [
+            "val"
+          ]
+        },
+        {
+          "name": "parseTimestamp",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "val"
+          ]
+        },
+        {
+          "name": "parseBigint",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "val"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "rw_client",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "rw_client",
+          "callee": "types.setTypeParser",
+          "lineNumber": 5
+        },
+        {
+          "caller": "rw_client",
+          "callee": "types.setTypeParser",
+          "lineNumber": 6
+        },
+        {
+          "caller": "rw_client",
+          "callee": "types.setTypeParser",
+          "lineNumber": 7
+        },
+        {
+          "caller": "parseBigint",
+          "callee": "BigInt",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/client-library/nodejs/test/crud_test.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "test_crud",
+          "startLine": 3,
+          "endLine": 44,
+          "params": [
+            "client"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "test_crud",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_crud",
+          "callee": "createTable",
+          "lineNumber": 4
+        },
+        {
+          "caller": "test_crud",
+          "callee": "BigInt",
+          "lineNumber": 8
+        },
+        {
+          "caller": "test_crud",
+          "callee": "insertData",
+          "lineNumber": 22
+        },
+        {
+          "caller": "test_crud",
+          "callee": "checkInsertedData",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_crud",
+          "callee": "BigInt",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_crud",
+          "callee": "insertData",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_crud",
+          "callee": "checkInsertedData",
+          "lineNumber": 39
+        },
+        {
+          "caller": "test_crud",
+          "callee": "updateSalaryData",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_crud",
+          "callee": "BigInt",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_crud",
+          "callee": "deleteDataByName",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_crud",
+          "callee": "dropTable",
+          "lineNumber": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/client-library/nodejs/test/test.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/client-library/nodejs/test/util.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 108,
+      "nonEmptyLines": 88,
+      "functions": [
+        {
+          "name": "createTable",
+          "startLine": 5,
+          "endLine": 27,
+          "params": [
+            "client"
+          ]
+        },
+        {
+          "name": "dropTable",
+          "startLine": 29,
+          "endLine": 33,
+          "params": [
+            "client"
+          ]
+        },
+        {
+          "name": "insertData",
+          "startLine": 35,
+          "endLine": 46,
+          "params": [
+            "client",
+            "name",
+            "age",
+            "salary",
+            "tripIDs",
+            "birthdate",
+            "deci",
+            "fareData",
+            "starttime",
+            "timest",
+            "timestz",
+            "timegap"
+          ]
+        },
+        {
+          "name": "checkInsertedData",
+          "startLine": 48,
+          "endLine": 88,
+          "params": [
+            "client",
+            "name",
+            "age",
+            "salary",
+            "tripIDs",
+            "birthdate",
+            "deci",
+            "fareData",
+            "starttime",
+            "timest",
+            "timestz",
+            "timegap"
+          ]
+        },
+        {
+          "name": "updateSalaryData",
+          "startLine": 90,
+          "endLine": 98,
+          "params": [
+            "client",
+            "name",
+            "salary"
+          ]
+        },
+        {
+          "name": "deleteDataByName",
+          "startLine": 100,
+          "endLine": 108,
+          "params": [
+            "client",
+            "name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "createTable",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "dropTable",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "insertData",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "checkInsertedData",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "updateSalaryData",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "deleteDataByName",
+          "line": 100,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "createTable",
+          "callee": "client.query",
+          "lineNumber": 25
+        },
+        {
+          "caller": "createTable",
+          "callee": "console.log",
+          "lineNumber": 26
+        },
+        {
+          "caller": "dropTable",
+          "callee": "client.query",
+          "lineNumber": 31
+        },
+        {
+          "caller": "dropTable",
+          "callee": "console.log",
+          "lineNumber": 32
+        },
+        {
+          "caller": "insertData",
+          "callee": "client.query",
+          "lineNumber": 44
+        },
+        {
+          "caller": "insertData",
+          "callee": "console.log",
+          "lineNumber": 45
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "client.query",
+          "lineNumber": 49
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "client.query",
+          "lineNumber": 52
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "assert.deepStrictEqual",
+          "lineNumber": 56
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "assert.deepStrictEqual",
+          "lineNumber": 59
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "assert.deepStrictEqual",
+          "lineNumber": 62
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "assert.deepStrictEqual",
+          "lineNumber": 65
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "assert.deepStrictEqual",
+          "lineNumber": 68
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "assert.deepStrictEqual",
+          "lineNumber": 71
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "assert.deepStrictEqual",
+          "lineNumber": 76
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "assert.deepStrictEqual",
+          "lineNumber": 79
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "assert.deepStrictEqual",
+          "lineNumber": 82
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "row.timegap.toPostgres",
+          "lineNumber": 84
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "assert.deepStrictEqual",
+          "lineNumber": 85
+        },
+        {
+          "caller": "checkInsertedData",
+          "callee": "console.log",
+          "lineNumber": 87
+        },
+        {
+          "caller": "updateSalaryData",
+          "callee": "client.query",
+          "lineNumber": 96
+        },
+        {
+          "caller": "updateSalaryData",
+          "callee": "console.log",
+          "lineNumber": 97
+        },
+        {
+          "caller": "deleteDataByName",
+          "callee": "client.query",
+          "lineNumber": 106
+        },
+        {
+          "caller": "deleteDataByName",
+          "callee": "console.log",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,2300 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 21,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "dashboard/lib/utils/timeUtils.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 108,
+      "nonEmptyLines": 97,
+      "functions": [
+        {
+          "name": "parseDuration",
+          "startLine": 20,
+          "endLine": 43,
+          "params": [
+            "durationStr"
+          ]
+        },
+        {
+          "name": "parseTimestampToUnixEpoch",
+          "startLine": 48,
+          "endLine": 65,
+          "params": [
+            "timestamp",
+            "timezone"
+          ]
+        },
+        {
+          "name": "getCurrentTimeInSystemTimezone",
+          "startLine": 70,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "formatUnixEpoch",
+          "startLine": 106,
+          "endLine": 108,
+          "params": [
+            "unixEpoch"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "parseDuration",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "parseTimestampToUnixEpoch",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "getCurrentTimeInSystemTimezone",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "formatUnixEpoch",
+          "line": 106,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseDuration",
+          "callee": "durationStr.match",
+          "lineNumber": 21
+        },
+        {
+          "caller": "parseDuration",
+          "callee": "parseInt",
+          "lineNumber": 28
+        },
+        {
+          "caller": "parseTimestampToUnixEpoch",
+          "callee": "Intl.DateTimeFormat().resolvedOptions",
+          "lineNumber": 50
+        },
+        {
+          "caller": "parseTimestampToUnixEpoch",
+          "callee": "Intl.DateTimeFormat",
+          "lineNumber": 50
+        },
+        {
+          "caller": "parseTimestampToUnixEpoch",
+          "callee": "isNaN",
+          "lineNumber": 56
+        },
+        {
+          "caller": "parseTimestampToUnixEpoch",
+          "callee": "date.getTime",
+          "lineNumber": 56
+        },
+        {
+          "caller": "parseTimestampToUnixEpoch",
+          "callee": "Math.floor",
+          "lineNumber": 61
+        },
+        {
+          "caller": "parseTimestampToUnixEpoch",
+          "callee": "date.getTime",
+          "lineNumber": 61
+        },
+        {
+          "caller": "getCurrentTimeInSystemTimezone",
+          "callee": "Intl.DateTimeFormat().resolvedOptions",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getCurrentTimeInSystemTimezone",
+          "callee": "Intl.DateTimeFormat",
+          "lineNumber": 72
+        },
+        {
+          "caller": "getCurrentTimeInSystemTimezone",
+          "callee": "formatter.formatToParts",
+          "lineNumber": 86
+        },
+        {
+          "caller": "getCurrentTimeInSystemTimezone",
+          "callee": "formatted.find",
+          "lineNumber": 88
+        },
+        {
+          "caller": "getCurrentTimeInSystemTimezone",
+          "callee": "formatted.find",
+          "lineNumber": 90
+        },
+        {
+          "caller": "getCurrentTimeInSystemTimezone",
+          "callee": "formatted.find",
+          "lineNumber": 92
+        },
+        {
+          "caller": "getCurrentTimeInSystemTimezone",
+          "callee": "formatted.find",
+          "lineNumber": 94
+        },
+        {
+          "caller": "getCurrentTimeInSystemTimezone",
+          "callee": "formatted.find",
+          "lineNumber": 96
+        },
+        {
+          "caller": "getCurrentTimeInSystemTimezone",
+          "callee": "formatted.find",
+          "lineNumber": 98
+        },
+        {
+          "caller": "formatUnixEpoch",
+          "callee": "new Date(unixEpoch * 1000).toISOString",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/_app.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 61,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "App",
+          "startLine": 31,
+          "endLine": 59,
+          "params": [
+            "{ Component, pageProps }"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "App",
+          "callee": "useRouter",
+          "lineNumber": 32
+        },
+        {
+          "caller": "App",
+          "callee": "useState",
+          "lineNumber": 33
+        },
+        {
+          "caller": "App",
+          "callee": "useEffect",
+          "lineNumber": 35
+        },
+        {
+          "caller": "App",
+          "callee": "router.events.on",
+          "lineNumber": 36
+        },
+        {
+          "caller": "App",
+          "callee": "setIsLoading",
+          "lineNumber": 38
+        },
+        {
+          "caller": "App",
+          "callee": "router.events.on",
+          "lineNumber": 41
+        },
+        {
+          "caller": "App",
+          "callee": "setIsLoading",
+          "lineNumber": 41
+        },
+        {
+          "caller": "App",
+          "callee": "router.events.on",
+          "lineNumber": 42
+        },
+        {
+          "caller": "App",
+          "callee": "setIsLoading",
+          "lineNumber": 42
+        },
+        {
+          "caller": "App",
+          "callee": "useEffect",
+          "lineNumber": 45
+        },
+        {
+          "caller": "App",
+          "callee": "monacoLoader.config",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/await_tree.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 176,
+      "nonEmptyLines": 162,
+      "functions": [
+        {
+          "name": "AwaitTreeDump",
+          "startLine": 41,
+          "endLine": 176,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AwaitTreeDump",
+          "line": 41,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AwaitTreeDump",
+          "callee": "useFetch",
+          "lineNumber": 42
+        },
+        {
+          "caller": "AwaitTreeDump",
+          "callee": "useState",
+          "lineNumber": 44
+        },
+        {
+          "caller": "AwaitTreeDump",
+          "callee": "useState",
+          "lineNumber": 45
+        },
+        {
+          "caller": "AwaitTreeDump",
+          "callee": "useEffect",
+          "lineNumber": 47
+        },
+        {
+          "caller": "AwaitTreeDump",
+          "callee": "setComputeNodeId",
+          "lineNumber": 49
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "setDump",
+          "lineNumber": 64
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "StackTraceResponse.fromJSON",
+          "lineNumber": 69
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "api.get",
+          "lineNumber": 70
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.actorTraces)\n        .entries()\n        .map(([k, v]) => `[Actor ${k}]\\n${v}`)\n        .join",
+          "lineNumber": 73
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.actorTraces)\n        .entries()\n        .map",
+          "lineNumber": 73
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.actorTraces)\n        .entries",
+          "lineNumber": 73
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_",
+          "lineNumber": 73
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.rpcTraces)\n        .entries()\n        .map(([k, v]) => `[RPC ${k}]\\n${v}`)\n        .join",
+          "lineNumber": 77
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.rpcTraces)\n        .entries()\n        .map",
+          "lineNumber": 77
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.rpcTraces)\n        .entries",
+          "lineNumber": 77
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_",
+          "lineNumber": 77
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.compactionTaskTraces)\n        .entries()\n        .map(([k, v]) => `[Compaction ${k}]\\n${v}`)\n        .join",
+          "lineNumber": 81
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.compactionTaskTraces)\n        .entries()\n        .map",
+          "lineNumber": 81
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.compactionTaskTraces)\n        .entries",
+          "lineNumber": 81
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_",
+          "lineNumber": 81
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.inflightBarrierTraces)\n        .entries()\n        .map(([k, v]) => `[Barrier ${k}]\\n${v}`)\n        .join",
+          "lineNumber": 85
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.inflightBarrierTraces)\n        .entries()\n        .map",
+          "lineNumber": 85
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.inflightBarrierTraces)\n        .entries",
+          "lineNumber": 85
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_",
+          "lineNumber": 85
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.barrierWorkerState)\n        .entries()\n        .map(([k, v]) => `[BarrierWorkerState (Worker ${k})]\\n${v}`)\n        .join",
+          "lineNumber": 89
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.barrierWorkerState)\n        .entries()\n        .map",
+          "lineNumber": 89
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.barrierWorkerState)\n        .entries",
+          "lineNumber": 89
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_",
+          "lineNumber": 89
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.jvmStackTraces)\n        .entries()\n        .map(([k, v]) => `[JVM (Worker ${k})]\\n${v}`)\n        .join",
+          "lineNumber": 93
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.jvmStackTraces)\n        .entries()\n        .map",
+          "lineNumber": 93
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_(response.jvmStackTraces)\n        .entries",
+          "lineNumber": 93
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "_",
+          "lineNumber": 93
+        },
+        {
+          "caller": "dumpTree",
+          "callee": "setDump",
+          "lineNumber": 103
+        },
+        {
+          "caller": "AwaitTreeDump",
+          "callee": "setComputeNodeId",
+          "lineNumber": 121
+        },
+        {
+          "caller": "AwaitTreeDump",
+          "callee": "computeNodes.map",
+          "lineNumber": 129
+        },
+        {
+          "caller": "AwaitTreeDump",
+          "callee": "dumpTree",
+          "lineNumber": 135
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/batch_tasks.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "BatchTasks",
+          "startLine": 24,
+          "endLine": 38,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BatchTasks",
+          "line": 24,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "BatchTasks",
+          "callee": "useToast",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/cluster.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 277,
+      "nonEmptyLines": 268,
+      "functions": [
+        {
+          "name": "WorkerNodeComponent",
+          "startLine": 43,
+          "endLine": 68,
+          "params": [
+            "{\n  workerNodeType,\n  workerNode,\n}"
+          ]
+        },
+        {
+          "name": "WorkerNodeMetricsComponent",
+          "startLine": 70,
+          "endLine": 135,
+          "params": [
+            "{\n  job,\n  instance,\n  metrics,\n  isCpuMetrics,\n}"
+          ]
+        },
+        {
+          "name": "Cluster",
+          "startLine": 142,
+          "endLine": 277,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Cluster",
+          "line": 142,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "WorkerNodeMetricsComponent",
+          "callee": "useCallback",
+          "lineNumber": 81
+        },
+        {
+          "caller": "WorkerNodeMetricsComponent",
+          "callee": "metrics.at",
+          "lineNumber": 86
+        },
+        {
+          "caller": "WorkerNodeMetricsComponent",
+          "callee": "reverse",
+          "lineNumber": 87
+        },
+        {
+          "caller": "WorkerNodeMetricsComponent",
+          "callee": "clone",
+          "lineNumber": 87
+        },
+        {
+          "caller": "WorkerNodeMetricsComponent",
+          "callee": "filledMetrics.push",
+          "lineNumber": 90
+        },
+        {
+          "caller": "WorkerNodeMetricsComponent",
+          "callee": "filledMetrics.push",
+          "lineNumber": 95
+        },
+        {
+          "caller": "WorkerNodeMetricsComponent",
+          "callee": "filledMetrics.push",
+          "lineNumber": 99
+        },
+        {
+          "caller": "WorkerNodeMetricsComponent",
+          "callee": "reverse",
+          "lineNumber": 102
+        },
+        {
+          "caller": "WorkerNodeMetricsComponent",
+          "callee": "metricsCallback",
+          "lineNumber": 112
+        },
+        {
+          "caller": "Cluster",
+          "callee": "useState",
+          "lineNumber": 143
+        },
+        {
+          "caller": "Cluster",
+          "callee": "useState",
+          "lineNumber": 144
+        },
+        {
+          "caller": "Cluster",
+          "callee": "useState",
+          "lineNumber": 145
+        },
+        {
+          "caller": "Cluster",
+          "callee": "useState",
+          "lineNumber": 146
+        },
+        {
+          "caller": "Cluster",
+          "callee": "useErrorToast",
+          "lineNumber": 147
+        },
+        {
+          "caller": "Cluster",
+          "callee": "useEffect",
+          "lineNumber": 149
+        },
+        {
+          "caller": "doFetch",
+          "callee": "setFrontendList",
+          "lineNumber": 152
+        },
+        {
+          "caller": "doFetch",
+          "callee": "getClusterInfoFrontend",
+          "lineNumber": 152
+        },
+        {
+          "caller": "doFetch",
+          "callee": "setComputeNodeList",
+          "lineNumber": 153
+        },
+        {
+          "caller": "doFetch",
+          "callee": "getClusterInfoComputeNode",
+          "lineNumber": 153
+        },
+        {
+          "caller": "doFetch",
+          "callee": "setVersion",
+          "lineNumber": 154
+        },
+        {
+          "caller": "doFetch",
+          "callee": "getClusterVersion",
+          "lineNumber": 154
+        },
+        {
+          "caller": "doFetch",
+          "callee": "toast",
+          "lineNumber": 156
+        },
+        {
+          "caller": "Cluster",
+          "callee": "doFetch",
+          "lineNumber": 159
+        },
+        {
+          "caller": "Cluster",
+          "callee": "useEffect",
+          "lineNumber": 163
+        },
+        {
+          "caller": "doFetch",
+          "callee": "getClusterMetrics",
+          "lineNumber": 167
+        },
+        {
+          "caller": "doFetch",
+          "callee": "sortBy",
+          "lineNumber": 168
+        },
+        {
+          "caller": "doFetch",
+          "callee": "sortBy",
+          "lineNumber": 169
+        },
+        {
+          "caller": "doFetch",
+          "callee": "setMetrics",
+          "lineNumber": 173
+        },
+        {
+          "caller": "doFetch",
+          "callee": "setTimeout",
+          "lineNumber": 174
+        },
+        {
+          "caller": "doFetch",
+          "callee": "toast",
+          "lineNumber": 176
+        },
+        {
+          "caller": "Cluster",
+          "callee": "doFetch",
+          "lineNumber": 181
+        },
+        {
+          "caller": "Cluster",
+          "callee": "frontendList.map",
+          "lineNumber": 192
+        },
+        {
+          "caller": "Cluster",
+          "callee": "computeNodeList.map",
+          "lineNumber": 208
+        },
+        {
+          "caller": "Cluster",
+          "callee": "metrics.cpuData.map",
+          "lineNumber": 228
+        },
+        {
+          "caller": "Cluster",
+          "callee": "metrics.memoryData.map",
+          "lineNumber": 249
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/explain_distsql.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 76,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "Explain",
+          "startLine": 25,
+          "endLine": 76,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Explain",
+          "line": 25,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Explain",
+          "callee": "useState",
+          "lineNumber": 26
+        },
+        {
+          "caller": "Explain",
+          "callee": "useState",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Explain",
+          "callee": "useState",
+          "lineNumber": 28
+        },
+        {
+          "caller": "handleChange",
+          "callee": "setInput",
+          "lineNumber": 33
+        },
+        {
+          "caller": "handleChange",
+          "callee": "setIsUpdate",
+          "lineNumber": 34
+        },
+        {
+          "caller": "handleClick",
+          "callee": "setIsDotParsed",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/fragment_graph.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 519,
+      "nonEmptyLines": 477,
+      "functions": [
+        {
+          "name": "buildPlanNodeDependency",
+          "startLine": 82,
+          "endLine": 135,
+          "params": [
+            "fragment"
+          ]
+        },
+        {
+          "name": "findMergeNodes",
+          "startLine": 137,
+          "endLine": 151,
+          "params": [
+            "root"
+          ]
+        },
+        {
+          "name": "buildFragmentDependencyAsEdges",
+          "startLine": 153,
+          "endLine": 188,
+          "params": [
+            "fragments"
+          ]
+        },
+        {
+          "name": "Streaming",
+          "startLine": 227,
+          "endLine": 519,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ChannelStatsSnapshot",
+          "startLine": 192,
+          "endLine": 225,
+          "methods": [
+            "constructor",
+            "getRate"
+          ],
+          "properties": [
+            "metrics",
+            "time"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ChannelStatsSnapshot",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "Streaming",
+          "line": 227,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "hierarchyActorNode",
+          "callee": "node.nodeBody?.$case?.toString",
+          "lineNumber": 89
+        },
+        {
+          "caller": "hierarchyActorNode",
+          "callee": "(node.input || []).map",
+          "lineNumber": 90
+        },
+        {
+          "caller": "buildPlanNodeDependency",
+          "callee": "_.camelCase",
+          "lineNumber": 99
+        },
+        {
+          "caller": "buildPlanNodeDependency",
+          "callee": "firstActor.dispatcher[0].type.replace",
+          "lineNumber": 100
+        },
+        {
+          "caller": "buildPlanNodeDependency",
+          "callee": "firstActor.dispatcher.every",
+          "lineNumber": 104
+        },
+        {
+          "caller": "buildPlanNodeDependency",
+          "callee": "fragment.actors.reduce",
+          "lineNumber": 119
+        },
+        {
+          "caller": "buildPlanNodeDependency",
+          "callee": "d3.hierarchy",
+          "lineNumber": 128
+        },
+        {
+          "caller": "buildPlanNodeDependency",
+          "callee": "fragment.actors.map",
+          "lineNumber": 130
+        },
+        {
+          "caller": "buildPlanNodeDependency",
+          "callee": "a.actorId.toString",
+          "lineNumber": 130
+        },
+        {
+          "caller": "buildPlanNodeDependency",
+          "callee": "hierarchyActorNode",
+          "lineNumber": 131
+        },
+        {
+          "caller": "findMergeNodesRecursive",
+          "callee": "mergeNodes.add",
+          "lineNumber": 142
+        },
+        {
+          "caller": "findMergeNodesRecursive",
+          "callee": "findMergeNodesRecursive",
+          "lineNumber": 145
+        },
+        {
+          "caller": "findMergeNodes",
+          "callee": "findMergeNodesRecursive",
+          "lineNumber": 149
+        },
+        {
+          "caller": "findMergeNodes",
+          "callee": "Array.from",
+          "lineNumber": 150
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "actorToFragmentMapping.set",
+          "lineNumber": 161
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "parentIds.add",
+          "lineNumber": 171
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "externalParentIds.add",
+          "lineNumber": 173
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "nodes.push",
+          "lineNumber": 176
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "fragment.fragmentId.toString",
+          "lineNumber": 177
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "Array.from(parentIds).map",
+          "lineNumber": 179
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "Array.from",
+          "lineNumber": 179
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "x.toString",
+          "lineNumber": 179
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "Array.from(externalParentIds).map",
+          "lineNumber": 180
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "Array.from",
+          "lineNumber": 180
+        },
+        {
+          "caller": "buildFragmentDependencyAsEdges",
+          "callee": "x.toString",
+          "lineNumber": 180
+        },
+        {
+          "caller": "getRate",
+          "callee": "initial.metrics.get",
+          "lineNumber": 208
+        },
+        {
+          "caller": "getRate",
+          "callee": "result.set",
+          "lineNumber": 211
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useFetch",
+          "lineNumber": 228
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useFetch",
+          "lineNumber": 229
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useQueryState",
+          "lineNumber": 231
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useState",
+          "lineNumber": 232
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useState",
+          "lineNumber": 233
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useMemo",
+          "lineNumber": 235
+        },
+        {
+          "caller": "Streaming",
+          "callee": "streamingJobList?.find",
+          "lineNumber": 236
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useErrorToast",
+          "lineNumber": 240
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useEffect",
+          "lineNumber": 242
+        },
+        {
+          "caller": "Streaming",
+          "callee": "setTableFragments",
+          "lineNumber": 244
+        },
+        {
+          "caller": "Streaming",
+          "callee": "getFragmentsByJobId(jobId).then",
+          "lineNumber": 245
+        },
+        {
+          "caller": "Streaming",
+          "callee": "getFragmentsByJobId",
+          "lineNumber": 245
+        },
+        {
+          "caller": "Streaming",
+          "callee": "setTableFragments",
+          "lineNumber": 246
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useCallback",
+          "lineNumber": 251
+        },
+        {
+          "caller": "Streaming",
+          "callee": "buildFragmentDependencyAsEdges",
+          "lineNumber": 253
+        },
+        {
+          "caller": "Streaming",
+          "callee": "dagStratify()",
+          "lineNumber": 257
+        },
+        {
+          "caller": "Streaming",
+          "callee": "dagStratify",
+          "lineNumber": 257
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useEffect",
+          "lineNumber": 262
+        },
+        {
+          "caller": "Streaming",
+          "callee": "setJobId",
+          "lineNumber": 266
+        },
+        {
+          "caller": "Streaming",
+          "callee": "fragmentDependencyCallback",
+          "lineNumber": 273
+        },
+        {
+          "caller": "Streaming",
+          "callee": "fragmentDependencyCallback",
+          "lineNumber": 274
+        },
+        {
+          "caller": "Streaming",
+          "callee": "fragmentDependencyCallback",
+          "lineNumber": 275
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useCallback",
+          "lineNumber": 277
+        },
+        {
+          "caller": "Streaming",
+          "callee": "buildPlanNodeDependency",
+          "lineNumber": 286
+        },
+        {
+          "caller": "Streaming",
+          "callee": "planNodeDependencies.set",
+          "lineNumber": 287
+        },
+        {
+          "caller": "Streaming",
+          "callee": "planNodeDependenciesCallback",
+          "lineNumber": 294
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useState",
+          "lineNumber": 296
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useState",
+          "lineNumber": 297
+        },
+        {
+          "caller": "handleSearchFragment",
+          "callee": "parseInt",
+          "lineNumber": 300
+        },
+        {
+          "caller": "handleSearchFragment",
+          "callee": "parseInt",
+          "lineNumber": 306
+        },
+        {
+          "caller": "handleSearchFragment",
+          "callee": "setJobId",
+          "lineNumber": 307
+        },
+        {
+          "caller": "handleSearchFragment",
+          "callee": "parseInt",
+          "lineNumber": 307
+        },
+        {
+          "caller": "handleSearchFragment",
+          "callee": "setSelectedFragmentId",
+          "lineNumber": 308
+        },
+        {
+          "caller": "handleSearchFragment",
+          "callee": "toast",
+          "lineNumber": 314
+        },
+        {
+          "caller": "handleSearchActor",
+          "callee": "parseInt",
+          "lineNumber": 318
+        },
+        {
+          "caller": "handleSearchActor",
+          "callee": "actorIds.includes",
+          "lineNumber": 325
+        },
+        {
+          "caller": "handleSearchActor",
+          "callee": "setJobId",
+          "lineNumber": 326
+        },
+        {
+          "caller": "handleSearchActor",
+          "callee": "parseInt",
+          "lineNumber": 326
+        },
+        {
+          "caller": "handleSearchActor",
+          "callee": "setSelectedFragmentId",
+          "lineNumber": 327
+        },
+        {
+          "caller": "handleSearchActor",
+          "callee": "parseInt",
+          "lineNumber": 327
+        },
+        {
+          "caller": "handleSearchActor",
+          "callee": "toast",
+          "lineNumber": 333
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useState",
+          "lineNumber": 338
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useState",
+          "lineNumber": 340
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useState",
+          "lineNumber": 345
+        },
+        {
+          "caller": "Streaming",
+          "callee": "useEffect",
+          "lineNumber": 347
+        },
+        {
+          "caller": "Streaming",
+          "callee": "createStreamingStatsRefresh",
+          "lineNumber": 350
+        },
+        {
+          "caller": "Streaming",
+          "callee": "refresh",
+          "lineNumber": 361
+        },
+        {
+          "caller": "Streaming",
+          "callee": "setInterval",
+          "lineNumber": 362
+        },
+        {
+          "caller": "Streaming",
+          "callee": "clearInterval",
+          "lineNumber": 364
+        },
+        {
+          "caller": "handleTimeParamsChange",
+          "callee": "setTimeParams",
+          "lineNumber": 369
+        },
+        {
+          "caller": "Streaming",
+          "callee": "streamingJobList?.find",
+          "lineNumber": 393
+        },
+        {
+          "caller": "Streaming",
+          "callee": "setJobId",
+          "lineNumber": 397
+        },
+        {
+          "caller": "Streaming",
+          "callee": "streamingJobList.map",
+          "lineNumber": 405
+        },
+        {
+          "caller": "Streaming",
+          "callee": "setJobId",
+          "lineNumber": 413
+        },
+        {
+          "caller": "Streaming",
+          "callee": "parseInt",
+          "lineNumber": 413
+        },
+        {
+          "caller": "Streaming",
+          "callee": "streamingJobList.map",
+          "lineNumber": 416
+        },
+        {
+          "caller": "Streaming",
+          "callee": "setSearchFragId",
+          "lineNumber": 459
+        },
+        {
+          "caller": "Streaming",
+          "callee": "handleSearchFragment",
+          "lineNumber": 461
+        },
+        {
+          "caller": "Streaming",
+          "callee": "setSearchActorId",
+          "lineNumber": 467
+        },
+        {
+          "caller": "Streaming",
+          "callee": "handleSearchActor",
+          "lineNumber": 469
+        },
+        {
+          "caller": "Streaming",
+          "callee": "setSelectedFragmentId",
+          "lineNumber": 481
+        },
+        {
+          "caller": "Streaming",
+          "callee": "parseInt",
+          "lineNumber": 481
+        },
+        {
+          "caller": "Streaming",
+          "callee": "selectedFragmentId?.toString",
+          "lineNumber": 483
+        },
+        {
+          "caller": "Streaming",
+          "callee": "selectedFragmentId?.toString",
+          "lineNumber": 499
+        }
+      ],
+      "metrics": {
+        "importCount": 9,
+        "exportCount": 2,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "dashboard/pages/functions.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "Functions",
+          "startLine": 52,
+          "endLine": 60,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Functions",
+          "line": 52,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Functions",
+          "callee": "Relations",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/heap_profiling.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 320,
+      "nonEmptyLines": 299,
+      "functions": [
+        {
+          "name": "workerTypeLabel",
+          "startLine": 48,
+          "endLine": 59,
+          "params": [
+            "workerType"
+          ]
+        },
+        {
+          "name": "getWorkerLabel",
+          "startLine": 61,
+          "endLine": 73,
+          "params": [
+            "nodeId",
+            "workerNodes"
+          ]
+        },
+        {
+          "name": "HeapProfiling",
+          "startLine": 75,
+          "endLine": 320,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "HeapProfiling",
+          "line": 75,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getWorkerLabel",
+          "callee": "(workerNodes ?? []).find",
+          "lineNumber": 68
+        },
+        {
+          "caller": "getWorkerLabel",
+          "callee": "workerTypeLabel",
+          "lineNumber": 72
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "useFetch",
+          "lineNumber": 76
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "useState",
+          "lineNumber": 78
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "useState",
+          "lineNumber": 79
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "useState",
+          "lineNumber": 80
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "useState",
+          "lineNumber": 83
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "useEffect",
+          "lineNumber": 87
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "setWorkerNodeId",
+          "lineNumber": 89
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "useCallback",
+          "lineNumber": 93
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "ListHeapProfilingResponse.fromJSON",
+          "lineNumber": 100
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "api.get",
+          "lineNumber": 101
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "list.nameAuto.sort().reverse",
+          "lineNumber": 103
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "list.nameAuto.sort",
+          "lineNumber": 103
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "list.nameManually.sort().reverse",
+          "lineNumber": 104
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "list.nameManually.sort",
+          "lineNumber": 104
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "setProfileList",
+          "lineNumber": 105
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "setDisplayInfo",
+          "lineNumber": 106
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "getWorkerLabel",
+          "lineNumber": 107
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "console.error",
+          "lineNumber": 115
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "getWorkerLabel",
+          "lineNumber": 116
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "setDisplayInfo",
+          "lineNumber": 120
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "useEffect",
+          "lineNumber": 126
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "getProfileList",
+          "lineNumber": 127
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "useEffect",
+          "lineNumber": 130
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "setAnalyzeTargetFileName",
+          "lineNumber": 135
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "setAnalyzeTargetFileName",
+          "lineNumber": 137
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "setAnalyzeTargetFileName",
+          "lineNumber": 139
+        },
+        {
+          "caller": "dumpProfile",
+          "callee": "api.get",
+          "lineNumber": 145
+        },
+        {
+          "caller": "dumpProfile",
+          "callee": "getProfileList",
+          "lineNumber": 146
+        },
+        {
+          "caller": "dumpProfile",
+          "callee": "setDisplayInfo",
+          "lineNumber": 148
+        },
+        {
+          "caller": "dumpProfile",
+          "callee": "getWorkerLabel",
+          "lineNumber": 149
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "console.log",
+          "lineNumber": 159
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "path.join",
+          "lineNumber": 165
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "getWorkerLabel",
+          "lineNumber": 167
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "setDisplayInfo",
+          "lineNumber": 168
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "base64url",
+          "lineNumber": 174
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "api.urlFor",
+          "lineNumber": 175
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "fetch",
+          "lineNumber": 178
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "Error",
+          "lineNumber": 180
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "res.blob",
+          "lineNumber": 182
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "saveAs",
+          "lineNumber": 183
+        },
+        {
+          "caller": "analyzeHeapFile",
+          "callee": "setDisplayInfo",
+          "lineNumber": 189
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "(workerNodes ?? []).reduce",
+          "lineNumber": 197
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "groups.get",
+          "lineNumber": 198
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "list.push",
+          "lineNumber": 199
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "groups.set",
+          "lineNumber": 200
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "groupedWorkerNodes.values",
+          "lineNumber": 203
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "nodes.sort",
+          "lineNumber": 204
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "setWorkerNodeId",
+          "lineNumber": 224
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "parseInt",
+          "lineNumber": 224
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "workerTypeOrder.flatMap",
+          "lineNumber": 227
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "groupedWorkerNodes.get",
+          "lineNumber": 228
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "workerTypeLabel",
+          "lineNumber": 235
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "nodes.map",
+          "lineNumber": 237
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "dumpProfile",
+          "lineNumber": 246
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "setAnalyzeTargetFileName",
+          "lineNumber": 257
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "profileList.nameAuto.map",
+          "lineNumber": 262
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "profileList.nameManually.map",
+          "lineNumber": 271
+        },
+        {
+          "caller": "HeapProfiling",
+          "callee": "analyzeHeapFile",
+          "lineNumber": 279
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/index.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "Home",
+          "startLine": 24,
+          "endLine": 59,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Home",
+          "line": 24,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/indexes.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "Indexes",
+          "startLine": 27,
+          "endLine": 40,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Indexes",
+          "line": 27,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Indexes",
+          "callee": "Relations",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/internal_tables.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "InternalTables",
+          "startLine": 21,
+          "endLine": 23,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "InternalTables",
+          "line": 21,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "InternalTables",
+          "callee": "Relations",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/materialized_views.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "MaterializedViews",
+          "startLine": 25,
+          "endLine": 32,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MaterializedViews",
+          "line": 25,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "MaterializedViews",
+          "callee": "Relations",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/node.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "NodeType",
+          "startLine": 33,
+          "endLine": 82,
+          "params": [
+            "{ data }"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/relation_graph.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 224,
+      "nonEmptyLines": 208,
+      "functions": [
+        {
+          "name": "buildDependencyAsEdges",
+          "startLine": 46,
+          "endLine": 71,
+          "params": [
+            "list",
+            "relation_deps"
+          ]
+        },
+        {
+          "name": "StreamingGraph",
+          "startLine": 73,
+          "endLine": 224,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "StreamingGraph",
+          "line": 73,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "list.map",
+          "lineNumber": 51
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "reverse",
+          "lineNumber": 52
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "sortBy",
+          "lineNumber": 52
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "edges.push",
+          "lineNumber": 53
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "r.id.toString",
+          "lineNumber": 54
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "relationIsStreamingJob",
+          "lineNumber": 56
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "relation_deps.has",
+          "lineNumber": 57
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "relation_deps\n              .get(r.id)\n              ?.filter((r) => relationSet.has(r))\n              .map",
+          "lineNumber": 58
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "relation_deps\n              .get(r.id)\n              ?.filter",
+          "lineNumber": 58
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "relation_deps\n              .get",
+          "lineNumber": 58
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "relationSet.has",
+          "lineNumber": 60
+        },
+        {
+          "caller": "buildDependencyAsEdges",
+          "callee": "r.toString",
+          "lineNumber": 61
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useFetch",
+          "lineNumber": 74
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useFetch",
+          "lineNumber": 76
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useQueryState",
+          "lineNumber": 77
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useFetch",
+          "lineNumber": 78
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useErrorToast",
+          "lineNumber": 80
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useCallback",
+          "lineNumber": 82
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "buildDependencyAsEdges",
+          "lineNumber": 84
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "relationDependencyCallback",
+          "lineNumber": 90
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useState",
+          "lineNumber": 94
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useState",
+          "lineNumber": 95
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useState",
+          "lineNumber": 100
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useEffect",
+          "lineNumber": 102
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "createStreamingStatsRefresh",
+          "lineNumber": 105
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "refresh",
+          "lineNumber": 116
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "setInterval",
+          "lineNumber": 117
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "clearInterval",
+          "lineNumber": 119
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "useMemo",
+          "lineNumber": 125
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "key.split(\"_\").map",
+          "lineNumber": 133
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "key.split",
+          "lineNumber": 133
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "map.set",
+          "lineNumber": 142
+        },
+        {
+          "caller": "handleTimeParamsChange",
+          "callee": "setTimeParams",
+          "lineNumber": 150
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "relationList?.map",
+          "lineNumber": 174
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "setSelectedId",
+          "lineNumber": 185
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "selectedId?.toString",
+          "lineNumber": 205
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "setSelectedId",
+          "lineNumber": 206
+        },
+        {
+          "caller": "StreamingGraph",
+          "callee": "parseInt",
+          "lineNumber": 206
+        }
+      ],
+      "metrics": {
+        "importCount": 9,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/settings.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "Settings",
+          "startLine": 29,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "ClientSettings",
+          "startLine": 35,
+          "endLine": 66,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Settings",
+          "line": 29,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Settings",
+          "callee": "useIsClient",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ClientSettings",
+          "callee": "useLocalStorage",
+          "lineNumber": 36
+        },
+        {
+          "caller": "ClientSettings",
+          "callee": "saveApiEndpoint",
+          "lineNumber": 53
+        },
+        {
+          "caller": "ClientSettings",
+          "callee": "PREDEFINED_API_ENDPOINTS.map",
+          "lineNumber": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/sinks.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "Sinks",
+          "startLine": 25,
+          "endLine": 32,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Sinks",
+          "line": 25,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Sinks",
+          "callee": "Relations",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/sources.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "DataSources",
+          "startLine": 27,
+          "endLine": 40,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DataSources",
+          "line": 27,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DataSources",
+          "callee": "Relations",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/subscriptions.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "Subscriptions",
+          "startLine": 22,
+          "endLine": 38,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Subscriptions",
+          "line": 22,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Subscriptions",
+          "callee": "Relations",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/tables.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "Tables",
+          "startLine": 27,
+          "endLine": 40,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Tables",
+          "line": 27,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Tables",
+          "callee": "Relations",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "dashboard/pages/views.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "Views",
+          "startLine": 21,
+          "endLine": 23,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Views",
+          "line": 21,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Views",
+          "callee": "Relations",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

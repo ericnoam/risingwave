@@ -1,0 +1,64 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/mongodb-cdc/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/mongodb-cdc/create_mv.sql",
+      "summary": "Creates a materialized view over the MongoDB CDC source to project and transform user document data in the mongodb-cdc integration test.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mongodb-cdc/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/mongodb-cdc/create_source.sql",
+      "summary": "Defines the RisingWave `users` CDC source table ingesting change events from MongoDB via the Debezium connector.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/mongodb-cdc/create_source.sql:users",
+      "type": "table",
+      "name": "users",
+      "filePath": "integration_tests/mongodb-cdc/create_source.sql",
+      "lineRange": [1, 5],
+      "summary": "RisingWave CDC source table for MongoDB users collection with _id and payload columns.",
+      "tags": ["database", "integration-test", "cdc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/mongodb-cdc/docker-compose.yaml",
+      "type": "service",
+      "name": "docker-compose.yaml",
+      "filePath": "integration_tests/mongodb-cdc/docker-compose.yaml",
+      "summary": "Docker Compose orchestration for the mongodb-cdc integration test, providing MongoDB, Debezium Kafka Connect, Kafka, Zookeeper, and RisingWave services.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/mongodb-cdc/create_source.sql",
+      "target": "table:integration_tests/mongodb-cdc/create_source.sql:users",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/mongodb-cdc/create_source.sql",
+      "target": "file:integration_tests/mongodb-cdc/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/mongodb-cdc/docker-compose.yaml",
+      "target": "file:integration_tests/mongodb-cdc/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

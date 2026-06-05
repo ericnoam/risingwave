@@ -1,0 +1,975 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/storage/src/hummock/iterator/backward_merge.rs",
+      "type": "file",
+      "name": "backward_merge.rs",
+      "filePath": "src/storage/src/hummock/iterator/backward_merge.rs",
+      "summary": "Backward merge iterator combining multiple sorted iterators in reverse key order.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/backward_user.rs",
+      "type": "file",
+      "name": "backward_user.rs",
+      "filePath": "src/storage/src/hummock/iterator/backward_user.rs",
+      "summary": "Backward user-facing iterator supporting reverse range scans with MVCC visibility.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/change_log.rs",
+      "type": "file",
+      "name": "change_log.rs",
+      "filePath": "src/storage/src/hummock/iterator/change_log.rs",
+      "summary": "Change log iterator exposing per-key change records for CDC and time-travel queries.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/concat_inner.rs",
+      "type": "file",
+      "name": "concat_inner.rs",
+      "filePath": "src/storage/src/hummock/iterator/concat_inner.rs",
+      "summary": "Inner concat iterator seeking across a sorted list of SSTable iterators.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/forward_concat.rs",
+      "type": "file",
+      "name": "forward_concat.rs",
+      "filePath": "src/storage/src/hummock/iterator/forward_concat.rs",
+      "summary": "Forward concat iterator traversing multiple SSTables in ascending key order.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/forward_merge.rs",
+      "type": "file",
+      "name": "forward_merge.rs",
+      "filePath": "src/storage/src/hummock/iterator/forward_merge.rs",
+      "summary": "Forward merge iterator combining multiple sorted iterators in ascending key order.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/forward_user.rs",
+      "type": "file",
+      "name": "forward_user.rs",
+      "filePath": "src/storage/src/hummock/iterator/forward_user.rs",
+      "summary": "Forward user-facing iterator with MVCC visibility, watermark skipping, and delete marker handling.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/merge_inner.rs",
+      "type": "file",
+      "name": "merge_inner.rs",
+      "filePath": "src/storage/src/hummock/iterator/merge_inner.rs",
+      "summary": "Inner merge iterator for heap-based sorted merging of multiple sub-iterators.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/storage/src/hummock/iterator/mod.rs",
+      "summary": "Hummock iterator trait definitions, factory traits, and skip-watermark utilities.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/skip_watermark.rs",
+      "type": "file",
+      "name": "skip_watermark.rs",
+      "filePath": "src/storage/src/hummock/iterator/skip_watermark.rs",
+      "summary": "Watermark-based key skip iterator implementations for PK prefix, non-PK prefix, and value-level watermarks.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/test_utils.rs",
+      "type": "file",
+      "name": "test_utils.rs",
+      "filePath": "src/storage/src/hummock/iterator/test_utils.rs",
+      "summary": "Test utilities for creating SSTable iterators and test data.",
+      "tags": [
+        "storage",
+        "test"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/local_version/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/storage/src/hummock/local_version/mod.rs",
+      "summary": "Local version module barrel for pinned version and recent versions.",
+      "tags": [
+        "barrel",
+        "storage"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/storage/src/hummock/local_version/pinned_version.rs",
+      "type": "file",
+      "name": "pinned_version.rs",
+      "filePath": "src/storage/src/hummock/local_version/pinned_version.rs",
+      "summary": "Manages pinned Hummock versions to prevent garbage collection of in-use snapshots.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/local_version/recent_versions.rs",
+      "type": "file",
+      "name": "recent_versions.rs",
+      "filePath": "src/storage/src/hummock/local_version/recent_versions.rs",
+      "summary": "Tracks recent committed Hummock versions for safe snapshot management.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/storage/src/hummock/mod.rs",
+      "summary": "Hummock storage module root re-exporting core types and submodules.",
+      "tags": [
+        "barrel",
+        "storage"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/object_id_manager.rs",
+      "type": "file",
+      "name": "object_id_manager.rs",
+      "filePath": "src/storage/src/hummock/object_id_manager.rs",
+      "summary": "Object ID manager allocating unique SSTable IDs for local and shared compactors.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/observer_manager.rs",
+      "type": "file",
+      "name": "observer_manager.rs",
+      "filePath": "src/storage/src/hummock/observer_manager.rs",
+      "summary": "Observer manager handling meta notification events for catalog and version updates.",
+      "tags": [
+        "storage",
+        "service",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/recent_filter/all.rs",
+      "type": "file",
+      "name": "all.rs",
+      "filePath": "src/storage/src/hummock/recent_filter/all.rs",
+      "summary": "Recent filter accepting all keys.",
+      "tags": [
+        "storage",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/recent_filter/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/storage/src/hummock/recent_filter/mod.rs",
+      "summary": "Recent filter trait and implementations for tracking recently accessed SSTable keys.",
+      "tags": [
+        "storage",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/recent_filter/none.rs",
+      "type": "file",
+      "name": "none.rs",
+      "filePath": "src/storage/src/hummock/recent_filter/none.rs",
+      "summary": "Recent filter rejecting all keys (no-op).",
+      "tags": [
+        "storage",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/recent_filter/sharded.rs",
+      "type": "file",
+      "name": "sharded.rs",
+      "filePath": "src/storage/src/hummock/recent_filter/sharded.rs",
+      "summary": "Sharded recent filter distributing key lookups across multiple filter shards.",
+      "tags": [
+        "storage",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/recent_filter/simple.rs",
+      "type": "file",
+      "name": "simple.rs",
+      "filePath": "src/storage/src/hummock/recent_filter/simple.rs",
+      "summary": "Simple rotating recent filter with time-based eviction.",
+      "tags": [
+        "storage",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/shared_buffer/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/storage/src/hummock/shared_buffer/mod.rs",
+      "summary": "Shared buffer module managing in-memory imm batches before flush.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs",
+      "type": "file",
+      "name": "shared_buffer_batch.rs",
+      "filePath": "src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs",
+      "summary": "In-memory sorted batch of key-value mutations representing a shared buffer imm.",
+      "tags": [
+        "storage",
+        "data-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/sstable/backward_sstable_iterator.rs",
+      "type": "file",
+      "name": "backward_sstable_iterator.rs",
+      "filePath": "src/storage/src/hummock/sstable/backward_sstable_iterator.rs",
+      "summary": "Backward iterator over a single SSTable reading blocks in reverse order.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/sstable/block.rs",
+      "type": "file",
+      "name": "block.rs",
+      "filePath": "src/storage/src/hummock/sstable/block.rs",
+      "summary": "SSTable block encoding/decoding with prefix compression and various compression algorithms.",
+      "tags": [
+        "storage",
+        "serialization"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/sstable/block_iterator.rs",
+      "type": "file",
+      "name": "block_iterator.rs",
+      "filePath": "src/storage/src/hummock/sstable/block_iterator.rs",
+      "summary": "Block-level bidirectional iterator for reading key-value entries from a single SSTable block.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/sstable/builder.rs",
+      "type": "file",
+      "name": "builder.rs",
+      "filePath": "src/storage/src/hummock/sstable/builder.rs",
+      "summary": "SSTable builder writing sorted key-value entries into block-structured SSTable files.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/storage/src/hummock/iterator/backward_user.rs:BackwardUserIterator",
+      "type": "class",
+      "name": "BackwardUserIterator",
+      "filePath": "src/storage/src/hummock/iterator/backward_user.rs",
+      "lineRange": [
+        29,
+        62
+      ],
+      "summary": "User-facing backward iterator with MVCC and watermark support.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/iterator/change_log.rs:ChangeLogIterator",
+      "type": "class",
+      "name": "ChangeLogIterator",
+      "filePath": "src/storage/src/hummock/iterator/change_log.rs",
+      "lineRange": [
+        359,
+        363
+      ],
+      "summary": "Iterator over per-key change log entries.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/iterator/forward_user.rs:UserIterator",
+      "type": "class",
+      "name": "UserIterator",
+      "filePath": "src/storage/src/hummock/iterator/forward_user.rs",
+      "lineRange": [
+        30,
+        53
+      ],
+      "summary": "User-facing forward iterator with MVCC, delete markers, and watermark skip.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/iterator/mod.rs:HummockIterator",
+      "type": "class",
+      "name": "HummockIterator",
+      "filePath": "src/storage/src/hummock/iterator/mod.rs",
+      "lineRange": [
+        71,
+        139
+      ],
+      "summary": "Core trait for Hummock iterators supporting seek, rewind, and async next.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/storage/src/hummock/iterator/skip_watermark.rs:PkPrefixSkipWatermarkState",
+      "type": "class",
+      "name": "PkPrefixSkipWatermarkState",
+      "filePath": "src/storage/src/hummock/iterator/skip_watermark.rs",
+      "lineRange": [
+        173,
+        176
+      ],
+      "summary": "Skip-watermark state for PK-prefix watermark deletion.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs:SharedBufferBatch",
+      "type": "class",
+      "name": "SharedBufferBatch",
+      "filePath": "src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs",
+      "lineRange": [
+        204,
+        207
+      ],
+      "summary": "In-memory sorted imm batch for the Hummock write path.",
+      "tags": [
+        "storage",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/sstable/block.rs:Block",
+      "type": "class",
+      "name": "Block",
+      "filePath": "src/storage/src/hummock/sstable/block.rs",
+      "lineRange": [
+        143,
+        156
+      ],
+      "summary": "SSTable block with prefix-compressed key-value entries.",
+      "tags": [
+        "storage",
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/sstable/builder.rs:SstableBuilder",
+      "type": "class",
+      "name": "SstableBuilder",
+      "filePath": "src/storage/src/hummock/sstable/builder.rs",
+      "lineRange": [
+        135,
+        169
+      ],
+      "summary": "Writes sorted key-value entries into SSTable block files.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/storage/src/hummock/iterator/backward_user.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/backward_user.rs",
+      "target": "file:src/storage/src/hummock/local_version/pinned_version.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/backward_user.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/change_log.rs",
+      "target": "file:src/storage/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/change_log.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/change_log.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/concat_inner.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/concat_inner.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/concat_inner.rs",
+      "target": "file:src/storage/src/hummock/sstable/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/forward_concat.rs",
+      "target": "file:src/storage/src/hummock/iterator/concat_inner.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/forward_concat.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/forward_user.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/forward_user.rs",
+      "target": "file:src/storage/src/hummock/local_version/pinned_version.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/forward_user.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/merge_inner.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/merge_inner.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/mod.rs",
+      "target": "file:src/storage/src/hummock/iterator/backward_user.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/mod.rs",
+      "target": "file:src/storage/src/hummock/iterator/change_log.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/mod.rs",
+      "target": "file:src/storage/src/hummock/iterator/concat_inner.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/skip_watermark.rs",
+      "target": "file:src/storage/src/compaction_catalog_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/skip_watermark.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/skip_watermark.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/test_utils.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/test_utils.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/test_utils.rs",
+      "target": "file:src/storage/src/hummock/sstable/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/local_version/mod.rs",
+      "target": "file:src/storage/src/hummock/local_version/pinned_version.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/local_version/mod.rs",
+      "target": "file:src/storage/src/hummock/local_version/recent_versions.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/local_version/pinned_version.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/local_version/recent_versions.rs",
+      "target": "file:src/storage/src/hummock/local_version/pinned_version.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/local_version/recent_versions.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/object_id_manager.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/observer_manager.rs",
+      "target": "file:src/storage/src/compaction_catalog_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/observer_manager.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/recent_filter/all.rs",
+      "target": "file:src/storage/src/hummock/recent_filter/simple.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/recent_filter/mod.rs",
+      "target": "file:src/storage/src/hummock/recent_filter/all.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/recent_filter/mod.rs",
+      "target": "file:src/storage/src/hummock/recent_filter/none.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/recent_filter/mod.rs",
+      "target": "file:src/storage/src/hummock/recent_filter/sharded.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/recent_filter/none.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/recent_filter/sharded.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/recent_filter/simple.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/shared_buffer/mod.rs",
+      "target": "file:src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/shared_buffer/mod.rs",
+      "target": "file:src/storage/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs",
+      "target": "file:src/storage/src/hummock/shared_buffer/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/backward_sstable_iterator.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/backward_sstable_iterator.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/backward_sstable_iterator.rs",
+      "target": "file:src/storage/src/hummock/sstable/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/block.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/block.rs",
+      "target": "file:src/storage/src/hummock/sstable/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/block.rs",
+      "target": "file:src/storage/src/hummock/sstable/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/block_iterator.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/block_iterator.rs",
+      "target": "file:src/storage/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/builder.rs",
+      "target": "file:src/storage/src/compaction_catalog_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/builder.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/builder.rs",
+      "target": "file:src/storage/src/hummock/sstable/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/backward_user.rs",
+      "target": "class:src/storage/src/hummock/iterator/backward_user.rs:BackwardUserIterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/backward_user.rs",
+      "target": "class:src/storage/src/hummock/iterator/backward_user.rs:BackwardUserIterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/change_log.rs",
+      "target": "class:src/storage/src/hummock/iterator/change_log.rs:ChangeLogIterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/change_log.rs",
+      "target": "class:src/storage/src/hummock/iterator/change_log.rs:ChangeLogIterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/forward_user.rs",
+      "target": "class:src/storage/src/hummock/iterator/forward_user.rs:UserIterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/forward_user.rs",
+      "target": "class:src/storage/src/hummock/iterator/forward_user.rs:UserIterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/mod.rs",
+      "target": "class:src/storage/src/hummock/iterator/mod.rs:HummockIterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/mod.rs",
+      "target": "class:src/storage/src/hummock/iterator/mod.rs:HummockIterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/skip_watermark.rs",
+      "target": "class:src/storage/src/hummock/iterator/skip_watermark.rs:PkPrefixSkipWatermarkState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/skip_watermark.rs",
+      "target": "class:src/storage/src/hummock/iterator/skip_watermark.rs:PkPrefixSkipWatermarkState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs",
+      "target": "class:src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs:SharedBufferBatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs",
+      "target": "class:src/storage/src/hummock/shared_buffer/shared_buffer_batch.rs:SharedBufferBatch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/block.rs",
+      "target": "class:src/storage/src/hummock/sstable/block.rs:Block",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/block.rs",
+      "target": "class:src/storage/src/hummock/sstable/block.rs:Block",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/builder.rs",
+      "target": "class:src/storage/src/hummock/sstable/builder.rs:SstableBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/sstable/builder.rs",
+      "target": "class:src/storage/src/hummock/sstable/builder.rs:SstableBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,757 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/cron_only/direct_cdc_inject_offset.slt.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 111,
+      "nonEmptyLines": 95,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/cron_only/extract_direct_cdc_current_offset.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 75,
+      "functions": [
+        {
+          "name": "run_psql",
+          "startLine": 9,
+          "endLine": 30,
+          "params": [
+            "host",
+            "port",
+            "database",
+            "query"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 33,
+          "endLine": 82,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "run_psql",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run_psql",
+          "callee": "subprocess.run",
+          "lineNumber": 10
+        },
+        {
+          "caller": "run_psql",
+          "callee": "str",
+          "lineNumber": 16
+        },
+        {
+          "caller": "run_psql",
+          "callee": "result.stdout.strip",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "run_psql",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "SystemExit",
+          "lineNumber": 60
+        },
+        {
+          "caller": "main",
+          "callee": "args.source_id_file.read_text().strip",
+          "lineNumber": 62
+        },
+        {
+          "caller": "main",
+          "callee": "args.source_id_file.read_text",
+          "lineNumber": 62
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 63
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 65
+        },
+        {
+          "caller": "main",
+          "callee": "run_psql",
+          "lineNumber": 66
+        },
+        {
+          "caller": "main",
+          "callee": "args.output.write_text",
+          "lineNumber": 78
+        },
+        {
+          "caller": "main",
+          "callee": "time.sleep",
+          "lineNumber": 80
+        },
+        {
+          "caller": "main",
+          "callee": "SystemExit",
+          "lineNumber": 82
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/cron_only/inject_source_offsets_with_retry.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 9,
+          "endLine": 42,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 10
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 11
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "args.source_id_file.read_text().strip",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "args.source_id_file.read_text",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "args.offsets_file.read_text().strip",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "args.offsets_file.read_text",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "subprocess.run",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "result.stderr.strip",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "result.stdout.strip",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "time.sleep",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "SystemExit",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/cron_only/wait_direct_cdc_rows.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "run_psql",
+          "startLine": 8,
+          "endLine": 30,
+          "params": [
+            "host",
+            "port",
+            "database",
+            "query"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 33,
+          "endLine": 56,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "run_psql",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run_psql",
+          "callee": "subprocess.run",
+          "lineNumber": 9
+        },
+        {
+          "caller": "run_psql",
+          "callee": "str",
+          "lineNumber": 15
+        },
+        {
+          "caller": "run_psql",
+          "callee": "result.stdout.strip",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 41
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 45
+        },
+        {
+          "caller": "main",
+          "callee": "run_psql",
+          "lineNumber": 46
+        },
+        {
+          "caller": "main",
+          "callee": "time.sleep",
+          "lineNumber": 54
+        },
+        {
+          "caller": "main",
+          "callee": "SystemExit",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/cron_only/wait_mysql_cdc_metrics.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "read_metric",
+          "startLine": 9,
+          "endLine": 15,
+          "params": [
+            "metrics",
+            "metric_name",
+            "source_id"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 18,
+          "endLine": 61,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "read_metric",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "read_metric",
+          "callee": "re.compile",
+          "lineNumber": 10
+        },
+        {
+          "caller": "read_metric",
+          "callee": "re.escape",
+          "lineNumber": 10
+        },
+        {
+          "caller": "read_metric",
+          "callee": "re.escape",
+          "lineNumber": 10
+        },
+        {
+          "caller": "read_metric",
+          "callee": "metrics.splitlines",
+          "lineNumber": 11
+        },
+        {
+          "caller": "read_metric",
+          "callee": "pattern.match",
+          "lineNumber": 12
+        },
+        {
+          "caller": "read_metric",
+          "callee": "int",
+          "lineNumber": 14
+        },
+        {
+          "caller": "read_metric",
+          "callee": "match.group",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "time.time",
+          "lineNumber": 33
+        },
+        {
+          "caller": "main",
+          "callee": "urllib.request.urlopen",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "response.read().decode",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "response.read",
+          "lineNumber": 35
+        },
+        {
+          "caller": "main",
+          "callee": "read_metric",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "read_metric",
+          "lineNumber": 38
+        },
+        {
+          "caller": "main",
+          "callee": "time.sleep",
+          "lineNumber": 55
+        },
+        {
+          "caller": "main",
+          "callee": "SystemExit",
+          "lineNumber": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/mysql_alter_drop_connector.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 56,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/mysql_alter_watermark.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 167,
+      "nonEmptyLines": 143,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/mysql_create_drop.slt.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 129,
+      "nonEmptyLines": 104,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/mysql_partition.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 178,
+      "nonEmptyLines": 158,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/mysql_timestamptz_as_pk.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 141,
+      "nonEmptyLines": 125,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/mysql_watermark_ttl.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 81,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/mysql/test_unsigned_int.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 243,
+      "nonEmptyLines": 213,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/postgres/postgres_pgvector_vector.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 231,
+      "nonEmptyLines": 201,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/postgres/postgres_postgis_geometry.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 230,
+      "nonEmptyLines": 201,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/postgres/postgres_publication_reuse.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 154,
+      "nonEmptyLines": 132,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/postgres/postgres_quoted_table_wildcard.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 185,
+      "nonEmptyLines": 157,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/postgres/postgres_schema_check_and_schema_change.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 433,
+      "nonEmptyLines": 411,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/sql_server/sql_server_cdc.slt.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 608,
+      "nonEmptyLines": 519,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/cdc/sql_server/sql_server_timestamp.slt.serial",
+      "language": "serial",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 60,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/connection/alter_owner_to.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 32,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/connection/ddl.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 140,
+      "nonEmptyLines": 106,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/connection/drop_connection_cascade.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 139,
+      "nonEmptyLines": 104,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/connection/drop_secret_cascade.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 156,
+      "nonEmptyLines": 123,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/connection/issue_22096.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 15,
+      "metrics": {}
+    },
+    {
+      "path": "e2e_test/source_inline/connection/issue-22513.slt",
+      "language": "slt",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 16,
+      "metrics": {}
+    }
+  ]
+}

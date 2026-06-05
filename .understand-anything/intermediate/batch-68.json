@@ -1,0 +1,272 @@
+{
+  "nodes": [
+    {
+      "id": "file:dashboard/pages/_app.tsx",
+      "type": "file",
+      "name": "_app.tsx",
+      "filePath": "dashboard/pages/_app.tsx",
+      "summary": "Next.js application wrapper providing global Chakra UI provider and layout.",
+      "tags": [
+        "entry-point",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/pages/actor_info.tsx",
+      "type": "file",
+      "name": "actor_info.tsx",
+      "filePath": "dashboard/pages/actor_info.tsx",
+      "summary": "Dashboard page displaying per-actor streaming information and metrics.",
+      "tags": [
+        "component",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:dashboard/pages/await_tree.tsx",
+      "type": "file",
+      "name": "await_tree.tsx",
+      "filePath": "dashboard/pages/await_tree.tsx",
+      "summary": "Dashboard page for visualizing the async task await tree for debugging.",
+      "tags": [
+        "component"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:dashboard/pages/cluster_overview.tsx",
+      "type": "file",
+      "name": "cluster_overview.tsx",
+      "filePath": "dashboard/pages/cluster_overview.tsx",
+      "summary": "Dashboard page for cluster-level overview metrics and node status.",
+      "tags": [
+        "component",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:dashboard/pages/dependency_graph.tsx",
+      "type": "file",
+      "name": "dependency_graph.tsx",
+      "filePath": "dashboard/pages/dependency_graph.tsx",
+      "summary": "Dashboard page rendering the materialized view dependency graph.",
+      "tags": [
+        "component",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:dashboard/pages/fragment_graph.tsx",
+      "type": "file",
+      "name": "fragment_graph.tsx",
+      "filePath": "dashboard/pages/fragment_graph.tsx",
+      "summary": "Dashboard page for the streaming fragment graph visualization.",
+      "tags": [
+        "component",
+        "api-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:dashboard/pages/heap_profiling.tsx",
+      "type": "file",
+      "name": "heap_profiling.tsx",
+      "filePath": "dashboard/pages/heap_profiling.tsx",
+      "summary": "Dashboard page for memory heap profiling visualization.",
+      "tags": [
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/pages/index.tsx",
+      "type": "file",
+      "name": "index.tsx",
+      "filePath": "dashboard/pages/index.tsx",
+      "summary": "Dashboard home page redirecting to the cluster overview.",
+      "tags": [
+        "entry-point",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/pages/relation_graph.tsx",
+      "type": "file",
+      "name": "relation_graph.tsx",
+      "filePath": "dashboard/pages/relation_graph.tsx",
+      "summary": "Dashboard page for rendering the relation/catalog graph.",
+      "tags": [
+        "component",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:dashboard/pages/settings.tsx",
+      "type": "file",
+      "name": "settings.tsx",
+      "filePath": "dashboard/pages/settings.tsx",
+      "summary": "Dashboard settings page for configuring the UI endpoint and preferences.",
+      "tags": [
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/pages/streaming_clusters.tsx",
+      "type": "file",
+      "name": "streaming_clusters.tsx",
+      "filePath": "dashboard/pages/streaming_clusters.tsx",
+      "summary": "Dashboard page listing all streaming cluster configurations.",
+      "tags": [
+        "component",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:dashboard/pages/wait_object.tsx",
+      "type": "file",
+      "name": "wait_object.tsx",
+      "filePath": "dashboard/pages/wait_object.tsx",
+      "summary": "Dashboard page displaying wait object information for contention analysis.",
+      "tags": [
+        "component"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:dashboard/pages/actor_info.tsx",
+      "target": "file:dashboard/components/Title.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/actor_info.tsx",
+      "target": "file:dashboard/lib/api/streaming.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/actor_info.tsx",
+      "target": "file:dashboard/lib/api/streamingStats.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/actor_info.tsx",
+      "target": "file:dashboard/lib/extractInfo.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/await_tree.tsx",
+      "target": "file:dashboard/lib/api/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/cluster_overview.tsx",
+      "target": "file:dashboard/lib/api/cluster.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/dependency_graph.tsx",
+      "target": "file:dashboard/components/FragmentDependencyGraph.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/dependency_graph.tsx",
+      "target": "file:dashboard/lib/api/streaming.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/fragment_graph.tsx",
+      "target": "file:dashboard/components/FragmentGraph.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/fragment_graph.tsx",
+      "target": "file:dashboard/components/TimeControls.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/fragment_graph.tsx",
+      "target": "file:dashboard/lib/api/streaming.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/fragment_graph.tsx",
+      "target": "file:dashboard/lib/api/streamingStats.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/heap_profiling.tsx",
+      "target": "file:dashboard/lib/api/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/relation_graph.tsx",
+      "target": "file:dashboard/components/RelationGraph.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/relation_graph.tsx",
+      "target": "file:dashboard/lib/api/streaming.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/settings.tsx",
+      "target": "file:dashboard/lib/api/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/streaming_clusters.tsx",
+      "target": "file:dashboard/lib/api/streaming.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/pages/wait_object.tsx",
+      "target": "file:dashboard/lib/api/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

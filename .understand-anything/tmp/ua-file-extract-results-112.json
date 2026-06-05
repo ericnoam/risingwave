@@ -1,0 +1,4181 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/jni_core/src/jvm_runtime.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 308,
+      "nonEmptyLines": 273,
+      "functions": [
+        {
+          "name": "locate_libs_path",
+          "startLine": 34,
+          "endLine": 49,
+          "params": []
+        },
+        {
+          "name": "build_jvm_with_native_registration",
+          "startLine": 51,
+          "endLine": 138,
+          "params": []
+        },
+        {
+          "name": "jvm_env",
+          "startLine": 140,
+          "endLine": 143,
+          "params": [
+            "jvm"
+          ]
+        },
+        {
+          "name": "register_java_binding_native_methods",
+          "startLine": 145,
+          "endLine": 173,
+          "params": [
+            "env"
+          ]
+        },
+        {
+          "name": "load_jvm_memory_stats",
+          "startLine": 177,
+          "endLine": 206,
+          "params": []
+        },
+        {
+          "name": "execute_with_jni_env",
+          "startLine": 208,
+          "endLine": 265,
+          "params": [
+            "jvm",
+            "f"
+          ]
+        },
+        {
+          "name": "jobj_to_str",
+          "startLine": 268,
+          "endLine": 275,
+          "params": [
+            "env",
+            "obj"
+          ]
+        },
+        {
+          "name": "dump_jvm_stack_traces",
+          "startLine": 284,
+          "endLine": 304,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "jvm_env",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "register_java_binding_native_methods",
+          "line": 145,
+          "isDefault": false
+        },
+        {
+          "name": "load_jvm_memory_stats",
+          "line": 177,
+          "isDefault": false
+        },
+        {
+          "name": "execute_with_jni_env",
+          "line": 208,
+          "isDefault": false
+        },
+        {
+          "name": "jobj_to_str",
+          "line": 268,
+          "isDefault": false
+        },
+        {
+          "name": "dump_jvm_stack_traces",
+          "line": 284,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "locate_libs_path",
+          "callee": "std::env::var",
+          "lineNumber": 35
+        },
+        {
+          "caller": "locate_libs_path",
+          "callee": "PathBuf::from",
+          "lineNumber": 36
+        },
+        {
+          "caller": "locate_libs_path",
+          "callee": "std::env::current_exe()\n            .and_then(|p| p.fs_err_canonicalize()) // resolve symlink of the current executable\n            .context(\"unable to get path of the executable\")?\n            .parent()\n            .expect(\"not root\").join",
+          "lineNumber": 41
+        },
+        {
+          "caller": "locate_libs_path",
+          "callee": "std::env::current_exe()\n            .and_then(|p| p.fs_err_canonicalize()) // resolve symlink of the current executable\n            .context(\"unable to get path of the executable\")?\n            .parent().expect",
+          "lineNumber": 41
+        },
+        {
+          "caller": "locate_libs_path",
+          "callee": "std::env::current_exe()\n            .and_then(|p| p.fs_err_canonicalize()) // resolve symlink of the current executable\n            .context(\"unable to get path of the executable\")?.parent",
+          "lineNumber": 41
+        },
+        {
+          "caller": "locate_libs_path",
+          "callee": "std::env::current_exe()\n            .and_then(|p| p.fs_err_canonicalize()).context",
+          "lineNumber": 41
+        },
+        {
+          "caller": "locate_libs_path",
+          "callee": "std::env::current_exe().and_then",
+          "lineNumber": 41
+        },
+        {
+          "caller": "locate_libs_path",
+          "callee": "std::env::current_exe",
+          "lineNumber": 41
+        },
+        {
+          "caller": "locate_libs_path",
+          "callee": "p.fs_err_canonicalize",
+          "lineNumber": 42
+        },
+        {
+          "caller": "locate_libs_path",
+          "callee": "Ok",
+          "lineNumber": 48
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "locate_libs_path().context",
+          "lineNumber": 52
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "locate_libs_path",
+          "lineNumber": 52
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "fs::read_dir(&libs_path).context",
+          "lineNumber": 57
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "fs::read_dir",
+          "lineNumber": 57
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "entries.flatten",
+          "lineNumber": 64
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "entry.path",
+          "lineNumber": 65
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "entry_path.file_name().is_some",
+          "lineNumber": 66
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "entry_path.file_name",
+          "lineNumber": 66
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "fs::canonicalize(entry_path).expect",
+          "lineNumber": 67
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "fs::canonicalize",
+          "lineNumber": 67
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "class_vec.push",
+          "lineNumber": 69
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "path.to_str().unwrap().to_owned",
+          "lineNumber": 69
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "path.to_str().unwrap",
+          "lineNumber": 69
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "path.to_str",
+          "lineNumber": 69
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 75
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "class_vec.len",
+          "lineNumber": 75
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "path.contains",
+          "lineNumber": 77
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "new_class_vec.insert",
+          "lineNumber": 78
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "path.clone",
+          "lineNumber": 78
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "new_class_vec.push",
+          "lineNumber": 80
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "path.clone",
+          "lineNumber": 80
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "std::env::var",
+          "lineNumber": 85
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "InitArgsBuilder::new()\n        // Pass the JNI API version (default is 8)\n        .version(JNIVersion::V8)\n        .option(\"-Dis_embedded_connector=true\")\n        .option(format!(\"-Djava.class.path={}\", class_vec.join(\":\")))\n        .option(\"--add-opens=java.base/java.nio=org.apache.arrow.memory.core,ALL-UNNAMED\")\n        .option(\"-Xms16m\").option",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "InitArgsBuilder::new()\n        // Pass the JNI API version (default is 8)\n        .version(JNIVersion::V8)\n        .option(\"-Dis_embedded_connector=true\")\n        .option(format!(\"-Djava.class.path={}\", class_vec.join(\":\")))\n        .option(\"--add-opens=java.base/java.nio=org.apache.arrow.memory.core,ALL-UNNAMED\").option",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "InitArgsBuilder::new()\n        // Pass the JNI API version (default is 8)\n        .version(JNIVersion::V8)\n        .option(\"-Dis_embedded_connector=true\")\n        .option(format!(\"-Djava.class.path={}\", class_vec.join(\":\"))).option",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "InitArgsBuilder::new()\n        // Pass the JNI API version (default is 8)\n        .version(JNIVersion::V8)\n        .option(\"-Dis_embedded_connector=true\").option",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "InitArgsBuilder::new()\n        // Pass the JNI API version (default is 8)\n        .version(JNIVersion::V8).option",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "InitArgsBuilder::new().version",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "InitArgsBuilder::new",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "std::env::var(\"JVM_EXIT_ON_OOM\")\n        .map(|v| !matches!(v.to_ascii_lowercase().as_str(), \"false\" | \"0\" | \"\")).unwrap_or",
+          "lineNumber": 109
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "std::env::var(\"JVM_EXIT_ON_OOM\").map",
+          "lineNumber": 109
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "std::env::var",
+          "lineNumber": 109
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "args_builder.option",
+          "lineNumber": 113
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "args_builder.build().context",
+          "lineNumber": 117
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "args_builder.build",
+          "lineNumber": 117
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "JavaVM::new",
+          "lineNumber": 120
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "jvm_env",
+          "lineNumber": 131
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "register_java_binding_native_methods",
+          "lineNumber": 132
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "result.context",
+          "lineNumber": 135
+        },
+        {
+          "caller": "build_jvm_with_native_registration",
+          "callee": "Ok",
+          "lineNumber": 137
+        },
+        {
+          "caller": "jvm_env",
+          "callee": "jvm.attach_current_thread().inspect_err",
+          "lineNumber": 141
+        },
+        {
+          "caller": "jvm_env",
+          "callee": "jvm.attach_current_thread",
+          "lineNumber": 141
+        },
+        {
+          "caller": "register_java_binding_native_methods",
+          "callee": "env\n        .find_class(gen_class_name!(com.risingwave.java.binding.Binding)).inspect_err",
+          "lineNumber": 148
+        },
+        {
+          "caller": "register_java_binding_native_methods",
+          "callee": "env.find_class",
+          "lineNumber": 148
+        },
+        {
+          "caller": "register_java_binding_native_methods",
+          "callee": "env.register_native_methods(binding_class, &gen_native_method_array!()).inspect_err",
+          "lineNumber": 166
+        },
+        {
+          "caller": "register_java_binding_native_methods",
+          "callee": "env.register_native_methods",
+          "lineNumber": 166
+        },
+        {
+          "caller": "register_java_binding_native_methods",
+          "callee": "Ok",
+          "lineNumber": 172
+        },
+        {
+          "caller": "load_jvm_memory_stats",
+          "callee": "Jvm::get",
+          "lineNumber": 178
+        },
+        {
+          "caller": "load_jvm_memory_stats",
+          "callee": "execute_with_jni_env",
+          "lineNumber": 181
+        },
+        {
+          "caller": "load_jvm_memory_stats",
+          "callee": "Ok",
+          "lineNumber": 193
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "jvm\n        .attach_current_thread().with_context",
+          "lineNumber": 212
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "jvm.attach_current_thread",
+          "lineNumber": 212
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "f",
+          "lineNumber": 239
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "env.exception_check",
+          "lineNumber": 241
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "env.exception_occurred().inspect_err",
+          "lineNumber": 243
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "env.exception_occurred",
+          "lineNumber": 243
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "env.exception_describe().inspect_err",
+          "lineNumber": 246
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "env.exception_describe",
+          "lineNumber": 246
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "env.exception_clear().inspect_err",
+          "lineNumber": 249
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "env.exception_clear",
+          "lineNumber": 249
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "jobj_to_str",
+          "lineNumber": 253
+        },
+        {
+          "caller": "execute_with_jni_env",
+          "callee": "Err",
+          "lineNumber": 254
+        },
+        {
+          "caller": "jobj_to_str",
+          "callee": "env.is_instance_of",
+          "lineNumber": 269
+        },
+        {
+          "caller": "jobj_to_str",
+          "callee": "JString::from",
+          "lineNumber": 272
+        },
+        {
+          "caller": "jobj_to_str",
+          "callee": "env.get_string",
+          "lineNumber": 273
+        },
+        {
+          "caller": "jobj_to_str",
+          "callee": "Ok",
+          "lineNumber": 274
+        },
+        {
+          "caller": "jobj_to_str",
+          "callee": "java_str.to_str()?.to_owned",
+          "lineNumber": 274
+        },
+        {
+          "caller": "jobj_to_str",
+          "callee": "java_str.to_str",
+          "lineNumber": 274
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "Jvm::get",
+          "lineNumber": 285
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "Ok",
+          "lineNumber": 286
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "execute_with_jni_env",
+          "lineNumber": 287
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "call_static_method!(\n                env,\n                {com.risingwave.connector.api.Monitor},\n                {String dumpStackTrace()}\n            ).with_context",
+          "lineNumber": 288
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "JString::from",
+          "lineNumber": 294
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "env\n                .get_string(&result).with_context",
+          "lineNumber": 295
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "env.get_string",
+          "lineNumber": 295
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "result\n                .to_str().with_context",
+          "lineNumber": 298
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "result.to_str",
+          "lineNumber": 298
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "Ok",
+          "lineNumber": 301
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "Some",
+          "lineNumber": 301
+        },
+        {
+          "caller": "dump_jvm_stack_traces",
+          "callee": "result.to_owned",
+          "lineNumber": 301
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 6,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/jni_core/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 1264,
+      "nonEmptyLines": 1164,
+      "functions": [
+        {
+          "name": "to_guarded_slice",
+          "startLine": 112,
+          "endLine": 125,
+          "params": [
+            "array",
+            "env"
+          ]
+        },
+        {
+          "name": "deref",
+          "startLine": 136,
+          "endLine": 138,
+          "params": []
+        },
+        {
+          "name": "default",
+          "startLine": 148,
+          "endLine": 153,
+          "params": []
+        },
+        {
+          "name": "from",
+          "startLine": 157,
+          "endLine": 162,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "as_ref",
+          "startLine": 166,
+          "endLine": 169,
+          "params": []
+        },
+        {
+          "name": "as_mut",
+          "startLine": 171,
+          "endLine": 174,
+          "params": []
+        },
+        {
+          "name": "into_pointer",
+          "startLine": 185,
+          "endLine": 187,
+          "params": []
+        },
+        {
+          "name": "release",
+          "startLine": 190,
+          "endLine": 198,
+          "params": []
+        },
+        {
+          "name": "deref",
+          "startLine": 212,
+          "endLine": 214,
+          "params": []
+        },
+        {
+          "name": "deref_mut",
+          "startLine": 218,
+          "endLine": 220,
+          "params": []
+        },
+        {
+          "name": "get_class",
+          "startLine": 224,
+          "endLine": 226,
+          "params": []
+        },
+        {
+          "name": "execute_and_catch",
+          "startLine": 229,
+          "endLine": 258,
+          "params": [
+            "env",
+            "inner"
+          ]
+        },
+        {
+          "name": "as_op",
+          "startLine": 301,
+          "endLine": 306,
+          "params": []
+        },
+        {
+          "name": "as_key",
+          "startLine": 308,
+          "endLine": 313,
+          "params": []
+        },
+        {
+          "name": "new_hummock_iter",
+          "startLine": 328,
+          "endLine": 334,
+          "params": [
+            "iter"
+          ]
+        },
+        {
+          "name": "deref",
+          "startLine": 340,
+          "endLine": 346,
+          "params": []
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_defaultVnodeCount",
+          "startLine": 350,
+          "endLine": 354,
+          "params": [
+            "_env"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorNewStreamChunk",
+          "startLine": 358,
+          "endLine": 370,
+          "params": [
+            "env",
+            "chunk"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "startLine": 374,
+          "endLine": 413,
+          "params": [
+            "env",
+            "pointer"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorClose",
+          "startLine": 416,
+          "endLine": 421,
+          "params": [
+            "_env",
+            "pointer"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPayload",
+          "startLine": 424,
+          "endLine": 433,
+          "params": [
+            "env",
+            "stream_chunk_payload"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPretty",
+          "startLine": 436,
+          "endLine": 443,
+          "params": [
+            "env",
+            "str"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_streamChunkClose",
+          "startLine": 446,
+          "endLine": 451,
+          "params": [
+            "_env",
+            "chunk"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetKey",
+          "startLine": 454,
+          "endLine": 470,
+          "params": [
+            "env",
+            "pointer"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetOp",
+          "startLine": 473,
+          "endLine": 486,
+          "params": [
+            "env",
+            "pointer"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorIsNull",
+          "startLine": 489,
+          "endLine": 497,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetInt16Value",
+          "startLine": 500,
+          "endLine": 512,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetInt32Value",
+          "startLine": 515,
+          "endLine": 527,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetInt64Value",
+          "startLine": 530,
+          "endLine": 542,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetFloatValue",
+          "startLine": 545,
+          "endLine": 558,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetDoubleValue",
+          "startLine": 561,
+          "endLine": 574,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetBooleanValue",
+          "startLine": 577,
+          "endLine": 585,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetStringValue",
+          "startLine": 588,
+          "endLine": 596,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetIntervalValue",
+          "startLine": 599,
+          "endLine": 613,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetJsonbValue",
+          "startLine": 616,
+          "endLine": 630,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "startLine": 633,
+          "endLine": 692,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "startLine": 695,
+          "endLine": 784,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "startLine": 787,
+          "endLine": 829,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "startLine": 832,
+          "endLine": 865,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "startLine": 868,
+          "endLine": 913,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetByteaValue",
+          "startLine": 916,
+          "endLine": 929,
+          "params": [
+            "env",
+            "pointer",
+            "idx"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "startLine": 932,
+          "endLine": 1010,
+          "params": [
+            "env",
+            "pointer",
+            "idx",
+            "class"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "startLine": 1020,
+          "endLine": 1049,
+          "params": [
+            "env",
+            "channel",
+            "msg"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "startLine": 1052,
+          "endLine": 1081,
+          "params": [
+            "env",
+            "channel",
+            "msg"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_cdcSourceSenderClose",
+          "startLine": 1084,
+          "endLine": 1089,
+          "params": [
+            "_env",
+            "channel"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 1101,
+          "endLine": 1103,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "startLine": 1107,
+          "endLine": 1148,
+          "params": [
+            "env",
+            "channel"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "startLine": 1151,
+          "endLine": 1173,
+          "params": [
+            "env",
+            "channel",
+            "msg"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "startLine": 1176,
+          "endLine": 1205,
+          "params": [
+            "env",
+            "channel",
+            "msg"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "startLine": 1208,
+          "endLine": 1223,
+          "params": [
+            "env",
+            "channel"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "startLine": 1226,
+          "endLine": 1248,
+          "params": [
+            "env",
+            "channel",
+            "msg"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BindingError",
+          "startLine": 80,
+          "endLine": 108,
+          "methods": [],
+          "properties": [
+            "Jni",
+            "Storage",
+            "Decode",
+            "StreamChunkArray"
+          ]
+        },
+        {
+          "name": "SliceGuard",
+          "startLine": 128,
+          "endLine": 131,
+          "methods": [],
+          "properties": [
+            "_array",
+            "slice"
+          ]
+        },
+        {
+          "name": "Pointer",
+          "startLine": 142,
+          "endLine": 145,
+          "methods": [],
+          "properties": [
+            "pointer",
+            "_phantom"
+          ]
+        },
+        {
+          "name": "EnvParam",
+          "startLine": 204,
+          "endLine": 207,
+          "methods": [],
+          "properties": [
+            "env",
+            "class"
+          ]
+        },
+        {
+          "name": "JavaClassMethodCache",
+          "startLine": 261,
+          "endLine": 270,
+          "methods": [],
+          "properties": [
+            "big_decimal_ctor",
+            "timestamp_ctor",
+            "timestamptz_ctor",
+            "date_ctor",
+            "time_ctor",
+            "instant_ctor",
+            "utc"
+          ]
+        },
+        {
+          "name": "JavaBindingIteratorInner",
+          "startLine": 290,
+          "endLine": 293,
+          "methods": [],
+          "properties": [
+            "Hummock",
+            "StreamChunk"
+          ]
+        },
+        {
+          "name": "RowExtra",
+          "startLine": 295,
+          "endLine": 298,
+          "methods": [
+            "as_op",
+            "as_key"
+          ],
+          "properties": [
+            "Op",
+            "Key"
+          ]
+        },
+        {
+          "name": "RowCursor",
+          "startLine": 316,
+          "endLine": 319,
+          "methods": [],
+          "properties": [
+            "row",
+            "extra"
+          ]
+        },
+        {
+          "name": "JavaBindingIterator",
+          "startLine": 321,
+          "endLine": 325,
+          "methods": [],
+          "properties": [
+            "inner",
+            "cursor",
+            "class_cache"
+          ]
+        },
+        {
+          "name": "JniSinkWriterStreamRequest",
+          "startLine": 1091,
+          "endLine": 1098,
+          "methods": [
+            "from"
+          ],
+          "properties": [
+            "PbRequest",
+            "Chunk"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BindingError",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "to_guarded_slice",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "SliceGuard",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "Pointer",
+          "line": 142,
+          "isDefault": false
+        },
+        {
+          "name": "into_pointer",
+          "line": 185,
+          "isDefault": false
+        },
+        {
+          "name": "EnvParam",
+          "line": 204,
+          "isDefault": false
+        },
+        {
+          "name": "get_class",
+          "line": 224,
+          "isDefault": false
+        },
+        {
+          "name": "execute_and_catch",
+          "line": 229,
+          "isDefault": false
+        },
+        {
+          "name": "JavaBindingIteratorInner",
+          "line": 290,
+          "isDefault": false
+        },
+        {
+          "name": "JavaBindingIterator",
+          "line": 321,
+          "isDefault": false
+        },
+        {
+          "name": "new_hummock_iter",
+          "line": 328,
+          "isDefault": false
+        },
+        {
+          "name": "JniSinkWriterStreamRequest",
+          "line": 1091,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "line": 1107,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "line": 1151,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "line": 1176,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "line": 1208,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "line": 1226,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_guarded_slice",
+          "callee": "env.get_array_elements",
+          "lineNumber": 117
+        },
+        {
+          "caller": "to_guarded_slice",
+          "callee": "from_raw_parts",
+          "lineNumber": 118
+        },
+        {
+          "caller": "to_guarded_slice",
+          "callee": "array.as_ptr",
+          "lineNumber": 118
+        },
+        {
+          "caller": "to_guarded_slice",
+          "callee": "array.len",
+          "lineNumber": 118
+        },
+        {
+          "caller": "to_guarded_slice",
+          "callee": "Ok",
+          "lineNumber": 120
+        },
+        {
+          "caller": "default",
+          "callee": "Default::default",
+          "lineNumber": 151
+        },
+        {
+          "caller": "from",
+          "callee": "Box::into_raw",
+          "lineNumber": 159
+        },
+        {
+          "caller": "from",
+          "callee": "Box::new",
+          "lineNumber": 159
+        },
+        {
+          "caller": "release",
+          "callee": "drop",
+          "lineNumber": 197
+        },
+        {
+          "caller": "release",
+          "callee": "Box::from_raw",
+          "lineNumber": 197
+        },
+        {
+          "caller": "execute_and_catch",
+          "callee": "rw_catch_unwind",
+          "lineNumber": 234
+        },
+        {
+          "caller": "execute_and_catch",
+          "callee": "std::panic::AssertUnwindSafe",
+          "lineNumber": 234
+        },
+        {
+          "caller": "execute_and_catch",
+          "callee": "inner",
+          "lineNumber": 234
+        },
+        {
+          "caller": "execute_and_catch",
+          "callee": "env.throw(format!(\"get error while processing: {:?}\", e.as_report())).expect",
+          "lineNumber": 246
+        },
+        {
+          "caller": "execute_and_catch",
+          "callee": "env.throw",
+          "lineNumber": 246
+        },
+        {
+          "caller": "execute_and_catch",
+          "callee": "Ret::default",
+          "lineNumber": 250
+        },
+        {
+          "caller": "execute_and_catch",
+          "callee": "env.throw(format!(\"panic while processing: {:?}\", e)).expect",
+          "lineNumber": 253
+        },
+        {
+          "caller": "execute_and_catch",
+          "callee": "env.throw",
+          "lineNumber": 253
+        },
+        {
+          "caller": "execute_and_catch",
+          "callee": "Ret::default",
+          "lineNumber": 255
+        },
+        {
+          "caller": "from_chunk",
+          "callee": "JavaBindingIteratorInner::StreamChunk",
+          "lineNumber": 280
+        },
+        {
+          "caller": "from_chunk",
+          "callee": "chunk\n                    .rows().map",
+          "lineNumber": 281
+        },
+        {
+          "caller": "from_chunk",
+          "callee": "chunk.rows",
+          "lineNumber": 281
+        },
+        {
+          "caller": "from_chunk",
+          "callee": "op.to_protobuf",
+          "lineNumber": 283
+        },
+        {
+          "caller": "from_chunk",
+          "callee": "row.to_owned_row",
+          "lineNumber": 283
+        },
+        {
+          "caller": "new_hummock_iter",
+          "callee": "JavaBindingIteratorInner::Hummock",
+          "lineNumber": 330
+        },
+        {
+          "caller": "new_hummock_iter",
+          "callee": "Default::default",
+          "lineNumber": 332
+        },
+        {
+          "caller": "deref",
+          "callee": "self\n            .cursor\n            .as_ref().expect",
+          "lineNumber": 341
+        },
+        {
+          "caller": "deref",
+          "callee": "self\n            .cursor.as_ref",
+          "lineNumber": 341
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNewStreamChunk",
+          "callee": "execute_and_catch",
+          "lineNumber": 362
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNewStreamChunk",
+          "callee": "JavaBindingIteratorInner::from_chunk",
+          "lineNumber": 364
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNewStreamChunk",
+          "callee": "chunk.as_ref",
+          "lineNumber": 364
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNewStreamChunk",
+          "callee": "Default::default",
+          "lineNumber": 366
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNewStreamChunk",
+          "callee": "Ok",
+          "lineNumber": 368
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNewStreamChunk",
+          "callee": "iter.into",
+          "lineNumber": 368
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "execute_and_catch",
+          "lineNumber": 378
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "pointer.as_mut",
+          "lineNumber": 379
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "JAVA_BINDING_ASYNC_RUNTIME.block_on",
+          "lineNumber": 382
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "hummock_iter.try_next",
+          "lineNumber": 382
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "Ok",
+          "lineNumber": 385
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "Some",
+          "lineNumber": 388
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "RowExtra::Key",
+          "lineNumber": 390
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "Ok",
+          "lineNumber": 392
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "stream_chunk_iter.next",
+          "lineNumber": 397
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "Ok",
+          "lineNumber": 400
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "Some",
+          "lineNumber": 403
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "RowExtra::Op",
+          "lineNumber": 405
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorNext",
+          "callee": "Ok",
+          "lineNumber": 407
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorClose",
+          "callee": "pointer.release",
+          "lineNumber": 420
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPayload",
+          "callee": "execute_and_catch",
+          "lineNumber": 428
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPayload",
+          "callee": "Message::decode",
+          "lineNumber": 430
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPayload",
+          "callee": "to_guarded_slice(&stream_chunk_payload, env)?.deref",
+          "lineNumber": 430
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPayload",
+          "callee": "to_guarded_slice",
+          "lineNumber": 430
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPayload",
+          "callee": "Ok",
+          "lineNumber": 431
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPayload",
+          "callee": "StreamChunk::from_protobuf(&prost_stream_chumk)?.into",
+          "lineNumber": 431
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPayload",
+          "callee": "StreamChunk::from_protobuf",
+          "lineNumber": 431
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPretty",
+          "callee": "execute_and_catch",
+          "lineNumber": 440
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPretty",
+          "callee": "Ok",
+          "lineNumber": 441
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPretty",
+          "callee": "StreamChunk::from_pretty(env.get_string(&str)?.to_str().unwrap()).into",
+          "lineNumber": 441
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPretty",
+          "callee": "StreamChunk::from_pretty",
+          "lineNumber": 441
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPretty",
+          "callee": "env.get_string(&str)?.to_str().unwrap",
+          "lineNumber": 441
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPretty",
+          "callee": "env.get_string(&str)?.to_str",
+          "lineNumber": 441
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_newStreamChunkFromPretty",
+          "callee": "env.get_string",
+          "lineNumber": 441
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_streamChunkClose",
+          "callee": "chunk.release",
+          "lineNumber": 450
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetKey",
+          "callee": "execute_and_catch",
+          "lineNumber": 458
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetKey",
+          "callee": "Ok",
+          "lineNumber": 459
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetKey",
+          "callee": "env.byte_array_from_slice",
+          "lineNumber": 459
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetKey",
+          "callee": "pointer\n                .as_ref()\n                .cursor\n                .as_ref()\n                .expect(\"should exists when call get key\")\n                .extra\n                .as_key().as_ref",
+          "lineNumber": 460
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetKey",
+          "callee": "pointer\n                .as_ref()\n                .cursor\n                .as_ref()\n                .expect(\"should exists when call get key\")\n                .extra.as_key",
+          "lineNumber": 460
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetKey",
+          "callee": "pointer\n                .as_ref()\n                .cursor\n                .as_ref().expect",
+          "lineNumber": 460
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetKey",
+          "callee": "pointer\n                .as_ref()\n                .cursor.as_ref",
+          "lineNumber": 460
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetKey",
+          "callee": "pointer.as_ref",
+          "lineNumber": 460
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetOp",
+          "callee": "execute_and_catch",
+          "lineNumber": 477
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetOp",
+          "callee": "Ok",
+          "lineNumber": 478
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetOp",
+          "callee": "pointer\n            .as_ref()\n            .cursor\n            .as_ref()\n            .expect(\"should exist when call get op\")\n            .extra.as_op",
+          "lineNumber": 478
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetOp",
+          "callee": "pointer\n            .as_ref()\n            .cursor\n            .as_ref().expect",
+          "lineNumber": 478
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetOp",
+          "callee": "pointer\n            .as_ref()\n            .cursor.as_ref",
+          "lineNumber": 478
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetOp",
+          "callee": "pointer.as_ref",
+          "lineNumber": 478
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorIsNull",
+          "callee": "execute_and_catch",
+          "lineNumber": 494
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorIsNull",
+          "callee": "Ok",
+          "lineNumber": 495
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorIsNull",
+          "callee": "pointer.as_ref().datum_at(idx as usize).is_none",
+          "lineNumber": 495
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorIsNull",
+          "callee": "pointer.as_ref().datum_at",
+          "lineNumber": 495
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorIsNull",
+          "callee": "pointer.as_ref",
+          "lineNumber": 495
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt16Value",
+          "callee": "execute_and_catch",
+          "lineNumber": 505
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt16Value",
+          "callee": "Ok",
+          "lineNumber": 506
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt16Value",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_int16",
+          "lineNumber": 506
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt16Value",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 506
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt16Value",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 506
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt16Value",
+          "callee": "pointer.as_ref",
+          "lineNumber": 506
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt32Value",
+          "callee": "execute_and_catch",
+          "lineNumber": 520
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt32Value",
+          "callee": "Ok",
+          "lineNumber": 521
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt32Value",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_int32",
+          "lineNumber": 521
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt32Value",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 521
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt32Value",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 521
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt32Value",
+          "callee": "pointer.as_ref",
+          "lineNumber": 521
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt64Value",
+          "callee": "execute_and_catch",
+          "lineNumber": 535
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt64Value",
+          "callee": "Ok",
+          "lineNumber": 536
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt64Value",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_int64",
+          "lineNumber": 536
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt64Value",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 536
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt64Value",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 536
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetInt64Value",
+          "callee": "pointer.as_ref",
+          "lineNumber": 536
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetFloatValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 550
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetFloatValue",
+          "callee": "Ok",
+          "lineNumber": 551
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetFloatValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap()\n            .into_float32().into",
+          "lineNumber": 551
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetFloatValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_float32",
+          "lineNumber": 551
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetFloatValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 551
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetFloatValue",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 551
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetFloatValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 551
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDoubleValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 566
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDoubleValue",
+          "callee": "Ok",
+          "lineNumber": 567
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDoubleValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap()\n            .into_float64().into",
+          "lineNumber": 567
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDoubleValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_float64",
+          "lineNumber": 567
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDoubleValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 567
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDoubleValue",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 567
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDoubleValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 567
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetBooleanValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 582
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetBooleanValue",
+          "callee": "Ok",
+          "lineNumber": 583
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetBooleanValue",
+          "callee": "pointer.as_ref().datum_at(idx as usize).unwrap().into_bool",
+          "lineNumber": 583
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetBooleanValue",
+          "callee": "pointer.as_ref().datum_at(idx as usize).unwrap",
+          "lineNumber": 583
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetBooleanValue",
+          "callee": "pointer.as_ref().datum_at",
+          "lineNumber": 583
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetBooleanValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 583
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetStringValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 593
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetStringValue",
+          "callee": "Ok",
+          "lineNumber": 594
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetStringValue",
+          "callee": "env.new_string",
+          "lineNumber": 594
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetStringValue",
+          "callee": "pointer.as_ref().datum_at(idx as usize).unwrap().into_utf8",
+          "lineNumber": 594
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetStringValue",
+          "callee": "pointer.as_ref().datum_at(idx as usize).unwrap",
+          "lineNumber": 594
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetStringValue",
+          "callee": "pointer.as_ref().datum_at",
+          "lineNumber": 594
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetStringValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 594
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetIntervalValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 604
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetIntervalValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap()\n            .into_interval().as_iso_8601",
+          "lineNumber": 605
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetIntervalValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_interval",
+          "lineNumber": 605
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetIntervalValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 605
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetIntervalValue",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 605
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetIntervalValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 605
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetIntervalValue",
+          "callee": "Ok",
+          "lineNumber": 611
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetIntervalValue",
+          "callee": "env.new_string",
+          "lineNumber": 611
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetJsonbValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 621
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetJsonbValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap()\n            .into_jsonb().to_string",
+          "lineNumber": 622
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetJsonbValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_jsonb",
+          "lineNumber": 622
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetJsonbValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 622
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetJsonbValue",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 622
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetJsonbValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 622
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetJsonbValue",
+          "callee": "Ok",
+          "lineNumber": 628
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetJsonbValue",
+          "callee": "env.new_string",
+          "lineNumber": 628
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 638
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_timestamp",
+          "lineNumber": 639
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 639
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 639
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 639
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "pointer\n            .as_ref()\n            .class_cache\n            .timestamp_ctor.get_or_try_init",
+          "lineNumber": 647
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 647
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "env.find_class",
+          "lineNumber": 652
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "env.get_static_method_id",
+          "lineNumber": 653
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "Ok::<_, jni::errors::Error>",
+          "lineNumber": 654
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "env.new_global_ref",
+          "lineNumber": 654
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "env.call_static_method_unchecked",
+          "lineNumber": 657
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "<&JClass<'_>>::from",
+          "lineNumber": 658
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "timestamp_class_ref.as_obj",
+          "lineNumber": 658
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "value.0.year",
+          "lineNumber": 662
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "value.0.month",
+          "lineNumber": 664
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "value.0.day",
+          "lineNumber": 667
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "value.0.hour",
+          "lineNumber": 670
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "value.0.minute",
+          "lineNumber": 673
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "value.0.second",
+          "lineNumber": 676
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "value.0.nanosecond",
+          "lineNumber": 679
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "Err",
+          "lineNumber": 684
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "BindingError::from",
+          "lineNumber": 684
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "\"of\".to_owned",
+          "lineNumber": 685
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "sig.into",
+          "lineNumber": 686
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestampValue",
+          "callee": "Ok",
+          "lineNumber": 689
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 700
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_timestamptz",
+          "lineNumber": 701
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 701
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 701
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 701
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "pointer\n            .as_ref()\n            .class_cache\n            .instant_ctor.get_or_try_init",
+          "lineNumber": 710
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 710
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.find_class",
+          "lineNumber": 715
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.get_static_method_id",
+          "lineNumber": 716
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "Ok::<_, jni::errors::Error>",
+          "lineNumber": 717
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.new_global_ref",
+          "lineNumber": 717
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.call_static_method_unchecked",
+          "lineNumber": 720
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "<&JClass<'_>>::from",
+          "lineNumber": 721
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "instant_class_ref.as_obj",
+          "lineNumber": 721
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "value.timestamp",
+          "lineNumber": 726
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "value.timestamp_subsec_nanos",
+          "lineNumber": 729
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "Err",
+          "lineNumber": 734
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "BindingError::from",
+          "lineNumber": 734
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "\"ofEpochSecond\".to_owned",
+          "lineNumber": 735
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "instant_sig.into",
+          "lineNumber": 736
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "pointer.as_ref().class_cache.utc.get_or_try_init",
+          "lineNumber": 742
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 742
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.find_class",
+          "lineNumber": 743
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env\n                .get_static_field(&cls, \"UTC\", gen_jni_type_sig!(java.time.ZoneOffset))?.l",
+          "lineNumber": 744
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.get_static_field",
+          "lineNumber": 744
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.new_global_ref",
+          "lineNumber": 747
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "pointer\n            .as_ref()\n            .class_cache\n            .timestamptz_ctor.get_or_try_init",
+          "lineNumber": 752
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 752
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.find_class",
+          "lineNumber": 757
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.get_static_method_id",
+          "lineNumber": 758
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "Ok::<_, jni::errors::Error>",
+          "lineNumber": 759
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.new_global_ref",
+          "lineNumber": 759
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "env.call_static_method_unchecked",
+          "lineNumber": 762
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "<&JClass<'_>>::from",
+          "lineNumber": 763
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "timestamptz_class_ref.as_obj",
+          "lineNumber": 763
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "instant_obj.as_raw",
+          "lineNumber": 768
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "utc_ref.as_obj().as_raw",
+          "lineNumber": 771
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "utc_ref.as_obj",
+          "lineNumber": 771
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "Err",
+          "lineNumber": 776
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "BindingError::from",
+          "lineNumber": 776
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "\"ofInstant\".to_owned",
+          "lineNumber": 777
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "sig.into",
+          "lineNumber": 778
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimestamptzValue",
+          "callee": "Ok",
+          "lineNumber": 781
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 792
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_decimal",
+          "lineNumber": 793
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 793
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 793
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 793
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "Ok",
+          "lineNumber": 801
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "JObject::null",
+          "lineNumber": 801
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "decimal_value.to_string",
+          "lineNumber": 806
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "env.new_string",
+          "lineNumber": 807
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "pointer\n            .as_ref()\n            .class_cache\n            .big_decimal_ctor.get_or_try_init",
+          "lineNumber": 808
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 808
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "env.find_class",
+          "lineNumber": 813
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "env.get_method_id",
+          "lineNumber": 814
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "Ok::<_, jni::errors::Error>",
+          "lineNumber": 815
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "env.new_global_ref",
+          "lineNumber": 815
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "<&JClass<'_>>::from",
+          "lineNumber": 818
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "decimal_class_ref.as_obj",
+          "lineNumber": 818
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "env.new_object_unchecked",
+          "lineNumber": 819
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "string_value.into_raw",
+          "lineNumber": 823
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDecimalValue",
+          "callee": "Ok",
+          "lineNumber": 826
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 837
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "pointer.as_ref().datum_at(idx as usize).unwrap().into_date",
+          "lineNumber": 838
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "pointer.as_ref().datum_at(idx as usize).unwrap",
+          "lineNumber": 838
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "pointer.as_ref().datum_at",
+          "lineNumber": 838
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 838
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "(value.0 - DateTime::UNIX_EPOCH.date_naive()).num_days",
+          "lineNumber": 839
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "DateTime::UNIX_EPOCH.date_naive",
+          "lineNumber": 839
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "pointer.as_ref().class_cache.date_ctor.get_or_try_init",
+          "lineNumber": 844
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 844
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "env.find_class",
+          "lineNumber": 845
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "env.get_static_method_id",
+          "lineNumber": 846
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "Ok::<_, jni::errors::Error>",
+          "lineNumber": 847
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "env.new_global_ref",
+          "lineNumber": 847
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "env.call_static_method_unchecked",
+          "lineNumber": 850
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "<&JClass<'_>>::from",
+          "lineNumber": 851
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "date_class_ref.as_obj",
+          "lineNumber": 851
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "Err",
+          "lineNumber": 857
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "BindingError::from",
+          "lineNumber": 857
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "\"ofEpochDay\".to_owned",
+          "lineNumber": 858
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "sig.into",
+          "lineNumber": 859
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetDateValue",
+          "callee": "Ok",
+          "lineNumber": 862
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 873
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "pointer.as_ref().datum_at(idx as usize).unwrap().into_time",
+          "lineNumber": 874
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "pointer.as_ref().datum_at(idx as usize).unwrap",
+          "lineNumber": 874
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "pointer.as_ref().datum_at",
+          "lineNumber": 874
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 874
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "pointer.as_ref().class_cache.time_ctor.get_or_try_init",
+          "lineNumber": 879
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 879
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "env.find_class",
+          "lineNumber": 880
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "env.get_static_method_id",
+          "lineNumber": 881
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "Ok::<_, jni::errors::Error>",
+          "lineNumber": 882
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "env.new_global_ref",
+          "lineNumber": 882
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "env.call_static_method_unchecked",
+          "lineNumber": 885
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "<&JClass<'_>>::from",
+          "lineNumber": 886
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "time_class_ref.as_obj",
+          "lineNumber": 886
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "value.0.hour",
+          "lineNumber": 891
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "value.0.minute",
+          "lineNumber": 894
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "value.0.second",
+          "lineNumber": 897
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "value.0.nanosecond",
+          "lineNumber": 900
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "Err",
+          "lineNumber": 905
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "BindingError::from",
+          "lineNumber": 905
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "\"of\".to_owned",
+          "lineNumber": 906
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "sig.into",
+          "lineNumber": 907
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetTimeValue",
+          "callee": "Ok",
+          "lineNumber": 910
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetByteaValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 921
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetByteaValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_bytea",
+          "lineNumber": 922
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetByteaValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 922
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetByteaValue",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 922
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetByteaValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 922
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetByteaValue",
+          "callee": "Ok",
+          "lineNumber": 927
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetByteaValue",
+          "callee": "env.byte_array_from_slice",
+          "lineNumber": 927
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "execute_and_catch",
+          "lineNumber": 938
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap()\n            .into_list().iter",
+          "lineNumber": 939
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize)\n            .unwrap().into_list",
+          "lineNumber": 939
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "pointer\n            .as_ref()\n            .datum_at(idx as usize).unwrap",
+          "lineNumber": 939
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "pointer\n            .as_ref().datum_at",
+          "lineNumber": 939
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "pointer.as_ref",
+          "lineNumber": 939
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "env.new_object_array",
+          "lineNumber": 947
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "elems.len",
+          "lineNumber": 947
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "JObject::null",
+          "lineNumber": 947
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "elems.enumerate",
+          "lineNumber": 949
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "env.set_object_array_element",
+          "lineNumber": 952
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "JObject::null",
+          "lineNumber": 952
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "env.set_object_array_element",
+          "lineNumber": 961
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "env.set_object_array_element",
+          "lineNumber": 970
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "env.set_object_array_element",
+          "lineNumber": 979
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "env.set_object_array_element",
+          "lineNumber": 988
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "env.set_object_array_element",
+          "lineNumber": 997
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "env.new_string",
+          "lineNumber": 1000
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "env.set_object_array_element",
+          "lineNumber": 1001
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "env.set_object_array_element",
+          "lineNumber": 1003
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "JObject::null",
+          "lineNumber": 1003
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "JObject::from_raw",
+          "lineNumber": 1007
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "jarray.into_raw",
+          "lineNumber": 1007
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_iteratorGetArrayValue",
+          "callee": "Ok",
+          "lineNumber": 1008
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "execute_and_catch",
+          "lineNumber": 1025
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "msg.is_null",
+          "lineNumber": 1027
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "channel.as_ref().is_closed",
+          "lineNumber": 1028
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "channel.as_ref",
+          "lineNumber": 1028
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "Ok",
+          "lineNumber": 1029
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "Ok",
+          "lineNumber": 1031
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "Message::decode",
+          "lineNumber": 1036
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "to_guarded_slice(&msg, env)?.deref",
+          "lineNumber": 1036
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "to_guarded_slice",
+          "lineNumber": 1036
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "channel\n            .as_ref().blocking_send",
+          "lineNumber": 1038
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "channel.as_ref",
+          "lineNumber": 1038
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "Ok",
+          "lineNumber": 1040
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "Ok",
+          "lineNumber": 1042
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceMsgToChannel",
+          "callee": "Ok",
+          "lineNumber": 1045
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "execute_and_catch",
+          "lineNumber": 1057
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "env.get_string",
+          "lineNumber": 1058
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "str.into",
+          "lineNumber": 1061
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "channel.as_ref().blocking_send",
+          "lineNumber": 1062
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "channel.as_ref",
+          "lineNumber": 1062
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "Err",
+          "lineNumber": 1062
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "Ok",
+          "lineNumber": 1063
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "Ok",
+          "lineNumber": 1066
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "msg.is_null",
+          "lineNumber": 1071
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "Ok",
+          "lineNumber": 1073
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendCdcSourceErrorToChannel",
+          "callee": "Ok",
+          "lineNumber": 1076
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_cdcSourceSenderClose",
+          "callee": "channel.release",
+          "lineNumber": 1088
+        },
+        {
+          "caller": "from",
+          "callee": "Self::PbRequest",
+          "lineNumber": 1102
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "execute_and_catch",
+          "lineNumber": 1113
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "channel.as_mut().blocking_recv",
+          "lineNumber": 1113
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "channel.as_mut",
+          "lineNumber": 1113
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "env.byte_array_from_slice",
+          "lineNumber": 1117
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "Message::encode_to_vec",
+          "lineNumber": 1117
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "JObject::from",
+          "lineNumber": 1118
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "Box::into_raw",
+          "lineNumber": 1131
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "Box::new",
+          "lineNumber": 1131
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "call_static_method!(\n                        env,\n                        {com.risingwave.java.binding.JniSinkWriterStreamRequest},\n                        {com.risingwave.java.binding.JniSinkWriterStreamRequest fromStreamChunkOwnedPointer(long pointer, long epoch, long batchId)},\n                        pointer as u64, epoch, batch_id\n                    ).inspect_err",
+          "lineNumber": 1132
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "drop",
+          "lineNumber": 1140
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "Box::from_raw",
+          "lineNumber": 1140
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "Ok",
+          "lineNumber": 1144
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "Ok",
+          "lineNumber": 1146
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkWriterRequestFromChannel",
+          "callee": "JObject::null",
+          "lineNumber": 1146
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "callee": "execute_and_catch",
+          "lineNumber": 1158
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "callee": "Message::decode",
+          "lineNumber": 1160
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "callee": "to_guarded_slice(&msg, env)?.deref",
+          "lineNumber": 1160
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "callee": "to_guarded_slice",
+          "lineNumber": 1160
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "callee": "channel\n            .as_ref().blocking_send",
+          "lineNumber": 1162
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "callee": "channel.as_ref",
+          "lineNumber": 1162
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "callee": "Ok",
+          "lineNumber": 1164
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "callee": "Ok",
+          "lineNumber": 1166
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterResponseToChannel",
+          "callee": "Ok",
+          "lineNumber": 1169
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "execute_and_catch",
+          "lineNumber": 1181
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "env.get_string",
+          "lineNumber": 1182
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "str.into",
+          "lineNumber": 1185
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "channel.as_ref().blocking_send",
+          "lineNumber": 1186
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "channel.as_ref",
+          "lineNumber": 1186
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "Err",
+          "lineNumber": 1186
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "Ok",
+          "lineNumber": 1187
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "Ok",
+          "lineNumber": 1190
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "msg.is_null",
+          "lineNumber": 1195
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "Ok",
+          "lineNumber": 1197
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkWriterErrorToChannel",
+          "callee": "Ok",
+          "lineNumber": 1200
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "callee": "execute_and_catch",
+          "lineNumber": 1214
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "callee": "channel.as_mut().blocking_recv",
+          "lineNumber": 1214
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "callee": "channel.as_mut",
+          "lineNumber": 1214
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "callee": "env\n                .byte_array_from_slice(&Message::encode_to_vec(&msg)).unwrap",
+          "lineNumber": 1216
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "callee": "env.byte_array_from_slice",
+          "lineNumber": 1216
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "callee": "Message::encode_to_vec",
+          "lineNumber": 1217
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "callee": "Ok",
+          "lineNumber": 1219
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "callee": "Ok",
+          "lineNumber": 1221
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "callee": "JObject::null().into",
+          "lineNumber": 1221
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_recvSinkCoordinatorRequestFromChannel",
+          "callee": "JObject::null",
+          "lineNumber": 1221
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "callee": "execute_and_catch",
+          "lineNumber": 1233
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "callee": "Message::decode",
+          "lineNumber": 1235
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "callee": "to_guarded_slice(&msg, env)?.deref",
+          "lineNumber": 1235
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "callee": "to_guarded_slice",
+          "lineNumber": 1235
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "callee": "channel\n            .as_ref().blocking_send",
+          "lineNumber": 1237
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "callee": "channel.as_ref",
+          "lineNumber": 1237
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "callee": "Ok",
+          "lineNumber": 1239
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "callee": "Ok",
+          "lineNumber": 1241
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_sendSinkCoordinatorResponseToChannel",
+          "callee": "Ok",
+          "lineNumber": 1244
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 17,
+        "functionCount": 51,
+        "classCount": 10
+      }
+    },
+    {
+      "path": "src/jni_core/src/macros.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 955,
+      "nonEmptyLines": 894,
+      "callGraph": [
+        {
+          "caller": "test_all_native_methods",
+          "callee": "expected.assert_debug_eq",
+          "lineNumber": 953
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/jni_core/src/opendal_schema_history.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 321,
+      "nonEmptyLines": 288,
+      "functions": [
+        {
+          "name": "put_object_total_timeout",
+          "startLine": 39,
+          "endLine": 65,
+          "params": []
+        },
+        {
+          "name": "validate_dat_file_extension",
+          "startLine": 69,
+          "endLine": 82,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "prepend_data_directory",
+          "startLine": 85,
+          "endLine": 95,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "get_object_store",
+          "startLine": 97,
+          "endLine": 112,
+          "params": []
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "startLine": 117,
+          "endLine": 135,
+          "params": [
+            "env",
+            "state_store_url",
+            "data_directory"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_putObject",
+          "startLine": 138,
+          "endLine": 173,
+          "params": [
+            "env",
+            "object_name",
+            "data"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_getObject",
+          "startLine": 176,
+          "endLine": 196,
+          "params": [
+            "env",
+            "object_name"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_getObjectStoreType",
+          "startLine": 199,
+          "endLine": 209,
+          "params": [
+            "env"
+          ]
+        },
+        {
+          "name": "strip_data_directory_prefix",
+          "startLine": 211,
+          "endLine": 228,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_listObject",
+          "startLine": 231,
+          "endLine": 277,
+          "params": [
+            "env",
+            "dir"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "startLine": 280,
+          "endLine": 321,
+          "params": [
+            "env",
+            "dir"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_putObject",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_getObject",
+          "line": 176,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_getObjectStoreType",
+          "line": 199,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_listObject",
+          "line": 231,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "line": 280,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "put_object_total_timeout",
+          "callee": "OnceLock::new",
+          "lineNumber": 40
+        },
+        {
+          "caller": "put_object_total_timeout",
+          "callee": "TIMEOUT.get_or_init",
+          "lineNumber": 41
+        },
+        {
+          "caller": "put_object_total_timeout",
+          "callee": "std::env::var",
+          "lineNumber": 42
+        },
+        {
+          "caller": "put_object_total_timeout",
+          "callee": "v.trim().parse::<u64>",
+          "lineNumber": 43
+        },
+        {
+          "caller": "put_object_total_timeout",
+          "callee": "v.trim",
+          "lineNumber": 43
+        },
+        {
+          "caller": "put_object_total_timeout",
+          "callee": "Some",
+          "lineNumber": 62
+        },
+        {
+          "caller": "put_object_total_timeout",
+          "callee": "Duration::from_millis",
+          "lineNumber": 62
+        },
+        {
+          "caller": "validate_dat_file_extension",
+          "callee": "path.is_empty",
+          "lineNumber": 70
+        },
+        {
+          "caller": "validate_dat_file_extension",
+          "callee": "Err",
+          "lineNumber": 71
+        },
+        {
+          "caller": "validate_dat_file_extension",
+          "callee": "\"File path cannot be empty\".to_owned",
+          "lineNumber": 71
+        },
+        {
+          "caller": "validate_dat_file_extension",
+          "callee": "path.ends_with",
+          "lineNumber": 74
+        },
+        {
+          "caller": "validate_dat_file_extension",
+          "callee": "Err",
+          "lineNumber": 75
+        },
+        {
+          "caller": "validate_dat_file_extension",
+          "callee": "Ok",
+          "lineNumber": 81
+        },
+        {
+          "caller": "prepend_data_directory",
+          "callee": "DATA_DIRECTORY.get().map(|s| s.as_str()).expect",
+          "lineNumber": 86
+        },
+        {
+          "caller": "prepend_data_directory",
+          "callee": "DATA_DIRECTORY.get().map",
+          "lineNumber": 86
+        },
+        {
+          "caller": "prepend_data_directory",
+          "callee": "DATA_DIRECTORY.get",
+          "lineNumber": 86
+        },
+        {
+          "caller": "prepend_data_directory",
+          "callee": "s.as_str",
+          "lineNumber": 86
+        },
+        {
+          "caller": "prepend_data_directory",
+          "callee": "data_dir.ends_with",
+          "lineNumber": 90
+        },
+        {
+          "caller": "prepend_data_directory",
+          "callee": "path.starts_with",
+          "lineNumber": 90
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "OBJECT_STORE_INSTANCE\n        .get_or_init(|| async {\n            let hummock_url = STATE_STORE_URL.get().unwrap();\n            let object_store = build_remote_object_store(\n                hummock_url.strip_prefix(\"hummock+\").unwrap_or(\"memory\"),\n                Arc::new(GLOBAL_OBJECT_STORE_METRICS.clone()),\n                \"rw-cdc-schema-history\",\n                Arc::new(ObjectStoreConfig::default()),\n            )\n            .await;\n            Arc::new(object_store)\n        })\n        .await.clone",
+          "lineNumber": 98
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "OBJECT_STORE_INSTANCE.get_or_init",
+          "lineNumber": 98
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "STATE_STORE_URL.get().unwrap",
+          "lineNumber": 100
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "STATE_STORE_URL.get",
+          "lineNumber": 100
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "build_remote_object_store",
+          "lineNumber": 101
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "hummock_url.strip_prefix(\"hummock+\").unwrap_or",
+          "lineNumber": 102
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "hummock_url.strip_prefix",
+          "lineNumber": 102
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "Arc::new",
+          "lineNumber": 103
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "GLOBAL_OBJECT_STORE_METRICS.clone",
+          "lineNumber": 103
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "Arc::new",
+          "lineNumber": 105
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "ObjectStoreConfig::default",
+          "lineNumber": 105
+        },
+        {
+          "caller": "get_object_store",
+          "callee": "Arc::new",
+          "lineNumber": 108
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "execute_and_catch",
+          "lineNumber": 122
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "env.get_string(&state_store_url).map_err",
+          "lineNumber": 123
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "env.get_string",
+          "lineNumber": 123
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "(&state_store_url_str).into",
+          "lineNumber": 124
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "env.get_string(&data_directory).map_err",
+          "lineNumber": 126
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "env.get_string",
+          "lineNumber": 126
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "(&data_directory_str).into",
+          "lineNumber": 127
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "STATE_STORE_URL.set",
+          "lineNumber": 130
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "state_store_url_str.to_string",
+          "lineNumber": 130
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "DATA_DIRECTORY.set",
+          "lineNumber": 131
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "data_directory_str.to_string",
+          "lineNumber": 131
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_initObjectStoreForTest",
+          "callee": "Ok",
+          "lineNumber": 133
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "execute_and_catch",
+          "lineNumber": 143
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "env.get_string(&object_name).map_err",
+          "lineNumber": 144
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "env.get_string",
+          "lineNumber": 144
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "(&object_name).into",
+          "lineNumber": 145
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "validate_dat_file_extension(&object_name).map_err",
+          "lineNumber": 147
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "validate_dat_file_extension",
+          "lineNumber": 147
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "prepend_data_directory",
+          "lineNumber": 148
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "to_guarded_slice(&data, env).map_err",
+          "lineNumber": 149
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "to_guarded_slice",
+          "lineNumber": 149
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "data_guard.slice.to_vec",
+          "lineNumber": 150
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "put_object_total_timeout",
+          "lineNumber": 151
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "JAVA_BINDING_ASYNC_RUNTIME\n            .block_on(async {\n                let f = async {\n                    let object_store = get_object_store().await;\n                    object_store.upload(&object_name, data.into()).await\n                };\n\n                match total_timeout {\n                    Some(timeout) => match tokio::time::timeout(timeout, f).await {\n                        Ok(res) => res,\n                        Err(_) => Err(ObjectError::timeout(format!(\n                            \"[Schema history] putObject timed out after {:?}. You can adjust it via {} (ms), or set it to 0 to disable.\",\n                            timeout, PUT_OBJECT_TOTAL_TIMEOUT_ENV\n                        ))),\n                    },\n                    None => f.await,\n                }\n            }).map_err",
+          "lineNumber": 152
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "JAVA_BINDING_ASYNC_RUNTIME.block_on",
+          "lineNumber": 152
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "get_object_store",
+          "lineNumber": 155
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "object_store.upload",
+          "lineNumber": 156
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "data.into",
+          "lineNumber": 156
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "tokio::time::timeout",
+          "lineNumber": 160
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "Err",
+          "lineNumber": 162
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "ObjectError::timeout",
+          "lineNumber": 162
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_putObject",
+          "callee": "Ok",
+          "lineNumber": 171
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "execute_and_catch",
+          "lineNumber": 180
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "env.get_string",
+          "lineNumber": 181
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "(&object_name).into",
+          "lineNumber": 182
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "validate_dat_file_extension(&object_name).map_err",
+          "lineNumber": 185
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "validate_dat_file_extension",
+          "lineNumber": 185
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "prepend_data_directory",
+          "lineNumber": 186
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "JAVA_BINDING_ASYNC_RUNTIME\n            .block_on(async {\n                let object_store = get_object_store().await;\n                object_store.read(&object_name, ..).await\n            }).map_err",
+          "lineNumber": 187
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "JAVA_BINDING_ASYNC_RUNTIME.block_on",
+          "lineNumber": 187
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "get_object_store",
+          "lineNumber": 189
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "object_store.read",
+          "lineNumber": 190
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "Ok",
+          "lineNumber": 194
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObject",
+          "callee": "env.byte_array_from_slice",
+          "lineNumber": 194
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObjectStoreType",
+          "callee": "execute_and_catch",
+          "lineNumber": 202
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObjectStoreType",
+          "callee": "JAVA_BINDING_ASYNC_RUNTIME.block_on",
+          "lineNumber": 203
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObjectStoreType",
+          "callee": "get_object_store",
+          "lineNumber": 204
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObjectStoreType",
+          "callee": "object_store.media_type().to_owned",
+          "lineNumber": 205
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObjectStoreType",
+          "callee": "object_store.media_type",
+          "lineNumber": 205
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObjectStoreType",
+          "callee": "Ok",
+          "lineNumber": 207
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_getObjectStoreType",
+          "callee": "env.new_string",
+          "lineNumber": 207
+        },
+        {
+          "caller": "strip_data_directory_prefix",
+          "callee": "DATA_DIRECTORY\n        .get()\n        .map(|s| s.as_str()).ok_or",
+          "lineNumber": 212
+        },
+        {
+          "caller": "strip_data_directory_prefix",
+          "callee": "DATA_DIRECTORY\n        .get().map",
+          "lineNumber": 212
+        },
+        {
+          "caller": "strip_data_directory_prefix",
+          "callee": "DATA_DIRECTORY.get",
+          "lineNumber": 212
+        },
+        {
+          "caller": "strip_data_directory_prefix",
+          "callee": "s.as_str",
+          "lineNumber": 214
+        },
+        {
+          "caller": "strip_data_directory_prefix",
+          "callee": "path.strip_prefix(data_directory).ok_or_else",
+          "lineNumber": 216
+        },
+        {
+          "caller": "strip_data_directory_prefix",
+          "callee": "path.strip_prefix",
+          "lineNumber": 216
+        },
+        {
+          "caller": "strip_data_directory_prefix",
+          "callee": "relative_path.strip_prefix",
+          "lineNumber": 222
+        },
+        {
+          "caller": "strip_data_directory_prefix",
+          "callee": "stripped.to_owned",
+          "lineNumber": 223
+        },
+        {
+          "caller": "strip_data_directory_prefix",
+          "callee": "relative_path.to_owned",
+          "lineNumber": 225
+        },
+        {
+          "caller": "strip_data_directory_prefix",
+          "callee": "Ok",
+          "lineNumber": 227
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "execute_and_catch",
+          "lineNumber": 235
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "env.get_string(&dir).map_err",
+          "lineNumber": 236
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "env.get_string",
+          "lineNumber": 236
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "(&dir).into",
+          "lineNumber": 237
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "prepend_data_directory",
+          "lineNumber": 241
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "JAVA_BINDING_ASYNC_RUNTIME.block_on",
+          "lineNumber": 243
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "get_object_store",
+          "lineNumber": 244
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "Vec::new",
+          "lineNumber": 245
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "object_store\n                .list(&dir, None, None)\n                .await.map_err",
+          "lineNumber": 246
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "object_store.list",
+          "lineNumber": 246
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "stream.next",
+          "lineNumber": 251
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "obj.map_err",
+          "lineNumber": 252
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "strip_data_directory_prefix(&obj.key).map_err",
+          "lineNumber": 256
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "strip_data_directory_prefix",
+          "lineNumber": 256
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "validate_dat_file_extension(&relative_path).is_ok",
+          "lineNumber": 257
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "validate_dat_file_extension",
+          "lineNumber": 257
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "prefix_stripped_paths.push",
+          "lineNumber": 258
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "Ok::<_, anyhow::Error>",
+          "lineNumber": 263
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "env.find_class(\"java/lang/String\").map_err",
+          "lineNumber": 266
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "env.find_class",
+          "lineNumber": 266
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "env\n            .new_object_array(files.len() as i32, string_class, JObject::null()).map_err",
+          "lineNumber": 267
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "env.new_object_array",
+          "lineNumber": 267
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "files.len",
+          "lineNumber": 268
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "JObject::null",
+          "lineNumber": 268
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "files.iter().enumerate",
+          "lineNumber": 270
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "files.iter",
+          "lineNumber": 270
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "env.new_string(file).map_err",
+          "lineNumber": 271
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "env.new_string",
+          "lineNumber": 271
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "env.set_object_array_element(&array, i as i32, &jstr).map_err",
+          "lineNumber": 272
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "env.set_object_array_element",
+          "lineNumber": 272
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_listObject",
+          "callee": "Ok",
+          "lineNumber": 275
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "execute_and_catch",
+          "lineNumber": 284
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "env.get_string(&dir).map_err",
+          "lineNumber": 285
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "env.get_string",
+          "lineNumber": 285
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "(&dir).into",
+          "lineNumber": 286
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "prepend_data_directory",
+          "lineNumber": 290
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "JAVA_BINDING_ASYNC_RUNTIME.block_on",
+          "lineNumber": 292
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "get_object_store",
+          "lineNumber": 293
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "Vec::new",
+          "lineNumber": 294
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "object_store\n                .list(&dir, None, None)\n                .await.map_err",
+          "lineNumber": 295
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "object_store.list",
+          "lineNumber": 295
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "stream.next",
+          "lineNumber": 300
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "obj.map_err",
+          "lineNumber": 301
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "strip_data_directory_prefix(&obj.key).map_err",
+          "lineNumber": 305
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "strip_data_directory_prefix",
+          "lineNumber": 305
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "validate_dat_file_extension(&relative_path).is_ok",
+          "lineNumber": 306
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "validate_dat_file_extension",
+          "lineNumber": 306
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "keys.push",
+          "lineNumber": 307
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "object_store\n                .delete_objects(&keys)\n                .await.map_err",
+          "lineNumber": 313
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "object_store.delete_objects",
+          "lineNumber": 313
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "Ok::<_, anyhow::Error>",
+          "lineNumber": 317
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_deleteObjects",
+          "callee": "Ok",
+          "lineNumber": 319
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 11,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/jni_core/src/tracing_slf4j.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 110,
+      "nonEmptyLines": 96,
+      "functions": [
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "startLine": 26,
+          "endLine": 77,
+          "params": [
+            "env",
+            "thread_name",
+            "class_name",
+            "level",
+            "message",
+            "stack_trace"
+          ]
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEventEnabled",
+          "startLine": 80,
+          "endLine": 110,
+          "params": [
+            "env",
+            "level"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEventEnabled",
+          "line": 80,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "execute_and_catch",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "env.get_string",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "(&thread_name).into",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "env.get_string",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "(&class_name).into",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "env.get_string",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "(&message).into",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "stack_trace.is_null",
+          "lineNumber": 44
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "Some",
+          "lineNumber": 47
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "env.get_string",
+          "lineNumber": 47
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "stack_trace.as_ref().map",
+          "lineNumber": 49
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "stack_trace.as_ref",
+          "lineNumber": 49
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "c.into",
+          "lineNumber": 49
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "stack_trace.as_deref",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEvent",
+          "callee": "Ok",
+          "lineNumber": 75
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEventEnabled",
+          "callee": "execute_and_catch(env, move |_env| {\n        // Currently we only support `StaticDirective` in `tracing-subscriber`, so\n        // filtering by fields like `thread` and `class` is not supported.\n        // TODO: should we support dynamic `Directive`?\n        macro_rules! event_enabled {\n            ($lvl:expr) => {\n                tracing::event_enabled!(\n                    target: TARGET,\n                    $lvl,\n                )\n            };\n        }\n\n        // See `com.risingwave.tracing.TracingSlf4jImpl`.\n        let enabled = match level {\n            0 => event_enabled!(Level::ERROR),\n            1 => event_enabled!(Level::WARN),\n            2 => event_enabled!(Level::INFO),\n            3 => event_enabled!(Level::DEBUG),\n            4 => event_enabled!(Level::TRACE),\n            _ => unreachable!(),\n        };\n\n        Ok(enabled)\n    }).into",
+          "lineNumber": 84
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEventEnabled",
+          "callee": "execute_and_catch",
+          "lineNumber": 84
+        },
+        {
+          "caller": "Java_com_risingwave_java_binding_Binding_tracingSlf4jEventEnabled",
+          "callee": "Ok",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

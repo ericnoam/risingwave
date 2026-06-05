@@ -1,0 +1,126 @@
+{
+  "nodes": [
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java",
+      "type": "file",
+      "name": "BinlogOffsetContext.java",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java",
+      "summary": "Base offset context for binlog-based Debezium CDC connectors, managing binlog file/position, GTID set, transaction state, and source info for MySQL-compatible sources.",
+      "tags": ["connector", "cdc", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/history/BinlogHistoryRecordComparator.java",
+      "type": "file",
+      "name": "BinlogHistoryRecordComparator.java",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/history/BinlogHistoryRecordComparator.java",
+      "summary": "Implements a Debezium HistoryRecordComparator that compares binlog offset positions by file/sequence and GTID set to determine schema history record ordering.",
+      "tags": ["connector", "cdc", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java",
+      "type": "file",
+      "name": "MySqlOffsetContext.java",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java",
+      "summary": "MySQL-specific offset context extending BinlogOffsetContext, adding MySQL-specific source metadata and offset map serialization for the Debezium MySQL CDC connector.",
+      "tags": ["connector", "cdc", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java:BinlogOffsetContext",
+      "type": "class",
+      "name": "BinlogOffsetContext",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java",
+      "lineRange": [1, 430],
+      "summary": "Core offset context tracking binlog coordinates (file, position), GTID sets, transaction state, and snapshot mode for binary-log-based CDC sources.",
+      "tags": ["cdc", "connector", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/history/BinlogHistoryRecordComparator.java:BinlogHistoryRecordComparator",
+      "type": "class",
+      "name": "BinlogHistoryRecordComparator",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/history/BinlogHistoryRecordComparator.java",
+      "lineRange": [1, 304],
+      "summary": "Compares Debezium schema history records by their binlog offsets to establish consistent ordering for schema history replay.",
+      "tags": ["cdc", "connector", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java:MySqlOffsetContext",
+      "type": "class",
+      "name": "MySqlOffsetContext",
+      "filePath": "java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java",
+      "lineRange": [1, 111],
+      "summary": "MySQL-specific specialization of BinlogOffsetContext that serializes MySQL offset maps and includes server ID and snapshot-related metadata.",
+      "tags": ["cdc", "connector", "data-model"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/history/BinlogHistoryRecordComparator.java",
+      "target": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java",
+      "target": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java",
+      "target": "class:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java:BinlogOffsetContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java",
+      "target": "class:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java:BinlogOffsetContext",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/history/BinlogHistoryRecordComparator.java",
+      "target": "class:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/history/BinlogHistoryRecordComparator.java:BinlogHistoryRecordComparator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/history/BinlogHistoryRecordComparator.java",
+      "target": "class:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/history/BinlogHistoryRecordComparator.java:BinlogHistoryRecordComparator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java",
+      "target": "class:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java:MySqlOffsetContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java",
+      "target": "class:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java:MySqlOffsetContext",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/mysql/MySqlOffsetContext.java",
+      "target": "class:java/connector-node/risingwave-source-cdc/src/main/java/io/debezium/connector/binlog/BinlogOffsetContext.java:BinlogOffsetContext",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

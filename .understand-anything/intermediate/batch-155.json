@@ -1,0 +1,219 @@
+{
+  "nodes": [
+    {
+      "id": "file:ci/scripts/sql/nexmark/q107.sql",
+      "type": "file",
+      "name": "q107.sql",
+      "filePath": "ci/scripts/sql/nexmark/q107.sql",
+      "summary": "NexMark q107 benchmark query: computes the highest bid per auction in a time bucket using streaming windowed aggregation.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q108.drop.sql",
+      "type": "file",
+      "name": "q108.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q108.drop.sql",
+      "summary": "Drops the q108 NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q108.sql",
+      "type": "file",
+      "name": "q108.sql",
+      "filePath": "ci/scripts/sql/nexmark/q108.sql",
+      "summary": "NexMark q108 benchmark query: identifies auctions with more bids than the average bid count across all active auctions.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q12-temporal-filter.drop.sql",
+      "type": "file",
+      "name": "q12-temporal-filter.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q12-temporal-filter.drop.sql",
+      "summary": "Drops the q12 temporal-filter NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q12-temporal-filter.sql",
+      "type": "file",
+      "name": "q12-temporal-filter.sql",
+      "filePath": "ci/scripts/sql/nexmark/q12-temporal-filter.sql",
+      "summary": "NexMark q12 benchmark query with temporal filter: counts bids per bidder within a processing-time tumbling window.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q12.drop.sql",
+      "type": "file",
+      "name": "q12.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q12.drop.sql",
+      "summary": "Drops the q12 NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q12.sql",
+      "type": "file",
+      "name": "q12.sql",
+      "filePath": "ci/scripts/sql/nexmark/q12.sql",
+      "summary": "NexMark q12 benchmark query: counts bids per bidder using processing-time tumbling windows to test time-based aggregation.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q13-by-row-id.drop.sql",
+      "type": "file",
+      "name": "q13-by-row-id.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q13-by-row-id.drop.sql",
+      "summary": "Drops the q13-by-row-id NexMark lookup join materialized view and side input table.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q13-by-row-id.sql",
+      "type": "file",
+      "name": "q13-by-row-id.sql",
+      "filePath": "ci/scripts/sql/nexmark/q13-by-row-id.sql",
+      "summary": "NexMark q13 variant that joins bids with a static side-input table by row ID, testing lookup join performance.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/nexmark/q13-by-row-id.sql:side_input",
+      "type": "table",
+      "name": "side_input",
+      "filePath": "ci/scripts/sql/nexmark/q13-by-row-id.sql",
+      "lineRange": [3, 6],
+      "summary": "Static side-input lookup table used in the q13 NexMark lookup-join benchmark variant.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q13-non-lookup-cond.drop.sql",
+      "type": "file",
+      "name": "q13-non-lookup-cond.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q13-non-lookup-cond.drop.sql",
+      "summary": "Drops the q13-non-lookup-cond NexMark variant materialized view and side input table.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q13-non-lookup-cond.sql",
+      "type": "file",
+      "name": "q13-non-lookup-cond.sql",
+      "filePath": "ci/scripts/sql/nexmark/q13-non-lookup-cond.sql",
+      "summary": "NexMark q13 variant with a non-equi join condition (non-lookup), testing streaming hash join on complex predicates.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/nexmark/q13-non-lookup-cond.sql:side_input",
+      "type": "table",
+      "name": "side_input",
+      "filePath": "ci/scripts/sql/nexmark/q13-non-lookup-cond.sql",
+      "lineRange": [3, 6],
+      "summary": "Static side-input table used in the q13 non-lookup-condition NexMark benchmark variant.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q13.drop.sql",
+      "type": "file",
+      "name": "q13.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q13.drop.sql",
+      "summary": "Drops the q13 NexMark materialized view and side input table.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q13.sql",
+      "type": "file",
+      "name": "q13.sql",
+      "filePath": "ci/scripts/sql/nexmark/q13.sql",
+      "summary": "NexMark q13 benchmark query: joins the bid stream with a static side-input table to simulate a lookup join.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:ci/scripts/sql/nexmark/q13.sql:side_input",
+      "type": "table",
+      "name": "side_input",
+      "filePath": "ci/scripts/sql/nexmark/q13.sql",
+      "lineRange": [3, 6],
+      "summary": "Static side-input lookup table for the canonical q13 NexMark benchmark query.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q14-temporal-filter.drop.sql",
+      "type": "file",
+      "name": "q14-temporal-filter.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q14-temporal-filter.drop.sql",
+      "summary": "Drops the q14 temporal-filter NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q14-temporal-filter.sql",
+      "type": "file",
+      "name": "q14-temporal-filter.sql",
+      "filePath": "ci/scripts/sql/nexmark/q14-temporal-filter.sql",
+      "summary": "NexMark q14 benchmark query with temporal filter: applies complex case-when pricing logic to bids within a time window.",
+      "tags": ["database", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q14.drop.sql",
+      "type": "file",
+      "name": "q14.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q14.drop.sql",
+      "summary": "Drops the q14 NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q14.sql",
+      "type": "file",
+      "name": "q14.sql",
+      "filePath": "ci/scripts/sql/nexmark/q14.sql",
+      "summary": "NexMark q14 benchmark query: applies pricing adjustments with complex conditional logic to the bid stream.",
+      "tags": ["database", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q15-no-distinct.drop.sql",
+      "type": "file",
+      "name": "q15-no-distinct.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q15-no-distinct.drop.sql",
+      "summary": "Drops the q15-no-distinct NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q15-no-distinct.sql",
+      "type": "file",
+      "name": "q15-no-distinct.sql",
+      "filePath": "ci/scripts/sql/nexmark/q15-no-distinct.sql",
+      "summary": "NexMark q15 variant without DISTINCT: computes per-day bid statistics without deduplication for comparison with q15.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/sql/nexmark/q15-simple.drop.sql",
+      "type": "file",
+      "name": "q15-simple.drop.sql",
+      "filePath": "ci/scripts/sql/nexmark/q15-simple.drop.sql",
+      "summary": "Drops the q15-simple NexMark materialized view.",
+      "tags": ["database", "performance"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:ci/scripts/sql/nexmark/q13-by-row-id.sql", "target": "table:ci/scripts/sql/nexmark/q13-by-row-id.sql:side_input", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/sql/nexmark/q13-non-lookup-cond.sql", "target": "table:ci/scripts/sql/nexmark/q13-non-lookup-cond.sql:side_input", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:ci/scripts/sql/nexmark/q13.sql", "target": "table:ci/scripts/sql/nexmark/q13.sql:side_input", "type": "contains", "direction": "forward", "weight": 1.0}
+  ]
+}

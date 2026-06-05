@@ -1,0 +1,424 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/kafka-cdc-sink/flink/flink-connector-jdbc-3.0.0-1.16.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 979,
+      "nonEmptyLines": 972,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/kafka-cdc-sink/flink/flink-sql-connector-kafka-1.17.0.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 18919,
+      "nonEmptyLines": 18850,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/kafka-cdc-sink/flink/flink.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 25,
+      "nonEmptyLines": 23,
+      "definitions": [
+        {
+          "name": "topic_counts",
+          "kind": "table",
+          "fields": [
+            "id",
+            "sum"
+          ],
+          "startLine": 1,
+          "endLine": 12
+        },
+        {
+          "name": "pg_counts",
+          "kind": "table",
+          "fields": [
+            "id",
+            "sum"
+          ],
+          "startLine": 14,
+          "endLine": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/kafka-cdc-sink/flink/postgresql-42.6.0.jar",
+      "language": "jar",
+      "fileCategory": "code",
+      "totalLines": 3983,
+      "nonEmptyLines": 3970,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/kafka-cdc-sink/jsons/mysql-sink.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 20,
+      "nonEmptyLines": 20,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "config",
+          "level": 1,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/kafka-cdc-sink/jsons/pg-sink.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 20,
+      "nonEmptyLines": 20,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "config",
+          "level": 1,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/kafka-cdc-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 16,
+      "functions": [
+        {
+          "name": "pg_count",
+          "startLine": 13,
+          "endLine": 17,
+          "params": [
+            "rel"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "pg_count",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pg_count",
+          "callee": "subprocess.check_output",
+          "lineNumber": 16
+        },
+        {
+          "caller": "pg_count",
+          "callee": "int",
+          "lineNumber": 17
+        },
+        {
+          "caller": "pg_count",
+          "callee": "output.decode('utf8').strip",
+          "lineNumber": 17
+        },
+        {
+          "caller": "pg_count",
+          "callee": "output.decode",
+          "lineNumber": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/kafka-cdc/create_source.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 39,
+      "nonEmptyLines": 39,
+      "definitions": [
+        {
+          "name": "compatible_data",
+          "kind": "table",
+          "fields": [],
+          "startLine": 1,
+          "endLine": 6
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/kafka-cdc/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/kafka-cdc/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 50,
+      "nonEmptyLines": 49,
+      "sections": [
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 37
+        },
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/kinesis-s3-source/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/livestream/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/livestream/pb/create_mv.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 62,
+      "nonEmptyLines": 59,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/livestream/pb/create_source.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/livestream/schema",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 16,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/mindsdb/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/mindsdb/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/mongodb-cdc/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/mongodb/app.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 33,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/mongodb/config-replica.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/mqtt/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/mqtt/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 12,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/mysql-cdc/cdc_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/mysql-cdc/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/mysql-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "functions": [
+        {
+          "name": "mysql_count",
+          "startLine": 7,
+          "endLine": 10,
+          "params": [
+            "rel"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "mysql_count",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "mysql_count",
+          "callee": "docker_compose_exec",
+          "lineNumber": 9
+        },
+        {
+          "caller": "mysql_count",
+          "callee": "int",
+          "lineNumber": 10
+        },
+        {
+          "caller": "mysql_count",
+          "callee": "output.split",
+          "lineNumber": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,6374 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 26,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/datagen/ad_click/ad_click.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 22,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 30,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 35,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "NewAdClickGen",
+          "startLine": 43,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "KafkaTopics",
+          "startLine": 47,
+          "endLine": 49,
+          "params": []
+        },
+        {
+          "name": "Load",
+          "startLine": 51,
+          "endLine": 66,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "clickEvent",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson"
+          ],
+          "properties": [
+            "UserId",
+            "AdId",
+            "ClickTimestamp",
+            "ImpressionTimestamp"
+          ]
+        },
+        {
+          "name": "adClickGen",
+          "startLine": 40,
+          "endLine": 41,
+          "methods": [
+            "KafkaTopics",
+            "Load"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "NewAdClickGen",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaTopics",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Key",
+          "callee": "fmt.Sprint",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Load",
+          "callee": "time.Now",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Load",
+          "callee": "rand.Int63n",
+          "lineNumber": 55
+        },
+        {
+          "caller": "Load",
+          "callee": "rand.Int63n",
+          "lineNumber": 56
+        },
+        {
+          "caller": "Load",
+          "callee": "now.Add(time.Duration(rand.Intn(1000)) * time.Millisecond).Format",
+          "lineNumber": 57
+        },
+        {
+          "caller": "Load",
+          "callee": "now.Add",
+          "lineNumber": 57
+        },
+        {
+          "caller": "Load",
+          "callee": "time.Duration",
+          "lineNumber": 57
+        },
+        {
+          "caller": "Load",
+          "callee": "rand.Intn",
+          "lineNumber": 57
+        },
+        {
+          "caller": "Load",
+          "callee": "now.Format",
+          "lineNumber": 58
+        },
+        {
+          "caller": "Load",
+          "callee": "ctx.Done",
+          "lineNumber": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/ad_ctr/ad_ctr.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 127,
+      "nonEmptyLines": 105,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 23,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 27,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 31,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 36,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "Topic",
+          "startLine": 48,
+          "endLine": 50,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 52,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 56,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 61,
+          "endLine": 64,
+          "params": []
+        },
+        {
+          "name": "NewAdCtrGen",
+          "startLine": 71,
+          "endLine": 76,
+          "params": []
+        },
+        {
+          "name": "getCtr",
+          "startLine": 78,
+          "endLine": 85,
+          "params": [
+            "adId"
+          ]
+        },
+        {
+          "name": "hasClick",
+          "startLine": 87,
+          "endLine": 89,
+          "params": [
+            "adId"
+          ]
+        },
+        {
+          "name": "generate",
+          "startLine": 91,
+          "endLine": 110,
+          "params": []
+        },
+        {
+          "name": "KafkaTopics",
+          "startLine": 112,
+          "endLine": 114,
+          "params": []
+        },
+        {
+          "name": "Load",
+          "startLine": 116,
+          "endLine": 127,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "adImpressionEvent",
+          "startLine": 15,
+          "endLine": 21,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson"
+          ],
+          "properties": [
+            "BidId",
+            "AdId",
+            "ImpressionTimestamp"
+          ]
+        },
+        {
+          "name": "adClickEvent",
+          "startLine": 41,
+          "endLine": 46,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson"
+          ],
+          "properties": [
+            "BidId",
+            "ClickTimestamp"
+          ]
+        },
+        {
+          "name": "adCtrGen",
+          "startLine": 66,
+          "endLine": 69,
+          "methods": [
+            "getCtr",
+            "hasClick",
+            "generate",
+            "KafkaTopics",
+            "Load"
+          ],
+          "properties": [
+            "faker",
+            "ctr"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "Topic",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "NewAdCtrGen",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaTopics",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 116,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Key",
+          "callee": "fmt.Sprint",
+          "lineNumber": 28
+        },
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 32
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 37
+        },
+        {
+          "caller": "Key",
+          "callee": "fmt.Sprint",
+          "lineNumber": 53
+        },
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 57
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 62
+        },
+        {
+          "caller": "NewAdCtrGen",
+          "callee": "make",
+          "lineNumber": 73
+        },
+        {
+          "caller": "NewAdCtrGen",
+          "callee": "gofakeit.New",
+          "lineNumber": 74
+        },
+        {
+          "caller": "getCtr",
+          "callee": "g.faker.Float64Range",
+          "lineNumber": 82
+        },
+        {
+          "caller": "hasClick",
+          "callee": "g.faker.Float64Range",
+          "lineNumber": 88
+        },
+        {
+          "caller": "hasClick",
+          "callee": "g.getCtr",
+          "lineNumber": 88
+        },
+        {
+          "caller": "generate",
+          "callee": "strconv.ParseInt",
+          "lineNumber": 92
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.DigitN",
+          "lineNumber": 92
+        },
+        {
+          "caller": "generate",
+          "callee": "int64",
+          "lineNumber": 93
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 93
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now().Format",
+          "lineNumber": 99
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now",
+          "lineNumber": 99
+        },
+        {
+          "caller": "generate",
+          "callee": "g.hasClick",
+          "lineNumber": 102
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Duration",
+          "lineNumber": 103
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 103
+        },
+        {
+          "caller": "generate",
+          "callee": "int",
+          "lineNumber": 103
+        },
+        {
+          "caller": "generate",
+          "callee": "append",
+          "lineNumber": 104
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now().Add(randomDelay).Format",
+          "lineNumber": 106
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now().Add",
+          "lineNumber": 106
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now",
+          "lineNumber": 106
+        },
+        {
+          "caller": "Load",
+          "callee": "g.generate",
+          "lineNumber": 118
+        },
+        {
+          "caller": "Load",
+          "callee": "ctx.Done",
+          "lineNumber": 122
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 11,
+        "functionCount": 14,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/datagen/cdn_metrics/cdn_metrics.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "NewCdnMetricsGen",
+          "startLine": 13,
+          "endLine": 15,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "KafkaTopics",
+          "startLine": 17,
+          "endLine": 19,
+          "params": []
+        },
+        {
+          "name": "Load",
+          "startLine": 21,
+          "endLine": 32,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "cdnMetricsGen",
+          "startLine": 9,
+          "endLine": 11,
+          "methods": [
+            "KafkaTopics",
+            "Load"
+          ],
+          "properties": [
+            "cfg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NewCdnMetricsGen",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaTopics",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Load",
+          "callee": "func(i int) {\n\t\t\tm := newDeviceTcpMonitor(i, g.cfg)\n\t\t\tm.emulate(ctx, outCh)\n\t\t}",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Load",
+          "callee": "newDeviceTcpMonitor",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Load",
+          "callee": "m.emulate",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Load",
+          "callee": "func(i int) {\n\t\t\tm := newDeviceNicsMonitor(i, g.cfg)\n\t\t\tm.emulate(ctx, outCh)\n\t\t}",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Load",
+          "callee": "newDeviceNicsMonitor",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Load",
+          "callee": "m.emulate",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/datagen/cdn_metrics/nics.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 116,
+      "nonEmptyLines": 102,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 32,
+          "endLine": 34,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 36,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 40,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 48,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "newDeviceNicsMonitor",
+          "startLine": 59,
+          "endLine": 65,
+          "params": [
+            "id",
+            "cfg"
+          ]
+        },
+        {
+          "name": "emulate",
+          "startLine": 67,
+          "endLine": 82,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        },
+        {
+          "name": "generate",
+          "startLine": 84,
+          "endLine": 98,
+          "params": []
+        },
+        {
+          "name": "newMetrics",
+          "startLine": 100,
+          "endLine": 116,
+          "params": [
+            "NicId",
+            "metricName",
+            "aggregation",
+            "reportTime",
+            "value"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "nicsMetric",
+          "startLine": 20,
+          "endLine": 30,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson"
+          ],
+          "properties": [
+            "DeviceId",
+            "MetricName",
+            "Aggregation",
+            "NicName",
+            "ReportTime",
+            "Bandwidth",
+            "Value"
+          ]
+        },
+        {
+          "name": "deviceNicsMonitor",
+          "startLine": 54,
+          "endLine": 57,
+          "methods": [
+            "emulate",
+            "generate",
+            "newMetrics"
+          ],
+          "properties": [
+            "deviceId",
+            "randDist"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 41
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 49
+        },
+        {
+          "caller": "newDeviceNicsMonitor",
+          "callee": "md5.Sum",
+          "lineNumber": 60
+        },
+        {
+          "caller": "newDeviceNicsMonitor",
+          "callee": "strconv.Itoa",
+          "lineNumber": 60
+        },
+        {
+          "caller": "newDeviceNicsMonitor",
+          "callee": "hex.EncodeToString",
+          "lineNumber": 62
+        },
+        {
+          "caller": "newDeviceNicsMonitor",
+          "callee": "gen.NewRandDist",
+          "lineNumber": 63
+        },
+        {
+          "caller": "emulate",
+          "callee": "m.generate",
+          "lineNumber": 69
+        },
+        {
+          "caller": "emulate",
+          "callee": "ctx.Done",
+          "lineNumber": 73
+        },
+        {
+          "caller": "emulate",
+          "callee": "ctx.Done",
+          "lineNumber": 78
+        },
+        {
+          "caller": "emulate",
+          "callee": "time.NewTicker",
+          "lineNumber": 79
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now",
+          "lineNumber": 85
+        },
+        {
+          "caller": "generate",
+          "callee": "impl.randDist.Rand",
+          "lineNumber": 89
+        },
+        {
+          "caller": "generate",
+          "callee": "impl.randDist.Rand",
+          "lineNumber": 91
+        },
+        {
+          "caller": "generate",
+          "callee": "append",
+          "lineNumber": 92
+        },
+        {
+          "caller": "generate",
+          "callee": "impl.newMetrics",
+          "lineNumber": 93
+        },
+        {
+          "caller": "generate",
+          "callee": "int64",
+          "lineNumber": 93
+        },
+        {
+          "caller": "generate",
+          "callee": "impl.newMetrics",
+          "lineNumber": 94
+        },
+        {
+          "caller": "generate",
+          "callee": "int64",
+          "lineNumber": 94
+        },
+        {
+          "caller": "newMetrics",
+          "callee": "strconv.Itoa",
+          "lineNumber": 111
+        },
+        {
+          "caller": "newMetrics",
+          "callee": "reportTime.Format",
+          "lineNumber": 112
+        },
+        {
+          "caller": "newMetrics",
+          "callee": "float64",
+          "lineNumber": 114
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 8,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/cdn_metrics/tcp.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 82,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 24,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 28,
+          "endLine": 30,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 32,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 37,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "newDeviceTcpMonitor",
+          "startLine": 48,
+          "endLine": 54,
+          "params": [
+            "id",
+            "cfg"
+          ]
+        },
+        {
+          "name": "emulate",
+          "startLine": 56,
+          "endLine": 72,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        },
+        {
+          "name": "generate",
+          "startLine": 74,
+          "endLine": 87,
+          "params": []
+        },
+        {
+          "name": "newMetrics",
+          "startLine": 89,
+          "endLine": 96,
+          "params": [
+            "metricName",
+            "reportTime",
+            "value"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "tcpMetric",
+          "startLine": 15,
+          "endLine": 22,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson"
+          ],
+          "properties": [
+            "DeviceId",
+            "ReportTime",
+            "MetricName",
+            "Value"
+          ]
+        },
+        {
+          "name": "deviceTcpMonitor",
+          "startLine": 43,
+          "endLine": 46,
+          "methods": [
+            "emulate",
+            "generate",
+            "newMetrics"
+          ],
+          "properties": [
+            "deviceId",
+            "randDist"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 33
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 38
+        },
+        {
+          "caller": "newDeviceTcpMonitor",
+          "callee": "md5.Sum",
+          "lineNumber": 49
+        },
+        {
+          "caller": "newDeviceTcpMonitor",
+          "callee": "strconv.Itoa",
+          "lineNumber": 49
+        },
+        {
+          "caller": "newDeviceTcpMonitor",
+          "callee": "hex.EncodeToString",
+          "lineNumber": 51
+        },
+        {
+          "caller": "newDeviceTcpMonitor",
+          "callee": "gen.NewRandDist",
+          "lineNumber": 52
+        },
+        {
+          "caller": "emulate",
+          "callee": "m.generate",
+          "lineNumber": 58
+        },
+        {
+          "caller": "emulate",
+          "callee": "ctx.Done",
+          "lineNumber": 61
+        },
+        {
+          "caller": "emulate",
+          "callee": "ctx.Done",
+          "lineNumber": 68
+        },
+        {
+          "caller": "emulate",
+          "callee": "time.NewTicker",
+          "lineNumber": 69
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now",
+          "lineNumber": 75
+        },
+        {
+          "caller": "generate",
+          "callee": "m.randDist.Rand",
+          "lineNumber": 77
+        },
+        {
+          "caller": "generate",
+          "callee": "m.randDist.Rand",
+          "lineNumber": 78
+        },
+        {
+          "caller": "generate",
+          "callee": "m.randDist.Rand",
+          "lineNumber": 79
+        },
+        {
+          "caller": "generate",
+          "callee": "m.newMetrics",
+          "lineNumber": 82
+        },
+        {
+          "caller": "generate",
+          "callee": "m.newMetrics",
+          "lineNumber": 84
+        },
+        {
+          "caller": "generate",
+          "callee": "m.newMetrics",
+          "lineNumber": 85
+        },
+        {
+          "caller": "newMetrics",
+          "callee": "reportTime.Format",
+          "lineNumber": 93
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 8,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/clickstream/clickstream.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 161,
+      "nonEmptyLines": 142,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 35,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 39,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 46,
+          "endLine": 49,
+          "params": []
+        },
+        {
+          "name": "NewClickStreamGen",
+          "startLine": 57,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "randTargetType",
+          "startLine": 63,
+          "endLine": 74,
+          "params": []
+        },
+        {
+          "name": "randBehaviorType",
+          "startLine": 76,
+          "endLine": 118,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "generate",
+          "startLine": 120,
+          "endLine": 146,
+          "params": []
+        },
+        {
+          "name": "KafkaTopics",
+          "startLine": 148,
+          "endLine": 150,
+          "params": []
+        },
+        {
+          "name": "Load",
+          "startLine": 152,
+          "endLine": 161,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "userBehavior",
+          "startLine": 14,
+          "endLine": 29,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson"
+          ],
+          "properties": [
+            "UserId",
+            "TargetId",
+            "TargetType",
+            "EventTimestamp",
+            "BehaviorType",
+            "ParentTargetType",
+            "ParentTargetId"
+          ]
+        },
+        {
+          "name": "clickStreamGen",
+          "startLine": 53,
+          "endLine": 55,
+          "methods": [
+            "randTargetType",
+            "randBehaviorType",
+            "generate",
+            "KafkaTopics",
+            "Load"
+          ],
+          "properties": [
+            "faker"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "NewClickStreamGen",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaTopics",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 152,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 40
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 47
+        },
+        {
+          "caller": "NewClickStreamGen",
+          "callee": "gofakeit.New",
+          "lineNumber": 59
+        },
+        {
+          "caller": "randTargetType",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 64
+        },
+        {
+          "caller": "randTargetType",
+          "callee": "panic",
+          "lineNumber": 72
+        },
+        {
+          "caller": "randTargetType",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 72
+        },
+        {
+          "caller": "randBehaviorType",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 79
+        },
+        {
+          "caller": "randBehaviorType",
+          "callee": "panic",
+          "lineNumber": 95
+        },
+        {
+          "caller": "randBehaviorType",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 95
+        },
+        {
+          "caller": "randBehaviorType",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 106
+        },
+        {
+          "caller": "randBehaviorType",
+          "callee": "len",
+          "lineNumber": 106
+        },
+        {
+          "caller": "randBehaviorType",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 114
+        },
+        {
+          "caller": "randBehaviorType",
+          "callee": "len",
+          "lineNumber": 114
+        },
+        {
+          "caller": "randBehaviorType",
+          "callee": "panic",
+          "lineNumber": 116
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 122
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 123
+        },
+        {
+          "caller": "generate",
+          "callee": "g.randTargetType",
+          "lineNumber": 124
+        },
+        {
+          "caller": "generate",
+          "callee": "g.randBehaviorType",
+          "lineNumber": 125
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 133
+        },
+        {
+          "caller": "generate",
+          "callee": "len",
+          "lineNumber": 133
+        },
+        {
+          "caller": "generate",
+          "callee": "fmt.Sprint",
+          "lineNumber": 134
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 134
+        },
+        {
+          "caller": "generate",
+          "callee": "fmt.Sprint",
+          "lineNumber": 138
+        },
+        {
+          "caller": "generate",
+          "callee": "string",
+          "lineNumber": 139
+        },
+        {
+          "caller": "generate",
+          "callee": "fmt.Sprint",
+          "lineNumber": 139
+        },
+        {
+          "caller": "generate",
+          "callee": "string",
+          "lineNumber": 140
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now().Format",
+          "lineNumber": 141
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now",
+          "lineNumber": 141
+        },
+        {
+          "caller": "Load",
+          "callee": "g.generate",
+          "lineNumber": 154
+        },
+        {
+          "caller": "Load",
+          "callee": "ctx.Done",
+          "lineNumber": 156
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 7,
+        "functionCount": 10,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/compatible_data/compatible_data.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 199,
+      "nonEmptyLines": 184,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 55,
+          "endLine": 57,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 59,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 63,
+          "endLine": 65,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 67,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "ToProtobuf",
+          "startLine": 75,
+          "endLine": 77,
+          "params": []
+        },
+        {
+          "name": "ToAvro",
+          "startLine": 79,
+          "endLine": 81,
+          "params": []
+        },
+        {
+          "name": "NewCompatibleDataGen",
+          "startLine": 87,
+          "endLine": 89,
+          "params": []
+        },
+        {
+          "name": "GenData",
+          "startLine": 91,
+          "endLine": 184,
+          "params": []
+        },
+        {
+          "name": "KafkaTopics",
+          "startLine": 186,
+          "endLine": 188,
+          "params": []
+        },
+        {
+          "name": "Load",
+          "startLine": 190,
+          "endLine": 199,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Struct",
+          "startLine": 13,
+          "endLine": 16,
+          "methods": [],
+          "properties": [
+            "S_int32",
+            "S_bool"
+          ]
+        },
+        {
+          "name": "compatibleData",
+          "startLine": 18,
+          "endLine": 53,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson",
+            "ToProtobuf",
+            "ToAvro"
+          ],
+          "properties": [
+            "Id",
+            "C_boolean",
+            "C_smallint",
+            "C_integer",
+            "C_bigint",
+            "C_decimal",
+            "C_real",
+            "C_double_precision",
+            "C_varchar",
+            "C_bytea",
+            "C_date",
+            "C_time",
+            "C_timestamp",
+            "C_timestamptz",
+            "C_interval",
+            "C_jsonb",
+            "C_boolean_array",
+            "C_smallint_array",
+            "C_integer_array",
+            "C_bigint_array",
+            "C_decimal_array",
+            "C_real_array",
+            "C_double_precision_array",
+            "C_varchar_array",
+            "C_bytea_array",
+            "C_date_array",
+            "C_time_array",
+            "C_timestamp_array",
+            "C_timestamptz_array",
+            "C_interval_array",
+            "C_jsonb_array",
+            "C_struct"
+          ]
+        },
+        {
+          "name": "compatibleDataGen",
+          "startLine": 83,
+          "endLine": 85,
+          "methods": [
+            "GenData",
+            "KafkaTopics",
+            "Load"
+          ],
+          "properties": [
+            "recordSum"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Struct",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "Topic",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "ToProtobuf",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "ToAvro",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "NewCompatibleDataGen",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "GenData",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaTopics",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 190,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Key",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 60
+        },
+        {
+          "caller": "ToPostgresSql",
+          "callee": "panic",
+          "lineNumber": 64
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 68
+        },
+        {
+          "caller": "ToJson",
+          "callee": "panic",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ToProtobuf",
+          "callee": "panic",
+          "lineNumber": 76
+        },
+        {
+          "caller": "ToAvro",
+          "callee": "panic",
+          "lineNumber": 80
+        },
+        {
+          "caller": "GenData",
+          "callee": "strings.Repeat",
+          "lineNumber": 158
+        },
+        {
+          "caller": "GenData",
+          "callee": "strings.Repeat",
+          "lineNumber": 159
+        },
+        {
+          "caller": "Load",
+          "callee": "g.GenData",
+          "lineNumber": 192
+        },
+        {
+          "caller": "Load",
+          "callee": "ctx.Done",
+          "lineNumber": 194
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 11,
+        "functionCount": 10,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/datagen/delivery/delivery.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 81,
+      "nonEmptyLines": 68,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 22,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 26,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 30,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 35,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "NewOrderEventGen",
+          "startLine": 45,
+          "endLine": 50,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "KafkaTopics",
+          "startLine": 52,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "Load",
+          "startLine": 56,
+          "endLine": 81,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "orderEvent",
+          "startLine": 13,
+          "endLine": 20,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson"
+          ],
+          "properties": [
+            "OrderId",
+            "RestaurantId",
+            "OrderState",
+            "OrderTimestamp"
+          ]
+        },
+        {
+          "name": "orderEventGen",
+          "startLine": 40,
+          "endLine": 43,
+          "methods": [
+            "KafkaTopics",
+            "Load"
+          ],
+          "properties": [
+            "seqOrderId",
+            "cfg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "NewOrderEventGen",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaTopics",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 56,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Key",
+          "callee": "fmt.Sprint",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Load",
+          "callee": "time.Now",
+          "lineNumber": 67
+        },
+        {
+          "caller": "Load",
+          "callee": "rand.Int63n",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Load",
+          "callee": "rand.Intn",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Load",
+          "callee": "len",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Load",
+          "callee": "now.Add(time.Duration(rand.Intn(total_minutes)) * time.Minute).Format",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Load",
+          "callee": "now.Add",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Load",
+          "callee": "time.Duration",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Load",
+          "callee": "rand.Intn",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Load",
+          "callee": "ctx.Done",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/ecommerce/ecommerce.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 155,
+      "nonEmptyLines": 133,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 25,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 29,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 33,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 40,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "Topic",
+          "startLine": 55,
+          "endLine": 57,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 59,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 63,
+          "endLine": 68,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 70,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "NewEcommerceGen",
+          "startLine": 87,
+          "endLine": 99,
+          "params": []
+        },
+        {
+          "name": "KafkaTopics",
+          "startLine": 101,
+          "endLine": 103,
+          "params": []
+        },
+        {
+          "name": "generate",
+          "startLine": 105,
+          "endLine": 142,
+          "params": []
+        },
+        {
+          "name": "Load",
+          "startLine": 144,
+          "endLine": 155,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "orderEvent",
+          "startLine": 16,
+          "endLine": 23,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson"
+          ],
+          "properties": [
+            "OrderId",
+            "ItemId",
+            "ItemPrice",
+            "EventTimestamp"
+          ]
+        },
+        {
+          "name": "parcelEvent",
+          "startLine": 47,
+          "endLine": 53,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson"
+          ],
+          "properties": [
+            "OrderId",
+            "EventTimestamp",
+            "EventType"
+          ]
+        },
+        {
+          "name": "ecommerceGen",
+          "startLine": 75,
+          "endLine": 85,
+          "methods": [
+            "KafkaTopics",
+            "generate",
+            "Load"
+          ],
+          "properties": [
+            "faker",
+            "seqOrderId",
+            "seqShipId",
+            "items"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "Topic",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "NewEcommerceGen",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaTopics",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 144,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Key",
+          "callee": "fmt.Sprint",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 34
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Key",
+          "callee": "fmt.Sprint",
+          "lineNumber": 60
+        },
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 64
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 71
+        },
+        {
+          "caller": "NewEcommerceGen",
+          "callee": "make",
+          "lineNumber": 89
+        },
+        {
+          "caller": "NewEcommerceGen",
+          "callee": "gofakeit.Float64Range",
+          "lineNumber": 91
+        },
+        {
+          "caller": "NewEcommerceGen",
+          "callee": "gofakeit.New",
+          "lineNumber": 94
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now().Format",
+          "lineNumber": 106
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now",
+          "lineNumber": 106
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.Bool",
+          "lineNumber": 108
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.IntRange",
+          "lineNumber": 111
+        },
+        {
+          "caller": "generate",
+          "callee": "make",
+          "lineNumber": 112
+        },
+        {
+          "caller": "generate",
+          "callee": "rand.Intn",
+          "lineNumber": 114
+        },
+        {
+          "caller": "generate",
+          "callee": "len",
+          "lineNumber": 114
+        },
+        {
+          "caller": "generate",
+          "callee": "int64",
+          "lineNumber": 118
+        },
+        {
+          "caller": "generate",
+          "callee": "append",
+          "lineNumber": 124
+        },
+        {
+          "caller": "generate",
+          "callee": "append",
+          "lineNumber": 125
+        },
+        {
+          "caller": "Load",
+          "callee": "g.generate",
+          "lineNumber": 146
+        },
+        {
+          "caller": "Load",
+          "callee": "ctx.Done",
+          "lineNumber": 149
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 11,
+        "functionCount": 12,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/datagen/gen/generator.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 108,
+      "nonEmptyLines": 91,
+      "functions": [
+        {
+          "name": "NewRandDist",
+          "startLine": 64,
+          "endLine": 70,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "Rand",
+          "startLine": 76,
+          "endLine": 89,
+          "params": [
+            "max"
+          ]
+        },
+        {
+          "name": "Rand",
+          "startLine": 96,
+          "endLine": 108,
+          "params": [
+            "max"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GeneratorConfig",
+          "startLine": 18,
+          "endLine": 48,
+          "methods": [],
+          "properties": [
+            "Postgres",
+            "Mysql",
+            "Kafka",
+            "Pulsar",
+            "Kinesis",
+            "S3",
+            "Nats",
+            "PrintInsert",
+            "Mode",
+            "Sink",
+            "Qps",
+            "HeavyTail",
+            "Format",
+            "Topic",
+            "TotalEvents"
+          ]
+        },
+        {
+          "name": "LoadGenerator",
+          "startLine": 50,
+          "endLine": 54,
+          "methods": [
+            "KafkaTopics",
+            "Load"
+          ],
+          "properties": []
+        },
+        {
+          "name": "RandDist",
+          "startLine": 59,
+          "endLine": 62,
+          "methods": [
+            "Rand"
+          ],
+          "properties": []
+        },
+        {
+          "name": "UniformDist",
+          "startLine": 72,
+          "endLine": 74,
+          "methods": [
+            "Rand"
+          ],
+          "properties": [
+            "u"
+          ]
+        },
+        {
+          "name": "PoissonDist",
+          "startLine": 92,
+          "endLine": 94,
+          "methods": [
+            "Rand"
+          ],
+          "properties": [
+            "ps"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "GeneratorConfig",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "LoadGenerator",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "RandDist",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "NewRandDist",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "UniformDist",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "Rand",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "PoissonDist",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "Rand",
+          "line": 96,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Rand",
+          "callee": "make",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Rand",
+          "callee": "ud.u[max].Rand",
+          "lineNumber": 87
+        },
+        {
+          "caller": "Rand",
+          "callee": "make",
+          "lineNumber": 98
+        },
+        {
+          "caller": "Rand",
+          "callee": "pd.ps[max].Rand",
+          "lineNumber": 106
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 8,
+        "functionCount": 3,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "integration_tests/datagen/livestream/livestream.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 155,
+      "nonEmptyLines": 138,
+      "functions": [
+        {
+          "name": "emulate",
+          "startLine": 27,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "reportMetric",
+          "startLine": 45,
+          "endLine": 59,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        },
+        {
+          "name": "Topic",
+          "startLine": 78,
+          "endLine": 80,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 82,
+          "endLine": 84,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 86,
+          "endLine": 94,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 96,
+          "endLine": 99,
+          "params": []
+        },
+        {
+          "name": "ToProtobuf",
+          "startLine": 101,
+          "endLine": 121,
+          "params": []
+        },
+        {
+          "name": "NewLiveStreamMetricsGen",
+          "startLine": 128,
+          "endLine": 133,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "KafkaTopics",
+          "startLine": 135,
+          "endLine": 137,
+          "params": []
+        },
+        {
+          "name": "Load",
+          "startLine": 139,
+          "endLine": 155,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "liveClient",
+          "startLine": 17,
+          "endLine": 25,
+          "methods": [
+            "emulate",
+            "reportMetric"
+          ],
+          "properties": [
+            "faker",
+            "ip",
+            "agent",
+            "id",
+            "country",
+            "roomId"
+          ]
+        },
+        {
+          "name": "liveMetric",
+          "startLine": 61,
+          "endLine": 76,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson",
+            "ToProtobuf"
+          ],
+          "properties": [
+            "Ip",
+            "Agent",
+            "Id",
+            "RoomId",
+            "VideoBps",
+            "VideoFps",
+            "VideoRtt",
+            "VideoLostPps",
+            "VideoLongestFreezeDuration",
+            "VideoTotalFreezeDuration",
+            "ReportTimestamp",
+            "Country"
+          ]
+        },
+        {
+          "name": "liveStreamMetricsGen",
+          "startLine": 123,
+          "endLine": 126,
+          "methods": [
+            "KafkaTopics",
+            "Load"
+          ],
+          "properties": [
+            "faker",
+            "cfg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "ToProtobuf",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "NewLiveStreamMetricsGen",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaTopics",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 139,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "emulate",
+          "callee": "int64",
+          "lineNumber": 28
+        },
+        {
+          "caller": "emulate",
+          "callee": "c.faker.UintRange",
+          "lineNumber": 28
+        },
+        {
+          "caller": "emulate",
+          "callee": "int64",
+          "lineNumber": 35
+        },
+        {
+          "caller": "emulate",
+          "callee": "c.faker.UintRange",
+          "lineNumber": 35
+        },
+        {
+          "caller": "emulate",
+          "callee": "int64",
+          "lineNumber": 36
+        },
+        {
+          "caller": "emulate",
+          "callee": "c.faker.UintRange",
+          "lineNumber": 36
+        },
+        {
+          "caller": "emulate",
+          "callee": "int64",
+          "lineNumber": 37
+        },
+        {
+          "caller": "emulate",
+          "callee": "c.faker.UintRange",
+          "lineNumber": 37
+        },
+        {
+          "caller": "emulate",
+          "callee": "int64",
+          "lineNumber": 38
+        },
+        {
+          "caller": "emulate",
+          "callee": "c.faker.UintRange",
+          "lineNumber": 38
+        },
+        {
+          "caller": "emulate",
+          "callee": "int64",
+          "lineNumber": 40
+        },
+        {
+          "caller": "emulate",
+          "callee": "c.faker.UintRange",
+          "lineNumber": 40
+        },
+        {
+          "caller": "emulate",
+          "callee": "time.Now().Format",
+          "lineNumber": 41
+        },
+        {
+          "caller": "emulate",
+          "callee": "time.Now",
+          "lineNumber": 41
+        },
+        {
+          "caller": "reportMetric",
+          "callee": "time.NewTicker",
+          "lineNumber": 48
+        },
+        {
+          "caller": "reportMetric",
+          "callee": "c.emulate",
+          "lineNumber": 49
+        },
+        {
+          "caller": "reportMetric",
+          "callee": "ctx.Done",
+          "lineNumber": 52
+        },
+        {
+          "caller": "reportMetric",
+          "callee": "ctx.Done",
+          "lineNumber": 55
+        },
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 87
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 97
+        },
+        {
+          "caller": "ToProtobuf",
+          "callee": "time.Now().Unix",
+          "lineNumber": 113
+        },
+        {
+          "caller": "ToProtobuf",
+          "callee": "time.Now",
+          "lineNumber": 113
+        },
+        {
+          "caller": "ToProtobuf",
+          "callee": "protobuf.Marshal",
+          "lineNumber": 116
+        },
+        {
+          "caller": "ToProtobuf",
+          "callee": "panic",
+          "lineNumber": 118
+        },
+        {
+          "caller": "NewLiveStreamMetricsGen",
+          "callee": "gofakeit.New",
+          "lineNumber": 130
+        },
+        {
+          "caller": "Load",
+          "callee": "int",
+          "lineNumber": 141
+        },
+        {
+          "caller": "Load",
+          "callee": "math.Min",
+          "lineNumber": 141
+        },
+        {
+          "caller": "Load",
+          "callee": "float64",
+          "lineNumber": 141
+        },
+        {
+          "caller": "Load",
+          "callee": "func(i int) {\n\t\t\tc := &liveClient{\n\t\t\t\tfaker:   g.faker,\n\t\t\t\tid:      fmt.Sprint(i),\n\t\t\t\tagent:   g.faker.UserAgent(),\n\t\t\t\tip:      fmt.Sprintf(\"%s:%d\", g.faker.IPv4Address(), g.faker.Uint16()),\n\t\t\t\tcountry: g.faker.Country(),\n\t\t\t\troomId:  fmt.Sprint(g.faker.Uint32()),\n\t\t\t}\n\t\t\tc.reportMetric(ctx, outCh)\n\t\t}",
+          "lineNumber": 143
+        },
+        {
+          "caller": "Load",
+          "callee": "fmt.Sprint",
+          "lineNumber": 146
+        },
+        {
+          "caller": "Load",
+          "callee": "g.faker.UserAgent",
+          "lineNumber": 147
+        },
+        {
+          "caller": "Load",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 148
+        },
+        {
+          "caller": "Load",
+          "callee": "g.faker.IPv4Address",
+          "lineNumber": 148
+        },
+        {
+          "caller": "Load",
+          "callee": "g.faker.Uint16",
+          "lineNumber": 148
+        },
+        {
+          "caller": "Load",
+          "callee": "g.faker.Country",
+          "lineNumber": 149
+        },
+        {
+          "caller": "Load",
+          "callee": "fmt.Sprint",
+          "lineNumber": 150
+        },
+        {
+          "caller": "Load",
+          "callee": "g.faker.Uint32",
+          "lineNumber": 150
+        },
+        {
+          "caller": "Load",
+          "callee": "c.reportMetric",
+          "lineNumber": 152
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 8,
+        "functionCount": 10,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/datagen/livestream/proto/livestream.pb.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 256,
+      "nonEmptyLines": 228,
+      "functions": [
+        {
+          "name": "Reset",
+          "startLine": 42,
+          "endLine": 49,
+          "params": []
+        },
+        {
+          "name": "String",
+          "startLine": 51,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "ProtoMessage",
+          "startLine": 55,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "ProtoReflect",
+          "startLine": 57,
+          "endLine": 67,
+          "params": []
+        },
+        {
+          "name": "Descriptor",
+          "startLine": 70,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "GetClientIp",
+          "startLine": 74,
+          "endLine": 79,
+          "params": []
+        },
+        {
+          "name": "GetUserAgent",
+          "startLine": 81,
+          "endLine": 86,
+          "params": []
+        },
+        {
+          "name": "GetUserId",
+          "startLine": 88,
+          "endLine": 93,
+          "params": []
+        },
+        {
+          "name": "GetRoomId",
+          "startLine": 95,
+          "endLine": 100,
+          "params": []
+        },
+        {
+          "name": "GetVideoBps",
+          "startLine": 102,
+          "endLine": 107,
+          "params": []
+        },
+        {
+          "name": "GetVideoFps",
+          "startLine": 109,
+          "endLine": 114,
+          "params": []
+        },
+        {
+          "name": "GetVideoRtt",
+          "startLine": 116,
+          "endLine": 121,
+          "params": []
+        },
+        {
+          "name": "GetVideoLostPps",
+          "startLine": 123,
+          "endLine": 128,
+          "params": []
+        },
+        {
+          "name": "GetVideoLongestFreezeDuration",
+          "startLine": 130,
+          "endLine": 135,
+          "params": []
+        },
+        {
+          "name": "GetVideoTotalFreezeDuration",
+          "startLine": 137,
+          "endLine": 142,
+          "params": []
+        },
+        {
+          "name": "GetReportTimestamp",
+          "startLine": 144,
+          "endLine": 149,
+          "params": []
+        },
+        {
+          "name": "GetCountry",
+          "startLine": 151,
+          "endLine": 156,
+          "params": []
+        },
+        {
+          "name": "file_livestream_proto_rawDescGZIP",
+          "startLine": 200,
+          "endLine": 205,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 219,
+          "endLine": 219,
+          "params": []
+        },
+        {
+          "name": "file_livestream_proto_init",
+          "startLine": 220,
+          "endLine": 256,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LiveStreamMetrics",
+          "startLine": 23,
+          "endLine": 40,
+          "methods": [
+            "Reset",
+            "String",
+            "ProtoMessage",
+            "ProtoReflect",
+            "Descriptor",
+            "GetClientIp",
+            "GetUserAgent",
+            "GetUserId",
+            "GetRoomId",
+            "GetVideoBps",
+            "GetVideoFps",
+            "GetVideoRtt",
+            "GetVideoLostPps",
+            "GetVideoLongestFreezeDuration",
+            "GetVideoTotalFreezeDuration",
+            "GetReportTimestamp",
+            "GetCountry"
+          ],
+          "properties": [
+            "state",
+            "sizeCache",
+            "unknownFields",
+            "ClientIp",
+            "UserAgent",
+            "UserId",
+            "RoomId",
+            "VideoBps",
+            "VideoFps",
+            "VideoRtt",
+            "VideoLostPps",
+            "VideoLongestFreezeDuration",
+            "VideoTotalFreezeDuration",
+            "ReportTimestamp",
+            "Country"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LiveStreamMetrics",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "Reset",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "String",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "ProtoMessage",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "ProtoReflect",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "Descriptor",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "GetClientIp",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "GetUserAgent",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "GetUserId",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "GetRoomId",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "GetVideoBps",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "GetVideoFps",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "GetVideoRtt",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "GetVideoLostPps",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "GetVideoLongestFreezeDuration",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "GetVideoTotalFreezeDuration",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "GetReportTimestamp",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "GetCountry",
+          "line": 151,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Reset",
+          "callee": "protoimpl.X.MessageStateOf",
+          "lineNumber": 46
+        },
+        {
+          "caller": "Reset",
+          "callee": "protoimpl.Pointer",
+          "lineNumber": 46
+        },
+        {
+          "caller": "Reset",
+          "callee": "ms.StoreMessageInfo",
+          "lineNumber": 47
+        },
+        {
+          "caller": "String",
+          "callee": "protoimpl.X.MessageStringOf",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "protoimpl.X.MessageStateOf",
+          "lineNumber": 60
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "protoimpl.Pointer",
+          "lineNumber": 60
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "ms.LoadMessageInfo",
+          "lineNumber": 61
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "ms.StoreMessageInfo",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "mi.MessageOf",
+          "lineNumber": 66
+        },
+        {
+          "caller": "Descriptor",
+          "callee": "file_livestream_proto_rawDescGZIP",
+          "lineNumber": 71
+        },
+        {
+          "caller": "file_livestream_proto_rawDescGZIP",
+          "callee": "file_livestream_proto_rawDescOnce.Do",
+          "lineNumber": 201
+        },
+        {
+          "caller": "file_livestream_proto_rawDescGZIP",
+          "callee": "protoimpl.X.CompressGZIP",
+          "lineNumber": 202
+        },
+        {
+          "caller": "init",
+          "callee": "file_livestream_proto_init",
+          "lineNumber": 219
+        },
+        {
+          "caller": "file_livestream_proto_init",
+          "callee": "protoimpl.TypeBuilder{\n\t\tFile: protoimpl.DescBuilder{\n\t\t\tGoPackagePath: reflect.TypeOf(x{}).PkgPath(),\n\t\t\tRawDescriptor: file_livestream_proto_rawDesc,\n\t\t\tNumEnums:      0,\n\t\t\tNumMessages:   1,\n\t\t\tNumExtensions: 0,\n\t\t\tNumServices:   0,\n\t\t},\n\t\tGoTypes:           file_livestream_proto_goTypes,\n\t\tDependencyIndexes: file_livestream_proto_depIdxs,\n\t\tMessageInfos:      file_livestream_proto_msgTypes,\n\t}.Build",
+          "lineNumber": 239
+        },
+        {
+          "caller": "file_livestream_proto_init",
+          "callee": "reflect.TypeOf(x{}).PkgPath",
+          "lineNumber": 241
+        },
+        {
+          "caller": "file_livestream_proto_init",
+          "callee": "reflect.TypeOf",
+          "lineNumber": 241
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 18,
+        "functionCount": 20,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/datagen/load_gen.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 163,
+      "nonEmptyLines": 152,
+      "functions": [
+        {
+          "name": "createSink",
+          "startLine": 31,
+          "endLine": 49,
+          "params": [
+            "ctx",
+            "cfg"
+          ]
+        },
+        {
+          "name": "newGen",
+          "startLine": 52,
+          "endLine": 76,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "spawnGen",
+          "startLine": 79,
+          "endLine": 86,
+          "params": [
+            "ctx",
+            "cfg",
+            "outCh"
+          ]
+        },
+        {
+          "name": "generateLoad",
+          "startLine": 89,
+          "endLine": 163,
+          "params": [
+            "ctx",
+            "cfg"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "createSink",
+          "callee": "postgres.OpenPostgresSink",
+          "lineNumber": 33
+        },
+        {
+          "caller": "createSink",
+          "callee": "mysql.OpenMysqlSink",
+          "lineNumber": 35
+        },
+        {
+          "caller": "createSink",
+          "callee": "kafka.OpenKafkaSink",
+          "lineNumber": 37
+        },
+        {
+          "caller": "createSink",
+          "callee": "pulsar.OpenPulsarSink",
+          "lineNumber": 39
+        },
+        {
+          "caller": "createSink",
+          "callee": "kinesis.OpenKinesisSink",
+          "lineNumber": 41
+        },
+        {
+          "caller": "createSink",
+          "callee": "s3.OpenS3Sink",
+          "lineNumber": 43
+        },
+        {
+          "caller": "createSink",
+          "callee": "nats.OpenNatsSink",
+          "lineNumber": 45
+        },
+        {
+          "caller": "createSink",
+          "callee": "fmt.Errorf",
+          "lineNumber": 47
+        },
+        {
+          "caller": "newGen",
+          "callee": "ad_click.NewAdClickGen",
+          "lineNumber": 54
+        },
+        {
+          "caller": "newGen",
+          "callee": "ad_ctr.NewAdCtrGen",
+          "lineNumber": 56
+        },
+        {
+          "caller": "newGen",
+          "callee": "twitter.NewTwitterGen",
+          "lineNumber": 58
+        },
+        {
+          "caller": "newGen",
+          "callee": "cdn_metrics.NewCdnMetricsGen",
+          "lineNumber": 60
+        },
+        {
+          "caller": "newGen",
+          "callee": "clickstream.NewClickStreamGen",
+          "lineNumber": 62
+        },
+        {
+          "caller": "newGen",
+          "callee": "ecommerce.NewEcommerceGen",
+          "lineNumber": 64
+        },
+        {
+          "caller": "newGen",
+          "callee": "delivery.NewOrderEventGen",
+          "lineNumber": 66
+        },
+        {
+          "caller": "newGen",
+          "callee": "livestream.NewLiveStreamMetricsGen",
+          "lineNumber": 68
+        },
+        {
+          "caller": "newGen",
+          "callee": "nexmark.NewNexmarkGen",
+          "lineNumber": 70
+        },
+        {
+          "caller": "newGen",
+          "callee": "compatible_data.NewCompatibleDataGen",
+          "lineNumber": 72
+        },
+        {
+          "caller": "newGen",
+          "callee": "fmt.Errorf",
+          "lineNumber": 74
+        },
+        {
+          "caller": "spawnGen",
+          "callee": "newGen",
+          "lineNumber": 80
+        },
+        {
+          "caller": "spawnGen",
+          "callee": "gen.Load",
+          "lineNumber": 84
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "createSink",
+          "lineNumber": 90
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "func() {\n\t\tif err = sinkImpl.Close(); err != nil {\n\t\t\tlog.Print(err)\n\t\t}\n\t}",
+          "lineNumber": 94
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "sinkImpl.Close",
+          "lineNumber": 95
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "log.Print",
+          "lineNumber": 96
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "make",
+          "lineNumber": 100
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "spawnGen",
+          "lineNumber": 101
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "sinkImpl.Prepare",
+          "lineNumber": 106
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "gen.KafkaTopics",
+          "lineNumber": 106
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "int64",
+          "lineNumber": 111
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Now",
+          "lineNumber": 112
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Now",
+          "lineNumber": 113
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.NewTicker",
+          "lineNumber": 114
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "ticker.Stop",
+          "lineNumber": 115
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "ratelimit.New",
+          "lineNumber": 116
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "ctx.Done",
+          "lineNumber": 119
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Since",
+          "lineNumber": 122
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "log.Printf",
+          "lineNumber": 123
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Since(initTime).String",
+          "lineNumber": 123
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Since",
+          "lineNumber": 123
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Now",
+          "lineNumber": 124
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "sinkImpl.Flush",
+          "lineNumber": 127
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "record.Topic",
+          "lineNumber": 133
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "fmt.Println",
+          "lineNumber": 137
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "record.ToPostgresSql",
+          "lineNumber": 137
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "sinkImpl.WriteRecord",
+          "lineNumber": 140
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "rl.Take",
+          "lineNumber": 143
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Since",
+          "lineNumber": 145
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "log.Printf",
+          "lineNumber": 146
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Since(initTime).String",
+          "lineNumber": 146
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Since",
+          "lineNumber": 146
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Now",
+          "lineNumber": 147
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "sinkImpl.Flush",
+          "lineNumber": 150
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "sinkImpl.Flush",
+          "lineNumber": 155
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "log.Printf",
+          "lineNumber": 158
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Since(initTime).String",
+          "lineNumber": 158
+        },
+        {
+          "caller": "generateLoad",
+          "callee": "time.Since",
+          "lineNumber": 158
+        }
+      ],
+      "metrics": {
+        "importCount": 22,
+        "exportCount": 0,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/datagen/main.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 283,
+      "nonEmptyLines": 276,
+      "functions": [
+        {
+          "name": "runCommand",
+          "startLine": 16,
+          "endLine": 27,
+          "params": []
+        },
+        {
+          "name": "main",
+          "startLine": 29,
+          "endLine": 283,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "runCommand",
+          "callee": "make",
+          "lineNumber": 17
+        },
+        {
+          "caller": "runCommand",
+          "callee": "signal.Notify",
+          "lineNumber": 18
+        },
+        {
+          "caller": "runCommand",
+          "callee": "context.WithCancel",
+          "lineNumber": 20
+        },
+        {
+          "caller": "runCommand",
+          "callee": "context.Background",
+          "lineNumber": 20
+        },
+        {
+          "caller": "runCommand",
+          "callee": "func() {\n\t\t<-terminateCh\n\t\tlog.Println(\"Cancelled\")\n\t\tcancel()\n\t}",
+          "lineNumber": 21
+        },
+        {
+          "caller": "runCommand",
+          "callee": "log.Println",
+          "lineNumber": 23
+        },
+        {
+          "caller": "runCommand",
+          "callee": "cancel",
+          "lineNumber": 24
+        },
+        {
+          "caller": "runCommand",
+          "callee": "generateLoad",
+          "lineNumber": 26
+        },
+        {
+          "caller": "main",
+          "callee": "runCommand",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "runCommand",
+          "lineNumber": 111
+        },
+        {
+          "caller": "main",
+          "callee": "runCommand",
+          "lineNumber": 132
+        },
+        {
+          "caller": "main",
+          "callee": "runCommand",
+          "lineNumber": 148
+        },
+        {
+          "caller": "main",
+          "callee": "runCommand",
+          "lineNumber": 176
+        },
+        {
+          "caller": "main",
+          "callee": "runCommand",
+          "lineNumber": 204
+        },
+        {
+          "caller": "main",
+          "callee": "runCommand",
+          "lineNumber": 226
+        },
+        {
+          "caller": "main",
+          "callee": "app.Run",
+          "lineNumber": 279
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalln",
+          "lineNumber": 281
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/datagen/nexmark/auction.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 24,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 28,
+          "endLine": 30,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 32,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "NewNexmarkGen",
+          "startLine": 43,
+          "endLine": 48,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "generate",
+          "startLine": 50,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "KafkaTopics",
+          "startLine": 61,
+          "endLine": 64,
+          "params": []
+        },
+        {
+          "name": "Load",
+          "startLine": 66,
+          "endLine": 75,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "auction",
+          "startLine": 14,
+          "endLine": 22,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToJson"
+          ],
+          "properties": [
+            "Id",
+            "ItemName",
+            "DateTime",
+            "Seller",
+            "Category"
+          ]
+        },
+        {
+          "name": "auctionGen",
+          "startLine": 37,
+          "endLine": 41,
+          "methods": [
+            "generate",
+            "KafkaTopics",
+            "Load"
+          ],
+          "properties": [
+            "faker",
+            "nextAuctionId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "NewNexmarkGen",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaTopics",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 66,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Key",
+          "callee": "fmt.Sprint",
+          "lineNumber": 29
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 33
+        },
+        {
+          "caller": "NewNexmarkGen",
+          "callee": "gofakeit.New",
+          "lineNumber": 45
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.FarmAnimal",
+          "lineNumber": 54
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now().Unix",
+          "lineNumber": 55
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now",
+          "lineNumber": 55
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.Number",
+          "lineNumber": 56
+        },
+        {
+          "caller": "generate",
+          "callee": "g.faker.Number",
+          "lineNumber": 57
+        },
+        {
+          "caller": "Load",
+          "callee": "g.generate",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Load",
+          "callee": "ctx.Done",
+          "lineNumber": 71
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 6,
+        "functionCount": 7,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/sink/kafka/kafka.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 143,
+      "nonEmptyLines": 129,
+      "functions": [
+        {
+          "name": "newKafkaConfig",
+          "startLine": 28,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "OpenKafkaSink",
+          "startLine": 41,
+          "endLine": 68,
+          "params": [
+            "ctx",
+            "cfg"
+          ]
+        },
+        {
+          "name": "consumeSuccesses",
+          "startLine": 70,
+          "endLine": 78,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "createRequiredTopics",
+          "startLine": 80,
+          "endLine": 91,
+          "params": [
+            "admin",
+            "keys"
+          ]
+        },
+        {
+          "name": "createTopic",
+          "startLine": 93,
+          "endLine": 115,
+          "params": [
+            "admin",
+            "key",
+            "topics"
+          ]
+        },
+        {
+          "name": "Prepare",
+          "startLine": 117,
+          "endLine": 119,
+          "params": [
+            "topics"
+          ]
+        },
+        {
+          "name": "Close",
+          "startLine": 121,
+          "endLine": 124,
+          "params": []
+        },
+        {
+          "name": "WriteRecord",
+          "startLine": 126,
+          "endLine": 139,
+          "params": [
+            "ctx",
+            "format",
+            "record"
+          ]
+        },
+        {
+          "name": "Flush",
+          "startLine": 141,
+          "endLine": 143,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "KafkaConfig",
+          "startLine": 14,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "Brokers",
+            "NoRecreateIfExists"
+          ]
+        },
+        {
+          "name": "KafkaSink",
+          "startLine": 22,
+          "endLine": 26,
+          "methods": [
+            "consumeSuccesses",
+            "createRequiredTopics",
+            "createTopic",
+            "Prepare",
+            "Close",
+            "WriteRecord",
+            "Flush"
+          ],
+          "properties": [
+            "admin",
+            "cfg",
+            "client"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "KafkaConfig",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaSink",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "OpenKafkaSink",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "Prepare",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "Close",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "WriteRecord",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "Flush",
+          "line": 141,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "newKafkaConfig",
+          "callee": "sarama.ParseKafkaVersion",
+          "lineNumber": 29
+        },
+        {
+          "caller": "newKafkaConfig",
+          "callee": "panic",
+          "lineNumber": 31
+        },
+        {
+          "caller": "newKafkaConfig",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 31
+        },
+        {
+          "caller": "newKafkaConfig",
+          "callee": "sarama.NewConfig",
+          "lineNumber": 33
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "sarama.NewClusterAdmin",
+          "lineNumber": 42
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "strings.Split",
+          "lineNumber": 42
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "newKafkaConfig",
+          "lineNumber": 42
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "admin.ListTopics",
+          "lineNumber": 46
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "append",
+          "lineNumber": 52
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "log.Printf",
+          "lineNumber": 54
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "sarama.NewAsyncProducer",
+          "lineNumber": 55
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "strings.Split",
+          "lineNumber": 55
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "newKafkaConfig",
+          "lineNumber": 55
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "fmt.Errorf",
+          "lineNumber": 57
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "func() {\n\t\tp.consumeSuccesses(ctx)\n\t}",
+          "lineNumber": 64
+        },
+        {
+          "caller": "OpenKafkaSink",
+          "callee": "p.consumeSuccesses",
+          "lineNumber": 65
+        },
+        {
+          "caller": "consumeSuccesses",
+          "callee": "ctx.Done",
+          "lineNumber": 73
+        },
+        {
+          "caller": "consumeSuccesses",
+          "callee": "p.client.Successes",
+          "lineNumber": 75
+        },
+        {
+          "caller": "createRequiredTopics",
+          "callee": "admin.ListTopics",
+          "lineNumber": 81
+        },
+        {
+          "caller": "createRequiredTopics",
+          "callee": "p.createTopic",
+          "lineNumber": 86
+        },
+        {
+          "caller": "createTopic",
+          "callee": "fmt.Errorf",
+          "lineNumber": 100
+        },
+        {
+          "caller": "createTopic",
+          "callee": "admin.DeleteTopic",
+          "lineNumber": 105
+        },
+        {
+          "caller": "createTopic",
+          "callee": "log.Printf",
+          "lineNumber": 106
+        },
+        {
+          "caller": "createTopic",
+          "callee": "log.Printf",
+          "lineNumber": 110
+        },
+        {
+          "caller": "createTopic",
+          "callee": "admin.CreateTopic",
+          "lineNumber": 111
+        },
+        {
+          "caller": "Prepare",
+          "callee": "p.createRequiredTopics",
+          "lineNumber": 118
+        },
+        {
+          "caller": "Close",
+          "callee": "p.client.AsyncClose",
+          "lineNumber": 122
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "sink.Encode",
+          "lineNumber": 127
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "record.Topic",
+          "lineNumber": 129
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "sarama.StringEncoder",
+          "lineNumber": 130
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "record.Key",
+          "lineNumber": 130
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "sarama.ByteEncoder",
+          "lineNumber": 131
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "ctx.Done",
+          "lineNumber": 133
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "p.client.Input",
+          "lineNumber": 134
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "p.client.Errors",
+          "lineNumber": 135
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "log.Printf",
+          "lineNumber": 136
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 9,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/sink/kinesis/kinesis.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 61,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "OpenKinesisSink",
+          "startLine": 24,
+          "endLine": 35,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "Prepare",
+          "startLine": 37,
+          "endLine": 39,
+          "params": [
+            "topics"
+          ]
+        },
+        {
+          "name": "Close",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "WriteRecord",
+          "startLine": 45,
+          "endLine": 57,
+          "params": [
+            "ctx",
+            "format",
+            "record"
+          ]
+        },
+        {
+          "name": "Flush",
+          "startLine": 59,
+          "endLine": 61,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "KinesisConfig",
+          "startLine": 13,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "StreamName",
+            "Region",
+            "Endpoint"
+          ]
+        },
+        {
+          "name": "KinesisSink",
+          "startLine": 19,
+          "endLine": 22,
+          "methods": [
+            "Prepare",
+            "Close",
+            "WriteRecord",
+            "Flush"
+          ],
+          "properties": [
+            "client",
+            "cfg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "KinesisConfig",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "KinesisSink",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "OpenKinesisSink",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Prepare",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "Close",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "WriteRecord",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "Flush",
+          "line": 59,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "OpenKinesisSink",
+          "callee": "session.Must",
+          "lineNumber": 25
+        },
+        {
+          "caller": "OpenKinesisSink",
+          "callee": "session.NewSession",
+          "lineNumber": 25
+        },
+        {
+          "caller": "OpenKinesisSink",
+          "callee": "aws.NewConfig().WithRegion",
+          "lineNumber": 26
+        },
+        {
+          "caller": "OpenKinesisSink",
+          "callee": "aws.NewConfig",
+          "lineNumber": 26
+        },
+        {
+          "caller": "OpenKinesisSink",
+          "callee": "config.WithEndpoint",
+          "lineNumber": 28
+        },
+        {
+          "caller": "OpenKinesisSink",
+          "callee": "kinesis.New",
+          "lineNumber": 30
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "sink.Encode",
+          "lineNumber": 46
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "p.client.PutRecordWithContext",
+          "lineNumber": 47
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "aws.String",
+          "lineNumber": 49
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "record.Key",
+          "lineNumber": 49
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "aws.String",
+          "lineNumber": 50
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "fmt.Errorf",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/sink/mysql/mysql.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "OpenMysqlSink",
+          "startLine": 24,
+          "endLine": 33,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "Prepare",
+          "startLine": 35,
+          "endLine": 37,
+          "params": [
+            "topics"
+          ]
+        },
+        {
+          "name": "Close",
+          "startLine": 39,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "WriteRecord",
+          "startLine": 43,
+          "endLine": 51,
+          "params": [
+            "ctx",
+            "format",
+            "record"
+          ]
+        },
+        {
+          "name": "Flush",
+          "startLine": 53,
+          "endLine": 55,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MysqlConfig",
+          "startLine": 12,
+          "endLine": 18,
+          "methods": [],
+          "properties": [
+            "DbHost",
+            "Database",
+            "DbPort",
+            "DbUser",
+            "DbPassword"
+          ]
+        },
+        {
+          "name": "MysqlSink",
+          "startLine": 20,
+          "endLine": 22,
+          "methods": [
+            "Prepare",
+            "Close",
+            "WriteRecord",
+            "Flush"
+          ],
+          "properties": [
+            "db"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MysqlConfig",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "MysqlSink",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "OpenMysqlSink",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Prepare",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "Close",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "WriteRecord",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "Flush",
+          "line": 53,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "OpenMysqlSink",
+          "callee": "fmt.Printf",
+          "lineNumber": 25
+        },
+        {
+          "caller": "OpenMysqlSink",
+          "callee": "sql.Open",
+          "lineNumber": 27
+        },
+        {
+          "caller": "OpenMysqlSink",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Close",
+          "callee": "p.db.Close",
+          "lineNumber": 40
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "record.ToPostgresSql",
+          "lineNumber": 45
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "p.db.ExecContext",
+          "lineNumber": 46
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "fmt.Errorf",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/sink/nats/nats.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 76,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "OpenNatsSink",
+          "startLine": 25,
+          "endLine": 35,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "Prepare",
+          "startLine": 37,
+          "endLine": 50,
+          "params": [
+            "topics"
+          ]
+        },
+        {
+          "name": "Close",
+          "startLine": 52,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "WriteRecord",
+          "startLine": 57,
+          "endLine": 72,
+          "params": [
+            "ctx",
+            "format",
+            "record"
+          ]
+        },
+        {
+          "name": "Flush",
+          "startLine": 74,
+          "endLine": 76,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "NatsConfig",
+          "startLine": 14,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "Url",
+            "JetStream"
+          ]
+        },
+        {
+          "name": "NatsSink",
+          "startLine": 19,
+          "endLine": 23,
+          "methods": [
+            "Prepare",
+            "Close",
+            "WriteRecord",
+            "Flush"
+          ],
+          "properties": [
+            "nc",
+            "config",
+            "js"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NatsConfig",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "NatsSink",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "OpenNatsSink",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "Prepare",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "Close",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "WriteRecord",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "Flush",
+          "line": 74,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "OpenNatsSink",
+          "callee": "nats.Connect",
+          "lineNumber": 26
+        },
+        {
+          "caller": "OpenNatsSink",
+          "callee": "fmt.Errorf",
+          "lineNumber": 28
+        },
+        {
+          "caller": "OpenNatsSink",
+          "callee": "jetstream.New",
+          "lineNumber": 30
+        },
+        {
+          "caller": "OpenNatsSink",
+          "callee": "fmt.Errorf",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Prepare",
+          "callee": "context.WithTimeout",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Prepare",
+          "callee": "context.Background",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Prepare",
+          "callee": "cancel",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Prepare",
+          "callee": "p.js.CreateOrUpdateStream",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Prepare",
+          "callee": "fmt.Errorf",
+          "lineNumber": 46
+        },
+        {
+          "caller": "Close",
+          "callee": "p.nc.Close",
+          "lineNumber": 53
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "sink.Encode",
+          "lineNumber": 58
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "p.js.Publish",
+          "lineNumber": 61
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "record.Topic",
+          "lineNumber": 61
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "fmt.Errorf",
+          "lineNumber": 63
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "p.nc.Publish",
+          "lineNumber": 66
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "record.Topic",
+          "lineNumber": 66
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "fmt.Errorf",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Flush",
+          "callee": "p.nc.Flush",
+          "lineNumber": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/sink/postgres/postgres.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "OpenPostgresSink",
+          "startLine": 23,
+          "endLine": 30,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "Prepare",
+          "startLine": 32,
+          "endLine": 34,
+          "params": [
+            "topics"
+          ]
+        },
+        {
+          "name": "Close",
+          "startLine": 36,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "WriteRecord",
+          "startLine": 40,
+          "endLine": 47,
+          "params": [
+            "ctx",
+            "format",
+            "record"
+          ]
+        },
+        {
+          "name": "Flush",
+          "startLine": 49,
+          "endLine": 51,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PostgresConfig",
+          "startLine": 12,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "DbHost",
+            "Database",
+            "DbPort",
+            "DbUser"
+          ]
+        },
+        {
+          "name": "PostgresSink",
+          "startLine": 19,
+          "endLine": 21,
+          "methods": [
+            "Prepare",
+            "Close",
+            "WriteRecord",
+            "Flush"
+          ],
+          "properties": [
+            "db"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PostgresConfig",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "PostgresSink",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "OpenPostgresSink",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "Prepare",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "Close",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "WriteRecord",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "Flush",
+          "line": 49,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "OpenPostgresSink",
+          "callee": "sql.Open",
+          "lineNumber": 24
+        },
+        {
+          "caller": "OpenPostgresSink",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Close",
+          "callee": "p.db.Close",
+          "lineNumber": 37
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "record.ToPostgresSql",
+          "lineNumber": 41
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "p.db.ExecContext",
+          "lineNumber": 42
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "fmt.Errorf",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/sink/pulsar/pulsar.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "OpenPulsarSink",
+          "startLine": 20,
+          "endLine": 31,
+          "params": [
+            "ctx",
+            "cfg"
+          ]
+        },
+        {
+          "name": "Prepare",
+          "startLine": 33,
+          "endLine": 35,
+          "params": [
+            "topics"
+          ]
+        },
+        {
+          "name": "Close",
+          "startLine": 37,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "WriteRecord",
+          "startLine": 42,
+          "endLine": 61,
+          "params": [
+            "ctx",
+            "format",
+            "record"
+          ]
+        },
+        {
+          "name": "Flush",
+          "startLine": 63,
+          "endLine": 65,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PulsarConfig",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [],
+          "properties": [
+            "Brokers"
+          ]
+        },
+        {
+          "name": "PulsarSink",
+          "startLine": 15,
+          "endLine": 18,
+          "methods": [
+            "Prepare",
+            "Close",
+            "WriteRecord",
+            "Flush"
+          ],
+          "properties": [
+            "client",
+            "producers"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PulsarConfig",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "PulsarSink",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "OpenPulsarSink",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "Prepare",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "Close",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "WriteRecord",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "Flush",
+          "line": 63,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "OpenPulsarSink",
+          "callee": "pulsar.NewClient",
+          "lineNumber": 21
+        },
+        {
+          "caller": "OpenPulsarSink",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 22
+        },
+        {
+          "caller": "OpenPulsarSink",
+          "callee": "make",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Close",
+          "callee": "p.client.Close",
+          "lineNumber": 38
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "sink.Encode",
+          "lineNumber": 44
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "record.Topic",
+          "lineNumber": 45
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "p.client.CreateProducer",
+          "lineNumber": 48
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "producer.Send",
+          "lineNumber": 56
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "record.Key",
+          "lineNumber": 58
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/sink/s3/s3.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "OpenS3Sink",
+          "startLine": 27,
+          "endLine": 38,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "Prepare",
+          "startLine": 40,
+          "endLine": 42,
+          "params": [
+            "topics"
+          ]
+        },
+        {
+          "name": "Close",
+          "startLine": 44,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "WriteRecord",
+          "startLine": 48,
+          "endLine": 62,
+          "params": [
+            "ctx",
+            "format",
+            "record"
+          ]
+        },
+        {
+          "name": "Flush",
+          "startLine": 64,
+          "endLine": 80,
+          "params": [
+            "ctx"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "S3Config",
+          "startLine": 15,
+          "endLine": 19,
+          "methods": [],
+          "properties": [
+            "Bucket",
+            "Region",
+            "Endpoint"
+          ]
+        },
+        {
+          "name": "S3Sink",
+          "startLine": 21,
+          "endLine": 25,
+          "methods": [
+            "Prepare",
+            "Close",
+            "WriteRecord",
+            "Flush"
+          ],
+          "properties": [
+            "buffer",
+            "client",
+            "cfg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "S3Config",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "S3Sink",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "OpenS3Sink",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "Prepare",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "Close",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "WriteRecord",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "Flush",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "OpenS3Sink",
+          "callee": "session.Must",
+          "lineNumber": 28
+        },
+        {
+          "caller": "OpenS3Sink",
+          "callee": "session.NewSession",
+          "lineNumber": 28
+        },
+        {
+          "caller": "OpenS3Sink",
+          "callee": "aws.NewConfig().WithRegion",
+          "lineNumber": 29
+        },
+        {
+          "caller": "OpenS3Sink",
+          "callee": "aws.NewConfig",
+          "lineNumber": 29
+        },
+        {
+          "caller": "OpenS3Sink",
+          "callee": "config.WithEndpoint(cfg.Endpoint).WithS3ForcePathStyle",
+          "lineNumber": 31
+        },
+        {
+          "caller": "OpenS3Sink",
+          "callee": "config.WithEndpoint",
+          "lineNumber": 31
+        },
+        {
+          "caller": "OpenS3Sink",
+          "callee": "s3.New",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Close",
+          "callee": "p.Flush",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Close",
+          "callee": "context.Background",
+          "lineNumber": 45
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "sink.Encode",
+          "lineNumber": 49
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "p.buffer.Write",
+          "lineNumber": 51
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "fmt.Errorf",
+          "lineNumber": 53
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "p.buffer.WriteByte",
+          "lineNumber": 56
+        },
+        {
+          "caller": "WriteRecord",
+          "callee": "fmt.Errorf",
+          "lineNumber": 58
+        },
+        {
+          "caller": "Flush",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 65
+        },
+        {
+          "caller": "Flush",
+          "callee": "time.Now().UnixMilli",
+          "lineNumber": 65
+        },
+        {
+          "caller": "Flush",
+          "callee": "time.Now",
+          "lineNumber": 65
+        },
+        {
+          "caller": "Flush",
+          "callee": "p.client.PutObjectWithContext",
+          "lineNumber": 67
+        },
+        {
+          "caller": "Flush",
+          "callee": "aws.String",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Flush",
+          "callee": "aws.String",
+          "lineNumber": 69
+        },
+        {
+          "caller": "Flush",
+          "callee": "bytes.NewReader",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Flush",
+          "callee": "p.buffer.Bytes",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Flush",
+          "callee": "fmt.Errorf",
+          "lineNumber": 73
+        },
+        {
+          "caller": "Flush",
+          "callee": "fmt.Printf",
+          "lineNumber": 76
+        },
+        {
+          "caller": "Flush",
+          "callee": "p.buffer.Len",
+          "lineNumber": 76
+        },
+        {
+          "caller": "Flush",
+          "callee": "p.buffer.Reset",
+          "lineNumber": 78
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/datagen/sink/sink.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 33,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 37,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 45,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "ToProtobuf",
+          "startLine": 49,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "ToAvro",
+          "startLine": 53,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "Encode",
+          "startLine": 58,
+          "endLine": 68,
+          "params": [
+            "r",
+            "format"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SinkRecord",
+          "startLine": 7,
+          "endLine": 28,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson",
+            "ToProtobuf",
+            "ToAvro"
+          ],
+          "properties": []
+        },
+        {
+          "name": "BaseSinkRecord",
+          "startLine": 30,
+          "endLine": 31,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson",
+            "ToProtobuf",
+            "ToAvro"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Sink",
+          "startLine": 70,
+          "endLine": 78,
+          "methods": [
+            "Prepare",
+            "WriteRecord",
+            "Flush",
+            "Close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SinkRecord",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "BaseSinkRecord",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "Topic",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "ToProtobuf",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "ToAvro",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "Encode",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "Sink",
+          "line": 70,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Topic",
+          "callee": "panic",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Key",
+          "callee": "panic",
+          "lineNumber": 38
+        },
+        {
+          "caller": "ToPostgresSql",
+          "callee": "panic",
+          "lineNumber": 42
+        },
+        {
+          "caller": "ToJson",
+          "callee": "panic",
+          "lineNumber": 46
+        },
+        {
+          "caller": "ToProtobuf",
+          "callee": "panic",
+          "lineNumber": 50
+        },
+        {
+          "caller": "ToAvro",
+          "callee": "panic",
+          "lineNumber": 54
+        },
+        {
+          "caller": "Encode",
+          "callee": "r.ToJson",
+          "lineNumber": 60
+        },
+        {
+          "caller": "Encode",
+          "callee": "r.ToProtobuf",
+          "lineNumber": 62
+        },
+        {
+          "caller": "Encode",
+          "callee": "r.ToAvro",
+          "lineNumber": 64
+        },
+        {
+          "caller": "Encode",
+          "callee": "panic",
+          "lineNumber": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 7,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/datagen/twitter/avro.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "init",
+          "startLine": 39,
+          "endLine": 45,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init",
+          "callee": "goavro.NewCodec",
+          "lineNumber": 41
+        },
+        {
+          "caller": "init",
+          "callee": "panic",
+          "lineNumber": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/datagen/twitter/proto/twitter.pb.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 347,
+      "nonEmptyLines": 306,
+      "functions": [
+        {
+          "name": "Reset",
+          "startLine": 32,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "String",
+          "startLine": 41,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "ProtoMessage",
+          "startLine": 45,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "ProtoReflect",
+          "startLine": 47,
+          "endLine": 57,
+          "params": []
+        },
+        {
+          "name": "Descriptor",
+          "startLine": 60,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "GetData",
+          "startLine": 64,
+          "endLine": 69,
+          "params": []
+        },
+        {
+          "name": "GetAuthor",
+          "startLine": 71,
+          "endLine": 76,
+          "params": []
+        },
+        {
+          "name": "Reset",
+          "startLine": 89,
+          "endLine": 96,
+          "params": []
+        },
+        {
+          "name": "String",
+          "startLine": 98,
+          "endLine": 100,
+          "params": []
+        },
+        {
+          "name": "ProtoMessage",
+          "startLine": 102,
+          "endLine": 102,
+          "params": []
+        },
+        {
+          "name": "ProtoReflect",
+          "startLine": 104,
+          "endLine": 114,
+          "params": []
+        },
+        {
+          "name": "Descriptor",
+          "startLine": 117,
+          "endLine": 119,
+          "params": []
+        },
+        {
+          "name": "GetId",
+          "startLine": 121,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "GetText",
+          "startLine": 128,
+          "endLine": 133,
+          "params": []
+        },
+        {
+          "name": "GetLang",
+          "startLine": 135,
+          "endLine": 140,
+          "params": []
+        },
+        {
+          "name": "GetCreatedAt",
+          "startLine": 142,
+          "endLine": 147,
+          "params": []
+        },
+        {
+          "name": "Reset",
+          "startLine": 161,
+          "endLine": 168,
+          "params": []
+        },
+        {
+          "name": "String",
+          "startLine": 170,
+          "endLine": 172,
+          "params": []
+        },
+        {
+          "name": "ProtoMessage",
+          "startLine": 174,
+          "endLine": 174,
+          "params": []
+        },
+        {
+          "name": "ProtoReflect",
+          "startLine": 176,
+          "endLine": 186,
+          "params": []
+        },
+        {
+          "name": "Descriptor",
+          "startLine": 189,
+          "endLine": 191,
+          "params": []
+        },
+        {
+          "name": "GetId",
+          "startLine": 193,
+          "endLine": 198,
+          "params": []
+        },
+        {
+          "name": "GetName",
+          "startLine": 200,
+          "endLine": 205,
+          "params": []
+        },
+        {
+          "name": "GetUserName",
+          "startLine": 207,
+          "endLine": 212,
+          "params": []
+        },
+        {
+          "name": "GetCreatedAt",
+          "startLine": 214,
+          "endLine": 219,
+          "params": []
+        },
+        {
+          "name": "GetFollowers",
+          "startLine": 221,
+          "endLine": 226,
+          "params": []
+        },
+        {
+          "name": "file_twitter_proto_rawDescGZIP",
+          "startLine": 263,
+          "endLine": 268,
+          "params": []
+        },
+        {
+          "name": "init",
+          "startLine": 286,
+          "endLine": 286,
+          "params": []
+        },
+        {
+          "name": "file_twitter_proto_init",
+          "startLine": 287,
+          "endLine": 347,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Event",
+          "startLine": 23,
+          "endLine": 30,
+          "methods": [
+            "Reset",
+            "String",
+            "ProtoMessage",
+            "ProtoReflect",
+            "Descriptor",
+            "GetData",
+            "GetAuthor"
+          ],
+          "properties": [
+            "state",
+            "sizeCache",
+            "unknownFields",
+            "Data",
+            "Author"
+          ]
+        },
+        {
+          "name": "TweetData",
+          "startLine": 78,
+          "endLine": 87,
+          "methods": [
+            "Reset",
+            "String",
+            "ProtoMessage",
+            "ProtoReflect",
+            "Descriptor",
+            "GetId",
+            "GetText",
+            "GetLang",
+            "GetCreatedAt"
+          ],
+          "properties": [
+            "state",
+            "sizeCache",
+            "unknownFields",
+            "Id",
+            "Text",
+            "Lang",
+            "CreatedAt"
+          ]
+        },
+        {
+          "name": "User",
+          "startLine": 149,
+          "endLine": 159,
+          "methods": [
+            "Reset",
+            "String",
+            "ProtoMessage",
+            "ProtoReflect",
+            "Descriptor",
+            "GetId",
+            "GetName",
+            "GetUserName",
+            "GetCreatedAt",
+            "GetFollowers"
+          ],
+          "properties": [
+            "state",
+            "sizeCache",
+            "unknownFields",
+            "Id",
+            "Name",
+            "UserName",
+            "CreatedAt",
+            "Followers"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Event",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "Reset",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "String",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "ProtoMessage",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "ProtoReflect",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "Descriptor",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "GetData",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "GetAuthor",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "TweetData",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "Reset",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "String",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "ProtoMessage",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "ProtoReflect",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "Descriptor",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "GetId",
+          "line": 121,
+          "isDefault": false
+        },
+        {
+          "name": "GetText",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "GetLang",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "GetCreatedAt",
+          "line": 142,
+          "isDefault": false
+        },
+        {
+          "name": "User",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "Reset",
+          "line": 161,
+          "isDefault": false
+        },
+        {
+          "name": "String",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "ProtoMessage",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "ProtoReflect",
+          "line": 176,
+          "isDefault": false
+        },
+        {
+          "name": "Descriptor",
+          "line": 189,
+          "isDefault": false
+        },
+        {
+          "name": "GetId",
+          "line": 193,
+          "isDefault": false
+        },
+        {
+          "name": "GetName",
+          "line": 200,
+          "isDefault": false
+        },
+        {
+          "name": "GetUserName",
+          "line": 207,
+          "isDefault": false
+        },
+        {
+          "name": "GetCreatedAt",
+          "line": 214,
+          "isDefault": false
+        },
+        {
+          "name": "GetFollowers",
+          "line": 221,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Reset",
+          "callee": "protoimpl.X.MessageStateOf",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Reset",
+          "callee": "protoimpl.Pointer",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Reset",
+          "callee": "ms.StoreMessageInfo",
+          "lineNumber": 37
+        },
+        {
+          "caller": "String",
+          "callee": "protoimpl.X.MessageStringOf",
+          "lineNumber": 42
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "protoimpl.X.MessageStateOf",
+          "lineNumber": 50
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "protoimpl.Pointer",
+          "lineNumber": 50
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "ms.LoadMessageInfo",
+          "lineNumber": 51
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "ms.StoreMessageInfo",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "mi.MessageOf",
+          "lineNumber": 56
+        },
+        {
+          "caller": "Descriptor",
+          "callee": "file_twitter_proto_rawDescGZIP",
+          "lineNumber": 61
+        },
+        {
+          "caller": "Reset",
+          "callee": "protoimpl.X.MessageStateOf",
+          "lineNumber": 93
+        },
+        {
+          "caller": "Reset",
+          "callee": "protoimpl.Pointer",
+          "lineNumber": 93
+        },
+        {
+          "caller": "Reset",
+          "callee": "ms.StoreMessageInfo",
+          "lineNumber": 94
+        },
+        {
+          "caller": "String",
+          "callee": "protoimpl.X.MessageStringOf",
+          "lineNumber": 99
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "protoimpl.X.MessageStateOf",
+          "lineNumber": 107
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "protoimpl.Pointer",
+          "lineNumber": 107
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "ms.LoadMessageInfo",
+          "lineNumber": 108
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "ms.StoreMessageInfo",
+          "lineNumber": 109
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "mi.MessageOf",
+          "lineNumber": 113
+        },
+        {
+          "caller": "Descriptor",
+          "callee": "file_twitter_proto_rawDescGZIP",
+          "lineNumber": 118
+        },
+        {
+          "caller": "Reset",
+          "callee": "protoimpl.X.MessageStateOf",
+          "lineNumber": 165
+        },
+        {
+          "caller": "Reset",
+          "callee": "protoimpl.Pointer",
+          "lineNumber": 165
+        },
+        {
+          "caller": "Reset",
+          "callee": "ms.StoreMessageInfo",
+          "lineNumber": 166
+        },
+        {
+          "caller": "String",
+          "callee": "protoimpl.X.MessageStringOf",
+          "lineNumber": 171
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "protoimpl.X.MessageStateOf",
+          "lineNumber": 179
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "protoimpl.Pointer",
+          "lineNumber": 179
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "ms.LoadMessageInfo",
+          "lineNumber": 180
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "ms.StoreMessageInfo",
+          "lineNumber": 181
+        },
+        {
+          "caller": "ProtoReflect",
+          "callee": "mi.MessageOf",
+          "lineNumber": 185
+        },
+        {
+          "caller": "Descriptor",
+          "callee": "file_twitter_proto_rawDescGZIP",
+          "lineNumber": 190
+        },
+        {
+          "caller": "file_twitter_proto_rawDescGZIP",
+          "callee": "file_twitter_proto_rawDescOnce.Do",
+          "lineNumber": 264
+        },
+        {
+          "caller": "file_twitter_proto_rawDescGZIP",
+          "callee": "protoimpl.X.CompressGZIP",
+          "lineNumber": 265
+        },
+        {
+          "caller": "init",
+          "callee": "file_twitter_proto_init",
+          "lineNumber": 286
+        },
+        {
+          "caller": "file_twitter_proto_init",
+          "callee": "protoimpl.TypeBuilder{\n\t\tFile: protoimpl.DescBuilder{\n\t\t\tGoPackagePath: reflect.TypeOf(x{}).PkgPath(),\n\t\t\tRawDescriptor: file_twitter_proto_rawDesc,\n\t\t\tNumEnums:      0,\n\t\t\tNumMessages:   3,\n\t\t\tNumExtensions: 0,\n\t\t\tNumServices:   0,\n\t\t},\n\t\tGoTypes:           file_twitter_proto_goTypes,\n\t\tDependencyIndexes: file_twitter_proto_depIdxs,\n\t\tMessageInfos:      file_twitter_proto_msgTypes,\n\t}.Build",
+          "lineNumber": 330
+        },
+        {
+          "caller": "file_twitter_proto_init",
+          "callee": "reflect.TypeOf(x{}).PkgPath",
+          "lineNumber": 332
+        },
+        {
+          "caller": "file_twitter_proto_init",
+          "callee": "reflect.TypeOf",
+          "lineNumber": 332
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 29,
+        "functionCount": 29,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/datagen/twitter/twitter.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 176,
+      "nonEmptyLines": 157,
+      "functions": [
+        {
+          "name": "Topic",
+          "startLine": 40,
+          "endLine": 42,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 44,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "ToPostgresSql",
+          "startLine": 48,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "ToJson",
+          "startLine": 55,
+          "endLine": 58,
+          "params": []
+        },
+        {
+          "name": "ToProtobuf",
+          "startLine": 60,
+          "endLine": 81,
+          "params": []
+        },
+        {
+          "name": "ToAvro",
+          "startLine": 83,
+          "endLine": 104,
+          "params": []
+        },
+        {
+          "name": "NewTwitterGen",
+          "startLine": 111,
+          "endLine": 139,
+          "params": []
+        },
+        {
+          "name": "generate",
+          "startLine": 141,
+          "endLine": 161,
+          "params": []
+        },
+        {
+          "name": "KafkaTopics",
+          "startLine": 163,
+          "endLine": 165,
+          "params": []
+        },
+        {
+          "name": "Load",
+          "startLine": 167,
+          "endLine": 176,
+          "params": [
+            "ctx",
+            "outCh"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "tweetData",
+          "startLine": 17,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "CreatedAt",
+            "Id",
+            "Text",
+            "Lang"
+          ]
+        },
+        {
+          "name": "twitterEvent",
+          "startLine": 24,
+          "endLine": 29,
+          "methods": [
+            "Topic",
+            "Key",
+            "ToPostgresSql",
+            "ToJson",
+            "ToProtobuf",
+            "ToAvro"
+          ],
+          "properties": [
+            "Data",
+            "Author"
+          ]
+        },
+        {
+          "name": "twitterUser",
+          "startLine": 31,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "CreatedAt",
+            "Id",
+            "Name",
+            "UserName",
+            "Followers"
+          ]
+        },
+        {
+          "name": "twitterGen",
+          "startLine": 106,
+          "endLine": 109,
+          "methods": [
+            "generate",
+            "KafkaTopics",
+            "Load"
+          ],
+          "properties": [
+            "faker",
+            "users"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Topic",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "ToPostgresSql",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "ToJson",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "ToProtobuf",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "ToAvro",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "NewTwitterGen",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "KafkaTopics",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 167,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ToPostgresSql",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 49
+        },
+        {
+          "caller": "ToJson",
+          "callee": "json.Marshal",
+          "lineNumber": 56
+        },
+        {
+          "caller": "ToProtobuf",
+          "callee": "int64",
+          "lineNumber": 73
+        },
+        {
+          "caller": "ToProtobuf",
+          "callee": "protobuf.Marshal",
+          "lineNumber": 76
+        },
+        {
+          "caller": "ToProtobuf",
+          "callee": "panic",
+          "lineNumber": 78
+        },
+        {
+          "caller": "ToAvro",
+          "callee": "AvroCodec.BinaryFromNative",
+          "lineNumber": 99
+        },
+        {
+          "caller": "ToAvro",
+          "callee": "panic",
+          "lineNumber": 101
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "gofakeit.New",
+          "lineNumber": 112
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "make",
+          "lineNumber": 113
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "len",
+          "lineNumber": 114
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "faker.DigitN",
+          "lineNumber": 115
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "time.Now().Year",
+          "lineNumber": 117
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "time.Now",
+          "lineNumber": 117
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "rand.Intn",
+          "lineNumber": 118
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "time.Parse",
+          "lineNumber": 120
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 120
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "time.Parse",
+          "lineNumber": 121
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 121
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "faker.DateRange(startTime, endTime).Format",
+          "lineNumber": 123
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "faker.DateRange",
+          "lineNumber": 123
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 125
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "faker.Name",
+          "lineNumber": 125
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "faker.Adverb",
+          "lineNumber": 125
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "faker.Username",
+          "lineNumber": 126
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "gofakeit.IntRange",
+          "lineNumber": 127
+        },
+        {
+          "caller": "NewTwitterGen",
+          "callee": "append",
+          "lineNumber": 133
+        },
+        {
+          "caller": "generate",
+          "callee": "t.faker.DigitN",
+          "lineNumber": 142
+        },
+        {
+          "caller": "generate",
+          "callee": "rand.Intn",
+          "lineNumber": 143
+        },
+        {
+          "caller": "generate",
+          "callee": "len",
+          "lineNumber": 143
+        },
+        {
+          "caller": "generate",
+          "callee": "t.faker.IntRange",
+          "lineNumber": 145
+        },
+        {
+          "caller": "generate",
+          "callee": "t.faker.IntRange",
+          "lineNumber": 146
+        },
+        {
+          "caller": "generate",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 149
+        },
+        {
+          "caller": "generate",
+          "callee": "t.faker.BuzzWord",
+          "lineNumber": 149
+        },
+        {
+          "caller": "generate",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 151
+        },
+        {
+          "caller": "generate",
+          "callee": "t.faker.Sentence",
+          "lineNumber": 151
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now().Format",
+          "lineNumber": 155
+        },
+        {
+          "caller": "generate",
+          "callee": "time.Now",
+          "lineNumber": 155
+        },
+        {
+          "caller": "generate",
+          "callee": "gofakeit.Language",
+          "lineNumber": 157
+        },
+        {
+          "caller": "Load",
+          "callee": "t.generate",
+          "lineNumber": 169
+        },
+        {
+          "caller": "Load",
+          "callee": "ctx.Done",
+          "lineNumber": 171
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 9,
+        "functionCount": 10,
+        "classCount": 4
+      }
+    }
+  ]
+}

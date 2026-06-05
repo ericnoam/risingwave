@@ -1,0 +1,472 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/client-library/ruby/rw_conn.rb",
+      "language": "ruby",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 9,
+      "functions": [
+        {
+          "name": "get_rw_conn",
+          "startLine": 4,
+          "endLine": 10,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_rw_conn",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_rw_conn",
+          "callee": "PG.connect",
+          "lineNumber": 6
+        },
+        {
+          "caller": "get_rw_conn",
+          "callee": "conn",
+          "lineNumber": 9
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/client-library/ruby/test/crud_test.rb",
+      "language": "ruby",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "setup",
+          "startLine": 8,
+          "endLine": 10,
+          "params": []
+        },
+        {
+          "name": "test_crud",
+          "startLine": 12,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "check_data",
+          "startLine": 56,
+          "endLine": 97,
+          "params": [
+            "name",
+            "age",
+            "salary",
+            "tripIDs",
+            "birthdate",
+            "deci",
+            "fareData",
+            "starttime",
+            "timest",
+            "timestz",
+            "timegap"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SQLTest",
+          "startLine": 7,
+          "endLine": 98,
+          "methods": [
+            "setup",
+            "test_crud",
+            "check_data"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SQLTest",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setup",
+          "callee": "get_rw_conn",
+          "lineNumber": 9
+        },
+        {
+          "caller": "test_crud",
+          "callee": "create_table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "test_crud",
+          "callee": "Date.parse",
+          "lineNumber": 26
+        },
+        {
+          "caller": "test_crud",
+          "callee": "DateTime.now",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_crud",
+          "callee": "DateTime.now",
+          "lineNumber": 29
+        },
+        {
+          "caller": "test_crud",
+          "callee": "insert_data",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_crud",
+          "callee": "check_data",
+          "lineNumber": 33
+        },
+        {
+          "caller": "test_crud",
+          "callee": "Date.parse",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_crud",
+          "callee": "DateTime.parse",
+          "lineNumber": 43
+        },
+        {
+          "caller": "test_crud",
+          "callee": "DateTime.parse",
+          "lineNumber": 44
+        },
+        {
+          "caller": "test_crud",
+          "callee": "insert_data",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_crud",
+          "callee": "check_data",
+          "lineNumber": 49
+        },
+        {
+          "caller": "test_crud",
+          "callee": "update_data",
+          "lineNumber": 51
+        },
+        {
+          "caller": "test_crud",
+          "callee": "delete_data",
+          "lineNumber": 52
+        },
+        {
+          "caller": "test_crud",
+          "callee": "drop_table",
+          "lineNumber": 53
+        },
+        {
+          "caller": "check_data",
+          "callee": "@conn.exec",
+          "lineNumber": 57
+        },
+        {
+          "caller": "check_data",
+          "callee": "@conn.exec_params",
+          "lineNumber": 61
+        },
+        {
+          "caller": "check_data",
+          "callee": "res.each",
+          "lineNumber": 63
+        },
+        {
+          "caller": "check_data",
+          "callee": "assert_equal",
+          "lineNumber": 65
+        },
+        {
+          "caller": "check_data",
+          "callee": "row['age'].to_i",
+          "lineNumber": 67
+        },
+        {
+          "caller": "check_data",
+          "callee": "assert_equal",
+          "lineNumber": 68
+        },
+        {
+          "caller": "check_data",
+          "callee": "row['salary'].to_i",
+          "lineNumber": 70
+        },
+        {
+          "caller": "check_data",
+          "callee": "assert_equal",
+          "lineNumber": 71
+        },
+        {
+          "caller": "check_data",
+          "callee": "assert_equal",
+          "lineNumber": 74
+        },
+        {
+          "caller": "check_data",
+          "callee": "tripIDs.join",
+          "lineNumber": 74
+        },
+        {
+          "caller": "check_data",
+          "callee": "assert_equal",
+          "lineNumber": 77
+        },
+        {
+          "caller": "check_data",
+          "callee": "Date.parse",
+          "lineNumber": 77
+        },
+        {
+          "caller": "check_data",
+          "callee": "assert_equal",
+          "lineNumber": 80
+        },
+        {
+          "caller": "check_data",
+          "callee": "retrievedDeci.to_f",
+          "lineNumber": 80
+        },
+        {
+          "caller": "check_data",
+          "callee": "assert_equal",
+          "lineNumber": 85
+        },
+        {
+          "caller": "check_data",
+          "callee": "assert_equal",
+          "lineNumber": 88
+        },
+        {
+          "caller": "check_data",
+          "callee": "timest.strftime",
+          "lineNumber": 88
+        },
+        {
+          "caller": "check_data",
+          "callee": "DateTime.parse(retrievedTimest).strftime",
+          "lineNumber": 88
+        },
+        {
+          "caller": "check_data",
+          "callee": "DateTime.parse",
+          "lineNumber": 88
+        },
+        {
+          "caller": "check_data",
+          "callee": "assert_equal",
+          "lineNumber": 91
+        },
+        {
+          "caller": "check_data",
+          "callee": "timestz.strftime",
+          "lineNumber": 91
+        },
+        {
+          "caller": "check_data",
+          "callee": "DateTime.parse(retrievedTimestz).strftime",
+          "lineNumber": 91
+        },
+        {
+          "caller": "check_data",
+          "callee": "DateTime.parse",
+          "lineNumber": 91
+        },
+        {
+          "caller": "check_data",
+          "callee": "assert_equal",
+          "lineNumber": 94
+        },
+        {
+          "caller": "check_data",
+          "callee": "puts",
+          "lineNumber": 96
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/client-library/ruby/test/util.rb",
+      "language": "ruby",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "create_table",
+          "startLine": 3,
+          "endLine": 25,
+          "params": [
+            "conn"
+          ]
+        },
+        {
+          "name": "drop_table",
+          "startLine": 27,
+          "endLine": 30,
+          "params": [
+            "conn"
+          ]
+        },
+        {
+          "name": "insert_data",
+          "startLine": 32,
+          "endLine": 52,
+          "params": [
+            "conn",
+            "name",
+            "age",
+            "salary",
+            "tripIDs",
+            "birthdate",
+            "deci",
+            "fareData",
+            "starttime",
+            "timest",
+            "timestz",
+            "timegap"
+          ]
+        },
+        {
+          "name": "update_data",
+          "startLine": 54,
+          "endLine": 59,
+          "params": [
+            "conn",
+            "name",
+            "salary"
+          ]
+        },
+        {
+          "name": "delete_data",
+          "startLine": 61,
+          "endLine": 65,
+          "params": [
+            "conn",
+            "name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "create_table",
+          "line": 3,
+          "isDefault": false
+        },
+        {
+          "name": "drop_table",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "insert_data",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "update_data",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "delete_data",
+          "line": 61,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_table",
+          "callee": "conn.exec",
+          "lineNumber": 23
+        },
+        {
+          "caller": "create_table",
+          "callee": "puts",
+          "lineNumber": 24
+        },
+        {
+          "caller": "drop_table",
+          "callee": "conn.exec",
+          "lineNumber": 28
+        },
+        {
+          "caller": "drop_table",
+          "callee": "puts",
+          "lineNumber": 29
+        },
+        {
+          "caller": "insert_data",
+          "callee": "conn.exec_params",
+          "lineNumber": 37
+        },
+        {
+          "caller": "insert_data",
+          "callee": "tripIDs.join",
+          "lineNumber": 38
+        },
+        {
+          "caller": "insert_data",
+          "callee": "timest.strftime",
+          "lineNumber": 46
+        },
+        {
+          "caller": "insert_data",
+          "callee": "puts",
+          "lineNumber": 51
+        },
+        {
+          "caller": "update_data",
+          "callee": "conn.exec_params",
+          "lineNumber": 57
+        },
+        {
+          "caller": "update_data",
+          "callee": "puts",
+          "lineNumber": 58
+        },
+        {
+          "caller": "delete_data",
+          "callee": "conn.exec_params",
+          "lineNumber": 62
+        },
+        {
+          "caller": "delete_data",
+          "callee": "puts",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    }
+  ]
+}

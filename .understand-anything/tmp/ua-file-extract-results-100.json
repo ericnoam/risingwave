@@ -1,0 +1,481 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/feature-store/server/model/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 8,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/model/__main__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/model/model.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 87,
+      "classes": [
+        {
+          "name": "TrainingModelService",
+          "startLine": 24,
+          "endLine": 82,
+          "methods": [
+            "__init__",
+            "Training",
+            "GetAmount",
+            "__enter__",
+            "__exit__",
+            "serve"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TrainingModelService",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super(TrainingModelService, self).__init__",
+          "lineNumber": 26
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 26
+        },
+        {
+          "caller": "__init__",
+          "callee": "GradientBoostingRegressor",
+          "lineNumber": 27
+        },
+        {
+          "caller": "__init__",
+          "callee": "psycopg.connect",
+          "lineNumber": 28
+        },
+        {
+          "caller": "__init__",
+          "callee": "print",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Training",
+          "callee": "print",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Training",
+          "callee": "self.conn.cursor",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Training",
+          "callee": "cur.execute",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Training",
+          "callee": "cur.fetchall",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Training",
+          "callee": "pd.DataFrame",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Training",
+          "callee": "list",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Training",
+          "callee": "df.drop",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Training",
+          "callee": "print",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Training",
+          "callee": "self.model.fit",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Training",
+          "callee": "TrainingResponse",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Training",
+          "callee": "print",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Training",
+          "callee": "traceback.format_exc",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Training",
+          "callee": "context.set_code",
+          "lineNumber": 44
+        },
+        {
+          "caller": "Training",
+          "callee": "context.set_details",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Training",
+          "callee": "TrainingResponse",
+          "lineNumber": 46
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "self.conn.cursor",
+          "lineNumber": 52
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "cur.execute",
+          "lineNumber": 53
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "cur.fetchall",
+          "lineNumber": 54
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "pd.DataFrame",
+          "lineNumber": 55
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "list",
+          "lineNumber": 55
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "df.drop",
+          "lineNumber": 56
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "cur.execute",
+          "lineNumber": 57
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "cur.fetchall",
+          "lineNumber": 58
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "pd.DataFrame",
+          "lineNumber": 59
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "list",
+          "lineNumber": 59
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "df.drop",
+          "lineNumber": 60
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "pd.concat",
+          "lineNumber": 61
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "self.model.predict",
+          "lineNumber": 62
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "GetAmountResponse",
+          "lineNumber": 63
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "print",
+          "lineNumber": 65
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "traceback.format_exc",
+          "lineNumber": 65
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "context.set_code",
+          "lineNumber": 66
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "context.set_details",
+          "lineNumber": 67
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "GetAmountResponse",
+          "lineNumber": 68
+        },
+        {
+          "caller": "__exit__",
+          "callee": "self.conn.close",
+          "lineNumber": 74
+        },
+        {
+          "caller": "serve",
+          "callee": "grpc.server",
+          "lineNumber": 77
+        },
+        {
+          "caller": "serve",
+          "callee": "futures.ThreadPoolExecutor",
+          "lineNumber": 77
+        },
+        {
+          "caller": "serve",
+          "callee": "model_pb2_grpc.add_ModelServicer_to_server",
+          "lineNumber": 78
+        },
+        {
+          "caller": "serve",
+          "callee": "server.add_insecure_port",
+          "lineNumber": 80
+        },
+        {
+          "caller": "serve",
+          "callee": "server.start",
+          "lineNumber": 81
+        },
+        {
+          "caller": "serve",
+          "callee": "server.wait_for_termination",
+          "lineNumber": 82
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/model/model_pb2.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 38,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/model/model_pb2_grpc.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 140,
+      "nonEmptyLines": 122,
+      "functions": [
+        {
+          "name": "add_ModelServicer_to_server",
+          "startLine": 65,
+          "endLine": 81,
+          "params": [
+            "servicer",
+            "server"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ModelStub",
+          "startLine": 28,
+          "endLine": 46,
+          "methods": [
+            "__init__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ModelServicer",
+          "startLine": 49,
+          "endLine": 62,
+          "methods": [
+            "GetAmount",
+            "Training"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Model",
+          "startLine": 85,
+          "endLine": 140,
+          "methods": [
+            "GetAmount",
+            "Training"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ModelStub",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "ModelServicer",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "add_ModelServicer_to_server",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "Model",
+          "line": 85,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "channel.unary_unary",
+          "lineNumber": 37
+        },
+        {
+          "caller": "__init__",
+          "callee": "channel.unary_unary",
+          "lineNumber": 42
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "context.set_code",
+          "lineNumber": 54
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "context.set_details",
+          "lineNumber": 55
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "NotImplementedError",
+          "lineNumber": 56
+        },
+        {
+          "caller": "Training",
+          "callee": "context.set_code",
+          "lineNumber": 60
+        },
+        {
+          "caller": "Training",
+          "callee": "context.set_details",
+          "lineNumber": 61
+        },
+        {
+          "caller": "Training",
+          "callee": "NotImplementedError",
+          "lineNumber": 62
+        },
+        {
+          "caller": "add_ModelServicer_to_server",
+          "callee": "grpc.unary_unary_rpc_method_handler",
+          "lineNumber": 67
+        },
+        {
+          "caller": "add_ModelServicer_to_server",
+          "callee": "grpc.unary_unary_rpc_method_handler",
+          "lineNumber": 72
+        },
+        {
+          "caller": "add_ModelServicer_to_server",
+          "callee": "grpc.method_handlers_generic_handler",
+          "lineNumber": 78
+        },
+        {
+          "caller": "add_ModelServicer_to_server",
+          "callee": "server.add_generic_rpc_handlers",
+          "lineNumber": 80
+        },
+        {
+          "caller": "add_ModelServicer_to_server",
+          "callee": "server.add_registered_method_handlers",
+          "lineNumber": 81
+        },
+        {
+          "caller": "GetAmount",
+          "callee": "grpc.experimental.unary_unary",
+          "lineNumber": 99
+        },
+        {
+          "caller": "Training",
+          "callee": "grpc.experimental.unary_unary",
+          "lineNumber": 126
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 1,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/model/sql.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 12,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

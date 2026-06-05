@@ -1,0 +1,508 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/tests/regress/src/env.rs",
+      "type": "file",
+      "name": "env.rs",
+      "filePath": "src/tests/regress/src/env.rs",
+      "summary": "Initializes the PostgreSQL regression test environment by setting and clearing environment variables required for psql execution.",
+      "tags": ["test", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/src/file.rs",
+      "type": "file",
+      "name": "file.rs",
+      "filePath": "src/tests/regress/src/file.rs",
+      "summary": "Implements `FileManager`, which handles all file path resolution, directory setup, and SQL source file conversion with placeholder substitution for the regression test runner.",
+      "tags": ["test", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/tests/regress/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/tests/regress/src/lib.rs",
+      "summary": "Library root for the RisingWave regression test runner, exposing `regress_main` as the binary entry point and wiring together opts parsing, schedule loading, and test execution.",
+      "tags": ["entry-point", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/regress/src/opts.rs",
+      "type": "file",
+      "name": "opts.rs",
+      "filePath": "src/tests/regress/src/opts.rs",
+      "summary": "Defines `Opts` (command-line argument struct) and `DatabaseMode` enum for the regression test runner, including path absolutization helpers for input/output directories.",
+      "tags": ["test", "configuration", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/regress/src/psql.rs",
+      "type": "file",
+      "name": "psql.rs",
+      "filePath": "src/tests/regress/src/psql.rs",
+      "summary": "Provides `Psql` for database lifecycle operations (create/drop) and `PsqlCommandBuilder` for constructing escaped psql command invocations in the regression test runner.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/tests/regress/src/schedule.rs",
+      "type": "file",
+      "name": "schedule.rs",
+      "filePath": "src/tests/regress/src/schedule.rs",
+      "summary": "Core test orchestration: `Schedule` parses a schedule file, runs parallel test groups, and `TestCase` executes individual SQL tests via psql, comparing output against expected results.",
+      "tags": ["test", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/tests/regress/src/file.rs:FileManager",
+      "type": "class",
+      "name": "FileManager",
+      "filePath": "src/tests/regress/src/file.rs",
+      "lineRange": [25, 27],
+      "summary": "Manages file paths for SQL source files, expected outputs, and result directories; handles placeholder replacement and directory initialization.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/tests/regress/src/opts.rs:DatabaseMode",
+      "type": "class",
+      "name": "DatabaseMode",
+      "filePath": "src/tests/regress/src/opts.rs",
+      "lineRange": [23, 26],
+      "summary": "Enum indicating whether the regression tests target a Postgres or RisingWave database instance.",
+      "tags": ["configuration", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/regress/src/opts.rs:Opts",
+      "type": "class",
+      "name": "Opts",
+      "filePath": "src/tests/regress/src/opts.rs",
+      "lineRange": [42, 70],
+      "summary": "Command-line options for the regression test runner, covering database connection parameters, input/output directories, schedule path, and database mode.",
+      "tags": ["configuration", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/tests/regress/src/psql.rs:Psql",
+      "type": "class",
+      "name": "Psql",
+      "filePath": "src/tests/regress/src/psql.rs",
+      "lineRange": [23, 25],
+      "summary": "Wraps psql-based database operations for the regression test runner, providing async `init`, `create_database`, and `drop_database_if_exists` methods.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/tests/regress/src/psql.rs:PsqlCommandBuilder",
+      "type": "class",
+      "name": "PsqlCommandBuilder",
+      "filePath": "src/tests/regress/src/psql.rs",
+      "lineRange": [27, 30],
+      "summary": "Builder for escaped psql `Command` invocations, adding SQL commands with proper shell escaping and database connection arguments.",
+      "tags": ["test", "utility", "factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/regress/src/schedule.rs:TestCase",
+      "type": "class",
+      "name": "TestCase",
+      "filePath": "src/tests/regress/src/schedule.rs",
+      "lineRange": [39, 44],
+      "summary": "Represents a single SQL regression test: runs the SQL via psql, captures output, compares against expected results, and records the diff.",
+      "tags": ["test", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/tests/regress/src/schedule.rs:Schedule",
+      "type": "class",
+      "name": "Schedule",
+      "filePath": "src/tests/regress/src/schedule.rs",
+      "lineRange": [46, 54],
+      "summary": "Parses a schedule file listing test groups and runs them in parallel, collecting results and reporting failures.",
+      "tags": ["test", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/tests/regress/src/env.rs:init_env",
+      "type": "function",
+      "name": "init_env",
+      "filePath": "src/tests/regress/src/env.rs",
+      "lineRange": [22, 46],
+      "summary": "Sets up environment variables needed for psql (locale, client encoding, pg options) and clears any existing conflicting variables.",
+      "tags": ["test", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/tests/regress/src/file.rs:source_of",
+      "type": "function",
+      "name": "source_of",
+      "filePath": "src/tests/regress/src/file.rs",
+      "lineRange": [50, 72],
+      "summary": "Resolves the SQL source file path for a test, preferring the output directory's converted copy if it exists, falling back to the original input.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/tests/regress/src/file.rs:expected_output_of",
+      "type": "function",
+      "name": "expected_output_of",
+      "filePath": "src/tests/regress/src/file.rs",
+      "lineRange": [93, 115],
+      "summary": "Resolves the expected output file path for a test name, checking both the input and output expected directories.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/tests/regress/src/file.rs:convert_source_files_internal",
+      "type": "function",
+      "name": "convert_source_files_internal",
+      "filePath": "src/tests/regress/src/file.rs",
+      "lineRange": [129, 159],
+      "summary": "Copies SQL source files from an input subdirectory to an output subdirectory, applying placeholder replacement to each file.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/tests/regress/src/file.rs:replace_placeholder",
+      "type": "function",
+      "name": "replace_placeholder",
+      "filePath": "src/tests/regress/src/file.rs",
+      "lineRange": [168, 198],
+      "summary": "Reads a SQL source file line-by-line and replaces input/output directory and tablespace path placeholders with absolute paths.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/tests/regress/src/lib.rs:regress_main",
+      "type": "function",
+      "name": "regress_main",
+      "filePath": "src/tests/regress/src/lib.rs",
+      "lineRange": [46, 64],
+      "summary": "Binary entry point for the regression test tool: parses CLI opts, initializes logging, and drives `run_schedules` which loads and executes all test schedules.",
+      "tags": ["entry-point", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/tests/regress/src/psql.rs:create_database",
+      "type": "function",
+      "name": "create_database",
+      "filePath": "src/tests/regress/src/psql.rs",
+      "lineRange": [48, 68],
+      "summary": "Creates a test database using psql with template0, C locale settings, and checks for successful exit status.",
+      "tags": ["test", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/tests/regress/src/psql.rs:drop_database_if_exists",
+      "type": "function",
+      "name": "drop_database_if_exists",
+      "filePath": "src/tests/regress/src/psql.rs",
+      "lineRange": [70, 90],
+      "summary": "Drops the test database if it exists using psql, checking for successful exit status.",
+      "tags": ["test", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/tests/regress/src/psql.rs:add_cmd",
+      "type": "function",
+      "name": "add_cmd",
+      "filePath": "src/tests/regress/src/psql.rs",
+      "lineRange": [106, 122],
+      "summary": "Appends a SQL command string to the psql command builder, applying character-level shell escaping for backtick, dollar, and double-quote characters.",
+      "tags": ["test", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/tests/regress/src/schedule.rs:parse_from",
+      "type": "function",
+      "name": "parse_from",
+      "filePath": "src/tests/regress/src/schedule.rs",
+      "lineRange": [80, 103],
+      "summary": "Parses a schedule file to extract test group entries, collecting each `test:` line's whitespace-separated test names into a list of parallel test groups.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/tests/regress/src/schedule.rs:do_run",
+      "type": "function",
+      "name": "do_run",
+      "filePath": "src/tests/regress/src/schedule.rs",
+      "lineRange": [116, 154],
+      "summary": "Iterates over all parsed test schedules, runs each parallel group, collects failures, and panics with a list of failing test names if any differences are found.",
+      "tags": ["test", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/tests/regress/src/schedule.rs:run_one_schedule",
+      "type": "function",
+      "name": "run_one_schedule",
+      "filePath": "src/tests/regress/src/schedule.rs",
+      "lineRange": [156, 179],
+      "summary": "Spawns parallel Tokio tasks for each test in a schedule group, awaits completion, and returns a map of test names to their pass/fail results.",
+      "tags": ["test", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/tests/regress/src/schedule.rs:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "src/tests/regress/src/schedule.rs",
+      "lineRange": [192, 362],
+      "summary": "Executes a single test case by running its SQL file through psql, capturing stdout/stderr to the output file, and calling `compare_output` to check against expected results.",
+      "tags": ["test", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/tests/regress/src/schedule.rs:compare_output",
+      "type": "function",
+      "name": "compare_output",
+      "filePath": "src/tests/regress/src/schedule.rs",
+      "lineRange": [365, 439],
+      "summary": "Compares expected vs actual test output line-by-line, writes diff to a file, and returns Same or Different, with configurable float tolerance for numeric comparisons.",
+      "tags": ["test", "utility"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/tests/regress/src/lib.rs",
+      "target": "file:src/tests/regress/src/env.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/regress/src/lib.rs",
+      "target": "file:src/tests/regress/src/file.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/regress/src/lib.rs",
+      "target": "file:src/tests/regress/src/opts.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/regress/src/lib.rs",
+      "target": "file:src/tests/regress/src/psql.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/regress/src/lib.rs",
+      "target": "file:src/tests/regress/src/schedule.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/regress/src/env.rs",
+      "target": "function:src/tests/regress/src/env.rs:init_env",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/env.rs",
+      "target": "function:src/tests/regress/src/env.rs:init_env",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/regress/src/file.rs",
+      "target": "class:src/tests/regress/src/file.rs:FileManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/file.rs",
+      "target": "class:src/tests/regress/src/file.rs:FileManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/regress/src/file.rs",
+      "target": "function:src/tests/regress/src/file.rs:source_of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/file.rs",
+      "target": "function:src/tests/regress/src/file.rs:expected_output_of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/file.rs",
+      "target": "function:src/tests/regress/src/file.rs:convert_source_files_internal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/file.rs",
+      "target": "function:src/tests/regress/src/file.rs:replace_placeholder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/lib.rs",
+      "target": "function:src/tests/regress/src/lib.rs:regress_main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/lib.rs",
+      "target": "function:src/tests/regress/src/lib.rs:regress_main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/regress/src/opts.rs",
+      "target": "class:src/tests/regress/src/opts.rs:DatabaseMode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/opts.rs",
+      "target": "class:src/tests/regress/src/opts.rs:DatabaseMode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/regress/src/opts.rs",
+      "target": "class:src/tests/regress/src/opts.rs:Opts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/opts.rs",
+      "target": "class:src/tests/regress/src/opts.rs:Opts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/regress/src/psql.rs",
+      "target": "class:src/tests/regress/src/psql.rs:Psql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/psql.rs",
+      "target": "class:src/tests/regress/src/psql.rs:Psql",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/regress/src/psql.rs",
+      "target": "class:src/tests/regress/src/psql.rs:PsqlCommandBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/psql.rs",
+      "target": "class:src/tests/regress/src/psql.rs:PsqlCommandBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/regress/src/psql.rs",
+      "target": "function:src/tests/regress/src/psql.rs:create_database",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/psql.rs",
+      "target": "function:src/tests/regress/src/psql.rs:drop_database_if_exists",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/psql.rs",
+      "target": "function:src/tests/regress/src/psql.rs:add_cmd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/schedule.rs",
+      "target": "class:src/tests/regress/src/schedule.rs:TestCase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/schedule.rs",
+      "target": "class:src/tests/regress/src/schedule.rs:Schedule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/schedule.rs",
+      "target": "class:src/tests/regress/src/schedule.rs:Schedule",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/regress/src/schedule.rs",
+      "target": "function:src/tests/regress/src/schedule.rs:parse_from",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/schedule.rs",
+      "target": "function:src/tests/regress/src/schedule.rs:do_run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/schedule.rs",
+      "target": "function:src/tests/regress/src/schedule.rs:run_one_schedule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/schedule.rs",
+      "target": "function:src/tests/regress/src/schedule.rs:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/regress/src/schedule.rs",
+      "target": "function:src/tests/regress/src/schedule.rs:compare_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

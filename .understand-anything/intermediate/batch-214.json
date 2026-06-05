@@ -1,0 +1,172 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/postgres-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/postgres-sink/README.md",
+      "summary": "How-to guide for the postgres-sink integration test covering setup commands to run the end-to-end RisingWave-to-PostgreSQL sink demo.",
+      "tags": ["documentation", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/postgres-sink/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/postgres-sink/create_mv.sql",
+      "summary": "Creates materialized views aggregating source data to be written to PostgreSQL target tables via the postgres-sink connector.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/postgres-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/postgres-sink/create_sink.sql",
+      "summary": "Creates PostgreSQL sinks in RisingWave to write materialized view data to PostgreSQL target tables, covering type compatibility scenarios.",
+      "tags": ["database", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/postgres-sink/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/postgres-sink/create_source.sql",
+      "summary": "Defines RisingWave source tables `data_types` and `pg_all_data_types` covering standard and PostgreSQL-specific types for the postgres-sink integration test.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/postgres-sink/create_source.sql:data_types",
+      "type": "table",
+      "name": "data_types",
+      "filePath": "integration_tests/postgres-sink/create_source.sql",
+      "lineRange": [17, 36],
+      "summary": "RisingWave source table with standard SQL types including varchar, text, integer, decimal, boolean, date/time, interval, jsonb, bytea, and array for PostgreSQL sink testing.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/postgres-sink/create_source.sql:pg_all_data_types",
+      "type": "table",
+      "name": "pg_all_data_types",
+      "filePath": "integration_tests/postgres-sink/create_source.sql",
+      "lineRange": [46, 69],
+      "summary": "RisingWave source table mirroring PostgreSQL-specific types with full type coverage for end-to-end sink compatibility verification.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/postgres-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/postgres-sink/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the postgres-sink integration test, running PostgreSQL and RisingWave together.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/postgres-sink/postgres_prepare.sql",
+      "type": "file",
+      "name": "postgres_prepare.sql",
+      "filePath": "integration_tests/postgres-sink/postgres_prepare.sql",
+      "summary": "Creates PostgreSQL target tables (target_count, data_types, pg_all_data_types) to receive RisingWave sink output in the postgres-sink integration test.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/postgres-sink/postgres_prepare.sql:target_count",
+      "type": "table",
+      "name": "target_count",
+      "filePath": "integration_tests/postgres-sink/postgres_prepare.sql",
+      "lineRange": [1, 4],
+      "summary": "PostgreSQL target table for aggregated target_id and count values written by the RisingWave sink.",
+      "tags": ["database", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/postgres-sink/postgres_prepare.sql:pg_all_data_types",
+      "type": "table",
+      "name": "pg_all_data_types",
+      "filePath": "integration_tests/postgres-sink/postgres_prepare.sql",
+      "lineRange": [27, 50],
+      "summary": "PostgreSQL target table with full type coverage to verify that the RisingWave postgres-sink connector writes all supported types correctly.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/postgres-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/postgres-sink/prepare.sh",
+      "summary": "Shell script that initializes PostgreSQL target tables before running the postgres-sink integration test.",
+      "tags": ["script", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/postgres-sink/create_source.sql",
+      "target": "table:integration_tests/postgres-sink/create_source.sql:data_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/postgres-sink/create_source.sql",
+      "target": "table:integration_tests/postgres-sink/create_source.sql:pg_all_data_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/postgres-sink/postgres_prepare.sql",
+      "target": "table:integration_tests/postgres-sink/postgres_prepare.sql:target_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/postgres-sink/postgres_prepare.sql",
+      "target": "table:integration_tests/postgres-sink/postgres_prepare.sql:pg_all_data_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "document:integration_tests/postgres-sink/README.md",
+      "target": "service:integration_tests/postgres-sink/docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/postgres-sink/create_source.sql",
+      "target": "file:integration_tests/postgres-sink/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/postgres-sink/create_mv.sql",
+      "target": "file:integration_tests/postgres-sink/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/postgres-sink/prepare.sh",
+      "target": "file:integration_tests/postgres-sink/postgres_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/postgres-sink/docker-compose.yml",
+      "target": "file:integration_tests/postgres-sink/prepare.sh",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

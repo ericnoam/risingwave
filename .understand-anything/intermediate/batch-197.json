@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/http-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/http-sink/README.md",
+      "summary": "Setup and usage guide for the HTTP sink integration test demo, explaining prerequisites and steps to run the RisingWave-to-HTTP-endpoint sinking scenario.",
+      "tags": ["documentation", "integration-test", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/http-sink/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/http-sink/create_mv.sql",
+      "summary": "Creates a RisingWave materialized view over the `user_behaviors` source table as the data source for the HTTP sink integration test.",
+      "tags": ["database", "integration-test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/http-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/http-sink/create_sink.sql",
+      "summary": "Defines a RisingWave HTTP sink that POSTs materialized view rows as JSON payloads to an HTTP endpoint for the integration test.",
+      "tags": ["database", "integration-test", "data-pipeline"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/http-sink/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/http-sink/create_source.sql",
+      "summary": "Creates the `user_behaviors` source table in RisingWave backed by a Kafka topic, providing the upstream event stream for the HTTP sink test.",
+      "tags": ["database", "integration-test", "schema-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/http-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/http-sink/docker-compose.yml",
+      "summary": "Docker Compose setup for the HTTP sink integration test, starting an HTTP server mock, Kafka, and RisingWave to validate end-to-end HTTP sink functionality.",
+      "tags": ["infrastructure", "orchestration", "integration-test", "containerization"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/http-sink/README.md",
+      "target": "file:integration_tests/http-sink/create_sink.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/http-sink/create_sink.sql",
+      "target": "file:integration_tests/http-sink/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/http-sink/create_mv.sql",
+      "target": "file:integration_tests/http-sink/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

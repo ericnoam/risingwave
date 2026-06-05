@@ -1,0 +1,979 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 17,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "docs/dev/src/design/aggregation.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 49,
+      "nonEmptyLines": 30,
+      "sections": [
+        {
+          "heading": "Aggregations",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Frontend",
+          "level": 2,
+          "line": 6
+        },
+        {
+          "heading": "Expression Framework",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "HashAggExecutor",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "Initialization of `AggGroups`",
+          "level": 3,
+          "line": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "docs/dev/src/design/architecture-design.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 90,
+      "nonEmptyLines": 56,
+      "sections": [
+        {
+          "heading": "Architecture Design",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Motivation",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Execution Mode",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Batch-Query Mode",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "Streaming Mode",
+          "level": 3,
+          "line": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "docs/dev/src/design/backfill.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 396,
+      "nonEmptyLines": 270,
+      "sections": [
+        {
+          "heading": "Backfill",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Table of Contents",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Backfilling 101",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Motivation",
+          "level": 3,
+          "line": 17
+        },
+        {
+          "heading": "How it works",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "References",
+          "level": 3,
+          "line": 103
+        },
+        {
+          "heading": "NoShuffle Backfill",
+          "level": 2,
+          "line": 107
+        },
+        {
+          "heading": "Arrangement Backfill",
+          "level": 2,
+          "line": 159
+        },
+        {
+          "heading": "Differences with `NoShuffleBackfill`",
+          "level": 3,
+          "line": 168
+        },
+        {
+          "heading": "Arrangement Backfill Frontend",
+          "level": 3,
+          "line": 184
+        },
+        {
+          "heading": "Backfill logic",
+          "level": 3,
+          "line": 220
+        },
+        {
+          "heading": "Overview",
+          "level": 4,
+          "line": 222
+        },
+        {
+          "heading": "Schemas",
+          "level": 4,
+          "line": 240
+        },
+        {
+          "heading": "Polling loop",
+          "level": 4,
+          "line": 259
+        },
+        {
+          "heading": "Replication",
+          "level": 3,
+          "line": 279
+        },
+        {
+          "heading": "Example: Read / Write Paths Replicated Chunk",
+          "level": 4,
+          "line": 305
+        },
+        {
+          "heading": "Initialization",
+          "level": 4,
+          "line": 361
+        },
+        {
+          "heading": "Recovery",
+          "level": 3,
+          "line": 377
+        },
+        {
+          "heading": "Scaling",
+          "level": 3,
+          "line": 381
+        },
+        {
+          "heading": "Further improvements",
+          "level": 3,
+          "line": 385
+        },
+        {
+          "heading": "Cdc Backfill",
+          "level": 2,
+          "line": 390
+        },
+        {
+          "heading": "Source Backfill",
+          "level": 2,
+          "line": 394
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 22
+      }
+    },
+    {
+      "path": "docs/dev/src/design/batch-local-execution-mode.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 91,
+      "nonEmptyLines": 56,
+      "sections": [
+        {
+          "heading": "Design: Local execution mode for online serving queries",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Background",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Design",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "Example 1: select a from t where b in (1, 2, 3, 4)",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "Example 2: SELECT pk, t1.a, t1.fk, t2.b FROM t1, t2 WHERE t1.fk = t2.pk AND t1.pk = 114514",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Optimization/Scheduling",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "Monitoring/Management",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "How to switch between local/distributed execution modes?",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "RPC execution in local mode",
+          "level": 3,
+          "line": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "docs/dev/src/design/checkpoint.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 44,
+      "nonEmptyLines": 27,
+      "sections": [
+        {
+          "heading": "Checkpoint",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Revisit: Consistency Model",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Streaming Checkpoint",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "Checkpoint on Storage",
+          "level": 2,
+          "line": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "docs/dev/src/design/consistent-hash.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 93,
+      "nonEmptyLines": 51,
+      "sections": [
+        {
+          "heading": "Consistent Hash",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Background",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Design",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Meta",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "Actor Scheduling",
+          "level": 4,
+          "line": 15
+        },
+        {
+          "heading": "Data Distribution",
+          "level": 4,
+          "line": 19
+        },
+        {
+          "heading": "Data Redistribution",
+          "level": 4,
+          "line": 31
+        },
+        {
+          "heading": "Streaming",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "Batch",
+          "level": 3,
+          "line": 63
+        },
+        {
+          "heading": "Storage",
+          "level": 3,
+          "line": 71
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "docs/dev/src/design/data-model-and-encoding.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 49,
+      "nonEmptyLines": 28,
+      "sections": [
+        {
+          "heading": "Data Model and Encoding",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Data Model",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "In-Memory Encoding",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "On-Disk Encoding",
+          "level": 2,
+          "line": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "docs/dev/src/design/keys.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 84,
+      "nonEmptyLines": 62,
+      "sections": [
+        {
+          "heading": "Keys",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Stream Key",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Primary Key (Storage)",
+          "level": 2,
+          "line": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "docs/dev/src/design/match-recognize.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 166,
+      "nonEmptyLines": 137,
+      "sections": [
+        {
+          "heading": "Row Pattern Recognition (`MATCH_RECOGNIZE`)",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Feature support",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "Planning pipeline",
+          "level": 2,
+          "line": 64
+        },
+        {
+          "heading": "Lowering `MEASURES` and `DEFINE`",
+          "level": 3,
+          "line": 82
+        },
+        {
+          "heading": "The hidden match id",
+          "level": 3,
+          "line": 99
+        },
+        {
+          "heading": "The NFA",
+          "level": 2,
+          "line": 108
+        },
+        {
+          "heading": "The executor",
+          "level": 2,
+          "line": 122
+        },
+        {
+          "heading": "State and fault tolerance",
+          "level": 2,
+          "line": 146
+        },
+        {
+          "heading": "Limitations and future work",
+          "level": 2,
+          "line": 162
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "docs/dev/src/design/meta-service.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 47,
+      "nonEmptyLines": 26,
+      "sections": [
+        {
+          "heading": "Meta Service",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Background",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Meta Store",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Types of Metadata",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "Catalog",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "Storage",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "Push on Updates",
+          "level": 2,
+          "line": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "docs/dev/src/design/multi-object-store.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 78,
+      "nonEmptyLines": 57,
+      "sections": [
+        {
+          "heading": "Build RisingWave with Multiple Object Storage Backends",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "How RisingWave supports multiple object storage backends",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "S3 and other S3 compatible object store",
+          "level": 3,
+          "line": 19
+        },
+        {
+          "heading": "OpenDAL object store",
+          "level": 3,
+          "line": 23
+        },
+        {
+          "heading": "How to build RisingWave with multiple object store",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "COS & Lyvecloud Storage",
+          "level": 3,
+          "line": 28
+        },
+        {
+          "heading": "GCS",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "OSS",
+          "level": 3,
+          "line": 44
+        },
+        {
+          "heading": "Azure Blob",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "HDFS",
+          "level": 3,
+          "line": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 11
+      }
+    },
+    {
+      "path": "docs/dev/src/design/mv-on-mv.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 52,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "MView on Top of MView",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Background",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Design",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Broadcast operator",
+          "level": 3,
+          "line": 18
+        },
+        {
+          "heading": "Create new mview online",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "Drop mview online",
+          "level": 2,
+          "line": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "docs/dev/src/design/relational-table.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 93,
+      "nonEmptyLines": 64,
+      "sections": [
+        {
+          "heading": "Storing State Using Relational Table",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Row-based Encoding",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Relational Table Layer",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Write Path",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "Read Path",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Get",
+          "level": 4,
+          "line": 38
+        },
+        {
+          "heading": "Scan",
+          "level": 4,
+          "line": 58
+        },
+        {
+          "heading": "Example: HashAgg",
+          "level": 2,
+          "line": 64
+        },
+        {
+          "heading": "Table id",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "Value State (Sum, Count)",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "Extreme State (Max, Min)",
+          "level": 3,
+          "line": 81
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 11
+      }
+    },
+    {
+      "path": "docs/dev/src/design/shared-buffer.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 132,
+      "nonEmptyLines": 86,
+      "sections": [
+        {
+          "heading": "The Hummock Shared Buffer",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Introduction",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Part 1: Async Checkpoint",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Write Path",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "Read Path",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "Part 2: Write Anytime / Async Flush",
+          "level": 2,
+          "line": 90
+        },
+        {
+          "heading": "A New Merge Iterator",
+          "level": 3,
+          "line": 113
+        },
+        {
+          "heading": "Considerations",
+          "level": 4,
+          "line": 125
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "docs/dev/src/design/state-store-overview.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 159,
+      "nonEmptyLines": 94,
+      "sections": [
+        {
+          "heading": "An Overview of RisingWave State Store",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "The Hummock User API",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Hummock Internals",
+          "level": 2,
+          "line": 58
+        },
+        {
+          "heading": "Storage Format",
+          "level": 3,
+          "line": 62
+        },
+        {
+          "heading": "Write Path",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "Read Path",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "Compaction",
+          "level": 3,
+          "line": 117
+        },
+        {
+          "heading": "Transaction Management with Hummock Manager",
+          "level": 3,
+          "line": 125
+        },
+        {
+          "heading": "Checkpointing in Streaming",
+          "level": 3,
+          "line": 145
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 11
+      }
+    },
+    {
+      "path": "docs/dev/src/design/streaming-overview.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 67,
+      "nonEmptyLines": 38,
+      "sections": [
+        {
+          "heading": "An Overview of the RisingWave Streaming Engine",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "Actors, executors, and states",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "Actors",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "Executors",
+          "level": 3,
+          "line": 45
+        },
+        {
+          "heading": "Checkpoint, Consistency, and Fault tolerance",
+          "level": 2,
+          "line": 51
+        },
+        {
+          "heading": "Barrier based checkpoint",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "Fault tolerance",
+          "level": 3,
+          "line": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "docs/dev/src/design/streaming-parallelism.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 117,
+      "nonEmptyLines": 86,
+      "sections": [
+        {
+          "heading": "Streaming Parallelism",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Value Semantics",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Resolution Rules",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "Examples",
+          "level": 2,
+          "line": 62
+        },
+        {
+          "heading": "Migration",
+          "level": 2,
+          "line": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

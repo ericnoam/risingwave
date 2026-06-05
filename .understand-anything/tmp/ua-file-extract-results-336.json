@@ -1,0 +1,789 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/client-library/spring-boot/src/main/java/com/risingwave/SpringTestRepository.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 11,
+      "nonEmptyLines": 9,
+      "classes": [
+        {
+          "name": "SpringTestRepository",
+          "startLine": 8,
+          "endLine": 11,
+          "methods": [
+            "findByName",
+            "findById"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SpringTestRepository",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/client-library/spring-boot/src/main/resources/application.properties",
+      "language": "properties",
+      "fileCategory": "config",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/cockroach-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "functions": [
+        {
+          "name": "cockroach_count",
+          "startLine": 7,
+          "endLine": 10,
+          "params": [
+            "rel"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "cockroach_count",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "cockroach_count",
+          "callee": "docker_compose_exec",
+          "lineNumber": 9
+        },
+        {
+          "caller": "cockroach_count",
+          "callee": "int",
+          "lineNumber": 10
+        },
+        {
+          "caller": "cockroach_count",
+          "callee": "output.strip",
+          "lineNumber": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/datagen/twitter/twitter_example.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 14,
+      "nonEmptyLines": 14,
+      "sections": [
+        {
+          "heading": "data",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "author",
+          "level": 1,
+          "line": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/debezium-mongo/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/debezium-mysql/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/debezium-mysql/dockerfile",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "services": [
+        {
+          "name": "connect",
+          "image": "quay.io/debezium/connect:2.5.0.Final",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 19
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM quay.io/debezium/connect:2.5.0.Final",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "ENV AVRO_PLUGIN_DIR=$KAFKA_CONNECT_PLUGINS_DIR/confluent-avro-pl",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "ARG CONFLUENT_PLUGIN_VERSION=5.3.0",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "RUN mkdir $AVRO_PLUGIN_DIR && cd $AVRO_PLUGIN_DIR && \\",
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/debezium-mysql/mysql/mysql_bootstrap.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 9,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/debezium-mysql/mysql/mysql.cnf",
+      "language": "cnf",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/debezium-postgres/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/debezium-postgres/dockerfile",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "services": [
+        {
+          "name": "connect",
+          "image": "quay.io/debezium/connect:2.5.0.Final",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 19
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM quay.io/debezium/connect:2.5.0.Final",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "ENV AVRO_PLUGIN_DIR=$KAFKA_CONNECT_PLUGINS_DIR/confluent-avro-pl",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "ARG CONFLUENT_PLUGIN_VERSION=5.3.0",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "RUN mkdir $AVRO_PLUGIN_DIR && cd $AVRO_PLUGIN_DIR && \\",
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/debezium-postgres/postgres/postgres_bootstrap.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 4,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/debezium-sqlserver/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/debezium-sqlserver/dockerfile",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "services": [
+        {
+          "name": "connect",
+          "image": "quay.io/debezium/connect:2.5.0.Final",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 19
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM quay.io/debezium/connect:2.5.0.Final",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "ENV AVRO_PLUGIN_DIR=$KAFKA_CONNECT_PLUGINS_DIR/confluent-avro-pl",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "ARG CONFLUENT_PLUGIN_VERSION=5.3.0",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "RUN mkdir $AVRO_PLUGIN_DIR && cd $AVRO_PLUGIN_DIR && \\",
+          "startLine": 7,
+          "endLine": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 1,
+        "stepCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/deltalake-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "run_query",
+          "startLine": 4,
+          "endLine": 8,
+          "params": [
+            "file"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run_query",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run_query",
+          "callee": "open",
+          "lineNumber": 5
+        },
+        {
+          "caller": "run_query",
+          "callee": "subprocess.run",
+          "lineNumber": 6
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/doris-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "doris_count",
+          "startLine": 8,
+          "endLine": 11,
+          "params": [
+            "rel"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "doris_count",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "doris_count",
+          "callee": "docker_compose_exec",
+          "lineNumber": 10
+        },
+        {
+          "caller": "doris_count",
+          "callee": "int",
+          "lineNumber": 11
+        },
+        {
+          "caller": "doris_count",
+          "callee": "output.split",
+          "lineNumber": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/dynamodb/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/dynamodb/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 39,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/ecommerce/ecommerce.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 60,
+      "nonEmptyLines": 56,
+      "definitions": [
+        {
+          "name": "order_events",
+          "kind": "table",
+          "fields": [
+            "order_id",
+            "item_id",
+            "item_price",
+            "event_timestamp"
+          ],
+          "startLine": 13,
+          "endLine": 18
+        },
+        {
+          "name": "parcel_events",
+          "kind": "table",
+          "fields": [
+            "order_id",
+            "event_timestamp",
+            "event_type"
+          ],
+          "startLine": 20,
+          "endLine": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/elasticsearch-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 19,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/generator/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/generator/requirements.txt",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/feature-store/server/actor.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 67,
+      "nonEmptyLines": 56,
+      "definitions": [
+        {
+          "name": "ReportActionRequest",
+          "kind": "message",
+          "fields": [
+            "userid",
+            "eventtype",
+            "changenum"
+          ],
+          "startLine": 12,
+          "endLine": 16
+        },
+        {
+          "name": "ReportActionResponse",
+          "kind": "message",
+          "fields": [
+            "timestamp"
+          ],
+          "startLine": 18,
+          "endLine": 20
+        },
+        {
+          "name": "GetFeatureRequest",
+          "kind": "message",
+          "fields": [
+            "userid"
+          ],
+          "startLine": 22,
+          "endLine": 24
+        },
+        {
+          "name": "GetFeatureResponse",
+          "kind": "message",
+          "fields": [
+            "count",
+            "sum"
+          ],
+          "startLine": 26,
+          "endLine": 29
+        },
+        {
+          "name": "ReportTaxiActionRequest",
+          "kind": "message",
+          "fields": [
+            "VendorID",
+            "lpep_pickup_datetime",
+            "lpep_dropoff_datetime",
+            "store_and_fwd_flag",
+            "RatecodeID",
+            "PULocationID",
+            "DOLocationID",
+            "passenger_count",
+            "trip_distance",
+            "fare_amount",
+            "extra",
+            "mta_tax",
+            "tip_amount",
+            "tolls_amount",
+            "ehail_fee",
+            "improvement_surcharge",
+            "total_amount",
+            "payment_type",
+            "trip_type",
+            "congestion_surcharge"
+          ],
+          "startLine": 31,
+          "endLine": 52
+        },
+        {
+          "name": "ReportTaxiActionResponse",
+          "kind": "message",
+          "fields": [],
+          "startLine": 54,
+          "endLine": 54
+        },
+        {
+          "name": "GetTaxiAmountRequest",
+          "kind": "message",
+          "fields": [
+            "DOLocationID",
+            "PULocationID"
+          ],
+          "startLine": 56,
+          "endLine": 59
+        },
+        {
+          "name": "GetTaxiAmountResponse",
+          "kind": "message",
+          "fields": [
+            "fare_amount"
+          ],
+          "startLine": 61,
+          "endLine": 63
+        },
+        {
+          "name": "StartTrainingRequest",
+          "kind": "message",
+          "fields": [],
+          "startLine": 65,
+          "endLine": 65
+        },
+        {
+          "name": "StartTrainingResponse",
+          "kind": "message",
+          "fields": [],
+          "startLine": 67,
+          "endLine": 67
+        }
+      ],
+      "endpoints": [
+        {
+          "method": "rpc",
+          "path": "Server.GetFeature",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "method": "rpc",
+          "path": "Server.ReportAction",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "method": "rpc",
+          "path": "Server.ReportTaxiAction",
+          "startLine": 7,
+          "endLine": 7
+        },
+        {
+          "method": "rpc",
+          "path": "Server.GetTaxiAmount",
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "method": "rpc",
+          "path": "Server.StartTraining",
+          "startLine": 9,
+          "endLine": 9
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 10,
+        "endpointCount": 5
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/build.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 3,
+          "endLine": 20,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "tonic_build::configure()\n        .build_server(true)\n        .out_dir(\"./src\")\n        .compile(&[actor_proto], &[\".\"]).unwrap_or_else",
+          "lineNumber": 7
+        },
+        {
+          "caller": "main",
+          "callee": "tonic_build::configure()\n        .build_server(true)\n        .out_dir(\"./src\").compile",
+          "lineNumber": 7
+        },
+        {
+          "caller": "main",
+          "callee": "tonic_build::configure()\n        .build_server(true).out_dir",
+          "lineNumber": 7
+        },
+        {
+          "caller": "main",
+          "callee": "tonic_build::configure().build_server",
+          "lineNumber": 7
+        },
+        {
+          "caller": "main",
+          "callee": "tonic_build::configure",
+          "lineNumber": 7
+        },
+        {
+          "caller": "main",
+          "callee": "fs::copy(\"./src/server_pb.rs\", \"../simulator/src/server_pb.rs\").unwrap",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "fs::copy",
+          "lineNumber": 12
+        },
+        {
+          "caller": "main",
+          "callee": "tonic_build::configure()\n        .build_client(true)\n        .out_dir(\"./src\")\n        .compile(&[model_proto], &[\".\"]).unwrap_or_else",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "tonic_build::configure()\n        .build_client(true)\n        .out_dir(\"./src\").compile",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "tonic_build::configure()\n        .build_client(true).out_dir",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "tonic_build::configure().build_client",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "tonic_build::configure",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 23,
+      "nonEmptyLines": 18,
+      "sections": [
+        {
+          "heading": "workspace",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "build-dependencies",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "[[bin]]",
+          "level": 1,
+          "line": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,874 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/common/heap_profiling/src/jeprof.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 47,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 35,
+          "endLine": 56,
+          "params": [
+            "profile_path",
+            "collapsed_path"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JeprofError",
+          "startLine": 21,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "IoError",
+            "ExitError"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "JeprofError",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "env::current_exe",
+          "lineNumber": 36
+        },
+        {
+          "caller": "run",
+          "callee": "Command::new(\"jeprof\")\n            .arg(\"--collapsed\")\n            .arg(executable_path)\n            .arg(Path::new(&profile_path)).output",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run",
+          "callee": "Command::new(\"jeprof\")\n            .arg(\"--collapsed\")\n            .arg(executable_path).arg",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run",
+          "callee": "Command::new(\"jeprof\")\n            .arg(\"--collapsed\").arg",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run",
+          "callee": "Command::new(\"jeprof\").arg",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run",
+          "callee": "Command::new",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run",
+          "callee": "Path::new",
+          "lineNumber": 42
+        },
+        {
+          "caller": "run",
+          "callee": "tokio::task::spawn_blocking(prof_cmd).await.unwrap",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run",
+          "callee": "tokio::task::spawn_blocking",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run",
+          "callee": "output.status.exit_ok().into_exit_error",
+          "lineNumber": 48
+        },
+        {
+          "caller": "run",
+          "callee": "output.status.exit_ok",
+          "lineNumber": 48
+        },
+        {
+          "caller": "run",
+          "callee": "String::from_utf8_lossy",
+          "lineNumber": 49
+        },
+        {
+          "caller": "run",
+          "callee": "String::from_utf8_lossy",
+          "lineNumber": 50
+        },
+        {
+          "caller": "run",
+          "callee": "fs::write",
+          "lineNumber": 53
+        },
+        {
+          "caller": "run",
+          "callee": "Path::new",
+          "lineNumber": 53
+        },
+        {
+          "caller": "run",
+          "callee": "Ok",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/heap_profiling/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 22,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/heap_profiling/src/profile_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 180,
+      "nonEmptyLines": 162,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 40,
+          "endLine": 42,
+          "params": [
+            "server_config"
+          ]
+        },
+        {
+          "name": "profiling",
+          "startLine": 44,
+          "endLine": 71,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "heap_profiling",
+          "startLine": 73,
+          "endLine": 121,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "list_heap_profiling",
+          "startLine": 123,
+          "endLine": 160,
+          "params": [
+            "_request"
+          ]
+        },
+        {
+          "name": "analyze_heap",
+          "startLine": 162,
+          "endLine": 179,
+          "params": [
+            "request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProfileServiceImpl",
+          "startLine": 35,
+          "endLine": 37,
+          "methods": [
+            "new",
+            "profiling",
+            "heap_profiling",
+            "list_heap_profiling",
+            "analyze_heap"
+          ],
+          "properties": [
+            "server_config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProfileServiceImpl",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "profiling",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "heap_profiling",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "list_heap_profiling",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "analyze_heap",
+          "line": 162,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "profiling",
+          "callee": "std::env::var(\"RW_PROFILE_PATH\").is_ok",
+          "lineNumber": 48
+        },
+        {
+          "caller": "profiling",
+          "callee": "std::env::var",
+          "lineNumber": 48
+        },
+        {
+          "caller": "profiling",
+          "callee": "Err",
+          "lineNumber": 49
+        },
+        {
+          "caller": "profiling",
+          "callee": "Status::internal",
+          "lineNumber": 49
+        },
+        {
+          "caller": "profiling",
+          "callee": "request.into_inner().get_sleep_s",
+          "lineNumber": 53
+        },
+        {
+          "caller": "profiling",
+          "callee": "request.into_inner",
+          "lineNumber": 53
+        },
+        {
+          "caller": "profiling",
+          "callee": "pprof::ProfilerGuardBuilder::default()\n            .blocklist(&[\"libc\", \"libgcc\", \"pthread\", \"vdso\"])\n            .build().unwrap",
+          "lineNumber": 54
+        },
+        {
+          "caller": "profiling",
+          "callee": "pprof::ProfilerGuardBuilder::default()\n            .blocklist(&[\"libc\", \"libgcc\", \"pthread\", \"vdso\"]).build",
+          "lineNumber": 54
+        },
+        {
+          "caller": "profiling",
+          "callee": "pprof::ProfilerGuardBuilder::default().blocklist",
+          "lineNumber": 54
+        },
+        {
+          "caller": "profiling",
+          "callee": "pprof::ProfilerGuardBuilder::default",
+          "lineNumber": 54
+        },
+        {
+          "caller": "profiling",
+          "callee": "tokio::time::sleep",
+          "lineNumber": 58
+        },
+        {
+          "caller": "profiling",
+          "callee": "Duration::from_secs",
+          "lineNumber": 58
+        },
+        {
+          "caller": "profiling",
+          "callee": "guard.report().build",
+          "lineNumber": 60
+        },
+        {
+          "caller": "profiling",
+          "callee": "guard.report",
+          "lineNumber": 60
+        },
+        {
+          "caller": "profiling",
+          "callee": "report.flamegraph(&mut buf).unwrap",
+          "lineNumber": 62
+        },
+        {
+          "caller": "profiling",
+          "callee": "report.flamegraph",
+          "lineNumber": 62
+        },
+        {
+          "caller": "profiling",
+          "callee": "Ok",
+          "lineNumber": 64
+        },
+        {
+          "caller": "profiling",
+          "callee": "Response::new",
+          "lineNumber": 64
+        },
+        {
+          "caller": "profiling",
+          "callee": "Err",
+          "lineNumber": 68
+        },
+        {
+          "caller": "profiling",
+          "callee": "err.to_status",
+          "lineNumber": 68
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "Err",
+          "lineNumber": 83
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "Status::unimplemented",
+          "lineNumber": 83
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "tikv_jemalloc_ctl::opt::prof::read().unwrap",
+          "lineNumber": 88
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "tikv_jemalloc_ctl::opt::prof::read",
+          "lineNumber": 88
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "Err",
+          "lineNumber": 89
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "Status::failed_precondition",
+          "lineNumber": 89
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "chrono::Local::now().format",
+          "lineNumber": 94
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "chrono::Local::now",
+          "lineNumber": 94
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "request.into_inner",
+          "lineNumber": 96
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "PathBuf::from",
+          "lineNumber": 97
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "arg_dir.is_empty",
+          "lineNumber": 97
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "create_dir_all",
+          "lineNumber": 102
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "dir.join",
+          "lineNumber": 104
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "file_path_buf\n            .to_str().ok_or_else",
+          "lineNumber": 105
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "file_path_buf.to_str",
+          "lineNumber": 105
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "Status::internal",
+          "lineNumber": 107
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "CString::new(file_path).map_err",
+          "lineNumber": 109
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "CString::new",
+          "lineNumber": 109
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "Status::internal",
+          "lineNumber": 109
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "tikv_jemalloc_ctl::prof::dump::write",
+          "lineNumber": 113
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "file_path_c.as_c_str",
+          "lineNumber": 113
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "Err",
+          "lineNumber": 116
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "Status::internal",
+          "lineNumber": 116
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "e.to_string",
+          "lineNumber": 116
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "Ok",
+          "lineNumber": 119
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "Response::new",
+          "lineNumber": 119
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "self.server_config.heap_profiling.dir.clone",
+          "lineNumber": 127
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "fs::read_dir(dump_dir.clone())?\n            .map(|entry| {\n                let entry = entry?;\n                Ok::<_, Status>(entry.file_name().to_string_lossy().to_string())\n            })\n            .filter(|name| {\n                if let Ok(name) = name {\n                    name.contains(AUTO_DUMP_SUFFIX) && !name.ends_with(COLLAPSED_SUFFIX)\n                } else {\n                    true\n                }\n            }).try_collect",
+          "lineNumber": 128
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "fs::read_dir(dump_dir.clone())?\n            .map(|entry| {\n                let entry = entry?;\n                Ok::<_, Status>(entry.file_name().to_string_lossy().to_string())\n            }).filter",
+          "lineNumber": 128
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "fs::read_dir(dump_dir.clone())?.map",
+          "lineNumber": 128
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "fs::read_dir",
+          "lineNumber": 128
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "dump_dir.clone",
+          "lineNumber": 128
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "Ok::<_, Status>",
+          "lineNumber": 131
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "entry.file_name().to_string_lossy().to_string",
+          "lineNumber": 131
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "entry.file_name().to_string_lossy",
+          "lineNumber": 131
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "entry.file_name",
+          "lineNumber": 131
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "name.contains",
+          "lineNumber": 135
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "name.ends_with",
+          "lineNumber": 135
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "fs::read_dir(dump_dir.clone())?\n            .map(|entry| {\n                let entry = entry?;\n                Ok::<_, Status>(entry.file_name().to_string_lossy().to_string())\n            })\n            .filter(|name| {\n                if let Ok(name) = name {\n                    name.contains(MANUALLY_DUMP_SUFFIX) && !name.ends_with(COLLAPSED_SUFFIX)\n                } else {\n                    true\n                }\n            }).try_collect",
+          "lineNumber": 141
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "fs::read_dir(dump_dir.clone())?\n            .map(|entry| {\n                let entry = entry?;\n                Ok::<_, Status>(entry.file_name().to_string_lossy().to_string())\n            }).filter",
+          "lineNumber": 141
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "fs::read_dir(dump_dir.clone())?.map",
+          "lineNumber": 141
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "fs::read_dir",
+          "lineNumber": 141
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "dump_dir.clone",
+          "lineNumber": 141
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "Ok::<_, Status>",
+          "lineNumber": 144
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "entry.file_name().to_string_lossy().to_string",
+          "lineNumber": 144
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "entry.file_name().to_string_lossy",
+          "lineNumber": 144
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "entry.file_name",
+          "lineNumber": 144
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "name.contains",
+          "lineNumber": 148
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "name.ends_with",
+          "lineNumber": 148
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "Ok",
+          "lineNumber": 155
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "Response::new",
+          "lineNumber": 155
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "request.into_inner().get_path().clone",
+          "lineNumber": 166
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "request.into_inner().get_path",
+          "lineNumber": 166
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "request.into_inner",
+          "lineNumber": 166
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "Path::new",
+          "lineNumber": 168
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "collapsed_path.exists",
+          "lineNumber": 171
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "crate::jeprof::run(dumped_path_str, collapsed_path_str.clone())\n                .await.map_err",
+          "lineNumber": 172
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "crate::jeprof::run",
+          "lineNumber": 172
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "collapsed_path_str.clone",
+          "lineNumber": 172
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "e.to_status",
+          "lineNumber": 174
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "fs::read",
+          "lineNumber": 177
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "Path::new",
+          "lineNumber": 177
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "Ok",
+          "lineNumber": 178
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "Response::new",
+          "lineNumber": 178
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/heap_profiling/src/profiler.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 107,
+      "nonEmptyLines": 95,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 43,
+          "endLine": 55,
+          "params": [
+            "total_memory",
+            "config"
+          ]
+        },
+        {
+          "name": "auto_dump_heap_prof",
+          "startLine": 57,
+          "endLine": 77,
+          "params": []
+        },
+        {
+          "name": "start",
+          "startLine": 80,
+          "endLine": 106,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "HeapProfiler",
+          "startLine": 30,
+          "endLine": 36,
+          "methods": [
+            "new",
+            "auto_dump_heap_prof",
+            "start"
+          ],
+          "properties": [
+            "config",
+            "threshold_auto_dump_heap_profile",
+            "jemalloc_dump_mib",
+            "opt_prof"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "HeapProfiler",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 80,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "jemalloc_prof::dump::mib().unwrap",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new",
+          "callee": "jemalloc_prof::dump::mib",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new",
+          "callee": "jemalloc_opt::prof::read().unwrap",
+          "lineNumber": 47
+        },
+        {
+          "caller": "new",
+          "callee": "jemalloc_opt::prof::read",
+          "lineNumber": 47
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "chrono::Local::now().format",
+          "lineNumber": 58
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "chrono::Local::now",
+          "lineNumber": 58
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "Path::new(&self.config.dir)\n            .join(&file_name)\n            .to_str()\n            .expect(\"file path is not valid utf8\").to_owned",
+          "lineNumber": 61
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "Path::new(&self.config.dir)\n            .join(&file_name)\n            .to_str().expect",
+          "lineNumber": 61
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "Path::new(&self.config.dir)\n            .join(&file_name).to_str",
+          "lineNumber": 61
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "Path::new(&self.config.dir).join",
+          "lineNumber": 61
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "Path::new",
+          "lineNumber": 61
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "CString::new(file_path).expect",
+          "lineNumber": 66
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "CString::new",
+          "lineNumber": 66
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "self\n            .jemalloc_dump_mib.write",
+          "lineNumber": 69
+        },
+        {
+          "caller": "auto_dump_heap_prof",
+          "callee": "file_path_c.as_c_str",
+          "lineNumber": 71
+        },
+        {
+          "caller": "start",
+          "callee": "Once::new",
+          "lineNumber": 86
+        },
+        {
+          "caller": "start",
+          "callee": "START.call_once",
+          "lineNumber": 87
+        },
+        {
+          "caller": "start",
+          "callee": "fs::create_dir_all(&self.config.dir).unwrap",
+          "lineNumber": 88
+        },
+        {
+          "caller": "start",
+          "callee": "fs::create_dir_all",
+          "lineNumber": 88
+        },
+        {
+          "caller": "start",
+          "callee": "tokio::spawn",
+          "lineNumber": 89
+        },
+        {
+          "caller": "start",
+          "callee": "time::interval",
+          "lineNumber": 90
+        },
+        {
+          "caller": "start",
+          "callee": "Duration::from_millis",
+          "lineNumber": 90
+        },
+        {
+          "caller": "start",
+          "callee": "interval.tick",
+          "lineNumber": 93
+        },
+        {
+          "caller": "start",
+          "callee": "resource_util::memory::total_memory_used_bytes",
+          "lineNumber": 94
+        },
+        {
+          "caller": "start",
+          "callee": "self.auto_dump_heap_prof",
+          "lineNumber": 100
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

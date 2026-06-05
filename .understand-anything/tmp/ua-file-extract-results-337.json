@@ -1,0 +1,694 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/feature-store/server/model/model.proto",
+      "language": "protobuf",
+      "fileCategory": "data",
+      "totalLines": 22,
+      "nonEmptyLines": 17,
+      "definitions": [
+        {
+          "name": "TrainingRequest",
+          "kind": "message",
+          "fields": [],
+          "startLine": 9,
+          "endLine": 10
+        },
+        {
+          "name": "TrainingResponse",
+          "kind": "message",
+          "fields": [],
+          "startLine": 12,
+          "endLine": 13
+        },
+        {
+          "name": "GetAmountRequest",
+          "kind": "message",
+          "fields": [
+            "do_location_id",
+            "pu_location_id"
+          ],
+          "startLine": 15,
+          "endLine": 18
+        },
+        {
+          "name": "GetAmountResponse",
+          "kind": "message",
+          "fields": [
+            "amount"
+          ],
+          "startLine": 20,
+          "endLine": 22
+        }
+      ],
+      "endpoints": [
+        {
+          "method": "rpc",
+          "path": "Model.GetAmount",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "method": "rpc",
+          "path": "Model.Training",
+          "startLine": 6,
+          "endLine": 6
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 4,
+        "endpointCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/model/requirements.txt",
+      "language": "txt",
+      "fileCategory": "docs",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/feature-store/server/rust-toolchain",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/feature-store/server/udf.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "udf_sum",
+          "startLine": 11,
+          "endLine": 15,
+          "params": [
+            "x",
+            "y"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "udf_sum",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/simulator/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/simulator/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 19,
+      "nonEmptyLines": 16,
+      "sections": [
+        {
+          "heading": "workspace",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/simulator/rust-toolchain",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 2,
+      "nonEmptyLines": 2,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/iceberg-cdc/python/script/check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "check_spark_table",
+          "startLine": 6,
+          "endLine": 32,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "check_spark_table",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "check_spark_table",
+          "callee": "psycopg2.connect",
+          "lineNumber": 9
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "conn.cursor",
+          "lineNumber": 11
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "cursor.execute",
+          "lineNumber": 12
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "cursor.fetchone",
+          "lineNumber": 13
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "print",
+          "lineNumber": 14
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "SparkSession.builder.remote(spark_config['url']).getOrCreate",
+          "lineNumber": 16
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "SparkSession.builder.remote",
+          "lineNumber": 16
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "range",
+          "lineNumber": 20
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "spark.sql",
+          "lineNumber": 23
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "spark.sql(\"SELECT COUNT(*) FROM s1.t1\").collect",
+          "lineNumber": 26
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "spark.sql",
+          "lineNumber": 26
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "print",
+          "lineNumber": 27
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "time.sleep",
+          "lineNumber": 30
+        },
+        {
+          "caller": "check_spark_table",
+          "callee": "AssertionError",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-cdc/python/script/config.ini",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 7,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/iceberg-cdc/python/script/init.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 98,
+      "functions": [
+        {
+          "name": "init_spark_table",
+          "startLine": 6,
+          "endLine": 30,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "init_risingwave_mv",
+          "startLine": 33,
+          "endLine": 98,
+          "params": [
+            "args"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init_spark_table",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "init_risingwave_mv",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init_spark_table",
+          "callee": "SparkSession.builder.remote(spark_config['url']).getOrCreate",
+          "lineNumber": 8
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "SparkSession.builder.remote",
+          "lineNumber": 8
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "print",
+          "lineNumber": 29
+        },
+        {
+          "caller": "init_spark_table",
+          "callee": "spark.sql",
+          "lineNumber": 30
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "psycopg2.connect",
+          "lineNumber": 93
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "conn.cursor",
+          "lineNumber": 95
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "print",
+          "lineNumber": 97
+        },
+        {
+          "caller": "init_risingwave_mv",
+          "callee": "cursor.execute",
+          "lineNumber": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-cdc/python/script/pyproject.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "sections": [
+        {
+          "heading": "tool.poetry",
+          "level": 2,
+          "line": 1
+        },
+        {
+          "heading": "tool.poetry.dependencies",
+          "level": 3,
+          "line": 9
+        },
+        {
+          "heading": "build-system",
+          "level": 1,
+          "line": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-cdc/spark/spark-connect-server.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink/airflow_dags/remove_iceberg_orphan_files.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 20,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink/airflow_dags/rewrite_iceberg_small_files.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 21,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink/iceberg-compaction-sql/remove_orphan_files.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 20,
+      "functions": [
+        {
+          "name": "get_spark",
+          "startLine": 4,
+          "endLine": 15,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_spark",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_spark",
+          "callee": "SparkSession.builder \\\n        .config(\"spark.sql.extensions\",\"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n        .config(\"spark.sql.catalog.demo\",\"org.apache.iceberg.spark.SparkCatalog\") \\\n        .config(\"spark.sql.catalog.demo.type\",\"hadoop\") \\\n        .config(\"spark.sql.catalog.demo.warehouse\",\"s3a://hummock001/iceberg-data\") \\\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.endpoint\",\"http://minio-0:9301\") \\\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.path.style.access\",\"true\") \\\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.access.key\",\"hummockadmin\") \\\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.secret.key\",\"hummockadmin\") \\\n        .getOrCreate",
+          "lineNumber": 5
+        },
+        {
+          "caller": "get_spark",
+          "callee": "SparkSession.builder \\\n        .config(\"spark.sql.extensions\",\"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n        .config(\"spark.sql.catalog.demo\",\"org.apache.iceberg.spark.SparkCatalog\") \\\n        .config(\"spark.sql.catalog.demo.type\",\"hadoop\") \\\n        .config(\"spark.sql.catalog.demo.warehouse\",\"s3a://hummock001/iceberg-data\") \\\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.endpoint\",\"http://minio-0:9301\") \\\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.path.style.access\",\"true\") \\\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.access.key\",\"hummockadmin\") \\\n        .config",
+          "lineNumber": 5
+        },
+        {
+          "caller": "get_spark",
+          "callee": "SparkSession.builder \\\n        .config(\"spark.sql.extensions\",\"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n        .config(\"spark.sql.catalog.demo\",\"org.apache.iceberg.spark.SparkCatalog\") \\\n        .config(\"spark.sql.catalog.demo.type\",\"hadoop\") \\\n        .config(\"spark.sql.catalog.demo.warehouse\",\"s3a://hummock001/iceberg-data\") \\\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.endpoint\",\"http://minio-0:9301\") \\\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.path.style.access\",\"true\") \\\n        .config",
+          "lineNumber": 5
+        },
+        {
+          "caller": "get_spark",
+          "callee": "SparkSession.builder \\\n        .config(\"spark.sql.extensions\",\"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n        .config(\"spark.sql.catalog.demo\",\"org.apache.iceberg.spark.SparkCatalog\") \\\n        .config(\"spark.sql.catalog.demo.type\",\"hadoop\") \\\n        .config(\"spark.sql.catalog.demo.warehouse\",\"s3a://hummock001/iceberg-data\") \\\n        .config(\"spark.sql.catalog.demo.hadoop.fs.s3a.endpoint\",\"http://minio-0:9301\") \\\n        .config",
+          "lineNumber": 5
+        },
+        {
+          "caller": "get_spark",
+          "callee": "SparkSession.builder \\\n        .config(\"spark.sql.extensions\",\"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n        .config(\"spark.sql.catalog.demo\",\"org.apache.iceberg.spark.SparkCatalog\") \\\n        .config(\"spark.sql.catalog.demo.type\",\"hadoop\") \\\n        .config(\"spark.sql.catalog.demo.warehouse\",\"s3a://hummock001/iceberg-data\") \\\n        .config",
+          "lineNumber": 5
+        },
+        {
+          "caller": "get_spark",
+          "callee": "SparkSession.builder \\\n        .config(\"spark.sql.extensions\",\"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n        .config(\"spark.sql.catalog.demo\",\"org.apache.iceberg.spark.SparkCatalog\") \\\n        .config(\"spark.sql.catalog.demo.type\",\"hadoop\") \\\n        .config",
+          "lineNumber": 5
+        },
+        {
+          "caller": "get_spark",
+          "callee": "SparkSession.builder \\\n        .config(\"spark.sql.extensions\",\"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n        .config(\"spark.sql.catalog.demo\",\"org.apache.iceberg.spark.SparkCatalog\") \\\n        .config",
+          "lineNumber": 5
+        },
+        {
+          "caller": "get_spark",
+          "callee": "SparkSession.builder \\\n        .config(\"spark.sql.extensions\",\"org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions\") \\\n        .config",
+          "lineNumber": 5
+        },
+        {
+          "caller": "get_spark",
+          "callee": "SparkSession.builder \\\n        .config",
+          "lineNumber": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink/iceberg-compaction-sql/rewrite_small_files.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 16,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/hive/config.ini",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 20,
+      "nonEmptyLines": 19,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/hive/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 116,
+      "nonEmptyLines": 105,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 106
+        },
+        {
+          "heading": "networks",
+          "level": 1,
+          "line": 114
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/hive/spark-script/spark-connect-server.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 23,
+      "nonEmptyLines": 19,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/jdbc/config.ini",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 22,
+      "nonEmptyLines": 21,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/jdbc/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 96,
+      "nonEmptyLines": 85,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 86
+        },
+        {
+          "heading": "networks",
+          "level": 1,
+          "line": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/jdbc/spark-script/spark-connect-server.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 25,
+      "nonEmptyLines": 21,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/rest/config.ini",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 20,
+      "nonEmptyLines": 19,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/iceberg-sink2/docker/rest/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 99,
+      "nonEmptyLines": 87,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 90
+        },
+        {
+          "heading": "networks",
+          "level": 1,
+          "line": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    }
+  ]
+}

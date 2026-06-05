@@ -1,0 +1,506 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/storage/backup/src/error.rs",
+      "type": "file",
+      "name": "error.rs",
+      "filePath": "src/storage/backup/src/error.rs",
+      "summary": "Defines the `BackupError` enum with variants covering storage, encoding/decoding, checksum, and other failure modes for the backup subsystem.",
+      "tags": ["utility", "error-handling", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/storage/backup/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/storage/backup/src/lib.rs",
+      "summary": "Root crate file for the backup library, defining `MetaSnapshotMetadata` and `MetaSnapshotManifest` types plus xxhash64 checksum utilities used across the backup pipeline.",
+      "tags": ["entry-point", "data-model", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/backup/src/meta_snapshot.rs",
+      "type": "file",
+      "name": "meta_snapshot.rs",
+      "filePath": "src/storage/backup/src/meta_snapshot.rs",
+      "summary": "Defines the generic `MetaSnapshot<T>` struct and the `Metadata` trait that versioned snapshot types must implement, along with encode/decode logic with checksum verification.",
+      "tags": ["data-model", "serialization", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "type": "file",
+      "name": "meta_snapshot_v1.rs",
+      "filePath": "src/storage/backup/src/meta_snapshot_v1.rs",
+      "summary": "Implements the v1 `ClusterMetadata` type capturing the full cluster state (hummock version, compaction groups, catalog objects) with binary encode/decode helpers.",
+      "tags": ["data-model", "serialization", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/backup/src/meta_snapshot_v2.rs",
+      "type": "file",
+      "name": "meta_snapshot_v2.rs",
+      "filePath": "src/storage/backup/src/meta_snapshot_v2.rs",
+      "summary": "Implements v2 cluster metadata using serde_json-based encoding with length-prefixed messages, supporting hummock table change logs and system parameters.",
+      "tags": ["data-model", "serialization", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/backup/src/storage.rs",
+      "type": "file",
+      "name": "storage.rs",
+      "filePath": "src/storage/backup/src/storage.rs",
+      "summary": "Defines the `MetaSnapshotStorage` trait and the `ObjectStoreMetaSnapshotStorage` implementation that persists and retrieves meta snapshots via object storage with manifest tracking.",
+      "tags": ["service", "data-model", "api-handler"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/storage/backup/src/error.rs:BackupError",
+      "type": "class",
+      "name": "BackupError",
+      "filePath": "src/storage/backup/src/error.rs",
+      "lineRange": [21, 62],
+      "summary": "Enum of all backup-subsystem error variants, wrapping underlying storage, encoding, or checksum failures.",
+      "tags": ["error-handling", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/backup/src/lib.rs:MetaSnapshotMetadata",
+      "type": "class",
+      "name": "MetaSnapshotMetadata",
+      "filePath": "src/storage/backup/src/lib.rs",
+      "lineRange": [47, 59],
+      "summary": "Lightweight metadata record for a meta snapshot entry in the manifest, holding the snapshot ID, hummock version, object list, format version, and remarks.",
+      "tags": ["data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/backup/src/meta_snapshot.rs:Metadata",
+      "type": "class",
+      "name": "Metadata",
+      "filePath": "src/storage/backup/src/meta_snapshot.rs",
+      "lineRange": [25, 41],
+      "summary": "Trait that versioned metadata types must implement, providing encode/decode, hummock version access, storage URL/directory resolution, and table change log object IDs.",
+      "tags": ["data-model", "serialization", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/storage/backup/src/meta_snapshot.rs:MetaSnapshot",
+      "type": "class",
+      "name": "MetaSnapshot",
+      "filePath": "src/storage/backup/src/meta_snapshot.rs",
+      "lineRange": [44, 49],
+      "summary": "Generic snapshot container holding format version, snapshot ID, and versioned metadata, with encode/decode that prepends a header and appends an xxhash64 checksum.",
+      "tags": ["data-model", "serialization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/backup/src/meta_snapshot_v1.rs:ClusterMetadata",
+      "type": "class",
+      "name": "ClusterMetadata",
+      "filePath": "src/storage/backup/src/meta_snapshot_v1.rs",
+      "lineRange": [118, 141],
+      "summary": "V1 cluster metadata snapshot containing the full RisingWave catalog state — hummock version, compaction groups, all catalog relation types, user info, and system params — encoded via length-prefixed protobuf.",
+      "tags": ["data-model", "serialization", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/storage/backup/src/storage.rs:MetaSnapshotStorage",
+      "type": "class",
+      "name": "MetaSnapshotStorage",
+      "filePath": "src/storage/backup/src/storage.rs",
+      "lineRange": [34, 53],
+      "summary": "Async trait defining the CRUD interface for meta snapshot storage: create, get, list (manifest), refresh manifest, and delete.",
+      "tags": ["service", "api-handler", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/storage/backup/src/storage.rs:ObjectStoreMetaSnapshotStorage",
+      "type": "class",
+      "name": "ObjectStoreMetaSnapshotStorage",
+      "filePath": "src/storage/backup/src/storage.rs",
+      "lineRange": [56, 60],
+      "summary": "Concrete implementation of `MetaSnapshotStorage` backed by an object store, managing snapshot files and a JSON manifest with atomic in-memory cache.",
+      "tags": ["service", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/storage/backup/src/lib.rs:new",
+      "type": "function",
+      "name": "new",
+      "filePath": "src/storage/backup/src/lib.rs",
+      "lineRange": [62, 87],
+      "summary": "Constructs a `MetaSnapshotMetadata` from a snapshot ID, hummock version, format version, remarks, and additional change-log object IDs, collecting all object IDs from the version.",
+      "tags": ["utility", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/src/meta_snapshot_v1.rs:fmt",
+      "type": "function",
+      "name": "fmt",
+      "filePath": "src/storage/backup/src/meta_snapshot_v1.rs",
+      "lineRange": [37, 80],
+      "summary": "Display implementation for the v1 default-cf data, formatting raw key-value bytes as UTF-8 strings for human-readable snapshot inspection.",
+      "tags": ["utility", "serialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/src/meta_snapshot_v1.rs:encode_to",
+      "type": "function",
+      "name": "encode_to",
+      "filePath": "src/storage/backup/src/meta_snapshot_v1.rs",
+      "lineRange": [144, 168],
+      "summary": "Serializes all `ClusterMetadata` fields into a byte buffer using length-prefixed protobuf messages and key/value lists.",
+      "tags": ["serialization", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/src/meta_snapshot_v1.rs:decode",
+      "type": "function",
+      "name": "decode",
+      "filePath": "src/storage/backup/src/meta_snapshot_v1.rs",
+      "lineRange": [170, 220],
+      "summary": "Deserializes a `ClusterMetadata` from a byte buffer, reconstructing all catalog and hummock fields with backward-compatible optional field handling.",
+      "tags": ["serialization", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/storage/backup/src/meta_snapshot_v2.rs:storage_url",
+      "type": "function",
+      "name": "storage_url",
+      "filePath": "src/storage/backup/src/meta_snapshot_v2.rs",
+      "lineRange": [174, 195],
+      "summary": "Retrieves the object store URL from the system parameters map, stripping the `hummock+` scheme prefix and returning an error if not found or malformed.",
+      "tags": ["utility", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/src/meta_snapshot_v2.rs:table_change_log_object_ids",
+      "type": "function",
+      "name": "table_change_log_object_ids",
+      "filePath": "src/storage/backup/src/meta_snapshot_v2.rs",
+      "lineRange": [210, 226],
+      "summary": "Collects the set of SST object IDs referenced by all table change logs in this metadata, used to track which objects belong to a snapshot.",
+      "tags": ["utility", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/src/meta_snapshot_v2.rs:to_table_change_log",
+      "type": "function",
+      "name": "to_table_change_log",
+      "filePath": "src/storage/backup/src/meta_snapshot_v2.rs",
+      "lineRange": [229, 253],
+      "summary": "Converts a protobuf `EpochNewChangeLog` message into the internal `EpochNewChangeLog` representation with owned SST info collections.",
+      "tags": ["serialization", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/src/storage.rs:update_manifest",
+      "type": "function",
+      "name": "update_manifest",
+      "filePath": "src/storage/backup/src/storage.rs",
+      "lineRange": [74, 87],
+      "summary": "Applies an update closure to the in-memory manifest, serializes the result as JSON, uploads it to object storage, and updates the cached manifest Arc.",
+      "tags": ["service", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/src/storage.rs:get_manifest",
+      "type": "function",
+      "name": "get_manifest",
+      "filePath": "src/storage/backup/src/storage.rs",
+      "lineRange": [89, 103],
+      "summary": "Reads and deserializes the manifest JSON from object storage, returning an empty default manifest if the object does not exist.",
+      "tags": ["service", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/src/storage.rs:create",
+      "type": "function",
+      "name": "create",
+      "filePath": "src/storage/backup/src/storage.rs",
+      "lineRange": [126, 146],
+      "summary": "Persists a new meta snapshot to object storage and appends its metadata entry to the manifest atomically.",
+      "tags": ["service", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/storage/backup/src/storage.rs:delete",
+      "type": "function",
+      "name": "delete",
+      "filePath": "src/storage/backup/src/storage.rs",
+      "lineRange": [168, 184],
+      "summary": "Removes a set of snapshots from both the manifest and the object store, updating the cached manifest and deleting all associated snapshot files.",
+      "tags": ["service", "utility"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/storage/backup/src/lib.rs",
+      "target": "file:src/storage/backup/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/backup/src/lib.rs",
+      "target": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/backup/src/lib.rs",
+      "target": "file:src/storage/backup/src/meta_snapshot_v2.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/backup/src/lib.rs",
+      "target": "file:src/storage/backup/src/meta_snapshot.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/backup/src/lib.rs",
+      "target": "file:src/storage/backup/src/storage.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot.rs",
+      "target": "file:src/storage/backup/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "target": "file:src/storage/backup/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "target": "file:src/storage/backup/src/meta_snapshot.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v2.rs",
+      "target": "file:src/storage/backup/src/meta_snapshot.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/backup/src/storage.rs",
+      "target": "file:src/storage/backup/src/meta_snapshot.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/backup/src/error.rs",
+      "target": "class:src/storage/backup/src/error.rs:BackupError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/error.rs",
+      "target": "class:src/storage/backup/src/error.rs:BackupError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/backup/src/lib.rs",
+      "target": "class:src/storage/backup/src/lib.rs:MetaSnapshotMetadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/lib.rs",
+      "target": "class:src/storage/backup/src/lib.rs:MetaSnapshotMetadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/backup/src/lib.rs",
+      "target": "function:src/storage/backup/src/lib.rs:new",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/lib.rs",
+      "target": "function:src/storage/backup/src/lib.rs:new",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot.rs",
+      "target": "class:src/storage/backup/src/meta_snapshot.rs:Metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot.rs",
+      "target": "class:src/storage/backup/src/meta_snapshot.rs:Metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot.rs",
+      "target": "class:src/storage/backup/src/meta_snapshot.rs:MetaSnapshot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot.rs",
+      "target": "class:src/storage/backup/src/meta_snapshot.rs:MetaSnapshot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "target": "class:src/storage/backup/src/meta_snapshot_v1.rs:ClusterMetadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "target": "class:src/storage/backup/src/meta_snapshot_v1.rs:ClusterMetadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "target": "function:src/storage/backup/src/meta_snapshot_v1.rs:fmt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "target": "function:src/storage/backup/src/meta_snapshot_v1.rs:encode_to",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "target": "function:src/storage/backup/src/meta_snapshot_v1.rs:encode_to",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "target": "function:src/storage/backup/src/meta_snapshot_v1.rs:decode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v1.rs",
+      "target": "function:src/storage/backup/src/meta_snapshot_v1.rs:decode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v2.rs",
+      "target": "function:src/storage/backup/src/meta_snapshot_v2.rs:storage_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v2.rs",
+      "target": "function:src/storage/backup/src/meta_snapshot_v2.rs:table_change_log_object_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/meta_snapshot_v2.rs",
+      "target": "function:src/storage/backup/src/meta_snapshot_v2.rs:to_table_change_log",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/storage.rs",
+      "target": "class:src/storage/backup/src/storage.rs:MetaSnapshotStorage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/storage.rs",
+      "target": "class:src/storage/backup/src/storage.rs:MetaSnapshotStorage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/backup/src/storage.rs",
+      "target": "class:src/storage/backup/src/storage.rs:ObjectStoreMetaSnapshotStorage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/storage.rs",
+      "target": "class:src/storage/backup/src/storage.rs:ObjectStoreMetaSnapshotStorage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/backup/src/storage.rs",
+      "target": "function:src/storage/backup/src/storage.rs:update_manifest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/storage.rs",
+      "target": "function:src/storage/backup/src/storage.rs:get_manifest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/storage.rs",
+      "target": "function:src/storage/backup/src/storage.rs:create",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/backup/src/storage.rs",
+      "target": "function:src/storage/backup/src/storage.rs:delete",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

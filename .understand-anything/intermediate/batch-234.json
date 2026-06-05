@@ -1,0 +1,84 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/cmd_all/scripts/e2e-full-standalone-demo.sh",
+      "type": "file",
+      "name": "e2e-full-standalone-demo.sh",
+      "filePath": "src/cmd_all/scripts/e2e-full-standalone-demo.sh",
+      "summary": "End-to-end full standalone demo shell script that sets up Kafka topics and ingests JSON data, demonstrating a complete streaming pipeline with a standalone RisingWave instance.",
+      "tags": ["script", "demo", "kafka", "e2e"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/cmd_all/scripts/e2e-full-standalone-demo.sh:insert_json_kafka",
+      "type": "function",
+      "name": "insert_json_kafka",
+      "filePath": "src/cmd_all/scripts/e2e-full-standalone-demo.sh",
+      "lineRange": [21, 25],
+      "summary": "Inserts JSON records into a Kafka topic for the standalone demo pipeline.",
+      "tags": ["script", "kafka", "demo"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cmd_all/scripts/e2e-full-standalone-demo.sh:create_topic_kafka",
+      "type": "function",
+      "name": "create_topic_kafka",
+      "filePath": "src/cmd_all/scripts/e2e-full-standalone-demo.sh",
+      "lineRange": [27, 30],
+      "summary": "Creates a Kafka topic for the standalone demo environment.",
+      "tags": ["script", "kafka", "demo"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cmd_all/scripts/standalone-demo-dev.sh",
+      "type": "file",
+      "name": "standalone-demo-dev.sh",
+      "filePath": "src/cmd_all/scripts/standalone-demo-dev.sh",
+      "summary": "Development-mode standalone demo startup script that launches RisingWave in single-node standalone mode for local development and testing.",
+      "tags": ["script", "demo", "development", "standalone"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/cmd_all/scripts/standalone-demo-full.sh",
+      "type": "file",
+      "name": "standalone-demo-full.sh",
+      "filePath": "src/cmd_all/scripts/standalone-demo-full.sh",
+      "summary": "Full standalone demo script that starts the RisingWave standalone binary with a predefined configuration for demo purposes.",
+      "tags": ["script", "demo", "standalone"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/cmd_all/scripts/standalone-demo-full.sh:start_standalone",
+      "type": "function",
+      "name": "start_standalone",
+      "filePath": "src/cmd_all/scripts/standalone-demo-full.sh",
+      "lineRange": [11, 49],
+      "summary": "Starts the RisingWave standalone process with configured storage and server parameters for the full demo.",
+      "tags": ["script", "standalone", "demo"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/cmd_all/scripts/e2e-full-standalone-demo.sh",
+      "target": "function:src/cmd_all/scripts/e2e-full-standalone-demo.sh:insert_json_kafka",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cmd_all/scripts/e2e-full-standalone-demo.sh",
+      "target": "function:src/cmd_all/scripts/e2e-full-standalone-demo.sh:create_topic_kafka",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/cmd_all/scripts/standalone-demo-full.sh",
+      "target": "function:src/cmd_all/scripts/standalone-demo-full.sh:start_standalone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

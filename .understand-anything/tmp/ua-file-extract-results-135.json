@@ -1,0 +1,75 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 1,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/datagen/Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 11,
+      "nonEmptyLines": 7,
+      "services": [
+        {
+          "name": "builder",
+          "image": "golang",
+          "ports": [],
+          "startLine": 1,
+          "endLine": 5
+        },
+        {
+          "name": "ubuntu",
+          "image": "ubuntu:22.04",
+          "ports": [],
+          "startLine": 6,
+          "endLine": 12
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM golang as builder",
+          "startLine": 1,
+          "endLine": 1
+        },
+        {
+          "name": "ADD . /datagen-src",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "RUN cd /datagen-src && gofmt -s -w . && go build",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "FROM ubuntu:22.04",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "ENV DEBIAN_FRONTEND noninteractive",
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "RUN apt-get update -y && apt-get install -yy awscli",
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "COPY --from=builder /datagen-src/datagen /",
+          "startLine": 11,
+          "endLine": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 2,
+        "stepCount": 7
+      }
+    }
+  ]
+}

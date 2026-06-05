@@ -1,0 +1,5185 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 24,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/meta/model/migration/src/m20250820_120000_add_cdc_table_type.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 17,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 19,
+          "endLine": 28,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TableEnum",
+          "startLine": 32,
+          "endLine": 36,
+          "methods": [],
+          "properties": [
+            "Table",
+            "CdcTableType"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table)\n                    .add_column(ColumnDef::new(TableEnum::CdcTableType).string().null()).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(TableEnum::CdcTableType).string().null",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(TableEnum::CdcTableType).string",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 13
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 20
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table)\n                    .drop_column(TableEnum::CdcTableType).to_owned",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table).drop_column",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250821_081110_cdc_table_snapshot_splits_add_column.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 22,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 24,
+          "endLine": 33,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CdcTableSnapshotSplits",
+          "startLine": 37,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "Table",
+            "IsBackfillFinished"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(CdcTableSnapshotSplits::Table)\n                    .add_column(\n                        ColumnDef::new(CdcTableSnapshotSplits::IsBackfillFinished)\n                            .small_integer()\n                            .not_null()\n                            .default(0),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(CdcTableSnapshotSplits::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::IsBackfillFinished)\n                            .small_integer()\n                            .not_null().default",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::IsBackfillFinished)\n                            .small_integer().not_null",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::IsBackfillFinished).small_integer",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 25
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(CdcTableSnapshotSplits::Table)\n                    .drop_column(CdcTableSnapshotSplits::IsBackfillFinished).to_owned",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(CdcTableSnapshotSplits::Table).drop_column",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250905_144810_deprecate_table_incoming_sinks.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 7,
+          "endLine": 16,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "_manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 3,
+          "endLine": 3,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Table",
+          "startLine": 25,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "Table",
+            "IncomingSinks"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 3,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 8
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table)\n                    .drop_column(Table::IncomingSinks).to_owned",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table).drop_column",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 10
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250916_120000_add_refresh_fields.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 18,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 20,
+          "endLine": 29,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TableEnum",
+          "startLine": 33,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "Table",
+            "RefreshState"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table)\n                    .add_column(ColumnDef::new(TableEnum::RefreshState).string()).to_owned",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table).add_column",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(TableEnum::RefreshState).string",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 21
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table)\n                    .drop_column(TableEnum::RefreshState).to_owned",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table).drop_column",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251005_000000_fragment_splits.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 11,
+          "endLine": 36,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 38,
+          "endLine": 41,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 7,
+          "endLine": 7,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FragmentSplits",
+          "startLine": 45,
+          "endLine": 49,
+          "methods": [],
+          "properties": [
+            "Table",
+            "FragmentId",
+            "Splits"
+          ]
+        },
+        {
+          "name": "Fragment",
+          "startLine": 52,
+          "endLine": 55,
+          "methods": [],
+          "properties": [
+            "Table",
+            "FragmentId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.create_table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentSplits::Table)\n                    .col(\n                        ColumnDef::new(FragmentSplits::FragmentId)\n                            .integer()\n                            .primary_key()\n                            .not_null(),\n                    )\n                    .col(ColumnDef::new(FragmentSplits::Splits).rw_binary(manager))\n                    .foreign_key(\n                        &mut ForeignKey::create()\n                            .name(\"FK_fragment_splits_fragment_oid\")\n                            .from(FragmentSplits::Table, FragmentSplits::FragmentId)\n                            .to(Fragment::Table, Fragment::FragmentId)\n                            .on_delete(ForeignKeyAction::Cascade)\n                            .to_owned(),\n                    ).to_owned",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentSplits::Table)\n                    .col(\n                        ColumnDef::new(FragmentSplits::FragmentId)\n                            .integer()\n                            .primary_key()\n                            .not_null(),\n                    )\n                    .col(ColumnDef::new(FragmentSplits::Splits).rw_binary(manager)).foreign_key",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentSplits::Table)\n                    .col(\n                        ColumnDef::new(FragmentSplits::FragmentId)\n                            .integer()\n                            .primary_key()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentSplits::Table).col",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create().table",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentSplits::FragmentId)\n                            .integer()\n                            .primary_key().not_null",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentSplits::FragmentId)\n                            .integer().primary_key",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentSplits::FragmentId).integer",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentSplits::Splits).rw_binary",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_splits_fragment_oid\")\n                            .from(FragmentSplits::Table, FragmentSplits::FragmentId)\n                            .to(Fragment::Table, Fragment::FragmentId)\n                            .on_delete(ForeignKeyAction::Cascade).to_owned",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_splits_fragment_oid\")\n                            .from(FragmentSplits::Table, FragmentSplits::FragmentId)\n                            .to(Fragment::Table, Fragment::FragmentId).on_delete",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_splits_fragment_oid\")\n                            .from(FragmentSplits::Table, FragmentSplits::FragmentId).to",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_splits_fragment_oid\").from",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create().name",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 35
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251016_220528_fragment_parallelism.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 17,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 19,
+          "endLine": 28,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Fragment",
+          "startLine": 32,
+          "endLine": 35,
+          "methods": [],
+          "properties": [
+            "Table",
+            "Parallelism"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Fragment::Table)\n                    .add_column(ColumnDef::new(Fragment::Parallelism).json_binary().null()).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Fragment::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Fragment::Parallelism).json_binary().null",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Fragment::Parallelism).json_binary",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 13
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 20
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Fragment::Table)\n                    .drop_column(Fragment::Parallelism).to_owned",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Fragment::Table).drop_column",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251022_294610_source_refresh_mode.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 10,
+          "endLine": 24,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 26,
+          "endLine": 35,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Source",
+          "startLine": 39,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "Table",
+            "RefreshMode"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Source::Table)\n                    // leave binary here for future extension to complex refresh mode, like timer-based refresh mode\n                    .add_column(\n                        ColumnDef::new(Source::RefreshMode)\n                            .rw_binary(manager)\n                            .null(),\n                    ).to_owned",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Source::Table).add_column",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Source::RefreshMode)\n                            .rw_binary(manager).null",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Source::RefreshMode).rw_binary",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 17
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Source::Table)\n                    .drop_column(Source::RefreshMode).to_owned",
+          "lineNumber": 29
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Source::Table).drop_column",
+          "lineNumber": 29
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 29
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251030_120000_refresh_jobs.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 91,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 50,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 52,
+          "endLine": 71,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "RefreshJob",
+          "startLine": 75,
+          "endLine": 83,
+          "methods": [],
+          "properties": [
+            "Table",
+            "TableId",
+            "LastTriggerTime",
+            "TriggerIntervalSecs",
+            "CurrentStatus",
+            "LastSuccessTime"
+          ]
+        },
+        {
+          "name": "TableEnum",
+          "startLine": 86,
+          "endLine": 91,
+          "methods": [],
+          "properties": [
+            "Table",
+            "TableId",
+            "RefreshState"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.create_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "sea_orm_migration::prelude::Table::create()\n                    .table(RefreshJob::Table)\n                    .col(\n                        ColumnDef::new(RefreshJob::TableId)\n                            .integer()\n                            .not_null()\n                            .primary_key(),\n                    )\n                    .col(ColumnDef::new(RefreshJob::LastTriggerTime).big_integer())\n                    .col(ColumnDef::new(RefreshJob::TriggerIntervalSecs).big_integer())\n                    .col(\n                        ColumnDef::new(RefreshJob::CurrentStatus)\n                            .string()\n                            .not_null()\n                            .default(\"IDLE\"),\n                    )\n                    .col(ColumnDef::new(RefreshJob::LastSuccessTime).big_integer())\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_refresh_job_table\")\n                            .from(RefreshJob::Table, RefreshJob::TableId)\n                            .to(TableEnum::Table, TableEnum::TableId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "sea_orm_migration::prelude::Table::create()\n                    .table(RefreshJob::Table)\n                    .col(\n                        ColumnDef::new(RefreshJob::TableId)\n                            .integer()\n                            .not_null()\n                            .primary_key(),\n                    )\n                    .col(ColumnDef::new(RefreshJob::LastTriggerTime).big_integer())\n                    .col(ColumnDef::new(RefreshJob::TriggerIntervalSecs).big_integer())\n                    .col(\n                        ColumnDef::new(RefreshJob::CurrentStatus)\n                            .string()\n                            .not_null()\n                            .default(\"IDLE\"),\n                    )\n                    .col(ColumnDef::new(RefreshJob::LastSuccessTime).big_integer()).foreign_key",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "sea_orm_migration::prelude::Table::create()\n                    .table(RefreshJob::Table)\n                    .col(\n                        ColumnDef::new(RefreshJob::TableId)\n                            .integer()\n                            .not_null()\n                            .primary_key(),\n                    )\n                    .col(ColumnDef::new(RefreshJob::LastTriggerTime).big_integer())\n                    .col(ColumnDef::new(RefreshJob::TriggerIntervalSecs).big_integer())\n                    .col(\n                        ColumnDef::new(RefreshJob::CurrentStatus)\n                            .string()\n                            .not_null()\n                            .default(\"IDLE\"),\n                    ).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "sea_orm_migration::prelude::Table::create()\n                    .table(RefreshJob::Table)\n                    .col(\n                        ColumnDef::new(RefreshJob::TableId)\n                            .integer()\n                            .not_null()\n                            .primary_key(),\n                    )\n                    .col(ColumnDef::new(RefreshJob::LastTriggerTime).big_integer())\n                    .col(ColumnDef::new(RefreshJob::TriggerIntervalSecs).big_integer()).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "sea_orm_migration::prelude::Table::create()\n                    .table(RefreshJob::Table)\n                    .col(\n                        ColumnDef::new(RefreshJob::TableId)\n                            .integer()\n                            .not_null()\n                            .primary_key(),\n                    )\n                    .col(ColumnDef::new(RefreshJob::LastTriggerTime).big_integer()).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "sea_orm_migration::prelude::Table::create()\n                    .table(RefreshJob::Table)\n                    .col(\n                        ColumnDef::new(RefreshJob::TableId)\n                            .integer()\n                            .not_null()\n                            .primary_key(),\n                    ).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "sea_orm_migration::prelude::Table::create()\n                    .table(RefreshJob::Table).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "sea_orm_migration::prelude::Table::create().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "sea_orm_migration::prelude::Table::create",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(RefreshJob::TableId)\n                            .integer()\n                            .not_null().primary_key",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(RefreshJob::TableId)\n                            .integer().not_null",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(RefreshJob::TableId).integer",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(RefreshJob::LastTriggerTime).big_integer",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(RefreshJob::TriggerIntervalSecs).big_integer",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(RefreshJob::CurrentStatus)\n                            .string()\n                            .not_null().default",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(RefreshJob::CurrentStatus)\n                            .string().not_null",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(RefreshJob::CurrentStatus).string",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(RefreshJob::LastSuccessTime).big_integer",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_refresh_job_table\")\n                            .from(RefreshJob::Table, RefreshJob::TableId)\n                            .to(TableEnum::Table, TableEnum::TableId).on_delete",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_refresh_job_table\")\n                            .from(RefreshJob::Table, RefreshJob::TableId).to",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_refresh_job_table\").from",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create().name",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table)\n                    .drop_column(TableEnum::RefreshState).to_owned",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table).drop_column",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 49
+        },
+        {
+          "caller": "down",
+          "callee": "manager.drop_table",
+          "lineNumber": 53
+        },
+        {
+          "caller": "down",
+          "callee": "sea_orm_migration::prelude::Table::drop()\n                    .table(RefreshJob::Table).to_owned",
+          "lineNumber": 55
+        },
+        {
+          "caller": "down",
+          "callee": "sea_orm_migration::prelude::Table::drop().table",
+          "lineNumber": 55
+        },
+        {
+          "caller": "down",
+          "callee": "sea_orm_migration::prelude::Table::drop",
+          "lineNumber": 55
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 62
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table)\n                    .add_column(ColumnDef::new(TableEnum::RefreshState).string()).to_owned",
+          "lineNumber": 64
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table).add_column",
+          "lineNumber": 64
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 64
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 64
+        },
+        {
+          "caller": "down",
+          "callee": "ColumnDef::new(TableEnum::RefreshState).string",
+          "lineNumber": 66
+        },
+        {
+          "caller": "down",
+          "callee": "ColumnDef::new",
+          "lineNumber": 66
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251112_114514_streaming_job_config_override.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 10,
+          "endLine": 21,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 23,
+          "endLine": 32,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "StreamingJob",
+          "startLine": 36,
+          "endLine": 39,
+          "methods": [],
+          "properties": [
+            "Table",
+            "ConfigOverride"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    // MySQL does not support default value for long text column.\n                    // So we have to make it nullable here.\n                    .add_column(ColumnDef::new(StreamingJob::ConfigOverride).rw_long_text(manager)).to_owned",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).add_column",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::ConfigOverride).rw_long_text",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 17
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .drop_column(StreamingJob::ConfigOverride).to_owned",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).drop_column",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251124_195858_pending_sink_state.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 158,
+      "nonEmptyLines": 143,
+      "functions": [
+        {
+          "name": "transform_metadata",
+          "startLine": 20,
+          "endLine": 25,
+          "params": [
+            "metadata",
+            "snapshot_id"
+          ]
+        },
+        {
+          "name": "up",
+          "startLine": 29,
+          "endLine": 133,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 135,
+          "endLine": 138,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 8,
+          "endLine": 8,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "OldRow",
+          "startLine": 11,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "sink_id",
+            "end_epoch",
+            "metadata",
+            "snapshot_id",
+            "committed"
+          ]
+        },
+        {
+          "name": "PendingSinkState",
+          "startLine": 142,
+          "endLine": 148,
+          "methods": [],
+          "properties": [
+            "Table",
+            "SinkId",
+            "Epoch",
+            "SinkState",
+            "Metadata"
+          ]
+        },
+        {
+          "name": "ExactlyOnceIcebergSinkMetadata",
+          "startLine": 151,
+          "endLine": 158,
+          "methods": [],
+          "properties": [
+            "Table",
+            "SinkId",
+            "EndEpoch",
+            "Metadata",
+            "SnapshotId",
+            "Committed"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "transform_metadata",
+          "callee": "serde_json::from_slice(&metadata).unwrap",
+          "lineNumber": 21
+        },
+        {
+          "caller": "transform_metadata",
+          "callee": "serde_json::from_slice",
+          "lineNumber": 21
+        },
+        {
+          "caller": "transform_metadata",
+          "callee": "snapshot_id.to_le_bytes().to_vec",
+          "lineNumber": 22
+        },
+        {
+          "caller": "transform_metadata",
+          "callee": "snapshot_id.to_le_bytes",
+          "lineNumber": 22
+        },
+        {
+          "caller": "transform_metadata",
+          "callee": "write_results_bytes.push",
+          "lineNumber": 23
+        },
+        {
+          "caller": "transform_metadata",
+          "callee": "serde_json::to_vec(&write_results_bytes).unwrap",
+          "lineNumber": 24
+        },
+        {
+          "caller": "transform_metadata",
+          "callee": "serde_json::to_vec",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "manager.create_table",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(PendingSinkState::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(PendingSinkState::SinkId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(PendingSinkState::Epoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(PendingSinkState::SinkState)\n                            .string()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(PendingSinkState::Metadata)\n                            .rw_binary(manager)\n                            .null(),\n                    )\n                    .primary_key(\n                        Index::create()\n                            .col(PendingSinkState::SinkId)\n                            .col(PendingSinkState::Epoch),\n                    ).to_owned",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(PendingSinkState::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(PendingSinkState::SinkId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(PendingSinkState::Epoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(PendingSinkState::SinkState)\n                            .string()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(PendingSinkState::Metadata)\n                            .rw_binary(manager)\n                            .null(),\n                    ).primary_key",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(PendingSinkState::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(PendingSinkState::SinkId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(PendingSinkState::Epoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(PendingSinkState::SinkState)\n                            .string()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(PendingSinkState::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(PendingSinkState::SinkId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(PendingSinkState::Epoch)\n                            .big_integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(PendingSinkState::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(PendingSinkState::SinkId)\n                            .integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(PendingSinkState::Table)\n                    .if_not_exists().col",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(PendingSinkState::Table).if_not_exists",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create().table",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(PendingSinkState::SinkId)\n                            .integer().not_null",
+          "lineNumber": 36
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(PendingSinkState::SinkId).integer",
+          "lineNumber": 36
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 36
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(PendingSinkState::Epoch)\n                            .big_integer().not_null",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(PendingSinkState::Epoch).big_integer",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(PendingSinkState::SinkState)\n                            .string().not_null",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(PendingSinkState::SinkState).string",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(PendingSinkState::Metadata)\n                            .rw_binary(manager).null",
+          "lineNumber": 51
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(PendingSinkState::Metadata).rw_binary",
+          "lineNumber": 51
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 51
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .col(PendingSinkState::SinkId).col",
+          "lineNumber": 56
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create().col",
+          "lineNumber": 56
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create",
+          "lineNumber": 56
+        },
+        {
+          "caller": "up",
+          "callee": "manager.get_connection",
+          "lineNumber": 71
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select()\n            .columns([\n                ExactlyOnceIcebergSinkMetadata::SinkId,\n                ExactlyOnceIcebergSinkMetadata::EndEpoch,\n                ExactlyOnceIcebergSinkMetadata::Metadata,\n                ExactlyOnceIcebergSinkMetadata::SnapshotId,\n                ExactlyOnceIcebergSinkMetadata::Committed,\n            ])\n            .from(ExactlyOnceIcebergSinkMetadata::Table)\n            .to_owned().build_any",
+          "lineNumber": 73
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select()\n            .columns([\n                ExactlyOnceIcebergSinkMetadata::SinkId,\n                ExactlyOnceIcebergSinkMetadata::EndEpoch,\n                ExactlyOnceIcebergSinkMetadata::Metadata,\n                ExactlyOnceIcebergSinkMetadata::SnapshotId,\n                ExactlyOnceIcebergSinkMetadata::Committed,\n            ])\n            .from(ExactlyOnceIcebergSinkMetadata::Table).to_owned",
+          "lineNumber": 73
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select()\n            .columns([\n                ExactlyOnceIcebergSinkMetadata::SinkId,\n                ExactlyOnceIcebergSinkMetadata::EndEpoch,\n                ExactlyOnceIcebergSinkMetadata::Metadata,\n                ExactlyOnceIcebergSinkMetadata::SnapshotId,\n                ExactlyOnceIcebergSinkMetadata::Committed,\n            ]).from",
+          "lineNumber": 73
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select().columns",
+          "lineNumber": 73
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select",
+          "lineNumber": 73
+        },
+        {
+          "caller": "up",
+          "callee": "conn.get_database_backend().get_query_builder",
+          "lineNumber": 83
+        },
+        {
+          "caller": "up",
+          "callee": "conn.get_database_backend",
+          "lineNumber": 83
+        },
+        {
+          "caller": "up",
+          "callee": "conn.query_all",
+          "lineNumber": 85
+        },
+        {
+          "caller": "up",
+          "callee": "Statement::from_sql_and_values",
+          "lineNumber": 86
+        },
+        {
+          "caller": "up",
+          "callee": "conn.get_database_backend",
+          "lineNumber": 87
+        },
+        {
+          "caller": "up",
+          "callee": "rows.is_empty",
+          "lineNumber": 93
+        },
+        {
+          "caller": "up",
+          "callee": "Query::insert",
+          "lineNumber": 94
+        },
+        {
+          "caller": "up",
+          "callee": "insert\n                .into_table(PendingSinkState::Table)\n                .columns([\n                    PendingSinkState::SinkId,\n                    PendingSinkState::Epoch,\n                    PendingSinkState::SinkState,\n                    PendingSinkState::Metadata,\n                ]).on_conflict",
+          "lineNumber": 95
+        },
+        {
+          "caller": "up",
+          "callee": "insert\n                .into_table(PendingSinkState::Table).columns",
+          "lineNumber": 95
+        },
+        {
+          "caller": "up",
+          "callee": "insert.into_table",
+          "lineNumber": 95
+        },
+        {
+          "caller": "up",
+          "callee": "sea_query::OnConflict::columns([\n                        PendingSinkState::SinkId,\n                        PendingSinkState::Epoch,\n                    ])\n                    .do_nothing().to_owned",
+          "lineNumber": 104
+        },
+        {
+          "caller": "up",
+          "callee": "sea_query::OnConflict::columns([\n                        PendingSinkState::SinkId,\n                        PendingSinkState::Epoch,\n                    ]).do_nothing",
+          "lineNumber": 104
+        },
+        {
+          "caller": "up",
+          "callee": "sea_query::OnConflict::columns",
+          "lineNumber": 104
+        },
+        {
+          "caller": "up",
+          "callee": "OldRow::from_query_result",
+          "lineNumber": 118
+        },
+        {
+          "caller": "up",
+          "callee": "transform_metadata",
+          "lineNumber": 120
+        },
+        {
+          "caller": "up",
+          "callee": "insert.values_panic",
+          "lineNumber": 121
+        },
+        {
+          "caller": "up",
+          "callee": "sink_id.into",
+          "lineNumber": 122
+        },
+        {
+          "caller": "up",
+          "callee": "end_epoch.into",
+          "lineNumber": 123
+        },
+        {
+          "caller": "up",
+          "callee": "sink_state.into",
+          "lineNumber": 124
+        },
+        {
+          "caller": "up",
+          "callee": "combined_metadata.into",
+          "lineNumber": 125
+        },
+        {
+          "caller": "up",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 129
+        },
+        {
+          "caller": "up",
+          "callee": "insert.to_owned",
+          "lineNumber": 129
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 132
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 137
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251126_093529_add_is_iceberg_compactor.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 22,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 24,
+          "endLine": 33,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "WorkerProperty",
+          "startLine": 37,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "Table",
+            "IsIcebergCompactor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table)\n                    .add_column(\n                        ColumnDef::new(WorkerProperty::IsIcebergCompactor)\n                            .boolean()\n                            .not_null()\n                            .default(false),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(WorkerProperty::IsIcebergCompactor)\n                            .boolean()\n                            .not_null().default",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(WorkerProperty::IsIcebergCompactor)\n                            .boolean().not_null",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(WorkerProperty::IsIcebergCompactor).boolean",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 25
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table)\n                    .drop_column(WorkerProperty::IsIcebergCompactor).to_owned",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table).drop_column",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251130_120000_streaming_job_backfill_parallelism.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 20,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 22,
+          "endLine": 31,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "StreamingJob",
+          "startLine": 35,
+          "endLine": 38,
+          "methods": [],
+          "properties": [
+            "Table",
+            "BackfillParallelism"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .add_column(\n                        ColumnDef::new(StreamingJob::BackfillParallelism)\n                            .json_binary(), // nullable by default for backward compatibility\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::BackfillParallelism).json_binary",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .drop_column(StreamingJob::BackfillParallelism).to_owned",
+          "lineNumber": 25
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).drop_column",
+          "lineNumber": 25
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 25
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251208_134652_clean_watermark_indices.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 17,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 19,
+          "endLine": 28,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Table",
+          "startLine": 32,
+          "endLine": 35,
+          "methods": [],
+          "properties": [
+            "Table",
+            "CleanWatermarkIndices"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table)\n                    .add_column(ColumnDef::new(Table::CleanWatermarkIndices).json()).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Table::CleanWatermarkIndices).json",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 13
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 20
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table)\n                    .drop_column(Table::CleanWatermarkIndices).to_owned",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table).drop_column",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 22
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251215_000000_streaming_job_parallelism_strategy.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 21,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 23,
+          "endLine": 32,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "StreamingJob",
+          "startLine": 36,
+          "endLine": 39,
+          "methods": [],
+          "properties": [
+            "Table",
+            "AdaptiveParallelismStrategy"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .add_column(\n                        ColumnDef::new(StreamingJob::AdaptiveParallelismStrategy)\n                            .string()\n                            .null(),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::AdaptiveParallelismStrategy)\n                            .string().null",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::AdaptiveParallelismStrategy).string",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .drop_column(StreamingJob::AdaptiveParallelismStrategy).to_owned",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).drop_column",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251223_064450_table_change_log.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 61,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 10,
+          "endLine": 49,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 51,
+          "endLine": 55,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "HummockTableChangeLog",
+          "startLine": 59,
+          "endLine": 66,
+          "methods": [],
+          "properties": [
+            "Table",
+            "TableId",
+            "CheckpointEpoch",
+            "NonCheckpointEpochs",
+            "NewValueSst",
+            "OldValueSst"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.create_table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(HummockTableChangeLog::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::TableId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::CheckpointEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::NonCheckpointEpochs)\n                            .json_binary()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::NewValueSst)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::OldValueSst)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .primary_key(\n                        Index::create()\n                            .col(HummockTableChangeLog::TableId)\n                            .col(HummockTableChangeLog::CheckpointEpoch),\n                    ).to_owned",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(HummockTableChangeLog::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::TableId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::CheckpointEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::NonCheckpointEpochs)\n                            .json_binary()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::NewValueSst)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::OldValueSst)\n                            .rw_binary(manager)\n                            .not_null(),\n                    ).primary_key",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(HummockTableChangeLog::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::TableId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::CheckpointEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::NonCheckpointEpochs)\n                            .json_binary()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::NewValueSst)\n                            .rw_binary(manager)\n                            .not_null(),\n                    ).col",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(HummockTableChangeLog::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::TableId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::CheckpointEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::NonCheckpointEpochs)\n                            .json_binary()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(HummockTableChangeLog::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::TableId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::CheckpointEpoch)\n                            .big_integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(HummockTableChangeLog::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(HummockTableChangeLog::TableId)\n                            .integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(HummockTableChangeLog::Table)\n                    .if_not_exists().col",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(HummockTableChangeLog::Table).if_not_exists",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create().table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(HummockTableChangeLog::TableId)\n                            .integer().not_null",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(HummockTableChangeLog::TableId).integer",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(HummockTableChangeLog::CheckpointEpoch)\n                            .big_integer().not_null",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(HummockTableChangeLog::CheckpointEpoch).big_integer",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(HummockTableChangeLog::NonCheckpointEpochs)\n                            .json_binary().not_null",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(HummockTableChangeLog::NonCheckpointEpochs).json_binary",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(HummockTableChangeLog::NewValueSst)\n                            .rw_binary(manager).not_null",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(HummockTableChangeLog::NewValueSst).rw_binary",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(HummockTableChangeLog::OldValueSst)\n                            .rw_binary(manager).not_null",
+          "lineNumber": 37
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(HummockTableChangeLog::OldValueSst).rw_binary",
+          "lineNumber": 37
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 37
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .col(HummockTableChangeLog::TableId).col",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create().col",
+          "lineNumber": 42
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create",
+          "lineNumber": 42
+        },
+        {
+          "caller": "down",
+          "callee": "manager.drop_table",
+          "lineNumber": 52
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop().table(HummockTableChangeLog::Table).to_owned",
+          "lineNumber": 53
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop().table",
+          "lineNumber": 53
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251224_142321_sink_schema_change.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 10,
+          "endLine": 23,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 25,
+          "endLine": 34,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "PendingSinkState",
+          "startLine": 38,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "Table",
+            "SchemaChange"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(PendingSinkState::Table)\n                    .add_column(\n                        ColumnDef::new(PendingSinkState::SchemaChange)\n                            .rw_binary(manager)\n                            .null(),\n                    ).to_owned",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(PendingSinkState::Table).add_column",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(PendingSinkState::SchemaChange)\n                            .rw_binary(manager).null",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(PendingSinkState::SchemaChange).rw_binary",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 16
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(PendingSinkState::Table)\n                    .drop_column(PendingSinkState::SchemaChange).to_owned",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(PendingSinkState::Table).drop_column",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20251231_000000_sink_ignore_delete.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 33,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 35,
+          "endLine": 37,
+          "params": [
+            "_manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Sink",
+          "startLine": 42,
+          "endLine": 46,
+          "methods": [],
+          "properties": [
+            "Table",
+            "SinkType",
+            "IgnoreDelete"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Sink::Table)\n                    .add_column(\n                        ColumnDef::new(Sink::IgnoreDelete)\n                            .boolean()\n                            .not_null()\n                            .default(false),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Sink::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Sink::IgnoreDelete)\n                            .boolean()\n                            .not_null().default",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Sink::IgnoreDelete)\n                            .boolean().not_null",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Sink::IgnoreDelete).boolean",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n            .table(Sink::Table)\n            .value(Sink::IgnoreDelete, true)\n            .value(Sink::SinkType, \"APPEND_ONLY\")\n            .and_where(Expr::col(Sink::SinkType).eq(\"FORCE_APPEND_ONLY\")).to_owned",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n            .table(Sink::Table)\n            .value(Sink::IgnoreDelete, true)\n            .value(Sink::SinkType, \"APPEND_ONLY\").and_where",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n            .table(Sink::Table)\n            .value(Sink::IgnoreDelete, true).value",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n            .table(Sink::Table).value",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update().table",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(Sink::SinkType).eq",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 32
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20260119_153927_streaming_job_is_serverless_backfill.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 22,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 24,
+          "endLine": 33,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "StreamingJob",
+          "startLine": 37,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "Table",
+            "IsServerlessBackfill"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .add_column(\n                        ColumnDef::new(StreamingJob::IsServerlessBackfill)\n                            .boolean()\n                            .not_null()\n                            .default(false),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::IsServerlessBackfill)\n                            .boolean()\n                            .not_null().default",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::IsServerlessBackfill)\n                            .boolean().not_null",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::IsServerlessBackfill).boolean",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 25
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .drop_column(StreamingJob::IsServerlessBackfill).to_owned",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).drop_column",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20260120_120000_streaming_job_backfill_orders.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 21,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 23,
+          "endLine": 32,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "StreamingJob",
+          "startLine": 36,
+          "endLine": 39,
+          "methods": [],
+          "properties": [
+            "Table",
+            "BackfillOrders"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .add_column(\n                        ColumnDef::new(StreamingJob::BackfillOrders)\n                            .json_binary()\n                            .null(),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::BackfillOrders)\n                            .json_binary().null",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::BackfillOrders).json_binary",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .drop_column(StreamingJob::BackfillOrders).to_owned",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).drop_column",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20260311_000000_legacy_streaming_parallelism_session_params.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 651,
+      "nonEmptyLines": 591,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 43,
+          "endLine": 52,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 54,
+          "endLine": 58,
+          "params": [
+            "_manager"
+          ]
+        },
+        {
+          "name": "migrate_legacy_streaming_parallelism_session_params",
+          "startLine": 61,
+          "endLine": 156,
+          "params": [
+            "manager",
+            "legacy_system_strategy"
+          ]
+        },
+        {
+          "name": "migrate_legacy_streaming_job_strategy",
+          "startLine": 158,
+          "endLine": 179,
+          "params": [
+            "manager",
+            "legacy_system_strategy"
+          ]
+        },
+        {
+          "name": "delete_legacy_system_strategy",
+          "startLine": 181,
+          "endLine": 193,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "load_legacy_system_strategy",
+          "startLine": 195,
+          "endLine": 220,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "default_legacy_system_strategy",
+          "startLine": 222,
+          "endLine": 225,
+          "params": []
+        },
+        {
+          "name": "is_legacy_streaming_parallelism_strategy_param",
+          "startLine": 227,
+          "endLine": 237,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "is_streaming_parallelism_param",
+          "startLine": 239,
+          "endLine": 249,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "is_migratable_streaming_parallelism_session_param",
+          "startLine": 251,
+          "endLine": 253,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "derive_legacy_streaming_parallelism_params",
+          "startLine": 255,
+          "endLine": 344,
+          "params": [
+            "params",
+            "legacy_system_strategy"
+          ]
+        },
+        {
+          "name": "should_materialize_global_parallelism",
+          "startLine": 346,
+          "endLine": 354,
+          "params": [
+            "global_parallelism",
+            "global_strategy",
+            "legacy_system_strategy"
+          ]
+        },
+        {
+          "name": "default_legacy_strategy_for_type",
+          "startLine": 356,
+          "endLine": 358,
+          "params": [
+            "_parallelism_key"
+          ]
+        },
+        {
+          "name": "parse_parallelism",
+          "startLine": 360,
+          "endLine": 362,
+          "params": [
+            "value",
+            "default"
+          ]
+        },
+        {
+          "name": "parse_legacy_strategy",
+          "startLine": 364,
+          "endLine": 371,
+          "params": [
+            "value",
+            "default"
+          ]
+        },
+        {
+          "name": "parse_config_parallelism",
+          "startLine": 373,
+          "endLine": 396,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "parse_config_adaptive_parallelism_strategy",
+          "startLine": 398,
+          "endLine": 412,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "parse_adaptive_parallelism_strategy",
+          "startLine": 414,
+          "endLine": 439,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "migrate_legacy_global_parallelism",
+          "startLine": 441,
+          "endLine": 454,
+          "params": [
+            "parallelism",
+            "strategy",
+            "system_strategy"
+          ]
+        },
+        {
+          "name": "migrate_legacy_type_parallelism",
+          "startLine": 456,
+          "endLine": 493,
+          "params": [
+            "specific_parallelism",
+            "specific_strategy",
+            "explicit_default_inherits_global",
+            "global_parallelism",
+            "global_strategy",
+            "system_strategy"
+          ]
+        },
+        {
+          "name": "resolve_legacy_strategy",
+          "startLine": 495,
+          "endLine": 508,
+          "params": [
+            "strategy",
+            "fallback"
+          ]
+        },
+        {
+          "name": "legacy_strategy_to_parallelism",
+          "startLine": 510,
+          "endLine": 518,
+          "params": [
+            "strategy"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 530,
+          "endLine": 538,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 559,
+          "endLine": 566,
+          "params": [
+            "f"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 39,
+          "endLine": 39,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ConfigParallelism",
+          "startLine": 521,
+          "endLine": 527,
+          "methods": [
+            "fmt"
+          ],
+          "properties": [
+            "Default",
+            "Fixed",
+            "Adaptive",
+            "Bounded",
+            "Ratio"
+          ]
+        },
+        {
+          "name": "ConfigAdaptiveParallelismStrategy",
+          "startLine": 542,
+          "endLine": 548,
+          "methods": [],
+          "properties": [
+            "Default",
+            "Auto",
+            "Full",
+            "Bounded",
+            "Ratio"
+          ]
+        },
+        {
+          "name": "AdaptiveParallelismStrategy",
+          "startLine": 551,
+          "endLine": 556,
+          "methods": [
+            "fmt"
+          ],
+          "properties": [
+            "Auto",
+            "Full",
+            "Bounded",
+            "Ratio"
+          ]
+        },
+        {
+          "name": "SessionParameterRow",
+          "startLine": 570,
+          "endLine": 573,
+          "methods": [],
+          "properties": [
+            "name",
+            "value"
+          ]
+        },
+        {
+          "name": "SystemParameterRow",
+          "startLine": 576,
+          "endLine": 578,
+          "methods": [],
+          "properties": [
+            "value"
+          ]
+        },
+        {
+          "name": "SessionParameter",
+          "startLine": 581,
+          "endLine": 585,
+          "methods": [],
+          "properties": [
+            "Table",
+            "Name",
+            "Value"
+          ]
+        },
+        {
+          "name": "SystemParameter",
+          "startLine": 588,
+          "endLine": 592,
+          "methods": [],
+          "properties": [
+            "Table",
+            "Name",
+            "Value"
+          ]
+        },
+        {
+          "name": "StreamingJob",
+          "startLine": 595,
+          "endLine": 598,
+          "methods": [],
+          "properties": [
+            "Table",
+            "AdaptiveParallelismStrategy"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "load_legacy_system_strategy(manager)\n            .await?.unwrap_or_else",
+          "lineNumber": 44
+        },
+        {
+          "caller": "up",
+          "callee": "load_legacy_system_strategy",
+          "lineNumber": 44
+        },
+        {
+          "caller": "up",
+          "callee": "migrate_legacy_streaming_parallelism_session_params",
+          "lineNumber": 47
+        },
+        {
+          "caller": "up",
+          "callee": "migrate_legacy_streaming_job_strategy",
+          "lineNumber": 49
+        },
+        {
+          "caller": "up",
+          "callee": "delete_legacy_system_strategy",
+          "lineNumber": 50
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 51
+        },
+        {
+          "caller": "down",
+          "callee": "Err",
+          "lineNumber": 55
+        },
+        {
+          "caller": "down",
+          "callee": "DbErr::Migration",
+          "lineNumber": 55
+        },
+        {
+          "caller": "down",
+          "callee": "\"cannot rollback legacy streaming parallelism session parameter migration\".to_owned",
+          "lineNumber": 56
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "manager.get_connection",
+          "lineNumber": 65
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "conn.get_database_backend",
+          "lineNumber": 66
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::select()\n        .columns([SessionParameter::Name, SessionParameter::Value])\n        .from(SessionParameter::Table)\n        .to_owned().build_any",
+          "lineNumber": 68
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::select()\n        .columns([SessionParameter::Name, SessionParameter::Value])\n        .from(SessionParameter::Table).to_owned",
+          "lineNumber": 68
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::select()\n        .columns([SessionParameter::Name, SessionParameter::Value]).from",
+          "lineNumber": 68
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::select().columns",
+          "lineNumber": 68
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::select",
+          "lineNumber": 68
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "database_backend.get_query_builder",
+          "lineNumber": 72
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "conn.query_all",
+          "lineNumber": 73
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Statement::from_sql_and_values",
+          "lineNumber": 74
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "rows\n        .into_iter()\n        .map(|row| SessionParameterRow::from_query_result(&row, \"\"))\n        .collect::<Result<Vec<_>, _>>",
+          "lineNumber": 80
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "rows\n        .into_iter().map",
+          "lineNumber": 80
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "rows.into_iter",
+          "lineNumber": 80
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "SessionParameterRow::from_query_result",
+          "lineNumber": 82
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "params\n        .iter().any",
+          "lineNumber": 85
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "params.iter",
+          "lineNumber": 85
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "is_migratable_streaming_parallelism_session_param",
+          "lineNumber": 87
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "default_legacy_system_strategy",
+          "lineNumber": 89
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Ok",
+          "lineNumber": 90
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 93
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::insert()\n                    .into_table(SessionParameter::Table)\n                    .columns([SessionParameter::Name, SessionParameter::Value])\n                    .values_panic([\n                        STREAMING_PARALLELISM.into(),\n                        migrate_legacy_global_parallelism(\n                            ConfigParallelism::Default,\n                            ConfigAdaptiveParallelismStrategy::Default,\n                            legacy_system_strategy,\n                        )\n                        .to_string()\n                        .into(),\n                    ])\n                    .on_conflict(\n                        sea_query::OnConflict::column(SessionParameter::Name)\n                            .update_column(SessionParameter::Value)\n                            .to_owned(),\n                    ).to_owned",
+          "lineNumber": 95
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::insert()\n                    .into_table(SessionParameter::Table)\n                    .columns([SessionParameter::Name, SessionParameter::Value])\n                    .values_panic([\n                        STREAMING_PARALLELISM.into(),\n                        migrate_legacy_global_parallelism(\n                            ConfigParallelism::Default,\n                            ConfigAdaptiveParallelismStrategy::Default,\n                            legacy_system_strategy,\n                        )\n                        .to_string()\n                        .into(),\n                    ]).on_conflict",
+          "lineNumber": 95
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::insert()\n                    .into_table(SessionParameter::Table)\n                    .columns([SessionParameter::Name, SessionParameter::Value]).values_panic",
+          "lineNumber": 95
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::insert()\n                    .into_table(SessionParameter::Table).columns",
+          "lineNumber": 95
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::insert().into_table",
+          "lineNumber": 95
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::insert",
+          "lineNumber": 95
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "STREAMING_PARALLELISM.into",
+          "lineNumber": 99
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "migrate_legacy_global_parallelism(\n                            ConfigParallelism::Default,\n                            ConfigAdaptiveParallelismStrategy::Default,\n                            legacy_system_strategy,\n                        )\n                        .to_string().into",
+          "lineNumber": 100
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "migrate_legacy_global_parallelism(\n                            ConfigParallelism::Default,\n                            ConfigAdaptiveParallelismStrategy::Default,\n                            legacy_system_strategy,\n                        ).to_string",
+          "lineNumber": 100
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "migrate_legacy_global_parallelism",
+          "lineNumber": 100
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "sea_query::OnConflict::column(SessionParameter::Name)\n                            .update_column(SessionParameter::Value).to_owned",
+          "lineNumber": 109
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "sea_query::OnConflict::column(SessionParameter::Name).update_column",
+          "lineNumber": 109
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "sea_query::OnConflict::column",
+          "lineNumber": 109
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Ok",
+          "lineNumber": 116
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "derive_legacy_streaming_parallelism_params",
+          "lineNumber": 119
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "derived.is_empty",
+          "lineNumber": 121
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::insert",
+          "lineNumber": 122
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "insert\n            .into_table(SessionParameter::Table)\n            .columns([SessionParameter::Name, SessionParameter::Value]).on_conflict",
+          "lineNumber": 123
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "insert\n            .into_table(SessionParameter::Table).columns",
+          "lineNumber": 123
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "insert.into_table",
+          "lineNumber": 123
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "sea_query::OnConflict::column(SessionParameter::Name)\n                    .update_column(SessionParameter::Value).to_owned",
+          "lineNumber": 127
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "sea_query::OnConflict::column(SessionParameter::Name).update_column",
+          "lineNumber": 127
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "sea_query::OnConflict::column",
+          "lineNumber": 127
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "insert.values_panic",
+          "lineNumber": 133
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "name.into",
+          "lineNumber": 133
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "value.into",
+          "lineNumber": 133
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 136
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "insert.to_owned",
+          "lineNumber": 136
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 139
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::delete()\n                .from_table(SessionParameter::Table)\n                .and_where(Expr::col(SessionParameter::Name).is_in([\n                    LEGACY_STREAMING_PARALLELISM_STRATEGY,\n                    LEGACY_STREAMING_PARALLELISM_STRATEGY_FOR_TABLE,\n                    LEGACY_STREAMING_PARALLELISM_STRATEGY_FOR_SOURCE,\n                    LEGACY_STREAMING_PARALLELISM_STRATEGY_FOR_SINK,\n                    LEGACY_STREAMING_PARALLELISM_STRATEGY_FOR_INDEX,\n                    LEGACY_STREAMING_PARALLELISM_STRATEGY_FOR_MATERIALIZED_VIEW,\n                ])).to_owned",
+          "lineNumber": 141
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::delete()\n                .from_table(SessionParameter::Table).and_where",
+          "lineNumber": 141
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::delete().from_table",
+          "lineNumber": 141
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Query::delete",
+          "lineNumber": 141
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Expr::col(SessionParameter::Name).is_in",
+          "lineNumber": 143
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Expr::col",
+          "lineNumber": 143
+        },
+        {
+          "caller": "migrate_legacy_streaming_parallelism_session_params",
+          "callee": "Ok",
+          "lineNumber": 155
+        },
+        {
+          "caller": "migrate_legacy_streaming_job_strategy",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 165
+        },
+        {
+          "caller": "migrate_legacy_streaming_job_strategy",
+          "callee": "Query::update()\n                .table(StreamingJob::Table)\n                .value(\n                    StreamingJob::AdaptiveParallelismStrategy,\n                    legacy_system_strategy.to_string(),\n                )\n                .and_where(Expr::col(StreamingJob::AdaptiveParallelismStrategy).is_null()).to_owned",
+          "lineNumber": 167
+        },
+        {
+          "caller": "migrate_legacy_streaming_job_strategy",
+          "callee": "Query::update()\n                .table(StreamingJob::Table)\n                .value(\n                    StreamingJob::AdaptiveParallelismStrategy,\n                    legacy_system_strategy.to_string(),\n                ).and_where",
+          "lineNumber": 167
+        },
+        {
+          "caller": "migrate_legacy_streaming_job_strategy",
+          "callee": "Query::update()\n                .table(StreamingJob::Table).value",
+          "lineNumber": 167
+        },
+        {
+          "caller": "migrate_legacy_streaming_job_strategy",
+          "callee": "Query::update().table",
+          "lineNumber": 167
+        },
+        {
+          "caller": "migrate_legacy_streaming_job_strategy",
+          "callee": "Query::update",
+          "lineNumber": 167
+        },
+        {
+          "caller": "migrate_legacy_streaming_job_strategy",
+          "callee": "legacy_system_strategy.to_string",
+          "lineNumber": 171
+        },
+        {
+          "caller": "migrate_legacy_streaming_job_strategy",
+          "callee": "Expr::col(StreamingJob::AdaptiveParallelismStrategy).is_null",
+          "lineNumber": 173
+        },
+        {
+          "caller": "migrate_legacy_streaming_job_strategy",
+          "callee": "Expr::col",
+          "lineNumber": 173
+        },
+        {
+          "caller": "migrate_legacy_streaming_job_strategy",
+          "callee": "Ok",
+          "lineNumber": 178
+        },
+        {
+          "caller": "delete_legacy_system_strategy",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 182
+        },
+        {
+          "caller": "delete_legacy_system_strategy",
+          "callee": "Query::delete()\n                .from_table(SystemParameter::Table)\n                .and_where(\n                    Expr::col(SystemParameter::Name).eq(LEGACY_ADAPTIVE_PARALLELISM_STRATEGY),\n                ).to_owned",
+          "lineNumber": 184
+        },
+        {
+          "caller": "delete_legacy_system_strategy",
+          "callee": "Query::delete()\n                .from_table(SystemParameter::Table).and_where",
+          "lineNumber": 184
+        },
+        {
+          "caller": "delete_legacy_system_strategy",
+          "callee": "Query::delete().from_table",
+          "lineNumber": 184
+        },
+        {
+          "caller": "delete_legacy_system_strategy",
+          "callee": "Query::delete",
+          "lineNumber": 184
+        },
+        {
+          "caller": "delete_legacy_system_strategy",
+          "callee": "Expr::col(SystemParameter::Name).eq",
+          "lineNumber": 187
+        },
+        {
+          "caller": "delete_legacy_system_strategy",
+          "callee": "Expr::col",
+          "lineNumber": 187
+        },
+        {
+          "caller": "delete_legacy_system_strategy",
+          "callee": "Ok",
+          "lineNumber": 192
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "manager.get_connection",
+          "lineNumber": 198
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "conn.get_database_backend",
+          "lineNumber": 199
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Query::select()\n        .column(SystemParameter::Value)\n        .from(SystemParameter::Table)\n        .and_where(Expr::col(SystemParameter::Name).eq(LEGACY_ADAPTIVE_PARALLELISM_STRATEGY))\n        .to_owned().build_any",
+          "lineNumber": 200
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Query::select()\n        .column(SystemParameter::Value)\n        .from(SystemParameter::Table)\n        .and_where(Expr::col(SystemParameter::Name).eq(LEGACY_ADAPTIVE_PARALLELISM_STRATEGY)).to_owned",
+          "lineNumber": 200
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Query::select()\n        .column(SystemParameter::Value)\n        .from(SystemParameter::Table).and_where",
+          "lineNumber": 200
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Query::select()\n        .column(SystemParameter::Value).from",
+          "lineNumber": 200
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Query::select().column",
+          "lineNumber": 200
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Query::select",
+          "lineNumber": 200
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Expr::col(SystemParameter::Name).eq",
+          "lineNumber": 203
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Expr::col",
+          "lineNumber": 203
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "database_backend.get_query_builder",
+          "lineNumber": 205
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "conn.query_all",
+          "lineNumber": 206
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Statement::from_sql_and_values",
+          "lineNumber": 207
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "rows.into_iter().next",
+          "lineNumber": 214
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "rows.into_iter",
+          "lineNumber": 214
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Ok",
+          "lineNumber": 215
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "SystemParameterRow::from_query_result",
+          "lineNumber": 217
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "Ok",
+          "lineNumber": 219
+        },
+        {
+          "caller": "load_legacy_system_strategy",
+          "callee": "parse_adaptive_parallelism_strategy",
+          "lineNumber": 219
+        },
+        {
+          "caller": "default_legacy_system_strategy",
+          "callee": "AdaptiveParallelismStrategy::Bounded",
+          "lineNumber": 224
+        },
+        {
+          "caller": "is_migratable_streaming_parallelism_session_param",
+          "callee": "is_streaming_parallelism_param",
+          "lineNumber": 252
+        },
+        {
+          "caller": "is_migratable_streaming_parallelism_session_param",
+          "callee": "is_legacy_streaming_parallelism_strategy_param",
+          "lineNumber": 252
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "params\n        .iter()\n        .map(|param| (param.name.as_str(), param.value.as_str()))\n        .collect::<HashMap<_, _>>",
+          "lineNumber": 259
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "params\n        .iter().map",
+          "lineNumber": 259
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "params.iter",
+          "lineNumber": 259
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "param.name.as_str",
+          "lineNumber": 261
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "param.value.as_str",
+          "lineNumber": 261
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "parse_parallelism",
+          "lineNumber": 264
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "param_map.get(STREAMING_PARALLELISM).copied",
+          "lineNumber": 265
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "param_map.get",
+          "lineNumber": 265
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "parse_legacy_strategy",
+          "lineNumber": 268
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "param_map\n            .get(LEGACY_STREAMING_PARALLELISM_STRATEGY).copied",
+          "lineNumber": 269
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "param_map.get",
+          "lineNumber": 269
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "HashMap::new",
+          "lineNumber": 275
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "should_materialize_global_parallelism",
+          "lineNumber": 276
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "derived.insert",
+          "lineNumber": 281
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "STREAMING_PARALLELISM.to_owned",
+          "lineNumber": 282
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "migrate_legacy_global_parallelism(\n                global_parallelism,\n                global_strategy,\n                legacy_system_strategy,\n            ).to_string",
+          "lineNumber": 283
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "migrate_legacy_global_parallelism",
+          "lineNumber": 283
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "default_legacy_strategy_for_type",
+          "lineNumber": 314
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "param_map.get(strategy_key).copied",
+          "lineNumber": 315
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "param_map.get",
+          "lineNumber": 315
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "parse_parallelism",
+          "lineNumber": 316
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "param_map.get(parallelism_key).copied",
+          "lineNumber": 317
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "param_map.get",
+          "lineNumber": 317
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "parse_legacy_strategy",
+          "lineNumber": 321
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "derived.insert",
+          "lineNumber": 329
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "parallelism_key.to_owned",
+          "lineNumber": 330
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "migrate_legacy_type_parallelism(\n                specific_parallelism,\n                specific_strategy,\n                explicit_default_inherits_global,\n                global_parallelism,\n                global_strategy,\n                legacy_system_strategy,\n            ).to_string",
+          "lineNumber": 331
+        },
+        {
+          "caller": "derive_legacy_streaming_parallelism_params",
+          "callee": "migrate_legacy_type_parallelism",
+          "lineNumber": 331
+        },
+        {
+          "caller": "should_materialize_global_parallelism",
+          "callee": "default_legacy_system_strategy",
+          "lineNumber": 353
+        },
+        {
+          "caller": "parse_parallelism",
+          "callee": "value.and_then(parse_config_parallelism).unwrap_or",
+          "lineNumber": 361
+        },
+        {
+          "caller": "parse_parallelism",
+          "callee": "value.and_then",
+          "lineNumber": 361
+        },
+        {
+          "caller": "parse_legacy_strategy",
+          "callee": "value\n        .and_then(parse_config_adaptive_parallelism_strategy).unwrap_or",
+          "lineNumber": 368
+        },
+        {
+          "caller": "parse_legacy_strategy",
+          "callee": "value.and_then",
+          "lineNumber": 368
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "value.eq_ignore_ascii_case",
+          "lineNumber": 374
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "Some",
+          "lineNumber": 375
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "value.eq_ignore_ascii_case",
+          "lineNumber": 377
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "value.eq_ignore_ascii_case",
+          "lineNumber": 377
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "Some",
+          "lineNumber": 378
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "parse_adaptive_parallelism_strategy",
+          "lineNumber": 380
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "Some",
+          "lineNumber": 381
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "ConfigParallelism::Bounded",
+          "lineNumber": 385
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "ConfigParallelism::Ratio",
+          "lineNumber": 386
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "value.parse::<u64>().ok",
+          "lineNumber": 390
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "value.parse::<u64>",
+          "lineNumber": 390
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "Some",
+          "lineNumber": 391
+        },
+        {
+          "caller": "parse_config_parallelism",
+          "callee": "ConfigParallelism::Fixed",
+          "lineNumber": 394
+        },
+        {
+          "caller": "parse_config_adaptive_parallelism_strategy",
+          "callee": "value.eq_ignore_ascii_case",
+          "lineNumber": 401
+        },
+        {
+          "caller": "parse_config_adaptive_parallelism_strategy",
+          "callee": "Some",
+          "lineNumber": 402
+        },
+        {
+          "caller": "parse_config_adaptive_parallelism_strategy",
+          "callee": "Some",
+          "lineNumber": 404
+        },
+        {
+          "caller": "parse_config_adaptive_parallelism_strategy",
+          "callee": "parse_adaptive_parallelism_strategy",
+          "lineNumber": 404
+        },
+        {
+          "caller": "parse_config_adaptive_parallelism_strategy",
+          "callee": "ConfigAdaptiveParallelismStrategy::Bounded",
+          "lineNumber": 408
+        },
+        {
+          "caller": "parse_config_adaptive_parallelism_strategy",
+          "callee": "ConfigAdaptiveParallelismStrategy::Ratio",
+          "lineNumber": 410
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "value.eq_ignore_ascii_case",
+          "lineNumber": 415
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "Some",
+          "lineNumber": 416
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "value.eq_ignore_ascii_case",
+          "lineNumber": 418
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "Some",
+          "lineNumber": 419
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "value.to_ascii_lowercase",
+          "lineNumber": 422
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "lower\n        .strip_prefix(\"bounded(\").and_then",
+          "lineNumber": 423
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "lower.strip_prefix",
+          "lineNumber": 423
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "s.strip_suffix",
+          "lineNumber": 425
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "inner.parse::<usize>().ok",
+          "lineNumber": 427
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "inner.parse::<usize>",
+          "lineNumber": 427
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "(n > 0).then_some",
+          "lineNumber": 428
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "AdaptiveParallelismStrategy::Bounded",
+          "lineNumber": 428
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "lower\n        .strip_prefix(\"ratio(\").and_then",
+          "lineNumber": 430
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "lower.strip_prefix",
+          "lineNumber": 430
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "s.strip_suffix",
+          "lineNumber": 432
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "inner.parse::<f32>().ok",
+          "lineNumber": 434
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "inner.parse::<f32>",
+          "lineNumber": 434
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "((0.0..=1.0).contains(&r)).then_some",
+          "lineNumber": 435
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "(0.0..=1.0).contains",
+          "lineNumber": 435
+        },
+        {
+          "caller": "parse_adaptive_parallelism_strategy",
+          "callee": "AdaptiveParallelismStrategy::Ratio",
+          "lineNumber": 435
+        },
+        {
+          "caller": "migrate_legacy_global_parallelism",
+          "callee": "legacy_strategy_to_parallelism",
+          "lineNumber": 451
+        },
+        {
+          "caller": "migrate_legacy_global_parallelism",
+          "callee": "resolve_legacy_strategy",
+          "lineNumber": 451
+        },
+        {
+          "caller": "migrate_legacy_type_parallelism",
+          "callee": "legacy_strategy_to_parallelism",
+          "lineNumber": 468
+        },
+        {
+          "caller": "migrate_legacy_type_parallelism",
+          "callee": "resolve_legacy_strategy",
+          "lineNumber": 468
+        },
+        {
+          "caller": "migrate_legacy_type_parallelism",
+          "callee": "resolve_legacy_strategy",
+          "lineNumber": 470
+        },
+        {
+          "caller": "migrate_legacy_type_parallelism",
+          "callee": "legacy_strategy_to_parallelism",
+          "lineNumber": 476
+        },
+        {
+          "caller": "migrate_legacy_type_parallelism",
+          "callee": "resolve_legacy_strategy",
+          "lineNumber": 476
+        },
+        {
+          "caller": "migrate_legacy_type_parallelism",
+          "callee": "legacy_strategy_to_parallelism",
+          "lineNumber": 486
+        },
+        {
+          "caller": "migrate_legacy_type_parallelism",
+          "callee": "resolve_legacy_strategy",
+          "lineNumber": 486
+        },
+        {
+          "caller": "migrate_legacy_type_parallelism",
+          "callee": "resolve_legacy_strategy",
+          "lineNumber": 488
+        },
+        {
+          "caller": "resolve_legacy_strategy",
+          "callee": "AdaptiveParallelismStrategy::Bounded",
+          "lineNumber": 504
+        },
+        {
+          "caller": "resolve_legacy_strategy",
+          "callee": "AdaptiveParallelismStrategy::Ratio",
+          "lineNumber": 506
+        },
+        {
+          "caller": "legacy_strategy_to_parallelism",
+          "callee": "ConfigParallelism::Bounded",
+          "lineNumber": 515
+        },
+        {
+          "caller": "legacy_strategy_to_parallelism",
+          "callee": "ConfigParallelism::Ratio",
+          "lineNumber": 516
+        },
+        {
+          "caller": "session_param",
+          "callee": "name.to_owned",
+          "lineNumber": 606
+        },
+        {
+          "caller": "session_param",
+          "callee": "value.to_owned",
+          "lineNumber": 607
+        },
+        {
+          "caller": "test_derive_legacy_streaming_parallelism_params_type_only_keeps_global_untouched",
+          "callee": "derive_legacy_streaming_parallelism_params",
+          "lineNumber": 613
+        },
+        {
+          "caller": "test_derive_legacy_streaming_parallelism_params_type_only_keeps_global_untouched",
+          "callee": "session_param",
+          "lineNumber": 614
+        },
+        {
+          "caller": "test_derive_legacy_streaming_parallelism_params_type_only_keeps_global_untouched",
+          "callee": "AdaptiveParallelismStrategy::Bounded",
+          "lineNumber": 618
+        },
+        {
+          "caller": "test_derive_legacy_streaming_parallelism_params_materializes_custom_system_strategy",
+          "callee": "derive_legacy_streaming_parallelism_params",
+          "lineNumber": 634
+        },
+        {
+          "caller": "test_derive_legacy_streaming_parallelism_params_materializes_custom_system_strategy",
+          "callee": "session_param",
+          "lineNumber": 635
+        },
+        {
+          "caller": "test_derive_legacy_streaming_parallelism_params_materializes_custom_system_strategy",
+          "callee": "AdaptiveParallelismStrategy::Bounded",
+          "lineNumber": 639
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 24,
+        "classCount": 9
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20260312_000000_streaming_job_backfill_parallelism_strategy.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 12,
+          "endLine": 25,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 27,
+          "endLine": 36,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 8,
+          "endLine": 8,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "StreamingJob",
+          "startLine": 40,
+          "endLine": 43,
+          "methods": [],
+          "properties": [
+            "Table",
+            "BackfillAdaptiveParallelismStrategy"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .add_column(\n                        ColumnDef::new(StreamingJob::BackfillAdaptiveParallelismStrategy)\n                            .string()\n                            .null(),\n                    ).to_owned",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).add_column",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::BackfillAdaptiveParallelismStrategy)\n                            .string().null",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::BackfillAdaptiveParallelismStrategy).string",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 18
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .drop_column(StreamingJob::BackfillAdaptiveParallelismStrategy).to_owned",
+          "lineNumber": 30
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).drop_column",
+          "lineNumber": 30
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 30
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20260518_000000_disable_unused_read_prefix_hints.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 295,
+      "nonEmptyLines": 264,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 17,
+          "endLine": 71,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 73,
+          "endLine": 77,
+          "params": [
+            "_manager"
+          ]
+        },
+        {
+          "name": "disable_unused_read_prefix_hints",
+          "startLine": 80,
+          "endLine": 110,
+          "params": [
+            "stream_node",
+            "table_ids"
+          ]
+        },
+        {
+          "name": "disable_table_hint",
+          "startLine": 112,
+          "endLine": 124,
+          "params": [
+            "table",
+            "table_ids"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 13,
+          "endLine": 13,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FragmentEntity",
+          "startLine": 128,
+          "endLine": 131,
+          "methods": [],
+          "properties": [
+            "fragment_id",
+            "stream_node"
+          ]
+        },
+        {
+          "name": "Fragment",
+          "startLine": 134,
+          "endLine": 138,
+          "methods": [],
+          "properties": [
+            "Table",
+            "FragmentId",
+            "StreamNode"
+          ]
+        },
+        {
+          "name": "Table",
+          "startLine": 141,
+          "endLine": 145,
+          "methods": [],
+          "properties": [
+            "Table",
+            "TableId",
+            "ReadPrefixLenHint"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.get_connection",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "connection.get_database_backend",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select()\n            .columns([Fragment::FragmentId, Fragment::StreamNode])\n            .from(Fragment::Table).build_any",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select()\n            .columns([Fragment::FragmentId, Fragment::StreamNode]).from",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select().columns",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "database_backend.get_query_builder",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "connection.query_all",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "Statement::from_sql_and_values",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "BTreeSet::new",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "FragmentEntity::from_query_result",
+          "lineNumber": 37
+        },
+        {
+          "caller": "up",
+          "callee": "StreamNode::decode(fragment.stream_node.as_slice()).map_err",
+          "lineNumber": 39
+        },
+        {
+          "caller": "up",
+          "callee": "StreamNode::decode",
+          "lineNumber": 39
+        },
+        {
+          "caller": "up",
+          "callee": "fragment.stream_node.as_slice",
+          "lineNumber": 39
+        },
+        {
+          "caller": "up",
+          "callee": "DbErr::Custom",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "disable_unused_read_prefix_hints",
+          "lineNumber": 43
+        },
+        {
+          "caller": "up",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 44
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                            .table(Fragment::Table)\n                            .value(Fragment::StreamNode, stream_node.encode_to_vec())\n                            .and_where(Expr::col(Fragment::FragmentId).eq(fragment.fragment_id)).to_owned",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                            .table(Fragment::Table)\n                            .value(Fragment::StreamNode, stream_node.encode_to_vec()).and_where",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                            .table(Fragment::Table).value",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update().table",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "stream_node.encode_to_vec",
+          "lineNumber": 48
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(Fragment::FragmentId).eq",
+          "lineNumber": 49
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 49
+        },
+        {
+          "caller": "up",
+          "callee": "table_ids.is_empty",
+          "lineNumber": 56
+        },
+        {
+          "caller": "up",
+          "callee": "table_ids.into_iter().collect::<Vec<_>>",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "table_ids.into_iter",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 58
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                        .table(Table::Table)\n                        .value(Table::ReadPrefixLenHint, 0)\n                        .and_where(Expr::col(Table::TableId).is_in(table_ids))\n                        .and_where(Expr::col(Table::ReadPrefixLenHint).ne(0)).to_owned",
+          "lineNumber": 60
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                        .table(Table::Table)\n                        .value(Table::ReadPrefixLenHint, 0)\n                        .and_where(Expr::col(Table::TableId).is_in(table_ids)).and_where",
+          "lineNumber": 60
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                        .table(Table::Table)\n                        .value(Table::ReadPrefixLenHint, 0).and_where",
+          "lineNumber": 60
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                        .table(Table::Table).value",
+          "lineNumber": 60
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update().table",
+          "lineNumber": 60
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update",
+          "lineNumber": 60
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(Table::TableId).is_in",
+          "lineNumber": 63
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 63
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(Table::ReadPrefixLenHint).ne",
+          "lineNumber": 64
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 64
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 70
+        },
+        {
+          "caller": "down",
+          "callee": "Err",
+          "lineNumber": 74
+        },
+        {
+          "caller": "down",
+          "callee": "DbErr::Custom",
+          "lineNumber": 74
+        },
+        {
+          "caller": "down",
+          "callee": "\"cannot rollback unused read prefix hint migration\".to_owned",
+          "lineNumber": 75
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "stream_node.node_body.as_mut",
+          "lineNumber": 86
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "disable_table_hint",
+          "lineNumber": 89
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "node.left_table.as_mut",
+          "lineNumber": 89
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "disable_table_hint",
+          "lineNumber": 92
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "node.staging_table.as_mut",
+          "lineNumber": 92
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "disable_table_hint",
+          "lineNumber": 94
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "node.table.as_mut",
+          "lineNumber": 94
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "disable_table_hint",
+          "lineNumber": 96
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "node.table.as_mut",
+          "lineNumber": 96
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "disable_table_hint",
+          "lineNumber": 99
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "node.log_store_table.as_mut",
+          "lineNumber": 99
+        },
+        {
+          "caller": "disable_unused_read_prefix_hints",
+          "callee": "disable_unused_read_prefix_hints",
+          "lineNumber": 106
+        },
+        {
+          "caller": "disable_table_hint",
+          "callee": "table_ids.insert",
+          "lineNumber": 117
+        },
+        {
+          "caller": "table",
+          "callee": "TableId::new",
+          "lineNumber": 157
+        },
+        {
+          "caller": "table",
+          "callee": "Default::default",
+          "lineNumber": 159
+        },
+        {
+          "caller": "disable_only_targeted_table_hints",
+          "callee": "Some",
+          "lineNumber": 166
+        },
+        {
+          "caller": "disable_only_targeted_table_hints",
+          "callee": "NodeBody::DynamicFilter",
+          "lineNumber": 166
+        },
+        {
+          "caller": "disable_only_targeted_table_hints",
+          "callee": "Box::new",
+          "lineNumber": 166
+        },
+        {
+          "caller": "disable_only_targeted_table_hints",
+          "callee": "Some",
+          "lineNumber": 167
+        },
+        {
+          "caller": "disable_only_targeted_table_hints",
+          "callee": "table",
+          "lineNumber": 167
+        },
+        {
+          "caller": "disable_only_targeted_table_hints",
+          "callee": "Some",
+          "lineNumber": 168
+        },
+        {
+          "caller": "disable_only_targeted_table_hints",
+          "callee": "table",
+          "lineNumber": 168
+        },
+        {
+          "caller": "disable_only_targeted_table_hints",
+          "callee": "Default::default",
+          "lineNumber": 169
+        },
+        {
+          "caller": "disable_only_targeted_table_hints",
+          "callee": "Default::default",
+          "lineNumber": 210
+        },
+        {
+          "caller": "disable_only_targeted_table_hints",
+          "callee": "BTreeSet::new",
+          "lineNumber": 213
+        },
+        {
+          "caller": "collect_zero_hint_table_without_rewriting_fragment",
+          "callee": "Some",
+          "lineNumber": 281
+        },
+        {
+          "caller": "collect_zero_hint_table_without_rewriting_fragment",
+          "callee": "NodeBody::SyncLogStore",
+          "lineNumber": 281
+        },
+        {
+          "caller": "collect_zero_hint_table_without_rewriting_fragment",
+          "callee": "Box::new",
+          "lineNumber": 281
+        },
+        {
+          "caller": "collect_zero_hint_table_without_rewriting_fragment",
+          "callee": "Some",
+          "lineNumber": 282
+        },
+        {
+          "caller": "collect_zero_hint_table_without_rewriting_fragment",
+          "callee": "table",
+          "lineNumber": 282
+        },
+        {
+          "caller": "collect_zero_hint_table_without_rewriting_fragment",
+          "callee": "Default::default",
+          "lineNumber": 283
+        },
+        {
+          "caller": "collect_zero_hint_table_without_rewriting_fragment",
+          "callee": "Default::default",
+          "lineNumber": 285
+        },
+        {
+          "caller": "collect_zero_hint_table_without_rewriting_fragment",
+          "callee": "BTreeSet::new",
+          "lineNumber": 288
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20260519_000000_streaming_job_batch_refresh_seconds.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 21,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 23,
+          "endLine": 32,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "StreamingJob",
+          "startLine": 36,
+          "endLine": 39,
+          "methods": [],
+          "properties": [
+            "Table",
+            "RefreshIntervalSec"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .add_column(\n                        ColumnDef::new(StreamingJob::RefreshIntervalSec)\n                            .big_integer()\n                            .null(),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::RefreshIntervalSec)\n                            .big_integer().null",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::RefreshIntervalSec).big_integer",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .drop_column(StreamingJob::RefreshIntervalSec).to_owned",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).drop_column",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/utils.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "rw_binary",
+          "startLine": 11,
+          "endLine": 17,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "rw_long_text",
+          "startLine": 24,
+          "endLine": 29,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "rw_binary",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "rw_long_text",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "rw_binary",
+          "callee": "manager.get_database_backend",
+          "lineNumber": 12
+        },
+        {
+          "caller": "rw_binary",
+          "callee": "self.custom",
+          "lineNumber": 13
+        },
+        {
+          "caller": "rw_binary",
+          "callee": "self.blob",
+          "lineNumber": 15
+        },
+        {
+          "caller": "rw_long_text",
+          "callee": "manager.get_database_backend",
+          "lineNumber": 25
+        },
+        {
+          "caller": "rw_long_text",
+          "callee": "self.custom",
+          "lineNumber": 26
+        },
+        {
+          "caller": "rw_long_text",
+          "callee": "Alias::new",
+          "lineNumber": 26
+        },
+        {
+          "caller": "rw_long_text",
+          "callee": "self.text",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

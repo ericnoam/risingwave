@@ -1,0 +1,279 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/expr/macro/src/context.rs",
+      "type": "file",
+      "name": "context.rs",
+      "filePath": "src/expr/macro/src/context.rs",
+      "summary": "Implements the `#[define_context]` and `#[capture_context]` procedural macro attribute parsers and the code generator that transforms annotated functions to capture thread-local context fields.",
+      "tags": ["macro", "code-generation", "context", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/expr/macro/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/expr/macro/src/lib.rs",
+      "summary": "Entry point for the expression procedural macro crate, exposing the `#[function]`, `#[aggregate]`, `#[define_context]`, and `#[capture_context]` macros that register scalar and aggregate UDF descriptors.",
+      "tags": ["entry-point", "macro", "code-generation", "udf"],
+      "complexity": "complex",
+      "languageNotes": "A proc-macro crate: all pub functions decorated with `#[proc_macro_attribute]` are the public API surface consumed by the expression impl crate."
+    },
+    {
+      "id": "file:src/expr/macro/src/parse.rs",
+      "type": "file",
+      "name": "parse.rs",
+      "filePath": "src/expr/macro/src/parse.rs",
+      "summary": "Parses function signature strings and attribute arguments from the `#[function]`/`#[aggregate]` macros into structured UserFunctionAttr metadata used for code generation.",
+      "tags": ["macro", "parsing", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/expr/macro/src/types.rs",
+      "type": "file",
+      "name": "types.rs",
+      "filePath": "src/expr/macro/src/types.rs",
+      "summary": "Provides mappings from string type names (e.g. `\"int4\"`, `\"varchar\"`) to generated Rust token streams covering owned, reference, and array type variants.",
+      "tags": ["type-definition", "macro", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/expr/macro/src/utils.rs",
+      "type": "file",
+      "name": "utils.rs",
+      "filePath": "src/expr/macro/src/utils.rs",
+      "summary": "Utility helpers for the expression macro crate, including token-stream visibility extension and attribute filtering.",
+      "tags": ["utility", "macro", "helper"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/expr/macro/src/context.rs:DefineContextAttr",
+      "type": "class",
+      "name": "DefineContextAttr",
+      "filePath": "src/expr/macro/src/context.rs",
+      "lineRange": [33, 119],
+      "summary": "Parsed attribute for `#[define_context]`, holding a list of field definitions and generating the context struct with typed getters.",
+      "tags": ["macro", "code-generation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/expr/macro/src/context.rs:CaptureContextAttr",
+      "type": "class",
+      "name": "CaptureContextAttr",
+      "filePath": "src/expr/macro/src/context.rs",
+      "lineRange": [122, 133],
+      "summary": "Parsed attribute for `#[capture_context]`, listing context field names to be captured into the function closure.",
+      "tags": ["macro", "context"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/expr/macro/src/context.rs:generate_captured_function",
+      "type": "function",
+      "name": "generate_captured_function",
+      "filePath": "src/expr/macro/src/context.rs",
+      "lineRange": [136, 283],
+      "summary": "Generates a wrapper function that captures context fields from thread-local storage, reducing an `n+m`-arg function to an `n`-arg function by binding the `m` context values at call time.",
+      "tags": ["code-generation", "macro", "context"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/expr/macro/src/lib.rs:FunctionAttr",
+      "type": "class",
+      "name": "FunctionAttr",
+      "filePath": "src/expr/macro/src/lib.rs",
+      "lineRange": [508, 540],
+      "summary": "Holds all parsed attributes from the `#[function(\"sig\")]` macro including function name, argument/return types, and code-gen flags like `volatile`, `deprecated`, and `batch_fn`.",
+      "tags": ["type-definition", "macro", "udf"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:src/expr/macro/src/lib.rs:UserFunctionAttr",
+      "type": "class",
+      "name": "UserFunctionAttr",
+      "filePath": "src/expr/macro/src/lib.rs",
+      "lineRange": [544, 569],
+      "summary": "Captures attributes derived from the user function signature: async/sync, writer type, return kind, context usage, and retract mode for aggregate functions.",
+      "tags": ["type-definition", "macro", "udf"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/expr/macro/src/lib.rs:function",
+      "type": "function",
+      "name": "function",
+      "filePath": "src/expr/macro/src/lib.rs",
+      "lineRange": [426, 441],
+      "summary": "Proc-macro entry point for `#[function]`: parses the signature string and user function, then generates the function implementation and function descriptor registration.",
+      "tags": ["entry-point", "macro", "udf"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/expr/macro/src/lib.rs:aggregate",
+      "type": "function",
+      "name": "aggregate",
+      "filePath": "src/expr/macro/src/lib.rs",
+      "lineRange": [472, 487],
+      "summary": "Proc-macro entry point for `#[aggregate]`: generates aggregate function implementations and registers aggregate descriptors.",
+      "tags": ["entry-point", "macro", "udf"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/expr/macro/src/lib.rs:capture_context",
+      "type": "function",
+      "name": "capture_context",
+      "filePath": "src/expr/macro/src/lib.rs",
+      "lineRange": [675, 687],
+      "summary": "Proc-macro entry point for `#[capture_context]`: transforms the annotated function to read context fields from thread-local storage.",
+      "tags": ["macro", "context"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/expr/macro/src/context.rs",
+      "target": "file:src/expr/macro/src/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "file:src/expr/macro/src/context.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "file:src/expr/macro/src/parse.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "file:src/expr/macro/src/types.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "file:src/expr/macro/src/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/expr/macro/src/context.rs",
+      "target": "class:src/expr/macro/src/context.rs:DefineContextAttr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/expr/macro/src/context.rs",
+      "target": "class:src/expr/macro/src/context.rs:CaptureContextAttr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/expr/macro/src/context.rs",
+      "target": "function:src/expr/macro/src/context.rs:generate_captured_function",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/expr/macro/src/context.rs",
+      "target": "class:src/expr/macro/src/context.rs:DefineContextAttr",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/expr/macro/src/context.rs",
+      "target": "class:src/expr/macro/src/context.rs:CaptureContextAttr",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/expr/macro/src/context.rs",
+      "target": "function:src/expr/macro/src/context.rs:generate_captured_function",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "class:src/expr/macro/src/lib.rs:FunctionAttr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "class:src/expr/macro/src/lib.rs:UserFunctionAttr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "function:src/expr/macro/src/lib.rs:function",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "function:src/expr/macro/src/lib.rs:aggregate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "function:src/expr/macro/src/lib.rs:capture_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "class:src/expr/macro/src/lib.rs:FunctionAttr",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "class:src/expr/macro/src/lib.rs:UserFunctionAttr",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "function:src/expr/macro/src/lib.rs:function",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "function:src/expr/macro/src/lib.rs:aggregate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/expr/macro/src/lib.rs",
+      "target": "function:src/expr/macro/src/lib.rs:capture_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

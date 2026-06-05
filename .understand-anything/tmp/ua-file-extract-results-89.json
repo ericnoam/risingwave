@@ -1,0 +1,3974 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 11,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/common/metrics/src/error_metrics.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 27,
+          "endLine": 32,
+          "params": [
+            "name",
+            "help",
+            "label_names",
+            "registry"
+          ]
+        },
+        {
+          "name": "report",
+          "startLine": 34,
+          "endLine": 36,
+          "params": [
+            "labels"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 50,
+          "endLine": 71,
+          "params": [
+            "registry"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ErrorMetric",
+          "startLine": 22,
+          "endLine": 24,
+          "methods": [],
+          "properties": [
+            "inner"
+          ]
+        },
+        {
+          "name": "ErrorMetrics",
+          "startLine": 43,
+          "endLine": 47,
+          "methods": [
+            "new"
+          ],
+          "properties": [
+            "user_sink_error",
+            "user_compute_error",
+            "user_source_error"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ErrorMetric",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "report",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "ErrorMetrics",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "register_int_counter_vec_with_registry!(name, help, label_names, registry).unwrap",
+          "lineNumber": 29
+        },
+        {
+          "caller": "report",
+          "callee": "self.inner.with_label_values(&labels).inc",
+          "lineNumber": 35
+        },
+        {
+          "caller": "report",
+          "callee": "self.inner.with_label_values",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new",
+          "callee": "ErrorMetric::new",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new",
+          "callee": "ErrorMetric::new",
+          "lineNumber": 58
+        },
+        {
+          "caller": "new",
+          "callee": "ErrorMetric::new",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 3,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/common/metrics/src/gauge_ext.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 60,
+      "functions": [
+        {
+          "name": "inc_guard",
+          "startLine": 25,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "inc_guard",
+          "startLine": 50,
+          "endLine": 69,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "inc_guard",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "inc_guard",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "gauge.inc",
+          "lineNumber": 32
+        },
+        {
+          "caller": "drop",
+          "callee": "self.gauge.dec",
+          "lineNumber": 39
+        },
+        {
+          "caller": "inc_guard",
+          "callee": "Guard::create",
+          "lineNumber": 43
+        },
+        {
+          "caller": "create",
+          "callee": "gauge.inc",
+          "lineNumber": 57
+        },
+        {
+          "caller": "drop",
+          "callee": "self.gauge.dec",
+          "lineNumber": 64
+        },
+        {
+          "caller": "inc_guard",
+          "callee": "Guard::create",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/metrics/src/guarded_metrics.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 463,
+      "nonEmptyLines": 411,
+      "functions": [
+        {
+          "name": "gen_test_label",
+          "startLine": 164,
+          "endLine": 171,
+          "params": []
+        },
+        {
+          "name": "register_new_label",
+          "startLine": 180,
+          "endLine": 196,
+          "params": [
+            "mutex",
+            "labels"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 223,
+          "endLine": 227,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "desc",
+          "startLine": 231,
+          "endLine": 233,
+          "params": []
+        },
+        {
+          "name": "collect",
+          "startLine": 235,
+          "endLine": 249,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 253,
+          "endLine": 259,
+          "params": [
+            "inner",
+            "labels"
+          ]
+        },
+        {
+          "name": "with_guarded_label_values",
+          "startLine": 271,
+          "endLine": 281,
+          "params": [
+            "labels"
+          ]
+        },
+        {
+          "name": "with_test_label",
+          "startLine": 283,
+          "endLine": 286,
+          "params": []
+        },
+        {
+          "name": "test_int_counter_vec",
+          "startLine": 290,
+          "endLine": 294,
+          "params": []
+        },
+        {
+          "name": "test_int_gauge_vec",
+          "startLine": 298,
+          "endLine": 302,
+          "params": []
+        },
+        {
+          "name": "test_gauge_vec",
+          "startLine": 306,
+          "endLine": 310,
+          "params": []
+        },
+        {
+          "name": "test_histogram_vec",
+          "startLine": 314,
+          "endLine": 318,
+          "params": []
+        },
+        {
+          "name": "drop",
+          "startLine": 328,
+          "endLine": 341,
+          "params": []
+        },
+        {
+          "name": "fmt",
+          "startLine": 351,
+          "endLine": 353,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "deref",
+          "startLine": 359,
+          "endLine": 361,
+          "params": []
+        },
+        {
+          "name": "test_histogram",
+          "startLine": 365,
+          "endLine": 367,
+          "params": []
+        },
+        {
+          "name": "test_int_counter",
+          "startLine": 371,
+          "endLine": 373,
+          "params": []
+        },
+        {
+          "name": "test_int_gauge",
+          "startLine": 377,
+          "endLine": 379,
+          "params": []
+        },
+        {
+          "name": "test_gauge",
+          "startLine": 383,
+          "endLine": 385,
+          "params": []
+        },
+        {
+          "name": "lazy_guarded_metrics",
+          "startLine": 393,
+          "endLine": 395,
+          "params": [
+            "labels"
+          ]
+        },
+        {
+          "name": "local",
+          "startLine": 412,
+          "endLine": 414,
+          "params": []
+        },
+        {
+          "name": "local",
+          "startLine": 420,
+          "endLine": 422,
+          "params": []
+        },
+        {
+          "name": "local",
+          "startLine": 426,
+          "endLine": 431,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LabelGuardedMetricsInfo",
+          "startLine": 174,
+          "endLine": 177,
+          "methods": [
+            "register_new_label"
+          ],
+          "properties": [
+            "labeled_metrics_count",
+            "uncollected_removed_labels"
+          ]
+        },
+        {
+          "name": "LabelGuardedMetricVec",
+          "startLine": 216,
+          "endLine": 220,
+          "methods": [],
+          "properties": [
+            "inner",
+            "info",
+            "labels"
+          ]
+        },
+        {
+          "name": "LabelGuard",
+          "startLine": 322,
+          "endLine": 325,
+          "methods": [
+            "drop"
+          ],
+          "properties": [
+            "labels",
+            "info"
+          ]
+        },
+        {
+          "name": "LabelGuardedMetric",
+          "startLine": 345,
+          "endLine": 348,
+          "methods": [],
+          "properties": [
+            "inner",
+            "_guard"
+          ]
+        },
+        {
+          "name": "MetricWithLocal",
+          "startLine": 404,
+          "endLine": 407,
+          "methods": [
+            "local"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "LabelGuardedMetricVec",
+          "line": 216,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 253,
+          "isDefault": false
+        },
+        {
+          "name": "with_guarded_label_values",
+          "line": 271,
+          "isDefault": false
+        },
+        {
+          "name": "with_test_label",
+          "line": 283,
+          "isDefault": false
+        },
+        {
+          "name": "test_int_counter_vec",
+          "line": 290,
+          "isDefault": false
+        },
+        {
+          "name": "test_int_gauge_vec",
+          "line": 298,
+          "isDefault": false
+        },
+        {
+          "name": "test_gauge_vec",
+          "line": 306,
+          "isDefault": false
+        },
+        {
+          "name": "test_histogram_vec",
+          "line": 314,
+          "isDefault": false
+        },
+        {
+          "name": "LabelGuardedMetric",
+          "line": 345,
+          "isDefault": false
+        },
+        {
+          "name": "test_histogram",
+          "line": 365,
+          "isDefault": false
+        },
+        {
+          "name": "test_int_counter",
+          "line": 371,
+          "isDefault": false
+        },
+        {
+          "name": "test_int_gauge",
+          "line": 377,
+          "isDefault": false
+        },
+        {
+          "name": "test_gauge",
+          "line": 383,
+          "isDefault": false
+        },
+        {
+          "name": "lazy_guarded_metrics",
+          "line": 393,
+          "isDefault": false
+        },
+        {
+          "name": "MetricWithLocal",
+          "line": 404,
+          "isDefault": false
+        },
+        {
+          "name": "local",
+          "line": 426,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "gen_test_label",
+          "callee": "(0..N)\n        .map(|i| TEST_LABELS[i])\n        .collect::<Vec<_>>()\n        .try_into().unwrap",
+          "lineNumber": 166
+        },
+        {
+          "caller": "gen_test_label",
+          "callee": "(0..N)\n        .map(|i| TEST_LABELS[i])\n        .collect::<Vec<_>>().try_into",
+          "lineNumber": 166
+        },
+        {
+          "caller": "gen_test_label",
+          "callee": "(0..N)\n        .map(|i| TEST_LABELS[i])\n        .collect::<Vec<_>>",
+          "lineNumber": 166
+        },
+        {
+          "caller": "gen_test_label",
+          "callee": "(0..N).map",
+          "lineNumber": 166
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "mutex.lock",
+          "lineNumber": 181
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "labels\n            .iter()\n            .map(|label| label.as_ref().to_owned())\n            .collect::<Vec<_>>().into_boxed_slice",
+          "lineNumber": 182
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "labels\n            .iter()\n            .map(|label| label.as_ref().to_owned())\n            .collect::<Vec<_>>",
+          "lineNumber": 182
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "labels\n            .iter().map",
+          "lineNumber": 182
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "labels.iter",
+          "lineNumber": 182
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "label.as_ref().to_owned",
+          "lineNumber": 184
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "label.as_ref",
+          "lineNumber": 184
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "guard.uncollected_removed_labels.remove",
+          "lineNumber": 187
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "guard\n            .labeled_metrics_count\n            .entry(label_string.clone()).or_insert",
+          "lineNumber": 188
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "guard\n            .labeled_metrics_count.entry",
+          "lineNumber": 188
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "label_string.clone",
+          "lineNumber": 190
+        },
+        {
+          "caller": "register_new_label",
+          "callee": "mutex.clone",
+          "lineNumber": 194
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct(format!(\"LabelGuardedMetricVec<{}>\", type_name::<T>()).as_str())\n            .field(\"label\", &self.labels).finish",
+          "lineNumber": 224
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct(format!(\"LabelGuardedMetricVec<{}>\", type_name::<T>()).as_str()).field",
+          "lineNumber": 224
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct",
+          "lineNumber": 224
+        },
+        {
+          "caller": "fmt",
+          "callee": "format!(\"LabelGuardedMetricVec<{}>\", type_name::<T>()).as_str",
+          "lineNumber": 224
+        },
+        {
+          "caller": "desc",
+          "callee": "self.inner.desc",
+          "lineNumber": 232
+        },
+        {
+          "caller": "collect",
+          "callee": "self.info.lock",
+          "lineNumber": 236
+        },
+        {
+          "caller": "collect",
+          "callee": "self.inner.collect",
+          "lineNumber": 237
+        },
+        {
+          "caller": "collect",
+          "callee": "guard.uncollected_removed_labels.drain",
+          "lineNumber": 238
+        },
+        {
+          "caller": "collect",
+          "callee": "self.inner.remove_label_values",
+          "lineNumber": 239
+        },
+        {
+          "caller": "new",
+          "callee": "Default::default",
+          "lineNumber": 256
+        },
+        {
+          "caller": "new",
+          "callee": "labels.to_vec().into_boxed_slice",
+          "lineNumber": 257
+        },
+        {
+          "caller": "new",
+          "callee": "labels.to_vec",
+          "lineNumber": 257
+        },
+        {
+          "caller": "with_guarded_label_values",
+          "callee": "LabelGuardedMetricsInfo::register_new_label",
+          "lineNumber": 275
+        },
+        {
+          "caller": "with_guarded_label_values",
+          "callee": "self.inner.with_label_values",
+          "lineNumber": 276
+        },
+        {
+          "caller": "with_guarded_label_values",
+          "callee": "Arc::new",
+          "lineNumber": 279
+        },
+        {
+          "caller": "with_test_label",
+          "callee": "gen_test_label::<N>",
+          "lineNumber": 284
+        },
+        {
+          "caller": "with_test_label",
+          "callee": "self.with_guarded_label_values",
+          "lineNumber": 285
+        },
+        {
+          "caller": "test_int_counter_vec",
+          "callee": "prometheus::Registry::new",
+          "lineNumber": 291
+        },
+        {
+          "caller": "test_int_counter_vec",
+          "callee": "gen_test_label::<N>",
+          "lineNumber": 292
+        },
+        {
+          "caller": "test_int_counter_vec",
+          "callee": "register_guarded_int_counter_vec_with_registry!(\"test\", \"test\", &labels, &registry).unwrap",
+          "lineNumber": 293
+        },
+        {
+          "caller": "test_int_gauge_vec",
+          "callee": "prometheus::Registry::new",
+          "lineNumber": 299
+        },
+        {
+          "caller": "test_int_gauge_vec",
+          "callee": "gen_test_label::<N>",
+          "lineNumber": 300
+        },
+        {
+          "caller": "test_int_gauge_vec",
+          "callee": "register_guarded_int_gauge_vec_with_registry!(\"test\", \"test\", &labels, &registry).unwrap",
+          "lineNumber": 301
+        },
+        {
+          "caller": "test_gauge_vec",
+          "callee": "prometheus::Registry::new",
+          "lineNumber": 307
+        },
+        {
+          "caller": "test_gauge_vec",
+          "callee": "gen_test_label::<N>",
+          "lineNumber": 308
+        },
+        {
+          "caller": "test_gauge_vec",
+          "callee": "register_guarded_gauge_vec_with_registry!(\"test\", \"test\", &labels, &registry).unwrap",
+          "lineNumber": 309
+        },
+        {
+          "caller": "test_histogram_vec",
+          "callee": "prometheus::Registry::new",
+          "lineNumber": 315
+        },
+        {
+          "caller": "test_histogram_vec",
+          "callee": "gen_test_label::<N>",
+          "lineNumber": 316
+        },
+        {
+          "caller": "test_histogram_vec",
+          "callee": "register_guarded_histogram_vec_with_registry!(\"test\", \"test\", &labels, &registry).unwrap",
+          "lineNumber": 317
+        },
+        {
+          "caller": "drop",
+          "callee": "self.info.lock",
+          "lineNumber": 329
+        },
+        {
+          "caller": "drop",
+          "callee": "guard.labeled_metrics_count.get_mut(&self.labels).expect",
+          "lineNumber": 330
+        },
+        {
+          "caller": "drop",
+          "callee": "guard.labeled_metrics_count.get_mut",
+          "lineNumber": 330
+        },
+        {
+          "caller": "drop",
+          "callee": "guard\n                .labeled_metrics_count\n                .remove(&self.labels).expect",
+          "lineNumber": 335
+        },
+        {
+          "caller": "drop",
+          "callee": "guard\n                .labeled_metrics_count.remove",
+          "lineNumber": 335
+        },
+        {
+          "caller": "drop",
+          "callee": "guard.uncollected_removed_labels.insert",
+          "lineNumber": 339
+        },
+        {
+          "caller": "drop",
+          "callee": "self.labels.clone",
+          "lineNumber": 339
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct(\"LabelGuardedMetric\").finish",
+          "lineNumber": 352
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct",
+          "lineNumber": 352
+        },
+        {
+          "caller": "test_histogram",
+          "callee": "LabelGuardedHistogramVec::test_histogram_vec::<N>().with_test_label::<N>",
+          "lineNumber": 366
+        },
+        {
+          "caller": "test_histogram",
+          "callee": "LabelGuardedHistogramVec::test_histogram_vec::<N>",
+          "lineNumber": 366
+        },
+        {
+          "caller": "test_int_counter",
+          "callee": "LabelGuardedIntCounterVec::test_int_counter_vec::<N>().with_test_label::<N>",
+          "lineNumber": 372
+        },
+        {
+          "caller": "test_int_counter",
+          "callee": "LabelGuardedIntCounterVec::test_int_counter_vec::<N>",
+          "lineNumber": 372
+        },
+        {
+          "caller": "test_int_gauge",
+          "callee": "LabelGuardedIntGaugeVec::test_int_gauge_vec::<N>().with_test_label::<N>",
+          "lineNumber": 378
+        },
+        {
+          "caller": "test_int_gauge",
+          "callee": "LabelGuardedIntGaugeVec::test_int_gauge_vec::<N>",
+          "lineNumber": 378
+        },
+        {
+          "caller": "test_gauge",
+          "callee": "LabelGuardedGaugeVec::test_gauge_vec::<N>().with_test_label::<N>",
+          "lineNumber": 384
+        },
+        {
+          "caller": "test_gauge",
+          "callee": "LabelGuardedGaugeVec::test_gauge_vec::<N>",
+          "lineNumber": 384
+        },
+        {
+          "caller": "lazy_guarded_metrics",
+          "callee": "LazyLock::new",
+          "lineNumber": 394
+        },
+        {
+          "caller": "lazy_guarded_metrics",
+          "callee": "self.with_guarded_label_values",
+          "lineNumber": 394
+        },
+        {
+          "caller": "local",
+          "callee": "self.local",
+          "lineNumber": 413
+        },
+        {
+          "caller": "local",
+          "callee": "self.local",
+          "lineNumber": 421
+        },
+        {
+          "caller": "local",
+          "callee": "self.inner.local",
+          "lineNumber": 428
+        },
+        {
+          "caller": "local",
+          "callee": "self._guard.clone",
+          "lineNumber": 429
+        },
+        {
+          "caller": "test_label_guarded_metrics_drop",
+          "callee": "LabelGuardedIntCounterVec::test_int_counter_vec::<3>",
+          "lineNumber": 442
+        },
+        {
+          "caller": "test_label_guarded_metrics_drop",
+          "callee": "vec.with_guarded_label_values",
+          "lineNumber": 443
+        },
+        {
+          "caller": "test_label_guarded_metrics_drop",
+          "callee": "vec.with_guarded_label_values",
+          "lineNumber": 445
+        },
+        {
+          "caller": "test_label_guarded_metrics_drop",
+          "callee": "m1_2.clone",
+          "lineNumber": 446
+        },
+        {
+          "caller": "test_label_guarded_metrics_drop",
+          "callee": "vec.with_guarded_label_values",
+          "lineNumber": 448
+        },
+        {
+          "caller": "test_label_guarded_metrics_drop",
+          "callee": "drop",
+          "lineNumber": 450
+        },
+        {
+          "caller": "test_label_guarded_metrics_drop",
+          "callee": "drop",
+          "lineNumber": 453
+        },
+        {
+          "caller": "test_label_guarded_metrics_drop",
+          "callee": "drop",
+          "lineNumber": 456
+        },
+        {
+          "caller": "test_label_guarded_metrics_drop",
+          "callee": "drop",
+          "lineNumber": 459
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 16,
+        "functionCount": 23,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "src/common/metrics/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 160,
+      "nonEmptyLines": 136,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 50,
+          "endLine": 54,
+          "params": [
+            "val"
+          ]
+        },
+        {
+          "name": "set",
+          "startLine": 56,
+          "endLine": 58,
+          "params": [
+            "_val"
+          ]
+        },
+        {
+          "name": "get",
+          "startLine": 60,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "inc_by",
+          "startLine": 64,
+          "endLine": 66,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "dec_by",
+          "startLine": 68,
+          "endLine": 70,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "on_event",
+          "startLine": 86,
+          "endLine": 91,
+          "params": [
+            "_event",
+            "_ctx"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 96,
+          "endLine": 110,
+          "params": []
+        },
+        {
+          "name": "value_variants",
+          "startLine": 123,
+          "endLine": 125,
+          "params": []
+        },
+        {
+          "name": "to_possible_value",
+          "startLine": 127,
+          "endLine": 134,
+          "params": []
+        },
+        {
+          "name": "eq",
+          "startLine": 138,
+          "endLine": 140,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "partial_cmp",
+          "startLine": 144,
+          "endLine": 146,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "get_label",
+          "startLine": 149,
+          "endLine": 155,
+          "params": [
+            "metric",
+            "label"
+          ]
+        },
+        {
+          "name": "get_label_infallible",
+          "startLine": 158,
+          "endLine": 160,
+          "params": [
+            "metric",
+            "label"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TrAdderAtomic",
+          "startLine": 45,
+          "endLine": 45,
+          "methods": [
+            "new",
+            "set",
+            "get",
+            "inc_by",
+            "dec_by"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MetricsLayer",
+          "startLine": 78,
+          "endLine": 80,
+          "methods": [
+            "on_event",
+            "new"
+          ],
+          "properties": [
+            "aws_sdk_retry_counts"
+          ]
+        },
+        {
+          "name": "MetricLevel",
+          "startLine": 114,
+          "endLine": 120,
+          "methods": [
+            "value_variants",
+            "to_possible_value",
+            "eq",
+            "partial_cmp"
+          ],
+          "properties": [
+            "Disabled",
+            "Critical",
+            "Info",
+            "Debug"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TrAdderAtomic",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "MetricsLayer",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "MetricLevel",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "get_label",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "get_label_infallible",
+          "line": 158,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "TrAdderAtomic",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new",
+          "callee": "TrAdder::new",
+          "lineNumber": 51
+        },
+        {
+          "caller": "new",
+          "callee": "v.0.inc",
+          "lineNumber": 52
+        },
+        {
+          "caller": "get",
+          "callee": "self.0.get",
+          "lineNumber": 61
+        },
+        {
+          "caller": "inc_by",
+          "callee": "self.0.inc",
+          "lineNumber": 65
+        },
+        {
+          "caller": "dec_by",
+          "callee": "self.0.inc",
+          "lineNumber": 69
+        },
+        {
+          "caller": "on_event",
+          "callee": "self.aws_sdk_retry_counts.inc",
+          "lineNumber": 90
+        },
+        {
+          "caller": "new",
+          "callee": "LazyLock::new",
+          "lineNumber": 97
+        },
+        {
+          "caller": "new",
+          "callee": "crate::monitor::GLOBAL_METRICS_REGISTRY.deref",
+          "lineNumber": 98
+        },
+        {
+          "caller": "new",
+          "callee": "register_int_counter_with_registry!(\n                \"aws_sdk_retry_counts\",\n                \"Total number of aws sdk retry happens\",\n                registry\n            ).unwrap",
+          "lineNumber": 99
+        },
+        {
+          "caller": "new",
+          "callee": "AWS_SDK_RETRY_COUNTS.deref().clone",
+          "lineNumber": 108
+        },
+        {
+          "caller": "new",
+          "callee": "AWS_SDK_RETRY_COUNTS.deref",
+          "lineNumber": 108
+        },
+        {
+          "caller": "to_possible_value",
+          "callee": "Some",
+          "lineNumber": 129
+        },
+        {
+          "caller": "to_possible_value",
+          "callee": "clap::builder::PossibleValue::new(\"disabled\").alias",
+          "lineNumber": 129
+        },
+        {
+          "caller": "to_possible_value",
+          "callee": "clap::builder::PossibleValue::new",
+          "lineNumber": 129
+        },
+        {
+          "caller": "to_possible_value",
+          "callee": "Some",
+          "lineNumber": 130
+        },
+        {
+          "caller": "to_possible_value",
+          "callee": "clap::builder::PossibleValue::new",
+          "lineNumber": 130
+        },
+        {
+          "caller": "to_possible_value",
+          "callee": "Some",
+          "lineNumber": 131
+        },
+        {
+          "caller": "to_possible_value",
+          "callee": "clap::builder::PossibleValue::new(\"info\").alias",
+          "lineNumber": 131
+        },
+        {
+          "caller": "to_possible_value",
+          "callee": "clap::builder::PossibleValue::new",
+          "lineNumber": 131
+        },
+        {
+          "caller": "to_possible_value",
+          "callee": "Some",
+          "lineNumber": 132
+        },
+        {
+          "caller": "to_possible_value",
+          "callee": "clap::builder::PossibleValue::new",
+          "lineNumber": 132
+        },
+        {
+          "caller": "eq",
+          "callee": "(*self as u8).eq",
+          "lineNumber": 139
+        },
+        {
+          "caller": "partial_cmp",
+          "callee": "(*self as u8).partial_cmp",
+          "lineNumber": 145
+        },
+        {
+          "caller": "get_label",
+          "callee": "metric\n        .get_label()\n        .iter()\n        .find(|lp| lp.name() == label).and_then",
+          "lineNumber": 150
+        },
+        {
+          "caller": "get_label",
+          "callee": "metric\n        .get_label()\n        .iter().find",
+          "lineNumber": 150
+        },
+        {
+          "caller": "get_label",
+          "callee": "metric\n        .get_label().iter",
+          "lineNumber": 150
+        },
+        {
+          "caller": "get_label",
+          "callee": "metric.get_label",
+          "lineNumber": 150
+        },
+        {
+          "caller": "get_label",
+          "callee": "lp.name",
+          "lineNumber": 153
+        },
+        {
+          "caller": "get_label",
+          "callee": "lp.value().parse::<T>().ok",
+          "lineNumber": 154
+        },
+        {
+          "caller": "get_label",
+          "callee": "lp.value().parse::<T>",
+          "lineNumber": 154
+        },
+        {
+          "caller": "get_label",
+          "callee": "lp.value",
+          "lineNumber": 154
+        },
+        {
+          "caller": "get_label_infallible",
+          "callee": "get_label(metric, label).expect",
+          "lineNumber": 159
+        },
+        {
+          "caller": "get_label_infallible",
+          "callee": "get_label",
+          "lineNumber": 159
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 6,
+        "functionCount": 13,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/common/metrics/src/metrics.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 38,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/metrics/src/monitor/connection.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 843,
+      "nonEmptyLines": 751,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 68,
+          "endLine": 73,
+          "params": [
+            "connector",
+            "monitor"
+          ]
+        },
+        {
+          "name": "project_into",
+          "startLine": 75,
+          "endLine": 78,
+          "params": [
+            "this"
+          ]
+        },
+        {
+          "name": "hyper_tokio_delegate",
+          "startLine": 81,
+          "endLine": 86,
+          "params": [
+            "self"
+          ]
+        },
+        {
+          "name": "poll_read",
+          "startLine": 90,
+          "endLine": 122,
+          "params": [
+            "self",
+            "cx",
+            "buf"
+          ]
+        },
+        {
+          "name": "poll_read",
+          "startLine": 126,
+          "endLine": 132,
+          "params": [
+            "self",
+            "cx",
+            "buf"
+          ]
+        },
+        {
+          "name": "poll_write",
+          "startLine": 136,
+          "endLine": 153,
+          "params": [
+            "self",
+            "cx",
+            "buf"
+          ]
+        },
+        {
+          "name": "poll_flush",
+          "startLine": 155,
+          "endLine": 168,
+          "params": [
+            "self",
+            "cx"
+          ]
+        },
+        {
+          "name": "poll_shutdown",
+          "startLine": 170,
+          "endLine": 183,
+          "params": [
+            "self",
+            "cx"
+          ]
+        },
+        {
+          "name": "poll_write_vectored",
+          "startLine": 185,
+          "endLine": 202,
+          "params": [
+            "self",
+            "cx",
+            "bufs"
+          ]
+        },
+        {
+          "name": "is_write_vectored",
+          "startLine": 204,
+          "endLine": 206,
+          "params": []
+        },
+        {
+          "name": "poll_write",
+          "startLine": 210,
+          "endLine": 216,
+          "params": [
+            "self",
+            "cx",
+            "buf"
+          ]
+        },
+        {
+          "name": "poll_flush",
+          "startLine": 218,
+          "endLine": 220,
+          "params": [
+            "self",
+            "cx"
+          ]
+        },
+        {
+          "name": "poll_shutdown",
+          "startLine": 222,
+          "endLine": 227,
+          "params": [
+            "self",
+            "cx"
+          ]
+        },
+        {
+          "name": "is_write_vectored",
+          "startLine": 229,
+          "endLine": 231,
+          "params": []
+        },
+        {
+          "name": "poll_write_vectored",
+          "startLine": 233,
+          "endLine": 239,
+          "params": [
+            "self",
+            "cx",
+            "bufs"
+          ]
+        },
+        {
+          "name": "connected",
+          "startLine": 243,
+          "endLine": 245,
+          "params": []
+        },
+        {
+          "name": "connect_info",
+          "startLine": 254,
+          "endLine": 256,
+          "params": []
+        },
+        {
+          "name": "poll_ready",
+          "startLine": 276,
+          "endLine": 282,
+          "params": [
+            "cx"
+          ]
+        },
+        {
+          "name": "call",
+          "startLine": 284,
+          "endLine": 299,
+          "params": [
+            "uri"
+          ]
+        },
+        {
+          "name": "poll_next",
+          "startLine": 311,
+          "endLine": 324,
+          "params": [
+            "self",
+            "cx"
+          ]
+        },
+        {
+          "name": "size_hint",
+          "startLine": 326,
+          "endLine": 328,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 350,
+          "endLine": 426,
+          "params": [
+            "registry"
+          ]
+        },
+        {
+          "name": "default",
+          "startLine": 436,
+          "endLine": 441,
+          "params": []
+        },
+        {
+          "name": "monitor_connector",
+          "startLine": 444,
+          "endLine": 455,
+          "params": [
+            "connector",
+            "connection_type"
+          ]
+        },
+        {
+          "name": "from",
+          "startLine": 463,
+          "endLine": 468,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "next",
+          "startLine": 474,
+          "endLine": 478,
+          "params": []
+        },
+        {
+          "name": "fmt",
+          "startLine": 487,
+          "endLine": 489,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "poll",
+          "startLine": 495,
+          "endLine": 504,
+          "params": [
+            "self",
+            "cx"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 513,
+          "endLine": 515,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "default",
+          "startLine": 519,
+          "endLine": 523,
+          "params": []
+        },
+        {
+          "name": "poll_ready",
+          "startLine": 531,
+          "endLine": 533,
+          "params": [
+            "cx"
+          ]
+        },
+        {
+          "name": "call",
+          "startLine": 535,
+          "endLine": 540,
+          "params": [
+            "req"
+          ]
+        },
+        {
+          "name": "monitored_http_connector",
+          "startLine": 544,
+          "endLine": 556,
+          "params": [
+            "connection_type",
+            "config"
+          ]
+        },
+        {
+          "name": "configure_endpoint",
+          "startLine": 560,
+          "endLine": 564,
+          "params": [
+            "endpoint"
+          ]
+        },
+        {
+          "name": "monitored_connect",
+          "startLine": 568,
+          "endLine": 583,
+          "params": [
+            "connection_type",
+            "config"
+          ]
+        },
+        {
+          "name": "monitored_connect_lazy",
+          "startLine": 586,
+          "endLine": 594,
+          "params": [
+            "connection_type",
+            "config"
+          ]
+        },
+        {
+          "name": "monitored_serve_with_shutdown",
+          "startLine": 605,
+          "endLine": 648,
+          "params": [
+            "listen_addr",
+            "connection_type",
+            "config",
+            "signal"
+          ]
+        },
+        {
+          "name": "monitored_serve_with_shutdown",
+          "startLine": 654,
+          "endLine": 662,
+          "params": [
+            "listen_addr",
+            "connection_type",
+            "config",
+            "signal"
+          ]
+        },
+        {
+          "name": "new_connection_monitor",
+          "startLine": 673,
+          "endLine": 705,
+          "params": [
+            "endpoint"
+          ]
+        },
+        {
+          "name": "on_err",
+          "startLine": 707,
+          "endLine": 712,
+          "params": [
+            "endpoint"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 735,
+          "endLine": 760,
+          "params": [
+            "endpoint",
+            "connection_type",
+            "read_rate",
+            "reader_count",
+            "write_rate",
+            "writer_count",
+            "connection_count"
+          ]
+        },
+        {
+          "name": "drop",
+          "startLine": 764,
+          "endLine": 778,
+          "params": []
+        },
+        {
+          "name": "on_read",
+          "startLine": 782,
+          "endLine": 788,
+          "params": [
+            "size"
+          ]
+        },
+        {
+          "name": "on_eof",
+          "startLine": 790,
+          "endLine": 797,
+          "params": []
+        },
+        {
+          "name": "on_read_err",
+          "startLine": 799,
+          "endLine": 811,
+          "params": [
+            "err"
+          ]
+        },
+        {
+          "name": "on_write",
+          "startLine": 813,
+          "endLine": 819,
+          "params": [
+            "size"
+          ]
+        },
+        {
+          "name": "on_shutdown",
+          "startLine": 821,
+          "endLine": 828,
+          "params": []
+        },
+        {
+          "name": "on_write_err",
+          "startLine": 830,
+          "endLine": 842,
+          "params": [
+            "err"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MonitorAsyncReadWrite",
+          "startLine": 47,
+          "endLine": 56,
+          "methods": [
+            "on_read",
+            "on_eof",
+            "on_read_err",
+            "on_write",
+            "on_flush",
+            "on_shutdown",
+            "on_write_err"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MonitorNewConnection",
+          "startLine": 259,
+          "endLine": 264,
+          "methods": [
+            "new_connection_monitor",
+            "on_err"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ConnectionMetrics",
+          "startLine": 332,
+          "endLine": 344,
+          "methods": [
+            "new"
+          ],
+          "properties": [
+            "connection_count",
+            "connection_create_rate",
+            "connection_err_rate",
+            "read_rate",
+            "reader_count",
+            "write_rate",
+            "writer_count",
+            "io_err_rate"
+          ]
+        },
+        {
+          "name": "TcpConfig",
+          "startLine": 429,
+          "endLine": 432,
+          "methods": [
+            "default"
+          ],
+          "properties": [
+            "tcp_nodelay",
+            "keepalive_duration"
+          ]
+        },
+        {
+          "name": "MonitoredGaiAddrs",
+          "startLine": 457,
+          "endLine": 460,
+          "methods": [
+            "from",
+            "next"
+          ],
+          "properties": [
+            "inner",
+            "pos"
+          ]
+        },
+        {
+          "name": "MonitoredGaiFuture",
+          "startLine": 481,
+          "endLine": 484,
+          "methods": [
+            "fmt",
+            "poll"
+          ],
+          "properties": [
+            "name",
+            "inner"
+          ]
+        },
+        {
+          "name": "MonitoredGaiResolver",
+          "startLine": 508,
+          "endLine": 510,
+          "methods": [
+            "fmt",
+            "default",
+            "poll_ready",
+            "call"
+          ],
+          "properties": [
+            "inner"
+          ]
+        },
+        {
+          "name": "MonitorNewConnectionImpl",
+          "startLine": 666,
+          "endLine": 668,
+          "methods": [
+            "new_connection_monitor",
+            "on_err"
+          ],
+          "properties": [
+            "connection_type"
+          ]
+        },
+        {
+          "name": "MonitorAsyncReadWriteImpl",
+          "startLine": 717,
+          "endLine": 732,
+          "methods": [
+            "new",
+            "drop",
+            "on_read",
+            "on_eof",
+            "on_read_err",
+            "on_write",
+            "on_shutdown",
+            "on_write_err"
+          ],
+          "properties": [
+            "endpoint",
+            "connection_type",
+            "unreported_read_rate",
+            "read_rate",
+            "reader_count_guard",
+            "is_eof",
+            "unreported_write_rate",
+            "write_rate",
+            "writer_count_guard",
+            "is_shutdown",
+            "connection_count_guard"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MonitorAsyncReadWrite",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "MonitorNewConnection",
+          "line": 259,
+          "isDefault": false
+        },
+        {
+          "name": "ConnectionMetrics",
+          "line": 332,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 350,
+          "isDefault": false
+        },
+        {
+          "name": "TcpConfig",
+          "line": 429,
+          "isDefault": false
+        },
+        {
+          "name": "monitor_connector",
+          "line": 444,
+          "isDefault": false
+        },
+        {
+          "name": "MonitoredGaiAddrs",
+          "line": 457,
+          "isDefault": false
+        },
+        {
+          "name": "MonitoredGaiFuture",
+          "line": 481,
+          "isDefault": false
+        },
+        {
+          "name": "MonitoredGaiResolver",
+          "line": 508,
+          "isDefault": false
+        },
+        {
+          "name": "monitored_connect",
+          "line": 568,
+          "isDefault": false
+        },
+        {
+          "name": "monitored_connect_lazy",
+          "line": 586,
+          "isDefault": false
+        },
+        {
+          "name": "monitored_serve_with_shutdown",
+          "line": 605,
+          "isDefault": false
+        },
+        {
+          "name": "monitored_serve_with_shutdown",
+          "line": 654,
+          "isDefault": false
+        },
+        {
+          "name": "MonitorNewConnectionImpl",
+          "line": 666,
+          "isDefault": false
+        },
+        {
+          "name": "MonitorAsyncReadWriteImpl",
+          "line": 717,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 735,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "project_into",
+          "callee": "this.project",
+          "lineNumber": 76
+        },
+        {
+          "caller": "hyper_tokio_delegate",
+          "callee": "MonitoredConnection::project_into",
+          "lineNumber": 84
+        },
+        {
+          "caller": "hyper_tokio_delegate",
+          "callee": "TokioIo::new",
+          "lineNumber": 85
+        },
+        {
+          "caller": "hyper_tokio_delegate",
+          "callee": "MonitoredConnection::new",
+          "lineNumber": 85
+        },
+        {
+          "caller": "hyper_tokio_delegate",
+          "callee": "TokioIo::new",
+          "lineNumber": 85
+        },
+        {
+          "caller": "poll_read",
+          "callee": "buf.filled().len",
+          "lineNumber": 95
+        },
+        {
+          "caller": "poll_read",
+          "callee": "buf.filled",
+          "lineNumber": 95
+        },
+        {
+          "caller": "poll_read",
+          "callee": "MonitoredConnection::project_into",
+          "lineNumber": 96
+        },
+        {
+          "caller": "poll_read",
+          "callee": "inner.poll_read",
+          "lineNumber": 97
+        },
+        {
+          "caller": "poll_read",
+          "callee": "buf.filled().len",
+          "lineNumber": 100
+        },
+        {
+          "caller": "poll_read",
+          "callee": "buf.filled",
+          "lineNumber": 100
+        },
+        {
+          "caller": "poll_read",
+          "callee": "after_buf_size.cmp",
+          "lineNumber": 101
+        },
+        {
+          "caller": "poll_read",
+          "callee": "monitor.on_eof",
+          "lineNumber": 109
+        },
+        {
+          "caller": "poll_read",
+          "callee": "monitor.on_read",
+          "lineNumber": 112
+        },
+        {
+          "caller": "poll_read",
+          "callee": "monitor.on_read_err",
+          "lineNumber": 117
+        },
+        {
+          "caller": "poll_read",
+          "callee": "hyper::rt::Read::poll_read",
+          "lineNumber": 131
+        },
+        {
+          "caller": "poll_write",
+          "callee": "MonitoredConnection::project_into",
+          "lineNumber": 141
+        },
+        {
+          "caller": "poll_write",
+          "callee": "inner.poll_write",
+          "lineNumber": 142
+        },
+        {
+          "caller": "poll_write",
+          "callee": "monitor.on_write",
+          "lineNumber": 145
+        },
+        {
+          "caller": "poll_write",
+          "callee": "monitor.on_write_err",
+          "lineNumber": 148
+        },
+        {
+          "caller": "poll_flush",
+          "callee": "MonitoredConnection::project_into",
+          "lineNumber": 156
+        },
+        {
+          "caller": "poll_flush",
+          "callee": "inner.poll_flush",
+          "lineNumber": 157
+        },
+        {
+          "caller": "poll_flush",
+          "callee": "monitor.on_flush",
+          "lineNumber": 160
+        },
+        {
+          "caller": "poll_flush",
+          "callee": "monitor.on_write_err",
+          "lineNumber": 163
+        },
+        {
+          "caller": "poll_shutdown",
+          "callee": "MonitoredConnection::project_into",
+          "lineNumber": 171
+        },
+        {
+          "caller": "poll_shutdown",
+          "callee": "inner.poll_shutdown",
+          "lineNumber": 172
+        },
+        {
+          "caller": "poll_shutdown",
+          "callee": "monitor.on_shutdown",
+          "lineNumber": 175
+        },
+        {
+          "caller": "poll_shutdown",
+          "callee": "monitor.on_write_err",
+          "lineNumber": 177
+        },
+        {
+          "caller": "poll_write_vectored",
+          "callee": "MonitoredConnection::project_into",
+          "lineNumber": 190
+        },
+        {
+          "caller": "poll_write_vectored",
+          "callee": "inner.poll_write_vectored",
+          "lineNumber": 191
+        },
+        {
+          "caller": "poll_write_vectored",
+          "callee": "monitor.on_write",
+          "lineNumber": 194
+        },
+        {
+          "caller": "poll_write_vectored",
+          "callee": "monitor.on_write_err",
+          "lineNumber": 197
+        },
+        {
+          "caller": "is_write_vectored",
+          "callee": "self.inner.is_write_vectored",
+          "lineNumber": 205
+        },
+        {
+          "caller": "poll_write",
+          "callee": "hyper::rt::Write::poll_write",
+          "lineNumber": 215
+        },
+        {
+          "caller": "poll_flush",
+          "callee": "hyper::rt::Write::poll_flush",
+          "lineNumber": 219
+        },
+        {
+          "caller": "poll_shutdown",
+          "callee": "hyper::rt::Write::poll_shutdown",
+          "lineNumber": 226
+        },
+        {
+          "caller": "is_write_vectored",
+          "callee": "self.inner.is_write_vectored",
+          "lineNumber": 230
+        },
+        {
+          "caller": "poll_write_vectored",
+          "callee": "hyper::rt::Write::poll_write_vectored",
+          "lineNumber": 238
+        },
+        {
+          "caller": "connected",
+          "callee": "self.inner.connected",
+          "lineNumber": 244
+        },
+        {
+          "caller": "connect_info",
+          "callee": "self.inner.connect_info",
+          "lineNumber": 255
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "self.inner.poll_ready",
+          "lineNumber": 277
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "self.monitor.on_err",
+          "lineNumber": 279
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "\"<poll_ready>\".to_owned",
+          "lineNumber": 279
+        },
+        {
+          "caller": "call",
+          "callee": "self.monitor.clone",
+          "lineNumber": 286
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner\n            .call(uri).map",
+          "lineNumber": 287
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.call",
+          "lineNumber": 287
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 290
+        },
+        {
+          "caller": "call",
+          "callee": "MonitoredConnection::new",
+          "lineNumber": 290
+        },
+        {
+          "caller": "call",
+          "callee": "monitor.new_connection_monitor",
+          "lineNumber": 292
+        },
+        {
+          "caller": "call",
+          "callee": "monitor.on_err",
+          "lineNumber": 295
+        },
+        {
+          "caller": "call",
+          "callee": "Err",
+          "lineNumber": 296
+        },
+        {
+          "caller": "poll_next",
+          "callee": "MonitoredConnection::project_into",
+          "lineNumber": 312
+        },
+        {
+          "caller": "poll_next",
+          "callee": "inner.poll_next(cx).map",
+          "lineNumber": 313
+        },
+        {
+          "caller": "poll_next",
+          "callee": "inner.poll_next",
+          "lineNumber": 313
+        },
+        {
+          "caller": "poll_next",
+          "callee": "opt.map",
+          "lineNumber": 314
+        },
+        {
+          "caller": "poll_next",
+          "callee": "result.map",
+          "lineNumber": 315
+        },
+        {
+          "caller": "poll_next",
+          "callee": "conn.connect_info().remote_addr",
+          "lineNumber": 316
+        },
+        {
+          "caller": "poll_next",
+          "callee": "conn.connect_info",
+          "lineNumber": 316
+        },
+        {
+          "caller": "poll_next",
+          "callee": "remote_addr\n                        .map(|remote_addr| format!(\"{}\", remote_addr.ip())).unwrap_or",
+          "lineNumber": 317
+        },
+        {
+          "caller": "poll_next",
+          "callee": "remote_addr.map",
+          "lineNumber": 317
+        },
+        {
+          "caller": "poll_next",
+          "callee": "\"unknown\".to_owned",
+          "lineNumber": 319
+        },
+        {
+          "caller": "poll_next",
+          "callee": "MonitoredConnection::new",
+          "lineNumber": 320
+        },
+        {
+          "caller": "poll_next",
+          "callee": "monitor.new_connection_monitor",
+          "lineNumber": 320
+        },
+        {
+          "caller": "size_hint",
+          "callee": "self.inner.size_hint",
+          "lineNumber": 327
+        },
+        {
+          "caller": "new",
+          "callee": "register_int_gauge_vec_with_registry!(\n            \"connection_count\",\n            \"The number of current existing connection\",\n            &labels,\n            registry,\n        ).unwrap",
+          "lineNumber": 352
+        },
+        {
+          "caller": "new",
+          "callee": "register_int_counter_vec_with_registry!(\n            \"connection_create_rate\",\n            \"Rate on creating new connection\",\n            &labels,\n            registry,\n        ).unwrap",
+          "lineNumber": 360
+        },
+        {
+          "caller": "new",
+          "callee": "register_int_counter_vec_with_registry!(\n            \"connection_err_rate\",\n            \"Error rate on creating new connection\",\n            &labels,\n            registry,\n        ).unwrap",
+          "lineNumber": 368
+        },
+        {
+          "caller": "new",
+          "callee": "register_int_counter_vec_with_registry!(\n            \"connection_read_rate\",\n            \"Read rate of a connection\",\n            &labels,\n            registry,\n        ).unwrap",
+          "lineNumber": 376
+        },
+        {
+          "caller": "new",
+          "callee": "register_int_gauge_vec_with_registry!(\n            \"connection_reader_count\",\n            \"The number of current existing reader\",\n            &labels,\n            registry,\n        ).unwrap",
+          "lineNumber": 384
+        },
+        {
+          "caller": "new",
+          "callee": "register_int_counter_vec_with_registry!(\n            \"connection_write_rate\",\n            \"Write rate of a connection\",\n            &labels,\n            registry,\n        ).unwrap",
+          "lineNumber": 392
+        },
+        {
+          "caller": "new",
+          "callee": "register_int_gauge_vec_with_registry!(\n            \"connection_writer_count\",\n            \"The number of current existing writer\",\n            &labels,\n            registry,\n        ).unwrap",
+          "lineNumber": 400
+        },
+        {
+          "caller": "new",
+          "callee": "register_guarded_int_counter_vec_with_registry!(\n            \"connection_io_err_rate\",\n            \"IO err rate of a connection\",\n            &[\"connection_type\", \"uri\", \"op_type\", \"error_kind\"],\n            registry,\n        ).unwrap",
+          "lineNumber": 408
+        },
+        {
+          "caller": "monitor_connector",
+          "callee": "connection_type.into",
+          "lineNumber": 448
+        },
+        {
+          "caller": "monitor_connector",
+          "callee": "MonitoredConnection::new",
+          "lineNumber": 454
+        },
+        {
+          "caller": "from",
+          "callee": "value.collect_vec",
+          "lineNumber": 465
+        },
+        {
+          "caller": "next",
+          "callee": "self.inner.get(self.pos).cloned",
+          "lineNumber": 475
+        },
+        {
+          "caller": "next",
+          "callee": "self.inner.get",
+          "lineNumber": 475
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.pad",
+          "lineNumber": 488
+        },
+        {
+          "caller": "poll",
+          "callee": "Pin::new(&mut self.inner).poll(cx).map",
+          "lineNumber": 496
+        },
+        {
+          "caller": "poll",
+          "callee": "Pin::new(&mut self.inner).poll",
+          "lineNumber": 496
+        },
+        {
+          "caller": "poll",
+          "callee": "Pin::new",
+          "lineNumber": 496
+        },
+        {
+          "caller": "poll",
+          "callee": "addrs.into",
+          "lineNumber": 498
+        },
+        {
+          "caller": "poll",
+          "callee": "Ok",
+          "lineNumber": 500
+        },
+        {
+          "caller": "poll",
+          "callee": "Err",
+          "lineNumber": 502
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.pad",
+          "lineNumber": 514
+        },
+        {
+          "caller": "default",
+          "callee": "GaiResolver::new",
+          "lineNumber": 521
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "self.inner.poll_ready",
+          "lineNumber": 532
+        },
+        {
+          "caller": "call",
+          "callee": "req.clone",
+          "lineNumber": 537
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.call",
+          "lineNumber": 538
+        },
+        {
+          "caller": "monitored_http_connector",
+          "callee": "MonitoredGaiResolver::default",
+          "lineNumber": 548
+        },
+        {
+          "caller": "monitored_http_connector",
+          "callee": "HttpConnector::new_with_resolver",
+          "lineNumber": 549
+        },
+        {
+          "caller": "monitored_http_connector",
+          "callee": "http.enforce_http",
+          "lineNumber": 551
+        },
+        {
+          "caller": "monitored_http_connector",
+          "callee": "http.set_nodelay",
+          "lineNumber": 552
+        },
+        {
+          "caller": "monitored_http_connector",
+          "callee": "http.set_keepalive",
+          "lineNumber": 553
+        },
+        {
+          "caller": "monitored_http_connector",
+          "callee": "monitor_connector",
+          "lineNumber": 555
+        },
+        {
+          "caller": "configure_endpoint",
+          "callee": "endpoint.http2_max_header_list_size",
+          "lineNumber": 563
+        },
+        {
+          "caller": "monitored_connect",
+          "callee": "configure_endpoint",
+          "lineNumber": 575
+        },
+        {
+          "caller": "monitored_connect",
+          "callee": "monitored_http_connector",
+          "lineNumber": 576
+        },
+        {
+          "caller": "monitored_connect",
+          "callee": "self.connect_with_connector",
+          "lineNumber": 577
+        },
+        {
+          "caller": "monitored_connect",
+          "callee": "self.connect",
+          "lineNumber": 581
+        },
+        {
+          "caller": "monitored_connect_lazy",
+          "callee": "configure_endpoint",
+          "lineNumber": 591
+        },
+        {
+          "caller": "monitored_connect_lazy",
+          "callee": "monitored_http_connector",
+          "lineNumber": 592
+        },
+        {
+          "caller": "monitored_connect_lazy",
+          "callee": "self.connect_with_connector_lazy",
+          "lineNumber": 593
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "connection_type.into",
+          "lineNumber": 627
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "tonic::transport::server::TcpIncoming::bind(listen_addr)\n            .map(|incoming| {\n                incoming\n                    .with_nodelay(Some(config.tcp_nodelay))\n                    .with_keepalive(config.keepalive_duration)\n            }).unwrap_or_else",
+          "lineNumber": 628
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "tonic::transport::server::TcpIncoming::bind(listen_addr).map",
+          "lineNumber": 628
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "tonic::transport::server::TcpIncoming::bind",
+          "lineNumber": 628
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "incoming\n                    .with_nodelay(Some(config.tcp_nodelay)).with_keepalive",
+          "lineNumber": 630
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "incoming.with_nodelay",
+          "lineNumber": 630
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "Some",
+          "lineNumber": 631
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "MonitoredConnection::new",
+          "lineNumber": 641
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "self.serve_with_incoming_shutdown(incoming, signal)\n                .await.unwrap",
+          "lineNumber": 644
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "self.serve_with_incoming_shutdown",
+          "lineNumber": 644
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "self.serve_with_shutdown(listen_addr, signal).await.unwrap",
+          "lineNumber": 661
+        },
+        {
+          "caller": "monitored_serve_with_shutdown",
+          "callee": "self.serve_with_shutdown",
+          "lineNumber": 661
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "self.connection_type.as_str",
+          "lineNumber": 674
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "endpoint.as_str",
+          "lineNumber": 674
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .read_rate.with_label_values",
+          "lineNumber": 675
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .reader_count.with_label_values",
+          "lineNumber": 678
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .write_rate.with_label_values",
+          "lineNumber": 681
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .writer_count.with_label_values",
+          "lineNumber": 684
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .connection_count.with_label_values",
+          "lineNumber": 687
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .connection_create_rate\n            .with_label_values(&labels).inc",
+          "lineNumber": 691
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .connection_create_rate.with_label_values",
+          "lineNumber": 691
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "MonitorAsyncReadWriteImpl::new",
+          "lineNumber": 696
+        },
+        {
+          "caller": "new_connection_monitor",
+          "callee": "self.connection_type.clone",
+          "lineNumber": 698
+        },
+        {
+          "caller": "on_err",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .connection_err_rate\n            .with_label_values(&[self.connection_type.as_str(), endpoint.as_str()]).inc",
+          "lineNumber": 708
+        },
+        {
+          "caller": "on_err",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .connection_err_rate.with_label_values",
+          "lineNumber": 708
+        },
+        {
+          "caller": "on_err",
+          "callee": "self.connection_type.as_str",
+          "lineNumber": 710
+        },
+        {
+          "caller": "on_err",
+          "callee": "endpoint.as_str",
+          "lineNumber": 710
+        },
+        {
+          "caller": "new",
+          "callee": "reader_count.inc",
+          "lineNumber": 744
+        },
+        {
+          "caller": "new",
+          "callee": "writer_count.inc",
+          "lineNumber": 745
+        },
+        {
+          "caller": "new",
+          "callee": "connection_count.inc",
+          "lineNumber": 746
+        },
+        {
+          "caller": "drop",
+          "callee": "self.read_rate.inc_by",
+          "lineNumber": 766
+        },
+        {
+          "caller": "drop",
+          "callee": "self.write_rate.inc_by",
+          "lineNumber": 769
+        },
+        {
+          "caller": "drop",
+          "callee": "self.reader_count_guard.dec",
+          "lineNumber": 772
+        },
+        {
+          "caller": "drop",
+          "callee": "self.writer_count_guard.dec",
+          "lineNumber": 775
+        },
+        {
+          "caller": "drop",
+          "callee": "self.connection_count_guard.dec",
+          "lineNumber": 777
+        },
+        {
+          "caller": "on_read",
+          "callee": "self.read_rate.inc_by",
+          "lineNumber": 785
+        },
+        {
+          "caller": "on_eof",
+          "callee": "self.reader_count_guard.dec",
+          "lineNumber": 796
+        },
+        {
+          "caller": "on_read_err",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .io_err_rate\n            .with_guarded_label_values(&[\n                self.connection_type.as_str(),\n                self.endpoint.as_str(),\n                \"read\",\n                err.kind().to_string().as_str(),\n            ]).inc",
+          "lineNumber": 802
+        },
+        {
+          "caller": "on_read_err",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .io_err_rate.with_guarded_label_values",
+          "lineNumber": 802
+        },
+        {
+          "caller": "on_read_err",
+          "callee": "self.connection_type.as_str",
+          "lineNumber": 805
+        },
+        {
+          "caller": "on_read_err",
+          "callee": "self.endpoint.as_str",
+          "lineNumber": 806
+        },
+        {
+          "caller": "on_read_err",
+          "callee": "err.kind().to_string().as_str",
+          "lineNumber": 808
+        },
+        {
+          "caller": "on_read_err",
+          "callee": "err.kind().to_string",
+          "lineNumber": 808
+        },
+        {
+          "caller": "on_read_err",
+          "callee": "err.kind",
+          "lineNumber": 808
+        },
+        {
+          "caller": "on_write",
+          "callee": "self.write_rate.inc_by",
+          "lineNumber": 816
+        },
+        {
+          "caller": "on_shutdown",
+          "callee": "self.writer_count_guard.dec",
+          "lineNumber": 827
+        },
+        {
+          "caller": "on_write_err",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .io_err_rate\n            .with_guarded_label_values(&[\n                self.connection_type.as_str(),\n                self.endpoint.as_str(),\n                \"write\",\n                err.kind().to_string().as_str(),\n            ]).inc",
+          "lineNumber": 833
+        },
+        {
+          "caller": "on_write_err",
+          "callee": "GLOBAL_CONNECTION_METRICS\n            .io_err_rate.with_guarded_label_values",
+          "lineNumber": 833
+        },
+        {
+          "caller": "on_write_err",
+          "callee": "self.connection_type.as_str",
+          "lineNumber": 836
+        },
+        {
+          "caller": "on_write_err",
+          "callee": "self.endpoint.as_str",
+          "lineNumber": 837
+        },
+        {
+          "caller": "on_write_err",
+          "callee": "err.kind().to_string().as_str",
+          "lineNumber": 839
+        },
+        {
+          "caller": "on_write_err",
+          "callee": "err.kind().to_string",
+          "lineNumber": 839
+        },
+        {
+          "caller": "on_write_err",
+          "callee": "err.kind",
+          "lineNumber": 839
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 17,
+        "functionCount": 48,
+        "classCount": 9
+      }
+    },
+    {
+      "path": "src/common/metrics/src/monitor/in_mem.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 128,
+      "nonEmptyLines": 112,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 35,
+          "endLine": 42,
+          "params": [
+            "id",
+            "parent"
+          ]
+        },
+        {
+          "name": "drop",
+          "startLine": 46,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 62,
+          "endLine": 67,
+          "params": []
+        },
+        {
+          "name": "new_count",
+          "startLine": 69,
+          "endLine": 75,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "collect",
+          "startLine": 77,
+          "endLine": 86,
+          "params": [
+            "ids"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "GuardedCount",
+          "startLine": 28,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "id",
+            "count",
+            "parent"
+          ]
+        },
+        {
+          "name": "InnerCountMap",
+          "startLine": 54,
+          "endLine": 56,
+          "methods": [],
+          "properties": [
+            "inner"
+          ]
+        },
+        {
+          "name": "CountMap",
+          "startLine": 59,
+          "endLine": 59,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "GuardedCount",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "InnerCountMap",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "CountMap",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "new_count",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "collect",
+          "line": 77,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new",
+          "callee": "AtomicU64::new",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::downgrade",
+          "lineNumber": 39
+        },
+        {
+          "caller": "new",
+          "callee": "guard.count.clone",
+          "lineNumber": 41
+        },
+        {
+          "caller": "drop",
+          "callee": "self.parent.upgrade",
+          "lineNumber": 47
+        },
+        {
+          "caller": "drop",
+          "callee": "parent.lock",
+          "lineNumber": 48
+        },
+        {
+          "caller": "drop",
+          "callee": "map.inner.remove",
+          "lineNumber": 49
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new",
+          "callee": "Mutex::new",
+          "lineNumber": 63
+        },
+        {
+          "caller": "new",
+          "callee": "HashMap::new",
+          "lineNumber": 64
+        },
+        {
+          "caller": "new",
+          "callee": "CountMap",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new_count",
+          "callee": "GuardedCount::new",
+          "lineNumber": 71
+        },
+        {
+          "caller": "new_count",
+          "callee": "inner.lock",
+          "lineNumber": 72
+        },
+        {
+          "caller": "new_count",
+          "callee": "map.inner.insert",
+          "lineNumber": 73
+        },
+        {
+          "caller": "collect",
+          "callee": "self.0.lock",
+          "lineNumber": 78
+        },
+        {
+          "caller": "collect",
+          "callee": "ids.iter()\n            .filter_map(|id| {\n                map.inner\n                    .get(id)\n                    .map(|v| (*id, v.load(std::sync::atomic::Ordering::Relaxed)))\n            }).collect",
+          "lineNumber": 79
+        },
+        {
+          "caller": "collect",
+          "callee": "ids.iter().filter_map",
+          "lineNumber": 79
+        },
+        {
+          "caller": "collect",
+          "callee": "ids.iter",
+          "lineNumber": 79
+        },
+        {
+          "caller": "collect",
+          "callee": "map.inner\n                    .get(id).map",
+          "lineNumber": 81
+        },
+        {
+          "caller": "collect",
+          "callee": "map.inner.get",
+          "lineNumber": 81
+        },
+        {
+          "caller": "collect",
+          "callee": "v.load",
+          "lineNumber": 83
+        },
+        {
+          "caller": "test_count_map",
+          "callee": "CountMap::<u64>::new",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_count_map",
+          "callee": "count_map.new_count",
+          "lineNumber": 96
+        },
+        {
+          "caller": "test_count_map",
+          "callee": "count_map.new_count",
+          "lineNumber": 97
+        },
+        {
+          "caller": "test_count_map",
+          "callee": "count1\n            .count.fetch_add",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_count_map",
+          "callee": "count2\n            .count.fetch_add",
+          "lineNumber": 101
+        },
+        {
+          "caller": "test_count_map",
+          "callee": "count_map.collect",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_count_map_drop",
+          "callee": "CountMap::<u64>::new",
+          "lineNumber": 111
+        },
+        {
+          "caller": "test_count_map_drop",
+          "callee": "count_map.new_count",
+          "lineNumber": 112
+        },
+        {
+          "caller": "test_count_map_drop",
+          "callee": "count_map.new_count",
+          "lineNumber": 113
+        },
+        {
+          "caller": "test_count_map_drop",
+          "callee": "count1\n            .count.fetch_add",
+          "lineNumber": 114
+        },
+        {
+          "caller": "test_count_map_drop",
+          "callee": "count2\n            .count.fetch_add",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test_count_map_drop",
+          "callee": "count_map.collect",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_count_map_drop",
+          "callee": "drop",
+          "lineNumber": 123
+        },
+        {
+          "caller": "test_count_map_drop",
+          "callee": "count_map.collect",
+          "lineNumber": 124
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 5,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/common/metrics/src/monitor/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 32,
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/common/metrics/src/monitor/process.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 208,
+      "nonEmptyLines": 180,
+      "functions": [
+        {
+          "name": "monitor_process",
+          "startLine": 22,
+          "endLine": 25,
+          "params": [
+            "registry"
+          ]
+        },
+        {
+          "name": "default",
+          "startLine": 37,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 43,
+          "endLine": 79,
+          "params": []
+        },
+        {
+          "name": "desc",
+          "startLine": 84,
+          "endLine": 86,
+          "params": []
+        },
+        {
+          "name": "collect",
+          "startLine": 88,
+          "endLine": 126,
+          "params": []
+        },
+        {
+          "name": "desc",
+          "startLine": 131,
+          "endLine": 133,
+          "params": []
+        },
+        {
+          "name": "collect",
+          "startLine": 135,
+          "endLine": 177,
+          "params": []
+        },
+        {
+          "name": "desc",
+          "startLine": 182,
+          "endLine": 184,
+          "params": []
+        },
+        {
+          "name": "collect",
+          "startLine": 186,
+          "endLine": 207,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProcessCollector",
+          "startLine": 28,
+          "endLine": 34,
+          "methods": [
+            "default",
+            "new",
+            "desc",
+            "collect",
+            "desc",
+            "collect",
+            "desc",
+            "collect"
+          ],
+          "properties": [
+            "descs",
+            "cpu_total",
+            "vsize",
+            "rss",
+            "cpu_core_num"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "monitor_process",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "monitor_process",
+          "callee": "ProcessCollector::new",
+          "lineNumber": 23
+        },
+        {
+          "caller": "monitor_process",
+          "callee": "registry.register(Box::new(pc)).unwrap",
+          "lineNumber": 24
+        },
+        {
+          "caller": "monitor_process",
+          "callee": "registry.register",
+          "lineNumber": 24
+        },
+        {
+          "caller": "monitor_process",
+          "callee": "Box::new",
+          "lineNumber": 24
+        },
+        {
+          "caller": "default",
+          "callee": "Self::new",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new",
+          "callee": "Vec::new",
+          "lineNumber": 44
+        },
+        {
+          "caller": "new",
+          "callee": "IntCounter::with_opts(Opts::new(\n            \"process_cpu_seconds_total\",\n            \"Total user and system CPU time spent in \\\n                 seconds.\",\n        )).unwrap",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new",
+          "callee": "IntCounter::with_opts",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new",
+          "callee": "Opts::new",
+          "lineNumber": 46
+        },
+        {
+          "caller": "new",
+          "callee": "descs.extend",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new",
+          "callee": "cpu_total.desc().into_iter().cloned",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new",
+          "callee": "cpu_total.desc().into_iter",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new",
+          "callee": "cpu_total.desc",
+          "lineNumber": 52
+        },
+        {
+          "caller": "new",
+          "callee": "IntGauge::with_opts(Opts::new(\n            \"process_virtual_memory_bytes\",\n            \"Virtual memory size in bytes.\",\n        )).unwrap",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new",
+          "callee": "IntGauge::with_opts",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new",
+          "callee": "Opts::new",
+          "lineNumber": 54
+        },
+        {
+          "caller": "new",
+          "callee": "descs.extend",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new",
+          "callee": "vsize.desc().into_iter().cloned",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new",
+          "callee": "vsize.desc().into_iter",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new",
+          "callee": "vsize.desc",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new",
+          "callee": "IntGauge::with_opts(Opts::new(\n            \"process_resident_memory_bytes\",\n            \"Resident memory size in bytes.\",\n        )).unwrap",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new",
+          "callee": "IntGauge::with_opts",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new",
+          "callee": "Opts::new",
+          "lineNumber": 61
+        },
+        {
+          "caller": "new",
+          "callee": "descs.extend",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new",
+          "callee": "rss.desc().into_iter().cloned",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new",
+          "callee": "rss.desc().into_iter",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new",
+          "callee": "rss.desc",
+          "lineNumber": 66
+        },
+        {
+          "caller": "new",
+          "callee": "IntGauge::with_opts(Opts::new(\"process_cpu_core_num\", \"Cpu core num.\")).unwrap",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new",
+          "callee": "IntGauge::with_opts",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new",
+          "callee": "Opts::new",
+          "lineNumber": 69
+        },
+        {
+          "caller": "new",
+          "callee": "descs.extend",
+          "lineNumber": 70
+        },
+        {
+          "caller": "new",
+          "callee": "cpu_core_num.desc().into_iter().cloned",
+          "lineNumber": 70
+        },
+        {
+          "caller": "new",
+          "callee": "cpu_core_num.desc().into_iter",
+          "lineNumber": 70
+        },
+        {
+          "caller": "new",
+          "callee": "cpu_core_num.desc",
+          "lineNumber": 70
+        },
+        {
+          "caller": "desc",
+          "callee": "self.descs.iter().collect",
+          "lineNumber": 85
+        },
+        {
+          "caller": "desc",
+          "callee": "self.descs.iter",
+          "lineNumber": 85
+        },
+        {
+          "caller": "collect",
+          "callee": "procfs::process::Process::myself",
+          "lineNumber": 89
+        },
+        {
+          "caller": "collect",
+          "callee": "Vec::new",
+          "lineNumber": 93
+        },
+        {
+          "caller": "collect",
+          "callee": "p.stat",
+          "lineNumber": 96
+        },
+        {
+          "caller": "collect",
+          "callee": "Vec::new",
+          "lineNumber": 100
+        },
+        {
+          "caller": "collect",
+          "callee": "self.vsize.set",
+          "lineNumber": 105
+        },
+        {
+          "caller": "collect",
+          "callee": "self.rss.set",
+          "lineNumber": 106
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_total.get",
+          "lineNumber": 111
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_total.inc_by",
+          "lineNumber": 112
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_total.collect",
+          "lineNumber": 113
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_core_num.set",
+          "lineNumber": 116
+        },
+        {
+          "caller": "collect",
+          "callee": "rw_resource_util::cpu::total_cpu_available",
+          "lineNumber": 117
+        },
+        {
+          "caller": "collect",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 120
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 121
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 122
+        },
+        {
+          "caller": "collect",
+          "callee": "self.vsize.collect",
+          "lineNumber": 122
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 123
+        },
+        {
+          "caller": "collect",
+          "callee": "self.rss.collect",
+          "lineNumber": 123
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 124
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_core_num.collect",
+          "lineNumber": 124
+        },
+        {
+          "caller": "desc",
+          "callee": "self.descs.iter().collect",
+          "lineNumber": 132
+        },
+        {
+          "caller": "desc",
+          "callee": "self.descs.iter",
+          "lineNumber": 132
+        },
+        {
+          "caller": "collect",
+          "callee": "libc::getpid",
+          "lineNumber": 136
+        },
+        {
+          "caller": "collect",
+          "callee": "mach2::mach_time::mach_timebase_info::default",
+          "lineNumber": 138
+        },
+        {
+          "caller": "collect",
+          "callee": "mach2::mach_time::mach_timebase_info",
+          "lineNumber": 139
+        },
+        {
+          "caller": "collect",
+          "callee": "darwin_libproc::task_info",
+          "lineNumber": 146
+        },
+        {
+          "caller": "collect",
+          "callee": "Vec::new",
+          "lineNumber": 149
+        },
+        {
+          "caller": "collect",
+          "callee": "self.vsize.set",
+          "lineNumber": 154
+        },
+        {
+          "caller": "collect",
+          "callee": "self.rss.set",
+          "lineNumber": 155
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_total.get",
+          "lineNumber": 162
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_total.inc_by",
+          "lineNumber": 163
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_total.collect",
+          "lineNumber": 164
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_core_num.set",
+          "lineNumber": 167
+        },
+        {
+          "caller": "collect",
+          "callee": "rw_resource_util::cpu::total_cpu_available",
+          "lineNumber": 168
+        },
+        {
+          "caller": "collect",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 171
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 172
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 173
+        },
+        {
+          "caller": "collect",
+          "callee": "self.vsize.collect",
+          "lineNumber": 173
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 174
+        },
+        {
+          "caller": "collect",
+          "callee": "self.rss.collect",
+          "lineNumber": 174
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 175
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_core_num.collect",
+          "lineNumber": 175
+        },
+        {
+          "caller": "desc",
+          "callee": "self.descs.iter().collect",
+          "lineNumber": 183
+        },
+        {
+          "caller": "desc",
+          "callee": "self.descs.iter",
+          "lineNumber": 183
+        },
+        {
+          "caller": "collect",
+          "callee": "self.vsize.set",
+          "lineNumber": 188
+        },
+        {
+          "caller": "collect",
+          "callee": "self.rss.set",
+          "lineNumber": 189
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_total.inc_by",
+          "lineNumber": 193
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_total.collect",
+          "lineNumber": 194
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_core_num.set",
+          "lineNumber": 197
+        },
+        {
+          "caller": "collect",
+          "callee": "rw_resource_util::cpu::total_cpu_available",
+          "lineNumber": 198
+        },
+        {
+          "caller": "collect",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 201
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 202
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 203
+        },
+        {
+          "caller": "collect",
+          "callee": "self.vsize.collect",
+          "lineNumber": 203
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 204
+        },
+        {
+          "caller": "collect",
+          "callee": "self.rss.collect",
+          "lineNumber": 204
+        },
+        {
+          "caller": "collect",
+          "callee": "mfs.extend",
+          "lineNumber": 205
+        },
+        {
+          "caller": "collect",
+          "callee": "self.cpu_core_num.collect",
+          "lineNumber": 205
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/metrics/src/monitor/rwlock.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 26,
+          "endLine": 32,
+          "params": [
+            "metrics",
+            "val",
+            "lock_name"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 34,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "write",
+          "startLine": 42,
+          "endLine": 48,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MonitoredRwLock",
+          "startLine": 18,
+          "endLine": 23,
+          "methods": [],
+          "properties": [
+            "metrics",
+            "inner",
+            "lock_name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MonitoredRwLock",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "read",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "write",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "RwLock::new",
+          "lineNumber": 29
+        },
+        {
+          "caller": "read",
+          "callee": "self\n            .metrics\n            .with_label_values(&[self.lock_name, \"read\"]).start_timer",
+          "lineNumber": 35
+        },
+        {
+          "caller": "read",
+          "callee": "self\n            .metrics.with_label_values",
+          "lineNumber": 35
+        },
+        {
+          "caller": "read",
+          "callee": "self.inner.read",
+          "lineNumber": 39
+        },
+        {
+          "caller": "write",
+          "callee": "self\n            .metrics\n            .with_label_values(&[self.lock_name, \"write\"]).start_timer",
+          "lineNumber": 43
+        },
+        {
+          "caller": "write",
+          "callee": "self\n            .metrics.with_label_values",
+          "lineNumber": 43
+        },
+        {
+          "caller": "write",
+          "callee": "self.inner.write",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/common/metrics/src/relabeled_metric.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 190,
+      "nonEmptyLines": 172,
+      "functions": [
+        {
+          "name": "with_metric_level",
+          "startLine": 58,
+          "endLine": 69,
+          "params": [
+            "metric_level",
+            "metric",
+            "relabel_threshold"
+          ]
+        },
+        {
+          "name": "with_metric_level_relabel_n",
+          "startLine": 71,
+          "endLine": 83,
+          "params": [
+            "metric_level",
+            "metric",
+            "relabel_threshold",
+            "relabel_num"
+          ]
+        },
+        {
+          "name": "relabel_impl",
+          "startLine": 85,
+          "endLine": 99,
+          "params": [
+            "vals"
+          ]
+        },
+        {
+          "name": "relabel",
+          "startLine": 108,
+          "endLine": 114,
+          "params": [
+            "metric_level",
+            "relabel_threshold"
+          ]
+        },
+        {
+          "name": "relabel_n",
+          "startLine": 117,
+          "endLine": 129,
+          "params": [
+            "metric_level",
+            "relabel_threshold",
+            "relabel_num"
+          ]
+        },
+        {
+          "name": "relabel_debug_1",
+          "startLine": 133,
+          "endLine": 140,
+          "params": [
+            "relabel_threshold"
+          ]
+        },
+        {
+          "name": "with_label_values",
+          "startLine": 144,
+          "endLine": 149,
+          "params": [
+            "vals"
+          ]
+        },
+        {
+          "name": "with_guarded_label_values",
+          "startLine": 153,
+          "endLine": 161,
+          "params": [
+            "vals"
+          ]
+        },
+        {
+          "name": "lazy_guarded_metrics",
+          "startLine": 163,
+          "endLine": 168,
+          "params": [
+            "labels"
+          ]
+        },
+        {
+          "name": "desc",
+          "startLine": 172,
+          "endLine": 174,
+          "params": []
+        },
+        {
+          "name": "collect",
+          "startLine": 176,
+          "endLine": 178,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "RelabeledMetricVec",
+          "startLine": 44,
+          "endLine": 55,
+          "methods": [],
+          "properties": [
+            "relabel_threshold",
+            "metric_level",
+            "metric",
+            "relabel_num"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RelabeledMetricVec",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "with_metric_level",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "with_metric_level_relabel_n",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "relabel",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "relabel_n",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "relabel_debug_1",
+          "line": 133,
+          "isDefault": false
+        },
+        {
+          "name": "with_label_values",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "with_guarded_label_values",
+          "line": 153,
+          "isDefault": false
+        },
+        {
+          "name": "lazy_guarded_metrics",
+          "line": 163,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "relabel_impl",
+          "callee": "vals\n                .iter()\n                .map(|v| v.as_ref().to_owned())\n                .collect::<Vec<_>>",
+          "lineNumber": 88
+        },
+        {
+          "caller": "relabel_impl",
+          "callee": "vals\n                .iter().map",
+          "lineNumber": 88
+        },
+        {
+          "caller": "relabel_impl",
+          "callee": "vals.iter",
+          "lineNumber": 88
+        },
+        {
+          "caller": "relabel_impl",
+          "callee": "v.as_ref().to_owned",
+          "lineNumber": 90
+        },
+        {
+          "caller": "relabel_impl",
+          "callee": "v.as_ref",
+          "lineNumber": 90
+        },
+        {
+          "caller": "relabel_impl",
+          "callee": "relabeled_vals.iter_mut().take",
+          "lineNumber": 92
+        },
+        {
+          "caller": "relabel_impl",
+          "callee": "relabeled_vals.iter_mut",
+          "lineNumber": 92
+        },
+        {
+          "caller": "relabel_impl",
+          "callee": "String::new",
+          "lineNumber": 93
+        },
+        {
+          "caller": "relabel_impl",
+          "callee": "Some",
+          "lineNumber": 95
+        },
+        {
+          "caller": "relabel",
+          "callee": "RelabeledMetricVec::with_metric_level",
+          "lineNumber": 113
+        },
+        {
+          "caller": "relabel_n",
+          "callee": "RelabeledMetricVec::with_metric_level_relabel_n",
+          "lineNumber": 123
+        },
+        {
+          "caller": "relabel_debug_1",
+          "callee": "RelabeledMetricVec::with_metric_level_relabel_n",
+          "lineNumber": 134
+        },
+        {
+          "caller": "with_label_values",
+          "callee": "self.relabel_impl",
+          "lineNumber": 145
+        },
+        {
+          "caller": "with_label_values",
+          "callee": "self.metric.with_label_values",
+          "lineNumber": 146
+        },
+        {
+          "caller": "with_label_values",
+          "callee": "self.metric.with_label_values",
+          "lineNumber": 148
+        },
+        {
+          "caller": "with_guarded_label_values",
+          "callee": "self.relabel_impl",
+          "lineNumber": 157
+        },
+        {
+          "caller": "with_guarded_label_values",
+          "callee": "self.metric.with_guarded_label_values",
+          "lineNumber": 158
+        },
+        {
+          "caller": "with_guarded_label_values",
+          "callee": "self.metric.with_guarded_label_values",
+          "lineNumber": 160
+        },
+        {
+          "caller": "lazy_guarded_metrics",
+          "callee": "self.relabel_impl",
+          "lineNumber": 164
+        },
+        {
+          "caller": "lazy_guarded_metrics",
+          "callee": "labels.as_slice",
+          "lineNumber": 164
+        },
+        {
+          "caller": "lazy_guarded_metrics",
+          "callee": "self.metric.clone().lazy_guarded_metrics",
+          "lineNumber": 165
+        },
+        {
+          "caller": "lazy_guarded_metrics",
+          "callee": "self.metric.clone",
+          "lineNumber": 165
+        },
+        {
+          "caller": "lazy_guarded_metrics",
+          "callee": "self.metric.clone().lazy_guarded_metrics",
+          "lineNumber": 167
+        },
+        {
+          "caller": "lazy_guarded_metrics",
+          "callee": "self.metric.clone",
+          "lineNumber": 167
+        },
+        {
+          "caller": "desc",
+          "callee": "self.metric.desc",
+          "lineNumber": 173
+        },
+        {
+          "caller": "collect",
+          "callee": "self.metric.collect",
+          "lineNumber": 177
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    }
+  ]
+}

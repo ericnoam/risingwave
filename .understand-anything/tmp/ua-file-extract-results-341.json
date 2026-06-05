@@ -1,0 +1,1501 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 25,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/scripts/gen_pb_compose.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "gen_docker_compose",
+          "startLine": 20,
+          "endLine": 30,
+          "params": [
+            "demo_compose",
+            "format"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "gen_docker_compose",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "gen_docker_compose",
+          "callee": "open",
+          "lineNumber": 22
+        },
+        {
+          "caller": "gen_docker_compose",
+          "callee": "line.replace",
+          "lineNumber": 24
+        },
+        {
+          "caller": "gen_docker_compose",
+          "callee": "\"      - /datagen --format {}\".format",
+          "lineNumber": 25
+        },
+        {
+          "caller": "gen_docker_compose",
+          "callee": "open",
+          "lineNumber": 29
+        },
+        {
+          "caller": "gen_docker_compose",
+          "callee": "file.write",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/scripts/run_demos.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 154,
+      "nonEmptyLines": 131,
+      "functions": [
+        {
+          "name": "rw_ready",
+          "startLine": 11,
+          "endLine": 22,
+          "params": [
+            "dir",
+            "retries",
+            "interval"
+          ]
+        },
+        {
+          "name": "flush_retry",
+          "startLine": 25,
+          "endLine": 42,
+          "params": [
+            "dir",
+            "retries",
+            "interval"
+          ]
+        },
+        {
+          "name": "run_sql_file",
+          "startLine": 45,
+          "endLine": 69,
+          "params": [
+            "f",
+            "dir"
+          ]
+        },
+        {
+          "name": "run_demo",
+          "startLine": 72,
+          "endLine": 103,
+          "params": [
+            "demo",
+            "format",
+            "wait_time"
+          ]
+        },
+        {
+          "name": "iceberg_cdc_demo",
+          "startLine": 106,
+          "endLine": 112,
+          "params": []
+        },
+        {
+          "name": "iceberg_sink_demo",
+          "startLine": 115,
+          "endLine": 121,
+          "params": []
+        },
+        {
+          "name": "iceberg_source_demo",
+          "startLine": 123,
+          "endLine": 129,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "rw_ready",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "flush_retry",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "run_sql_file",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "run_demo",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "iceberg_cdc_demo",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "iceberg_sink_demo",
+          "line": 115,
+          "isDefault": false
+        },
+        {
+          "name": "iceberg_source_demo",
+          "line": 123,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "rw_ready",
+          "callee": "range",
+          "lineNumber": 13
+        },
+        {
+          "caller": "rw_ready",
+          "callee": "subprocess.run",
+          "lineNumber": 15
+        },
+        {
+          "caller": "rw_ready",
+          "callee": "sleep",
+          "lineNumber": 21
+        },
+        {
+          "caller": "flush_retry",
+          "callee": "range",
+          "lineNumber": 27
+        },
+        {
+          "caller": "flush_retry",
+          "callee": "subprocess.run",
+          "lineNumber": 29
+        },
+        {
+          "caller": "flush_retry",
+          "callee": "subprocess.run",
+          "lineNumber": 38
+        },
+        {
+          "caller": "flush_retry",
+          "callee": "sleep",
+          "lineNumber": 42
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "print",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "\"Running SQL file: {} on RisingWave\".format",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "subprocess.run",
+          "lineNumber": 50
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "print",
+          "lineNumber": 55
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "subprocess.run",
+          "lineNumber": 57
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "sys.exit",
+          "lineNumber": 62
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "f.replace('\\\\\\\\', '/').replace",
+          "lineNumber": 65
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "f.replace",
+          "lineNumber": 65
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "f_norm.endswith",
+          "lineNumber": 66
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "f_norm.endswith",
+          "lineNumber": 66
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "sleep",
+          "lineNumber": 67
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "int",
+          "lineNumber": 67
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "os.getenv",
+          "lineNumber": 67
+        },
+        {
+          "caller": "run_sql_file",
+          "callee": "flush_retry",
+          "lineNumber": 69
+        },
+        {
+          "caller": "run_demo",
+          "callee": "dirname",
+          "lineNumber": 73
+        },
+        {
+          "caller": "run_demo",
+          "callee": "abspath",
+          "lineNumber": 73
+        },
+        {
+          "caller": "run_demo",
+          "callee": "dirname",
+          "lineNumber": 74
+        },
+        {
+          "caller": "run_demo",
+          "callee": "os.path.join",
+          "lineNumber": 75
+        },
+        {
+          "caller": "run_demo",
+          "callee": "print",
+          "lineNumber": 76
+        },
+        {
+          "caller": "run_demo",
+          "callee": "\"Running demo: {}\".format",
+          "lineNumber": 76
+        },
+        {
+          "caller": "run_demo",
+          "callee": "subprocess.run",
+          "lineNumber": 78
+        },
+        {
+          "caller": "run_demo",
+          "callee": "sleep",
+          "lineNumber": 79
+        },
+        {
+          "caller": "run_demo",
+          "callee": "rw_ready",
+          "lineNumber": 82
+        },
+        {
+          "caller": "run_demo",
+          "callee": "int",
+          "lineNumber": 82
+        },
+        {
+          "caller": "run_demo",
+          "callee": "os.getenv",
+          "lineNumber": 82
+        },
+        {
+          "caller": "run_demo",
+          "callee": "int",
+          "lineNumber": 82
+        },
+        {
+          "caller": "run_demo",
+          "callee": "os.getenv",
+          "lineNumber": 82
+        },
+        {
+          "caller": "run_demo",
+          "callee": "print",
+          "lineNumber": 83
+        },
+        {
+          "caller": "run_demo",
+          "callee": "os.path.exists",
+          "lineNumber": 86
+        },
+        {
+          "caller": "run_demo",
+          "callee": "os.path.join",
+          "lineNumber": 86
+        },
+        {
+          "caller": "run_demo",
+          "callee": "subprocess.run",
+          "lineNumber": 87
+        },
+        {
+          "caller": "run_demo",
+          "callee": "os.path.join",
+          "lineNumber": 92
+        },
+        {
+          "caller": "run_demo",
+          "callee": "os.path.isfile",
+          "lineNumber": 93
+        },
+        {
+          "caller": "run_demo",
+          "callee": "run_sql_file",
+          "lineNumber": 95
+        },
+        {
+          "caller": "run_demo",
+          "callee": "sleep",
+          "lineNumber": 96
+        },
+        {
+          "caller": "run_demo",
+          "callee": "os.path.join",
+          "lineNumber": 99
+        },
+        {
+          "caller": "run_demo",
+          "callee": "os.path.exists",
+          "lineNumber": 100
+        },
+        {
+          "caller": "run_demo",
+          "callee": "run_sql_file",
+          "lineNumber": 102
+        },
+        {
+          "caller": "run_demo",
+          "callee": "sleep",
+          "lineNumber": 103
+        },
+        {
+          "caller": "iceberg_cdc_demo",
+          "callee": "dirname",
+          "lineNumber": 108
+        },
+        {
+          "caller": "iceberg_cdc_demo",
+          "callee": "abspath",
+          "lineNumber": 108
+        },
+        {
+          "caller": "iceberg_cdc_demo",
+          "callee": "dirname",
+          "lineNumber": 109
+        },
+        {
+          "caller": "iceberg_cdc_demo",
+          "callee": "os.path.join",
+          "lineNumber": 110
+        },
+        {
+          "caller": "iceberg_cdc_demo",
+          "callee": "print",
+          "lineNumber": 111
+        },
+        {
+          "caller": "iceberg_cdc_demo",
+          "callee": "subprocess.run",
+          "lineNumber": 112
+        },
+        {
+          "caller": "iceberg_sink_demo",
+          "callee": "dirname",
+          "lineNumber": 117
+        },
+        {
+          "caller": "iceberg_sink_demo",
+          "callee": "abspath",
+          "lineNumber": 117
+        },
+        {
+          "caller": "iceberg_sink_demo",
+          "callee": "dirname",
+          "lineNumber": 118
+        },
+        {
+          "caller": "iceberg_sink_demo",
+          "callee": "os.path.join",
+          "lineNumber": 119
+        },
+        {
+          "caller": "iceberg_sink_demo",
+          "callee": "print",
+          "lineNumber": 120
+        },
+        {
+          "caller": "iceberg_sink_demo",
+          "callee": "subprocess.run",
+          "lineNumber": 121
+        },
+        {
+          "caller": "iceberg_source_demo",
+          "callee": "dirname",
+          "lineNumber": 125
+        },
+        {
+          "caller": "iceberg_source_demo",
+          "callee": "abspath",
+          "lineNumber": 125
+        },
+        {
+          "caller": "iceberg_source_demo",
+          "callee": "dirname",
+          "lineNumber": 126
+        },
+        {
+          "caller": "iceberg_source_demo",
+          "callee": "os.path.join",
+          "lineNumber": 127
+        },
+        {
+          "caller": "iceberg_source_demo",
+          "callee": "print",
+          "lineNumber": 128
+        },
+        {
+          "caller": "iceberg_source_demo",
+          "callee": "subprocess.run",
+          "lineNumber": 129
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/scripts/sink_check_utils.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 43,
+      "functions": [
+        {
+          "name": "docker_compose_exec",
+          "startLine": 11,
+          "endLine": 25,
+          "params": [
+            "container",
+            "command",
+            "use_bash"
+          ]
+        },
+        {
+          "name": "check_row_counts",
+          "startLine": 28,
+          "endLine": 45,
+          "params": [
+            "relations",
+            "query_fn",
+            "db_name"
+          ]
+        },
+        {
+          "name": "report_failures",
+          "startLine": 48,
+          "endLine": 52,
+          "params": [
+            "failed_cases"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "docker_compose_exec",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "check_row_counts",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "report_failures",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "docker_compose_exec",
+          "callee": "shlex.split",
+          "lineNumber": 24
+        },
+        {
+          "caller": "docker_compose_exec",
+          "callee": "subprocess.check_output(args).decode",
+          "lineNumber": 25
+        },
+        {
+          "caller": "docker_compose_exec",
+          "callee": "subprocess.check_output",
+          "lineNumber": 25
+        },
+        {
+          "caller": "check_row_counts",
+          "callee": "print",
+          "lineNumber": 40
+        },
+        {
+          "caller": "check_row_counts",
+          "callee": "query_fn",
+          "lineNumber": 41
+        },
+        {
+          "caller": "check_row_counts",
+          "callee": "print",
+          "lineNumber": 42
+        },
+        {
+          "caller": "check_row_counts",
+          "callee": "failed.append",
+          "lineNumber": 44
+        },
+        {
+          "caller": "report_failures",
+          "callee": "print",
+          "lineNumber": 51
+        },
+        {
+          "caller": "report_failures",
+          "callee": "sys.exit",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/sqlserver-sink/docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 46,
+      "nonEmptyLines": 46,
+      "sections": [
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 33
+        },
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 46
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "integration_tests/sqlserver-sink/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 86,
+      "nonEmptyLines": 74,
+      "sections": [
+        {
+          "heading": "Demo: Sinking to Microsoft SQL Server",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/starrocks-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "starrocks_count",
+          "startLine": 8,
+          "endLine": 11,
+          "params": [
+            "rel"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "starrocks_count",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "starrocks_count",
+          "callee": "docker_compose_exec",
+          "lineNumber": 10
+        },
+        {
+          "caller": "starrocks_count",
+          "callee": "int",
+          "lineNumber": 11
+        },
+        {
+          "caller": "starrocks_count",
+          "callee": "output.split",
+          "lineNumber": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/superset/docker/pythonpath_dev/superset_config.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 124,
+      "nonEmptyLines": 106,
+      "functions": [
+        {
+          "name": "get_env_variable",
+          "startLine": 34,
+          "endLine": 45,
+          "params": [
+            "var_name",
+            "default"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CeleryConfig",
+          "startLine": 83,
+          "endLine": 99,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_env_variable",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "CeleryConfig",
+          "line": 83,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_env_variable",
+          "callee": "\"The environment variable {} was missing, abort...\".format",
+          "lineNumber": 42
+        },
+        {
+          "caller": "get_env_variable",
+          "callee": "EnvironmentError",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/tidb-cdc-sink/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/tidb-cdc-sink/sink_check.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "functions": [
+        {
+          "name": "tidb_count",
+          "startLine": 7,
+          "endLine": 10,
+          "params": [
+            "rel"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "tidb_count",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tidb_count",
+          "callee": "docker_compose_exec",
+          "lineNumber": 9
+        },
+        {
+          "caller": "tidb_count",
+          "callee": "int",
+          "lineNumber": 10
+        },
+        {
+          "caller": "tidb_count",
+          "callee": "output.split",
+          "lineNumber": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/twitter-pulsar/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/twitter-pulsar/pb/create_mv.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 21,
+      "nonEmptyLines": 21,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/twitter-pulsar/pb/create_source.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/twitter-pulsar/schema",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 16,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/twitter/avro/create_mv.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 21,
+      "nonEmptyLines": 21,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/twitter/avro/create_source.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/twitter/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/twitter/pb/create_mv.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 21,
+      "nonEmptyLines": 21,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/twitter/pb/create_source.sql",
+      "language": "sql",
+      "fileCategory": "data",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/twitter/schema",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 16,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/upsert-avro/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {}
+    },
+    {
+      "path": "integration_tests/upsert-avro/datagen.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "create_topic",
+          "startLine": 19,
+          "endLine": 24,
+          "params": [
+            "kafka_conf",
+            "topic_name"
+          ]
+        },
+        {
+          "name": "get_basic_value",
+          "startLine": 27,
+          "endLine": 38,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "get_key_value_and_serializer",
+          "startLine": 41,
+          "endLine": 43,
+          "params": [
+            "id",
+            "schema_registry_client"
+          ]
+        },
+        {
+          "name": "delivery_report",
+          "startLine": 46,
+          "endLine": 49,
+          "params": [
+            "err",
+            "msg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "create_topic",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "get_basic_value",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "get_key_value_and_serializer",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "delivery_report",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_topic",
+          "callee": "AdminClient",
+          "lineNumber": 20
+        },
+        {
+          "caller": "create_topic",
+          "callee": "topic_list.append",
+          "lineNumber": 22
+        },
+        {
+          "caller": "create_topic",
+          "callee": "NewTopic",
+          "lineNumber": 23
+        },
+        {
+          "caller": "create_topic",
+          "callee": "client.create_topics",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_basic_value",
+          "callee": "str",
+          "lineNumber": 28
+        },
+        {
+          "caller": "get_basic_value",
+          "callee": "str",
+          "lineNumber": 30
+        },
+        {
+          "caller": "get_key_value_and_serializer",
+          "callee": "get_basic_value",
+          "lineNumber": 42
+        },
+        {
+          "caller": "get_key_value_and_serializer",
+          "callee": "AvroSerializer",
+          "lineNumber": 43
+        },
+        {
+          "caller": "get_key_value_and_serializer",
+          "callee": "AvroSerializer",
+          "lineNumber": 43
+        },
+        {
+          "caller": "delivery_report",
+          "callee": "print",
+          "lineNumber": 48
+        },
+        {
+          "caller": "delivery_report",
+          "callee": "\"Delivery failed for User record {}: {}\".format",
+          "lineNumber": 48
+        },
+        {
+          "caller": "delivery_report",
+          "callee": "msg.value",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/vector/data_check",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "java/com_risingwave_java_binding_Binding.h",
+      "language": "c",
+      "fileCategory": "code",
+      "totalLines": 301,
+      "nonEmptyLines": 264,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "java/common-utils/pom.xml",
+      "language": "xml",
+      "fileCategory": "config",
+      "totalLines": 33,
+      "nonEmptyLines": 29,
+      "metrics": {}
+    },
+    {
+      "path": "java/common-utils/src/main/java/com/risingwave/java/utils/MetaClient.java",
+      "language": "java",
+      "fileCategory": "code",
+      "totalLines": 157,
+      "nonEmptyLines": 136,
+      "functions": [
+        {
+          "name": "MetaClient",
+          "startLine": 84,
+          "endLine": 110,
+          "params": [
+            "metaAddr",
+            "scheduler"
+          ]
+        },
+        {
+          "name": "pinVersion",
+          "startLine": 112,
+          "endLine": 116,
+          "params": []
+        },
+        {
+          "name": "unpinVersion",
+          "startLine": 118,
+          "endLine": 128,
+          "params": [
+            "version"
+          ]
+        },
+        {
+          "name": "getTable",
+          "startLine": 130,
+          "endLine": 142,
+          "params": [
+            "databaseName",
+            "tableName"
+          ]
+        },
+        {
+          "name": "startHeartbeatLoop",
+          "startLine": 144,
+          "endLine": 148,
+          "params": [
+            "interval"
+          ]
+        },
+        {
+          "name": "close",
+          "startLine": 150,
+          "endLine": 156,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MetaClient",
+          "startLine": 46,
+          "endLine": 157,
+          "methods": [
+            "MetaClient",
+            "pinVersion",
+            "unpinVersion",
+            "getTable",
+            "startHeartbeatLoop",
+            "close"
+          ],
+          "properties": [
+            "workerId",
+            "channel",
+            "scheduler",
+            "clusterStub",
+            "ddlStub",
+            "heartbeatStub",
+            "hummockStub",
+            "isClosed"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MetaClient",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "pinVersion",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "unpinVersion",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "getTable",
+          "line": 130,
+          "isDefault": false
+        },
+        {
+          "name": "startHeartbeatLoop",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "close",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "MetaClient",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "HeartbeatRequest.newBuilder().setNodeId(workerId).build",
+          "lineNumber": 72
+        },
+        {
+          "caller": "run",
+          "callee": "HeartbeatRequest.newBuilder().setNodeId",
+          "lineNumber": 72
+        },
+        {
+          "caller": "run",
+          "callee": "HeartbeatRequest.newBuilder",
+          "lineNumber": 72
+        },
+        {
+          "caller": "run",
+          "callee": "heartbeatStub\n                        .withDeadlineAfter(timeout.toMillis(), TimeUnit.MILLISECONDS).heartbeat",
+          "lineNumber": 75
+        },
+        {
+          "caller": "run",
+          "callee": "heartbeatStub.withDeadlineAfter",
+          "lineNumber": 75
+        },
+        {
+          "caller": "run",
+          "callee": "timeout.toMillis",
+          "lineNumber": 76
+        },
+        {
+          "caller": "run",
+          "callee": "Logger.getGlobal().warning",
+          "lineNumber": 79
+        },
+        {
+          "caller": "run",
+          "callee": "Logger.getGlobal",
+          "lineNumber": 79
+        },
+        {
+          "caller": "run",
+          "callee": "String.format",
+          "lineNumber": 79
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "Grpc.newChannelBuilder(metaAddr, InsecureChannelCredentials.create()).build",
+          "lineNumber": 86
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "Grpc.newChannelBuilder",
+          "lineNumber": 86
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "InsecureChannelCredentials.create",
+          "lineNumber": 86
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "ClusterServiceGrpc.newBlockingStub",
+          "lineNumber": 89
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "DdlServiceGrpc.newBlockingStub",
+          "lineNumber": 90
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "HummockManagerServiceGrpc.newBlockingStub",
+          "lineNumber": 91
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "HeartbeatServiceGrpc.newBlockingStub",
+          "lineNumber": 92
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "AddWorkerNodeRequest.newBuilder()\n                        .setWorkerType(WorkerType.WORKER_TYPE_RISE_CTL)\n                        .setHost(\n                                HostAddress.newBuilder().setHost(\"127.0.0.1\").setPort(8880).build())\n                        .setProperty(\n                                Property.newBuilder()\n                                        .setIsStreaming(false)\n                                        .setIsServing(false)\n                                        .build()).build",
+          "lineNumber": 97
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "AddWorkerNodeRequest.newBuilder()\n                        .setWorkerType(WorkerType.WORKER_TYPE_RISE_CTL)\n                        .setHost(\n                                HostAddress.newBuilder().setHost(\"127.0.0.1\").setPort(8880).build()).setProperty",
+          "lineNumber": 97
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "AddWorkerNodeRequest.newBuilder()\n                        .setWorkerType(WorkerType.WORKER_TYPE_RISE_CTL).setHost",
+          "lineNumber": 97
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "AddWorkerNodeRequest.newBuilder().setWorkerType",
+          "lineNumber": 97
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "AddWorkerNodeRequest.newBuilder",
+          "lineNumber": 97
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "HostAddress.newBuilder().setHost(\"127.0.0.1\").setPort(8880).build",
+          "lineNumber": 100
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "HostAddress.newBuilder().setHost(\"127.0.0.1\").setPort",
+          "lineNumber": 100
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "HostAddress.newBuilder().setHost",
+          "lineNumber": 100
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "HostAddress.newBuilder",
+          "lineNumber": 100
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "Property.newBuilder()\n                                        .setIsStreaming(false)\n                                        .setIsServing(false).build",
+          "lineNumber": 102
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "Property.newBuilder()\n                                        .setIsStreaming(false).setIsServing",
+          "lineNumber": 102
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "Property.newBuilder().setIsStreaming",
+          "lineNumber": 102
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "Property.newBuilder",
+          "lineNumber": 102
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "clusterStub.addWorkerNode",
+          "lineNumber": 107
+        },
+        {
+          "caller": "MetaClient",
+          "callee": "resp.getNodeId",
+          "lineNumber": 109
+        },
+        {
+          "caller": "pinVersion",
+          "callee": "PinVersionRequest.newBuilder().setContextId(workerId).build",
+          "lineNumber": 113
+        },
+        {
+          "caller": "pinVersion",
+          "callee": "PinVersionRequest.newBuilder().setContextId",
+          "lineNumber": 113
+        },
+        {
+          "caller": "pinVersion",
+          "callee": "PinVersionRequest.newBuilder",
+          "lineNumber": 113
+        },
+        {
+          "caller": "pinVersion",
+          "callee": "hummockStub.pinVersion",
+          "lineNumber": 114
+        },
+        {
+          "caller": "pinVersion",
+          "callee": "resp.getPinnedVersion",
+          "lineNumber": 115
+        },
+        {
+          "caller": "unpinVersion",
+          "callee": "UnpinVersionBeforeRequest.newBuilder()\n                        .setContextId(workerId)\n                        .setUnpinVersionBefore(version.getId()).build",
+          "lineNumber": 123
+        },
+        {
+          "caller": "unpinVersion",
+          "callee": "UnpinVersionBeforeRequest.newBuilder()\n                        .setContextId(workerId).setUnpinVersionBefore",
+          "lineNumber": 123
+        },
+        {
+          "caller": "unpinVersion",
+          "callee": "UnpinVersionBeforeRequest.newBuilder().setContextId",
+          "lineNumber": 123
+        },
+        {
+          "caller": "unpinVersion",
+          "callee": "UnpinVersionBeforeRequest.newBuilder",
+          "lineNumber": 123
+        },
+        {
+          "caller": "unpinVersion",
+          "callee": "version.getId",
+          "lineNumber": 125
+        },
+        {
+          "caller": "unpinVersion",
+          "callee": "hummockStub.unpinVersionBefore",
+          "lineNumber": 127
+        },
+        {
+          "caller": "getTable",
+          "callee": "GetTableRequest.newBuilder()\n                        .setDatabaseName(databaseName)\n                        .setTableName(tableName).build",
+          "lineNumber": 132
+        },
+        {
+          "caller": "getTable",
+          "callee": "GetTableRequest.newBuilder()\n                        .setDatabaseName(databaseName).setTableName",
+          "lineNumber": 132
+        },
+        {
+          "caller": "getTable",
+          "callee": "GetTableRequest.newBuilder().setDatabaseName",
+          "lineNumber": 132
+        },
+        {
+          "caller": "getTable",
+          "callee": "GetTableRequest.newBuilder",
+          "lineNumber": 132
+        },
+        {
+          "caller": "getTable",
+          "callee": "ddlStub.getTable",
+          "lineNumber": 136
+        },
+        {
+          "caller": "getTable",
+          "callee": "resp.hasTable",
+          "lineNumber": 137
+        },
+        {
+          "caller": "getTable",
+          "callee": "resp.getTable",
+          "lineNumber": 138
+        },
+        {
+          "caller": "startHeartbeatLoop",
+          "callee": "new HeartbeatTask",
+          "lineNumber": 145
+        },
+        {
+          "caller": "startHeartbeatLoop",
+          "callee": "interval.multipliedBy",
+          "lineNumber": 145
+        },
+        {
+          "caller": "startHeartbeatLoop",
+          "callee": "scheduler.scheduleWithFixedDelay",
+          "lineNumber": 146
+        },
+        {
+          "caller": "startHeartbeatLoop",
+          "callee": "interval.toMillis",
+          "lineNumber": 147
+        },
+        {
+          "caller": "startHeartbeatLoop",
+          "callee": "interval.toMillis",
+          "lineNumber": 147
+        },
+        {
+          "caller": "close",
+          "callee": "this.channel.shutdown",
+          "lineNumber": 154
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    }
+  ]
+}

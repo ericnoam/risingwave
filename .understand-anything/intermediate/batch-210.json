@@ -1,0 +1,156 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/mysql-sink/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/mysql-sink/create_mv.sql",
+      "summary": "Creates materialized views over RisingWave source data to be written to MySQL sink tables in the mysql-sink integration test.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mysql-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/mysql-sink/create_sink.sql",
+      "summary": "Creates MySQL sinks in RisingWave to write materialized view changes to MySQL target tables, covering type compatibility scenarios.",
+      "tags": ["database", "integration-test", "mysql"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mysql-sink/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/mysql-sink/create_source.sql",
+      "summary": "Defines RisingWave source tables `data_types` and `mysql_all_types` used as input for the MySQL sink integration test, covering a broad range of column types.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/mysql-sink/create_source.sql:data_types",
+      "type": "table",
+      "name": "data_types",
+      "filePath": "integration_tests/mysql-sink/create_source.sql",
+      "lineRange": [17, 34],
+      "summary": "RisingWave source table with standard SQL data types (varchar, text, integer, decimal, boolean, date, time, timestamp, jsonb, bytea) for MySQL sink compatibility testing.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/mysql-sink/create_source.sql:mysql_all_types",
+      "type": "table",
+      "name": "mysql_all_types",
+      "filePath": "integration_tests/mysql-sink/create_source.sql",
+      "lineRange": [45, 73],
+      "summary": "RisingWave source table mirroring MySQL-specific types including tinyint, mediumint, text, blob, binary, varbinary, datetime, and array variants for full MySQL sink type coverage.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/mysql-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/mysql-sink/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the mysql-sink integration test, running MySQL and RisingWave together.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/mysql-sink/mysql_prepare.sql",
+      "type": "file",
+      "name": "mysql_prepare.sql",
+      "filePath": "integration_tests/mysql-sink/mysql_prepare.sql",
+      "summary": "Creates MySQL target tables (target_count, data_types, mysql_all_types) to receive sink output and verifies the data written by the RisingWave MySQL sink.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/mysql-sink/mysql_prepare.sql:target_count",
+      "type": "table",
+      "name": "target_count",
+      "filePath": "integration_tests/mysql-sink/mysql_prepare.sql",
+      "lineRange": [1, 4],
+      "summary": "MySQL target table for accumulating target_id and count aggregations written by the RisingWave sink.",
+      "tags": ["database", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/mysql-sink/mysql_prepare.sql:mysql_all_types",
+      "type": "table",
+      "name": "mysql_all_types",
+      "filePath": "integration_tests/mysql-sink/mysql_prepare.sql",
+      "lineRange": [27, 55],
+      "summary": "MySQL target table with full MySQL type coverage to verify that RisingWave writes all supported types correctly through the MySQL sink connector.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mysql-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/mysql-sink/prepare.sh",
+      "summary": "Shell script that initializes MySQL target tables before running the mysql-sink integration test.",
+      "tags": ["script", "infrastructure", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/mysql-sink/create_source.sql",
+      "target": "table:integration_tests/mysql-sink/create_source.sql:data_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/mysql-sink/create_source.sql",
+      "target": "table:integration_tests/mysql-sink/create_source.sql:mysql_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/mysql-sink/mysql_prepare.sql",
+      "target": "table:integration_tests/mysql-sink/mysql_prepare.sql:target_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/mysql-sink/mysql_prepare.sql",
+      "target": "table:integration_tests/mysql-sink/mysql_prepare.sql:mysql_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/mysql-sink/create_source.sql",
+      "target": "file:integration_tests/mysql-sink/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/mysql-sink/create_mv.sql",
+      "target": "file:integration_tests/mysql-sink/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/mysql-sink/prepare.sh",
+      "target": "file:integration_tests/mysql-sink/mysql_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/mysql-sink/docker-compose.yml",
+      "target": "file:integration_tests/mysql-sink/prepare.sh",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

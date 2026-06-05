@@ -1,0 +1,2350 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/feature-store/server/src/feature_store.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 125,
+      "nonEmptyLines": 113,
+      "functions": [
+        {
+          "name": "get_feature",
+          "startLine": 19,
+          "endLine": 30,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "report_action",
+          "startLine": 32,
+          "endLine": 38,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "report_taxi_action",
+          "startLine": 40,
+          "endLine": 46,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "start_training",
+          "startLine": 48,
+          "endLine": 53,
+          "params": [
+            "_request"
+          ]
+        },
+        {
+          "name": "get_taxi_amount",
+          "startLine": 55,
+          "endLine": 70,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "mock_report_action",
+          "startLine": 74,
+          "endLine": 91,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "create_sink_mfa_json",
+          "startLine": 93,
+          "endLine": 99,
+          "params": [
+            "message",
+            "timestamp"
+          ]
+        },
+        {
+          "name": "mock_report_taxi_action",
+          "startLine": 101,
+          "endLine": 108,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "create_sink_taxi_json",
+          "startLine": 110,
+          "endLine": 124,
+          "params": [
+            "message"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FeatureStoreServer",
+          "startLine": 13,
+          "endLine": 15,
+          "methods": [
+            "get_feature",
+            "report_action",
+            "report_taxi_action",
+            "start_training",
+            "get_taxi_amount",
+            "mock_report_action",
+            "create_sink_mfa_json",
+            "mock_report_taxi_action",
+            "create_sink_taxi_json"
+          ],
+          "properties": [
+            "kafka"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FeatureStoreServer",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "create_sink_mfa_json",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "create_sink_taxi_json",
+          "line": 110,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_feature",
+          "callee": "request.into_inner",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_feature",
+          "callee": "self.get_mfa_feature_from_rw(userid.clone()).await.unwrap",
+          "lineNumber": 25
+        },
+        {
+          "caller": "get_feature",
+          "callee": "self.get_mfa_feature_from_rw",
+          "lineNumber": 25
+        },
+        {
+          "caller": "get_feature",
+          "callee": "userid.clone",
+          "lineNumber": 25
+        },
+        {
+          "caller": "get_feature",
+          "callee": "Ok",
+          "lineNumber": 26
+        },
+        {
+          "caller": "get_feature",
+          "callee": "Response::new",
+          "lineNumber": 26
+        },
+        {
+          "caller": "report_action",
+          "callee": "request.into_inner",
+          "lineNumber": 36
+        },
+        {
+          "caller": "report_action",
+          "callee": "self.mock_report_action",
+          "lineNumber": 37
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "request.into_inner",
+          "lineNumber": 44
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "self.mock_report_taxi_action",
+          "lineNumber": 45
+        },
+        {
+          "caller": "start_training",
+          "callee": "self.do_training",
+          "lineNumber": 52
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "request.into_inner",
+          "lineNumber": 59
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "self\n            .get_taxi_amount(\n                do_location_id.do_location_id.clone(),\n                do_location_id.pu_location_id.clone(),\n            )\n            .await.unwrap",
+          "lineNumber": 60
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "self.get_taxi_amount",
+          "lineNumber": 60
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "do_location_id.do_location_id.clone",
+          "lineNumber": 62
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "do_location_id.pu_location_id.clone",
+          "lineNumber": 63
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "Ok",
+          "lineNumber": 67
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "Response::new",
+          "lineNumber": 67
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "SystemTime::now().duration_since",
+          "lineNumber": 78
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "SystemTime::now",
+          "lineNumber": 78
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "dur.as_micros",
+          "lineNumber": 81
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "Self::create_sink_mfa_json",
+          "lineNumber": 82
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "self.kafka.send",
+          "lineNumber": 84
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "\"0\".to_string",
+          "lineNumber": 84
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "Ok",
+          "lineNumber": 85
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "Response::new",
+          "lineNumber": 85
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "Err",
+          "lineNumber": 89
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "Status::unknown",
+          "lineNumber": 89
+        },
+        {
+          "caller": "mock_report_action",
+          "callee": "\"Failed to generate timestamp\".to_string",
+          "lineNumber": 89
+        },
+        {
+          "caller": "create_sink_mfa_json",
+          "callee": "format!(\n            \"{{\\\"userid\\\": {:?}, \\\"eventype\\\": {:?}, \\\"changenum\\\": {:?}, \\\"timestamp\\\": {:?}}}\",\n            message.userid, message.eventtype, message.changenum, timestamp\n        ).to_string",
+          "lineNumber": 94
+        },
+        {
+          "caller": "mock_report_taxi_action",
+          "callee": "Self::create_sink_taxi_json",
+          "lineNumber": 105
+        },
+        {
+          "caller": "mock_report_taxi_action",
+          "callee": "self.kafka.send",
+          "lineNumber": 106
+        },
+        {
+          "caller": "mock_report_taxi_action",
+          "callee": "\"0\".to_string",
+          "lineNumber": 106
+        },
+        {
+          "caller": "mock_report_taxi_action",
+          "callee": "Ok",
+          "lineNumber": 107
+        },
+        {
+          "caller": "mock_report_taxi_action",
+          "callee": "Response::new",
+          "lineNumber": 107
+        },
+        {
+          "caller": "create_sink_taxi_json",
+          "callee": "format!(\n            \"{{\\\"vendor_id\\\": {:?}, \\\"lpep_pickup_datetime\\\": {:?}, \\\"lpep_dropoff_datetime\\\": {:?}, \\\"store_and_fwd_flag\\\": {:?},\n            \\\"ratecode_id\\\": {:?}, \\\"pu_location_id\\\": {:?}, \\\"do_location_id\\\": {:?}, \\\"passenger_count\\\": {:?},\n            \\\"trip_distance\\\": {:?}, \\\"fare_amount\\\": {:?}, \\\"extra\\\": {:?}, \\\"mta_tax\\\": {:?},\n            \\\"tip_amount\\\": {:?}, \\\"tolls_amount\\\": {:?}, \\\"ehail_fee\\\": {:?}, \\\"improvement_surcharge\\\": {:?},\n            \\\"total_amount\\\": {:?}, \\\"payment_type\\\": {:?}, \\\"trip_type\\\": {:?}, \\\"congestion_surcharge\\\": {:?}}}\",\n            message.vendor_id,message.lpep_pickup_datetime,message.lpep_dropoff_datetime,message.store_and_fwd_flag,\n            message.ratecode_id,message.pu_location_id,message.do_location_id,message.passenger_count,\n            message.trip_distance,message.fare_amount,message.extra,message.mta_tax,\n            message.tip_amount,message.tolls_amount,message.ehail_fee,message.improvement_surcharge,\n            message.total_amount,message.payment_type,message.trip_type,message.congestion_surcharge\n        ).to_string",
+          "lineNumber": 111
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/src/kafka.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 22,
+          "endLine": 32,
+          "params": [
+            "brokers",
+            "output_topic"
+          ]
+        },
+        {
+          "name": "send",
+          "startLine": 34,
+          "endLine": 43,
+          "params": [
+            "record_id",
+            "payload"
+          ]
+        },
+        {
+          "name": "mock_consume",
+          "startLine": 45,
+          "endLine": 74,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CustomContext",
+          "startLine": 7,
+          "endLine": 7,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "KafkaSink",
+          "startLine": 16,
+          "endLine": 19,
+          "methods": [
+            "new",
+            "send",
+            "mock_consume"
+          ],
+          "properties": [
+            "client_config",
+            "output_topic"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "KafkaSink",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "send",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "mock_consume",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "ClientConfig::new()\n                .set(\"group.id\", \"feature-store\")\n                .set(\"bootstrap.servers\", brokers.clone())\n                .set(\"queue.buffering.max.ms\", \"0\") // Do not buffer\n                .create().expect",
+          "lineNumber": 24
+        },
+        {
+          "caller": "new",
+          "callee": "ClientConfig::new()\n                .set(\"group.id\", \"feature-store\")\n                .set(\"bootstrap.servers\", brokers.clone())\n                .set(\"queue.buffering.max.ms\", \"0\").create",
+          "lineNumber": 24
+        },
+        {
+          "caller": "new",
+          "callee": "ClientConfig::new()\n                .set(\"group.id\", \"feature-store\")\n                .set(\"bootstrap.servers\", brokers.clone()).set",
+          "lineNumber": 24
+        },
+        {
+          "caller": "new",
+          "callee": "ClientConfig::new()\n                .set(\"group.id\", \"feature-store\").set",
+          "lineNumber": 24
+        },
+        {
+          "caller": "new",
+          "callee": "ClientConfig::new().set",
+          "lineNumber": 24
+        },
+        {
+          "caller": "new",
+          "callee": "ClientConfig::new",
+          "lineNumber": 24
+        },
+        {
+          "caller": "new",
+          "callee": "brokers.clone",
+          "lineNumber": 26
+        },
+        {
+          "caller": "send",
+          "callee": "self.output_topic.clone",
+          "lineNumber": 35
+        },
+        {
+          "caller": "send",
+          "callee": "FutureRecord::to(&*output_topic)\n            .payload(payload.as_bytes()).key",
+          "lineNumber": 36
+        },
+        {
+          "caller": "send",
+          "callee": "FutureRecord::to(&*output_topic).payload",
+          "lineNumber": 36
+        },
+        {
+          "caller": "send",
+          "callee": "FutureRecord::to",
+          "lineNumber": 36
+        },
+        {
+          "caller": "send",
+          "callee": "payload.as_bytes",
+          "lineNumber": 37
+        },
+        {
+          "caller": "send",
+          "callee": "record_id.as_bytes",
+          "lineNumber": 38
+        },
+        {
+          "caller": "send",
+          "callee": "self.client_config\n            .send(record, Duration::from_secs(1))\n            .await.expect",
+          "lineNumber": 39
+        },
+        {
+          "caller": "send",
+          "callee": "self.client_config.send",
+          "lineNumber": 39
+        },
+        {
+          "caller": "send",
+          "callee": "Duration::from_secs",
+          "lineNumber": 40
+        },
+        {
+          "caller": "mock_consume",
+          "callee": "ClientConfig::new()\n            .set(\"group.id\", \"feature-store\")\n            .set(\"bootstrap.servers\", \"kafka:9092\")\n            .create_with_context(CustomContext).expect",
+          "lineNumber": 46
+        },
+        {
+          "caller": "mock_consume",
+          "callee": "ClientConfig::new()\n            .set(\"group.id\", \"feature-store\")\n            .set(\"bootstrap.servers\", \"kafka:9092\").create_with_context",
+          "lineNumber": 46
+        },
+        {
+          "caller": "mock_consume",
+          "callee": "ClientConfig::new()\n            .set(\"group.id\", \"feature-store\").set",
+          "lineNumber": 46
+        },
+        {
+          "caller": "mock_consume",
+          "callee": "ClientConfig::new().set",
+          "lineNumber": 46
+        },
+        {
+          "caller": "mock_consume",
+          "callee": "ClientConfig::new",
+          "lineNumber": 46
+        },
+        {
+          "caller": "mock_consume",
+          "callee": "consumer\n            .subscribe(&vec![\"taxi\"]).expect",
+          "lineNumber": 51
+        },
+        {
+          "caller": "mock_consume",
+          "callee": "consumer.subscribe",
+          "lineNumber": 51
+        },
+        {
+          "caller": "mock_consume",
+          "callee": "consumer\n                .recv()\n                .await\n                .expect(\"Failed to poll\")\n                .payload_view::<str>",
+          "lineNumber": 57
+        },
+        {
+          "caller": "mock_consume",
+          "callee": "consumer\n                .recv()\n                .await.expect",
+          "lineNumber": 57
+        },
+        {
+          "caller": "mock_consume",
+          "callee": "consumer.recv",
+          "lineNumber": 57
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/src/main.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 16,
+          "endLine": 42,
+          "params": []
+        },
+        {
+          "name": "get_args",
+          "startLine": 44,
+          "endLine": 63,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "get_args",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "KafkaSink::new",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "args.get_one::<String>(\"brokers\")\n            .expect(\"failed to decode brokers\").to_string",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "args.get_one::<String>(\"brokers\").expect",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "args.get_one::<String>",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "args.get_one::<String>(\"output-topic\")\n            .expect(\"failed to decode output_topics\").to_string",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "args.get_one::<String>(\"output-topic\").expect",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "args.get_one::<String>",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "tokio::spawn",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "KafkaSink::mock_consume",
+          "lineNumber": 28
+        },
+        {
+          "caller": "main",
+          "callee": "kafka_sink.send",
+          "lineNumber": 29
+        },
+        {
+          "caller": "main",
+          "callee": "\"0\".to_string",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "\"{init: true}\".to_string",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "ServerServer::new",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "tonic::transport::Server::builder()\n        .add_service(server)\n        .serve(SocketAddr::new(\n            IpAddr::from(Ipv4Addr::new(127, 0, 0, 1)),\n            2666,\n        ))\n        .await.unwrap",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "tonic::transport::Server::builder()\n        .add_service(server).serve",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "tonic::transport::Server::builder().add_service",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "tonic::transport::Server::builder",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "SocketAddr::new",
+          "lineNumber": 36
+        },
+        {
+          "caller": "main",
+          "callee": "IpAddr::from",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "Ipv4Addr::new",
+          "lineNumber": 37
+        },
+        {
+          "caller": "get_args",
+          "callee": "Command::new(\"feature-store\")\n        .about(\"Feature store\")\n        .arg(\n            Arg::new(\"brokers\")\n                .short('b')\n                .long(\"brokers\")\n                .help(\"Kafka broker list\")\n                .num_args(1)\n                .default_value(\"kafka:9092\"),\n        )\n        .arg(\n            Arg::new(\"output-topic\")\n                .long(\"output-topics\")\n                .help(\"Output topics names\")\n                .default_value(\"taxi\")\n                .num_args(1),\n        ).get_matches",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_args",
+          "callee": "Command::new(\"feature-store\")\n        .about(\"Feature store\")\n        .arg(\n            Arg::new(\"brokers\")\n                .short('b')\n                .long(\"brokers\")\n                .help(\"Kafka broker list\")\n                .num_args(1)\n                .default_value(\"kafka:9092\"),\n        ).arg",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_args",
+          "callee": "Command::new(\"feature-store\")\n        .about(\"Feature store\").arg",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_args",
+          "callee": "Command::new(\"feature-store\").about",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_args",
+          "callee": "Command::new",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"brokers\")\n                .short('b')\n                .long(\"brokers\")\n                .help(\"Kafka broker list\")\n                .num_args(1).default_value",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"brokers\")\n                .short('b')\n                .long(\"brokers\")\n                .help(\"Kafka broker list\").num_args",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"brokers\")\n                .short('b')\n                .long(\"brokers\").help",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"brokers\")\n                .short('b').long",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"brokers\").short",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"output-topic\")\n                .long(\"output-topics\")\n                .help(\"Output topics names\")\n                .default_value(\"taxi\").num_args",
+          "lineNumber": 56
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"output-topic\")\n                .long(\"output-topics\")\n                .help(\"Output topics names\").default_value",
+          "lineNumber": 56
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"output-topic\")\n                .long(\"output-topics\").help",
+          "lineNumber": 56
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new(\"output-topic\").long",
+          "lineNumber": 56
+        },
+        {
+          "caller": "get_args",
+          "callee": "Arg::new",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/src/model.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 381,
+      "nonEmptyLines": 381,
+      "classes": [
+        {
+          "name": "TrainingRequest",
+          "startLine": 3,
+          "endLine": 3,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "TrainingResponse",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "GetAmountRequest",
+          "startLine": 9,
+          "endLine": 14,
+          "methods": [],
+          "properties": [
+            "do_location_id",
+            "pu_location_id"
+          ]
+        },
+        {
+          "name": "GetAmountResponse",
+          "startLine": 17,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "amount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TrainingRequest",
+          "line": 3,
+          "isDefault": false
+        },
+        {
+          "name": "TrainingResponse",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "GetAmountRequest",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "GetAmountResponse",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "connect",
+          "callee": "tonic::transport::Endpoint::new(dst)?.connect",
+          "lineNumber": 37
+        },
+        {
+          "caller": "connect",
+          "callee": "tonic::transport::Endpoint::new",
+          "lineNumber": 37
+        },
+        {
+          "caller": "connect",
+          "callee": "Ok",
+          "lineNumber": 38
+        },
+        {
+          "caller": "connect",
+          "callee": "Self::new",
+          "lineNumber": 38
+        },
+        {
+          "caller": "new",
+          "callee": "tonic::client::Grpc::new",
+          "lineNumber": 49
+        },
+        {
+          "caller": "with_origin",
+          "callee": "tonic::client::Grpc::with_origin",
+          "lineNumber": 53
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "ModelClient::new",
+          "lineNumber": 73
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "InterceptedService::new",
+          "lineNumber": 73
+        },
+        {
+          "caller": "send_compressed",
+          "callee": "self.inner.send_compressed",
+          "lineNumber": 81
+        },
+        {
+          "caller": "accept_compressed",
+          "callee": "self.inner.accept_compressed",
+          "lineNumber": 87
+        },
+        {
+          "caller": "max_decoding_message_size",
+          "callee": "self.inner.max_decoding_message_size",
+          "lineNumber": 95
+        },
+        {
+          "caller": "max_encoding_message_size",
+          "callee": "self.inner.max_encoding_message_size",
+          "lineNumber": 103
+        },
+        {
+          "caller": "get_amount",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 113
+        },
+        {
+          "caller": "get_amount",
+          "callee": "self.inner.ready",
+          "lineNumber": 113
+        },
+        {
+          "caller": "get_amount",
+          "callee": "tonic::Status::new",
+          "lineNumber": 117
+        },
+        {
+          "caller": "get_amount",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 122
+        },
+        {
+          "caller": "get_amount",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 123
+        },
+        {
+          "caller": "get_amount",
+          "callee": "request.into_request",
+          "lineNumber": 124
+        },
+        {
+          "caller": "get_amount",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 125
+        },
+        {
+          "caller": "get_amount",
+          "callee": "req.extensions_mut",
+          "lineNumber": 125
+        },
+        {
+          "caller": "get_amount",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 125
+        },
+        {
+          "caller": "get_amount",
+          "callee": "self.inner.unary",
+          "lineNumber": 126
+        },
+        {
+          "caller": "training",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 135
+        },
+        {
+          "caller": "training",
+          "callee": "self.inner.ready",
+          "lineNumber": 135
+        },
+        {
+          "caller": "training",
+          "callee": "tonic::Status::new",
+          "lineNumber": 139
+        },
+        {
+          "caller": "training",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 144
+        },
+        {
+          "caller": "training",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 145
+        },
+        {
+          "caller": "training",
+          "callee": "request.into_request",
+          "lineNumber": 146
+        },
+        {
+          "caller": "training",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 147
+        },
+        {
+          "caller": "training",
+          "callee": "req.extensions_mut",
+          "lineNumber": 147
+        },
+        {
+          "caller": "training",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 147
+        },
+        {
+          "caller": "training",
+          "callee": "self.inner.unary",
+          "lineNumber": 148
+        },
+        {
+          "caller": "new",
+          "callee": "Self::from_arc",
+          "lineNumber": 185
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 185
+        },
+        {
+          "caller": "from_arc",
+          "callee": "_Inner",
+          "lineNumber": 188
+        },
+        {
+          "caller": "from_arc",
+          "callee": "Default::default",
+          "lineNumber": 191
+        },
+        {
+          "caller": "from_arc",
+          "callee": "Default::default",
+          "lineNumber": 192
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "InterceptedService::new",
+          "lineNumber": 204
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "Self::new",
+          "lineNumber": 204
+        },
+        {
+          "caller": "accept_compressed",
+          "callee": "self.accept_compression_encodings.enable",
+          "lineNumber": 209
+        },
+        {
+          "caller": "send_compressed",
+          "callee": "self.send_compression_encodings.enable",
+          "lineNumber": 215
+        },
+        {
+          "caller": "max_decoding_message_size",
+          "callee": "Some",
+          "lineNumber": 223
+        },
+        {
+          "caller": "max_encoding_message_size",
+          "callee": "Some",
+          "lineNumber": 231
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "Poll::Ready",
+          "lineNumber": 248
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "Ok",
+          "lineNumber": 248
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 251
+        },
+        {
+          "caller": "call",
+          "callee": "req.uri().path",
+          "lineNumber": 252
+        },
+        {
+          "caller": "call",
+          "callee": "req.uri",
+          "lineNumber": 252
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 267
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Model>::get_amount",
+          "lineNumber": 269
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 271
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 278
+        },
+        {
+          "caller": "call",
+          "callee": "GetAmountSvc",
+          "lineNumber": 281
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 282
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 283
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 283
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 283
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 292
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 293
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 295
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 311
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Model>::training",
+          "lineNumber": 313
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 315
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 322
+        },
+        {
+          "caller": "call",
+          "callee": "TrainingSvc",
+          "lineNumber": 325
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 326
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 327
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 327
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 327
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 336
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 337
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 339
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 342
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 343
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200)\n                                .header(\"grpc-status\", \"12\")\n                                .header(\"content-type\", \"application/grpc\")\n                                .body(empty_body()).unwrap",
+          "lineNumber": 344
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200)\n                                .header(\"grpc-status\", \"12\")\n                                .header(\"content-type\", \"application/grpc\").body",
+          "lineNumber": 344
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200)\n                                .header(\"grpc-status\", \"12\").header",
+          "lineNumber": 344
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200).header",
+          "lineNumber": 344
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder().status",
+          "lineNumber": 344
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder",
+          "lineNumber": 344
+        },
+        {
+          "caller": "call",
+          "callee": "empty_body",
+          "lineNumber": 348
+        },
+        {
+          "caller": "clone",
+          "callee": "self.inner.clone",
+          "lineNumber": 358
+        },
+        {
+          "caller": "clone",
+          "callee": "Self",
+          "lineNumber": 370
+        },
+        {
+          "caller": "clone",
+          "callee": "Arc::clone",
+          "lineNumber": 370
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 0,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/src/server_pb.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 700,
+      "nonEmptyLines": 700,
+      "classes": [
+        {
+          "name": "ReportActionRequest",
+          "startLine": 3,
+          "endLine": 10,
+          "methods": [],
+          "properties": [
+            "userid",
+            "eventtype",
+            "changenum"
+          ]
+        },
+        {
+          "name": "ReportActionResponse",
+          "startLine": 13,
+          "endLine": 16,
+          "methods": [],
+          "properties": [
+            "timestamp"
+          ]
+        },
+        {
+          "name": "GetFeatureRequest",
+          "startLine": 19,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "userid"
+          ]
+        },
+        {
+          "name": "GetFeatureResponse",
+          "startLine": 25,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "count",
+            "sum"
+          ]
+        },
+        {
+          "name": "ReportTaxiActionRequest",
+          "startLine": 33,
+          "endLine": 74,
+          "methods": [],
+          "properties": [
+            "vendor_id",
+            "lpep_pickup_datetime",
+            "lpep_dropoff_datetime",
+            "store_and_fwd_flag",
+            "ratecode_id",
+            "pu_location_id",
+            "do_location_id",
+            "passenger_count",
+            "trip_distance",
+            "fare_amount",
+            "extra",
+            "mta_tax",
+            "tip_amount",
+            "tolls_amount",
+            "ehail_fee",
+            "improvement_surcharge",
+            "total_amount",
+            "payment_type",
+            "trip_type",
+            "congestion_surcharge"
+          ]
+        },
+        {
+          "name": "ReportTaxiActionResponse",
+          "startLine": 77,
+          "endLine": 77,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "GetTaxiAmountRequest",
+          "startLine": 80,
+          "endLine": 85,
+          "methods": [],
+          "properties": [
+            "do_location_id",
+            "pu_location_id"
+          ]
+        },
+        {
+          "name": "GetTaxiAmountResponse",
+          "startLine": 88,
+          "endLine": 91,
+          "methods": [],
+          "properties": [
+            "fare_amount"
+          ]
+        },
+        {
+          "name": "StartTrainingRequest",
+          "startLine": 94,
+          "endLine": 94,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "StartTrainingResponse",
+          "startLine": 97,
+          "endLine": 97,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ReportActionRequest",
+          "line": 3,
+          "isDefault": false
+        },
+        {
+          "name": "ReportActionResponse",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "GetFeatureRequest",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "GetFeatureResponse",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "ReportTaxiActionRequest",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "ReportTaxiActionResponse",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "GetTaxiAmountRequest",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "GetTaxiAmountResponse",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "StartTrainingRequest",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "StartTrainingResponse",
+          "line": 97,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "connect",
+          "callee": "tonic::transport::Endpoint::new(dst)?.connect",
+          "lineNumber": 114
+        },
+        {
+          "caller": "connect",
+          "callee": "tonic::transport::Endpoint::new",
+          "lineNumber": 114
+        },
+        {
+          "caller": "connect",
+          "callee": "Ok",
+          "lineNumber": 115
+        },
+        {
+          "caller": "connect",
+          "callee": "Self::new",
+          "lineNumber": 115
+        },
+        {
+          "caller": "new",
+          "callee": "tonic::client::Grpc::new",
+          "lineNumber": 126
+        },
+        {
+          "caller": "with_origin",
+          "callee": "tonic::client::Grpc::with_origin",
+          "lineNumber": 130
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "ServerClient::new",
+          "lineNumber": 150
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "InterceptedService::new",
+          "lineNumber": 150
+        },
+        {
+          "caller": "send_compressed",
+          "callee": "self.inner.send_compressed",
+          "lineNumber": 158
+        },
+        {
+          "caller": "accept_compressed",
+          "callee": "self.inner.accept_compressed",
+          "lineNumber": 164
+        },
+        {
+          "caller": "max_decoding_message_size",
+          "callee": "self.inner.max_decoding_message_size",
+          "lineNumber": 172
+        },
+        {
+          "caller": "max_encoding_message_size",
+          "callee": "self.inner.max_encoding_message_size",
+          "lineNumber": 180
+        },
+        {
+          "caller": "get_feature",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 190
+        },
+        {
+          "caller": "get_feature",
+          "callee": "self.inner.ready",
+          "lineNumber": 190
+        },
+        {
+          "caller": "get_feature",
+          "callee": "tonic::Status::new",
+          "lineNumber": 194
+        },
+        {
+          "caller": "get_feature",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 199
+        },
+        {
+          "caller": "get_feature",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 200
+        },
+        {
+          "caller": "get_feature",
+          "callee": "request.into_request",
+          "lineNumber": 203
+        },
+        {
+          "caller": "get_feature",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 204
+        },
+        {
+          "caller": "get_feature",
+          "callee": "req.extensions_mut",
+          "lineNumber": 204
+        },
+        {
+          "caller": "get_feature",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 205
+        },
+        {
+          "caller": "get_feature",
+          "callee": "self.inner.unary",
+          "lineNumber": 206
+        },
+        {
+          "caller": "report_action",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 215
+        },
+        {
+          "caller": "report_action",
+          "callee": "self.inner.ready",
+          "lineNumber": 215
+        },
+        {
+          "caller": "report_action",
+          "callee": "tonic::Status::new",
+          "lineNumber": 219
+        },
+        {
+          "caller": "report_action",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 224
+        },
+        {
+          "caller": "report_action",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 225
+        },
+        {
+          "caller": "report_action",
+          "callee": "request.into_request",
+          "lineNumber": 228
+        },
+        {
+          "caller": "report_action",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 229
+        },
+        {
+          "caller": "report_action",
+          "callee": "req.extensions_mut",
+          "lineNumber": 229
+        },
+        {
+          "caller": "report_action",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 230
+        },
+        {
+          "caller": "report_action",
+          "callee": "self.inner.unary",
+          "lineNumber": 231
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 240
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "self.inner.ready",
+          "lineNumber": 240
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "tonic::Status::new",
+          "lineNumber": 244
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 249
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 250
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "request.into_request",
+          "lineNumber": 253
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 254
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "req.extensions_mut",
+          "lineNumber": 254
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 255
+        },
+        {
+          "caller": "report_taxi_action",
+          "callee": "self.inner.unary",
+          "lineNumber": 256
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 265
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "self.inner.ready",
+          "lineNumber": 265
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "tonic::Status::new",
+          "lineNumber": 269
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 274
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 275
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "request.into_request",
+          "lineNumber": 278
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 279
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "req.extensions_mut",
+          "lineNumber": 279
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 280
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "self.inner.unary",
+          "lineNumber": 281
+        },
+        {
+          "caller": "start_training",
+          "callee": "self.inner\n                .ready()\n                .await.map_err",
+          "lineNumber": 290
+        },
+        {
+          "caller": "start_training",
+          "callee": "self.inner.ready",
+          "lineNumber": 290
+        },
+        {
+          "caller": "start_training",
+          "callee": "tonic::Status::new",
+          "lineNumber": 294
+        },
+        {
+          "caller": "start_training",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 299
+        },
+        {
+          "caller": "start_training",
+          "callee": "http::uri::PathAndQuery::from_static",
+          "lineNumber": 300
+        },
+        {
+          "caller": "start_training",
+          "callee": "request.into_request",
+          "lineNumber": 303
+        },
+        {
+          "caller": "start_training",
+          "callee": "req.extensions_mut().insert",
+          "lineNumber": 304
+        },
+        {
+          "caller": "start_training",
+          "callee": "req.extensions_mut",
+          "lineNumber": 304
+        },
+        {
+          "caller": "start_training",
+          "callee": "GrpcMethod::new",
+          "lineNumber": 305
+        },
+        {
+          "caller": "start_training",
+          "callee": "self.inner.unary",
+          "lineNumber": 306
+        },
+        {
+          "caller": "new",
+          "callee": "Self::from_arc",
+          "lineNumber": 364
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 364
+        },
+        {
+          "caller": "from_arc",
+          "callee": "_Inner",
+          "lineNumber": 367
+        },
+        {
+          "caller": "from_arc",
+          "callee": "Default::default",
+          "lineNumber": 370
+        },
+        {
+          "caller": "from_arc",
+          "callee": "Default::default",
+          "lineNumber": 371
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "InterceptedService::new",
+          "lineNumber": 383
+        },
+        {
+          "caller": "with_interceptor",
+          "callee": "Self::new",
+          "lineNumber": 383
+        },
+        {
+          "caller": "accept_compressed",
+          "callee": "self.accept_compression_encodings.enable",
+          "lineNumber": 388
+        },
+        {
+          "caller": "send_compressed",
+          "callee": "self.send_compression_encodings.enable",
+          "lineNumber": 394
+        },
+        {
+          "caller": "max_decoding_message_size",
+          "callee": "Some",
+          "lineNumber": 402
+        },
+        {
+          "caller": "max_encoding_message_size",
+          "callee": "Some",
+          "lineNumber": 410
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "Poll::Ready",
+          "lineNumber": 427
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "Ok",
+          "lineNumber": 427
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 430
+        },
+        {
+          "caller": "call",
+          "callee": "req.uri().path",
+          "lineNumber": 431
+        },
+        {
+          "caller": "call",
+          "callee": "req.uri",
+          "lineNumber": 431
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 446
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Server>::get_feature",
+          "lineNumber": 448
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 450
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 457
+        },
+        {
+          "caller": "call",
+          "callee": "GetFeatureSvc",
+          "lineNumber": 460
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 461
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 462
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 462
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 462
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 471
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 472
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 474
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 492
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Server>::report_action",
+          "lineNumber": 494
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 496
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 503
+        },
+        {
+          "caller": "call",
+          "callee": "ReportActionSvc",
+          "lineNumber": 506
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 507
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 508
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 508
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 508
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 517
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 518
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 520
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 538
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Server>::report_taxi_action",
+          "lineNumber": 540
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 542
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 549
+        },
+        {
+          "caller": "call",
+          "callee": "ReportTaxiActionSvc",
+          "lineNumber": 552
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 553
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 554
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 554
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 554
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 563
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 564
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 566
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 584
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Server>::get_taxi_amount",
+          "lineNumber": 586
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 588
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 595
+        },
+        {
+          "caller": "call",
+          "callee": "GetTaxiAmountSvc",
+          "lineNumber": 598
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 599
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 600
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 600
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 600
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 609
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 610
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 612
+        },
+        {
+          "caller": "call",
+          "callee": "Arc::clone",
+          "lineNumber": 630
+        },
+        {
+          "caller": "call",
+          "callee": "<T as Server>::start_training",
+          "lineNumber": 632
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 634
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 641
+        },
+        {
+          "caller": "call",
+          "callee": "StartTrainingSvc",
+          "lineNumber": 644
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::codec::ProstCodec::default",
+          "lineNumber": 645
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec)\n                            .apply_compression_config(\n                                accept_compression_encodings,\n                                send_compression_encodings,\n                            ).apply_max_message_size_config",
+          "lineNumber": 646
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new(codec).apply_compression_config",
+          "lineNumber": 646
+        },
+        {
+          "caller": "call",
+          "callee": "tonic::server::Grpc::new",
+          "lineNumber": 646
+        },
+        {
+          "caller": "call",
+          "callee": "grpc.unary",
+          "lineNumber": 655
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 656
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 658
+        },
+        {
+          "caller": "call",
+          "callee": "Box::pin",
+          "lineNumber": 661
+        },
+        {
+          "caller": "call",
+          "callee": "Ok",
+          "lineNumber": 662
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200)\n                                .header(\"grpc-status\", \"12\")\n                                .header(\"content-type\", \"application/grpc\")\n                                .body(empty_body()).unwrap",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200)\n                                .header(\"grpc-status\", \"12\")\n                                .header(\"content-type\", \"application/grpc\").body",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200)\n                                .header(\"grpc-status\", \"12\").header",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder()\n                                .status(200).header",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder().status",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "http::Response::builder",
+          "lineNumber": 663
+        },
+        {
+          "caller": "call",
+          "callee": "empty_body",
+          "lineNumber": 667
+        },
+        {
+          "caller": "clone",
+          "callee": "self.inner.clone",
+          "lineNumber": 677
+        },
+        {
+          "caller": "clone",
+          "callee": "Self",
+          "lineNumber": 689
+        },
+        {
+          "caller": "clone",
+          "callee": "Arc::clone",
+          "lineNumber": 689
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 0,
+        "classCount": 10
+      }
+    },
+    {
+      "path": "integration_tests/feature-store/server/src/serving.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 69,
+      "functions": [
+        {
+          "name": "get_mfa_feature_from_rw",
+          "startLine": 17,
+          "endLine": 41,
+          "params": [
+            "userid"
+          ]
+        },
+        {
+          "name": "do_training",
+          "startLine": 43,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "get_taxi_amount",
+          "startLine": 56,
+          "endLine": 73,
+          "params": [
+            "do_location_id",
+            "pu_location_id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_mfa_feature_from_rw",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "do_training",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "get_taxi_amount",
+          "line": 56,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "tokio_postgres::connect(&con, NoTls).await.unwrap",
+          "lineNumber": 19
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "tokio_postgres::connect",
+          "lineNumber": 19
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "tokio::spawn",
+          "lineNumber": 20
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "client\n            .query(GET_COUNT_SQL, &[&userid.clone()])\n            .await.unwrap",
+          "lineNumber": 25
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "client.query",
+          "lineNumber": 25
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "userid.clone",
+          "lineNumber": 26
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "client.query(GET_SUM_SQL, &[&userid.clone()]).await.unwrap",
+          "lineNumber": 29
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "client.query",
+          "lineNumber": 29
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "userid.clone",
+          "lineNumber": 29
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "data_count.len",
+          "lineNumber": 30
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "data_count[0].get",
+          "lineNumber": 33
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "data_sum.len",
+          "lineNumber": 35
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "data_sum[0].get",
+          "lineNumber": 38
+        },
+        {
+          "caller": "get_mfa_feature_from_rw",
+          "callee": "Ok",
+          "lineNumber": 40
+        },
+        {
+          "caller": "do_training",
+          "callee": "ModelClient::connect(\"http://localhost:8080\")\n            .await.expect",
+          "lineNumber": 45
+        },
+        {
+          "caller": "do_training",
+          "callee": "ModelClient::connect",
+          "lineNumber": 45
+        },
+        {
+          "caller": "do_training",
+          "callee": "model_client.training",
+          "lineNumber": 49
+        },
+        {
+          "caller": "do_training",
+          "callee": "Ok",
+          "lineNumber": 51
+        },
+        {
+          "caller": "do_training",
+          "callee": "Response::new",
+          "lineNumber": 51
+        },
+        {
+          "caller": "do_training",
+          "callee": "Err",
+          "lineNumber": 52
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "ModelClient::connect(\"http://localhost:8080\")\n            .await.expect",
+          "lineNumber": 65
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "ModelClient::connect",
+          "lineNumber": 65
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "model_client.get_amount",
+          "lineNumber": 68
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "Ok",
+          "lineNumber": 70
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "resp.into_inner",
+          "lineNumber": 70
+        },
+        {
+          "caller": "get_taxi_amount",
+          "callee": "Err",
+          "lineNumber": 71
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    }
+  ]
+}

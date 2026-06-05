@@ -1,0 +1,56 @@
+{
+  "nodes": [
+    {
+      "id": "config:src/sqlparser/Cargo.toml",
+      "type": "config",
+      "name": "Cargo.toml",
+      "filePath": "src/sqlparser/Cargo.toml",
+      "summary": "Cargo manifest for the sqlparser crate, RisingWave's SQL parser forked from Apache Arrow DataFusion, producing both a library and a fuzz-testing binary.",
+      "tags": ["configuration", "build-system", "sql-parser", "rust-crate"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:src/sqlparser/LICENSE.TXT",
+      "type": "document",
+      "name": "LICENSE.TXT",
+      "filePath": "src/sqlparser/LICENSE.TXT",
+      "summary": "Apache License 2.0 license text for the sqlparser crate, reflecting its origin as a fork of the open-source SQL parser library.",
+      "tags": ["documentation", "license"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:src/sqlparser/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "src/sqlparser/README.md",
+      "summary": "Brief README for the RisingWave SQL parser crate with a note on how to add new YAML-based parser test cases.",
+      "tags": ["documentation", "sql-parser", "testing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:src/sqlparser/sqlparser_test.toml",
+      "type": "config",
+      "name": "sqlparser_test.toml",
+      "filePath": "src/sqlparser/sqlparser_test.toml",
+      "summary": "Cargo Make task definition for the update-parser-test task that regenerates expected parser test output files.",
+      "tags": ["configuration", "testing", "automation", "sql-parser"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:src/sqlparser/README.md",
+      "target": "config:src/sqlparser/Cargo.toml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:src/sqlparser/README.md",
+      "target": "config:src/sqlparser/sqlparser_test.toml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

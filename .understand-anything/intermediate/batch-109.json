@@ -1,0 +1,198 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/connector/codec/tests/integration_tests/avro.rs",
+      "type": "file",
+      "name": "avro.rs",
+      "filePath": "src/connector/codec/tests/integration_tests/avro.rs",
+      "summary": "Integration tests for the Avro codec: validates schema-to-RisingWave field mapping and binary datum parsing across simple types, nullable unions, complex unions, and map handling.",
+      "tags": ["test", "serialization"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/connector/codec/tests/integration_tests/json.rs",
+      "type": "file",
+      "name": "json.rs",
+      "filePath": "src/connector/codec/tests/integration_tests/json.rs",
+      "summary": "Integration tests for JSON schema parsing: validates that a complex JSON Schema is correctly mapped to RisingWave column definitions, including recursive and additionalProperties types.",
+      "tags": ["test", "serialization"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/connector/codec/tests/integration_tests/main.rs",
+      "type": "file",
+      "name": "main.rs",
+      "filePath": "src/connector/codec/tests/integration_tests/main.rs",
+      "summary": "Entry point for the connector codec integration test binary, declaring test modules for avro, json, protobuf, and utils.",
+      "tags": ["entry-point", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/connector/codec/tests/integration_tests/protobuf.rs",
+      "type": "file",
+      "name": "protobuf.rs",
+      "filePath": "src/connector/codec/tests/integration_tests/protobuf.rs",
+      "summary": "Integration tests for the Protobuf codec: validates message-to-RisingWave schema conversion and binary decoding for simple, complex, Any-typed, all-types, and recursive schemas.",
+      "tags": ["test", "serialization"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/connector/codec/tests/integration_tests/utils.rs",
+      "type": "file",
+      "name": "utils.rs",
+      "filePath": "src/connector/codec/tests/integration_tests/utils.rs",
+      "summary": "Provides newtype wrapper Display implementations (`DataTypeTestDisplay`, `ScalarRefImplTestDisplay`, `FieldTestDisplay`, etc.) that produce deterministic, human-readable output for test assertion snapshots.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/connector/codec/tests/integration_tests/avro.rs:check",
+      "type": "function",
+      "name": "check",
+      "filePath": "src/connector/codec/tests/integration_tests/avro.rs",
+      "lineRange": [69, 116],
+      "summary": "Test helper that converts an Avro schema string and encoded datum to RisingWave rows, asserting both schema fields and decoded data against expected snapshot strings.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/connector/codec/tests/integration_tests/avro.rs:test_union",
+      "type": "function",
+      "name": "test_union",
+      "filePath": "src/connector/codec/tests/integration_tests/avro.rs",
+      "lineRange": [551, 861],
+      "summary": "Comprehensive test for Avro union type handling covering named records in unions, nested unions, and optional variants across multiple schema permutations.",
+      "tags": ["test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/connector/codec/tests/integration_tests/json.rs:test_json_schema_parse",
+      "type": "function",
+      "name": "test_json_schema_parse",
+      "filePath": "src/connector/codec/tests/integration_tests/json.rs",
+      "lineRange": [23, 230],
+      "summary": "Tests JSON Schema parsing against a complex schema with $ref definitions, recursive types, and additionalProperties, asserting column output matches a reference snapshot.",
+      "tags": ["test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/connector/codec/tests/integration_tests/protobuf.rs:check",
+      "type": "function",
+      "name": "check",
+      "filePath": "src/connector/codec/tests/integration_tests/protobuf.rs",
+      "lineRange": [36, 87],
+      "summary": "Test helper that converts a Protobuf MessageDescriptor and binary data to RisingWave rows, asserting schema and decoded data against expected snapshot strings.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/connector/codec/tests/integration_tests/protobuf.rs:load_message_descriptor",
+      "type": "function",
+      "name": "load_message_descriptor",
+      "filePath": "src/connector/codec/tests/integration_tests/protobuf.rs",
+      "lineRange": [89, 110],
+      "summary": "Loads a Protobuf message descriptor from a test data `.proto` or pre-compiled descriptor file, compiles it if necessary, and returns the matching MessageDescriptor.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/connector/codec/tests/integration_tests/protobuf.rs:test_any_schema",
+      "type": "function",
+      "name": "test_any_schema",
+      "filePath": "src/connector/codec/tests/integration_tests/protobuf.rs",
+      "lineRange": [207, 502],
+      "summary": "Tests Protobuf google.protobuf.Any field handling in RisingWave: validates schema mapping and decoding for three Any payloads including an invalid encoding case.",
+      "tags": ["test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/connector/codec/tests/integration_tests/protobuf.rs:test_all_types",
+      "type": "function",
+      "name": "test_all_types",
+      "filePath": "src/connector/codec/tests/integration_tests/protobuf.rs",
+      "lineRange": [505, 711],
+      "summary": "Comprehensive test encoding and decoding an AllTypes Protobuf message containing all scalar, wrapper, map, enum, oneof, and nested message field types.",
+      "tags": ["test"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/main.rs",
+      "target": "file:src/connector/codec/tests/integration_tests/avro.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/main.rs",
+      "target": "file:src/connector/codec/tests/integration_tests/json.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/main.rs",
+      "target": "file:src/connector/codec/tests/integration_tests/protobuf.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/main.rs",
+      "target": "file:src/connector/codec/tests/integration_tests/utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/avro.rs",
+      "target": "function:src/connector/codec/tests/integration_tests/avro.rs:check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/avro.rs",
+      "target": "function:src/connector/codec/tests/integration_tests/avro.rs:test_union",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/json.rs",
+      "target": "function:src/connector/codec/tests/integration_tests/json.rs:test_json_schema_parse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/protobuf.rs",
+      "target": "function:src/connector/codec/tests/integration_tests/protobuf.rs:check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/protobuf.rs",
+      "target": "function:src/connector/codec/tests/integration_tests/protobuf.rs:load_message_descriptor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/protobuf.rs",
+      "target": "function:src/connector/codec/tests/integration_tests/protobuf.rs:test_any_schema",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/connector/codec/tests/integration_tests/protobuf.rs",
+      "target": "function:src/connector/codec/tests/integration_tests/protobuf.rs:test_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

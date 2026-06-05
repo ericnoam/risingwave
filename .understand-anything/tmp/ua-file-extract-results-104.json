@@ -1,0 +1,1749 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/storage/compactor/src/compactor_observer/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/storage/compactor/src/compactor_observer/observer_manager.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 113,
+      "nonEmptyLines": 102,
+      "functions": [
+        {
+          "name": "subscribe_type",
+          "startLine": 31,
+          "endLine": 33,
+          "params": []
+        },
+        {
+          "name": "handle_notification",
+          "startLine": 35,
+          "endLine": 69,
+          "params": [
+            "resp"
+          ]
+        },
+        {
+          "name": "handle_initialization_notification",
+          "startLine": 71,
+          "endLine": 79,
+          "params": [
+            "resp"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 83,
+          "endLine": 92,
+          "params": [
+            "compaction_catalog_manager",
+            "system_params_manager"
+          ]
+        },
+        {
+          "name": "handle_catalog_snapshot",
+          "startLine": 94,
+          "endLine": 97,
+          "params": [
+            "tables"
+          ]
+        },
+        {
+          "name": "handle_catalog_notification",
+          "startLine": 99,
+          "endLine": 112,
+          "params": [
+            "operation",
+            "table_catalog"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CompactorObserverNode",
+          "startLine": 24,
+          "endLine": 28,
+          "methods": [
+            "subscribe_type",
+            "handle_notification",
+            "handle_initialization_notification",
+            "new",
+            "handle_catalog_snapshot",
+            "handle_catalog_notification"
+          ],
+          "properties": [
+            "compaction_catalog_manager",
+            "system_params_manager",
+            "version"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CompactorObserverNode",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 83,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "handle_notification",
+          "callee": "resp.info.as_ref",
+          "lineNumber": 36
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "info.to_owned",
+          "lineNumber": 40
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "object.object_info.unwrap",
+          "lineNumber": 43
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "self.handle_catalog_notification",
+          "lineNumber": 45
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "resp.operation",
+          "lineNumber": 45
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "self.system_params_manager.try_set_params",
+          "lineNumber": 60
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "LicenseManager::get().update_cluster_resource",
+          "lineNumber": 63
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "LicenseManager::get",
+          "lineNumber": 63
+        },
+        {
+          "caller": "handle_initialization_notification",
+          "callee": "self.handle_catalog_snapshot",
+          "lineNumber": 75
+        },
+        {
+          "caller": "handle_initialization_notification",
+          "callee": "snapshot.version.unwrap",
+          "lineNumber": 76
+        },
+        {
+          "caller": "handle_initialization_notification",
+          "callee": "LicenseManager::get().update_cluster_resource",
+          "lineNumber": 78
+        },
+        {
+          "caller": "handle_initialization_notification",
+          "callee": "LicenseManager::get",
+          "lineNumber": 78
+        },
+        {
+          "caller": "handle_initialization_notification",
+          "callee": "snapshot.cluster_resource.unwrap",
+          "lineNumber": 78
+        },
+        {
+          "caller": "handle_catalog_snapshot",
+          "callee": "self.compaction_catalog_manager.sync",
+          "lineNumber": 95
+        },
+        {
+          "caller": "handle_catalog_snapshot",
+          "callee": "tables.into_iter().map(|t| (t.id, t)).collect",
+          "lineNumber": 96
+        },
+        {
+          "caller": "handle_catalog_snapshot",
+          "callee": "tables.into_iter().map",
+          "lineNumber": 96
+        },
+        {
+          "caller": "handle_catalog_snapshot",
+          "callee": "tables.into_iter",
+          "lineNumber": 96
+        },
+        {
+          "caller": "handle_catalog_notification",
+          "callee": "self.compaction_catalog_manager.update",
+          "lineNumber": 102
+        },
+        {
+          "caller": "handle_catalog_notification",
+          "callee": "self.compaction_catalog_manager.remove",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/storage/compactor/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 226,
+      "nonEmptyLines": 186,
+      "functions": [
+        {
+          "name": "name",
+          "startLine": 126,
+          "endLine": 128,
+          "params": []
+        },
+        {
+          "name": "meta_addr",
+          "startLine": 130,
+          "endLine": 132,
+          "params": []
+        },
+        {
+          "name": "start",
+          "startLine": 138,
+          "endLine": 210,
+          "params": [
+            "opts",
+            "shutdown"
+          ]
+        },
+        {
+          "name": "default_compactor_total_memory_bytes",
+          "startLine": 212,
+          "endLine": 214,
+          "params": []
+        },
+        {
+          "name": "default_compactor_meta_cache_memory_bytes",
+          "startLine": 216,
+          "endLine": 218,
+          "params": []
+        },
+        {
+          "name": "default_rpc_max_decoding_message_size_bytes",
+          "startLine": 220,
+          "endLine": 222,
+          "params": []
+        },
+        {
+          "name": "default_rpc_max_encoding_message_size_bytes",
+          "startLine": 224,
+          "endLine": 226,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CompactorMode",
+          "startLine": 29,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "Dedicated",
+            "Shared",
+            "DedicatedIceberg",
+            "SharedIceberg"
+          ]
+        },
+        {
+          "name": "CompactorOpts",
+          "startLine": 50,
+          "endLine": 123,
+          "methods": [
+            "name",
+            "meta_addr"
+          ],
+          "properties": [
+            "listen_addr",
+            "advertise_addr",
+            "port",
+            "prometheus_listener_addr",
+            "meta_address",
+            "compaction_worker_threads_number",
+            "config_path",
+            "metrics_level",
+            "async_stack_trace",
+            "heap_profiling_dir",
+            "compactor_mode",
+            "proxy_rpc_endpoint",
+            "compactor_total_memory_bytes",
+            "compactor_meta_cache_memory_bytes",
+            "rpc_max_decoding_message_size_bytes",
+            "rpc_max_encoding_message_size_bytes"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CompactorMode",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "CompactorOpts",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 138,
+          "isDefault": false
+        },
+        {
+          "name": "default_compactor_total_memory_bytes",
+          "line": 212,
+          "isDefault": false
+        },
+        {
+          "name": "default_compactor_meta_cache_memory_bytes",
+          "line": 216,
+          "isDefault": false
+        },
+        {
+          "name": "default_rpc_max_decoding_message_size_bytes",
+          "line": 220,
+          "isDefault": false
+        },
+        {
+          "name": "default_rpc_max_encoding_message_size_bytes",
+          "line": 224,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "meta_addr",
+          "callee": "self.meta_address.clone",
+          "lineNumber": 131
+        },
+        {
+          "caller": "start",
+          "callee": "Box::pin",
+          "lineNumber": 145
+        },
+        {
+          "caller": "start",
+          "callee": "opts.listen_addr.parse().unwrap",
+          "lineNumber": 149
+        },
+        {
+          "caller": "start",
+          "callee": "opts.listen_addr.parse",
+          "lineNumber": 149
+        },
+        {
+          "caller": "start",
+          "callee": "Box::pin",
+          "lineNumber": 151
+        },
+        {
+          "caller": "start",
+          "callee": "shared_compactor_serve",
+          "lineNumber": 151
+        },
+        {
+          "caller": "start",
+          "callee": "Box::pin",
+          "lineNumber": 153
+        },
+        {
+          "caller": "start",
+          "callee": "opts.listen_addr.parse().unwrap",
+          "lineNumber": 157
+        },
+        {
+          "caller": "start",
+          "callee": "opts.listen_addr.parse",
+          "lineNumber": 157
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n                .advertise_addr\n                .as_ref()\n                .unwrap_or_else(|| {\n                    tracing::warn!(\"advertise addr is not specified, defaulting to listen address\");\n                    &opts.listen_addr\n                })\n                .parse().unwrap",
+          "lineNumber": 159
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n                .advertise_addr\n                .as_ref()\n                .unwrap_or_else(|| {\n                    tracing::warn!(\"advertise addr is not specified, defaulting to listen address\");\n                    &opts.listen_addr\n                }).parse",
+          "lineNumber": 159
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n                .advertise_addr\n                .as_ref().unwrap_or_else",
+          "lineNumber": 159
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n                .advertise_addr.as_ref",
+          "lineNumber": 159
+        },
+        {
+          "caller": "start",
+          "callee": "Box::pin",
+          "lineNumber": 170
+        },
+        {
+          "caller": "start",
+          "callee": "compactor_serve",
+          "lineNumber": 170
+        },
+        {
+          "caller": "start",
+          "callee": "Box::pin",
+          "lineNumber": 180
+        },
+        {
+          "caller": "start",
+          "callee": "opts.listen_addr.parse().unwrap",
+          "lineNumber": 184
+        },
+        {
+          "caller": "start",
+          "callee": "opts.listen_addr.parse",
+          "lineNumber": 184
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n                .advertise_addr\n                .as_ref()\n                .unwrap_or_else(|| {\n                    tracing::warn!(\"advertise addr is not specified, defaulting to listen address\");\n                    &opts.listen_addr\n                })\n                .parse().unwrap",
+          "lineNumber": 186
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n                .advertise_addr\n                .as_ref()\n                .unwrap_or_else(|| {\n                    tracing::warn!(\"advertise addr is not specified, defaulting to listen address\");\n                    &opts.listen_addr\n                }).parse",
+          "lineNumber": 186
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n                .advertise_addr\n                .as_ref().unwrap_or_else",
+          "lineNumber": 186
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n                .advertise_addr.as_ref",
+          "lineNumber": 186
+        },
+        {
+          "caller": "start",
+          "callee": "Box::pin",
+          "lineNumber": 197
+        },
+        {
+          "caller": "start",
+          "callee": "compactor_serve",
+          "lineNumber": 197
+        },
+        {
+          "caller": "default_compactor_total_memory_bytes",
+          "callee": "system_memory_available_bytes",
+          "lineNumber": 213
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/storage/compactor/src/rpc.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 165,
+      "nonEmptyLines": 152,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 39,
+          "endLine": 43,
+          "params": [
+            "sender"
+          ]
+        },
+        {
+          "name": "echo",
+          "startLine": 47,
+          "endLine": 49,
+          "params": [
+            "_request"
+          ]
+        },
+        {
+          "name": "dispatch_compaction_task",
+          "startLine": 51,
+          "endLine": 70,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 80,
+          "endLine": 88,
+          "params": [
+            "await_tree_reg",
+            "server_config"
+          ]
+        },
+        {
+          "name": "stack_trace",
+          "startLine": 93,
+          "endLine": 109,
+          "params": [
+            "_request"
+          ]
+        },
+        {
+          "name": "profiling",
+          "startLine": 111,
+          "endLine": 116,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "heap_profiling",
+          "startLine": 118,
+          "endLine": 123,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "list_heap_profiling",
+          "startLine": 125,
+          "endLine": 130,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "analyze_heap",
+          "startLine": 132,
+          "endLine": 137,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "get_streaming_stats",
+          "startLine": 139,
+          "endLine": 146,
+          "params": [
+            "_request"
+          ]
+        },
+        {
+          "name": "tiered_cache_tracing",
+          "startLine": 148,
+          "endLine": 155,
+          "params": [
+            "_"
+          ]
+        },
+        {
+          "name": "get_profile_stats",
+          "startLine": 157,
+          "endLine": 164,
+          "params": [
+            "_request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CompactorServiceImpl",
+          "startLine": 35,
+          "endLine": 37,
+          "methods": [
+            "new",
+            "echo",
+            "dispatch_compaction_task"
+          ],
+          "properties": [
+            "sender"
+          ]
+        },
+        {
+          "name": "MonitorServiceImpl",
+          "startLine": 74,
+          "endLine": 77,
+          "methods": [
+            "new",
+            "stack_trace",
+            "profiling",
+            "heap_profiling",
+            "list_heap_profiling",
+            "analyze_heap",
+            "get_streaming_stats",
+            "tiered_cache_tracing",
+            "get_profile_stats"
+          ],
+          "properties": [
+            "await_tree_reg",
+            "profile_service"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CompactorServiceImpl",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "MonitorServiceImpl",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 80,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Some",
+          "lineNumber": 41
+        },
+        {
+          "caller": "echo",
+          "callee": "Ok",
+          "lineNumber": 48
+        },
+        {
+          "caller": "echo",
+          "callee": "Response::new",
+          "lineNumber": 48
+        },
+        {
+          "caller": "dispatch_compaction_task",
+          "callee": "self.sender.as_ref",
+          "lineNumber": 55
+        },
+        {
+          "caller": "dispatch_compaction_task",
+          "callee": "sender\n                    .send(request).expect",
+          "lineNumber": 57
+        },
+        {
+          "caller": "dispatch_compaction_task",
+          "callee": "sender.send",
+          "lineNumber": 57
+        },
+        {
+          "caller": "dispatch_compaction_task",
+          "callee": "Ok",
+          "lineNumber": 67
+        },
+        {
+          "caller": "dispatch_compaction_task",
+          "callee": "Response::new",
+          "lineNumber": 67
+        },
+        {
+          "caller": "new",
+          "callee": "ProfileServiceImpl::new",
+          "lineNumber": 86
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Default::default",
+          "lineNumber": 98
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "await_tree_reg\n                .collect::<Compaction>()\n                .into_iter()\n                .map(|(k, v)| (format!(\"{k:?}\"), v.to_string())).collect",
+          "lineNumber": 99
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "await_tree_reg\n                .collect::<Compaction>()\n                .into_iter().map",
+          "lineNumber": 99
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "await_tree_reg\n                .collect::<Compaction>().into_iter",
+          "lineNumber": 99
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "await_tree_reg\n                .collect::<Compaction>",
+          "lineNumber": 99
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "v.to_string",
+          "lineNumber": 102
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Ok",
+          "lineNumber": 105
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Response::new",
+          "lineNumber": 105
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Default::default",
+          "lineNumber": 107
+        },
+        {
+          "caller": "profiling",
+          "callee": "self.profile_service.profiling",
+          "lineNumber": 115
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "self.profile_service.heap_profiling",
+          "lineNumber": 122
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "self.profile_service.list_heap_profiling",
+          "lineNumber": 129
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "self.profile_service.analyze_heap",
+          "lineNumber": 136
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "Err",
+          "lineNumber": 143
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "Status::unimplemented",
+          "lineNumber": 143
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Err",
+          "lineNumber": 152
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Status::unimplemented",
+          "lineNumber": 152
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "Err",
+          "lineNumber": 161
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "Status::unimplemented",
+          "lineNumber": 161
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 12,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/storage/compactor/src/server.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 462,
+      "nonEmptyLines": 410,
+      "functions": [
+        {
+          "name": "prepare_start_parameters",
+          "startLine": 66,
+          "endLine": 183,
+          "params": [
+            "compactor_opts",
+            "config",
+            "system_params_reader"
+          ]
+        },
+        {
+          "name": "compactor_serve",
+          "startLine": 188,
+          "endLine": 355,
+          "params": [
+            "listen_addr",
+            "advertise_addr",
+            "opts",
+            "shutdown",
+            "compactor_mode"
+          ]
+        },
+        {
+          "name": "shared_compactor_serve",
+          "startLine": 360,
+          "endLine": 462,
+          "params": [
+            "listen_addr",
+            "opts",
+            "shutdown"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "prepare_start_parameters",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "compactor_serve",
+          "line": 188,
+          "isDefault": false
+        },
+        {
+          "name": "shared_compactor_serve",
+          "line": 360,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "Arc::new",
+          "lineNumber": 79
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "GLOBAL_OBJECT_STORE_METRICS.clone",
+          "lineNumber": 79
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "Arc::new",
+          "lineNumber": 80
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "GLOBAL_COMPACTOR_METRICS.clone",
+          "lineNumber": 80
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "system_params_reader.state_store",
+          "lineNumber": 82
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "extract_storage_memory_config",
+          "lineNumber": 84
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "Arc::new",
+          "lineNumber": 85
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "StorageOpts::from",
+          "lineNumber": 85
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "compactor_memory_limit_bytes.checked_sub(compactor_opts.compactor_meta_cache_memory_bytes).unwrap_or_else",
+          "lineNumber": 99
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "compactor_memory_limit_bytes.checked_sub",
+          "lineNumber": 99
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "build_remote_object_store",
+          "lineNumber": 127
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "state_store_url\n            .strip_prefix(\"hummock+\").expect",
+          "lineNumber": 128
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "state_store_url.strip_prefix",
+          "lineNumber": 128
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "Arc::new",
+          "lineNumber": 133
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "config.storage.object_store.clone",
+          "lineNumber": 133
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "Arc::new",
+          "lineNumber": 137
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "Arc::new",
+          "lineNumber": 138
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "SstableStore::for_compactor(\n            object_store,\n            storage_opts.data_directory.clone(),\n            0,\n            meta_cache_capacity_bytes,\n            system_params_reader.use_new_object_prefix_strategy(),\n        )\n        .await.unwrap",
+          "lineNumber": 139
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "SstableStore::for_compactor",
+          "lineNumber": 139
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "storage_opts.data_directory.clone",
+          "lineNumber": 141
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "system_params_reader.use_new_object_prefix_strategy",
+          "lineNumber": 144
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "Arc::new",
+          "lineNumber": 151
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "MemoryLimiter::new",
+          "lineNumber": 151
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "extract_storage_memory_config",
+          "lineNumber": 152
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "Arc::new",
+          "lineNumber": 153
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "HummockMemoryCollector::new",
+          "lineNumber": 153
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "sstable_store.clone",
+          "lineNumber": 154
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "memory_limiter.clone",
+          "lineNumber": 155
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "HeapProfiler::new",
+          "lineNumber": 159
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "system_memory_available_bytes",
+          "lineNumber": 160
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "config.server.heap_profiling.clone",
+          "lineNumber": 161
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "monitor_cache",
+          "lineNumber": 164
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "await_tree::ConfigBuilder::default()\n            .verbose(c.is_verbose().unwrap())\n            .build().ok",
+          "lineNumber": 168
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "await_tree::ConfigBuilder::default()\n            .verbose(c.is_verbose().unwrap()).build",
+          "lineNumber": 168
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "await_tree::ConfigBuilder::default().verbose",
+          "lineNumber": 168
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "await_tree::ConfigBuilder::default",
+          "lineNumber": 168
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "c.is_verbose().unwrap",
+          "lineNumber": 169
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "c.is_verbose",
+          "lineNumber": 169
+        },
+        {
+          "caller": "prepare_start_parameters",
+          "callee": "await_tree_config.map",
+          "lineNumber": 173
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "load_config",
+          "lineNumber": 195
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Arc::new",
+          "lineNumber": 209
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "CompactionExecutor::new",
+          "lineNumber": 209
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "(compaction_executor.worker_num() as f32\n        * config.storage.compactor_max_task_multiplier).ceil",
+          "lineNumber": 213
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "compaction_executor.worker_num",
+          "lineNumber": 213
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "MetaClient::register_new",
+          "lineNumber": 218
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "opts.meta_address.clone",
+          "lineNumber": 219
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Default::default",
+          "lineNumber": 225
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Arc::new",
+          "lineNumber": 227
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "config.meta.clone",
+          "lineNumber": 227
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Arc::new",
+          "lineNumber": 233
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "GLOBAL_HUMMOCK_METRICS.clone",
+          "lineNumber": 233
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Arc::new",
+          "lineNumber": 235
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "MonitoredHummockMetaClient::new",
+          "lineNumber": 235
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "meta_client.clone",
+          "lineNumber": 236
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "hummock_metrics.clone",
+          "lineNumber": 237
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Box::pin",
+          "lineNumber": 247
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "prepare_start_parameters",
+          "lineNumber": 247
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "config.clone",
+          "lineNumber": 249
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "system_params_reader.clone",
+          "lineNumber": 250
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Arc::new",
+          "lineNumber": 254
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "CompactionCatalogManager::new",
+          "lineNumber": 254
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Box::new",
+          "lineNumber": 254
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "RemoteTableAccessor::new",
+          "lineNumber": 255
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "meta_client.clone",
+          "lineNumber": 255
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Arc::new",
+          "lineNumber": 258
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "LocalSystemParamsManager::new",
+          "lineNumber": 258
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "CompactorObserverNode::new",
+          "lineNumber": 259
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "compaction_catalog_manager_ref.clone",
+          "lineNumber": 260
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "system_params_manager.clone",
+          "lineNumber": 261
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "ObserverManager::new_with_meta_client",
+          "lineNumber": 264
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "meta_client.clone",
+          "lineNumber": 264
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "heap_profiler.start",
+          "lineNumber": 267
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "observer_manager.start",
+          "lineNumber": 271
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Arc::new",
+          "lineNumber": 273
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "ObjectIdManager::new",
+          "lineNumber": 273
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "hummock_meta_client.clone",
+          "lineNumber": 274
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "sstable_store.clone",
+          "lineNumber": 280
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Default::default",
+          "lineNumber": 285
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "await_tree_reg.clone",
+          "lineNumber": 286
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "TelemetryManager::new",
+          "lineNumber": 313
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Arc::new",
+          "lineNumber": 314
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "meta_client.clone",
+          "lineNumber": 314
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "Arc::new",
+          "lineNumber": 315
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "CompactorTelemetryCreator::new",
+          "lineNumber": 315
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "telemetry_env_enabled",
+          "lineNumber": 319
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "sub_tasks.push",
+          "lineNumber": 320
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "telemetry_manager.start",
+          "lineNumber": 320
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "CompactorServiceImpl::default",
+          "lineNumber": 325
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "MonitorServiceImpl::new",
+          "lineNumber": 326
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "config.server.clone",
+          "lineNumber": 326
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "tonic::transport::Server::builder()\n        .add_service(CompactorServiceServer::new(compactor_srv))\n        .add_service(configured_monitor_service_server(\n            MonitorServiceServer::new(monitor_srv),\n        )).monitored_serve_with_shutdown",
+          "lineNumber": 327
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "tonic::transport::Server::builder()\n        .add_service(CompactorServiceServer::new(compactor_srv)).add_service",
+          "lineNumber": 327
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "tonic::transport::Server::builder().add_service",
+          "lineNumber": 327
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "tonic::transport::Server::builder",
+          "lineNumber": 327
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "CompactorServiceServer::new",
+          "lineNumber": 328
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "configured_monitor_service_server",
+          "lineNumber": 329
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "MonitorServiceServer::new",
+          "lineNumber": 330
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "shutdown.clone().cancelled_owned",
+          "lineNumber": 339
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "shutdown.clone",
+          "lineNumber": 339
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "tokio::spawn",
+          "lineNumber": 341
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "MetricsManager::boot_metrics_service",
+          "lineNumber": 345
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "opts.prometheus_listener_addr.clone",
+          "lineNumber": 345
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "meta_client.activate(&advertise_addr).await.unwrap",
+          "lineNumber": 349
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "meta_client.activate",
+          "lineNumber": 349
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "shutdown.cancelled",
+          "lineNumber": 352
+        },
+        {
+          "caller": "compactor_serve",
+          "callee": "meta_client.try_unregister",
+          "lineNumber": 354
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "load_config",
+          "lineNumber": 365
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "GrpcCompactorProxyClient::new",
+          "lineNumber": 374
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "opts.proxy_rpc_endpoint.clone",
+          "lineNumber": 374
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "grpc_proxy_client\n        .get_system_params()\n        .await.expect",
+          "lineNumber": 375
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "grpc_proxy_client.get_system_params",
+          "lineNumber": 375
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "system_params_response.into_inner().params.unwrap",
+          "lineNumber": 379
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "system_params_response.into_inner",
+          "lineNumber": 379
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "Box::pin",
+          "lineNumber": 388
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "prepare_start_parameters",
+          "lineNumber": 388
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "config.clone",
+          "lineNumber": 390
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "system_params.into",
+          "lineNumber": 391
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "mpsc::unbounded_channel",
+          "lineNumber": 394
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "CompactorServiceImpl::new",
+          "lineNumber": 395
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "MonitorServiceImpl::new",
+          "lineNumber": 397
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "await_tree_reg.clone",
+          "lineNumber": 397
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "config.server.clone",
+          "lineNumber": 397
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "heap_profiler.start",
+          "lineNumber": 400
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "Arc::new",
+          "lineNumber": 402
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "CompactionExecutor::new",
+          "lineNumber": 402
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "Default::default",
+          "lineNumber": 412
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "risingwave_storage::hummock::compactor::start_shared_compactor",
+          "lineNumber": 418
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "opts\n        .rpc_max_encoding_message_size_bytes.unwrap_or",
+          "lineNumber": 424
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "default_rpc_max_encoding_message_size_bytes",
+          "lineNumber": 426
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "opts\n        .rpc_max_decoding_message_size_bytes.unwrap_or",
+          "lineNumber": 428
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "default_rpc_max_decoding_message_size_bytes",
+          "lineNumber": 430
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "tonic::transport::Server::builder()\n        .add_service(\n            CompactorServiceServer::new(compactor_srv)\n                .max_decoding_message_size(rpc_max_decoding_message_size_bytes)\n                .max_encoding_message_size(rpc_max_encoding_message_size_bytes),\n        )\n        .add_service(configured_monitor_service_server(\n            MonitorServiceServer::new(monitor_srv),\n        )).monitored_serve_with_shutdown",
+          "lineNumber": 432
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "tonic::transport::Server::builder()\n        .add_service(\n            CompactorServiceServer::new(compactor_srv)\n                .max_decoding_message_size(rpc_max_decoding_message_size_bytes)\n                .max_encoding_message_size(rpc_max_encoding_message_size_bytes),\n        ).add_service",
+          "lineNumber": 432
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "tonic::transport::Server::builder().add_service",
+          "lineNumber": 432
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "tonic::transport::Server::builder",
+          "lineNumber": 432
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "CompactorServiceServer::new(compactor_srv)\n                .max_decoding_message_size(rpc_max_decoding_message_size_bytes).max_encoding_message_size",
+          "lineNumber": 434
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "CompactorServiceServer::new(compactor_srv).max_decoding_message_size",
+          "lineNumber": 434
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "CompactorServiceServer::new",
+          "lineNumber": 434
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "configured_monitor_service_server",
+          "lineNumber": 438
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "MonitorServiceServer::new",
+          "lineNumber": 439
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "shutdown.clone().cancelled_owned",
+          "lineNumber": 448
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "shutdown.clone",
+          "lineNumber": 448
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "tokio::spawn",
+          "lineNumber": 451
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "MetricsManager::boot_metrics_service",
+          "lineNumber": 455
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "opts.prometheus_listener_addr.clone",
+          "lineNumber": 455
+        },
+        {
+          "caller": "shared_compactor_serve",
+          "callee": "shutdown.cancelled",
+          "lineNumber": 459
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/storage/compactor/src/telemetry.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 105,
+      "nonEmptyLines": 95,
+      "functions": [
+        {
+          "name": "report_event",
+          "startLine": 28,
+          "endLine": 45,
+          "params": [
+            "event_stage",
+            "event_name",
+            "catalog_id",
+            "connector_name",
+            "object",
+            "attributes"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 51,
+          "endLine": 53,
+          "params": []
+        },
+        {
+          "name": "create_report",
+          "startLine": 58,
+          "endLine": 69,
+          "params": [
+            "tracking_id",
+            "session_id",
+            "up_time"
+          ]
+        },
+        {
+          "name": "report_type",
+          "startLine": 71,
+          "endLine": 73,
+          "params": []
+        },
+        {
+          "name": "to_pb_bytes",
+          "startLine": 77,
+          "endLine": 82,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 92,
+          "endLine": 104,
+          "params": [
+            "tracking_id",
+            "session_id",
+            "up_time"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CompactorTelemetryCreator",
+          "startLine": 48,
+          "endLine": 48,
+          "methods": [
+            "new",
+            "create_report",
+            "report_type"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CompactorTelemetryReport",
+          "startLine": 86,
+          "endLine": 89,
+          "methods": [
+            "to_pb_bytes",
+            "new"
+          ],
+          "properties": [
+            "base"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "report_event",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "CompactorTelemetryCreator",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "CompactorTelemetryReport",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 92,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "report_event",
+          "callee": "report_event_common",
+          "lineNumber": 36
+        },
+        {
+          "caller": "report_event",
+          "callee": "TELEMETRY_COMPACTOR_REPORT_TYPE.to_owned",
+          "lineNumber": 43
+        },
+        {
+          "caller": "create_report",
+          "callee": "Ok",
+          "lineNumber": 64
+        },
+        {
+          "caller": "create_report",
+          "callee": "CompactorTelemetryReport::new",
+          "lineNumber": 64
+        },
+        {
+          "caller": "to_pb_bytes",
+          "callee": "Some",
+          "lineNumber": 79
+        },
+        {
+          "caller": "to_pb_bytes",
+          "callee": "self.base.into",
+          "lineNumber": 79
+        },
+        {
+          "caller": "to_pb_bytes",
+          "callee": "pb_report.encode_to_vec",
+          "lineNumber": 81
+        },
+        {
+          "caller": "new",
+          "callee": "SystemData::new",
+          "lineNumber": 97
+        },
+        {
+          "caller": "new",
+          "callee": "current_timestamp",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 6,
+        "classCount": 2
+      }
+    }
+  ]
+}

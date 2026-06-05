@@ -1,0 +1,80 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/redis-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/redis-sink/README.md",
+      "summary": "Getting-started guide for the RisingWave-to-Redis sink demo, covering setup steps, how to run the integration test, and expected outputs.",
+      "tags": ["documentation", "integration-test", "overview"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/redis-sink/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/redis-sink/create_source.sql",
+      "summary": "Defines two RisingWave source tables (user_behaviors and redis_types) used to feed the Redis sink integration test with rich type coverage.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "moderate",
+      "languageNotes": "Defines two sources covering an extensive set of types including arrays, JSONB, and nested structs to test Redis type serialization."
+    },
+    {
+      "id": "table:integration_tests/redis-sink/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/redis-sink/create_mv.sql",
+      "summary": "Creates a materialized view over the user_behaviors source to aggregate data before sinking to Redis.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/redis-sink/create_sink.sql",
+      "type": "table",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/redis-sink/create_sink.sql",
+      "summary": "Creates multiple Redis sink definitions exercising different modes (append-only, upsert, type coverage), connecting RisingWave materialized views to Redis.",
+      "tags": ["database", "sink", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:integration_tests/redis-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/redis-sink/docker-compose.yml",
+      "summary": "Docker Compose file spinning up RisingWave and Redis instances for the Redis sink connector integration test.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/redis-sink/README.md",
+      "target": "service:integration_tests/redis-sink/docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/redis-sink/docker-compose.yml",
+      "target": "table:integration_tests/redis-sink/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/redis-sink/docker-compose.yml",
+      "target": "table:integration_tests/redis-sink/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/redis-sink/docker-compose.yml",
+      "target": "table:integration_tests/redis-sink/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

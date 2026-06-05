@@ -1,0 +1,64 @@
+{
+  "nodes": [
+    {
+      "id": "table:integration_tests/superset/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/superset/create_source.sql",
+      "summary": "Defines the RisingWave source table for the Superset integration test, providing streaming data for BI visualization via Apache Superset.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/superset/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/superset/create_mv.sql",
+      "summary": "Creates a materialized view aggregating source data for visualization in Apache Superset during the integration test.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/superset/query.sql",
+      "type": "table",
+      "name": "query.sql",
+      "filePath": "integration_tests/superset/query.sql",
+      "summary": "Validation query executed against the materialized view to verify data availability in the Superset integration test.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/superset/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/superset/docker-compose.yml",
+      "summary": "Docker Compose file orchestrating RisingWave, Superset, Redis (Superset session store), and PostgreSQL (Superset metadata DB) for the BI integration test.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "complex",
+      "languageNotes": "Uses Superset extension anchors (x-superset-image, x-superset-depends-on, x-superset-volumes) to share config across multiple Superset service replicas."
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:integration_tests/superset/docker-compose.yml",
+      "target": "table:integration_tests/superset/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/superset/docker-compose.yml",
+      "target": "table:integration_tests/superset/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/superset/docker-compose.yml",
+      "target": "table:integration_tests/superset/query.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

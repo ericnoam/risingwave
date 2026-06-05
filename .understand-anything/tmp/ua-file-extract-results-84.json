@@ -1,0 +1,4608 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 17,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/compute/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 275,
+      "nonEmptyLines": 236,
+      "functions": [
+        {
+          "name": "name",
+          "startLine": 171,
+          "endLine": 173,
+          "params": []
+        },
+        {
+          "name": "meta_addr",
+          "startLine": 175,
+          "endLine": 177,
+          "params": []
+        },
+        {
+          "name": "for_streaming",
+          "startLine": 189,
+          "endLine": 195,
+          "params": []
+        },
+        {
+          "name": "for_serving",
+          "startLine": 197,
+          "endLine": 203,
+          "params": []
+        },
+        {
+          "name": "validate_opts",
+          "startLine": 206,
+          "endLine": 229,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "start",
+          "startLine": 234,
+          "endLine": 259,
+          "params": [
+            "opts",
+            "shutdown"
+          ]
+        },
+        {
+          "name": "default_total_memory_bytes",
+          "startLine": 261,
+          "endLine": 263,
+          "params": []
+        },
+        {
+          "name": "default_parallelism",
+          "startLine": 265,
+          "endLine": 267,
+          "params": []
+        },
+        {
+          "name": "default_resource_group",
+          "startLine": 269,
+          "endLine": 271,
+          "params": []
+        },
+        {
+          "name": "default_role",
+          "startLine": 273,
+          "endLine": 275,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ComputeNodeOpts",
+          "startLine": 54,
+          "endLine": 168,
+          "methods": [
+            "name",
+            "meta_addr"
+          ],
+          "properties": [
+            "listen_addr",
+            "advertise_addr",
+            "prometheus_listener_addr",
+            "meta_address",
+            "config_path",
+            "total_memory_bytes",
+            "reserved_memory_bytes",
+            "memory_manager_target_bytes",
+            "parallelism",
+            "resource_group",
+            "role",
+            "metrics_level",
+            "data_file_cache_dir",
+            "meta_file_cache_dir",
+            "async_stack_trace",
+            "heap_profiling_dir",
+            "connector_rpc_endpoint",
+            "temp_secret_file_dir"
+          ]
+        },
+        {
+          "name": "Role",
+          "startLine": 181,
+          "endLine": 186,
+          "methods": [
+            "for_streaming",
+            "for_serving"
+          ],
+          "properties": [
+            "Serving",
+            "Streaming",
+            "Both"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ComputeNodeOpts",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "Role",
+          "line": 181,
+          "isDefault": false
+        },
+        {
+          "name": "for_streaming",
+          "line": 189,
+          "isDefault": false
+        },
+        {
+          "name": "for_serving",
+          "line": 197,
+          "isDefault": false
+        },
+        {
+          "name": "start",
+          "line": 234,
+          "isDefault": false
+        },
+        {
+          "name": "default_total_memory_bytes",
+          "line": 261,
+          "isDefault": false
+        },
+        {
+          "name": "default_parallelism",
+          "line": 265,
+          "isDefault": false
+        },
+        {
+          "name": "default_resource_group",
+          "line": 269,
+          "isDefault": false
+        },
+        {
+          "name": "default_role",
+          "line": 273,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "meta_addr",
+          "callee": "self.meta_address.clone",
+          "lineNumber": 176
+        },
+        {
+          "caller": "validate_opts",
+          "callee": "system_memory_available_bytes",
+          "lineNumber": 207
+        },
+        {
+          "caller": "validate_opts",
+          "callee": "total_cpu_available().ceil",
+          "lineNumber": 221
+        },
+        {
+          "caller": "validate_opts",
+          "callee": "total_cpu_available",
+          "lineNumber": 221
+        },
+        {
+          "caller": "start",
+          "callee": "Box::pin",
+          "lineNumber": 240
+        },
+        {
+          "caller": "start",
+          "callee": "validate_opts",
+          "lineNumber": 242
+        },
+        {
+          "caller": "start",
+          "callee": "opts.listen_addr.parse().unwrap",
+          "lineNumber": 244
+        },
+        {
+          "caller": "start",
+          "callee": "opts.listen_addr.parse",
+          "lineNumber": 244
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n            .advertise_addr\n            .as_ref()\n            .unwrap_or_else(|| {\n                tracing::warn!(\"advertise addr is not specified, defaulting to listen_addr\");\n                &opts.listen_addr\n            })\n            .parse().unwrap",
+          "lineNumber": 246
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n            .advertise_addr\n            .as_ref()\n            .unwrap_or_else(|| {\n                tracing::warn!(\"advertise addr is not specified, defaulting to listen_addr\");\n                &opts.listen_addr\n            }).parse",
+          "lineNumber": 246
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n            .advertise_addr\n            .as_ref().unwrap_or_else",
+          "lineNumber": 246
+        },
+        {
+          "caller": "start",
+          "callee": "opts\n            .advertise_addr.as_ref",
+          "lineNumber": 246
+        },
+        {
+          "caller": "start",
+          "callee": "compute_node_serve",
+          "lineNumber": 257
+        },
+        {
+          "caller": "start",
+          "callee": "Arc::new",
+          "lineNumber": 257
+        },
+        {
+          "caller": "default_total_memory_bytes",
+          "callee": "system_memory_available_bytes",
+          "lineNumber": 262
+        },
+        {
+          "caller": "default_parallelism",
+          "callee": "total_cpu_available().ceil",
+          "lineNumber": 266
+        },
+        {
+          "caller": "default_parallelism",
+          "callee": "total_cpu_available",
+          "lineNumber": 266
+        },
+        {
+          "caller": "default_resource_group",
+          "callee": "DEFAULT_RESOURCE_GROUP.to_owned",
+          "lineNumber": 270
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 9,
+        "functionCount": 10,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/compute/src/memory/config.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 525,
+      "nonEmptyLines": 479,
+      "functions": [
+        {
+          "name": "reserve_memory_bytes",
+          "startLine": 52,
+          "endLine": 78,
+          "params": [
+            "opts"
+          ]
+        },
+        {
+          "name": "gradient_reserve_memory_bytes",
+          "startLine": 84,
+          "endLine": 103,
+          "params": [
+            "total_memory_bytes"
+          ]
+        },
+        {
+          "name": "storage_memory_config",
+          "startLine": 107,
+          "endLine": 375,
+          "params": [
+            "non_reserved_memory_bytes",
+            "embedded_compactor_enabled",
+            "storage_config",
+            "is_serving"
+          ]
+        },
+        {
+          "name": "batch_mem_limit",
+          "startLine": 377,
+          "endLine": 383,
+          "params": [
+            "compute_memory_bytes",
+            "is_serving_node"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "reserve_memory_bytes",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "gradient_reserve_memory_bytes",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "storage_memory_config",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "batch_mem_limit",
+          "line": 377,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "reserve_memory_bytes",
+          "callee": "opts\n        .reserved_memory_bytes.unwrap_or_else",
+          "lineNumber": 62
+        },
+        {
+          "caller": "reserve_memory_bytes",
+          "callee": "gradient_reserve_memory_bytes",
+          "lineNumber": 64
+        },
+        {
+          "caller": "reserve_memory_bytes",
+          "callee": "std::cmp::max",
+          "lineNumber": 67
+        },
+        {
+          "caller": "gradient_reserve_memory_bytes",
+          "callee": "RESERVED_MEMORY_LEVELS.len",
+          "lineNumber": 87
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "(non_reserved_memory_bytes as f64 * default_storage_memory_proportion).ceil",
+          "lineNumber": 127
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "(non_reserved_memory_bytes as f64 * STORAGE_MEMORY_MAX_PROPORTION).ceil",
+          "lineNumber": 129
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "storage_config.compactor_memory_limit_mb.unwrap_or",
+          "lineNumber": 131
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "(non_reserved_memory_bytes as f64 * default_compactor_memory_proportion).ceil",
+          "lineNumber": 132
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "Some",
+          "lineNumber": 176
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "Some",
+          "lineNumber": 177
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "Some",
+          "lineNumber": 178
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "(default_storage_memory_bytes * STORAGE_BLOCK_CACHE_MEMORY_PROPORTION).ceil",
+          "lineNumber": 192
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "(default_storage_memory_bytes * STORAGE_META_CACHE_MEMORY_PROPORTION).ceil",
+          "lineNumber": 195
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "config_meta_cache_capacity_mb.unwrap_or",
+          "lineNumber": 197
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "storage_config\n            .meta_cache_capacity_mb.unwrap_or",
+          "lineNumber": 199
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "storage_config\n        .prefetch_buffer_capacity_mb.unwrap_or",
+          "lineNumber": 204
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "default_block_cache_capacity_mb.saturating_sub",
+          "lineNumber": 211
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "(default_storage_memory_bytes * STORAGE_SHARED_BUFFER_MEMORY_PROPORTION).ceil",
+          "lineNumber": 215
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "config_shared_buffer_capacity_mb.unwrap_or",
+          "lineNumber": 217
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "std::cmp::min",
+          "lineNumber": 217
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "default_block_cache_capacity_mb.saturating_sub",
+          "lineNumber": 228
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "config_block_cache_capacity_mb.unwrap_or",
+          "lineNumber": 230
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "storage_config\n            .block_cache_capacity_mb.unwrap_or",
+          "lineNumber": 232
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "storage_config\n        .data_file_cache\n        .flush_buffer_threshold_mb.unwrap_or",
+          "lineNumber": 240
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "risingwave_common::config::storage::default::storage::block_file_cache_flush_buffer_threshold_mb",
+          "lineNumber": 244
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "storage_config\n        .meta_file_cache\n        .flush_buffer_threshold_mb.unwrap_or",
+          "lineNumber": 247
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "risingwave_common::config::storage::default::storage::meta_file_cache_flush_buffer_threshold_mb",
+          "lineNumber": 251
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "storage_config\n        .cache\n        .meta_cache_shard_num.unwrap_or_else",
+          "lineNumber": 269
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "storage_config\n        .cache\n        .block_cache_shard_num.unwrap_or_else",
+          "lineNumber": 281
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "EvictionConfig::Lru",
+          "lineNumber": 298
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "high_priority_ratio_in_percent.unwrap_or",
+          "lineNumber": 299
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "storage_config.high_priority_ratio_in_percent.unwrap_or",
+          "lineNumber": 301
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "risingwave_common::config::storage::default::storage::high_priority_ratio_in_percent",
+          "lineNumber": 302
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "EvictionConfig::Lfu",
+          "lineNumber": 312
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "window_capacity_ratio_in_percent.unwrap_or",
+          "lineNumber": 313
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "risingwave_common::config::storage::default::storage::window_capacity_ratio_in_percent",
+          "lineNumber": 314
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "protected_capacity_ratio_in_percent.unwrap_or",
+          "lineNumber": 317
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "risingwave_common::config::storage::default::storage::protected_capacity_ratio_in_percent",
+          "lineNumber": 318
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "cmsketch_eps.unwrap_or",
+          "lineNumber": 321
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "risingwave_common::config::storage::default::storage::cmsketch_eps",
+          "lineNumber": 322
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "cmsketch_confidence.unwrap_or",
+          "lineNumber": 323
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "risingwave_common::config::storage::default::storage::cmsketch_confidence",
+          "lineNumber": 324
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "EvictionConfig::S3Fifo",
+          "lineNumber": 330
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "small_queue_capacity_ratio_in_percent.unwrap_or",
+          "lineNumber": 331
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "risingwave_common::config::storage::default::storage::small_queue_capacity_ratio_in_percent",
+          "lineNumber": 332
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "ghost_queue_capacity_ratio_in_percent.unwrap_or",
+          "lineNumber": 336
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "risingwave_common::config::storage::default::storage::ghost_queue_capacity_ratio_in_percent",
+          "lineNumber": 337
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "small_to_main_freq_threshold.unwrap_or",
+          "lineNumber": 341
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "risingwave_common::config::storage::default::storage::small_to_main_freq_threshold",
+          "lineNumber": 342
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "get_eviction_config",
+          "lineNumber": 349
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "get_eviction_config",
+          "lineNumber": 350
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "get_eviction_config",
+          "lineNumber": 352
+        },
+        {
+          "caller": "storage_memory_config",
+          "callee": "get_eviction_config",
+          "lineNumber": 354
+        },
+        {
+          "caller": "test_reserve_memory_bytes",
+          "callee": "ComputeNodeOpts::parse_from",
+          "lineNumber": 397
+        },
+        {
+          "caller": "test_reserve_memory_bytes",
+          "callee": "reserve_memory_bytes",
+          "lineNumber": 399
+        },
+        {
+          "caller": "test_reserve_memory_bytes",
+          "callee": "ComputeNodeOpts::parse_from",
+          "lineNumber": 406
+        },
+        {
+          "caller": "test_reserve_memory_bytes",
+          "callee": "reserve_memory_bytes",
+          "lineNumber": 408
+        },
+        {
+          "caller": "test_reserve_memory_bytes",
+          "callee": "ComputeNodeOpts::parse_from",
+          "lineNumber": 415
+        },
+        {
+          "caller": "test_reserve_memory_bytes",
+          "callee": "Some",
+          "lineNumber": 417
+        },
+        {
+          "caller": "test_reserve_memory_bytes",
+          "callee": "reserve_memory_bytes",
+          "lineNumber": 418
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "StorageConfig::default",
+          "lineNumber": 426
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "storage_memory_config",
+          "lineNumber": 431
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "storage_memory_config",
+          "lineNumber": 443
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "\"data\".to_owned",
+          "lineNumber": 455
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "\"meta\".to_owned",
+          "lineNumber": 456
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "storage_memory_config",
+          "lineNumber": 457
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "Some",
+          "lineNumber": 469
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "Some",
+          "lineNumber": 470
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "Some",
+          "lineNumber": 471
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "Some",
+          "lineNumber": 472
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "storage_memory_config",
+          "lineNumber": 473
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "Some",
+          "lineNumber": 486
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "storage_memory_config",
+          "lineNumber": 487
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "Some",
+          "lineNumber": 500
+        },
+        {
+          "caller": "test_storage_memory_config",
+          "callee": "storage_memory_config",
+          "lineNumber": 501
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/compute/src/memory/controller.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 218,
+      "nonEmptyLines": 197,
+      "functions": [
+        {
+          "name": "from",
+          "startLine": 32,
+          "endLine": 39,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 87,
+          "endLine": 103,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "fmt",
+          "startLine": 107,
+          "endLine": 113,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "jemalloc_memory_stats",
+          "startLine": 124,
+          "endLine": 138,
+          "params": []
+        },
+        {
+          "name": "tick",
+          "startLine": 141,
+          "endLine": 217,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "LruEvictionPolicy",
+          "startLine": 24,
+          "endLine": 29,
+          "methods": [],
+          "properties": [
+            "None",
+            "Stable",
+            "Graceful",
+            "Aggressive"
+          ]
+        },
+        {
+          "name": "MemoryStats",
+          "startLine": 48,
+          "endLine": 53,
+          "methods": [],
+          "properties": [
+            "allocated",
+            "active",
+            "resident",
+            "metadata"
+          ]
+        },
+        {
+          "name": "LruWatermarkController",
+          "startLine": 72,
+          "endLine": 84,
+          "methods": [
+            "new",
+            "fmt",
+            "tick"
+          ],
+          "properties": [
+            "metrics",
+            "threshold_stable",
+            "threshold_graceful",
+            "threshold_aggressive",
+            "eviction_factor_stable",
+            "eviction_factor_graceful",
+            "eviction_factor_aggressive",
+            "watermark_sequence"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LruEvictionPolicy",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "MemoryStats",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "LruWatermarkController",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "tick",
+          "line": 141,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "config.metrics.clone",
+          "lineNumber": 94
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct(\"LruWatermarkController\")\n            .field(\"threshold_stable\", &self.threshold_stable)\n            .field(\"threshold_graceful\", &self.threshold_graceful)\n            .field(\"threshold_aggressive\", &self.threshold_aggressive).finish",
+          "lineNumber": 108
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct(\"LruWatermarkController\")\n            .field(\"threshold_stable\", &self.threshold_stable)\n            .field(\"threshold_graceful\", &self.threshold_graceful).field",
+          "lineNumber": 108
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct(\"LruWatermarkController\")\n            .field(\"threshold_stable\", &self.threshold_stable).field",
+          "lineNumber": 108
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct(\"LruWatermarkController\").field",
+          "lineNumber": 108
+        },
+        {
+          "caller": "fmt",
+          "callee": "f.debug_struct",
+          "lineNumber": 108
+        },
+        {
+          "caller": "jemalloc_memory_stats",
+          "callee": "tikv_jemalloc_ctl::epoch::advance",
+          "lineNumber": 125
+        },
+        {
+          "caller": "jemalloc_memory_stats",
+          "callee": "tikv_jemalloc_ctl::stats::allocated::read().unwrap",
+          "lineNumber": 128
+        },
+        {
+          "caller": "jemalloc_memory_stats",
+          "callee": "tikv_jemalloc_ctl::stats::allocated::read",
+          "lineNumber": 128
+        },
+        {
+          "caller": "jemalloc_memory_stats",
+          "callee": "tikv_jemalloc_ctl::stats::active::read().unwrap",
+          "lineNumber": 129
+        },
+        {
+          "caller": "jemalloc_memory_stats",
+          "callee": "tikv_jemalloc_ctl::stats::active::read",
+          "lineNumber": 129
+        },
+        {
+          "caller": "jemalloc_memory_stats",
+          "callee": "tikv_jemalloc_ctl::stats::resident::read().unwrap",
+          "lineNumber": 130
+        },
+        {
+          "caller": "jemalloc_memory_stats",
+          "callee": "tikv_jemalloc_ctl::stats::resident::read",
+          "lineNumber": 130
+        },
+        {
+          "caller": "jemalloc_memory_stats",
+          "callee": "tikv_jemalloc_ctl::stats::metadata::read().unwrap",
+          "lineNumber": 131
+        },
+        {
+          "caller": "jemalloc_memory_stats",
+          "callee": "tikv_jemalloc_ctl::stats::metadata::read",
+          "lineNumber": 131
+        },
+        {
+          "caller": "tick",
+          "callee": "jemalloc_memory_stats",
+          "lineNumber": 148
+        },
+        {
+          "caller": "tick",
+          "callee": "load_jvm_memory_stats",
+          "lineNumber": 149
+        },
+        {
+          "caller": "tick",
+          "callee": "cur_used_memory_bytes.saturating_sub",
+          "lineNumber": 165
+        },
+        {
+          "caller": "tick",
+          "callee": "cur_used_memory_bytes\n                .saturating_sub(self.threshold_graceful).min",
+          "lineNumber": 167
+        },
+        {
+          "caller": "tick",
+          "callee": "cur_used_memory_bytes.saturating_sub",
+          "lineNumber": 167
+        },
+        {
+          "caller": "tick",
+          "callee": "cur_used_memory_bytes\n                .saturating_sub(self.threshold_stable).min",
+          "lineNumber": 171
+        },
+        {
+          "caller": "tick",
+          "callee": "cur_used_memory_bytes.saturating_sub",
+          "lineNumber": 171
+        },
+        {
+          "caller": "tick",
+          "callee": "SEQUENCE_GLOBAL.load",
+          "lineNumber": 176
+        },
+        {
+          "caller": "tick",
+          "callee": "latest_sequence.min",
+          "lineNumber": 179
+        },
+        {
+          "caller": "tick",
+          "callee": "self.metrics.lru_latest_sequence.set",
+          "lineNumber": 191
+        },
+        {
+          "caller": "tick",
+          "callee": "self.metrics\n            .lru_watermark_sequence.set",
+          "lineNumber": 192
+        },
+        {
+          "caller": "tick",
+          "callee": "self.metrics\n            .lru_eviction_policy.set",
+          "lineNumber": 195
+        },
+        {
+          "caller": "tick",
+          "callee": "Into::<u8>::into",
+          "lineNumber": 197
+        },
+        {
+          "caller": "tick",
+          "callee": "self.metrics\n            .jemalloc_allocated_bytes.set",
+          "lineNumber": 199
+        },
+        {
+          "caller": "tick",
+          "callee": "self.metrics\n            .jemalloc_active_bytes.set",
+          "lineNumber": 202
+        },
+        {
+          "caller": "tick",
+          "callee": "self.metrics\n            .jemalloc_resident_bytes.set",
+          "lineNumber": 205
+        },
+        {
+          "caller": "tick",
+          "callee": "self.metrics\n            .jemalloc_metadata_bytes.set",
+          "lineNumber": 208
+        },
+        {
+          "caller": "tick",
+          "callee": "self.metrics\n            .jvm_allocated_bytes.set",
+          "lineNumber": 211
+        },
+        {
+          "caller": "tick",
+          "callee": "self.metrics.jvm_active_bytes.set",
+          "lineNumber": 214
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/compute/src/memory/manager.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 89,
+      "nonEmptyLines": 69,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 55,
+          "endLine": 64,
+          "params": [
+            "config"
+          ]
+        },
+        {
+          "name": "get_watermark_sequence",
+          "startLine": 66,
+          "endLine": 68,
+          "params": []
+        },
+        {
+          "name": "run",
+          "startLine": 70,
+          "endLine": 88,
+          "params": [
+            "self",
+            "interval"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MemoryManagerConfig",
+          "startLine": 24,
+          "endLine": 38,
+          "methods": [],
+          "properties": [
+            "target_memory",
+            "threshold_aggressive",
+            "threshold_graceful",
+            "threshold_stable",
+            "eviction_factor_stable",
+            "eviction_factor_graceful",
+            "eviction_factor_aggressive",
+            "metrics"
+          ]
+        },
+        {
+          "name": "MemoryManager",
+          "startLine": 41,
+          "endLine": 48,
+          "methods": [
+            "new",
+            "get_watermark_sequence",
+            "run"
+          ],
+          "properties": [
+            "watermark_sequence",
+            "metrics",
+            "controller"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MemoryManagerConfig",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "MemoryManager",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "get_watermark_sequence",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 70,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Mutex::new",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new",
+          "callee": "LruWatermarkController::new",
+          "lineNumber": 56
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 59
+        },
+        {
+          "caller": "new",
+          "callee": "Arc::new",
+          "lineNumber": 60
+        },
+        {
+          "caller": "new",
+          "callee": "0.into",
+          "lineNumber": 60
+        },
+        {
+          "caller": "get_watermark_sequence",
+          "callee": "self.watermark_sequence.clone",
+          "lineNumber": 67
+        },
+        {
+          "caller": "run",
+          "callee": "std::cmp::max",
+          "lineNumber": 72
+        },
+        {
+          "caller": "run",
+          "callee": "tokio::time::interval",
+          "lineNumber": 76
+        },
+        {
+          "caller": "run",
+          "callee": "tick_interval.tick",
+          "lineNumber": 79
+        },
+        {
+          "caller": "run",
+          "callee": "self.controller.lock().unwrap().tick",
+          "lineNumber": 81
+        },
+        {
+          "caller": "run",
+          "callee": "self.controller.lock().unwrap",
+          "lineNumber": 81
+        },
+        {
+          "caller": "run",
+          "callee": "self.controller.lock",
+          "lineNumber": 81
+        },
+        {
+          "caller": "run",
+          "callee": "self.watermark_sequence.store",
+          "lineNumber": 83
+        },
+        {
+          "caller": "run",
+          "callee": "self.metrics.lru_runtime_loop_count.inc",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 3,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/compute/src/memory/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 16,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/compute/src/observer/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/compute/src/observer/observer_manager.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 81,
+      "functions": [
+        {
+          "name": "subscribe_type",
+          "startLine": 29,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "handle_notification",
+          "startLine": 33,
+          "endLine": 66,
+          "params": [
+            "resp"
+          ]
+        },
+        {
+          "name": "handle_initialization_notification",
+          "startLine": 68,
+          "endLine": 74,
+          "params": [
+            "resp"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 78,
+          "endLine": 86,
+          "params": [
+            "system_params_manager",
+            "batch_client_pool"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ComputeObserverNode",
+          "startLine": 23,
+          "endLine": 26,
+          "methods": [
+            "subscribe_type",
+            "handle_notification",
+            "handle_initialization_notification",
+            "new"
+          ],
+          "properties": [
+            "system_params_manager",
+            "batch_client_pool"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ComputeObserverNode",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 78,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "handle_notification",
+          "callee": "resp.info.as_ref",
+          "lineNumber": 34
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "info.to_owned",
+          "lineNumber": 35
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "self.system_params_manager.try_set_params",
+          "lineNumber": 36
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "resp.operation",
+          "lineNumber": 37
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "LocalSecretManager::global().add_secret",
+          "lineNumber": 39
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "LocalSecretManager::global",
+          "lineNumber": 39
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "LocalSecretManager::global().remove_secret",
+          "lineNumber": 42
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "LocalSecretManager::global",
+          "lineNumber": 42
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "LocalSecretManager::global().update_secret",
+          "lineNumber": 45
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "LocalSecretManager::global",
+          "lineNumber": 45
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "LicenseManager::get().update_cluster_resource",
+          "lineNumber": 52
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "LicenseManager::get",
+          "lineNumber": 52
+        },
+        {
+          "caller": "handle_notification",
+          "callee": "self.batch_client_pool.invalidate_all",
+          "lineNumber": 59
+        },
+        {
+          "caller": "handle_initialization_notification",
+          "callee": "LocalSecretManager::global().init_secrets",
+          "lineNumber": 72
+        },
+        {
+          "caller": "handle_initialization_notification",
+          "callee": "LocalSecretManager::global",
+          "lineNumber": 72
+        },
+        {
+          "caller": "handle_initialization_notification",
+          "callee": "LicenseManager::get().update_cluster_resource",
+          "lineNumber": 73
+        },
+        {
+          "caller": "handle_initialization_notification",
+          "callee": "LicenseManager::get",
+          "lineNumber": 73
+        },
+        {
+          "caller": "handle_initialization_notification",
+          "callee": "snapshot.cluster_resource.unwrap",
+          "lineNumber": 73
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/compute/src/rpc/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/compute/src/rpc/service/batch_exchange_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 32,
+          "endLine": 34,
+          "params": [
+            "batch_mgr"
+          ]
+        },
+        {
+          "name": "get_data",
+          "startLine": 41,
+          "endLine": 64,
+          "params": [
+            "request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "BatchExchangeServiceImpl",
+          "startLine": 27,
+          "endLine": 29,
+          "methods": [
+            "new",
+            "get_data"
+          ],
+          "properties": [
+            "batch_mgr"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "BatchExchangeServiceImpl",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 32,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_data",
+          "callee": "request\n            .remote_addr().ok_or_else",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_data",
+          "callee": "request.remote_addr",
+          "lineNumber": 45
+        },
+        {
+          "caller": "get_data",
+          "callee": "Status::unavailable",
+          "lineNumber": 47
+        },
+        {
+          "caller": "get_data",
+          "callee": "request\n            .into_inner()\n            .task_output_id.expect",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_data",
+          "callee": "request.into_inner",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_data",
+          "callee": "tokio::sync::mpsc::channel",
+          "lineNumber": 53
+        },
+        {
+          "caller": "get_data",
+          "callee": "self.batch_mgr.config",
+          "lineNumber": 53
+        },
+        {
+          "caller": "get_data",
+          "callee": "self.batch_mgr.get_data",
+          "lineNumber": 54
+        },
+        {
+          "caller": "get_data",
+          "callee": "Err",
+          "lineNumber": 60
+        },
+        {
+          "caller": "get_data",
+          "callee": "e.into",
+          "lineNumber": 60
+        },
+        {
+          "caller": "get_data",
+          "callee": "Ok",
+          "lineNumber": 63
+        },
+        {
+          "caller": "get_data",
+          "callee": "Response::new",
+          "lineNumber": 63
+        },
+        {
+          "caller": "get_data",
+          "callee": "ReceiverStream::new",
+          "lineNumber": 63
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/compute/src/rpc/service/config_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "show_config",
+          "startLine": 39,
+          "endLine": 54,
+          "params": [
+            "_request"
+          ]
+        },
+        {
+          "name": "resize_cache",
+          "startLine": 56,
+          "endLine": 87,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 91,
+          "endLine": 103,
+          "params": [
+            "batch_mgr",
+            "stream_mgr",
+            "meta_cache",
+            "block_cache"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ConfigServiceImpl",
+          "startLine": 30,
+          "endLine": 35,
+          "methods": [
+            "show_config",
+            "resize_cache",
+            "new"
+          ],
+          "properties": [
+            "batch_mgr",
+            "stream_mgr",
+            "meta_cache",
+            "block_cache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ConfigServiceImpl",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 91,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "show_config",
+          "callee": "serde_json::to_string(self.batch_mgr.config()).map_err",
+          "lineNumber": 43
+        },
+        {
+          "caller": "show_config",
+          "callee": "serde_json::to_string",
+          "lineNumber": 43
+        },
+        {
+          "caller": "show_config",
+          "callee": "self.batch_mgr.config",
+          "lineNumber": 43
+        },
+        {
+          "caller": "show_config",
+          "callee": "e.to_status",
+          "lineNumber": 44
+        },
+        {
+          "caller": "show_config",
+          "callee": "serde_json::to_string(&self.stream_mgr.env.global_config()).map_err",
+          "lineNumber": 46
+        },
+        {
+          "caller": "show_config",
+          "callee": "serde_json::to_string",
+          "lineNumber": 46
+        },
+        {
+          "caller": "show_config",
+          "callee": "self.stream_mgr.env.global_config",
+          "lineNumber": 46
+        },
+        {
+          "caller": "show_config",
+          "callee": "e.to_status",
+          "lineNumber": 47
+        },
+        {
+          "caller": "show_config",
+          "callee": "Ok",
+          "lineNumber": 53
+        },
+        {
+          "caller": "show_config",
+          "callee": "Response::new",
+          "lineNumber": 53
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "request.into_inner",
+          "lineNumber": 60
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "meta_cache.memory().resize",
+          "lineNumber": 65
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "meta_cache.memory",
+          "lineNumber": 65
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "Err",
+          "lineNumber": 70
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "Status::internal",
+          "lineNumber": 70
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "e.to_report_string",
+          "lineNumber": 70
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "block_cache.memory().resize",
+          "lineNumber": 77
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "block_cache.memory",
+          "lineNumber": 77
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "Err",
+          "lineNumber": 82
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "Status::internal",
+          "lineNumber": 82
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "e.to_report_string",
+          "lineNumber": 82
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "Ok",
+          "lineNumber": 86
+        },
+        {
+          "caller": "resize_cache",
+          "callee": "Response::new",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/compute/src/rpc/service/health_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 24,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "check",
+          "startLine": 31,
+          "endLine": 39,
+          "params": [
+            "_request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "HealthServiceImpl",
+          "startLine": 20,
+          "endLine": 20,
+          "methods": [
+            "new",
+            "check"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "HealthServiceImpl",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "check",
+          "callee": "Ok",
+          "lineNumber": 36
+        },
+        {
+          "caller": "check",
+          "callee": "Response::new",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/compute/src/rpc/service/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 19,
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/compute/src/rpc/service/monitor_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 543,
+      "nonEmptyLines": 481,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 54,
+          "endLine": 66,
+          "params": [
+            "stream_mgr",
+            "server_config",
+            "meta_cache",
+            "block_cache"
+          ]
+        },
+        {
+          "name": "stack_trace",
+          "startLine": 71,
+          "endLine": 151,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "profiling",
+          "startLine": 153,
+          "endLine": 158,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "heap_profiling",
+          "startLine": 160,
+          "endLine": 165,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "list_heap_profiling",
+          "startLine": 167,
+          "endLine": 172,
+          "params": [
+            "_request"
+          ]
+        },
+        {
+          "name": "analyze_heap",
+          "startLine": 174,
+          "endLine": 179,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "get_profile_stats",
+          "startLine": 181,
+          "endLine": 226,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "get_streaming_stats",
+          "startLine": 228,
+          "endLine": 372,
+          "params": [
+            "_request"
+          ]
+        },
+        {
+          "name": "tiered_cache_tracing",
+          "startLine": 374,
+          "endLine": 437,
+          "params": [
+            "request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MonitorServiceImpl",
+          "startLine": 46,
+          "endLine": 51,
+          "methods": [
+            "new",
+            "stack_trace",
+            "profiling",
+            "heap_profiling",
+            "list_heap_profiling",
+            "analyze_heap",
+            "get_profile_stats",
+            "get_streaming_stats",
+            "tiered_cache_tracing"
+          ],
+          "properties": [
+            "stream_mgr",
+            "profile_service",
+            "meta_cache",
+            "block_cache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MonitorServiceImpl",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 54,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "ProfileServiceImpl::new",
+          "lineNumber": 62
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "request.into_inner",
+          "lineNumber": 75
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "self.stream_mgr.await_tree_reg",
+          "lineNumber": 77
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<Actor>()\n                .into_iter()\n                .map(|(k, v)| {\n                    (\n                        k.0.as_raw_id(),\n                        if req.actor_traces_format == ActorTracesFormat::Text as i32 {\n                            v.to_string()\n                        } else {\n                            serde_json::to_string(&v).unwrap()\n                        },\n                    )\n                }).collect",
+          "lineNumber": 78
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<Actor>()\n                .into_iter().map",
+          "lineNumber": 78
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<Actor>().into_iter",
+          "lineNumber": 78
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<Actor>",
+          "lineNumber": 78
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "k.0.as_raw_id",
+          "lineNumber": 82
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "v.to_string",
+          "lineNumber": 84
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "serde_json::to_string(&v).unwrap",
+          "lineNumber": 86
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "serde_json::to_string",
+          "lineNumber": 86
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Default::default",
+          "lineNumber": 92
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "self.stream_mgr.await_tree_reg",
+          "lineNumber": 95
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<BarrierAwait>()\n                .into_iter()\n                .map(|(k, v)| (k.prev_epoch, v.to_string())).collect",
+          "lineNumber": 96
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<BarrierAwait>()\n                .into_iter().map",
+          "lineNumber": 96
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<BarrierAwait>().into_iter",
+          "lineNumber": 96
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<BarrierAwait>",
+          "lineNumber": 96
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "v.to_string",
+          "lineNumber": 98
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Default::default",
+          "lineNumber": 101
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "self.stream_mgr.await_tree_reg",
+          "lineNumber": 104
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<GrpcCall>()\n                .into_iter()\n                .map(|(k, v)| (k.desc, v.to_string())).collect",
+          "lineNumber": 105
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<GrpcCall>()\n                .into_iter().map",
+          "lineNumber": 105
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<GrpcCall>().into_iter",
+          "lineNumber": 105
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "reg.collect::<GrpcCall>",
+          "lineNumber": 105
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "v.to_string",
+          "lineNumber": 107
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Default::default",
+          "lineNumber": 110
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "self.stream_mgr.env.state_store().as_hummock",
+          "lineNumber": 114
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "self.stream_mgr.env.state_store",
+          "lineNumber": 114
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "hummock.compaction_await_tree_reg",
+          "lineNumber": 115
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "m.collect::<Compaction>()\n                .into_iter()\n                .map(|(k, v)| (format!(\"{k:?}\"), v.to_string())).collect",
+          "lineNumber": 117
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "m.collect::<Compaction>()\n                .into_iter().map",
+          "lineNumber": 117
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "m.collect::<Compaction>().into_iter",
+          "lineNumber": 117
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "m.collect::<Compaction>",
+          "lineNumber": 117
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "v.to_string",
+          "lineNumber": 119
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Default::default",
+          "lineNumber": 122
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "self.stream_mgr.inspect_barrier_state",
+          "lineNumber": 125
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "dump_jvm_stack_traces",
+          "lineNumber": 127
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Some",
+          "lineNumber": 129
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "err.as_report().to_string",
+          "lineNumber": 129
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "err.as_report",
+          "lineNumber": 129
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Some",
+          "lineNumber": 130
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Ok",
+          "lineNumber": 133
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Response::new",
+          "lineNumber": 133
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "BTreeMap::from_iter",
+          "lineNumber": 138
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "self.stream_mgr.env.worker_id",
+          "lineNumber": 139
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "BTreeMap::from_iter",
+          "lineNumber": 144
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "self.stream_mgr.env.worker_id",
+          "lineNumber": 144
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "BTreeMap::new",
+          "lineNumber": 146
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Default::default",
+          "lineNumber": 148
+        },
+        {
+          "caller": "stack_trace",
+          "callee": "Default::default",
+          "lineNumber": 149
+        },
+        {
+          "caller": "profiling",
+          "callee": "self.profile_service.profiling",
+          "lineNumber": 157
+        },
+        {
+          "caller": "heap_profiling",
+          "callee": "self.profile_service.heap_profiling",
+          "lineNumber": 164
+        },
+        {
+          "caller": "list_heap_profiling",
+          "callee": "self.profile_service.list_heap_profiling",
+          "lineNumber": 171
+        },
+        {
+          "caller": "analyze_heap",
+          "callee": "self.profile_service.analyze_heap",
+          "lineNumber": 178
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "global_streaming_metrics",
+          "lineNumber": 185
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "request.into_inner",
+          "lineNumber": 186
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "HashSet::from_iter",
+          "lineNumber": 188
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "metrics\n            .mem_stream_node_output_row_count.collect",
+          "lineNumber": 189
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "metrics\n            .mem_stream_node_output_blocking_duration_ns.collect",
+          "lineNumber": 192
+        },
+        {
+          "caller": "collect_by_fragment_ids",
+          "callee": "HashMap::new",
+          "lineNumber": 201
+        },
+        {
+          "caller": "collect_by_fragment_ids",
+          "callee": "m.collect",
+          "lineNumber": 202
+        },
+        {
+          "caller": "collect_by_fragment_ids",
+          "callee": "metric_family.take_metric",
+          "lineNumber": 203
+        },
+        {
+          "caller": "collect_by_fragment_ids",
+          "callee": "get_label_infallible",
+          "lineNumber": 204
+        },
+        {
+          "caller": "collect_by_fragment_ids",
+          "callee": "fragment_ids.contains",
+          "lineNumber": 205
+        },
+        {
+          "caller": "collect_by_fragment_ids",
+          "callee": "metrics.entry(fragment_id).or_insert",
+          "lineNumber": 206
+        },
+        {
+          "caller": "collect_by_fragment_ids",
+          "callee": "metrics.entry",
+          "lineNumber": 206
+        },
+        {
+          "caller": "collect_by_fragment_ids",
+          "callee": "metric.get_counter().value",
+          "lineNumber": 207
+        },
+        {
+          "caller": "collect_by_fragment_ids",
+          "callee": "metric.get_counter",
+          "lineNumber": 207
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "collect_by_fragment_ids",
+          "lineNumber": 215
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "collect_by_fragment_ids",
+          "lineNumber": 216
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "Ok",
+          "lineNumber": 220
+        },
+        {
+          "caller": "get_profile_stats",
+          "callee": "Response::new",
+          "lineNumber": 220
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "global_streaming_metrics",
+          "lineNumber": 232
+        },
+        {
+          "caller": "collect",
+          "callee": "m.collect().into_iter().next().unwrap().take_metric",
+          "lineNumber": 235
+        },
+        {
+          "caller": "collect",
+          "callee": "m.collect().into_iter().next().unwrap",
+          "lineNumber": 235
+        },
+        {
+          "caller": "collect",
+          "callee": "m.collect().into_iter().next",
+          "lineNumber": 235
+        },
+        {
+          "caller": "collect",
+          "callee": "m.collect().into_iter",
+          "lineNumber": 235
+        },
+        {
+          "caller": "collect",
+          "callee": "m.collect",
+          "lineNumber": 235
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "collect",
+          "lineNumber": 239
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "collect",
+          "lineNumber": 240
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "actor_count\n            .iter()\n            .map(|m| {\n                let fragment_id: u32 = get_label_infallible(m, \"fragment_id\");\n                let count = m.get_gauge().value() as u32;\n                (fragment_id, count)\n            }).collect",
+          "lineNumber": 242
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "actor_count\n            .iter().map",
+          "lineNumber": 242
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "actor_count.iter",
+          "lineNumber": 242
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "get_label_infallible",
+          "lineNumber": 245
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "m.get_gauge().value",
+          "lineNumber": 246
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "m.get_gauge",
+          "lineNumber": 246
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "HashMap::new",
+          "lineNumber": 251
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "fragment_stats.insert",
+          "lineNumber": 253
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "collect",
+          "lineNumber": 262
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "get_label_infallible",
+          "lineNumber": 264
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "m.get_gauge().value",
+          "lineNumber": 265
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "m.get_gauge",
+          "lineNumber": 265
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "fragment_stats.get_mut",
+          "lineNumber": 266
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "u64::min",
+          "lineNumber": 270
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "HashMap::new",
+          "lineNumber": 280
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "collect",
+          "lineNumber": 281
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "get_label_infallible",
+          "lineNumber": 283
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "m.get_gauge().value",
+          "lineNumber": 284
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "m.get_gauge",
+          "lineNumber": 284
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "relation_stats.get_mut",
+          "lineNumber": 285
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "u64::min",
+          "lineNumber": 289
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "relation_stats.insert",
+          "lineNumber": 293
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "BTreeMap::new",
+          "lineNumber": 303
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "get_label_infallible",
+          "lineNumber": 306
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "get_label_infallible",
+          "lineNumber": 308
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "get_label_infallible::<String>(&metric, \"actor_id\").is_empty",
+          "lineNumber": 311
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "get_label_infallible::<String>",
+          "lineNumber": 311
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "actor_count.get",
+          "lineNumber": 312
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "channel_stats.entry(key).or_insert_with",
+          "lineNumber": 330
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "channel_stats.entry",
+          "lineNumber": 330
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "metric.get_counter().value",
+          "lineNumber": 340
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "metric.get_counter",
+          "lineNumber": 340
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "collect",
+          "lineNumber": 343
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "get_label_infallible",
+          "lineNumber": 345
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "channel_stats.range_mut",
+          "lineNumber": 350
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "metric.get_counter().value",
+          "lineNumber": 351
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "metric.get_counter",
+          "lineNumber": 351
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "collect",
+          "lineNumber": 355
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "get_label_infallible",
+          "lineNumber": 357
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "get_label_infallible",
+          "lineNumber": 358
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "channel_stats.get_mut",
+          "lineNumber": 361
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "metric.get_counter().value",
+          "lineNumber": 362
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "metric.get_counter",
+          "lineNumber": 362
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "channel_stats.into_iter().collect",
+          "lineNumber": 366
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "channel_stats.into_iter",
+          "lineNumber": 366
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "Ok",
+          "lineNumber": 367
+        },
+        {
+          "caller": "get_streaming_stats",
+          "callee": "Response::new",
+          "lineNumber": 367
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "request.into_inner",
+          "lineNumber": 378
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "cache.enable_tracing",
+          "lineNumber": 384
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "cache.disable_tracing",
+          "lineNumber": 386
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "TracingOptions::new",
+          "lineNumber": 388
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "options.with_record_hybrid_insert_threshold",
+          "lineNumber": 390
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Duration::from_millis",
+          "lineNumber": 391
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "options.with_record_hybrid_get_threshold",
+          "lineNumber": 395
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Duration::from_millis",
+          "lineNumber": 395
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "options.with_record_hybrid_remove_threshold",
+          "lineNumber": 398
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Duration::from_millis",
+          "lineNumber": 399
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "options.with_record_hybrid_get_or_fetch_threshold",
+          "lineNumber": 402
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Duration::from_millis",
+          "lineNumber": 402
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "cache.update_tracing_options",
+          "lineNumber": 406
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "cache.enable_tracing",
+          "lineNumber": 411
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "cache.disable_tracing",
+          "lineNumber": 413
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "TracingOptions::new",
+          "lineNumber": 415
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "options.with_record_hybrid_insert_threshold",
+          "lineNumber": 417
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Duration::from_millis",
+          "lineNumber": 418
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "options.with_record_hybrid_get_threshold",
+          "lineNumber": 422
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Duration::from_millis",
+          "lineNumber": 422
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "options.with_record_hybrid_remove_threshold",
+          "lineNumber": 425
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Duration::from_millis",
+          "lineNumber": 426
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "options.with_record_hybrid_get_or_fetch_threshold",
+          "lineNumber": 429
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Duration::from_millis",
+          "lineNumber": 429
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "cache.update_tracing_options",
+          "lineNumber": 433
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Ok",
+          "lineNumber": 436
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "Response::new",
+          "lineNumber": 436
+        },
+        {
+          "caller": "tiered_cache_tracing",
+          "callee": "TieredCacheTracingResponse::default",
+          "lineNumber": 436
+        },
+        {
+          "caller": "new",
+          "callee": "Some",
+          "lineNumber": 471
+        },
+        {
+          "caller": "layer",
+          "callee": "self.registry.clone",
+          "lineNumber": 486
+        },
+        {
+          "caller": "layer",
+          "callee": "Default::default",
+          "lineNumber": 487
+        },
+        {
+          "caller": "poll_ready",
+          "callee": "self.inner.poll_ready",
+          "lineNumber": 509
+        },
+        {
+          "caller": "call",
+          "callee": "self.registry.clone",
+          "lineNumber": 513
+        },
+        {
+          "caller": "call",
+          "callee": "Either::Left",
+          "lineNumber": 514
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.call",
+          "lineNumber": 514
+        },
+        {
+          "caller": "call",
+          "callee": "self.inner.clone",
+          "lineNumber": 520
+        },
+        {
+          "caller": "call",
+          "callee": "std::mem::replace",
+          "lineNumber": 521
+        },
+        {
+          "caller": "call",
+          "callee": "self.next_id.fetch_add",
+          "lineNumber": 523
+        },
+        {
+          "caller": "call",
+          "callee": "req.uri().authority",
+          "lineNumber": 524
+        },
+        {
+          "caller": "call",
+          "callee": "req.uri",
+          "lineNumber": 524
+        },
+        {
+          "caller": "call",
+          "callee": "Either::Right",
+          "lineNumber": 531
+        },
+        {
+          "caller": "call",
+          "callee": "registry.register",
+          "lineNumber": 532
+        },
+        {
+          "caller": "call",
+          "callee": "req.uri().path",
+          "lineNumber": 532
+        },
+        {
+          "caller": "call",
+          "callee": "req.uri",
+          "lineNumber": 532
+        },
+        {
+          "caller": "call",
+          "callee": "root.instrument",
+          "lineNumber": 534
+        },
+        {
+          "caller": "call",
+          "callee": "inner.call",
+          "lineNumber": 534
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/compute/src/rpc/service/stream_exchange_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 168,
+      "nonEmptyLines": 147,
+      "functions": [
+        {
+          "name": "get_stream",
+          "startLine": 45,
+          "endLine": 99,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 103,
+          "endLine": 108,
+          "params": [
+            "stream_mgr",
+            "metrics"
+          ]
+        },
+        {
+          "name": "get_stream_impl",
+          "startLine": 111,
+          "endLine": 167,
+          "params": [
+            "metrics",
+            "peer_addr",
+            "receiver",
+            "add_permits_stream",
+            "up_down_fragment_ids"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StreamExchangeServiceImpl",
+          "startLine": 35,
+          "endLine": 38,
+          "methods": [
+            "get_stream",
+            "new",
+            "get_stream_impl"
+          ],
+          "properties": [
+            "stream_mgr",
+            "metrics"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "StreamExchangeServiceImpl",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 103,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_stream",
+          "callee": "request\n            .remote_addr().ok_or_else",
+          "lineNumber": 51
+        },
+        {
+          "caller": "get_stream",
+          "callee": "request.remote_addr",
+          "lineNumber": 51
+        },
+        {
+          "caller": "get_stream",
+          "callee": "Status::unavailable",
+          "lineNumber": 53
+        },
+        {
+          "caller": "get_stream",
+          "callee": "request.into_inner",
+          "lineNumber": 55
+        },
+        {
+          "caller": "get_stream",
+          "callee": "request_stream\n                .next()\n                .await.ok_or_else",
+          "lineNumber": 66
+        },
+        {
+          "caller": "get_stream",
+          "callee": "request_stream.next",
+          "lineNumber": 66
+        },
+        {
+          "caller": "get_stream",
+          "callee": "Status::invalid_argument",
+          "lineNumber": 69
+        },
+        {
+          "caller": "get_stream",
+          "callee": "req.value.unwrap",
+          "lineNumber": 70
+        },
+        {
+          "caller": "get_stream",
+          "callee": "self\n            .stream_mgr.take_receiver",
+          "lineNumber": 76
+        },
+        {
+          "caller": "get_stream",
+          "callee": "request_stream.map_ok",
+          "lineNumber": 87
+        },
+        {
+          "caller": "get_stream",
+          "callee": "req.value.unwrap",
+          "lineNumber": 87
+        },
+        {
+          "caller": "get_stream",
+          "callee": "add_permits.value.unwrap",
+          "lineNumber": 89
+        },
+        {
+          "caller": "get_stream",
+          "callee": "Ok",
+          "lineNumber": 92
+        },
+        {
+          "caller": "get_stream",
+          "callee": "Response::new",
+          "lineNumber": 92
+        },
+        {
+          "caller": "get_stream",
+          "callee": "Self::get_stream_impl",
+          "lineNumber": 92
+        },
+        {
+          "caller": "get_stream",
+          "callee": "self.metrics.clone",
+          "lineNumber": 93
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "up_down_fragment_ids.0.to_string",
+          "lineNumber": 119
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "up_down_fragment_ids.1.to_string",
+          "lineNumber": 120
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "receiver.permits",
+          "lineNumber": 122
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "futures::stream::select",
+          "lineNumber": 125
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "add_permits_stream.map_ok",
+          "lineNumber": 126
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "receiver.recv_raw",
+          "lineNumber": 129
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "Either::Right",
+          "lineNumber": 130
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "metrics\n            .stream_fragment_exchange_bytes.with_label_values",
+          "lineNumber": 136
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "select_stream.try_next",
+          "lineNumber": 140
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "permits.add_permits",
+          "lineNumber": 143
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "DispatcherMessageBatch::Chunk",
+          "lineNumber": 148
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "chunk.compact_vis",
+          "lineNumber": 148
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "message.to_protobuf",
+          "lineNumber": 153
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "Some",
+          "lineNumber": 156
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "Some",
+          "lineNumber": 157
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "DispatcherMessageBatch::get_encoded_len",
+          "lineNumber": 159
+        },
+        {
+          "caller": "get_stream_impl",
+          "callee": "exchange_frag_send_size_metrics.inc_by",
+          "lineNumber": 163
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/compute/src/rpc/service/stream_service.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 75,
+      "nonEmptyLines": 69,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 30,
+          "endLine": 32,
+          "params": [
+            "mgr",
+            "env"
+          ]
+        },
+        {
+          "name": "streaming_control_stream",
+          "startLine": 40,
+          "endLine": 58,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "get_min_uncommitted_object_id",
+          "startLine": 60,
+          "endLine": 74,
+          "params": [
+            "_request"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "StreamServiceImpl",
+          "startLine": 24,
+          "endLine": 27,
+          "methods": [
+            "new",
+            "streaming_control_stream",
+            "get_min_uncommitted_object_id"
+          ],
+          "properties": [
+            "mgr",
+            "env"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "StreamServiceImpl",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "streaming_control_stream",
+          "callee": "request.into_inner().boxed",
+          "lineNumber": 44
+        },
+        {
+          "caller": "streaming_control_stream",
+          "callee": "request.into_inner",
+          "lineNumber": 44
+        },
+        {
+          "caller": "streaming_control_stream",
+          "callee": "stream.try_next",
+          "lineNumber": 45
+        },
+        {
+          "caller": "streaming_control_stream",
+          "callee": "Err",
+          "lineNumber": 50
+        },
+        {
+          "caller": "streaming_control_stream",
+          "callee": "Status::invalid_argument",
+          "lineNumber": 50
+        },
+        {
+          "caller": "streaming_control_stream",
+          "callee": "unbounded_channel",
+          "lineNumber": 55
+        },
+        {
+          "caller": "streaming_control_stream",
+          "callee": "self.mgr.handle_new_control_stream",
+          "lineNumber": 56
+        },
+        {
+          "caller": "streaming_control_stream",
+          "callee": "Ok",
+          "lineNumber": 57
+        },
+        {
+          "caller": "streaming_control_stream",
+          "callee": "Response::new",
+          "lineNumber": 57
+        },
+        {
+          "caller": "streaming_control_stream",
+          "callee": "UnboundedReceiverStream::new",
+          "lineNumber": 57
+        },
+        {
+          "caller": "get_min_uncommitted_object_id",
+          "callee": "if let Some(hummock) = self.mgr.env.state_store().as_hummock() {\n                hummock.min_uncommitted_object_id().await\n            } else {\n                None\n            }.unwrap_or_else",
+          "lineNumber": 65
+        },
+        {
+          "caller": "get_min_uncommitted_object_id",
+          "callee": "self.mgr.env.state_store().as_hummock",
+          "lineNumber": 65
+        },
+        {
+          "caller": "get_min_uncommitted_object_id",
+          "callee": "self.mgr.env.state_store",
+          "lineNumber": 65
+        },
+        {
+          "caller": "get_min_uncommitted_object_id",
+          "callee": "hummock.min_uncommitted_object_id",
+          "lineNumber": 66
+        },
+        {
+          "caller": "get_min_uncommitted_object_id",
+          "callee": "u64::MAX.into",
+          "lineNumber": 70
+        },
+        {
+          "caller": "get_min_uncommitted_object_id",
+          "callee": "Ok",
+          "lineNumber": 71
+        },
+        {
+          "caller": "get_min_uncommitted_object_id",
+          "callee": "Response::new",
+          "lineNumber": 71
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/compute/src/server.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 605,
+      "nonEmptyLines": 561,
+      "functions": [
+        {
+          "name": "compute_node_serve",
+          "startLine": 93,
+          "endLine": 521,
+          "params": [
+            "listen_addr",
+            "advertise_addr",
+            "opts",
+            "shutdown"
+          ]
+        },
+        {
+          "name": "validate_compute_node_memory_config",
+          "startLine": 528,
+          "endLine": 552,
+          "params": [
+            "cn_total_memory_bytes",
+            "reserved_memory_bytes",
+            "storage_memory_bytes"
+          ]
+        },
+        {
+          "name": "total_storage_memory_limit_bytes",
+          "startLine": 556,
+          "endLine": 562,
+          "params": [
+            "storage_memory_config"
+          ]
+        },
+        {
+          "name": "embedded_compactor_enabled",
+          "startLine": 565,
+          "endLine": 570,
+          "params": [
+            "state_store_url",
+            "disable_remote_compactor"
+          ]
+        },
+        {
+          "name": "print_memory_config",
+          "startLine": 573,
+          "endLine": 605,
+          "params": [
+            "cn_total_memory_bytes",
+            "compute_memory_bytes",
+            "storage_memory_bytes",
+            "storage_memory_config",
+            "embedded_compactor_enabled",
+            "reserved_memory_bytes"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "compute_node_serve",
+          "line": 93,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 100
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "load_config",
+          "lineNumber": 100
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 110
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "config.streaming.clone",
+          "lineNumber": 110
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 111
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "config.batch.clone",
+          "lineNumber": 111
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "init_global_sequencer_args",
+          "lineNumber": 114
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "MetaClient::register_new",
+          "lineNumber": 126
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "opts.meta_address.clone",
+          "lineNumber": 127
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "opts.role.for_streaming",
+          "lineNumber": 132
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "opts.role.for_serving",
+          "lineNumber": 133
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "\"\".to_owned",
+          "lineNumber": 134
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Some",
+          "lineNumber": 135
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "opts.resource_group.clone",
+          "lineNumber": 135
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 138
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "config.meta.clone",
+          "lineNumber": 138
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "sub_tasks.push",
+          "lineNumber": 143
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "MetaClient::start_heartbeat_loop",
+          "lineNumber": 143
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.clone",
+          "lineNumber": 144
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Duration::from_millis",
+          "lineNumber": 145
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "system_params.state_store",
+          "lineNumber": 148
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "system_params.data_directory",
+          "lineNumber": 149
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "embedded_compactor_enabled",
+          "lineNumber": 152
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "reserve_memory_bytes",
+          "lineNumber": 154
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "storage_memory_config",
+          "lineNumber": 155
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "opts.role.for_streaming",
+          "lineNumber": 159
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "total_storage_memory_limit_bytes",
+          "lineNumber": 162
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "validate_compute_node_memory_config",
+          "lineNumber": 163
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "print_memory_config",
+          "lineNumber": 168
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 177
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "StorageOpts::from",
+          "lineNumber": 177
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.worker_id",
+          "lineNumber": 183
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 187
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "GLOBAL_SOURCE_METRICS.clone",
+          "lineNumber": 187
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 188
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "GLOBAL_HUMMOCK_METRICS.clone",
+          "lineNumber": 188
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 189
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "global_streaming_metrics",
+          "lineNumber": 189
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 190
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "GLOBAL_BATCH_EXECUTOR_METRICS.clone",
+          "lineNumber": 190
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 191
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "GLOBAL_BATCH_MANAGER_METRICS.clone",
+          "lineNumber": 191
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 192
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "GLOBAL_STREAM_EXCHANGE_SERVICE_METRICS.clone",
+          "lineNumber": 192
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 193
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "GLOBAL_BATCH_SPILL_METRICS.clone",
+          "lineNumber": 193
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 194
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "GLOBAL_ICEBERG_SCAN_METRICS.clone",
+          "lineNumber": 194
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 197
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "global_hummock_state_store_metrics",
+          "lineNumber": 197
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 200
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "GLOBAL_OBJECT_STORE_METRICS.clone",
+          "lineNumber": 200
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 201
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "global_storage_metrics",
+          "lineNumber": 201
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 202
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "GLOBAL_COMPACTOR_METRICS.clone",
+          "lineNumber": 202
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 203
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "MonitoredHummockMetaClient::new",
+          "lineNumber": 203
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.clone",
+          "lineNumber": 204
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "hummock_metrics.clone",
+          "lineNumber": 205
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "await_tree::ConfigBuilder::default()\n            .verbose(c.is_verbose().unwrap())\n            .build().ok",
+          "lineNumber": 210
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "await_tree::ConfigBuilder::default()\n            .verbose(c.is_verbose().unwrap()).build",
+          "lineNumber": 210
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "await_tree::ConfigBuilder::default().verbose",
+          "lineNumber": 210
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "await_tree::ConfigBuilder::default",
+          "lineNumber": 210
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "c.is_verbose().unwrap",
+          "lineNumber": 211
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "c.is_verbose",
+          "lineNumber": 211
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "STATE_STORE_URL.set",
+          "lineNumber": 217
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "state_store_url.to_owned",
+          "lineNumber": 217
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "DATA_DIRECTORY.set",
+          "lineNumber": 226
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "data_directory.to_owned",
+          "lineNumber": 226
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "LicenseManager::get().refresh",
+          "lineNumber": 232
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "LicenseManager::get",
+          "lineNumber": 232
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "system_params.license_key",
+          "lineNumber": 232
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Box::pin(StateStoreImpl::new(\n        state_store_url,\n        storage_opts.clone(),\n        hummock_meta_client.clone(),\n        state_store_metrics.clone(),\n        object_store_metrics,\n        storage_metrics.clone(),\n        compactor_metrics.clone(),\n        await_tree_config.clone(),\n        system_params.use_new_object_prefix_strategy(),\n    ))\n    .await.unwrap",
+          "lineNumber": 233
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Box::pin",
+          "lineNumber": 233
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "StateStoreImpl::new",
+          "lineNumber": 233
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "storage_opts.clone",
+          "lineNumber": 235
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "hummock_meta_client.clone",
+          "lineNumber": 236
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "state_store_metrics.clone",
+          "lineNumber": 237
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "storage_metrics.clone",
+          "lineNumber": 239
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "compactor_metrics.clone",
+          "lineNumber": 240
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "await_tree_config.clone",
+          "lineNumber": 241
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "system_params.use_new_object_prefix_strategy",
+          "lineNumber": 242
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "LocalSecretManager::init",
+          "lineNumber": 247
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "opts.temp_secret_file_dir.clone",
+          "lineNumber": 248
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.cluster_id().to_owned",
+          "lineNumber": 249
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.cluster_id",
+          "lineNumber": 249
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 254
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "ComputeClientPool::new",
+          "lineNumber": 254
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "config.batch_exchange_connection_pool_size",
+          "lineNumber": 255
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "config.batch.developer.compute_client_config.clone",
+          "lineNumber": 256
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 258
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "LocalSystemParamsManager::new",
+          "lineNumber": 258
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "system_params.clone",
+          "lineNumber": 258
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "ComputeObserverNode::new",
+          "lineNumber": 260
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "system_params_manager.clone",
+          "lineNumber": 260
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "batch_client_pool.clone",
+          "lineNumber": 260
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "ObserverManager::new_with_meta_client",
+          "lineNumber": 262
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.clone",
+          "lineNumber": 262
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "observer_manager.start",
+          "lineNumber": 263
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "state_store.as_hummock",
+          "lineNumber": 265
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 268
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "MemoryLimiter::new",
+          "lineNumber": 268
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 272
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "CompactionExecutor::new",
+          "lineNumber": 272
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Some",
+          "lineNumber": 272
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "storage.sstable_store",
+          "lineNumber": 275
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "compactor_metrics.clone",
+          "lineNumber": 276
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Default::default",
+          "lineNumber": 281
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "await_tree_config\n                    .clone().map",
+          "lineNumber": 282
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "await_tree_config.clone",
+          "lineNumber": 282
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "start_compactor",
+          "lineNumber": 287
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "hummock_meta_client.clone",
+          "lineNumber": 289
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "storage.object_id_manager().clone",
+          "lineNumber": 290
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "storage.object_id_manager",
+          "lineNumber": 290
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "storage.compaction_catalog_manager_ref",
+          "lineNumber": 291
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "sub_tasks.push",
+          "lineNumber": 293
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "storage.get_memory_limiter",
+          "lineNumber": 295
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 296
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "HummockMemoryCollector::new",
+          "lineNumber": 296
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "storage.sstable_store",
+          "lineNumber": 297
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "monitor_cache",
+          "lineNumber": 301
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "storage.backup_reader",
+          "lineNumber": 302
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "system_params_manager.clone",
+          "lineNumber": 303
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tokio::spawn",
+          "lineNumber": 304
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "backup_reader.watch_config_change",
+          "lineNumber": 305
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "system_params_mgr.watch_params",
+          "lineNumber": 306
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 312
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "BatchManager::new",
+          "lineNumber": 312
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "config.batch.clone",
+          "lineNumber": 313
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "batch_mem_limit",
+          "lineNumber": 315
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "opts.role.for_serving",
+          "lineNumber": 315
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "MemoryManager::new",
+          "lineNumber": 324
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "streaming_metrics.clone",
+          "lineNumber": 350
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tokio::spawn",
+          "lineNumber": 354
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "memory_mgr.clone().run",
+          "lineNumber": 355
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "memory_mgr.clone",
+          "lineNumber": 355
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Duration::from_millis",
+          "lineNumber": 355
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "HeapProfiler::new",
+          "lineNumber": 363
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "config.server.heap_profiling.clone",
+          "lineNumber": 365
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "heap_profiler.start",
+          "lineNumber": 368
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 370
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "DmlManager::new",
+          "lineNumber": 370
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "BatchEnvironment::new",
+          "lineNumber": 376
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "batch_mgr.clone",
+          "lineNumber": 377
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "advertise_addr.clone",
+          "lineNumber": 378
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "state_store.clone",
+          "lineNumber": 381
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "batch_executor_metrics.clone",
+          "lineNumber": 382
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "dml_mgr.clone",
+          "lineNumber": 384
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "source_metrics.clone",
+          "lineNumber": 385
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "batch_spill_metrics.clone",
+          "lineNumber": 386
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "iceberg_scan_metrics.clone",
+          "lineNumber": 387
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 392
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "ComputeClientPool::new",
+          "lineNumber": 392
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "config.streaming_exchange_connection_pool_size",
+          "lineNumber": 393
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "config.streaming.developer.compute_client_config.clone",
+          "lineNumber": 394
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "StreamEnvironment::new",
+          "lineNumber": 396
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "advertise_addr.clone",
+          "lineNumber": 397
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "state_store.clone",
+          "lineNumber": 400
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "system_params_manager.clone",
+          "lineNumber": 402
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.clone",
+          "lineNumber": 404
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "LocalStreamManager::new",
+          "lineNumber": 408
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "stream_env.clone",
+          "lineNumber": 409
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "streaming_metrics.clone",
+          "lineNumber": 410
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "await_tree_config.clone",
+          "lineNumber": 411
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "memory_mgr.get_watermark_sequence",
+          "lineNumber": 412
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "BatchServiceImpl::new",
+          "lineNumber": 416
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "batch_mgr.clone",
+          "lineNumber": 416
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "BatchExchangeServiceImpl::new",
+          "lineNumber": 417
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "batch_mgr.clone",
+          "lineNumber": 417
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "StreamExchangeServiceImpl::new",
+          "lineNumber": 419
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "stream_mgr.clone",
+          "lineNumber": 419
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "StreamServiceImpl::new",
+          "lineNumber": 420
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "stream_mgr.clone",
+          "lineNumber": 420
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "stream_env.clone",
+          "lineNumber": 420
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "state_store.as_hummock",
+          "lineNumber": 421
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Some",
+          "lineNumber": 423
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "hummock.sstable_store().meta_cache().clone",
+          "lineNumber": 423
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "hummock.sstable_store().meta_cache",
+          "lineNumber": 423
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "hummock.sstable_store",
+          "lineNumber": 423
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Some",
+          "lineNumber": 424
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "hummock.sstable_store().block_cache().clone",
+          "lineNumber": 424
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "hummock.sstable_store().block_cache",
+          "lineNumber": 424
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "hummock.sstable_store",
+          "lineNumber": 424
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "MonitorServiceImpl::new",
+          "lineNumber": 429
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "stream_mgr.clone",
+          "lineNumber": 430
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "config.server.clone",
+          "lineNumber": 431
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_cache.clone",
+          "lineNumber": 432
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "block_cache.clone",
+          "lineNumber": 433
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "ConfigServiceImpl::new",
+          "lineNumber": 435
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "stream_mgr.clone",
+          "lineNumber": 435
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "HealthServiceImpl::new",
+          "lineNumber": 436
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "TelemetryManager::new",
+          "lineNumber": 438
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 439
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.clone",
+          "lineNumber": 439
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Arc::new",
+          "lineNumber": 440
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "ComputeTelemetryCreator::new",
+          "lineNumber": 440
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "telemetry_env_enabled",
+          "lineNumber": 445
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "sub_tasks.push",
+          "lineNumber": 446
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "telemetry_manager.start",
+          "lineNumber": 446
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "SpillOp::clean_spill_directory().await.unwrap",
+          "lineNumber": 454
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "SpillOp::clean_spill_directory",
+          "lineNumber": 454
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE)\n        .initial_stream_window_size(STREAM_WINDOW_SIZE)\n        .http2_max_pending_accept_reset_streams(Some(config.server.grpc_max_reset_stream as usize))\n        .layer(TracingExtractLayer::new())\n        // XXX: unlimit the max message size to allow arbitrary large SQL input.\n        .add_service(TaskServiceServer::new(batch_srv).max_decoding_message_size(usize::MAX))\n        .add_service(\n            BatchExchangeServiceServer::new(batch_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        )\n        .add_service(\n            StreamExchangeServiceServer::new(stream_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        )\n        .add_service({\n            let await_tree_reg = stream_srv.mgr.await_tree_reg().cloned();\n            let srv = StreamServiceServer::new(stream_srv).max_decoding_message_size(usize::MAX);\n            #[cfg(madsim)]\n            {\n                srv\n            }\n            #[cfg(not(madsim))]\n            {\n                AwaitTreeMiddlewareLayer::new_optional(await_tree_reg).layer(srv)\n            }\n        })\n        .add_service(configured_monitor_service_server(\n            MonitorServiceServer::new(monitor_srv),\n        ))\n        .add_service(ConfigServiceServer::new(config_srv))\n        .add_service(HealthServer::new(health_srv)).monitored_serve_with_shutdown",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE)\n        .initial_stream_window_size(STREAM_WINDOW_SIZE)\n        .http2_max_pending_accept_reset_streams(Some(config.server.grpc_max_reset_stream as usize))\n        .layer(TracingExtractLayer::new())\n        // XXX: unlimit the max message size to allow arbitrary large SQL input.\n        .add_service(TaskServiceServer::new(batch_srv).max_decoding_message_size(usize::MAX))\n        .add_service(\n            BatchExchangeServiceServer::new(batch_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        )\n        .add_service(\n            StreamExchangeServiceServer::new(stream_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        )\n        .add_service({\n            let await_tree_reg = stream_srv.mgr.await_tree_reg().cloned();\n            let srv = StreamServiceServer::new(stream_srv).max_decoding_message_size(usize::MAX);\n            #[cfg(madsim)]\n            {\n                srv\n            }\n            #[cfg(not(madsim))]\n            {\n                AwaitTreeMiddlewareLayer::new_optional(await_tree_reg).layer(srv)\n            }\n        })\n        .add_service(configured_monitor_service_server(\n            MonitorServiceServer::new(monitor_srv),\n        ))\n        .add_service(ConfigServiceServer::new(config_srv)).add_service",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE)\n        .initial_stream_window_size(STREAM_WINDOW_SIZE)\n        .http2_max_pending_accept_reset_streams(Some(config.server.grpc_max_reset_stream as usize))\n        .layer(TracingExtractLayer::new())\n        // XXX: unlimit the max message size to allow arbitrary large SQL input.\n        .add_service(TaskServiceServer::new(batch_srv).max_decoding_message_size(usize::MAX))\n        .add_service(\n            BatchExchangeServiceServer::new(batch_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        )\n        .add_service(\n            StreamExchangeServiceServer::new(stream_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        )\n        .add_service({\n            let await_tree_reg = stream_srv.mgr.await_tree_reg().cloned();\n            let srv = StreamServiceServer::new(stream_srv).max_decoding_message_size(usize::MAX);\n            #[cfg(madsim)]\n            {\n                srv\n            }\n            #[cfg(not(madsim))]\n            {\n                AwaitTreeMiddlewareLayer::new_optional(await_tree_reg).layer(srv)\n            }\n        })\n        .add_service(configured_monitor_service_server(\n            MonitorServiceServer::new(monitor_srv),\n        )).add_service",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE)\n        .initial_stream_window_size(STREAM_WINDOW_SIZE)\n        .http2_max_pending_accept_reset_streams(Some(config.server.grpc_max_reset_stream as usize))\n        .layer(TracingExtractLayer::new())\n        // XXX: unlimit the max message size to allow arbitrary large SQL input.\n        .add_service(TaskServiceServer::new(batch_srv).max_decoding_message_size(usize::MAX))\n        .add_service(\n            BatchExchangeServiceServer::new(batch_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        )\n        .add_service(\n            StreamExchangeServiceServer::new(stream_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        )\n        .add_service({\n            let await_tree_reg = stream_srv.mgr.await_tree_reg().cloned();\n            let srv = StreamServiceServer::new(stream_srv).max_decoding_message_size(usize::MAX);\n            #[cfg(madsim)]\n            {\n                srv\n            }\n            #[cfg(not(madsim))]\n            {\n                AwaitTreeMiddlewareLayer::new_optional(await_tree_reg).layer(srv)\n            }\n        }).add_service",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE)\n        .initial_stream_window_size(STREAM_WINDOW_SIZE)\n        .http2_max_pending_accept_reset_streams(Some(config.server.grpc_max_reset_stream as usize))\n        .layer(TracingExtractLayer::new())\n        // XXX: unlimit the max message size to allow arbitrary large SQL input.\n        .add_service(TaskServiceServer::new(batch_srv).max_decoding_message_size(usize::MAX))\n        .add_service(\n            BatchExchangeServiceServer::new(batch_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        )\n        .add_service(\n            StreamExchangeServiceServer::new(stream_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        ).add_service",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE)\n        .initial_stream_window_size(STREAM_WINDOW_SIZE)\n        .http2_max_pending_accept_reset_streams(Some(config.server.grpc_max_reset_stream as usize))\n        .layer(TracingExtractLayer::new())\n        // XXX: unlimit the max message size to allow arbitrary large SQL input.\n        .add_service(TaskServiceServer::new(batch_srv).max_decoding_message_size(usize::MAX))\n        .add_service(\n            BatchExchangeServiceServer::new(batch_exchange_srv)\n                .max_decoding_message_size(usize::MAX),\n        ).add_service",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE)\n        .initial_stream_window_size(STREAM_WINDOW_SIZE)\n        .http2_max_pending_accept_reset_streams(Some(config.server.grpc_max_reset_stream as usize))\n        .layer(TracingExtractLayer::new())\n        // XXX: unlimit the max message size to allow arbitrary large SQL input.\n        .add_service(TaskServiceServer::new(batch_srv).max_decoding_message_size(usize::MAX)).add_service",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE)\n        .initial_stream_window_size(STREAM_WINDOW_SIZE)\n        .http2_max_pending_accept_reset_streams(Some(config.server.grpc_max_reset_stream as usize))\n        .layer(TracingExtractLayer::new()).add_service",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE)\n        .initial_stream_window_size(STREAM_WINDOW_SIZE)\n        .http2_max_pending_accept_reset_streams(Some(config.server.grpc_max_reset_stream as usize)).layer",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE)\n        .initial_stream_window_size(STREAM_WINDOW_SIZE).http2_max_pending_accept_reset_streams",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder()\n        .initial_connection_window_size(MAX_CONNECTION_WINDOW_SIZE).initial_stream_window_size",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder().initial_connection_window_size",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tonic::transport::Server::builder",
+          "lineNumber": 457
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "Some",
+          "lineNumber": 460
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "TracingExtractLayer::new",
+          "lineNumber": 461
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "TaskServiceServer::new(batch_srv).max_decoding_message_size",
+          "lineNumber": 463
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "TaskServiceServer::new",
+          "lineNumber": 463
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "BatchExchangeServiceServer::new(batch_exchange_srv).max_decoding_message_size",
+          "lineNumber": 465
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "BatchExchangeServiceServer::new",
+          "lineNumber": 465
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "StreamExchangeServiceServer::new(stream_exchange_srv).max_decoding_message_size",
+          "lineNumber": 469
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "StreamExchangeServiceServer::new",
+          "lineNumber": 469
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "stream_srv.mgr.await_tree_reg().cloned",
+          "lineNumber": 473
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "stream_srv.mgr.await_tree_reg",
+          "lineNumber": 473
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "StreamServiceServer::new(stream_srv).max_decoding_message_size",
+          "lineNumber": 474
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "StreamServiceServer::new",
+          "lineNumber": 474
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "AwaitTreeMiddlewareLayer::new_optional(await_tree_reg).layer",
+          "lineNumber": 481
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "AwaitTreeMiddlewareLayer::new_optional",
+          "lineNumber": 481
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "configured_monitor_service_server",
+          "lineNumber": 484
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "MonitorServiceServer::new",
+          "lineNumber": 485
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "ConfigServiceServer::new",
+          "lineNumber": 487
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "HealthServer::new",
+          "lineNumber": 488
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "shutdown.clone().cancelled_owned",
+          "lineNumber": 496
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "shutdown.clone",
+          "lineNumber": 496
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "tokio::spawn",
+          "lineNumber": 498
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "MetricsManager::boot_metrics_service",
+          "lineNumber": 502
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "opts.prometheus_listener_addr.clone",
+          "lineNumber": 502
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.activate(&advertise_addr).await.unwrap",
+          "lineNumber": 506
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.activate",
+          "lineNumber": 506
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "shutdown.cancelled",
+          "lineNumber": 508
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "meta_client.try_unregister",
+          "lineNumber": 513
+        },
+        {
+          "caller": "compute_node_serve",
+          "callee": "stream_mgr.shutdown",
+          "lineNumber": 515
+        },
+        {
+          "caller": "embedded_compactor_enabled",
+          "callee": "state_store_url.starts_with",
+          "lineNumber": 567
+        },
+        {
+          "caller": "embedded_compactor_enabled",
+          "callee": "state_store_url.starts_with",
+          "lineNumber": 568
+        }
+      ],
+      "metrics": {
+        "importCount": 10,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/compute/src/telemetry.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 74,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 29,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "create_report",
+          "startLine": 36,
+          "endLine": 47,
+          "params": [
+            "tracking_id",
+            "session_id",
+            "up_time"
+          ]
+        },
+        {
+          "name": "report_type",
+          "startLine": 49,
+          "endLine": 51,
+          "params": []
+        },
+        {
+          "name": "to_pb_bytes",
+          "startLine": 61,
+          "endLine": 66,
+          "params": []
+        },
+        {
+          "name": "new",
+          "startLine": 70,
+          "endLine": 82,
+          "params": [
+            "tracking_id",
+            "session_id",
+            "up_time"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ComputeTelemetryCreator",
+          "startLine": 26,
+          "endLine": 26,
+          "methods": [
+            "new",
+            "create_report",
+            "report_type"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ComputeTelemetryReport",
+          "startLine": 55,
+          "endLine": 58,
+          "methods": [
+            "to_pb_bytes",
+            "new"
+          ],
+          "properties": [
+            "base"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ComputeTelemetryCreator",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "ComputeTelemetryReport",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 70,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create_report",
+          "callee": "Ok",
+          "lineNumber": 42
+        },
+        {
+          "caller": "create_report",
+          "callee": "ComputeTelemetryReport::new",
+          "lineNumber": 42
+        },
+        {
+          "caller": "to_pb_bytes",
+          "callee": "Some",
+          "lineNumber": 63
+        },
+        {
+          "caller": "to_pb_bytes",
+          "callee": "self.base.into",
+          "lineNumber": 63
+        },
+        {
+          "caller": "to_pb_bytes",
+          "callee": "pb_report.encode_to_vec",
+          "lineNumber": 65
+        },
+        {
+          "caller": "new",
+          "callee": "SystemData::new",
+          "lineNumber": 76
+        },
+        {
+          "caller": "new",
+          "callee": "current_timestamp",
+          "lineNumber": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    }
+  ]
+}

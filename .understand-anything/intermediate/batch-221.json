@@ -1,0 +1,120 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/starrocks-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/starrocks-sink/README.md",
+      "summary": "Demo guide for the RisingWave-to-StarRocks sink integration, covering environment setup, StarRocks table preparation, and sink creation steps.",
+      "tags": ["documentation", "integration-test", "overview"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/starrocks-sink/create_source.sql",
+      "type": "table",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/starrocks-sink/create_source.sql",
+      "summary": "Defines three RisingWave source tables (user_behaviors, upsert_user_behaviors, starrocks_types) covering standard and upsert data flows for the StarRocks sink test.",
+      "tags": ["database", "schema-definition", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/starrocks-sink/create_mv.sql",
+      "type": "table",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/starrocks-sink/create_mv.sql",
+      "summary": "Creates materialized views over the user_behaviors and starrocks_types sources to prepare data for the StarRocks sink.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/starrocks-sink/create_sink.sql",
+      "type": "table",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/starrocks-sink/create_sink.sql",
+      "summary": "Creates multiple StarRocks sink definitions covering primary key, duplicate, aggregate, and unique table models, plus type coverage sinks.",
+      "tags": ["database", "sink", "integration-test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:integration_tests/starrocks-sink/starrocks_prepare.sql",
+      "type": "table",
+      "name": "starrocks_prepare.sql",
+      "filePath": "integration_tests/starrocks-sink/starrocks_prepare.sql",
+      "summary": "StarRocks-side DDL creating the destination tables (primary, duplicate, aggregate, unique, types) required before starting the RisingWave sinks.",
+      "tags": ["database", "integration-test", "setup"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:integration_tests/starrocks-sink/update_delete.sql",
+      "type": "table",
+      "name": "update_delete.sql",
+      "filePath": "integration_tests/starrocks-sink/update_delete.sql",
+      "summary": "SQL statements to perform UPDATE and DELETE operations in the integration test to verify CDC and upsert sink behavior in StarRocks.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/starrocks-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/starrocks-sink/docker-compose.yml",
+      "summary": "Docker Compose file orchestrating RisingWave and StarRocks instances for the StarRocks sink connector integration test.",
+      "tags": ["orchestration", "infrastructure", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/starrocks-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/starrocks-sink/prepare.sh",
+      "summary": "Shell script that waits for StarRocks to become ready and executes the preparation SQL before the integration test begins.",
+      "tags": ["script", "integration-test", "setup"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/starrocks-sink/README.md",
+      "target": "service:integration_tests/starrocks-sink/docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:integration_tests/starrocks-sink/README.md",
+      "target": "table:integration_tests/starrocks-sink/create_sink.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/starrocks-sink/prepare.sh",
+      "target": "table:integration_tests/starrocks-sink/starrocks_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/starrocks-sink/prepare.sh",
+      "target": "service:integration_tests/starrocks-sink/docker-compose.yml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:integration_tests/starrocks-sink/docker-compose.yml",
+      "target": "table:integration_tests/starrocks-sink/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/starrocks-sink/docker-compose.yml",
+      "target": "table:integration_tests/starrocks-sink/create_sink.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

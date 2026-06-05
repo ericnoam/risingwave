@@ -1,0 +1,3915 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 11,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/connector/codec/src/common/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/connector/codec/src/common/protobuf/compiler.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "compile_pb",
+          "startLine": 22,
+          "endLine": 63,
+          "params": [
+            "main_file",
+            "dependencies"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "compile_pb",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "std::iter::once(main_file).chain(dependencies).collect",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new",
+          "callee": "std::iter::once(main_file).chain",
+          "lineNumber": 35
+        },
+        {
+          "caller": "new",
+          "callee": "std::iter::once",
+          "lineNumber": 35
+        },
+        {
+          "caller": "open_file",
+          "callee": "self.map.get",
+          "lineNumber": 43
+        },
+        {
+          "caller": "open_file",
+          "callee": "Ok",
+          "lineNumber": 44
+        },
+        {
+          "caller": "open_file",
+          "callee": "File::from_source",
+          "lineNumber": 44
+        },
+        {
+          "caller": "open_file",
+          "callee": "Err",
+          "lineNumber": 46
+        },
+        {
+          "caller": "open_file",
+          "callee": "Error::file_not_found",
+          "lineNumber": 46
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "main_file.0.clone",
+          "lineNumber": 51
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "ChainFileResolver::new",
+          "lineNumber": 53
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "resolver.add",
+          "lineNumber": 54
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "GoogleFileResolver::new",
+          "lineNumber": 54
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "resolver.add",
+          "lineNumber": 55
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "MyResolver::new",
+          "lineNumber": 55
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "protox::Compiler::with_file_resolver(resolver)\n        .include_imports(true)\n        .open_file(&main_file_name)?.file_descriptor_set",
+          "lineNumber": 57
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "protox::Compiler::with_file_resolver(resolver)\n        .include_imports(true).open_file",
+          "lineNumber": 57
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "protox::Compiler::with_file_resolver(resolver).include_imports",
+          "lineNumber": 57
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "protox::Compiler::with_file_resolver",
+          "lineNumber": 57
+        },
+        {
+          "caller": "compile_pb",
+          "callee": "Ok",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/connector/codec/src/common/protobuf/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 15,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/connector/codec/src/decoder/avro/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 1023,
+      "nonEmptyLines": 971,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 54,
+          "endLine": 64,
+          "params": [
+            "root_schema"
+          ]
+        },
+        {
+          "name": "lookup_ref",
+          "startLine": 68,
+          "endLine": 73,
+          "params": [
+            "schema"
+          ]
+        },
+        {
+          "name": "convert_to_datum",
+          "startLine": 88,
+          "endLine": 340,
+          "params": [
+            "unresolved_schema",
+            "value",
+            "type_expected"
+          ]
+        },
+        {
+          "name": "new",
+          "startLine": 349,
+          "endLine": 354,
+          "params": [
+            "root_value",
+            "options"
+          ]
+        },
+        {
+          "name": "access",
+          "startLine": 358,
+          "endLine": 431,
+          "params": [
+            "path",
+            "type_expected"
+          ]
+        },
+        {
+          "name": "get_nullable_union_inner",
+          "startLine": 435,
+          "endLine": 447,
+          "params": [
+            "union_schema"
+          ]
+        },
+        {
+          "name": "unix_epoch_days",
+          "startLine": 449,
+          "endLine": 451,
+          "params": []
+        },
+        {
+          "name": "avro_to_jsonb",
+          "startLine": 453,
+          "endLine": 544,
+          "params": [
+            "avro",
+            "builder"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AvroParseOptions",
+          "startLine": 36,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "root_schema",
+            "inner"
+          ]
+        },
+        {
+          "name": "AvroParseOptionsInner",
+          "startLine": 45,
+          "endLine": 51,
+          "methods": [],
+          "properties": [
+            "refs",
+            "relax_numeric"
+          ]
+        },
+        {
+          "name": "AvroAccess",
+          "startLine": 343,
+          "endLine": 346,
+          "methods": [],
+          "properties": [
+            "value",
+            "options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AvroParseOptions",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "create",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "AvroAccess",
+          "line": 343,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 349,
+          "isDefault": false
+        },
+        {
+          "name": "get_nullable_union_inner",
+          "line": 435,
+          "isDefault": false
+        },
+        {
+          "name": "unix_epoch_days",
+          "line": 449,
+          "isDefault": false
+        },
+        {
+          "name": "avro_to_jsonb",
+          "line": 453,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "apache_avro::schema::ResolvedSchema::try_from(root_schema).expect",
+          "lineNumber": 55
+        },
+        {
+          "caller": "create",
+          "callee": "apache_avro::schema::ResolvedSchema::try_from",
+          "lineNumber": 55
+        },
+        {
+          "caller": "create",
+          "callee": "resolved.get_names().clone",
+          "lineNumber": 60
+        },
+        {
+          "caller": "create",
+          "callee": "resolved.get_names",
+          "lineNumber": 60
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "String::new",
+          "lineNumber": 100
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Ok",
+          "lineNumber": 110
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.lookup_ref",
+          "lineNumber": 113
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Err",
+          "lineNumber": 115
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 115
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "get_nullable_union_inner",
+          "lineNumber": 118
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.convert_to_datum",
+          "lineNumber": 120
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "u.variants",
+          "lineNumber": 122
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Ok",
+          "lineNumber": 125
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "avro_schema_to_struct_field_name",
+          "lineNumber": 132
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 134
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "struct_type_info.len",
+          "lineNumber": 134
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "struct_type_info.iter",
+          "lineNumber": 135
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self\n                            .convert_to_datum(variant_schema, v, field_type)?.to_owned_datum",
+          "lineNumber": 137
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.convert_to_datum",
+          "lineNumber": 137
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "fields.push",
+          "lineNumber": 141
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "fields.push",
+          "lineNumber": 143
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "StructValue::new(fields).into",
+          "lineNumber": 146
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "StructValue::new",
+          "lineNumber": 146
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.lookup_ref",
+          "lineNumber": 150
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Err",
+          "lineNumber": 151
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 151
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "get_nullable_union_inner",
+          "lineNumber": 153
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Err",
+          "lineNumber": 154
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 154
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.convert_to_datum",
+          "lineNumber": 156
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*b).into",
+          "lineNumber": 159
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*i as i16).into",
+          "lineNumber": 161
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*i as i16).into",
+          "lineNumber": 162
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*i).into",
+          "lineNumber": 165
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*i as i32).into",
+          "lineNumber": 166
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*i).into",
+          "lineNumber": 168
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*i as i64).into",
+          "lineNumber": 169
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*i).into",
+          "lineNumber": 171
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*i as f32).into",
+          "lineNumber": 172
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*i).into",
+          "lineNumber": 174
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "(*i as f64).into",
+          "lineNumber": 175
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.lookup_ref",
+          "lineNumber": 178
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Err",
+          "lineNumber": 182
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 182
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "scaled_bigint_to_rust_decimal(avro_decimal.clone().into(), scale).map_err",
+          "lineNumber": 184
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "scaled_bigint_to_rust_decimal",
+          "lineNumber": 184
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "avro_decimal.clone().into",
+          "lineNumber": 184
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "avro_decimal.clone",
+          "lineNumber": 184
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 185
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "ScalarImpl::Decimal",
+          "lineNumber": 186
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "risingwave_common::types::Decimal::Normalized",
+          "lineNumber": 186
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "fields\n                        .iter()\n                        .find(|field| field.0 == field_name)\n                        .map(|field| &field.1).ok_or_else",
+          "lineNumber": 191
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "fields\n                        .iter()\n                        .find(|field| field.0 == field_name).map",
+          "lineNumber": 191
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "fields\n                        .iter().find",
+          "lineNumber": 191
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "fields.iter",
+          "lineNumber": 191
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "find_in_records",
+          "lineNumber": 199
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "find_in_records",
+          "lineNumber": 207
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "BigInt::from_signed_bytes_be",
+          "lineNumber": 208
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "scaled_bigint_to_rust_decimal",
+          "lineNumber": 215
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "ScalarImpl::Decimal",
+          "lineNumber": 216
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "risingwave_common::types::Decimal::Normalized",
+          "lineNumber": 216
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Time::with_milli(*ms as u32)\n                .map_err(|_| create_error())?.into",
+          "lineNumber": 219
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Time::with_milli(*ms as u32).map_err",
+          "lineNumber": 219
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Time::with_milli",
+          "lineNumber": 219
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 220
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Time::with_micro(*us as u64)\n                .map_err(|_| create_error())?.into",
+          "lineNumber": 222
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Time::with_micro(*us as u64).map_err",
+          "lineNumber": 222
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Time::with_micro",
+          "lineNumber": 222
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 223
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Date::with_days_since_ce(days + unix_epoch_days())\n                    .map_err(|_| create_error())?.into",
+          "lineNumber": 227
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Date::with_days_since_ce(days + unix_epoch_days()).map_err",
+          "lineNumber": 227
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Date::with_days_since_ce",
+          "lineNumber": 227
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "unix_epoch_days",
+          "lineNumber": 227
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 228
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamp::with_millis(*ms)\n                .map_err(|_| create_error())?.into",
+          "lineNumber": 235
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamp::with_millis(*ms).map_err",
+          "lineNumber": 235
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamp::with_millis",
+          "lineNumber": 235
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 236
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamp::with_micros(*us)\n                .map_err(|_| create_error())?.into",
+          "lineNumber": 238
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamp::with_micros(*us).map_err",
+          "lineNumber": 238
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamp::with_micros",
+          "lineNumber": 238
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 239
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamptz::from_millis(*ms)\n                .ok_or_else(|| {\n                    uncategorized!(\"timestamptz with milliseconds {ms} * 1000 is out of range\")\n                })?.into",
+          "lineNumber": 243
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamptz::from_millis(*ms).ok_or_else",
+          "lineNumber": 243
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamptz::from_millis",
+          "lineNumber": 243
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamptz::from_micros(*us).into",
+          "lineNumber": 249
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Timestamptz::from_micros",
+          "lineNumber": 249
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "u32::from",
+          "lineNumber": 254
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "duration.months",
+          "lineNumber": 254
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "u32::from",
+          "lineNumber": 255
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "duration.days",
+          "lineNumber": 255
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "u32::from",
+          "lineNumber": 256
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "duration.millis",
+          "lineNumber": 256
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "ScalarImpl::Interval",
+          "lineNumber": 257
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Interval::from_month_day_usec",
+          "lineNumber": 257
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "StructValue::new({\n                let Schema::Record(record_schema) = self.lookup_ref(unresolved_schema) else {\n                    return Err(create_error());\n                };\n                struct_type_info\n                    .iter()\n                    .map(|(field_name, field_type)| {\n                        if let Some(idx) = record_schema.lookup.get(field_name) {\n                            let value = &descs[*idx].1;\n                            let schema = &record_schema.fields[*idx].schema;\n                            Ok(self\n                                .convert_to_datum(schema, value, field_type)?\n                                .to_owned_datum())\n                        } else {\n                            Ok(None)\n                        }\n                    })\n                    .collect::<Result<_, AccessError>>()?\n            }).into",
+          "lineNumber": 260
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "StructValue::new",
+          "lineNumber": 260
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.lookup_ref",
+          "lineNumber": 261
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Err",
+          "lineNumber": 262
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 262
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "struct_type_info\n                    .iter()\n                    .map(|(field_name, field_type)| {\n                        if let Some(idx) = record_schema.lookup.get(field_name) {\n                            let value = &descs[*idx].1;\n                            let schema = &record_schema.fields[*idx].schema;\n                            Ok(self\n                                .convert_to_datum(schema, value, field_type)?\n                                .to_owned_datum())\n                        } else {\n                            Ok(None)\n                        }\n                    })\n                    .collect::<Result<_, AccessError>>",
+          "lineNumber": 264
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "struct_type_info\n                    .iter().map",
+          "lineNumber": 264
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "struct_type_info.iter",
+          "lineNumber": 264
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "record_schema.lookup.get",
+          "lineNumber": 267
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Ok",
+          "lineNumber": 270
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self\n                                .convert_to_datum(schema, value, field_type)?.to_owned_datum",
+          "lineNumber": 270
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.convert_to_datum",
+          "lineNumber": 270
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Ok",
+          "lineNumber": 274
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "ListValue::new({\n                let Schema::Array(array_schema) = self.lookup_ref(unresolved_schema) else {\n                    return Err(create_error());\n                };\n                let schema = &array_schema.items;\n                let elem_type = list_type.elem();\n                let mut builder = elem_type.create_array_builder(array.len());\n                for v in array {\n                    let value = self.convert_to_datum(schema, v, elem_type)?;\n                    builder.append(value);\n                }\n                builder.finish()\n            }).into",
+          "lineNumber": 281
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "ListValue::new",
+          "lineNumber": 281
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.lookup_ref",
+          "lineNumber": 282
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Err",
+          "lineNumber": 283
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 283
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "list_type.elem",
+          "lineNumber": 286
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "elem_type.create_array_builder",
+          "lineNumber": 287
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "array.len",
+          "lineNumber": 287
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.convert_to_datum",
+          "lineNumber": 289
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "builder.append",
+          "lineNumber": 290
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "builder.finish",
+          "lineNumber": 292
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "jsonbb::Builder::default",
+          "lineNumber": 299
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "avro_to_jsonb",
+          "lineNumber": 300
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "builder.finish",
+          "lineNumber": 301
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "JsonbVal::from(jsonb).into",
+          "lineNumber": 303
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "JsonbVal::from",
+          "lineNumber": 303
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "uuid.as_hyphenated().to_string().into_boxed_str().into",
+          "lineNumber": 306
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "uuid.as_hyphenated().to_string().into_boxed_str",
+          "lineNumber": 306
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "uuid.as_hyphenated().to_string",
+          "lineNumber": 306
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "uuid.as_hyphenated",
+          "lineNumber": 306
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.lookup_ref",
+          "lineNumber": 309
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Err",
+          "lineNumber": 310
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 310
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "map_type\n                    .clone()\n                    .into_struct().create_array_builder",
+          "lineNumber": 313
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "map_type\n                    .clone().into_struct",
+          "lineNumber": 313
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "map_type.clone",
+          "lineNumber": 313
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "map.len",
+          "lineNumber": 316
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "map.iter().sorted_by_key",
+          "lineNumber": 324
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "map.iter",
+          "lineNumber": 324
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self\n                        .convert_to_datum(schema, v, map_type.value())?.to_owned_datum",
+          "lineNumber": 325
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "self.convert_to_datum",
+          "lineNumber": 325
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "map_type.value",
+          "lineNumber": 326
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "builder.append",
+          "lineNumber": 328
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "StructValue::new(vec![Some(k.as_str().into()), value_datum]).to_owned_datum",
+          "lineNumber": 329
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "StructValue::new",
+          "lineNumber": 329
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "ListValue::new",
+          "lineNumber": 333
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "builder.finish",
+          "lineNumber": 333
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "MapValue::from_entries(list).into",
+          "lineNumber": 334
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "MapValue::from_entries",
+          "lineNumber": 334
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Err",
+          "lineNumber": 337
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "create_error",
+          "lineNumber": 337
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Ok",
+          "lineNumber": 339
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "DatumCow::Owned",
+          "lineNumber": 339
+        },
+        {
+          "caller": "convert_to_datum",
+          "callee": "Some",
+          "lineNumber": 339
+        },
+        {
+          "caller": "access",
+          "callee": "path.len",
+          "lineNumber": 369
+        },
+        {
+          "caller": "access",
+          "callee": "key.to_owned",
+          "lineNumber": 372
+        },
+        {
+          "caller": "access",
+          "callee": "path.iter().take(i).join",
+          "lineNumber": 373
+        },
+        {
+          "caller": "access",
+          "callee": "path.iter().take",
+          "lineNumber": 373
+        },
+        {
+          "caller": "access",
+          "callee": "path.iter",
+          "lineNumber": 373
+        },
+        {
+          "caller": "access",
+          "callee": "self.options.inner.lookup_ref",
+          "lineNumber": 401
+        },
+        {
+          "caller": "access",
+          "callee": "Err",
+          "lineNumber": 402
+        },
+        {
+          "caller": "access",
+          "callee": "create_error",
+          "lineNumber": 402
+        },
+        {
+          "caller": "access",
+          "callee": "get_nullable_union_inner",
+          "lineNumber": 404
+        },
+        {
+          "caller": "access",
+          "callee": "Err",
+          "lineNumber": 405
+        },
+        {
+          "caller": "access",
+          "callee": "create_error",
+          "lineNumber": 405
+        },
+        {
+          "caller": "access",
+          "callee": "self.options.inner.lookup_ref",
+          "lineNumber": 412
+        },
+        {
+          "caller": "access",
+          "callee": "Err",
+          "lineNumber": 414
+        },
+        {
+          "caller": "access",
+          "callee": "create_error",
+          "lineNumber": 414
+        },
+        {
+          "caller": "access",
+          "callee": "record_schema.lookup.get",
+          "lineNumber": 416
+        },
+        {
+          "caller": "access",
+          "callee": "Err",
+          "lineNumber": 425
+        },
+        {
+          "caller": "access",
+          "callee": "create_error",
+          "lineNumber": 425
+        },
+        {
+          "caller": "access",
+          "callee": "self.options\n            .inner.convert_to_datum",
+          "lineNumber": 428
+        },
+        {
+          "caller": "get_nullable_union_inner",
+          "callee": "union_schema.variants",
+          "lineNumber": 436
+        },
+        {
+          "caller": "get_nullable_union_inner",
+          "callee": "variants.len",
+          "lineNumber": 438
+        },
+        {
+          "caller": "get_nullable_union_inner",
+          "callee": "variants.contains",
+          "lineNumber": 438
+        },
+        {
+          "caller": "get_nullable_union_inner",
+          "callee": "variants\n            .iter()\n            .find(|s| !matches!(s, &&Schema::Null)).unwrap",
+          "lineNumber": 439
+        },
+        {
+          "caller": "get_nullable_union_inner",
+          "callee": "variants\n            .iter().find",
+          "lineNumber": 439
+        },
+        {
+          "caller": "get_nullable_union_inner",
+          "callee": "variants.iter",
+          "lineNumber": 439
+        },
+        {
+          "caller": "get_nullable_union_inner",
+          "callee": "Some",
+          "lineNumber": 443
+        },
+        {
+          "caller": "unix_epoch_days",
+          "callee": "Date::from_ymd_uncheck(1970, 1, 1).0.num_days_from_ce",
+          "lineNumber": 450
+        },
+        {
+          "caller": "unix_epoch_days",
+          "callee": "Date::from_ymd_uncheck",
+          "lineNumber": 450
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.add_null",
+          "lineNumber": 455
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.add_bool",
+          "lineNumber": 456
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.add_i64",
+          "lineNumber": 457
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.add_string",
+          "lineNumber": 458
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.begin_object",
+          "lineNumber": 460
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.add_string",
+          "lineNumber": 462
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "avro_to_jsonb",
+          "lineNumber": 463
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.end_object",
+          "lineNumber": 465
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.begin_object",
+          "lineNumber": 469
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.add_string",
+          "lineNumber": 471
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "avro_to_jsonb",
+          "lineNumber": 472
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.end_object",
+          "lineNumber": 474
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.begin_array",
+          "lineNumber": 477
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "avro_to_jsonb",
+          "lineNumber": 479
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "builder.end_array",
+          "lineNumber": 481
+        },
+        {
+          "caller": "avro_to_jsonb",
+          "callee": "Ok",
+          "lineNumber": 543
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str",
+          "lineNumber": 560
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "expect![[r#\"\n            Err(\n                Error {\n                    details: Unions cannot contain duplicate types,\n                },\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 561
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str",
+          "lineNumber": 569
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "expect![[r#\"\n            Err(\n                Error {\n                    details: Unions cannot contain duplicate types,\n                },\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 570
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str",
+          "lineNumber": 579
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "expect![[r#\"\n            Err(\n                Error {\n                    details: Unions cannot contain duplicate types,\n                },\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 595
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str",
+          "lineNumber": 603
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "expect![[r#\"\n            Err(\n                Error {\n                    details: Unions cannot contain duplicate types,\n                },\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 619
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str",
+          "lineNumber": 628
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "expect![[r#\"\n            Ok(\n                Union(\n                    UnionSchema {\n                        schemas: [\n                            Null,\n                            Fixed(\n                                FixedSchema {\n                                    name: Name {\n                                        name: \"a\",\n                                        namespace: None,\n                                    },\n                                    aliases: None,\n                                    doc: None,\n                                    size: 16,\n                                    default: None,\n                                    attributes: {},\n                                },\n                            ),\n                            Fixed(\n                                FixedSchema {\n                                    name: Name {\n                                        name: \"b\",\n                                        namespace: None,\n                                    },\n                                    aliases: None,\n                                    doc: None,\n                                    size: 32,\n                                    default: None,\n                                    attributes: {},\n                                },\n                            ),\n                        ],\n                        variant_index: {\n                            Null: 0,\n                        },\n                    },\n                ),\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 636
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str",
+          "lineNumber": 679
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "expect![[r#\"\n            Err(\n                Error {\n                    details: Unions may not directly contain a union,\n                },\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 680
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str(r#\"[\"null\", {\"type\":\"string\",\"logicalType\":\"uuid\"}]\"#).unwrap",
+          "lineNumber": 690
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str",
+          "lineNumber": 690
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "expect![[r#\"\n            Union(\n                UnionSchema {\n                    schemas: [\n                        Null,\n                        Uuid,\n                    ],\n                    variant_index: {\n                        Null: 0,\n                        Uuid: 1,\n                    },\n                },\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 691
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str(r#\"[\"string\", {\"type\":\"string\",\"logicalType\":\"uuid\"}]\"#).unwrap",
+          "lineNumber": 707
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str",
+          "lineNumber": 707
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "expect![[r#\"\n            Union(\n                UnionSchema {\n                    schemas: [\n                        String,\n                        Uuid,\n                    ],\n                    variant_index: {\n                        String: 0,\n                        Uuid: 1,\n                    },\n                },\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 708
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str(r#\"[\"int\", {\"type\":\"int\", \"logicalType\": \"date\"}]\"#).unwrap",
+          "lineNumber": 724
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str",
+          "lineNumber": 724
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "expect![[r#\"\n            Union(\n                UnionSchema {\n                    schemas: [\n                        Int,\n                        Date,\n                    ],\n                    variant_index: {\n                        Int: 0,\n                        Date: 1,\n                    },\n                },\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 725
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "Schema::parse_str",
+          "lineNumber": 741
+        },
+        {
+          "caller": "test_avro_lib_union",
+          "callee": "expect![[r#\"\n            Err(\n                Error {\n                    details: Unions cannot contain duplicate types,\n                },\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 747
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "Schema::parse_str(\n            r#\"\n    {\n      \"type\": \"record\",\n      \"name\": \"Root\",\n      \"fields\": [\n        {\n          \"name\": \"unionTypeComplex\",\n          \"type\": [\n            \"null\",\n            {\"type\": \"record\", \"name\": \"Email\",\"fields\": [{\"name\":\"inner\",\"type\":\"string\"}]},\n            {\"type\": \"record\", \"name\": \"Fax\",\"fields\": [{\"name\":\"inner\",\"type\":\"int\"}]},\n            {\"type\": \"record\", \"name\": \"Sms\",\"fields\": [{\"name\":\"inner\",\"type\":\"int\"}]}\n          ]\n        }\n      ]\n    }\n        \"#,\n        ).unwrap",
+          "lineNumber": 760
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "Schema::parse_str",
+          "lineNumber": 760
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "hex::decode(\"060c\").unwrap",
+          "lineNumber": 781
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "hex::decode",
+          "lineNumber": 781
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "from_avro_datum",
+          "lineNumber": 783
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "bytes.as_slice",
+          "lineNumber": 783
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "expect![[r#\"\n                Ok(\n                    Record(\n                        [\n                            (\n                                \"unionTypeComplex\",\n                                Union(\n                                    3,\n                                    Record(\n                                        [\n                                            (\n                                                \"inner\",\n                                                Int(\n                                                    6,\n                                                ),\n                                            ),\n                                        ],\n                                    ),\n                                ),\n                            ),\n                        ],\n                    ),\n                )\n            \"#]].assert_debug_eq",
+          "lineNumber": 784
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "from_avro_datum",
+          "lineNumber": 810
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "bytes.as_slice",
+          "lineNumber": 810
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "Some",
+          "lineNumber": 810
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "expect![[r#\"\n                Ok(\n                    Record(\n                        [\n                            (\n                                \"unionTypeComplex\",\n                                Union(\n                                    2,\n                                    Record(\n                                        [\n                                            (\n                                                \"inner\",\n                                                Int(\n                                                    6,\n                                                ),\n                                            ),\n                                        ],\n                                    ),\n                                ),\n                            ),\n                        ],\n                    ),\n                )\n            \"#]].assert_debug_eq",
+          "lineNumber": 811
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "Schema::parse_str(\n            r#\"\n    {\n      \"type\": \"record\",\n      \"name\": \"Root\",\n      \"fields\": [\n        {\n          \"name\": \"a\",\n          \"type\": \"int\"\n        }\n      ]\n    }\n        \"#,\n        ).unwrap",
+          "lineNumber": 845
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "Schema::parse_str",
+          "lineNumber": 845
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "Schema::parse_str(\n            r#\"\n{\n  \"type\": \"record\",\n  \"name\": \"Root222\",\n  \"fields\": [\n    {\n      \"name\": \"a\",\n      \"type\": \"int\"\n    }\n  ]\n}\n    \"#,\n        ).unwrap",
+          "lineNumber": 860
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "Schema::parse_str",
+          "lineNumber": 860
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "hex::decode(\"0c\").unwrap",
+          "lineNumber": 876
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "hex::decode",
+          "lineNumber": 876
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "from_avro_datum",
+          "lineNumber": 877
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "bytes.as_slice",
+          "lineNumber": 877
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "Some",
+          "lineNumber": 877
+        },
+        {
+          "caller": "test_avro_lib_union_record_bug",
+          "callee": "expect![[r#\"\n            Ok(\n                Record(\n                    [\n                        (\n                            \"a\",\n                            Int(\n                                6,\n                            ),\n                        ),\n                    ],\n                ),\n            )\n        \"#]].assert_debug_eq",
+          "lineNumber": 878
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "AvroDecimal::from",
+          "lineNumber": 899
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "scaled_bigint_to_rust_decimal(avro_decimal.into(), 0).unwrap",
+          "lineNumber": 900
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "scaled_bigint_to_rust_decimal",
+          "lineNumber": 900
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "avro_decimal.into",
+          "lineNumber": 900
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "AvroDecimal::from",
+          "lineNumber": 905
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "scaled_bigint_to_rust_decimal(avro_decimal.into(), 1).unwrap",
+          "lineNumber": 906
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "scaled_bigint_to_rust_decimal",
+          "lineNumber": 906
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "avro_decimal.into",
+          "lineNumber": 906
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "BigInt::from",
+          "lineNumber": 910
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "scaled_bigint_to_rust_decimal(value, 10).unwrap",
+          "lineNumber": 911
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "scaled_bigint_to_rust_decimal",
+          "lineNumber": 911
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "AvroDecimal::from",
+          "lineNumber": 919
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "scaled_bigint_to_rust_decimal(avro_decimal.into(), 27).unwrap",
+          "lineNumber": 920
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "scaled_bigint_to_rust_decimal",
+          "lineNumber": 920
+        },
+        {
+          "caller": "test_convert_decimal",
+          "callee": "avro_decimal.into",
+          "lineNumber": 920
+        },
+        {
+          "caller": "from_avro_value",
+          "callee": "Ok",
+          "lineNumber": 941
+        },
+        {
+          "caller": "from_avro_value",
+          "callee": "AvroParseOptions::create(value_schema)\n            .inner\n            .convert_to_datum(value_schema, &value, shape)?.to_owned_datum",
+          "lineNumber": 941
+        },
+        {
+          "caller": "from_avro_value",
+          "callee": "AvroParseOptions::create(value_schema)\n            .inner.convert_to_datum",
+          "lineNumber": 941
+        },
+        {
+          "caller": "from_avro_value",
+          "callee": "AvroParseOptions::create",
+          "lineNumber": 941
+        },
+        {
+          "caller": "test_avro_timestamptz_micros",
+          "callee": "Value::TimestampMicros",
+          "lineNumber": 949
+        },
+        {
+          "caller": "test_avro_timestamptz_micros",
+          "callee": "Value::TimestampMillis",
+          "lineNumber": 950
+        },
+        {
+          "caller": "test_avro_timestamptz_micros",
+          "callee": "from_avro_value(v1, &value_schema1, &DataType::Timestamptz).unwrap",
+          "lineNumber": 953
+        },
+        {
+          "caller": "test_avro_timestamptz_micros",
+          "callee": "from_avro_value",
+          "lineNumber": 953
+        },
+        {
+          "caller": "test_avro_timestamptz_micros",
+          "callee": "from_avro_value(v2, &value_schema2, &DataType::Timestamptz).unwrap",
+          "lineNumber": 954
+        },
+        {
+          "caller": "test_avro_timestamptz_micros",
+          "callee": "from_avro_value",
+          "lineNumber": 954
+        },
+        {
+          "caller": "test_decimal_truncate",
+          "callee": "Schema::parse_str(\n            r#\"\n            {\n                \"type\": \"bytes\",\n                \"logicalType\": \"decimal\",\n                \"precision\": 38,\n                \"scale\": 18\n            }\n            \"#,\n        ).unwrap",
+          "lineNumber": 971
+        },
+        {
+          "caller": "test_decimal_truncate",
+          "callee": "Schema::parse_str",
+          "lineNumber": 971
+        },
+        {
+          "caller": "test_decimal_truncate",
+          "callee": "Value::Decimal",
+          "lineNumber": 983
+        },
+        {
+          "caller": "test_decimal_truncate",
+          "callee": "AvroDecimal::from",
+          "lineNumber": 983
+        },
+        {
+          "caller": "test_decimal_truncate",
+          "callee": "from_avro_value(value, &schema, &DataType::Decimal).unwrap",
+          "lineNumber": 984
+        },
+        {
+          "caller": "test_decimal_truncate",
+          "callee": "from_avro_value",
+          "lineNumber": 984
+        },
+        {
+          "caller": "test_variable_scale_decimal",
+          "callee": "Schema::parse_str(\n            r#\"\n            {\n                \"type\": \"record\",\n                \"name\": \"VariableScaleDecimal\",\n                \"namespace\": \"io.debezium.data\",\n                \"fields\": [\n                    {\n                        \"name\": \"scale\",\n                        \"type\": \"int\"\n                    },\n                    {\n                        \"name\": \"value\",\n                        \"type\": \"bytes\"\n                    }\n                ]\n            }\n            \"#,\n        ).unwrap",
+          "lineNumber": 995
+        },
+        {
+          "caller": "test_variable_scale_decimal",
+          "callee": "Schema::parse_str",
+          "lineNumber": 995
+        },
+        {
+          "caller": "test_variable_scale_decimal",
+          "callee": "Value::Record",
+          "lineNumber": 1015
+        },
+        {
+          "caller": "test_variable_scale_decimal",
+          "callee": "from_avro_value(value, &schema, &DataType::Decimal).unwrap",
+          "lineNumber": 1020
+        },
+        {
+          "caller": "test_variable_scale_decimal",
+          "callee": "from_avro_value",
+          "lineNumber": 1020
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 7,
+        "functionCount": 8,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/connector/codec/src/decoder/avro/schema.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 377,
+      "nonEmptyLines": 354,
+      "functions": [
+        {
+          "name": "create",
+          "startLine": 41,
+          "endLine": 45,
+          "params": [
+            "schema"
+          ]
+        },
+        {
+          "name": "from_options",
+          "startLine": 60,
+          "endLine": 70,
+          "params": [
+            "options"
+          ]
+        },
+        {
+          "name": "avro_schema_to_fields",
+          "startLine": 75,
+          "endLine": 95,
+          "params": [
+            "schema",
+            "map_handling"
+          ]
+        },
+        {
+          "name": "avro_type_mapping",
+          "startLine": 101,
+          "endLine": 272,
+          "params": [
+            "schema",
+            "ancestor_records",
+            "refs",
+            "map_handling"
+          ]
+        },
+        {
+          "name": "supported_avro_to_json_type",
+          "startLine": 275,
+          "endLine": 306,
+          "params": [
+            "schema"
+          ]
+        },
+        {
+          "name": "avro_schema_to_struct_field_name",
+          "startLine": 309,
+          "endLine": 377,
+          "params": [
+            "schema"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ResolvedAvroSchema",
+          "startLine": 35,
+          "endLine": 38,
+          "methods": [
+            "create"
+          ],
+          "properties": [
+            "original_schema"
+          ]
+        },
+        {
+          "name": "MapHandling",
+          "startLine": 52,
+          "endLine": 55,
+          "methods": [
+            "from_options"
+          ],
+          "properties": [
+            "Jsonb",
+            "Map"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ResolvedAvroSchema",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "create",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "MapHandling",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "from_options",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "avro_schema_to_fields",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "avro_schema_to_struct_field_name",
+          "line": 309,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "create",
+          "callee": "Ok",
+          "lineNumber": 42
+        },
+        {
+          "caller": "from_options",
+          "callee": "options.get(Self::OPTION_KEY).map",
+          "lineNumber": 63
+        },
+        {
+          "caller": "from_options",
+          "callee": "options.get",
+          "lineNumber": 63
+        },
+        {
+          "caller": "from_options",
+          "callee": "Ok",
+          "lineNumber": 67
+        },
+        {
+          "caller": "from_options",
+          "callee": "Ok",
+          "lineNumber": 69
+        },
+        {
+          "caller": "from_options",
+          "callee": "Some",
+          "lineNumber": 69
+        },
+        {
+          "caller": "avro_schema_to_fields",
+          "callee": "ResolvedSchema::try_from",
+          "lineNumber": 79
+        },
+        {
+          "caller": "avro_schema_to_fields",
+          "callee": "avro_type_mapping",
+          "lineNumber": 81
+        },
+        {
+          "caller": "avro_schema_to_fields",
+          "callee": "resolved.get_names",
+          "lineNumber": 84
+        },
+        {
+          "caller": "avro_schema_to_fields",
+          "callee": "root_struct\n        .iter()\n        .map(|(name, data_type)| Field::new(name, data_type.clone())).collect",
+          "lineNumber": 90
+        },
+        {
+          "caller": "avro_schema_to_fields",
+          "callee": "root_struct\n        .iter().map",
+          "lineNumber": 90
+        },
+        {
+          "caller": "avro_schema_to_fields",
+          "callee": "root_struct.iter",
+          "lineNumber": 90
+        },
+        {
+          "caller": "avro_schema_to_fields",
+          "callee": "Field::new",
+          "lineNumber": 92
+        },
+        {
+          "caller": "avro_schema_to_fields",
+          "callee": "data_type.clone",
+          "lineNumber": 92
+        },
+        {
+          "caller": "avro_schema_to_fields",
+          "callee": "Ok",
+          "lineNumber": 94
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "Decimal::MAX_PRECISION.into",
+          "lineNumber": 115
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "LazyLock::new",
+          "lineNumber": 117
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "LOG_SUPPRESSOR.check",
+          "lineNumber": 118
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "Some",
+          "lineNumber": 141
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "DBZ_VARIABLE_SCALE_DECIMAL_NAMESPACE.into",
+          "lineNumber": 141
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "Ok",
+          "lineNumber": 143
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "name.fullname",
+          "lineNumber": 146
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "ancestor_records.contains",
+          "lineNumber": 147
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "ancestor_records.push",
+          "lineNumber": 155
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "StructType::new(\n                fields\n                    .iter()\n                    .map(|f| {\n                        Ok((\n                            &f.name,\n                            avro_type_mapping(&f.schema, ancestor_records, refs, map_handling)?,\n                        ))\n                    })\n                    .collect::<anyhow::Result<Vec<_>>>()?,\n            ).into",
+          "lineNumber": 156
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "StructType::new",
+          "lineNumber": 156
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "fields\n                    .iter()\n                    .map(|f| {\n                        Ok((\n                            &f.name,\n                            avro_type_mapping(&f.schema, ancestor_records, refs, map_handling)?,\n                        ))\n                    })\n                    .collect::<anyhow::Result<Vec<_>>>",
+          "lineNumber": 157
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "fields\n                    .iter().map",
+          "lineNumber": 157
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "fields.iter",
+          "lineNumber": 157
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "Ok",
+          "lineNumber": 160
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "avro_type_mapping",
+          "lineNumber": 162
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "ancestor_records.pop",
+          "lineNumber": 168
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "avro_type_mapping",
+          "lineNumber": 174
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "item_schema.as_ref",
+          "lineNumber": 174
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "DataType::list",
+          "lineNumber": 175
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "get_nullable_union_inner",
+          "lineNumber": 193
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "avro_type_mapping",
+          "lineNumber": 194
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "union_schema\n                        .variants()\n                        .iter()\n                        // null will mean the whole struct is null\n                        .filter(|variant| !matches!(variant, &&Schema::Null))\n                        .map(|variant| {\n                            avro_type_mapping(variant, ancestor_records, refs, map_handling)\n                                .and_then(|t| {\n                                    let name = avro_schema_to_struct_field_name(variant)?;\n                                    Ok((name, t))\n                                })\n                        })\n                        .try_collect::<_, Vec<_>, _>().context",
+          "lineNumber": 201
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "union_schema\n                        .variants()\n                        .iter()\n                        // null will mean the whole struct is null\n                        .filter(|variant| !matches!(variant, &&Schema::Null))\n                        .map(|variant| {\n                            avro_type_mapping(variant, ancestor_records, refs, map_handling)\n                                .and_then(|t| {\n                                    let name = avro_schema_to_struct_field_name(variant)?;\n                                    Ok((name, t))\n                                })\n                        })\n                        .try_collect::<_, Vec<_>, _>",
+          "lineNumber": 201
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "union_schema\n                        .variants()\n                        .iter()\n                        // null will mean the whole struct is null\n                        .filter(|variant| !matches!(variant, &&Schema::Null)).map",
+          "lineNumber": 201
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "union_schema\n                        .variants()\n                        .iter().filter",
+          "lineNumber": 201
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "union_schema\n                        .variants().iter",
+          "lineNumber": 201
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "union_schema.variants",
+          "lineNumber": 201
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "avro_type_mapping(variant, ancestor_records, refs, map_handling).and_then",
+          "lineNumber": 207
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "avro_type_mapping",
+          "lineNumber": 207
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "avro_schema_to_struct_field_name",
+          "lineNumber": 209
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "Ok",
+          "lineNumber": 210
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "StructType::new(fields).into",
+          "lineNumber": 216
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "StructType::new",
+          "lineNumber": 216
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "Some",
+          "lineNumber": 222
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "DBZ_VARIABLE_SCALE_DECIMAL_NAMESPACE.into",
+          "lineNumber": 222
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "avro_type_mapping",
+          "lineNumber": 226
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "supported_avro_to_json_type",
+          "lineNumber": 239
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "avro_type_mapping(\n                        value_schema.as_ref(),\n                        ancestor_records,\n                        refs,\n                        map_handling,\n                    ).context",
+          "lineNumber": 250
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "avro_type_mapping",
+          "lineNumber": 250
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "value_schema.as_ref",
+          "lineNumber": 251
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "DataType::Map",
+          "lineNumber": 257
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "MapType::from_kv",
+          "lineNumber": 257
+        },
+        {
+          "caller": "avro_type_mapping",
+          "callee": "Ok",
+          "lineNumber": 271
+        },
+        {
+          "caller": "supported_avro_to_json_type",
+          "callee": "supported_avro_to_json_type",
+          "lineNumber": 279
+        },
+        {
+          "caller": "supported_avro_to_json_type",
+          "callee": "supported_avro_to_json_type",
+          "lineNumber": 280
+        },
+        {
+          "caller": "supported_avro_to_json_type",
+          "callee": "fields\n            .iter().all",
+          "lineNumber": 281
+        },
+        {
+          "caller": "supported_avro_to_json_type",
+          "callee": "fields.iter",
+          "lineNumber": 281
+        },
+        {
+          "caller": "supported_avro_to_json_type",
+          "callee": "supported_avro_to_json_type",
+          "lineNumber": 283
+        },
+        {
+          "caller": "avro_schema_to_struct_field_name",
+          "callee": "Ok",
+          "lineNumber": 310
+        },
+        {
+          "caller": "avro_schema_to_struct_field_name",
+          "callee": "\"boolean\".to_owned",
+          "lineNumber": 314
+        },
+        {
+          "caller": "avro_schema_to_struct_field_name",
+          "callee": "\"int\".to_owned",
+          "lineNumber": 315
+        },
+        {
+          "caller": "avro_schema_to_struct_field_name",
+          "callee": "\"long\".to_owned",
+          "lineNumber": 316
+        },
+        {
+          "caller": "avro_schema_to_struct_field_name",
+          "callee": "\"float\".to_owned",
+          "lineNumber": 317
+        },
+        {
+          "caller": "avro_schema_to_struct_field_name",
+          "callee": "\"double\".to_owned",
+          "lineNumber": 318
+        },
+        {
+          "caller": "avro_schema_to_struct_field_name",
+          "callee": "\"bytes\".to_owned",
+          "lineNumber": 319
+        },
+        {
+          "caller": "avro_schema_to_struct_field_name",
+          "callee": "\"string\".to_owned",
+          "lineNumber": 320
+        },
+        {
+          "caller": "avro_schema_to_struct_field_name",
+          "callee": "\"array\".to_owned",
+          "lineNumber": 322
+        },
+        {
+          "caller": "avro_schema_to_struct_field_name",
+          "callee": "\"map\".to_owned",
+          "lineNumber": 323
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/connector/codec/src/decoder/json/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 213,
+      "nonEmptyLines": 197,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 99,
+          "endLine": 103,
+          "params": []
+        },
+        {
+          "name": "deref_value",
+          "startLine": 105,
+          "endLine": 110,
+          "params": [
+            "value",
+            "retrieval_url"
+          ]
+        },
+        {
+          "name": "deref",
+          "startLine": 112,
+          "endLine": 189,
+          "params": [
+            "value",
+            "base_url",
+            "used_refs"
+          ]
+        },
+        {
+          "name": "json_schema_to_columns",
+          "startLine": 201,
+          "endLine": 212,
+          "params": [
+            "retrieval_url"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Error",
+          "startLine": 49,
+          "endLine": 89,
+          "methods": [],
+          "properties": [
+            "SchemaFromFile",
+            "UrlParse",
+            "SchemaNotJson",
+            "Request",
+            "SchemaNotJsonSerde",
+            "JsonRefPointerNotFound",
+            "JsonRef",
+            "UnsupportedUrl",
+            "Uncategorized"
+          ]
+        },
+        {
+          "name": "JsonRef",
+          "startLine": 94,
+          "endLine": 96,
+          "methods": [
+            "new",
+            "deref_value",
+            "deref"
+          ],
+          "properties": [
+            "schema_cache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Error",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "JsonRef",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "json_schema_to_columns",
+          "line": 201,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "HashMap::new",
+          "lineNumber": 101
+        },
+        {
+          "caller": "deref_value",
+          "callee": "self.schema_cache.insert",
+          "lineNumber": 106
+        },
+        {
+          "caller": "deref_value",
+          "callee": "retrieval_url.to_string",
+          "lineNumber": 107
+        },
+        {
+          "caller": "deref_value",
+          "callee": "value.clone",
+          "lineNumber": 107
+        },
+        {
+          "caller": "deref_value",
+          "callee": "self.deref",
+          "lineNumber": 108
+        },
+        {
+          "caller": "deref_value",
+          "callee": "Ok",
+          "lineNumber": 109
+        },
+        {
+          "caller": "deref",
+          "callee": "value.as_object_mut",
+          "lineNumber": 118
+        },
+        {
+          "caller": "deref",
+          "callee": "obj.remove",
+          "lineNumber": 119
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_value.as_str",
+          "lineNumber": 120
+        },
+        {
+          "caller": "deref",
+          "callee": "base_url.join(ref_string).into_url_parse",
+          "lineNumber": 122
+        },
+        {
+          "caller": "deref",
+          "callee": "base_url.join",
+          "lineNumber": 122
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_url.clone",
+          "lineNumber": 123
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_url_no_fragment.set_fragment",
+          "lineNumber": 124
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_url_no_fragment.scheme",
+          "lineNumber": 125
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_url_no_fragment.to_string",
+          "lineNumber": 126
+        },
+        {
+          "caller": "deref",
+          "callee": "self.schema_cache.get",
+          "lineNumber": 128
+        },
+        {
+          "caller": "deref",
+          "callee": "cached_schema.clone",
+          "lineNumber": 129
+        },
+        {
+          "caller": "deref",
+          "callee": "reqwest::get(ref_url_no_fragment.clone())\n                            .await\n                            .into_request(&ref_no_fragment)?\n                            .json()\n                            .await.into_request",
+          "lineNumber": 132
+        },
+        {
+          "caller": "deref",
+          "callee": "reqwest::get(ref_url_no_fragment.clone())\n                            .await\n                            .into_request(&ref_no_fragment)?.json",
+          "lineNumber": 132
+        },
+        {
+          "caller": "deref",
+          "callee": "reqwest::get(ref_url_no_fragment.clone())\n                            .await.into_request",
+          "lineNumber": 132
+        },
+        {
+          "caller": "deref",
+          "callee": "reqwest::get",
+          "lineNumber": 132
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_url_no_fragment.clone",
+          "lineNumber": 132
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_url_no_fragment.to_file_path().map_err",
+          "lineNumber": 139
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_url_no_fragment.to_file_path",
+          "lineNumber": 139
+        },
+        {
+          "caller": "deref",
+          "callee": "fs::File::open(file_path).into_schema_from_file",
+          "lineNumber": 146
+        },
+        {
+          "caller": "deref",
+          "callee": "fs::File::open",
+          "lineNumber": 146
+        },
+        {
+          "caller": "deref",
+          "callee": "serde_json::from_reader(file).into_schema_not_json_serde",
+          "lineNumber": 147
+        },
+        {
+          "caller": "deref",
+          "callee": "serde_json::from_reader",
+          "lineNumber": 147
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_no_fragment.clone",
+          "lineNumber": 148
+        },
+        {
+          "caller": "deref",
+          "callee": "Err",
+          "lineNumber": 150
+        },
+        {
+          "caller": "deref",
+          "callee": "self.schema_cache.contains_key",
+          "lineNumber": 157
+        },
+        {
+          "caller": "deref",
+          "callee": "self.schema_cache.insert",
+          "lineNumber": 158
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_no_fragment.clone",
+          "lineNumber": 159
+        },
+        {
+          "caller": "deref",
+          "callee": "schema.clone",
+          "lineNumber": 159
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_url.to_string",
+          "lineNumber": 162
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_url.fragment",
+          "lineNumber": 163
+        },
+        {
+          "caller": "deref",
+          "callee": "schema\n                    .pointer(ref_fragment)\n                    .ok_or(Error::JsonRefPointerNotFound {\n                        ref_string: ref_string.to_owned(),\n                        ref_fragment: ref_fragment.to_owned(),\n                    })?.clone",
+          "lineNumber": 164
+        },
+        {
+          "caller": "deref",
+          "callee": "schema\n                    .pointer(ref_fragment).ok_or",
+          "lineNumber": 164
+        },
+        {
+          "caller": "deref",
+          "callee": "schema.pointer",
+          "lineNumber": 164
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_string.to_owned",
+          "lineNumber": 167
+        },
+        {
+          "caller": "deref",
+          "callee": "ref_fragment.to_owned",
+          "lineNumber": 168
+        },
+        {
+          "caller": "deref",
+          "callee": "used_refs.contains",
+          "lineNumber": 173
+        },
+        {
+          "caller": "deref",
+          "callee": "Ok",
+          "lineNumber": 174
+        },
+        {
+          "caller": "deref",
+          "callee": "used_refs.clone",
+          "lineNumber": 176
+        },
+        {
+          "caller": "deref",
+          "callee": "new_used_refs.push",
+          "lineNumber": 177
+        },
+        {
+          "caller": "deref",
+          "callee": "Box::pin",
+          "lineNumber": 178
+        },
+        {
+          "caller": "deref",
+          "callee": "self.deref",
+          "lineNumber": 178
+        },
+        {
+          "caller": "deref",
+          "callee": "value.as_object_mut",
+          "lineNumber": 183
+        },
+        {
+          "caller": "deref",
+          "callee": "obj.values_mut",
+          "lineNumber": 184
+        },
+        {
+          "caller": "deref",
+          "callee": "Box::pin",
+          "lineNumber": 185
+        },
+        {
+          "caller": "deref",
+          "callee": "self.deref",
+          "lineNumber": 185
+        },
+        {
+          "caller": "deref",
+          "callee": "Ok",
+          "lineNumber": 188
+        },
+        {
+          "caller": "json_schema_to_columns",
+          "callee": "JsonRef::new().deref_value",
+          "lineNumber": 205
+        },
+        {
+          "caller": "json_schema_to_columns",
+          "callee": "JsonRef::new",
+          "lineNumber": 205
+        },
+        {
+          "caller": "json_schema_to_columns",
+          "callee": "jst::convert_avro(&self.0, jst::Context::default()).to_string",
+          "lineNumber": 208
+        },
+        {
+          "caller": "json_schema_to_columns",
+          "callee": "jst::convert_avro",
+          "lineNumber": 208
+        },
+        {
+          "caller": "json_schema_to_columns",
+          "callee": "jst::Context::default",
+          "lineNumber": 208
+        },
+        {
+          "caller": "json_schema_to_columns",
+          "callee": "apache_avro::Schema::parse_str(&avro_schema).context",
+          "lineNumber": 210
+        },
+        {
+          "caller": "json_schema_to_columns",
+          "callee": "apache_avro::Schema::parse_str",
+          "lineNumber": 210
+        },
+        {
+          "caller": "json_schema_to_columns",
+          "callee": "avro_schema_to_fields",
+          "lineNumber": 211
+        },
+        {
+          "caller": "json_schema_to_columns",
+          "callee": "Some",
+          "lineNumber": 211
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/connector/codec/src/decoder/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 114,
+      "nonEmptyLines": 102,
+      "functions": [
+        {
+          "name": "access_owned",
+          "startLine": 110,
+          "endLine": 113,
+          "params": [
+            "path",
+            "type_expected"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccessError",
+          "startLine": 27,
+          "endLine": 62,
+          "methods": [],
+          "properties": [
+            "Undefined",
+            "TypeError",
+            "UnsupportedType",
+            "CdcAutoSchemaChangeError",
+            "UnsupportedAdditionalColumn",
+            "ProtobufAnyToJson",
+            "ParquetParser",
+            "Uncategorized",
+            "NotImplemented"
+          ]
+        },
+        {
+          "name": "Access",
+          "startLine": 69,
+          "endLine": 102,
+          "methods": [
+            "access"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AccessError",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "Access",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "access_owned",
+          "line": 110,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "access_owned",
+          "callee": "self.access(path, type_expected).map",
+          "lineNumber": 111
+        },
+        {
+          "caller": "access_owned",
+          "callee": "self.access",
+          "lineNumber": 111
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 3,
+        "functionCount": 1,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/connector/codec/src/decoder/protobuf/mod.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 60,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 32,
+          "endLine": 37,
+          "params": [
+            "message",
+            "messages_as_jsonb"
+          ]
+        },
+        {
+          "name": "descriptor",
+          "startLine": 40,
+          "endLine": 42,
+          "params": []
+        },
+        {
+          "name": "access",
+          "startLine": 46,
+          "endLine": 67,
+          "params": [
+            "path",
+            "type_expected"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProtobufAccess",
+          "startLine": 26,
+          "endLine": 29,
+          "methods": [],
+          "properties": [
+            "message",
+            "messages_as_jsonb"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProtobufAccess",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "new",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "descriptor",
+          "line": 40,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "descriptor",
+          "callee": "self.message.descriptor",
+          "lineNumber": 41
+        },
+        {
+          "caller": "access",
+          "callee": "self\n            .message\n            .descriptor()\n            .get_field_by_name(path[0])\n            .ok_or_else(|| uncategorized!(\"protobuf schema don't have field {}\", path[0])).inspect_err",
+          "lineNumber": 48
+        },
+        {
+          "caller": "access",
+          "callee": "self\n            .message\n            .descriptor()\n            .get_field_by_name(path[0]).ok_or_else",
+          "lineNumber": 48
+        },
+        {
+          "caller": "access",
+          "callee": "self\n            .message\n            .descriptor().get_field_by_name",
+          "lineNumber": 48
+        },
+        {
+          "caller": "access",
+          "callee": "self\n            .message.descriptor",
+          "lineNumber": 48
+        },
+        {
+          "caller": "access",
+          "callee": "LazyLock::new",
+          "lineNumber": 55
+        },
+        {
+          "caller": "access",
+          "callee": "LOG_SUPPRESSOR.check",
+          "lineNumber": 56
+        },
+        {
+          "caller": "access",
+          "callee": "parser::from_protobuf_message_field",
+          "lineNumber": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/connector/codec/src/decoder/protobuf/parser.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 301,
+      "nonEmptyLines": 285,
+      "functions": [
+        {
+          "name": "pb_schema_to_fields",
+          "startLine": 36,
+          "endLine": 50,
+          "params": [
+            "message_descriptor",
+            "messages_as_jsonb"
+          ]
+        },
+        {
+          "name": "detect_loop_and_push",
+          "startLine": 56,
+          "endLine": 73,
+          "params": [
+            "trace",
+            "fd"
+          ]
+        },
+        {
+          "name": "from_protobuf_message_field",
+          "startLine": 79,
+          "endLine": 103,
+          "params": [
+            "field_desc",
+            "message",
+            "type_expected",
+            "messages_as_jsonb"
+          ]
+        },
+        {
+          "name": "from_protobuf_value",
+          "startLine": 106,
+          "endLine": 240,
+          "params": [
+            "field_desc",
+            "value",
+            "type_expected",
+            "messages_as_jsonb"
+          ]
+        },
+        {
+          "name": "protobuf_type_mapping",
+          "startLine": 243,
+          "endLine": 301,
+          "params": [
+            "field_descriptor",
+            "parse_trace",
+            "messages_as_jsonb"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProtobufTypeError",
+          "startLine": 54,
+          "endLine": 54,
+          "methods": [],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "pb_schema_to_fields",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "from_protobuf_message_field",
+          "line": 79,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pb_schema_to_fields",
+          "callee": "message_descriptor\n        .fields()\n        .map(|field| {\n            let field_type = protobuf_type_mapping(&field, &mut parse_trace, messages_as_jsonb)\n                .context(\"failed to map protobuf type\")?;\n            let column = Field::new(field.name(), field_type);\n            Ok(column)\n        }).collect",
+          "lineNumber": 41
+        },
+        {
+          "caller": "pb_schema_to_fields",
+          "callee": "message_descriptor\n        .fields().map",
+          "lineNumber": 41
+        },
+        {
+          "caller": "pb_schema_to_fields",
+          "callee": "message_descriptor.fields",
+          "lineNumber": 41
+        },
+        {
+          "caller": "pb_schema_to_fields",
+          "callee": "protobuf_type_mapping(&field, &mut parse_trace, messages_as_jsonb).context",
+          "lineNumber": 44
+        },
+        {
+          "caller": "pb_schema_to_fields",
+          "callee": "protobuf_type_mapping",
+          "lineNumber": 44
+        },
+        {
+          "caller": "pb_schema_to_fields",
+          "callee": "Field::new",
+          "lineNumber": 46
+        },
+        {
+          "caller": "pb_schema_to_fields",
+          "callee": "field.name",
+          "lineNumber": 46
+        },
+        {
+          "caller": "pb_schema_to_fields",
+          "callee": "Ok",
+          "lineNumber": 47
+        },
+        {
+          "caller": "detect_loop_and_push",
+          "callee": "trace.iter().any",
+          "lineNumber": 61
+        },
+        {
+          "caller": "detect_loop_and_push",
+          "callee": "trace.iter",
+          "lineNumber": 61
+        },
+        {
+          "caller": "detect_loop_and_push",
+          "callee": "identifier.as_str",
+          "lineNumber": 61
+        },
+        {
+          "caller": "detect_loop_and_push",
+          "callee": "trace.push",
+          "lineNumber": 71
+        },
+        {
+          "caller": "detect_loop_and_push",
+          "callee": "Ok",
+          "lineNumber": 72
+        },
+        {
+          "caller": "from_protobuf_message_field",
+          "callee": "field_desc.supports_presence",
+          "lineNumber": 85
+        },
+        {
+          "caller": "from_protobuf_message_field",
+          "callee": "message.has_field",
+          "lineNumber": 85
+        },
+        {
+          "caller": "from_protobuf_message_field",
+          "callee": "Ok",
+          "lineNumber": 88
+        },
+        {
+          "caller": "from_protobuf_message_field",
+          "callee": "message.get_field",
+          "lineNumber": 91
+        },
+        {
+          "caller": "from_protobuf_message_field",
+          "callee": "from_protobuf_value",
+          "lineNumber": 96
+        },
+        {
+          "caller": "from_protobuf_message_field",
+          "callee": "from_protobuf_value(field_desc, &value, type_expected, messages_as_jsonb).map",
+          "lineNumber": 99
+        },
+        {
+          "caller": "from_protobuf_message_field",
+          "callee": "from_protobuf_value",
+          "lineNumber": 99
+        },
+        {
+          "caller": "from_protobuf_message_field",
+          "callee": "d.to_owned_datum().into",
+          "lineNumber": 100
+        },
+        {
+          "caller": "from_protobuf_message_field",
+          "callee": "d.to_owned_datum",
+          "lineNumber": 100
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "field_desc.kind",
+          "lineNumber": 112
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Bool",
+          "lineNumber": 121
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Int32",
+          "lineNumber": 122
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Int64",
+          "lineNumber": 123
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Int64",
+          "lineNumber": 124
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Decimal",
+          "lineNumber": 125
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "Decimal::from",
+          "lineNumber": 125
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Float32",
+          "lineNumber": 126
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "F32::from",
+          "lineNumber": 126
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Float64",
+          "lineNumber": 127
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "F64::from",
+          "lineNumber": 127
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "kind.as_enum().ok_or_else",
+          "lineNumber": 130
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "kind.as_enum",
+          "lineNumber": 130
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "\"enum\".to_owned",
+          "lineNumber": 131
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "value.to_string",
+          "lineNumber": 133
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "enum_desc.get_value(*idx).ok_or_else",
+          "lineNumber": 135
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "enum_desc.get_value",
+          "lineNumber": 135
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Utf8",
+          "lineNumber": 138
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "enum_symbol.name().into",
+          "lineNumber": 138
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "enum_symbol.name",
+          "lineNumber": 138
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "messages_as_jsonb.contains",
+          "lineNumber": 141
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "dyn_msg.descriptor().full_name",
+          "lineNumber": 141
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "dyn_msg.descriptor",
+          "lineNumber": 141
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Jsonb",
+          "lineNumber": 142
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "JsonbVal::from",
+          "lineNumber": 142
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "serde_json::to_value(dyn_msg).map_err",
+          "lineNumber": 143
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "serde_json::to_value",
+          "lineNumber": 143
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "dyn_msg.descriptor",
+          "lineNumber": 146
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "Err",
+          "lineNumber": 148
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "type_expected.to_string",
+          "lineNumber": 149
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "desc.full_name().to_owned",
+          "lineNumber": 150
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "desc.full_name",
+          "lineNumber": 150
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "value.to_string",
+          "lineNumber": 151
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "Vec::with_capacity",
+          "lineNumber": 155
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "st.len",
+          "lineNumber": 155
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "st.iter",
+          "lineNumber": 156
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "desc.get_field_by_name",
+          "lineNumber": 157
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "datums.push",
+          "lineNumber": 159
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "from_protobuf_message_field",
+          "lineNumber": 162
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "datums.push",
+          "lineNumber": 168
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "datum.to_owned_datum",
+          "lineNumber": 168
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Struct",
+          "lineNumber": 170
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "StructValue::new",
+          "lineNumber": 170
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "Err",
+          "lineNumber": 175
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "type_expected.to_string",
+          "lineNumber": 176
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "value.to_string",
+          "lineNumber": 178
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "list_type.elem",
+          "lineNumber": 181
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "elem_type.create_array_builder",
+          "lineNumber": 182
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "values.len",
+          "lineNumber": 182
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "builder.append",
+          "lineNumber": 184
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "from_protobuf_value",
+          "lineNumber": 184
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::List",
+          "lineNumber": 191
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ListValue::new",
+          "lineNumber": 191
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "builder.finish",
+          "lineNumber": 191
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "type_expected.to_string",
+          "lineNumber": 197
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "value.to_string",
+          "lineNumber": 199
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "Err",
+          "lineNumber": 204
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "err",
+          "lineNumber": 204
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "field_desc.is_map",
+          "lineNumber": 206
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "Err",
+          "lineNumber": 207
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "err",
+          "lineNumber": 207
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "kind.as_message().ok_or_else",
+          "lineNumber": 209
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "kind.as_message",
+          "lineNumber": 209
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map_type.key().create_array_builder",
+          "lineNumber": 211
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map_type.key",
+          "lineNumber": 211
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map.len",
+          "lineNumber": 211
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map_type.value().create_array_builder",
+          "lineNumber": 212
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map_type.value",
+          "lineNumber": 212
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map.len",
+          "lineNumber": 212
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map.iter().sorted_by_key",
+          "lineNumber": 217
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map.iter",
+          "lineNumber": 217
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "key_builder.append",
+          "lineNumber": 218
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "from_protobuf_value",
+          "lineNumber": 218
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map_desc.map_entry_key_field",
+          "lineNumber": 219
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "key.clone().into",
+          "lineNumber": 220
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "key.clone",
+          "lineNumber": 220
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map_type.key",
+          "lineNumber": 221
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "value_builder.append",
+          "lineNumber": 224
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "from_protobuf_value",
+          "lineNumber": 224
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map_desc.map_entry_value_field",
+          "lineNumber": 225
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "map_type.value",
+          "lineNumber": 227
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "key_builder.finish",
+          "lineNumber": 231
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "value_builder.finish",
+          "lineNumber": 232
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ScalarImpl::Map",
+          "lineNumber": 233
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "MapValue::try_from_kv(ListValue::new(keys), ListValue::new(values)).map_err",
+          "lineNumber": 234
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "MapValue::try_from_kv",
+          "lineNumber": 234
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ListValue::new",
+          "lineNumber": 234
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "ListValue::new",
+          "lineNumber": 234
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "Ok",
+          "lineNumber": 239
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "Some(v).into",
+          "lineNumber": 239
+        },
+        {
+          "caller": "from_protobuf_value",
+          "callee": "Some",
+          "lineNumber": 239
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "detect_loop_and_push",
+          "lineNumber": 248
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "field_descriptor.kind",
+          "lineNumber": 249
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "messages_as_jsonb.contains",
+          "lineNumber": 261
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "m.full_name",
+          "lineNumber": 261
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "m.is_map_entry",
+          "lineNumber": 264
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "protobuf_type_mapping",
+          "lineNumber": 267
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "m.map_entry_key_field",
+          "lineNumber": 268
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "protobuf_type_mapping",
+          "lineNumber": 272
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "m.map_entry_value_field",
+          "lineNumber": 273
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "parse_trace.pop",
+          "lineNumber": 277
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "Ok",
+          "lineNumber": 278
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "DataType::Map",
+          "lineNumber": 278
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "MapType::from_kv",
+          "lineNumber": 278
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "m\n                    .fields()\n                    .map(|f| {\n                        Ok((\n                            f.name().to_owned(),\n                            protobuf_type_mapping(&f, parse_trace, messages_as_jsonb)?,\n                        ))\n                    })\n                    .try_collect::<_, Vec<_>, _>",
+          "lineNumber": 280
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "m\n                    .fields().map",
+          "lineNumber": 280
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "m.fields",
+          "lineNumber": 280
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "Ok",
+          "lineNumber": 283
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "f.name().to_owned",
+          "lineNumber": 284
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "f.name",
+          "lineNumber": 284
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "protobuf_type_mapping",
+          "lineNumber": 285
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "StructType::new(fields).into",
+          "lineNumber": 289
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "StructType::new",
+          "lineNumber": 289
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "field_descriptor.cardinality",
+          "lineNumber": 295
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "DataType::list",
+          "lineNumber": 297
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "parse_trace.pop",
+          "lineNumber": 299
+        },
+        {
+          "caller": "protobuf_type_mapping",
+          "callee": "Ok",
+          "lineNumber": 300
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/connector/codec/src/decoder/utils.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "scaled_bigint_to_rust_decimal",
+          "startLine": 19,
+          "endLine": 34,
+          "params": [
+            "value",
+            "scale"
+          ]
+        },
+        {
+          "name": "rust_decimal_to_scaled_bigint",
+          "startLine": 37,
+          "endLine": 48,
+          "params": [
+            "decimal",
+            "expect_scale"
+          ]
+        },
+        {
+          "name": "extract_decimal",
+          "startLine": 50,
+          "endLine": 85,
+          "params": [
+            "bytes"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "scaled_bigint_to_rust_decimal",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "rust_decimal_to_scaled_bigint",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "scaled_bigint_to_rust_decimal",
+          "callee": "value.to_bytes_be",
+          "lineNumber": 23
+        },
+        {
+          "caller": "scaled_bigint_to_rust_decimal",
+          "callee": "extract_decimal",
+          "lineNumber": 25
+        },
+        {
+          "caller": "scaled_bigint_to_rust_decimal",
+          "callee": "Ok",
+          "lineNumber": 27
+        },
+        {
+          "caller": "scaled_bigint_to_rust_decimal",
+          "callee": "rust_decimal::Decimal::from_parts",
+          "lineNumber": 27
+        },
+        {
+          "caller": "rust_decimal_to_scaled_bigint",
+          "callee": "decimal.mantissa",
+          "lineNumber": 41
+        },
+        {
+          "caller": "rust_decimal_to_scaled_bigint",
+          "callee": "decimal.scale",
+          "lineNumber": 42
+        },
+        {
+          "caller": "rust_decimal_to_scaled_bigint",
+          "callee": "bigdecimal::BigDecimal::from",
+          "lineNumber": 43
+        },
+        {
+          "caller": "rust_decimal_to_scaled_bigint",
+          "callee": "big_decimal.with_scale",
+          "lineNumber": 44
+        },
+        {
+          "caller": "rust_decimal_to_scaled_bigint",
+          "callee": "scaled_big_decimal.as_bigint_and_scale",
+          "lineNumber": 45
+        },
+        {
+          "caller": "rust_decimal_to_scaled_bigint",
+          "callee": "Ok",
+          "lineNumber": 47
+        },
+        {
+          "caller": "rust_decimal_to_scaled_bigint",
+          "callee": "scaled_big_int.to_signed_bytes_be",
+          "lineNumber": 47
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "bytes.len",
+          "lineNumber": 51
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "pad.extend_from_slice",
+          "lineNumber": 54
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "u32::from_be_bytes",
+          "lineNumber": 55
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "pad.try_into().unwrap",
+          "lineNumber": 55
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "pad.try_into",
+          "lineNumber": 55
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "Ok",
+          "lineNumber": 56
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "pad.extend_from_slice",
+          "lineNumber": 63
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "u32::from_be_bytes",
+          "lineNumber": 64
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "pad.try_into().unwrap",
+          "lineNumber": 64
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "pad.try_into",
+          "lineNumber": 64
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "u32::from_be_bytes",
+          "lineNumber": 66
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "bytes[mid_end..].to_owned().try_into().unwrap",
+          "lineNumber": 66
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "bytes[mid_end..].to_owned().try_into",
+          "lineNumber": 66
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "bytes[mid_end..].to_owned",
+          "lineNumber": 66
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "Ok",
+          "lineNumber": 67
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "pad.extend_from_slice",
+          "lineNumber": 75
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "u32::from_be_bytes",
+          "lineNumber": 76
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "pad.try_into().unwrap",
+          "lineNumber": 76
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "pad.try_into",
+          "lineNumber": 76
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "u32::from_be_bytes",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "bytes[hi_end..mid_end].to_owned().try_into().unwrap",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "bytes[hi_end..mid_end].to_owned().try_into",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "bytes[hi_end..mid_end].to_owned",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "u32::from_be_bytes",
+          "lineNumber": 80
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "bytes[mid_end..].to_owned().try_into().unwrap",
+          "lineNumber": 80
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "bytes[mid_end..].to_owned().try_into",
+          "lineNumber": 80
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "bytes[mid_end..].to_owned",
+          "lineNumber": 80
+        },
+        {
+          "caller": "extract_decimal",
+          "callee": "Ok",
+          "lineNumber": 81
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/connector/codec/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "parse_str",
+          "startLine": 47,
+          "endLine": 52,
+          "params": [
+            "schema"
+          ]
+        },
+        {
+          "name": "parse_bytes",
+          "startLine": 54,
+          "endLine": 59,
+          "params": [
+            "schema"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "JsonSchema",
+          "startLine": 45,
+          "endLine": 45,
+          "methods": [
+            "parse_str",
+            "parse_bytes"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "JsonSchema",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "parse_str",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "parse_bytes",
+          "line": 54,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parse_str",
+          "callee": "serde_json::from_str(schema).context",
+          "lineNumber": 50
+        },
+        {
+          "caller": "parse_str",
+          "callee": "serde_json::from_str",
+          "lineNumber": 50
+        },
+        {
+          "caller": "parse_str",
+          "callee": "Ok",
+          "lineNumber": 51
+        },
+        {
+          "caller": "parse_str",
+          "callee": "Self",
+          "lineNumber": 51
+        },
+        {
+          "caller": "parse_bytes",
+          "callee": "serde_json::from_slice(schema).context",
+          "lineNumber": 57
+        },
+        {
+          "caller": "parse_bytes",
+          "callee": "serde_json::from_slice",
+          "lineNumber": 57
+        },
+        {
+          "caller": "parse_bytes",
+          "callee": "Ok",
+          "lineNumber": 58
+        },
+        {
+          "caller": "parse_bytes",
+          "callee": "Self",
+          "lineNumber": 58
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,1040 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/storage/src/compaction_catalog_manager.rs",
+      "type": "file",
+      "name": "compaction_catalog_manager.rs",
+      "filePath": "src/storage/src/compaction_catalog_manager.rs",
+      "summary": "Manages compaction catalog metadata including filter key extractors, table schemas, and watermark column serdes for Hummock SSTable compaction.",
+      "tags": [
+        "service",
+        "storage",
+        "compaction"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/error.rs",
+      "type": "file",
+      "name": "error.rs",
+      "filePath": "src/storage/src/error.rs",
+      "summary": "Storage-layer error types unifying Hummock and MemTable errors.",
+      "tags": [
+        "utility",
+        "error-handling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/backup_reader.rs",
+      "type": "file",
+      "name": "backup_reader.rs",
+      "filePath": "src/storage/src/hummock/backup_reader.rs",
+      "summary": "Reads Hummock state snapshots from backup storage for restore and time-travel operations.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/block_cache.rs",
+      "type": "file",
+      "name": "block_cache.rs",
+      "filePath": "src/storage/src/hummock/block_cache.rs",
+      "summary": "Block-level LRU cache for SSTable data blocks with async prefetch support.",
+      "tags": [
+        "storage",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/block_stream.rs",
+      "type": "file",
+      "name": "block_stream.rs",
+      "filePath": "src/storage/src/hummock/block_stream.rs",
+      "summary": "Streaming block downloader for SSTable data with memory usage tracking and prefetch.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/compaction_executor.rs",
+      "type": "file",
+      "name": "compaction_executor.rs",
+      "filePath": "src/storage/src/hummock/compactor/compaction_executor.rs",
+      "summary": "Thread pool executor for compaction tasks.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/compaction_filter.rs",
+      "type": "file",
+      "name": "compaction_filter.rs",
+      "filePath": "src/storage/src/hummock/compactor/compaction_filter.rs",
+      "summary": "TTL and multi-level compaction filter for pruning expired SSTable keys.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/compaction_utils.rs",
+      "type": "file",
+      "name": "compaction_utils.rs",
+      "filePath": "src/storage/src/hummock/compactor/compaction_utils.rs",
+      "summary": "Utility functions for compaction: SST building, filter creation, and split generation.",
+      "tags": [
+        "storage",
+        "compaction",
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/compactor_runner.rs",
+      "type": "file",
+      "name": "compactor_runner.rs",
+      "filePath": "src/storage/src/hummock/compactor/compactor_runner.rs",
+      "summary": "Runs compaction tasks by merging overlapping SSTables into new sorted output files.",
+      "tags": [
+        "storage",
+        "compaction",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/context.rs",
+      "type": "file",
+      "name": "context.rs",
+      "filePath": "src/storage/src/hummock/compactor/context.rs",
+      "summary": "Compactor context bundling store, object store, and configuration for compaction tasks.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/fast_compactor_runner.rs",
+      "type": "file",
+      "name": "fast_compactor_runner.rs",
+      "filePath": "src/storage/src/hummock/compactor/fast_compactor_runner.rs",
+      "summary": "Fast-path compactor runner for non-overlapping SSTables using block-level copy.",
+      "tags": [
+        "storage",
+        "compaction",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs",
+      "type": "file",
+      "name": "iceberg_compactor_runner.rs",
+      "filePath": "src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs",
+      "summary": "Iceberg-compatible compaction runner producing Parquet files for open table format.",
+      "tags": [
+        "storage",
+        "compaction",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/iceberg_compaction/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/storage/src/hummock/compactor/iceberg_compaction/mod.rs",
+      "summary": "Task queue and scheduler for Iceberg compaction jobs.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/iceberg_compaction/report.rs",
+      "type": "file",
+      "name": "report.rs",
+      "filePath": "src/storage/src/hummock/compactor/iceberg_compaction/report.rs",
+      "summary": "Task tracker and report builder for Iceberg compaction task completion metrics.",
+      "tags": [
+        "storage",
+        "compaction",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/iterator.rs",
+      "type": "file",
+      "name": "iterator.rs",
+      "filePath": "src/storage/src/hummock/compactor/iterator.rs",
+      "summary": "SSTable streaming iterator for compaction, supporting seek, prefetch, and streaming block access.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/storage/src/hummock/compactor/mod.rs",
+      "summary": "Main compactor orchestrating compaction task execution, key range splitting, and progress reporting.",
+      "tags": [
+        "storage",
+        "compaction",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/shared_buffer_compact.rs",
+      "type": "file",
+      "name": "shared_buffer_compact.rs",
+      "filePath": "src/storage/src/hummock/compactor/shared_buffer_compact.rs",
+      "summary": "Compacts in-memory shared buffer imms into SSTables for flush.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/compactor/task_progress.rs",
+      "type": "file",
+      "name": "task_progress.rs",
+      "filePath": "src/storage/src/hummock/compactor/task_progress.rs",
+      "summary": "Tracks compaction task progress for monitoring and reporting.",
+      "tags": [
+        "storage",
+        "compaction",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/error.rs",
+      "type": "file",
+      "name": "error.rs",
+      "filePath": "src/storage/src/hummock/error.rs",
+      "summary": "Hummock-specific error type hierarchy covering I/O, version, and metadata errors.",
+      "tags": [
+        "storage",
+        "error-handling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "type": "file",
+      "name": "hummock_event_handler.rs",
+      "filePath": "src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "summary": "Core event handler for Hummock managing version updates, compaction, and write buffer tracking.",
+      "tags": [
+        "storage",
+        "service",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/event_handler/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/storage/src/hummock/event_handler/mod.rs",
+      "summary": "Hummock event enum and dispatcher for version pin, compaction, and flush events.",
+      "tags": [
+        "storage",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/event_handler/refiller.rs",
+      "type": "file",
+      "name": "refiller.rs",
+      "filePath": "src/storage/src/hummock/event_handler/refiller.rs",
+      "summary": "Cache refiller that reloads SSTable block caches after version updates.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "type": "file",
+      "name": "mod.rs",
+      "filePath": "src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "summary": "Hummock uploader managing in-memory imm lifecycle from staging through upload completion.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/event_handler/uploader/spiller.rs",
+      "type": "file",
+      "name": "spiller.rs",
+      "filePath": "src/storage/src/hummock/event_handler/uploader/spiller.rs",
+      "summary": "Spills in-memory imm data to object storage under memory pressure.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/event_handler/uploader/task_manager.rs",
+      "type": "file",
+      "name": "task_manager.rs",
+      "filePath": "src/storage/src/hummock/event_handler/uploader/task_manager.rs",
+      "summary": "Manages upload task lifecycle: spawning, polling, and spill operations.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/event_handler/uploader/test_utils.rs",
+      "type": "file",
+      "name": "test_utils.rs",
+      "filePath": "src/storage/src/hummock/event_handler/uploader/test_utils.rs",
+      "summary": "Test utilities for Hummock uploader tests.",
+      "tags": [
+        "storage",
+        "test"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/storage/src/hummock/hummock_meta_client.rs",
+      "type": "file",
+      "name": "hummock_meta_client.rs",
+      "filePath": "src/storage/src/hummock/hummock_meta_client.rs",
+      "summary": "Monitored Hummock meta client wrapping RPC calls with metrics instrumentation.",
+      "tags": [
+        "storage",
+        "service",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/storage/src/hummock/iterator/backward_concat.rs",
+      "type": "file",
+      "name": "backward_concat.rs",
+      "filePath": "src/storage/src/hummock/iterator/backward_concat.rs",
+      "summary": "Backward concat iterator traversing multiple sorted SSTable iterators in reverse order.",
+      "tags": [
+        "storage",
+        "iterator"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:src/storage/src/compaction_catalog_manager.rs:CompactionCatalogManager",
+      "type": "class",
+      "name": "CompactionCatalogManager",
+      "filePath": "src/storage/src/compaction_catalog_manager.rs",
+      "lineRange": [
+        269,
+        274
+      ],
+      "summary": "Central manager for compaction catalog metadata and filter key extractors.",
+      "tags": [
+        "storage",
+        "compaction",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/compaction_catalog_manager.rs:CompactionCatalogAgent",
+      "type": "class",
+      "name": "CompactionCatalogAgent",
+      "filePath": "src/storage/src/compaction_catalog_manager.rs",
+      "lineRange": [
+        433,
+        441
+      ],
+      "summary": "Agent that fetches and caches compaction catalog from meta service.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/compactor/compactor_runner.rs:CompactorRunner",
+      "type": "class",
+      "name": "CompactorRunner",
+      "filePath": "src/storage/src/hummock/compactor/compactor_runner.rs",
+      "lineRange": [
+        70,
+        76
+      ],
+      "summary": "Compaction task runner merging overlapping SSTables.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/compactor/fast_compactor_runner.rs:ConcatSstableIterator",
+      "type": "class",
+      "name": "ConcatSstableIterator",
+      "filePath": "src/storage/src/hummock/compactor/fast_compactor_runner.rs",
+      "lineRange": [
+        263,
+        279
+      ],
+      "summary": "Iterator over concatenated SSTables for fast compaction.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs:IcebergCompactionPlanRunner",
+      "type": "class",
+      "name": "IcebergCompactionPlanRunner",
+      "filePath": "src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs",
+      "lineRange": [
+        111,
+        125
+      ],
+      "summary": "Runs Iceberg compaction plans producing Parquet output files.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/compactor/mod.rs:Compactor",
+      "type": "class",
+      "name": "Compactor",
+      "filePath": "src/storage/src/hummock/compactor/mod.rs",
+      "lineRange": [
+        161,
+        168
+      ],
+      "summary": "Main Hummock compactor managing compaction task execution.",
+      "tags": [
+        "storage",
+        "compaction",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/compactor/shared_buffer_compact.rs:SharedBufferCompactRunner",
+      "type": "class",
+      "name": "SharedBufferCompactRunner",
+      "filePath": "src/storage/src/hummock/compactor/shared_buffer_compact.rs",
+      "lineRange": [
+        412,
+        415
+      ],
+      "summary": "Runner for shared buffer compaction flush.",
+      "tags": [
+        "storage",
+        "compaction"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/event_handler/hummock_event_handler.rs:HummockEventHandler",
+      "type": "class",
+      "name": "HummockEventHandler",
+      "filePath": "src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "lineRange": [
+        192,
+        209
+      ],
+      "summary": "Core event handler managing Hummock state transitions.",
+      "tags": [
+        "storage",
+        "service",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/event_handler/uploader/mod.rs:HummockUploader",
+      "type": "class",
+      "name": "HummockUploader",
+      "filePath": "src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "lineRange": [
+        1317,
+        1321
+      ],
+      "summary": "Main uploader managing imm upload lifecycle.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/storage/src/hummock/event_handler/refiller.rs:CacheRefiller",
+      "type": "class",
+      "name": "CacheRefiller",
+      "filePath": "src/storage/src/hummock/event_handler/refiller.rs",
+      "lineRange": [
+        249,
+        256
+      ],
+      "summary": "Async cache refiller triggered on version updates.",
+      "tags": [
+        "storage",
+        "service"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/storage/src/compaction_catalog_manager.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/compaction_catalog_manager.rs",
+      "target": "file:src/storage/src/row_serde/value_serde.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/error.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/error.rs",
+      "target": "file:src/storage/src/mem_table.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/backup_reader.rs",
+      "target": "file:src/storage/src/error.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/backup_reader.rs",
+      "target": "file:src/storage/src/hummock/local_version/pinned_version.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/backup_reader.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/block_cache.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/block_stream.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/compaction_utils.rs",
+      "target": "file:src/storage/src/compaction_catalog_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/compaction_utils.rs",
+      "target": "file:src/storage/src/hummock/compactor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/compaction_utils.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/compactor_runner.rs",
+      "target": "file:src/storage/src/compaction_catalog_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/compactor_runner.rs",
+      "target": "file:src/storage/src/hummock/compactor/compaction_utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/compactor_runner.rs",
+      "target": "file:src/storage/src/hummock/compactor/iterator.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/context.rs",
+      "target": "file:src/storage/src/hummock/compactor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/context.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/context.rs",
+      "target": "file:src/storage/src/hummock/sstable_store.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/fast_compactor_runner.rs",
+      "target": "file:src/storage/src/compaction_catalog_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/fast_compactor_runner.rs",
+      "target": "file:src/storage/src/hummock/block_stream.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/fast_compactor_runner.rs",
+      "target": "file:src/storage/src/hummock/compactor/compaction_utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs",
+      "target": "file:src/storage/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/iceberg_compaction/mod.rs",
+      "target": "file:src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/iceberg_compaction/mod.rs",
+      "target": "file:src/storage/src/hummock/compactor/iceberg_compaction/report.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/iterator.rs",
+      "target": "file:src/storage/src/hummock/block_stream.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/iterator.rs",
+      "target": "file:src/storage/src/hummock/compactor/task_progress.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/iterator.rs",
+      "target": "file:src/storage/src/hummock/iterator/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/mod.rs",
+      "target": "file:src/storage/src/compaction_catalog_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/mod.rs",
+      "target": "file:src/storage/src/hummock/compactor/compaction_executor.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/mod.rs",
+      "target": "file:src/storage/src/hummock/compactor/compaction_filter.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/shared_buffer_compact.rs",
+      "target": "file:src/storage/src/compaction_catalog_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/shared_buffer_compact.rs",
+      "target": "file:src/storage/src/hummock/compactor/compaction_filter.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/shared_buffer_compact.rs",
+      "target": "file:src/storage/src/hummock/compactor/compaction_utils.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "target": "file:src/storage/src/compaction_catalog_manager.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "target": "file:src/storage/src/hummock/compactor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "target": "file:src/storage/src/hummock/event_handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/mod.rs",
+      "target": "file:src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/mod.rs",
+      "target": "file:src/storage/src/hummock/event_handler/refiller.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/mod.rs",
+      "target": "file:src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/refiller.rs",
+      "target": "file:src/storage/src/hummock/local_version/pinned_version.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/refiller.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/refiller.rs",
+      "target": "file:src/storage/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "target": "file:src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "target": "file:src/storage/src/hummock/event_handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "target": "file:src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/uploader/spiller.rs",
+      "target": "file:src/storage/src/hummock/event_handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/uploader/spiller.rs",
+      "target": "file:src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/uploader/test_utils.rs",
+      "target": "file:src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/uploader/test_utils.rs",
+      "target": "file:src/storage/src/hummock/event_handler/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/uploader/test_utils.rs",
+      "target": "file:src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/hummock_meta_client.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/hummock_meta_client.rs",
+      "target": "file:src/storage/src/monitor/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/backward_concat.rs",
+      "target": "file:src/storage/src/hummock/iterator/concat_inner.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/hummock/iterator/backward_concat.rs",
+      "target": "file:src/storage/src/hummock/mod.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/storage/src/compaction_catalog_manager.rs",
+      "target": "class:src/storage/src/compaction_catalog_manager.rs:CompactionCatalogManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/compaction_catalog_manager.rs",
+      "target": "class:src/storage/src/compaction_catalog_manager.rs:CompactionCatalogManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/compaction_catalog_manager.rs",
+      "target": "class:src/storage/src/compaction_catalog_manager.rs:CompactionCatalogAgent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/compaction_catalog_manager.rs",
+      "target": "class:src/storage/src/compaction_catalog_manager.rs:CompactionCatalogAgent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/compactor_runner.rs",
+      "target": "class:src/storage/src/hummock/compactor/compactor_runner.rs:CompactorRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/compactor_runner.rs",
+      "target": "class:src/storage/src/hummock/compactor/compactor_runner.rs:CompactorRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/fast_compactor_runner.rs",
+      "target": "class:src/storage/src/hummock/compactor/fast_compactor_runner.rs:ConcatSstableIterator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/fast_compactor_runner.rs",
+      "target": "class:src/storage/src/hummock/compactor/fast_compactor_runner.rs:ConcatSstableIterator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs",
+      "target": "class:src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs:IcebergCompactionPlanRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs",
+      "target": "class:src/storage/src/hummock/compactor/iceberg_compaction/iceberg_compactor_runner.rs:IcebergCompactionPlanRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/mod.rs",
+      "target": "class:src/storage/src/hummock/compactor/mod.rs:Compactor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/mod.rs",
+      "target": "class:src/storage/src/hummock/compactor/mod.rs:Compactor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/shared_buffer_compact.rs",
+      "target": "class:src/storage/src/hummock/compactor/shared_buffer_compact.rs:SharedBufferCompactRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/compactor/shared_buffer_compact.rs",
+      "target": "class:src/storage/src/hummock/compactor/shared_buffer_compact.rs:SharedBufferCompactRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "target": "class:src/storage/src/hummock/event_handler/hummock_event_handler.rs:HummockEventHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/hummock_event_handler.rs",
+      "target": "class:src/storage/src/hummock/event_handler/hummock_event_handler.rs:HummockEventHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "target": "class:src/storage/src/hummock/event_handler/uploader/mod.rs:HummockUploader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/uploader/mod.rs",
+      "target": "class:src/storage/src/hummock/event_handler/uploader/mod.rs:HummockUploader",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/refiller.rs",
+      "target": "class:src/storage/src/hummock/event_handler/refiller.rs:CacheRefiller",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/storage/src/hummock/event_handler/refiller.rs",
+      "target": "class:src/storage/src/hummock/event_handler/refiller.rs:CacheRefiller",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

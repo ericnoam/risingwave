@@ -1,0 +1,424 @@
+{
+  "nodes": [
+    {
+      "id": "config:proto/buf.yaml",
+      "type": "config",
+      "name": "buf.yaml",
+      "filePath": "proto/buf.yaml",
+      "summary": "Buf build tool configuration for the proto directory, specifying module settings and lint/breaking change detection rules for all RisingWave protobuf definitions.",
+      "tags": ["configuration", "protobuf", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/backup_service.proto",
+      "type": "schema",
+      "name": "backup_service.proto",
+      "filePath": "proto/backup_service.proto",
+      "summary": "Protobuf schema defining the BackupService gRPC service for meta backup operations, including triggering backups, listing and deleting snapshots.",
+      "tags": ["schema-definition", "grpc", "backup", "meta"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/batch_plan.proto",
+      "type": "schema",
+      "name": "batch_plan.proto",
+      "filePath": "proto/batch_plan.proto",
+      "summary": "Protobuf schema defining batch query plan nodes including scans, joins, aggregations, and exchange operators used by the RisingWave batch compute engine.",
+      "tags": ["schema-definition", "batch", "query-plan"],
+      "complexity": "complex"
+    },
+    {
+      "id": "schema:proto/catalog.proto",
+      "type": "schema",
+      "name": "catalog.proto",
+      "filePath": "proto/catalog.proto",
+      "summary": "Protobuf schema defining catalog objects including Table, Source, Sink, Index, View, Schema, Database, and Function descriptors used throughout the system.",
+      "tags": ["schema-definition", "catalog", "data-model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "schema:proto/cloud_service.proto",
+      "type": "schema",
+      "name": "cloud_service.proto",
+      "filePath": "proto/cloud_service.proto",
+      "summary": "Protobuf schema for the CloudService gRPC interface providing serving vnode mappings to cloud-hosted deployments.",
+      "tags": ["schema-definition", "grpc", "cloud"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/common.proto",
+      "type": "schema",
+      "name": "common.proto",
+      "filePath": "proto/common.proto",
+      "summary": "Protobuf schema defining common data structures shared across all services, including WorkerNode, HostAddress, ParallelUnit, Buffer, and VnodeMapping.",
+      "tags": ["schema-definition", "common", "data-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "schema:proto/compactor.proto",
+      "type": "schema",
+      "name": "compactor.proto",
+      "filePath": "proto/compactor.proto",
+      "summary": "Protobuf schema defining the CompactorService gRPC interface for dispatching and reporting compaction tasks from the meta node to compactor nodes.",
+      "tags": ["schema-definition", "grpc", "compaction", "storage"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/compute.proto",
+      "type": "schema",
+      "name": "compute.proto",
+      "filePath": "proto/compute.proto",
+      "summary": "Protobuf schema defining the ComputeNodeService gRPC interface for querying compaction group info and configuration from compute nodes.",
+      "tags": ["schema-definition", "grpc", "compute"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/connector_service.proto",
+      "type": "schema",
+      "name": "connector_service.proto",
+      "filePath": "proto/connector_service.proto",
+      "summary": "Protobuf schema for the ConnectorService gRPC interface handling source validation, sink streaming, CDC event streams, and connector protocol discovery.",
+      "tags": ["schema-definition", "grpc", "connector", "cdc"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "schema:proto/data.proto",
+      "type": "schema",
+      "name": "data.proto",
+      "filePath": "proto/data.proto",
+      "summary": "Protobuf schema defining core data types including Datum, DataChunk, StreamChunk, Epoch, and the ArrayType enum covering all RisingWave scalar types.",
+      "tags": ["schema-definition", "data-model", "types"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "schema:proto/ddl_service.proto",
+      "type": "schema",
+      "name": "ddl_service.proto",
+      "filePath": "proto/ddl_service.proto",
+      "summary": "Protobuf schema for the DdlService gRPC interface (52 RPCs) handling all DDL operations: creating/dropping databases, schemas, tables, views, sources, sinks, indexes, functions, connections, secrets, and subscriptions.",
+      "tags": ["schema-definition", "grpc", "ddl", "catalog"],
+      "complexity": "complex"
+    },
+    {
+      "id": "schema:proto/expr.proto",
+      "type": "schema",
+      "name": "expr.proto",
+      "filePath": "proto/expr.proto",
+      "summary": "Protobuf schema defining expression node types including ExprNode, AggCall, WindowFunction, FunctionCall, UserDefinedFunction, and all expression function type enums.",
+      "tags": ["schema-definition", "expressions", "query-plan"],
+      "complexity": "complex"
+    },
+    {
+      "id": "schema:proto/frontend_service.proto",
+      "type": "schema",
+      "name": "frontend_service.proto",
+      "filePath": "proto/frontend_service.proto",
+      "summary": "Protobuf schema for the FrontendService gRPC interface enabling meta node to retrieve table replace plans, running SQL queries, cursors, and cancel operations from frontend nodes.",
+      "tags": ["schema-definition", "grpc", "frontend"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/health.proto",
+      "type": "schema",
+      "name": "health.proto",
+      "filePath": "proto/health.proto",
+      "summary": "Protobuf schema for the standard Health gRPC service providing a simple Check RPC used for health checks across all RisingWave service nodes.",
+      "tags": ["schema-definition", "grpc", "health-check"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/hummock.proto",
+      "type": "schema",
+      "name": "hummock.proto",
+      "filePath": "proto/hummock.proto",
+      "summary": "Protobuf schema for HummockManagerService (34 RPCs) defining the storage layer's compaction management, SST file structures, version deltas, and compaction group operations.",
+      "tags": ["schema-definition", "grpc", "storage", "compaction"],
+      "complexity": "complex"
+    },
+    {
+      "id": "schema:proto/iceberg_compaction.proto",
+      "type": "schema",
+      "name": "iceberg_compaction.proto",
+      "filePath": "proto/iceberg_compaction.proto",
+      "summary": "Protobuf schema defining Iceberg compaction task messages for subscribing to and executing compaction jobs on Iceberg-format tables via the HummockManagerService.",
+      "tags": ["schema-definition", "iceberg", "compaction"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/java_binding.proto",
+      "type": "schema",
+      "name": "java_binding.proto",
+      "filePath": "proto/java_binding.proto",
+      "summary": "Protobuf schema defining KeyRange and ReadPlan messages used by the Java binding to read SST data from the object store for CDC connectors.",
+      "tags": ["schema-definition", "java", "storage"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:proto/meta.proto",
+      "type": "schema",
+      "name": "meta.proto",
+      "filePath": "proto/meta.proto",
+      "summary": "Protobuf schema for the meta node gRPC services (50 RPCs across StreamManagerService, ClusterService, NotificationService, ScaleService, SystemParamsService, and others), defining cluster management, streaming job control, and system configuration.",
+      "tags": ["schema-definition", "grpc", "meta", "cluster-management"],
+      "complexity": "complex"
+    },
+    {
+      "id": "schema:proto/monitor_service.proto",
+      "type": "schema",
+      "name": "monitor_service.proto",
+      "filePath": "proto/monitor_service.proto",
+      "summary": "Protobuf schema for the MonitorService gRPC interface providing stack traces, CPU/heap profiling, streaming statistics, tiered cache tracing, and performance profiling from compute nodes.",
+      "tags": ["schema-definition", "grpc", "monitoring", "profiling"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "schema:proto/plan_common.proto",
+      "type": "schema",
+      "name": "plan_common.proto",
+      "filePath": "proto/plan_common.proto",
+      "summary": "Protobuf schema defining common query plan structures shared between batch and stream plan nodes, including column catalogs, join types, order keys, and field descriptors.",
+      "tags": ["schema-definition", "query-plan", "common"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "endpoint:proto/frontend_service.proto:FrontendService.GetTableReplacePlan",
+      "type": "endpoint",
+      "name": "FrontendService.GetTableReplacePlan",
+      "filePath": "proto/frontend_service.proto",
+      "lineRange": [73, 73],
+      "summary": "RPC for retrieving the replacement plan for a table from the frontend node during schema evolution.",
+      "tags": ["grpc", "frontend", "schema-evolution"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/frontend_service.proto:FrontendService.GetRunningSqls",
+      "type": "endpoint",
+      "name": "FrontendService.GetRunningSqls",
+      "filePath": "proto/frontend_service.proto",
+      "lineRange": [74, 74],
+      "summary": "RPC for listing currently running SQL queries on a frontend node.",
+      "tags": ["grpc", "frontend", "monitoring"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/frontend_service.proto:FrontendService.GetAllCursors",
+      "type": "endpoint",
+      "name": "FrontendService.GetAllCursors",
+      "filePath": "proto/frontend_service.proto",
+      "lineRange": [75, 75],
+      "summary": "RPC for retrieving all active cursors across all sessions on a frontend node.",
+      "tags": ["grpc", "frontend", "cursor"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/frontend_service.proto:FrontendService.GetAllSubCursors",
+      "type": "endpoint",
+      "name": "FrontendService.GetAllSubCursors",
+      "filePath": "proto/frontend_service.proto",
+      "lineRange": [76, 76],
+      "summary": "RPC for retrieving all active subscription cursors from a frontend node.",
+      "tags": ["grpc", "frontend", "subscription"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/frontend_service.proto:FrontendService.CancelRunningSql",
+      "type": "endpoint",
+      "name": "FrontendService.CancelRunningSql",
+      "filePath": "proto/frontend_service.proto",
+      "lineRange": [77, 77],
+      "summary": "RPC for cancelling a running SQL query by process ID on a frontend node.",
+      "tags": ["grpc", "frontend"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/health.proto:Health.Check",
+      "type": "endpoint",
+      "name": "Health.Check",
+      "filePath": "proto/health.proto",
+      "lineRange": [23, 23],
+      "summary": "Standard gRPC health check RPC used to verify service liveness across all RisingWave node types.",
+      "tags": ["grpc", "health-check"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/monitor_service.proto:MonitorService.StackTrace",
+      "type": "endpoint",
+      "name": "MonitorService.StackTrace",
+      "filePath": "proto/monitor_service.proto",
+      "lineRange": [140, 140],
+      "summary": "RPC to retrieve async/actor stack traces from a compute node for debugging.",
+      "tags": ["grpc", "monitoring", "debug"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/monitor_service.proto:MonitorService.Profiling",
+      "type": "endpoint",
+      "name": "MonitorService.Profiling",
+      "filePath": "proto/monitor_service.proto",
+      "lineRange": [141, 141],
+      "summary": "RPC to trigger CPU profiling on a compute node for performance analysis.",
+      "tags": ["grpc", "monitoring", "profiling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/monitor_service.proto:MonitorService.HeapProfiling",
+      "type": "endpoint",
+      "name": "MonitorService.HeapProfiling",
+      "filePath": "proto/monitor_service.proto",
+      "lineRange": [142, 142],
+      "summary": "RPC to trigger heap memory profiling on a compute node.",
+      "tags": ["grpc", "monitoring", "memory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/monitor_service.proto:MonitorService.ListHeapProfiling",
+      "type": "endpoint",
+      "name": "MonitorService.ListHeapProfiling",
+      "filePath": "proto/monitor_service.proto",
+      "lineRange": [143, 143],
+      "summary": "RPC to list available heap profile dumps on a compute node.",
+      "tags": ["grpc", "monitoring", "memory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/monitor_service.proto:MonitorService.AnalyzeHeap",
+      "type": "endpoint",
+      "name": "MonitorService.AnalyzeHeap",
+      "filePath": "proto/monitor_service.proto",
+      "lineRange": [144, 144],
+      "summary": "RPC to analyze a heap dump file and return profiling results.",
+      "tags": ["grpc", "monitoring", "memory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/monitor_service.proto:MonitorService.GetStreamingStats",
+      "type": "endpoint",
+      "name": "MonitorService.GetStreamingStats",
+      "filePath": "proto/monitor_service.proto",
+      "lineRange": [145, 145],
+      "summary": "RPC to retrieve streaming actor channel statistics and throughput metrics from a compute node.",
+      "tags": ["grpc", "monitoring", "streaming"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/monitor_service.proto:MonitorService.TieredCacheTracing",
+      "type": "endpoint",
+      "name": "MonitorService.TieredCacheTracing",
+      "filePath": "proto/monitor_service.proto",
+      "lineRange": [146, 146],
+      "summary": "RPC to enable or configure tiered cache operation tracing on a compute node.",
+      "tags": ["grpc", "monitoring", "cache"],
+      "complexity": "simple"
+    },
+    {
+      "id": "endpoint:proto/monitor_service.proto:MonitorService.GetProfileStats",
+      "type": "endpoint",
+      "name": "MonitorService.GetProfileStats",
+      "filePath": "proto/monitor_service.proto",
+      "lineRange": [147, 147],
+      "summary": "RPC to retrieve executor-level profiling statistics from a compute node.",
+      "tags": ["grpc", "monitoring", "profiling"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "schema:proto/frontend_service.proto",
+      "target": "endpoint:proto/frontend_service.proto:FrontendService.GetTableReplacePlan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/frontend_service.proto",
+      "target": "endpoint:proto/frontend_service.proto:FrontendService.GetRunningSqls",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/frontend_service.proto",
+      "target": "endpoint:proto/frontend_service.proto:FrontendService.GetAllCursors",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/frontend_service.proto",
+      "target": "endpoint:proto/frontend_service.proto:FrontendService.GetAllSubCursors",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/frontend_service.proto",
+      "target": "endpoint:proto/frontend_service.proto:FrontendService.CancelRunningSql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/health.proto",
+      "target": "endpoint:proto/health.proto:Health.Check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/monitor_service.proto",
+      "target": "endpoint:proto/monitor_service.proto:MonitorService.StackTrace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/monitor_service.proto",
+      "target": "endpoint:proto/monitor_service.proto:MonitorService.Profiling",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/monitor_service.proto",
+      "target": "endpoint:proto/monitor_service.proto:MonitorService.HeapProfiling",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/monitor_service.proto",
+      "target": "endpoint:proto/monitor_service.proto:MonitorService.ListHeapProfiling",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/monitor_service.proto",
+      "target": "endpoint:proto/monitor_service.proto:MonitorService.AnalyzeHeap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/monitor_service.proto",
+      "target": "endpoint:proto/monitor_service.proto:MonitorService.GetStreamingStats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/monitor_service.proto",
+      "target": "endpoint:proto/monitor_service.proto:MonitorService.TieredCacheTracing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:proto/monitor_service.proto",
+      "target": "endpoint:proto/monitor_service.proto:MonitorService.GetProfileStats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

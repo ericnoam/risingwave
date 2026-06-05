@@ -1,0 +1,40 @@
+{
+  "nodes": [
+    {
+      "id": "config:integration_tests/iceberg-sink/presto-with-iceberg/hadoop-catalog.xml",
+      "type": "config",
+      "name": "hadoop-catalog.xml",
+      "filePath": "integration_tests/iceberg-sink/presto-with-iceberg/hadoop-catalog.xml",
+      "summary": "Hadoop catalog XML configuration for Presto/Trino to connect to the Iceberg tables stored on MinIO/S3, used for querying the Iceberg sink output in integration tests.",
+      "tags": ["configuration", "integration-test", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:integration_tests/iceberg-sink/presto-with-iceberg/iceberg.properties",
+      "type": "config",
+      "name": "iceberg.properties",
+      "filePath": "integration_tests/iceberg-sink/presto-with-iceberg/iceberg.properties",
+      "summary": "Presto/Trino connector properties file that registers the Iceberg catalog, pointing it to the Hadoop-based catalog configuration for integration test queries.",
+      "tags": ["configuration", "integration-test", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:integration_tests/iceberg-sink/presto-with-iceberg/log.properties",
+      "type": "config",
+      "name": "log.properties",
+      "filePath": "integration_tests/iceberg-sink/presto-with-iceberg/log.properties",
+      "summary": "Minimal Presto/Trino logging configuration file setting the log level for the integration test environment.",
+      "tags": ["configuration", "integration-test", "monitoring"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:integration_tests/iceberg-sink/presto-with-iceberg/iceberg.properties",
+      "target": "config:integration_tests/iceberg-sink/presto-with-iceberg/hadoop-catalog.xml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

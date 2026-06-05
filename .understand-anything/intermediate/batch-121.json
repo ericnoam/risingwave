@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/feature-store/generator/__main__.py",
+      "type": "file",
+      "name": "__main__.py",
+      "filePath": "integration_tests/feature-store/generator/__main__.py",
+      "summary": "Entry point for the feature-store data generator, producing a stream of synthetic user activity events and writing them to Kafka or stdout for the feature store integration demo.",
+      "tags": ["entry-point", "data-pipeline", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/feature-store/generator/preference.py",
+      "type": "file",
+      "name": "preference.py",
+      "filePath": "integration_tests/feature-store/generator/preference.py",
+      "summary": "Defines the UserProperties data class enumerating user preference attributes used by the feature-store data generator.",
+      "tags": ["data-model", "type-definition", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/feature-store/generator/user.py",
+      "type": "file",
+      "name": "user.py",
+      "filePath": "integration_tests/feature-store/generator/user.py",
+      "summary": "Generates synthetic user records with randomized preference fields for the feature store integration test data generator.",
+      "tags": ["factory", "data-model", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:integration_tests/feature-store/generator/preference.py:UserProperties",
+      "type": "class",
+      "name": "UserProperties",
+      "filePath": "integration_tests/feature-store/generator/preference.py",
+      "lineRange": [1, 25],
+      "summary": "Dataclass holding user preference fields such as age, interest categories, and activity scores for feature store event generation.",
+      "tags": ["data-model", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:integration_tests/feature-store/generator/user.py:new_user",
+      "type": "function",
+      "name": "new_user",
+      "filePath": "integration_tests/feature-store/generator/user.py",
+      "lineRange": [1, 20],
+      "summary": "Generates and returns a new randomized user record as a dict containing user ID and UserProperties values.",
+      "tags": ["factory", "data-model"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/feature-store/generator/__main__.py",
+      "target": "file:integration_tests/feature-store/generator/user.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/generator/user.py",
+      "target": "file:integration_tests/feature-store/generator/preference.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:integration_tests/feature-store/generator/preference.py",
+      "target": "class:integration_tests/feature-store/generator/preference.py:UserProperties",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/generator/preference.py",
+      "target": "class:integration_tests/feature-store/generator/preference.py:UserProperties",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:integration_tests/feature-store/generator/user.py",
+      "target": "function:integration_tests/feature-store/generator/user.py:new_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/feature-store/generator/user.py",
+      "target": "function:integration_tests/feature-store/generator/user.py:new_user",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

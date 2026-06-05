@@ -1,0 +1,276 @@
+{
+  "nodes": [
+    {
+      "id": "file:src/tests/e2e_extended_mode/src/lib.rs",
+      "type": "file",
+      "name": "lib.rs",
+      "filePath": "src/tests/e2e_extended_mode/src/lib.rs",
+      "summary": "Entry point for the e2e extended mode test crate; exports `run_test_suit` which creates a TestSuite and runs all extended protocol tests against a RisingWave server.",
+      "tags": ["entry-point", "test", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/e2e_extended_mode/src/opts.rs",
+      "type": "file",
+      "name": "opts.rs",
+      "filePath": "src/tests/e2e_extended_mode/src/opts.rs",
+      "summary": "Defines the `Opts` struct holding CLI connection parameters (host, port, database, user, password) for the e2e extended mode test binary.",
+      "tags": ["config", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "type": "file",
+      "name": "test.rs",
+      "filePath": "src/tests/e2e_extended_mode/src/test.rs",
+      "summary": "Implements the `TestSuite` struct and its test methods that exercise PostgreSQL extended query protocol features including binary parameters, DML with typed parameters, portal management, query cancellation, and materialized view creation.",
+      "tags": ["test", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/tests/e2e_extended_mode/src/lib.rs:run_test_suit",
+      "type": "function",
+      "name": "run_test_suit",
+      "filePath": "src/tests/e2e_extended_mode/src/lib.rs",
+      "lineRange": [25, 47],
+      "summary": "Public entry point that constructs a `TestSuite` from connection parameters and runs the full extended protocol test suite.",
+      "tags": ["test", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/e2e_extended_mode/src/opts.rs:Opts",
+      "type": "class",
+      "name": "Opts",
+      "filePath": "src/tests/e2e_extended_mode/src/opts.rs",
+      "lineRange": [18, 33],
+      "summary": "CLI options struct holding PostgreSQL connection parameters; derived with clap for use in the test binary.",
+      "tags": ["config", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:src/tests/e2e_extended_mode/src/test.rs:TestSuite",
+      "type": "class",
+      "name": "TestSuite",
+      "filePath": "src/tests/e2e_extended_mode/src/test.rs",
+      "lineRange": [23, 598],
+      "summary": "Main test suite for the PostgreSQL extended query protocol; orchestrates multiple test scenarios including binary encoding, typed parameters, portal management, and query cancellation.",
+      "tags": ["test", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/tests/e2e_extended_mode/src/test.rs:new",
+      "type": "function",
+      "name": "new",
+      "filePath": "src/tests/e2e_extended_mode/src/test.rs",
+      "lineRange": [47, 66],
+      "summary": "Constructs a TestSuite from connection parameters, building a tokio-postgres Config.",
+      "tags": ["test", "factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/tests/e2e_extended_mode/src/test.rs:test",
+      "type": "function",
+      "name": "test",
+      "filePath": "src/tests/e2e_extended_mode/src/test.rs",
+      "lineRange": [75, 89],
+      "summary": "Top-level test orchestrator that calls all individual test methods in sequence.",
+      "tags": ["test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/tests/e2e_extended_mode/src/test.rs:binary_param_and_result",
+      "type": "function",
+      "name": "binary_param_and_result",
+      "filePath": "src/tests/e2e_extended_mode/src/test.rs",
+      "lineRange": [111, 224],
+      "summary": "Tests binary encoding of all supported PostgreSQL parameter and result types including integers, decimals, dates, times, timestamps, and intervals.",
+      "tags": ["test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/tests/e2e_extended_mode/src/test.rs:dql_dml_with_param",
+      "type": "function",
+      "name": "dql_dml_with_param",
+      "filePath": "src/tests/e2e_extended_mode/src/test.rs",
+      "lineRange": [226, 289],
+      "summary": "Tests DQL and DML statements using typed prepared statements with parameters, including CREATE TABLE, INSERT, SELECT, UPDATE, and DELETE.",
+      "tags": ["test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/tests/e2e_extended_mode/src/test.rs:max_row",
+      "type": "function",
+      "name": "max_row",
+      "filePath": "src/tests/e2e_extended_mode/src/test.rs",
+      "lineRange": [291, 339],
+      "summary": "Tests portal max-row limiting via `query_portal` to verify that results are returned in configurable page sizes.",
+      "tags": ["test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/tests/e2e_extended_mode/src/test.rs:simple_cancel",
+      "type": "function",
+      "name": "simple_cancel",
+      "filePath": "src/tests/e2e_extended_mode/src/test.rs",
+      "lineRange": [424, 468],
+      "summary": "Tests query cancellation for a simple streaming query using the PostgreSQL cancel token mechanism.",
+      "tags": ["test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/tests/e2e_extended_mode/src/test.rs:complex_cancel",
+      "type": "function",
+      "name": "complex_cancel",
+      "filePath": "src/tests/e2e_extended_mode/src/test.rs",
+      "lineRange": [470, 584],
+      "summary": "Tests query cancellation in a scenario with multiple prepared statements and ongoing portals, verifying correct cleanup and recovery after cancellation.",
+      "tags": ["test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/tests/e2e_extended_mode/src/test.rs:create_client",
+      "type": "function",
+      "name": "create_client",
+      "filePath": "src/tests/e2e_extended_mode/src/test.rs",
+      "lineRange": [91, 109],
+      "summary": "Creates a new tokio-postgres connection client with optional distributed-query mode set via a session variable.",
+      "tags": ["test", "utility"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/lib.rs",
+      "target": "file:src/tests/e2e_extended_mode/src/opts.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/lib.rs",
+      "target": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/lib.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/lib.rs:run_test_suit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/lib.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/lib.rs:run_test_suit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/opts.rs",
+      "target": "class:src/tests/e2e_extended_mode/src/opts.rs:Opts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/opts.rs",
+      "target": "class:src/tests/e2e_extended_mode/src/opts.rs:Opts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "class:src/tests/e2e_extended_mode/src/test.rs:TestSuite",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "class:src/tests/e2e_extended_mode/src/test.rs:TestSuite",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:new",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:new",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:test",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:binary_param_and_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:binary_param_and_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:dql_dml_with_param",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:max_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:simple_cancel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:complex_cancel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:src/tests/e2e_extended_mode/src/test.rs",
+      "target": "function:src/tests/e2e_extended_mode/src/test.rs:create_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

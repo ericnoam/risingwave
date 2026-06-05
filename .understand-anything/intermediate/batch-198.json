@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/iceberg-cdc/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/iceberg-cdc/README.md",
+      "summary": "Brief documentation for the Iceberg CDC integration test, noting its purpose and how to execute the test script.",
+      "tags": ["documentation", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/iceberg-cdc/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/iceberg-cdc/docker-compose.yml",
+      "summary": "Docker Compose configuration for the Iceberg CDC integration test, orchestrating MySQL, Kafka, Flink, MinIO, and RisingWave services to test CDC-to-Iceberg pipelines.",
+      "tags": ["infrastructure", "orchestration", "integration-test", "containerization"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:integration_tests/iceberg-cdc/mysql_prepare.sql",
+      "type": "file",
+      "name": "mysql_prepare.sql",
+      "filePath": "integration_tests/iceberg-cdc/mysql_prepare.sql",
+      "summary": "Creates and seeds the `user_behaviors` table in MySQL as the CDC source for the Iceberg CDC integration test.",
+      "tags": ["database", "integration-test", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/iceberg-cdc/run_test.sh",
+      "type": "file",
+      "name": "run_test.sh",
+      "filePath": "integration_tests/iceberg-cdc/run_test.sh",
+      "summary": "Shell script that runs the Iceberg CDC end-to-end integration test by sequentially executing the MySQL preparation and running test assertions.",
+      "tags": ["script", "integration-test", "test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/iceberg-cdc/README.md",
+      "target": "file:integration_tests/iceberg-cdc/run_test.sh",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/iceberg-cdc/run_test.sh",
+      "target": "service:integration_tests/iceberg-cdc/docker-compose.yml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/iceberg-cdc/run_test.sh",
+      "target": "file:integration_tests/iceberg-cdc/mysql_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

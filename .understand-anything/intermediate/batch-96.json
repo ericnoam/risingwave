@@ -1,0 +1,372 @@
+{
+  "nodes": [
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "type": "file",
+      "name": "JdbcUtils.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "summary": "Utility class for JDBC sink connector providing dialect factory selection, base connection properties construction, and full connection initialization with keepalive and transaction isolation support across multiple database vendors.",
+      "tags": ["utility", "service", "api-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java",
+      "type": "file",
+      "name": "JdbcDialectFactory.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java",
+      "summary": "Interface defining the factory contract for creating database-specific JDBC dialect implementations given column SQL types and primary key indices.",
+      "tags": ["type-definition", "factory", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java",
+      "type": "file",
+      "name": "MySqlDialectFactory.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java",
+      "summary": "Factory implementation that creates a MySQL-specific JDBC dialect for the connector sink.",
+      "tags": ["factory", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java",
+      "type": "file",
+      "name": "PostgresDialectFactory.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java",
+      "summary": "Factory implementation that creates a PostgreSQL-specific JDBC dialect for the connector sink.",
+      "tags": ["factory", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java",
+      "type": "file",
+      "name": "RedShiftDialectFactory.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java",
+      "summary": "Factory implementation that creates a Redshift-specific JDBC dialect for the connector sink.",
+      "tags": ["factory", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java",
+      "type": "file",
+      "name": "SnowflakeDialectFactory.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java",
+      "summary": "Factory implementation that creates a Snowflake-specific JDBC dialect for the connector sink.",
+      "tags": ["factory", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java",
+      "type": "file",
+      "name": "SqlServerDialectFactory.java",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java",
+      "summary": "Factory implementation that creates a SQL Server-specific JDBC dialect for the connector sink.",
+      "tags": ["factory", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java:JdbcUtils",
+      "type": "class",
+      "name": "JdbcUtils",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "lineRange": [33, 141],
+      "summary": "Static utility class encapsulating JDBC connection lifecycle management: dialect selection by URL prefix, base connection properties building, and complete connection initialization with keepalive socket configuration.",
+      "tags": ["utility", "service"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java:getDialectFactory",
+      "type": "function",
+      "name": "getDialectFactory",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "lineRange": [39, 53],
+      "summary": "Inspects a JDBC URL prefix to return the appropriate dialect factory (MySQL, Postgres, Redshift, Snowflake, or SQL Server) or empty if unrecognized.",
+      "tags": ["factory", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java:createBaseProperties",
+      "type": "function",
+      "name": "createBaseProperties",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "lineRange": [63, 83],
+      "summary": "Builds JDBC connection Properties including user, URL, and database-specific timeout settings for the given JDBC URL.",
+      "tags": ["utility", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java:getConnectionDefault",
+      "type": "function",
+      "name": "getConnectionDefault",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "lineRange": [93, 140],
+      "summary": "Establishes a JDBC connection with full configuration including credentials, batch insert rows, keepalive socket factory configuration, and transaction isolation level.",
+      "tags": ["service", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java:JdbcDialectFactory",
+      "type": "class",
+      "name": "JdbcDialectFactory",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java",
+      "lineRange": [21, 24],
+      "summary": "Interface defining the contract for dialect-specific JDBC sink creation given column types and primary key indices.",
+      "tags": ["type-definition", "factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java:MySqlDialectFactory",
+      "type": "class",
+      "name": "MySqlDialectFactory",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java",
+      "lineRange": [21, 27],
+      "summary": "Concrete JdbcDialectFactory that instantiates a MySqlDialect for MySQL sink operations.",
+      "tags": ["factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java:PostgresDialectFactory",
+      "type": "class",
+      "name": "PostgresDialectFactory",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java",
+      "lineRange": [21, 27],
+      "summary": "Concrete JdbcDialectFactory that instantiates a PostgresDialect for PostgreSQL sink operations.",
+      "tags": ["factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java:RedShiftDialectFactory",
+      "type": "class",
+      "name": "RedShiftDialectFactory",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java",
+      "lineRange": [21, 27],
+      "summary": "Concrete JdbcDialectFactory that instantiates a RedShiftDialect for Amazon Redshift sink operations.",
+      "tags": ["factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java:SnowflakeDialectFactory",
+      "type": "class",
+      "name": "SnowflakeDialectFactory",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java",
+      "lineRange": [21, 27],
+      "summary": "Concrete JdbcDialectFactory that instantiates a SnowflakeDialect for Snowflake sink operations.",
+      "tags": ["factory"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java:SqlServerDialectFactory",
+      "type": "class",
+      "name": "SqlServerDialectFactory",
+      "filePath": "java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java",
+      "lineRange": [21, 27],
+      "summary": "Concrete JdbcDialectFactory that instantiates a SqlServerDialect for SQL Server sink operations.",
+      "tags": ["factory"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java:JdbcUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "function:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java:getDialectFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "function:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java:createBaseProperties",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "function:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java:getConnectionDefault",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java:JdbcUtils",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java",
+      "target": "function:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/JdbcUtils.java:getDialectFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java:JdbcDialectFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java:JdbcDialectFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java:MySqlDialectFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java:MySqlDialectFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java:PostgresDialectFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java:PostgresDialectFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java:RedShiftDialectFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java:RedShiftDialectFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java:SnowflakeDialectFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java:SnowflakeDialectFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java:SqlServerDialectFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java:SqlServerDialectFactory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/MySqlDialectFactory.java:MySqlDialectFactory",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java:JdbcDialectFactory",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/PostgresDialectFactory.java:PostgresDialectFactory",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java:JdbcDialectFactory",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/RedShiftDialectFactory.java:RedShiftDialectFactory",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java:JdbcDialectFactory",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SnowflakeDialectFactory.java:SnowflakeDialectFactory",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java:JdbcDialectFactory",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/SqlServerDialectFactory.java:SqlServerDialectFactory",
+      "target": "class:java/connector-node/risingwave-sink-jdbc/src/main/java/com/risingwave/connector/jdbc/JdbcDialectFactory.java:JdbcDialectFactory",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/cdn-metrics/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/cdn-metrics/create_mv.sql",
+      "summary": "Creates multiple RisingWave materialized views for CDN metrics analytics, computing bandwidth, request rates, and error metrics from the CDN log source.",
+      "tags": ["test", "database", "data"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/cdn-metrics/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/cdn-metrics/create_source.sql",
+      "summary": "Defines the RisingWave Kafka source for the CDN metrics integration test, declaring the CDN access log event schema.",
+      "tags": ["test", "database", "data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/cdn-metrics/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/cdn-metrics/docker-compose.yml",
+      "summary": "Docker Compose configuration for the CDN metrics integration test, orchestrating RisingWave and Kafka/Redpanda containers.",
+      "tags": ["infrastructure", "orchestration", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/cdn-metrics/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/cdn-metrics/query.sql",
+      "summary": "Validation SELECT queries for the CDN metrics integration test, asserting expected metric results from materialized views.",
+      "tags": ["test", "database"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/cdn-metrics/create_mv.sql",
+      "target": "file:integration_tests/cdn-metrics/create_source.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/cdn-metrics/query.sql",
+      "target": "file:integration_tests/cdn-metrics/create_mv.sql",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:integration_tests/cdn-metrics/docker-compose.yml",
+      "target": "file:integration_tests/cdn-metrics/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

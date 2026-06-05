@@ -1,0 +1,670 @@
+{
+  "nodes": [
+    {
+      "id": "file:ci/plugins/upload-failure-logs-zipped/hooks/post-command",
+      "type": "file",
+      "name": "post-command",
+      "filePath": "ci/plugins/upload-failure-logs-zipped/hooks/post-command",
+      "summary": "Buildkite plugin post-command hook that zips and uploads failure log artifacts when a CI step fails.",
+      "tags": ["ci-cd", "infrastructure", "script"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/plugins/upload-failure-logs/hooks/post-command",
+      "type": "file",
+      "name": "post-command",
+      "filePath": "ci/plugins/upload-failure-logs/hooks/post-command",
+      "summary": "Buildkite plugin post-command hook that collects and uploads failure log files as build artifacts when a CI step fails.",
+      "tags": ["ci-cd", "infrastructure", "script"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/postgres-conf/00-setup-ssl-user.sh",
+      "type": "file",
+      "name": "00-setup-ssl-user.sh",
+      "filePath": "ci/postgres-conf/00-setup-ssl-user.sh",
+      "summary": "Initialization shell script that creates an SSL-only PostgreSQL user for CI integration tests against a PostgreSQL source connector.",
+      "tags": ["script", "infrastructure", "security", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/postgres-conf/entrypoint-wrapper.sh",
+      "type": "file",
+      "name": "entrypoint-wrapper.sh",
+      "filePath": "ci/postgres-conf/entrypoint-wrapper.sh",
+      "summary": "Docker entrypoint wrapper for the PostgreSQL CI container that sets up configuration and then delegates to the standard postgres entrypoint.",
+      "tags": ["script", "infrastructure", "containerization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/rabbitmq-conf/advanced.config",
+      "type": "file",
+      "name": "advanced.config",
+      "filePath": "ci/rabbitmq-conf/advanced.config",
+      "summary": "RabbitMQ advanced Erlang configuration file enabling additional protocol settings for CI integration testing.",
+      "tags": ["configuration", "infrastructure", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/rabbitmq-conf/enabled_plugins",
+      "type": "file",
+      "name": "enabled_plugins",
+      "filePath": "ci/rabbitmq-conf/enabled_plugins",
+      "summary": "RabbitMQ enabled plugins list enabling the management UI and AMQP 1.0 plugins for CI integration tests.",
+      "tags": ["configuration", "infrastructure", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/rabbitmq-conf/rabbitmq.conf",
+      "type": "file",
+      "name": "rabbitmq.conf",
+      "filePath": "ci/rabbitmq-conf/rabbitmq.conf",
+      "summary": "RabbitMQ broker configuration file setting listener ports, SSL/TLS parameters, and authentication settings for CI integration tests.",
+      "tags": ["configuration", "infrastructure", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/redis-conf/redis-7000.conf",
+      "type": "file",
+      "name": "redis-7000.conf",
+      "filePath": "ci/redis-conf/redis-7000.conf",
+      "summary": "Redis cluster node configuration for port 7000, used in CI integration tests that require a Redis cluster setup.",
+      "tags": ["configuration", "infrastructure", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/redis-conf/redis-7001.conf",
+      "type": "file",
+      "name": "redis-7001.conf",
+      "filePath": "ci/redis-conf/redis-7001.conf",
+      "summary": "Redis cluster node configuration for port 7001, used in CI integration tests that require a Redis cluster setup.",
+      "tags": ["configuration", "infrastructure", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/redis-conf/redis-7002.conf",
+      "type": "file",
+      "name": "redis-7002.conf",
+      "filePath": "ci/redis-conf/redis-7002.conf",
+      "summary": "Redis cluster node configuration for port 7002, used in CI integration tests that require a Redis cluster setup.",
+      "tags": ["configuration", "infrastructure", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/rust-toolchain",
+      "type": "file",
+      "name": "rust-toolchain",
+      "filePath": "ci/rust-toolchain",
+      "summary": "Rust toolchain override file pinning the CI build to a specific Rust toolchain version for reproducible builds.",
+      "tags": ["configuration", "ci-cd", "rust"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/find-regression.py",
+      "type": "file",
+      "name": "find-regression.py",
+      "filePath": "ci/scripts/find-regression.py",
+      "summary": "Python script implementing bisect-based regression finding for CI, using git bisect logic to identify the commit that introduced a test failure in a branch range.",
+      "tags": ["script", "ci-cd", "utility", "test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/find-regression.py:format_step",
+      "type": "function",
+      "name": "format_step",
+      "filePath": "ci/scripts/find-regression.py",
+      "lineRange": [29, 48],
+      "summary": "Formats a Buildkite pipeline step definition for the bisect pipeline, injecting the commit-under-test as an environment variable.",
+      "tags": ["utility", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/find-regression.py:report_step",
+      "type": "function",
+      "name": "report_step",
+      "filePath": "ci/scripts/find-regression.py",
+      "lineRange": [51, 63],
+      "summary": "Reports the regressing commit by printing details and running a Buildkite notification step.",
+      "tags": ["utility", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/find-regression.py:get_bisect_commit",
+      "type": "function",
+      "name": "get_bisect_commit",
+      "filePath": "ci/scripts/find-regression.py",
+      "lineRange": [88, 100],
+      "summary": "Returns the midpoint commit between a start and end commit range for binary bisection regression search.",
+      "tags": ["utility", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/find-regression.py:get_commit_after",
+      "type": "function",
+      "name": "get_commit_after",
+      "filePath": "ci/scripts/find-regression.py",
+      "lineRange": [103, 112],
+      "summary": "Returns the commit immediately following a given commit on a branch, used to advance the bisect pointer.",
+      "tags": ["utility", "ci-cd"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:ci/scripts/find-regression.py:get_env",
+      "type": "function",
+      "name": "get_env",
+      "filePath": "ci/scripts/find-regression.py",
+      "lineRange": [115, 130],
+      "summary": "Reads required environment variables (start/end commits, branch, pipeline slug) and validates they are set.",
+      "tags": ["utility", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/find-regression.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "ci/scripts/find-regression.py",
+      "lineRange": [142, 183],
+      "summary": "Entry point orchestrating the regression bisect: reads environment, fetches commits, runs pipelines, and iterates until the regressing commit is found.",
+      "tags": ["entry-point", "ci-cd"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:ci/scripts/find-regression.py:Test",
+      "type": "class",
+      "name": "Test",
+      "filePath": "ci/scripts/find-regression.py",
+      "lineRange": [191, 254],
+      "summary": "Unit test class for find-regression.py, testing get_commit_after, get_number_of_commits, get_bisect_commit, and format_step functions.",
+      "tags": ["test", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/gen-integration-test-yaml.py",
+      "type": "file",
+      "name": "gen-integration-test-yaml.py",
+      "filePath": "ci/scripts/gen-integration-test-yaml.py",
+      "summary": "Python script that generates Buildkite integration test pipeline YAML from a cases map, producing dynamic pipeline steps for connector integration tests.",
+      "tags": ["script", "ci-cd", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/gen-integration-test-yaml.py:gen_pipeline_steps",
+      "type": "function",
+      "name": "gen_pipeline_steps",
+      "filePath": "ci/scripts/gen-integration-test-yaml.py",
+      "lineRange": [50, 70],
+      "summary": "Generates a list of Buildkite pipeline step definitions from the CASES_MAP, creating one step per integration test case.",
+      "tags": ["utility", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/gen-integration-test-yaml.py:format_pipeline_yaml_cmd",
+      "type": "function",
+      "name": "format_pipeline_yaml_cmd",
+      "filePath": "ci/scripts/gen-integration-test-yaml.py",
+      "lineRange": [72, 87],
+      "summary": "Formats the pipeline steps into a complete YAML command string suitable for Buildkite pipeline upload.",
+      "tags": ["utility", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/notify.py",
+      "type": "file",
+      "name": "notify.py",
+      "filePath": "ci/scripts/notify.py",
+      "summary": "Python script that queries Buildkite test results and generates Slack notification messages summarizing failed integration tests.",
+      "tags": ["script", "ci-cd", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:ci/scripts/notify.py:get_failed_tests",
+      "type": "function",
+      "name": "get_failed_tests",
+      "filePath": "ci/scripts/notify.py",
+      "lineRange": [113, 127],
+      "summary": "Iterates over the test map and calls get_test_status for each test, returning a map of failed test names to their status info.",
+      "tags": ["utility", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/notify.py:get_mock_test_status",
+      "type": "function",
+      "name": "get_mock_test_status",
+      "filePath": "ci/scripts/notify.py",
+      "lineRange": [142, 159],
+      "summary": "Returns a mock test status for local development and testing of the notification script without requiring a live Buildkite environment.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/notify.py:format_cmd",
+      "type": "function",
+      "name": "format_cmd",
+      "filePath": "ci/scripts/notify.py",
+      "lineRange": [161, 175],
+      "summary": "Formats the Slack notification message payload from a list of failure messages, constructing the curl/API command for posting.",
+      "tags": ["utility", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/notify.py:get_test_map",
+      "type": "function",
+      "name": "get_test_map",
+      "filePath": "ci/scripts/notify.py",
+      "lineRange": [177, 186],
+      "summary": "Builds and returns the map of test names to Buildkite build URLs from environment variables.",
+      "tags": ["utility", "ci-cd"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:ci/scripts/notify.py:run_test_1",
+      "type": "function",
+      "name": "run_test_1",
+      "filePath": "ci/scripts/notify.py",
+      "lineRange": [188, 199],
+      "summary": "Runs a local test scenario for the notify script, printing expected and actual notification output for verification.",
+      "tags": ["test", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:ci/scripts/notify.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "ci/scripts/notify.py",
+      "lineRange": [201, 214],
+      "summary": "Entry point that reads the test map, queries Buildkite for failures, formats notification messages, and posts them to Slack.",
+      "tags": ["entry-point", "ci-cd"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:ci/scripts/upload-coverage.sh",
+      "type": "file",
+      "name": "upload-coverage.sh",
+      "filePath": "ci/scripts/upload-coverage.sh",
+      "summary": "Shell script that uploads Rust test coverage reports to Codecov after CI test runs.",
+      "tags": ["script", "ci-cd", "test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci/scripts/upload-micro-bench-results.sh",
+      "type": "file",
+      "name": "upload-micro-bench-results.sh",
+      "filePath": "ci/scripts/upload-micro-bench-results.sh",
+      "summary": "Shell script that collects micro-benchmark results metadata (branch, date, commit, machine) and uploads them to a storage backend for performance tracking.",
+      "tags": ["script", "ci-cd", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:CODEOWNERS",
+      "type": "file",
+      "name": "CODEOWNERS",
+      "filePath": "CODEOWNERS",
+      "summary": "GitHub CODEOWNERS file defining default code reviewers for the RisingWave repository.",
+      "tags": ["configuration", "development"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/.node-version",
+      "type": "file",
+      "name": ".node-version",
+      "filePath": "dashboard/.node-version",
+      "summary": "Node.js version pin file specifying the exact Node.js version required for the RisingWave dashboard project.",
+      "tags": ["configuration", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/.nvmrc",
+      "type": "file",
+      "name": ".nvmrc",
+      "filePath": "dashboard/.nvmrc",
+      "summary": "NVM version file specifying the Node.js version for the dashboard, used by nvm to automatically switch to the correct runtime.",
+      "tags": ["configuration", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/.prettierignore",
+      "type": "file",
+      "name": ".prettierignore",
+      "filePath": "dashboard/.prettierignore",
+      "summary": "Prettier ignore configuration for the dashboard project, listing files and directories to exclude from code formatting.",
+      "tags": ["configuration", "development"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/eslint.config.mjs",
+      "type": "file",
+      "name": "eslint.config.mjs",
+      "filePath": "dashboard/eslint.config.mjs",
+      "summary": "ESLint flat configuration for the RisingWave dashboard, setting up TypeScript, React, and import linting rules.",
+      "tags": ["configuration", "build-system", "development"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:dashboard/lib/algo.ts",
+      "type": "file",
+      "name": "algo.ts",
+      "filePath": "dashboard/lib/algo.ts",
+      "summary": "TypeScript utility library providing graph and tree traversal algorithms (BFS) and connected component detection used by the RisingWave streaming plan visualizer dashboard.",
+      "tags": ["utility", "algorithm", "service"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:dashboard/lib/algo.ts:treeBfs",
+      "type": "function",
+      "name": "treeBfs",
+      "filePath": "dashboard/lib/algo.ts",
+      "lineRange": [31, 44],
+      "summary": "Performs breadth-first search on a tree structure, calling a step callback for each node visited.",
+      "tags": ["utility", "algorithm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:dashboard/lib/algo.ts:graphBfs",
+      "type": "function",
+      "name": "graphBfs",
+      "filePath": "dashboard/lib/algo.ts",
+      "lineRange": [52, 74],
+      "summary": "Performs breadth-first search on a general graph with cycle detection via visited set, using a configurable neighbor list key.",
+      "tags": ["utility", "algorithm"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:dashboard/lib/algo.ts:getConnectedComponent",
+      "type": "function",
+      "name": "getConnectedComponent",
+      "filePath": "dashboard/lib/algo.ts",
+      "lineRange": [83, 126],
+      "summary": "Computes connected components from a node list by building a shell-node graph and running BFS on each unvisited root, returning grouped node matrices.",
+      "tags": ["utility", "algorithm"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:dashboard/lib/util.js",
+      "type": "file",
+      "name": "util.js",
+      "filePath": "dashboard/lib/util.js",
+      "summary": "JavaScript utility module providing array and matrix creation helpers (iter, newNumberArray, newMatrix) used by the dashboard's graph algorithm library.",
+      "tags": ["utility", "service"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:dashboard/mock-server.js",
+      "type": "file",
+      "name": "mock-server.js",
+      "filePath": "dashboard/mock-server.js",
+      "summary": "Mock HTTP server for the RisingWave dashboard that serves static JSON fixtures, enabling local dashboard development without a running RisingWave backend.",
+      "tags": ["service", "development", "test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:dashboard/mock/fetch.sh",
+      "type": "file",
+      "name": "fetch.sh",
+      "filePath": "dashboard/mock/fetch.sh",
+      "summary": "Shell script that fetches live API responses from a running RisingWave instance and saves them as JSON mock fixtures for the dashboard mock server.",
+      "tags": ["script", "development", "utility"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:format_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:format_step",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:report_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:report_step",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:get_bisect_commit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:get_bisect_commit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:get_commit_after",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:get_commit_after",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:get_env",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:get_env",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "function:ci/scripts/find-regression.py:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "class:ci/scripts/find-regression.py:Test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/find-regression.py",
+      "target": "class:ci/scripts/find-regression.py:Test",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/gen-integration-test-yaml.py",
+      "target": "function:ci/scripts/gen-integration-test-yaml.py:gen_pipeline_steps",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/gen-integration-test-yaml.py",
+      "target": "function:ci/scripts/gen-integration-test-yaml.py:gen_pipeline_steps",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/gen-integration-test-yaml.py",
+      "target": "function:ci/scripts/gen-integration-test-yaml.py:format_pipeline_yaml_cmd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/gen-integration-test-yaml.py",
+      "target": "function:ci/scripts/gen-integration-test-yaml.py:format_pipeline_yaml_cmd",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:get_failed_tests",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:get_failed_tests",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:get_mock_test_status",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:get_mock_test_status",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:format_cmd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:format_cmd",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:get_test_map",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:get_test_map",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:run_test_1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:run_test_1",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:ci/scripts/notify.py",
+      "target": "function:ci/scripts/notify.py:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:dashboard/lib/algo.ts",
+      "target": "file:dashboard/lib/util.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:dashboard/lib/algo.ts",
+      "target": "function:dashboard/lib/algo.ts:treeBfs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:dashboard/lib/algo.ts",
+      "target": "function:dashboard/lib/algo.ts:treeBfs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:dashboard/lib/algo.ts",
+      "target": "function:dashboard/lib/algo.ts:graphBfs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:dashboard/lib/algo.ts",
+      "target": "function:dashboard/lib/algo.ts:graphBfs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:dashboard/lib/algo.ts",
+      "target": "function:dashboard/lib/algo.ts:getConnectedComponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:dashboard/lib/algo.ts",
+      "target": "function:dashboard/lib/algo.ts:getConnectedComponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,866 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "integration_tests/client-library/python/client.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 27,
+      "classes": [
+        {
+          "name": "Client",
+          "startLine": 4,
+          "endLine": 31,
+          "methods": [
+            "__init__",
+            "connect",
+            "disconnect"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Client",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "connect",
+          "callee": "psycopg2.connect",
+          "lineNumber": 15
+        },
+        {
+          "caller": "connect",
+          "callee": "self.connection.cursor",
+          "lineNumber": 22
+        },
+        {
+          "caller": "connect",
+          "callee": "print",
+          "lineNumber": 25
+        },
+        {
+          "caller": "disconnect",
+          "callee": "self.connection.close",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/client-library/python/crud.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 76,
+      "nonEmptyLines": 68,
+      "classes": [
+        {
+          "name": "SampleTableCrud",
+          "startLine": 5,
+          "endLine": 76,
+          "methods": [
+            "__init__",
+            "create_table",
+            "insert_data",
+            "update_data",
+            "delete_data",
+            "table_drop"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SampleTableCrud",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "Client",
+          "lineNumber": 9
+        },
+        {
+          "caller": "create_table",
+          "callee": "self.client.connect",
+          "lineNumber": 20
+        },
+        {
+          "caller": "create_table",
+          "callee": "cursor.execute",
+          "lineNumber": 21
+        },
+        {
+          "caller": "create_table",
+          "callee": "self.client.connection.commit",
+          "lineNumber": 22
+        },
+        {
+          "caller": "create_table",
+          "callee": "print",
+          "lineNumber": 23
+        },
+        {
+          "caller": "create_table",
+          "callee": "print",
+          "lineNumber": 25
+        },
+        {
+          "caller": "create_table",
+          "callee": "str",
+          "lineNumber": 25
+        },
+        {
+          "caller": "insert_data",
+          "callee": "self.client.connect",
+          "lineNumber": 33
+        },
+        {
+          "caller": "insert_data",
+          "callee": "cursor.execute",
+          "lineNumber": 34
+        },
+        {
+          "caller": "insert_data",
+          "callee": "self.client.connection.commit",
+          "lineNumber": 35
+        },
+        {
+          "caller": "insert_data",
+          "callee": "print",
+          "lineNumber": 36
+        },
+        {
+          "caller": "insert_data",
+          "callee": "print",
+          "lineNumber": 38
+        },
+        {
+          "caller": "insert_data",
+          "callee": "str",
+          "lineNumber": 38
+        },
+        {
+          "caller": "update_data",
+          "callee": "self.client.connect",
+          "lineNumber": 47
+        },
+        {
+          "caller": "update_data",
+          "callee": "cursor.execute",
+          "lineNumber": 48
+        },
+        {
+          "caller": "update_data",
+          "callee": "self.client.connection.commit",
+          "lineNumber": 49
+        },
+        {
+          "caller": "update_data",
+          "callee": "print",
+          "lineNumber": 50
+        },
+        {
+          "caller": "update_data",
+          "callee": "print",
+          "lineNumber": 52
+        },
+        {
+          "caller": "update_data",
+          "callee": "str",
+          "lineNumber": 52
+        },
+        {
+          "caller": "delete_data",
+          "callee": "self.client.connect",
+          "lineNumber": 59
+        },
+        {
+          "caller": "delete_data",
+          "callee": "cursor.execute",
+          "lineNumber": 60
+        },
+        {
+          "caller": "delete_data",
+          "callee": "self.client.connection.commit",
+          "lineNumber": 61
+        },
+        {
+          "caller": "delete_data",
+          "callee": "print",
+          "lineNumber": 62
+        },
+        {
+          "caller": "delete_data",
+          "callee": "print",
+          "lineNumber": 64
+        },
+        {
+          "caller": "delete_data",
+          "callee": "str",
+          "lineNumber": 64
+        },
+        {
+          "caller": "table_drop",
+          "callee": "self.client.connect",
+          "lineNumber": 71
+        },
+        {
+          "caller": "table_drop",
+          "callee": "cursor.execute",
+          "lineNumber": 72
+        },
+        {
+          "caller": "table_drop",
+          "callee": "self.client.connection.commit",
+          "lineNumber": 73
+        },
+        {
+          "caller": "table_drop",
+          "callee": "print",
+          "lineNumber": 74
+        },
+        {
+          "caller": "table_drop",
+          "callee": "print",
+          "lineNumber": 76
+        },
+        {
+          "caller": "table_drop",
+          "callee": "str",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/client-library/python/materializeview.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 37,
+      "classes": [
+        {
+          "name": "MaterializeView",
+          "startLine": 7,
+          "endLine": 41,
+          "methods": [
+            "__init__",
+            "create_mv",
+            "drop_mv"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MaterializeView",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "Client",
+          "lineNumber": 9
+        },
+        {
+          "caller": "__init__",
+          "callee": "SampleTableCrud",
+          "lineNumber": 10
+        },
+        {
+          "caller": "create_mv",
+          "callee": "self.crud.create_table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "create_mv",
+          "callee": "self.crud.insert_data",
+          "lineNumber": 14
+        },
+        {
+          "caller": "create_mv",
+          "callee": "self.crud.insert_data",
+          "lineNumber": 15
+        },
+        {
+          "caller": "create_mv",
+          "callee": "self.crud.insert_data",
+          "lineNumber": 16
+        },
+        {
+          "caller": "create_mv",
+          "callee": "self.crud.insert_data",
+          "lineNumber": 17
+        },
+        {
+          "caller": "create_mv",
+          "callee": "self.crud.insert_data",
+          "lineNumber": 18
+        },
+        {
+          "caller": "create_mv",
+          "callee": "self.client.connect",
+          "lineNumber": 26
+        },
+        {
+          "caller": "create_mv",
+          "callee": "cursor.execute",
+          "lineNumber": 27
+        },
+        {
+          "caller": "create_mv",
+          "callee": "self.client.connection.commit",
+          "lineNumber": 28
+        },
+        {
+          "caller": "create_mv",
+          "callee": "print",
+          "lineNumber": 29
+        },
+        {
+          "caller": "create_mv",
+          "callee": "print",
+          "lineNumber": 31
+        },
+        {
+          "caller": "create_mv",
+          "callee": "str",
+          "lineNumber": 31
+        },
+        {
+          "caller": "drop_mv",
+          "callee": "self.client.connect",
+          "lineNumber": 36
+        },
+        {
+          "caller": "drop_mv",
+          "callee": "cursor.execute",
+          "lineNumber": 37
+        },
+        {
+          "caller": "drop_mv",
+          "callee": "self.client.connection.commit",
+          "lineNumber": 38
+        },
+        {
+          "caller": "drop_mv",
+          "callee": "print",
+          "lineNumber": 39
+        },
+        {
+          "caller": "drop_mv",
+          "callee": "print",
+          "lineNumber": 41
+        },
+        {
+          "caller": "drop_mv",
+          "callee": "str",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "integration_tests/client-library/python/test_database.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 152,
+      "nonEmptyLines": 117,
+      "functions": [
+        {
+          "name": "db_connection",
+          "startLine": 8,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "crud_instance",
+          "startLine": 21,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "mv_instance",
+          "startLine": 32,
+          "endLine": 39,
+          "params": []
+        },
+        {
+          "name": "test_connect",
+          "startLine": 42,
+          "endLine": 43,
+          "params": [
+            "db_connection"
+          ]
+        },
+        {
+          "name": "test_disconnect",
+          "startLine": 46,
+          "endLine": 49,
+          "params": [
+            "db_connection"
+          ]
+        },
+        {
+          "name": "test_table_creation",
+          "startLine": 52,
+          "endLine": 62,
+          "params": [
+            "crud_instance",
+            "db_connection"
+          ]
+        },
+        {
+          "name": "test_data_insertion",
+          "startLine": 65,
+          "endLine": 75,
+          "params": [
+            "crud_instance",
+            "db_connection"
+          ]
+        },
+        {
+          "name": "test_data_updation",
+          "startLine": 78,
+          "endLine": 87,
+          "params": [
+            "crud_instance",
+            "db_connection"
+          ]
+        },
+        {
+          "name": "test_data_deletion",
+          "startLine": 90,
+          "endLine": 101,
+          "params": [
+            "crud_instance",
+            "db_connection"
+          ]
+        },
+        {
+          "name": "test_table_drop",
+          "startLine": 104,
+          "endLine": 115,
+          "params": [
+            "crud_instance",
+            "db_connection"
+          ]
+        },
+        {
+          "name": "test_mv_creation",
+          "startLine": 118,
+          "endLine": 126,
+          "params": [
+            "mv_instance",
+            "db_connection"
+          ]
+        },
+        {
+          "name": "test_mv_updation",
+          "startLine": 129,
+          "endLine": 138,
+          "params": [
+            "db_connection",
+            "crud_instance"
+          ]
+        },
+        {
+          "name": "test_mv_drop",
+          "startLine": 141,
+          "endLine": 152,
+          "params": [
+            "crud_instance",
+            "mv_instance",
+            "db_connection"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "db_connection",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "crud_instance",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "mv_instance",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "test_connect",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "test_disconnect",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "test_table_creation",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "test_data_insertion",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "test_data_updation",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "test_data_deletion",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "test_table_drop",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "test_mv_creation",
+          "line": 118,
+          "isDefault": false
+        },
+        {
+          "name": "test_mv_updation",
+          "line": 129,
+          "isDefault": false
+        },
+        {
+          "name": "test_mv_drop",
+          "line": 141,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "db_connection",
+          "callee": "Client",
+          "lineNumber": 9
+        },
+        {
+          "caller": "db_connection",
+          "callee": "db.disconnect",
+          "lineNumber": 17
+        },
+        {
+          "caller": "crud_instance",
+          "callee": "SampleTableCrud",
+          "lineNumber": 22
+        },
+        {
+          "caller": "mv_instance",
+          "callee": "MaterializeView",
+          "lineNumber": 33
+        },
+        {
+          "caller": "test_connect",
+          "callee": "db_connection.connect",
+          "lineNumber": 43
+        },
+        {
+          "caller": "test_disconnect",
+          "callee": "db_connection.connect",
+          "lineNumber": 47
+        },
+        {
+          "caller": "test_disconnect",
+          "callee": "db_connection.disconnect",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_table_creation",
+          "callee": "db_connection.connect",
+          "lineNumber": 53
+        },
+        {
+          "caller": "test_table_creation",
+          "callee": "cursor.execute",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_table_creation",
+          "callee": "crud_instance.create_table",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_table_creation",
+          "callee": "cursor.execute",
+          "lineNumber": 57
+        },
+        {
+          "caller": "test_table_creation",
+          "callee": "cursor.execute",
+          "lineNumber": 58
+        },
+        {
+          "caller": "test_table_creation",
+          "callee": "cursor.fetchone",
+          "lineNumber": 60
+        },
+        {
+          "caller": "test_table_creation",
+          "callee": "cursor.close",
+          "lineNumber": 61
+        },
+        {
+          "caller": "test_data_insertion",
+          "callee": "crud_instance.insert_data",
+          "lineNumber": 66
+        },
+        {
+          "caller": "test_data_insertion",
+          "callee": "db_connection.connect",
+          "lineNumber": 68
+        },
+        {
+          "caller": "test_data_insertion",
+          "callee": "cursor.execute",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_data_insertion",
+          "callee": "cursor.execute",
+          "lineNumber": 70
+        },
+        {
+          "caller": "test_data_insertion",
+          "callee": "cursor.fetchone",
+          "lineNumber": 71
+        },
+        {
+          "caller": "test_data_insertion",
+          "callee": "cursor.close",
+          "lineNumber": 73
+        },
+        {
+          "caller": "test_data_updation",
+          "callee": "crud_instance.update_data",
+          "lineNumber": 79
+        },
+        {
+          "caller": "test_data_updation",
+          "callee": "db_connection.connect",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test_data_updation",
+          "callee": "cursor.execute",
+          "lineNumber": 82
+        },
+        {
+          "caller": "test_data_updation",
+          "callee": "cursor.execute",
+          "lineNumber": 83
+        },
+        {
+          "caller": "test_data_updation",
+          "callee": "cursor.fetchone",
+          "lineNumber": 84
+        },
+        {
+          "caller": "test_data_updation",
+          "callee": "cursor.close",
+          "lineNumber": 86
+        },
+        {
+          "caller": "test_data_deletion",
+          "callee": "crud_instance.delete_data",
+          "lineNumber": 91
+        },
+        {
+          "caller": "test_data_deletion",
+          "callee": "db_connection.connect",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_data_deletion",
+          "callee": "cursor.execute",
+          "lineNumber": 94
+        },
+        {
+          "caller": "test_data_deletion",
+          "callee": "cursor.execute",
+          "lineNumber": 95
+        },
+        {
+          "caller": "test_data_deletion",
+          "callee": "cursor.fetchone",
+          "lineNumber": 97
+        },
+        {
+          "caller": "test_data_deletion",
+          "callee": "cursor.close",
+          "lineNumber": 99
+        },
+        {
+          "caller": "test_table_drop",
+          "callee": "crud_instance.table_drop",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_table_drop",
+          "callee": "db_connection.connect",
+          "lineNumber": 107
+        },
+        {
+          "caller": "test_table_drop",
+          "callee": "cursor.execute",
+          "lineNumber": 108
+        },
+        {
+          "caller": "test_table_drop",
+          "callee": "cursor.execute",
+          "lineNumber": 109
+        },
+        {
+          "caller": "test_table_drop",
+          "callee": "cursor.fetchone",
+          "lineNumber": 111
+        },
+        {
+          "caller": "test_table_drop",
+          "callee": "cursor.close",
+          "lineNumber": 113
+        },
+        {
+          "caller": "test_mv_creation",
+          "callee": "mv_instance.create_mv",
+          "lineNumber": 119
+        },
+        {
+          "caller": "test_mv_creation",
+          "callee": "db_connection.connect",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_mv_creation",
+          "callee": "cursor.execute",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_mv_creation",
+          "callee": "cursor.execute",
+          "lineNumber": 122
+        },
+        {
+          "caller": "test_mv_creation",
+          "callee": "cursor.fetchone",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_mv_creation",
+          "callee": "cursor.close",
+          "lineNumber": 125
+        },
+        {
+          "caller": "test_mv_updation",
+          "callee": "crud_instance.insert_data",
+          "lineNumber": 130
+        },
+        {
+          "caller": "test_mv_updation",
+          "callee": "db_connection.connect",
+          "lineNumber": 131
+        },
+        {
+          "caller": "test_mv_updation",
+          "callee": "cursor.execute",
+          "lineNumber": 132
+        },
+        {
+          "caller": "test_mv_updation",
+          "callee": "cursor.execute",
+          "lineNumber": 133
+        },
+        {
+          "caller": "test_mv_updation",
+          "callee": "cursor.fetchone",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_mv_updation",
+          "callee": "cursor.close",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test_mv_drop",
+          "callee": "mv_instance.drop_mv",
+          "lineNumber": 142
+        },
+        {
+          "caller": "test_mv_drop",
+          "callee": "crud_instance.table_drop",
+          "lineNumber": 143
+        },
+        {
+          "caller": "test_mv_drop",
+          "callee": "db_connection.connect",
+          "lineNumber": 144
+        },
+        {
+          "caller": "test_mv_drop",
+          "callee": "cursor.execute",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_mv_drop",
+          "callee": "cursor.execute",
+          "lineNumber": 146
+        },
+        {
+          "caller": "test_mv_drop",
+          "callee": "cursor.fetchone",
+          "lineNumber": 148
+        },
+        {
+          "caller": "test_mv_drop",
+          "callee": "cursor.close",
+          "lineNumber": 150
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 13,
+        "functionCount": 13,
+        "classCount": 0
+      }
+    }
+  ]
+}

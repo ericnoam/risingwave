@@ -1,0 +1,2208 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 22,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/utils/pgwire/tests/js/.eslintignore",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {}
+    },
+    {
+      "path": "src/utils/pgwire/tests/js/.prettierrc.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/utils/pgwire/tests/js/package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 21,
+      "nonEmptyLines": 21,
+      "sections": [
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "src/utils/pgwire/tests/js/test/pgwire.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 49,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/utils/pgwire/tests/js/tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 11,
+      "nonEmptyLines": 11,
+      "sections": [
+        {
+          "heading": "extends",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "include",
+          "level": 1,
+          "line": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "src/utils/resource_util/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "dev-dependencies",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "src/utils/resource_util/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 884,
+      "nonEmptyLines": 826,
+      "functions": [
+        {
+          "name": "hostname",
+          "startLine": 17,
+          "endLine": 22,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "CgroupVersion",
+          "startLine": 25,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "V1",
+            "V2"
+          ]
+        },
+        {
+          "name": "Controller",
+          "startLine": 31,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "Cpu",
+            "Memory"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "hostname",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "CgroupVersion",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "Controller",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "hostname",
+          "callee": "hostname::get()\n        .unwrap_or_default()\n        .into_string().unwrap_or_default",
+          "lineNumber": 18
+        },
+        {
+          "caller": "hostname",
+          "callee": "hostname::get()\n        .unwrap_or_default().into_string",
+          "lineNumber": 18
+        },
+        {
+          "caller": "hostname",
+          "callee": "hostname::get().unwrap_or_default",
+          "lineNumber": 18
+        },
+        {
+          "caller": "hostname",
+          "callee": "hostname::get",
+          "lineNumber": 18
+        },
+        {
+          "caller": "is_linux_machine",
+          "callee": "env::consts::OS.eq",
+          "lineNumber": 55
+        },
+        {
+          "caller": "is_running_in_container",
+          "callee": "env_var_check_if_running_in_container",
+          "lineNumber": 61
+        },
+        {
+          "caller": "is_running_in_container",
+          "callee": "docker_env_exists",
+          "lineNumber": 62
+        },
+        {
+          "caller": "is_running_in_container",
+          "callee": "is_running_in_kubernetes_pod",
+          "lineNumber": 63
+        },
+        {
+          "caller": "docker_env_exists",
+          "callee": "Path::new(DEFAULT_DOCKER_ENV_PATH).exists",
+          "lineNumber": 67
+        },
+        {
+          "caller": "docker_env_exists",
+          "callee": "Path::new",
+          "lineNumber": 67
+        },
+        {
+          "caller": "env_var_check_if_running_in_container",
+          "callee": "env::var(DEFAULT_IN_CONTAINER_ENV_VARIABLE).is_ok",
+          "lineNumber": 72
+        },
+        {
+          "caller": "env_var_check_if_running_in_container",
+          "callee": "env::var",
+          "lineNumber": 72
+        },
+        {
+          "caller": "is_running_in_kubernetes_pod",
+          "callee": "Path::new(DEFAULT_KUBERNETES_SECRETS_PATH).exists",
+          "lineNumber": 77
+        },
+        {
+          "caller": "is_running_in_kubernetes_pod",
+          "callee": "Path::new",
+          "lineNumber": 77
+        },
+        {
+          "caller": "is_controller_activated",
+          "callee": "Path::new(super::DEFAULT_CGROUP_ROOT_HIERARCYHY)\n                .join(controller_name).is_dir",
+          "lineNumber": 94
+        },
+        {
+          "caller": "is_controller_activated",
+          "callee": "Path::new(super::DEFAULT_CGROUP_ROOT_HIERARCYHY).join",
+          "lineNumber": 94
+        },
+        {
+          "caller": "is_controller_activated",
+          "callee": "Path::new",
+          "lineNumber": 94
+        },
+        {
+          "caller": "is_controller_activated",
+          "callee": "parse_controller_enable_file_for_cgroup_v2",
+          "lineNumber": 97
+        },
+        {
+          "caller": "cgroup_exists",
+          "callee": "Path::new(super::DEFAULT_CGROUP_ROOT_HIERARCYHY).is_dir",
+          "lineNumber": 106
+        },
+        {
+          "caller": "cgroup_exists",
+          "callee": "Path::new",
+          "lineNumber": 106
+        },
+        {
+          "caller": "get_resource",
+          "callee": "is_linux_machine",
+          "lineNumber": 115
+        },
+        {
+          "caller": "get_resource",
+          "callee": "is_running_in_container",
+          "lineNumber": 115
+        },
+        {
+          "caller": "get_resource",
+          "callee": "cgroup_exists",
+          "lineNumber": 115
+        },
+        {
+          "caller": "get_resource",
+          "callee": "get_system",
+          "lineNumber": 116
+        },
+        {
+          "caller": "get_resource",
+          "callee": "Path::new(super::DEFAULT_CGROUP_V2_CONTROLLER_LIST_PATH).exists",
+          "lineNumber": 120
+        },
+        {
+          "caller": "get_resource",
+          "callee": "Path::new",
+          "lineNumber": 120
+        },
+        {
+          "caller": "get_resource",
+          "callee": "is_controller_activated",
+          "lineNumber": 125
+        },
+        {
+          "caller": "get_resource",
+          "callee": "get_system",
+          "lineNumber": 126
+        },
+        {
+          "caller": "get_resource",
+          "callee": "get_container",
+          "lineNumber": 129
+        },
+        {
+          "caller": "get_resource",
+          "callee": "get_system",
+          "lineNumber": 137
+        },
+        {
+          "caller": "get_system_memory",
+          "callee": "System::new",
+          "lineNumber": 156
+        },
+        {
+          "caller": "get_system_memory",
+          "callee": "sys.refresh_memory",
+          "lineNumber": 157
+        },
+        {
+          "caller": "get_system_memory",
+          "callee": "sys.total_memory",
+          "lineNumber": 158
+        },
+        {
+          "caller": "get_system_memory_used",
+          "callee": "System::new",
+          "lineNumber": 163
+        },
+        {
+          "caller": "get_system_memory_used",
+          "callee": "sys.refresh_memory",
+          "lineNumber": 164
+        },
+        {
+          "caller": "get_system_memory_used",
+          "callee": "sys.used_memory",
+          "lineNumber": 165
+        },
+        {
+          "caller": "total_memory_used_bytes",
+          "callee": "get_resource",
+          "lineNumber": 182
+        },
+        {
+          "caller": "system_memory_available_bytes",
+          "callee": "get_resource",
+          "lineNumber": 204
+        },
+        {
+          "caller": "get_container_memory_limit",
+          "callee": "get_system_memory",
+          "lineNumber": 223
+        },
+        {
+          "caller": "get_container_memory_limit",
+          "callee": "super::util::read_usize_or_max",
+          "lineNumber": 224
+        },
+        {
+          "caller": "get_container_memory_limit",
+          "callee": "Ok",
+          "lineNumber": 225
+        },
+        {
+          "caller": "get_container_memory_limit",
+          "callee": "std::cmp::min",
+          "lineNumber": 225
+        },
+        {
+          "caller": "get_container_memory_used",
+          "callee": "get_system_memory_used",
+          "lineNumber": 237
+        },
+        {
+          "caller": "get_container_memory_used",
+          "callee": "super::util::read_usize_or_max",
+          "lineNumber": 238
+        },
+        {
+          "caller": "get_container_memory_used",
+          "callee": "Ok",
+          "lineNumber": 239
+        },
+        {
+          "caller": "get_container_memory_used",
+          "callee": "std::cmp::min",
+          "lineNumber": 239
+        },
+        {
+          "caller": "total_cpu_available",
+          "callee": "get_resource",
+          "lineNumber": 272
+        },
+        {
+          "caller": "get_container_cpu_limit",
+          "callee": "get_system_cpu",
+          "lineNumber": 284
+        },
+        {
+          "caller": "get_container_cpu_limit",
+          "callee": "get_cpu_limit_v1",
+          "lineNumber": 287
+        },
+        {
+          "caller": "get_container_cpu_limit",
+          "callee": "get_cpu_limit_v2",
+          "lineNumber": 289
+        },
+        {
+          "caller": "get_system_cpu",
+          "callee": "thread::available_parallelism",
+          "lineNumber": 295
+        },
+        {
+          "caller": "get_system_cpu",
+          "callee": "available_parallelism.get",
+          "lineNumber": 296
+        },
+        {
+          "caller": "get_cpu_limit_v1",
+          "callee": "std::fs::read_to_string",
+          "lineNumber": 310
+        },
+        {
+          "caller": "get_cpu_limit_v1",
+          "callee": "content\n            .trim()\n            .parse::<i64>().map_err",
+          "lineNumber": 311
+        },
+        {
+          "caller": "get_cpu_limit_v1",
+          "callee": "content\n            .trim()\n            .parse::<i64>",
+          "lineNumber": 311
+        },
+        {
+          "caller": "get_cpu_limit_v1",
+          "callee": "content.trim",
+          "lineNumber": 311
+        },
+        {
+          "caller": "get_cpu_limit_v1",
+          "callee": "std::io::Error::new",
+          "lineNumber": 314
+        },
+        {
+          "caller": "get_cpu_limit_v1",
+          "callee": "Ok",
+          "lineNumber": 318
+        },
+        {
+          "caller": "get_cpu_limit_v1",
+          "callee": "super::util::read_usize",
+          "lineNumber": 321
+        },
+        {
+          "caller": "get_cpu_limit_v1",
+          "callee": "Ok",
+          "lineNumber": 323
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "fs_err::read_to_string",
+          "lineNumber": 328
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "cpu_limit_string.split_whitespace().collect",
+          "lineNumber": 330
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "cpu_limit_string.split_whitespace",
+          "lineNumber": 330
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "cpu_data.get",
+          "lineNumber": 331
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "Ok",
+          "lineNumber": 334
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "cpu_data_values[0]\n                    .parse::<usize>().map_err",
+          "lineNumber": 336
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "cpu_data_values[0]\n                    .parse::<usize>",
+          "lineNumber": 336
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "parse_error",
+          "lineNumber": 338
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "cpu_data_values[1]\n                    .parse::<usize>().map_err",
+          "lineNumber": 339
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "cpu_data_values[1]\n                    .parse::<usize>",
+          "lineNumber": 339
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "parse_error",
+          "lineNumber": 341
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "Ok",
+          "lineNumber": 342
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "Err",
+          "lineNumber": 344
+        },
+        {
+          "caller": "get_cpu_limit_v2",
+          "callee": "std::io::Error::new",
+          "lineNumber": 344
+        },
+        {
+          "caller": "parse_controller_enable_file_for_cgroup_v2",
+          "callee": "fs_err::read_to_string",
+          "lineNumber": 360
+        },
+        {
+          "caller": "parse_controller_enable_file_for_cgroup_v2",
+          "callee": "controller_string.split_whitespace",
+          "lineNumber": 362
+        },
+        {
+          "caller": "parse_controller_enable_file_for_cgroup_v2",
+          "callee": "controller.eq",
+          "lineNumber": 363
+        },
+        {
+          "caller": "parse_error",
+          "callee": "std::io::Error::new",
+          "lineNumber": 378
+        },
+        {
+          "caller": "read_usize",
+          "callee": "fs_err::read_to_string",
+          "lineNumber": 386
+        },
+        {
+          "caller": "read_usize",
+          "callee": "content\n            .trim()\n            .parse::<usize>().map_err",
+          "lineNumber": 387
+        },
+        {
+          "caller": "read_usize",
+          "callee": "content\n            .trim()\n            .parse::<usize>",
+          "lineNumber": 387
+        },
+        {
+          "caller": "read_usize",
+          "callee": "content.trim",
+          "lineNumber": 387
+        },
+        {
+          "caller": "read_usize",
+          "callee": "parse_error",
+          "lineNumber": 390
+        },
+        {
+          "caller": "read_usize",
+          "callee": "Ok",
+          "lineNumber": 391
+        },
+        {
+          "caller": "read_usize_or_max",
+          "callee": "fs_err::read_to_string",
+          "lineNumber": 397
+        },
+        {
+          "caller": "read_usize_or_max",
+          "callee": "content.trim",
+          "lineNumber": 398
+        },
+        {
+          "caller": "read_usize_or_max",
+          "callee": "Ok",
+          "lineNumber": 399
+        },
+        {
+          "caller": "read_usize_or_max",
+          "callee": "content\n            .trim()\n            .parse::<usize>().map_err",
+          "lineNumber": 401
+        },
+        {
+          "caller": "read_usize_or_max",
+          "callee": "content\n            .trim()\n            .parse::<usize>",
+          "lineNumber": 401
+        },
+        {
+          "caller": "read_usize_or_max",
+          "callee": "content.trim",
+          "lineNumber": 401
+        },
+        {
+          "caller": "read_usize_or_max",
+          "callee": "parse_error",
+          "lineNumber": 404
+        },
+        {
+          "caller": "read_usize_or_max",
+          "callee": "Ok",
+          "lineNumber": 405
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "HashMap::from",
+          "lineNumber": 428
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "String::from",
+          "lineNumber": 433
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "Ok",
+          "lineNumber": 434
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "String::from",
+          "lineNumber": 441
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "Ok",
+          "lineNumber": 442
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "String::from",
+          "lineNumber": 449
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "Ok",
+          "lineNumber": 450
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "String::from",
+          "lineNumber": 457
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "Err",
+          "lineNumber": 458
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "std::io::Error::new",
+          "lineNumber": 458
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "String::from",
+          "lineNumber": 468
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "Err",
+          "lineNumber": 469
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "std::io::Error::new",
+          "lineNumber": 469
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "String::from",
+          "lineNumber": 479
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "Err",
+          "lineNumber": 480
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "std::io::Error::new",
+          "lineNumber": 480
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "String::from",
+          "lineNumber": 491
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "tempfile::NamedTempFile::new().expect",
+          "lineNumber": 493
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "tempfile::NamedTempFile::new",
+          "lineNumber": 493
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "file.as_file_mut()\n                        .write_all(curr_test_case.value_in_file.as_bytes()).expect",
+          "lineNumber": 495
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "file.as_file_mut().write_all",
+          "lineNumber": 495
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "file.as_file_mut",
+          "lineNumber": 495
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "curr_test_case.value_in_file.as_bytes",
+          "lineNumber": 496
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "String::from",
+          "lineNumber": 498
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "file.path().to_str().unwrap",
+          "lineNumber": 498
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "file.path().to_str",
+          "lineNumber": 498
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "file.path",
+          "lineNumber": 498
+        },
+        {
+          "caller": "test_read_integer_from_file_path",
+          "callee": "read_usize",
+          "lineNumber": 500
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "HashMap::from",
+          "lineNumber": 518
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "String::from",
+          "lineNumber": 523
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "Ok",
+          "lineNumber": 524
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "String::from",
+          "lineNumber": 531
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "Ok",
+          "lineNumber": 532
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "String::from",
+          "lineNumber": 539
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "Ok",
+          "lineNumber": 540
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "String::from",
+          "lineNumber": 547
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "Err",
+          "lineNumber": 548
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "std::io::Error::new",
+          "lineNumber": 548
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "String::from",
+          "lineNumber": 558
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "Err",
+          "lineNumber": 559
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "std::io::Error::new",
+          "lineNumber": 559
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "String::from",
+          "lineNumber": 569
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "Ok",
+          "lineNumber": 570
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "get_system_memory",
+          "lineNumber": 570
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "String::from",
+          "lineNumber": 578
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "tempfile::NamedTempFile::new().expect",
+          "lineNumber": 580
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "tempfile::NamedTempFile::new",
+          "lineNumber": 580
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "file.as_file_mut()\n                        .write_all(curr_test_case.value_in_file.as_bytes()).expect",
+          "lineNumber": 582
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "file.as_file_mut().write_all",
+          "lineNumber": 582
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "file.as_file_mut",
+          "lineNumber": 582
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "curr_test_case.value_in_file.as_bytes",
+          "lineNumber": 583
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "String::from",
+          "lineNumber": 585
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "file.path().to_str().unwrap",
+          "lineNumber": 585
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "file.path().to_str",
+          "lineNumber": 585
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "file.path",
+          "lineNumber": 585
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "read_usize_or_max",
+          "lineNumber": 587
+        },
+        {
+          "caller": "test_get_value_from_file",
+          "callee": "get_system_memory",
+          "lineNumber": 587
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "HashMap::from",
+          "lineNumber": 607
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 612
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 613
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "Ok",
+          "lineNumber": 614
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "thread::available_parallelism().unwrap().get",
+          "lineNumber": 614
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "thread::available_parallelism().unwrap",
+          "lineNumber": 614
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "thread::available_parallelism",
+          "lineNumber": 614
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 621
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 622
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "Ok",
+          "lineNumber": 623
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 630
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 631
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "Err",
+          "lineNumber": 632
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "std::io::Error::new",
+          "lineNumber": 632
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 642
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 643
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "Err",
+          "lineNumber": 644
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "std::io::Error::new",
+          "lineNumber": 644
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 654
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 655
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "Ok",
+          "lineNumber": 656
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "thread::available_parallelism().unwrap().get",
+          "lineNumber": 656
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "thread::available_parallelism().unwrap",
+          "lineNumber": 656
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "thread::available_parallelism",
+          "lineNumber": 656
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 663
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 664
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "Err",
+          "lineNumber": 665
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "std::io::Error::new",
+          "lineNumber": 665
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 676
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 677
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "tempfile::NamedTempFile::new().expect",
+          "lineNumber": 679
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "tempfile::NamedTempFile::new",
+          "lineNumber": 679
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "quota_file\n                        .as_file_mut()\n                        .write_all(curr_test_case.value_in_quota_file.as_bytes()).expect",
+          "lineNumber": 681
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "quota_file\n                        .as_file_mut().write_all",
+          "lineNumber": 681
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "quota_file.as_file_mut",
+          "lineNumber": 681
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "curr_test_case.value_in_quota_file.as_bytes",
+          "lineNumber": 683
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 685
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "quota_file.path().to_str().unwrap",
+          "lineNumber": 685
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "quota_file.path().to_str",
+          "lineNumber": 685
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "quota_file.path",
+          "lineNumber": 685
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "tempfile::NamedTempFile::new().expect",
+          "lineNumber": 687
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "tempfile::NamedTempFile::new",
+          "lineNumber": 687
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "period_file\n                        .as_file_mut()\n                        .write_all(curr_test_case.value_in_period_file.as_bytes()).expect",
+          "lineNumber": 689
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "period_file\n                        .as_file_mut().write_all",
+          "lineNumber": 689
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "period_file.as_file_mut",
+          "lineNumber": 689
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "curr_test_case.value_in_period_file.as_bytes",
+          "lineNumber": 691
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "String::from",
+          "lineNumber": 693
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "period_file.path().to_str().unwrap",
+          "lineNumber": 693
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "period_file.path().to_str",
+          "lineNumber": 693
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "period_file.path",
+          "lineNumber": 693
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "cpu::get_cpu_limit_v1",
+          "lineNumber": 695
+        },
+        {
+          "caller": "test_get_cpu_limit_v1",
+          "callee": "get_system_cpu",
+          "lineNumber": 698
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "HashMap::from",
+          "lineNumber": 722
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "String::from",
+          "lineNumber": 727
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "Ok",
+          "lineNumber": 728
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "String::from",
+          "lineNumber": 735
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "Err",
+          "lineNumber": 736
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "std::io::Error::new",
+          "lineNumber": 736
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "String::from",
+          "lineNumber": 746
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "Err",
+          "lineNumber": 747
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "std::io::Error::new",
+          "lineNumber": 747
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "String::from",
+          "lineNumber": 757
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "Ok",
+          "lineNumber": 758
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "thread::available_parallelism().unwrap().get",
+          "lineNumber": 758
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "thread::available_parallelism().unwrap",
+          "lineNumber": 758
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "thread::available_parallelism",
+          "lineNumber": 758
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "String::from",
+          "lineNumber": 765
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "Err",
+          "lineNumber": 766
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "std::io::Error::new",
+          "lineNumber": 766
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "String::from",
+          "lineNumber": 776
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "tempfile::NamedTempFile::new().expect",
+          "lineNumber": 778
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "tempfile::NamedTempFile::new",
+          "lineNumber": 778
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "file.as_file_mut()\n                        .write_all(curr_test_case.value_in_file.as_bytes()).expect",
+          "lineNumber": 780
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "file.as_file_mut().write_all",
+          "lineNumber": 780
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "file.as_file_mut",
+          "lineNumber": 780
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "curr_test_case.value_in_file.as_bytes",
+          "lineNumber": 781
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "String::from",
+          "lineNumber": 783
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "file.path().to_str().unwrap",
+          "lineNumber": 783
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "file.path().to_str",
+          "lineNumber": 783
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "file.path",
+          "lineNumber": 783
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "cpu::get_cpu_limit_v2",
+          "lineNumber": 785
+        },
+        {
+          "caller": "test_get_cpu_limit_v2",
+          "callee": "get_system_cpu",
+          "lineNumber": 785
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "HashMap::from",
+          "lineNumber": 804
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "String::from",
+          "lineNumber": 809
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "String::from",
+          "lineNumber": 818
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "String::from",
+          "lineNumber": 827
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "String::from",
+          "lineNumber": 836
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "String::from",
+          "lineNumber": 845
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "String::from",
+          "lineNumber": 854
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "String::from",
+          "lineNumber": 868
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "tempfile::NamedTempFile::new().expect",
+          "lineNumber": 870
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "tempfile::NamedTempFile::new",
+          "lineNumber": 870
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "file.as_file_mut()\n                        .write_all(curr_test_case.value_in_file.as_bytes()).expect",
+          "lineNumber": 872
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "file.as_file_mut().write_all",
+          "lineNumber": 872
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "file.as_file_mut",
+          "lineNumber": 872
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "curr_test_case.value_in_file.as_bytes",
+          "lineNumber": 873
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "String::from",
+          "lineNumber": 875
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "file.path().to_str().unwrap",
+          "lineNumber": 875
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "file.path().to_str",
+          "lineNumber": 875
+        },
+        {
+          "caller": "test_parse_controller_enable_file_for_cgroup_v2",
+          "callee": "file.path",
+          "lineNumber": 875
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 1,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/utils/runtime/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 54,
+      "nonEmptyLines": 50,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "package.metadata.cargo-machete",
+          "level": 3,
+          "line": 10
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "target.'cfg(not(madsim))'.dependencies",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "src/utils/sync-point/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "features",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "src/utils/sync-point/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 148,
+      "nonEmptyLines": 127,
+      "functions": [
+        {
+          "name": "new",
+          "startLine": 41,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "get",
+          "startLine": 48,
+          "endLine": 50,
+          "params": []
+        },
+        {
+          "name": "wait",
+          "startLine": 52,
+          "endLine": 65,
+          "params": [
+            "sync_point",
+            "timeout",
+            "relay"
+          ]
+        },
+        {
+          "name": "emit",
+          "startLine": 67,
+          "endLine": 73,
+          "params": [
+            "sync_point"
+          ]
+        },
+        {
+          "name": "hook",
+          "startLine": 75,
+          "endLine": 77,
+          "params": [
+            "sync_point",
+            "action"
+          ]
+        },
+        {
+          "name": "reset",
+          "startLine": 79,
+          "endLine": 82,
+          "params": []
+        },
+        {
+          "name": "remove_action",
+          "startLine": 84,
+          "endLine": 86,
+          "params": [
+            "sync_point"
+          ]
+        },
+        {
+          "name": "on",
+          "startLine": 88,
+          "endLine": 94,
+          "params": [
+            "sync_point"
+          ]
+        },
+        {
+          "name": "reset",
+          "startLine": 98,
+          "endLine": 100,
+          "params": []
+        },
+        {
+          "name": "remove_action",
+          "startLine": 103,
+          "endLine": 107,
+          "params": [
+            "sync_point"
+          ]
+        },
+        {
+          "name": "on",
+          "startLine": 110,
+          "endLine": 114,
+          "params": [
+            "sync_point"
+          ]
+        },
+        {
+          "name": "hook",
+          "startLine": 119,
+          "endLine": 126,
+          "params": [
+            "sync_point",
+            "action"
+          ]
+        },
+        {
+          "name": "wait_timeout",
+          "startLine": 132,
+          "endLine": 134,
+          "params": [
+            "sync_point",
+            "dur"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Error",
+          "startLine": 23,
+          "endLine": 26,
+          "methods": [],
+          "properties": [
+            "WaitTimeout"
+          ]
+        },
+        {
+          "name": "SyncFacility",
+          "startLine": 33,
+          "endLine": 38,
+          "methods": [
+            "new",
+            "get",
+            "wait",
+            "emit",
+            "hook",
+            "reset",
+            "remove_action",
+            "on"
+          ],
+          "properties": [
+            "notifies",
+            "actions"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Error",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "reset",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "remove_action",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "on",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "hook",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "wait_timeout",
+          "line": 132,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "new",
+          "callee": "Default::default",
+          "lineNumber": 43
+        },
+        {
+          "caller": "new",
+          "callee": "Default::default",
+          "lineNumber": 44
+        },
+        {
+          "caller": "get",
+          "callee": "SYNC_FACILITY.get().expect",
+          "lineNumber": 49
+        },
+        {
+          "caller": "get",
+          "callee": "SYNC_FACILITY.get",
+          "lineNumber": 49
+        },
+        {
+          "caller": "wait",
+          "callee": "self.notifies.lock().entry(sync_point).or_default().clone",
+          "lineNumber": 58
+        },
+        {
+          "caller": "wait",
+          "callee": "self.notifies.lock().entry(sync_point).or_default",
+          "lineNumber": 58
+        },
+        {
+          "caller": "wait",
+          "callee": "self.notifies.lock().entry",
+          "lineNumber": 58
+        },
+        {
+          "caller": "wait",
+          "callee": "self.notifies.lock",
+          "lineNumber": 58
+        },
+        {
+          "caller": "wait",
+          "callee": "tokio::time::timeout",
+          "lineNumber": 59
+        },
+        {
+          "caller": "wait",
+          "callee": "entry.notified",
+          "lineNumber": 59
+        },
+        {
+          "caller": "wait",
+          "callee": "entry.notify_one",
+          "lineNumber": 60
+        },
+        {
+          "caller": "wait",
+          "callee": "Err",
+          "lineNumber": 62
+        },
+        {
+          "caller": "wait",
+          "callee": "Error::WaitTimeout",
+          "lineNumber": 62
+        },
+        {
+          "caller": "wait",
+          "callee": "Ok",
+          "lineNumber": 64
+        },
+        {
+          "caller": "emit",
+          "callee": "self.notifies\n            .lock()\n            .entry(sync_point)\n            .or_default().notify_one",
+          "lineNumber": 68
+        },
+        {
+          "caller": "emit",
+          "callee": "self.notifies\n            .lock()\n            .entry(sync_point).or_default",
+          "lineNumber": 68
+        },
+        {
+          "caller": "emit",
+          "callee": "self.notifies\n            .lock().entry",
+          "lineNumber": 68
+        },
+        {
+          "caller": "emit",
+          "callee": "self.notifies.lock",
+          "lineNumber": 68
+        },
+        {
+          "caller": "hook",
+          "callee": "self.actions.lock().insert",
+          "lineNumber": 76
+        },
+        {
+          "caller": "hook",
+          "callee": "self.actions.lock",
+          "lineNumber": 76
+        },
+        {
+          "caller": "reset",
+          "callee": "self.actions.lock().clear",
+          "lineNumber": 80
+        },
+        {
+          "caller": "reset",
+          "callee": "self.actions.lock",
+          "lineNumber": 80
+        },
+        {
+          "caller": "reset",
+          "callee": "self.notifies.lock().clear",
+          "lineNumber": 81
+        },
+        {
+          "caller": "reset",
+          "callee": "self.notifies.lock",
+          "lineNumber": 81
+        },
+        {
+          "caller": "remove_action",
+          "callee": "self.actions.lock().remove",
+          "lineNumber": 85
+        },
+        {
+          "caller": "remove_action",
+          "callee": "self.actions.lock",
+          "lineNumber": 85
+        },
+        {
+          "caller": "on",
+          "callee": "self.actions.lock().get(sync_point).map",
+          "lineNumber": 89
+        },
+        {
+          "caller": "on",
+          "callee": "self.actions.lock().get",
+          "lineNumber": 89
+        },
+        {
+          "caller": "on",
+          "callee": "self.actions.lock",
+          "lineNumber": 89
+        },
+        {
+          "caller": "on",
+          "callee": "action",
+          "lineNumber": 89
+        },
+        {
+          "caller": "on",
+          "callee": "self.emit",
+          "lineNumber": 93
+        },
+        {
+          "caller": "reset",
+          "callee": "SYNC_FACILITY.call_once(SyncFacility::new).reset",
+          "lineNumber": 99
+        },
+        {
+          "caller": "reset",
+          "callee": "SYNC_FACILITY.call_once",
+          "lineNumber": 99
+        },
+        {
+          "caller": "remove_action",
+          "callee": "SYNC_FACILITY\n        .call_once(SyncFacility::new).remove_action",
+          "lineNumber": 104
+        },
+        {
+          "caller": "remove_action",
+          "callee": "SYNC_FACILITY.call_once",
+          "lineNumber": 104
+        },
+        {
+          "caller": "on",
+          "callee": "SYNC_FACILITY.get",
+          "lineNumber": 111
+        },
+        {
+          "caller": "on",
+          "callee": "sync_facility.on",
+          "lineNumber": 112
+        },
+        {
+          "caller": "hook",
+          "callee": "Arc::new",
+          "lineNumber": 124
+        },
+        {
+          "caller": "hook",
+          "callee": "action().boxed",
+          "lineNumber": 124
+        },
+        {
+          "caller": "hook",
+          "callee": "action",
+          "lineNumber": 124
+        },
+        {
+          "caller": "hook",
+          "callee": "SyncFacility::get().hook",
+          "lineNumber": 125
+        },
+        {
+          "caller": "hook",
+          "callee": "SyncFacility::get",
+          "lineNumber": 125
+        },
+        {
+          "caller": "wait_timeout",
+          "callee": "SyncFacility::get().wait",
+          "lineNumber": 133
+        },
+        {
+          "caller": "wait_timeout",
+          "callee": "SyncFacility::get",
+          "lineNumber": 133
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 13,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/utils/variables/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "target.'cfg(not(madsim))'.dependencies",
+          "level": 3,
+          "line": 16
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "src/utils/variables/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "init_server_start_time",
+          "startLine": 20,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "get_server_start_time",
+          "startLine": 25,
+          "endLine": 27,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "init_server_start_time",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "get_server_start_time",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "init_server_start_time",
+          "callee": "SERVER_START_TIME.get_or_init",
+          "lineNumber": 21
+        },
+        {
+          "caller": "get_server_start_time",
+          "callee": "SERVER_START_TIME.get().cloned",
+          "lineNumber": 26
+        },
+        {
+          "caller": "get_server_start_time",
+          "callee": "SERVER_START_TIME.get",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/utils/workspace-config/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 66,
+      "nonEmptyLines": 58,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "package.metadata.cargo-machete",
+          "level": 3,
+          "line": 12
+        },
+        {
+          "heading": "features",
+          "level": 1,
+          "line": 24
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "build-dependencies",
+          "level": 1,
+          "line": 63
+        },
+        {
+          "heading": "lints",
+          "level": 1,
+          "line": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "src/utils/workspace-config/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 11,
+      "nonEmptyLines": 7,
+      "sections": [
+        {
+          "heading": "How this magic works",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "src/utils/workspace-config/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 27,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/workspace-hack/.gitattributes",
+      "language": "unknown",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {}
+    },
+    {
+      "path": "src/workspace-hack/build.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 16,
+          "endLine": 16,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "src/workspace-hack/Cargo.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 24,
+      "nonEmptyLines": 21,
+      "sections": [
+        {
+          "heading": "package",
+          "level": 1,
+          "line": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "src/workspace-hack/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 5,
+      "nonEmptyLines": 3,
+      "sections": [
+        {
+          "heading": "How this magic works",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "src/workspace-hack/src/lib.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 14,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "standalone/grafana.ini",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 10,
+      "nonEmptyLines": 8,
+      "metrics": {}
+    },
+    {
+      "path": "standalone/prometheus.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 40,
+      "nonEmptyLines": 31,
+      "sections": [
+        {
+          "heading": "global",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "scrape_configs",
+          "level": 1,
+          "line": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    }
+  ]
+}

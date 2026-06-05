@@ -1,0 +1,120 @@
+{
+  "nodes": [
+    {
+      "id": "document:integration_tests/doris-sink/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "integration_tests/doris-sink/README.md",
+      "summary": "Setup and usage guide for the Apache Doris sink integration test demo, describing prerequisites, step-by-step instructions, and expected output for sinking RisingWave data to Doris.",
+      "tags": ["documentation", "integration-test", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/doris-sink/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/doris-sink/create_mv.sql",
+      "summary": "Creates RisingWave materialized views over the user behavior source tables for use as the input to the Doris sink.",
+      "tags": ["database", "integration-test", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/doris-sink/create_sink.sql",
+      "type": "file",
+      "name": "create_sink.sql",
+      "filePath": "integration_tests/doris-sink/create_sink.sql",
+      "summary": "Defines RisingWave sink configurations that stream materialized view data into Apache Doris tables, covering both append and upsert modes.",
+      "tags": ["database", "integration-test", "data-pipeline"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/doris-sink/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/doris-sink/create_source.sql",
+      "summary": "Creates `user_behaviors` and `upsert_user_behaviors` source tables in RisingWave, ingesting simulated user event data from Kafka for the Doris sink integration test.",
+      "tags": ["database", "integration-test", "schema-definition", "data-model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/doris-sink/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/doris-sink/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the Apache Doris sink integration test, launching Doris FE/BE nodes, Kafka, Zookeeper, and RisingWave with custom networking.",
+      "tags": ["infrastructure", "orchestration", "integration-test", "containerization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/doris-sink/doris_prepare.sql",
+      "type": "file",
+      "name": "doris_prepare.sql",
+      "filePath": "integration_tests/doris-sink/doris_prepare.sql",
+      "summary": "Creates `demo_bhv_table` and `upsert_table` in Apache Doris as the target tables for the RisingWave sink integration test.",
+      "tags": ["database", "integration-test", "migration", "schema-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/doris-sink/prepare.sh",
+      "type": "file",
+      "name": "prepare.sh",
+      "filePath": "integration_tests/doris-sink/prepare.sh",
+      "summary": "Shell script that initializes the Doris sink test environment by waiting for services and running the Doris DDL preparation script.",
+      "tags": ["script", "integration-test", "deployment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/doris-sink/update_delete.sql",
+      "type": "file",
+      "name": "update_delete.sql",
+      "filePath": "integration_tests/doris-sink/update_delete.sql",
+      "summary": "SQL statements to perform update and delete operations on source data in RisingWave, used to validate upsert and delete propagation to the Doris sink.",
+      "tags": ["database", "integration-test", "validation"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:integration_tests/doris-sink/README.md",
+      "target": "file:integration_tests/doris-sink/create_sink.sql",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/doris-sink/create_sink.sql",
+      "target": "file:integration_tests/doris-sink/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/doris-sink/create_mv.sql",
+      "target": "file:integration_tests/doris-sink/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/doris-sink/create_sink.sql",
+      "target": "file:integration_tests/doris-sink/doris_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/doris-sink/prepare.sh",
+      "target": "service:integration_tests/doris-sink/docker-compose.yml",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:integration_tests/doris-sink/prepare.sh",
+      "target": "file:integration_tests/doris-sink/doris_prepare.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

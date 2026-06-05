@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    {"id":"file:src/storage/hummock_trace/src/collector.rs","type":"file","name":"collector.rs","filePath":"src/storage/hummock_trace/src/collector.rs","summary":"Implements the TraceWriter and TraceCollector that capture Hummock storage operation traces to a binary file for later replay and performance analysis.","tags":["service","data-model","debug"],"complexity":"complex"},
+    {"id":"file:src/storage/hummock_trace/src/error.rs","type":"file","name":"error.rs","filePath":"src/storage/hummock_trace/src/error.rs","summary":"Defines TraceError, the top-level error type for the hummock_trace crate covering I/O, serialization, and replay failures.","tags":["error-handling","data-model"],"complexity":"simple"},
+    {"id":"file:src/storage/hummock_trace/src/lib.rs","type":"file","name":"lib.rs","filePath":"src/storage/hummock_trace/src/lib.rs","summary":"Crate root for hummock_trace; re-exports the collector, error, opts, read, record, replay, and write modules.","tags":["entry-point","barrel"],"complexity":"simple"},
+    {"id":"file:src/storage/hummock_trace/src/opts.rs","type":"file","name":"opts.rs","filePath":"src/storage/hummock_trace/src/opts.rs","summary":"Defines trace option types (TracedSyncResult, TracedInitOptions, etc.) that mirror HummockStorage operation parameters for serialization.","tags":["data-model","serialization"],"complexity":"moderate"},
+    {"id":"file:src/storage/hummock_trace/src/read.rs","type":"file","name":"read.rs","filePath":"src/storage/hummock_trace/src/read.rs","summary":"Implements the TraceReader that deserializes recorded HummockStorage operations from a binary trace file for replay.","tags":["utility","serialization","debug"],"complexity":"moderate"},
+    {"id":"file:src/storage/hummock_trace/src/record.rs","type":"file","name":"record.rs","filePath":"src/storage/hummock_trace/src/record.rs","summary":"Defines the TraceRecord enum representing all recordable Hummock operations (get, scan, insert, delete, sync, seal_epoch, etc.) with protobuf/bincode serialization.","tags":["data-model","serialization"],"complexity":"moderate"},
+    {"id":"file:src/storage/hummock_trace/src/replay/mod.rs","type":"file","name":"mod.rs","filePath":"src/storage/hummock_trace/src/replay/mod.rs","summary":"Orchestrates trace replay: reads TraceRecords from file and dispatches each operation to a pool of workers simulating the original execution.","tags":["entry-point","service","debug"],"complexity":"moderate"},
+    {"id":"file:src/storage/hummock_trace/src/replay/runner.rs","type":"file","name":"runner.rs","filePath":"src/storage/hummock_trace/src/replay/runner.rs","summary":"Implements the replay runner that initializes a HummockStorage instance and drives trace record execution, verifying operation results against recorded expectations.","tags":["service","test","debug"],"complexity":"moderate"},
+    {"id":"file:src/storage/hummock_trace/src/replay/worker.rs","type":"file","name":"worker.rs","filePath":"src/storage/hummock_trace/src/replay/worker.rs","summary":"Worker tasks for trace replay that execute individual HummockStorage operations (get, scan, ingest) as part of multi-threaded replay simulation.","tags":["service","debug"],"complexity":"complex"},
+    {"id":"file:src/storage/hummock_trace/src/write.rs","type":"file","name":"write.rs","filePath":"src/storage/hummock_trace/src/write.rs","summary":"Implements the TraceWriter that serializes TraceRecords to a binary file using a background writer thread for low-overhead tracing.","tags":["utility","serialization","debug"],"complexity":"moderate"}
+  ],
+  "edges": [
+    {"source":"file:src/storage/hummock_trace/src/collector.rs","target":"file:src/storage/hummock_trace/src/write.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/lib.rs","target":"file:src/storage/hummock_trace/src/collector.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/lib.rs","target":"file:src/storage/hummock_trace/src/error.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/lib.rs","target":"file:src/storage/hummock_trace/src/opts.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/lib.rs","target":"file:src/storage/hummock_trace/src/read.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/lib.rs","target":"file:src/storage/hummock_trace/src/record.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/lib.rs","target":"file:src/storage/hummock_trace/src/replay/mod.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/lib.rs","target":"file:src/storage/hummock_trace/src/write.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/read.rs","target":"file:src/storage/hummock_trace/src/error.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/replay/mod.rs","target":"file:src/storage/hummock_trace/src/error.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/replay/mod.rs","target":"file:src/storage/hummock_trace/src/replay/runner.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/replay/mod.rs","target":"file:src/storage/hummock_trace/src/replay/worker.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/replay/runner.rs","target":"file:src/storage/hummock_trace/src/error.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/replay/runner.rs","target":"file:src/storage/hummock_trace/src/read.rs","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:src/storage/hummock_trace/src/write.rs","target":"file:src/storage/hummock_trace/src/error.rs","type":"imports","direction":"forward","weight":0.7}
+  ]
+}

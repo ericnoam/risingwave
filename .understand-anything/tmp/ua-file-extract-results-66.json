@@ -1,0 +1,4795 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 24,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "src/meta/model/migration/src/m20241025_062548_singleton_vnode_count.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 41,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 43,
+          "endLine": 47,
+          "params": [
+            "_manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Fragment",
+          "startLine": 51,
+          "endLine": 55,
+          "methods": [],
+          "properties": [
+            "Table",
+            "VnodeCount",
+            "DistributionType"
+          ]
+        },
+        {
+          "name": "Table",
+          "startLine": 58,
+          "endLine": 64,
+          "methods": [],
+          "properties": [
+            "Table",
+            "VnodeCount",
+            "DistributionKey",
+            "DistKeyInPk",
+            "VnodeColIndex"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Expr::col(col)\n                .cast_as(Alias::new(\"char(2)\")).eq",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(col).cast_as",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Alias::new",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::value",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new()\n                    .table(Table::Table)\n                    .values([(Table::VnodeCount, Expr::value(1))])\n                    .and_where(json_is_empty_array(Table::DistributionKey))\n                    .and_where(json_is_empty_array(Table::DistKeyInPk))\n                    .and_where(Expr::col(Table::VnodeColIndex).is_null()).to_owned",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new()\n                    .table(Table::Table)\n                    .values([(Table::VnodeCount, Expr::value(1))])\n                    .and_where(json_is_empty_array(Table::DistributionKey))\n                    .and_where(json_is_empty_array(Table::DistKeyInPk)).and_where",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new()\n                    .table(Table::Table)\n                    .values([(Table::VnodeCount, Expr::value(1))])\n                    .and_where(json_is_empty_array(Table::DistributionKey)).and_where",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new()\n                    .table(Table::Table)\n                    .values([(Table::VnodeCount, Expr::value(1))]).and_where",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new()\n                    .table(Table::Table).values",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new().table",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::value",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "json_is_empty_array",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "json_is_empty_array",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(Table::VnodeColIndex).is_null",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new()\n                    .table(Fragment::Table)\n                    .values([(Fragment::VnodeCount, Expr::value(1))])\n                    .and_where(Expr::col(Fragment::DistributionType).eq(Expr::value(\"SINGLE\"))).to_owned",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new()\n                    .table(Fragment::Table)\n                    .values([(Fragment::VnodeCount, Expr::value(1))]).and_where",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new()\n                    .table(Fragment::Table).values",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new().table",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "UpdateStatement::new",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::value",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(Fragment::DistributionType).eq",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::value",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 40
+        },
+        {
+          "caller": "down",
+          "callee": "Err",
+          "lineNumber": 44
+        },
+        {
+          "caller": "down",
+          "callee": "DbErr::Migration",
+          "lineNumber": 44
+        },
+        {
+          "caller": "down",
+          "callee": "\"cannot rollback singleton vnode count migration\".to_owned",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20241115_085007_remove_function_type.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 17,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 19,
+          "endLine": 28,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Function",
+          "startLine": 32,
+          "endLine": 35,
+          "methods": [],
+          "properties": [
+            "Table",
+            "FunctionType"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Function::Table)\n                    .drop_column(Function::FunctionType).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Function::Table).drop_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 20
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Function::Table)\n                    .add_column(ColumnDef::new(Function::FunctionType).string()).to_owned",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Function::Table).add_column",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "ColumnDef::new(Function::FunctionType).string",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "ColumnDef::new",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20241120_182555_hummock_add_time_travel_sst_index.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 12,
+          "endLine": 23,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 25,
+          "endLine": 35,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.create_index",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                    .table(HummockSstableInfo::Table)\n                    .name(IDX_HUMMOCK_SSTABLE_INFO_OBJECT_ID)\n                    .col(HummockSstableInfo::ObjectId).to_owned",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                    .table(HummockSstableInfo::Table)\n                    .name(IDX_HUMMOCK_SSTABLE_INFO_OBJECT_ID).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                    .table(HummockSstableInfo::Table).name",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create().table",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "manager.drop_index",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Index::drop()\n                    .table(HummockSstableInfo::Table)\n                    .name(IDX_HUMMOCK_SSTABLE_INFO_OBJECT_ID).to_owned",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Index::drop()\n                    .table(HummockSstableInfo::Table).name",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Index::drop().table",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Index::drop",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20241121_101830_table_engine.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 18,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 20,
+          "endLine": 30,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Table",
+          "startLine": 34,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "Table",
+            "Engine"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table)\n                    .add_column(ColumnDef::new(Table::Engine).string()).to_owned",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table).add_column",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Table::Engine).string",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 21
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table)\n                    .drop_column(Alias::new(Table::Engine.to_string())).to_owned",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table).drop_column",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "Alias::new",
+          "lineNumber": 25
+        },
+        {
+          "caller": "down",
+          "callee": "Table::Engine.to_string",
+          "lineNumber": 25
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20241125_043732_connection_params.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 10,
+          "endLine": 23,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 25,
+          "endLine": 34,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Connection",
+          "startLine": 38,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "Table",
+            "Params"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Connection::Table)\n                    .add_column(\n                        ColumnDef::new(Connection::Params)\n                            .rw_binary(manager)\n                            .not_null(),\n                    ).to_owned",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Connection::Table).add_column",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Connection::Params)\n                            .rw_binary(manager).not_null",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Connection::Params).rw_binary",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 16
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Connection::Table)\n                    .drop_column(Connection::Params).to_owned",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Connection::Table).drop_column",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20241202_071413_resource_group.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 109,
+      "nonEmptyLines": 98,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 10,
+          "endLine": 52,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 54,
+          "endLine": 89,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "WorkerProperty",
+          "startLine": 93,
+          "endLine": 97,
+          "methods": [],
+          "properties": [
+            "Table",
+            "ResourceGroup",
+            "Label"
+          ]
+        },
+        {
+          "name": "StreamingJob",
+          "startLine": 100,
+          "endLine": 103,
+          "methods": [],
+          "properties": [
+            "Table",
+            "SpecificResourceGroup"
+          ]
+        },
+        {
+          "name": "Database",
+          "startLine": 106,
+          "endLine": 109,
+          "methods": [],
+          "properties": [
+            "Table",
+            "ResourceGroup"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table)\n                    .drop_column(WorkerProperty::Label).to_owned",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table).drop_column",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table)\n                    .add_column(ColumnDef::new(WorkerProperty::ResourceGroup).string()).to_owned",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table).add_column",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(WorkerProperty::ResourceGroup).string",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .add_column(ColumnDef::new(StreamingJob::SpecificResourceGroup).string()).to_owned",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).add_column",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(StreamingJob::SpecificResourceGroup).string",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 39
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Database::Table)\n                    .add_column(\n                        ColumnDef::new(Database::ResourceGroup)\n                            .string()\n                            .default(DEFAULT_RESOURCE_GROUP.to_string())\n                            .not_null(),\n                    ).to_owned",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Database::Table).add_column",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Database::ResourceGroup)\n                            .string()\n                            .default(DEFAULT_RESOURCE_GROUP.to_string()).not_null",
+          "lineNumber": 44
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Database::ResourceGroup)\n                            .string().default",
+          "lineNumber": 44
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Database::ResourceGroup).string",
+          "lineNumber": 44
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 44
+        },
+        {
+          "caller": "up",
+          "callee": "DEFAULT_RESOURCE_GROUP.to_string",
+          "lineNumber": 46
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 56
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table)\n                    .add_column(ColumnDef::new(WorkerProperty::Label).string()).to_owned",
+          "lineNumber": 58
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table).add_column",
+          "lineNumber": 58
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 58
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 58
+        },
+        {
+          "caller": "down",
+          "callee": "ColumnDef::new(WorkerProperty::Label).string",
+          "lineNumber": 60
+        },
+        {
+          "caller": "down",
+          "callee": "ColumnDef::new",
+          "lineNumber": 60
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 65
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table)\n                    .drop_column(WorkerProperty::ResourceGroup).to_owned",
+          "lineNumber": 67
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(WorkerProperty::Table).drop_column",
+          "lineNumber": 67
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 67
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 67
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 73
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table)\n                    .drop_column(StreamingJob::SpecificResourceGroup).to_owned",
+          "lineNumber": 75
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(StreamingJob::Table).drop_column",
+          "lineNumber": 75
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 75
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 75
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 81
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Database::Table)\n                    .drop_column(Database::ResourceGroup).to_owned",
+          "lineNumber": 83
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Database::Table).drop_column",
+          "lineNumber": 83
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 83
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 83
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20241226_074013_clean_watermark_index_in_pk.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 18,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 20,
+          "endLine": 30,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Table",
+          "startLine": 34,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "Table",
+            "CleanWatermarkIndexInPk"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table)\n                    .add_column(ColumnDef::new(Table::CleanWatermarkIndexInPk).integer()).to_owned",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table).add_column",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Table::CleanWatermarkIndexInPk).integer",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table)\n                    .drop_column(Table::CleanWatermarkIndexInPk).to_owned",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table).drop_column",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250106_072104_fragment_relation.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 197,
+      "nonEmptyLines": 178,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 12,
+          "endLine": 70,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 72,
+          "endLine": 75,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "fulfill_fragment_relation",
+          "startLine": 79,
+          "endLine": 151,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 8,
+          "endLine": 8,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "I32Array",
+          "startLine": 154,
+          "endLine": 154,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "FragmentRelationEntity",
+          "startLine": 158,
+          "endLine": 164,
+          "methods": [],
+          "properties": [
+            "source_fragment_id",
+            "target_fragment_id",
+            "dispatcher_type",
+            "dist_key_indices",
+            "output_indices"
+          ]
+        },
+        {
+          "name": "FragmentRelation",
+          "startLine": 167,
+          "endLine": 174,
+          "methods": [],
+          "properties": [
+            "Table",
+            "SourceFragmentId",
+            "TargetFragmentId",
+            "DispatcherType",
+            "DistKeyIndices",
+            "OutputIndices"
+          ]
+        },
+        {
+          "name": "Fragment",
+          "startLine": 177,
+          "endLine": 180,
+          "methods": [],
+          "properties": [
+            "Table",
+            "FragmentId"
+          ]
+        },
+        {
+          "name": "Actor",
+          "startLine": 183,
+          "endLine": 187,
+          "methods": [],
+          "properties": [
+            "Table",
+            "ActorId",
+            "FragmentId"
+          ]
+        },
+        {
+          "name": "ActorDispatcher",
+          "startLine": 190,
+          "endLine": 197,
+          "methods": [],
+          "properties": [
+            "Table",
+            "ActorId",
+            "DispatcherType",
+            "DistKeyIndices",
+            "OutputIndices",
+            "DispatcherId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "I32Array",
+          "line": 154,
+          "isDefault": false
+        },
+        {
+          "name": "FragmentRelationEntity",
+          "line": 158,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.create_table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentRelation::Table)\n                    .col(\n                        ColumnDef::new(FragmentRelation::SourceFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::TargetFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DispatcherType)\n                            .string()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DistKeyIndices)\n                            .json_binary()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::OutputIndices)\n                            .json_binary()\n                            .not_null(),\n                    )\n                    .primary_key(\n                        Index::create()\n                            .col(FragmentRelation::SourceFragmentId)\n                            .col(FragmentRelation::TargetFragmentId),\n                    )\n                    .foreign_key(\n                        &mut ForeignKey::create()\n                            .name(\"FK_fragment_relation_source_oid\")\n                            .from(FragmentRelation::Table, FragmentRelation::SourceFragmentId)\n                            .to(Fragment::Table, Fragment::FragmentId)\n                            .on_delete(ForeignKeyAction::Cascade)\n                            .to_owned(),\n                    )\n                    .foreign_key(\n                        &mut ForeignKey::create()\n                            .name(\"FK_fragment_relation_target_oid\")\n                            .from(FragmentRelation::Table, FragmentRelation::TargetFragmentId)\n                            .to(Fragment::Table, Fragment::FragmentId)\n                            .on_delete(ForeignKeyAction::Cascade)\n                            .to_owned(),\n                    ).to_owned",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentRelation::Table)\n                    .col(\n                        ColumnDef::new(FragmentRelation::SourceFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::TargetFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DispatcherType)\n                            .string()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DistKeyIndices)\n                            .json_binary()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::OutputIndices)\n                            .json_binary()\n                            .not_null(),\n                    )\n                    .primary_key(\n                        Index::create()\n                            .col(FragmentRelation::SourceFragmentId)\n                            .col(FragmentRelation::TargetFragmentId),\n                    )\n                    .foreign_key(\n                        &mut ForeignKey::create()\n                            .name(\"FK_fragment_relation_source_oid\")\n                            .from(FragmentRelation::Table, FragmentRelation::SourceFragmentId)\n                            .to(Fragment::Table, Fragment::FragmentId)\n                            .on_delete(ForeignKeyAction::Cascade)\n                            .to_owned(),\n                    ).foreign_key",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentRelation::Table)\n                    .col(\n                        ColumnDef::new(FragmentRelation::SourceFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::TargetFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DispatcherType)\n                            .string()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DistKeyIndices)\n                            .json_binary()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::OutputIndices)\n                            .json_binary()\n                            .not_null(),\n                    )\n                    .primary_key(\n                        Index::create()\n                            .col(FragmentRelation::SourceFragmentId)\n                            .col(FragmentRelation::TargetFragmentId),\n                    ).foreign_key",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentRelation::Table)\n                    .col(\n                        ColumnDef::new(FragmentRelation::SourceFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::TargetFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DispatcherType)\n                            .string()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DistKeyIndices)\n                            .json_binary()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::OutputIndices)\n                            .json_binary()\n                            .not_null(),\n                    ).primary_key",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentRelation::Table)\n                    .col(\n                        ColumnDef::new(FragmentRelation::SourceFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::TargetFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DispatcherType)\n                            .string()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DistKeyIndices)\n                            .json_binary()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentRelation::Table)\n                    .col(\n                        ColumnDef::new(FragmentRelation::SourceFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::TargetFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::DispatcherType)\n                            .string()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentRelation::Table)\n                    .col(\n                        ColumnDef::new(FragmentRelation::SourceFragmentId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(FragmentRelation::TargetFragmentId)\n                            .integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentRelation::Table)\n                    .col(\n                        ColumnDef::new(FragmentRelation::SourceFragmentId)\n                            .integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(FragmentRelation::Table).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create().table",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::SourceFragmentId)\n                            .integer().not_null",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::SourceFragmentId).integer",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::TargetFragmentId)\n                            .integer().not_null",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::TargetFragmentId).integer",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::DispatcherType)\n                            .string().not_null",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::DispatcherType).string",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::DistKeyIndices)\n                            .json_binary().not_null",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::DistKeyIndices).json_binary",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::OutputIndices)\n                            .json_binary().not_null",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::OutputIndices).json_binary",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .col(FragmentRelation::SourceFragmentId).col",
+          "lineNumber": 43
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create().col",
+          "lineNumber": 43
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create",
+          "lineNumber": 43
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_relation_source_oid\")\n                            .from(FragmentRelation::Table, FragmentRelation::SourceFragmentId)\n                            .to(Fragment::Table, Fragment::FragmentId)\n                            .on_delete(ForeignKeyAction::Cascade).to_owned",
+          "lineNumber": 48
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_relation_source_oid\")\n                            .from(FragmentRelation::Table, FragmentRelation::SourceFragmentId)\n                            .to(Fragment::Table, Fragment::FragmentId).on_delete",
+          "lineNumber": 48
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_relation_source_oid\")\n                            .from(FragmentRelation::Table, FragmentRelation::SourceFragmentId).to",
+          "lineNumber": 48
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_relation_source_oid\").from",
+          "lineNumber": 48
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create().name",
+          "lineNumber": 48
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create",
+          "lineNumber": 48
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_relation_target_oid\")\n                            .from(FragmentRelation::Table, FragmentRelation::TargetFragmentId)\n                            .to(Fragment::Table, Fragment::FragmentId)\n                            .on_delete(ForeignKeyAction::Cascade).to_owned",
+          "lineNumber": 56
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_relation_target_oid\")\n                            .from(FragmentRelation::Table, FragmentRelation::TargetFragmentId)\n                            .to(Fragment::Table, Fragment::FragmentId).on_delete",
+          "lineNumber": 56
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_relation_target_oid\")\n                            .from(FragmentRelation::Table, FragmentRelation::TargetFragmentId).to",
+          "lineNumber": 56
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_fragment_relation_target_oid\").from",
+          "lineNumber": 56
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create().name",
+          "lineNumber": 56
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create",
+          "lineNumber": 56
+        },
+        {
+          "caller": "up",
+          "callee": "fulfill_fragment_relation",
+          "lineNumber": 67
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 69
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 74
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "manager.get_connection",
+          "lineNumber": 80
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "connection.get_database_backend",
+          "lineNumber": 82
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::select()\n        // as sqlite does not support `distinct on` yet, we have to use `distinct` here\n        .distinct()\n        .expr_as(\n            Expr::col((Actor::Table, Actor::FragmentId)),\n            FragmentRelation::SourceFragmentId,\n        )\n        .expr_as(\n            Expr::col((ActorDispatcher::Table, ActorDispatcher::DispatcherId)),\n            FragmentRelation::TargetFragmentId,\n        )\n        .columns([\n            (ActorDispatcher::Table, ActorDispatcher::DispatcherType),\n            (ActorDispatcher::Table, ActorDispatcher::DistKeyIndices),\n            (ActorDispatcher::Table, ActorDispatcher::OutputIndices),\n        ])\n        .from(Actor::Table)\n        .join(\n            JoinType::InnerJoin,\n            ActorDispatcher::Table,\n            Expr::col((Actor::Table, Actor::ActorId))\n                .equals((ActorDispatcher::Table, ActorDispatcher::ActorId)),\n        )\n        .to_owned().build_any",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::select()\n        // as sqlite does not support `distinct on` yet, we have to use `distinct` here\n        .distinct()\n        .expr_as(\n            Expr::col((Actor::Table, Actor::FragmentId)),\n            FragmentRelation::SourceFragmentId,\n        )\n        .expr_as(\n            Expr::col((ActorDispatcher::Table, ActorDispatcher::DispatcherId)),\n            FragmentRelation::TargetFragmentId,\n        )\n        .columns([\n            (ActorDispatcher::Table, ActorDispatcher::DispatcherType),\n            (ActorDispatcher::Table, ActorDispatcher::DistKeyIndices),\n            (ActorDispatcher::Table, ActorDispatcher::OutputIndices),\n        ])\n        .from(Actor::Table)\n        .join(\n            JoinType::InnerJoin,\n            ActorDispatcher::Table,\n            Expr::col((Actor::Table, Actor::ActorId))\n                .equals((ActorDispatcher::Table, ActorDispatcher::ActorId)),\n        ).to_owned",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::select()\n        // as sqlite does not support `distinct on` yet, we have to use `distinct` here\n        .distinct()\n        .expr_as(\n            Expr::col((Actor::Table, Actor::FragmentId)),\n            FragmentRelation::SourceFragmentId,\n        )\n        .expr_as(\n            Expr::col((ActorDispatcher::Table, ActorDispatcher::DispatcherId)),\n            FragmentRelation::TargetFragmentId,\n        )\n        .columns([\n            (ActorDispatcher::Table, ActorDispatcher::DispatcherType),\n            (ActorDispatcher::Table, ActorDispatcher::DistKeyIndices),\n            (ActorDispatcher::Table, ActorDispatcher::OutputIndices),\n        ])\n        .from(Actor::Table).join",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::select()\n        // as sqlite does not support `distinct on` yet, we have to use `distinct` here\n        .distinct()\n        .expr_as(\n            Expr::col((Actor::Table, Actor::FragmentId)),\n            FragmentRelation::SourceFragmentId,\n        )\n        .expr_as(\n            Expr::col((ActorDispatcher::Table, ActorDispatcher::DispatcherId)),\n            FragmentRelation::TargetFragmentId,\n        )\n        .columns([\n            (ActorDispatcher::Table, ActorDispatcher::DispatcherType),\n            (ActorDispatcher::Table, ActorDispatcher::DistKeyIndices),\n            (ActorDispatcher::Table, ActorDispatcher::OutputIndices),\n        ]).from",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::select()\n        // as sqlite does not support `distinct on` yet, we have to use `distinct` here\n        .distinct()\n        .expr_as(\n            Expr::col((Actor::Table, Actor::FragmentId)),\n            FragmentRelation::SourceFragmentId,\n        )\n        .expr_as(\n            Expr::col((ActorDispatcher::Table, ActorDispatcher::DispatcherId)),\n            FragmentRelation::TargetFragmentId,\n        ).columns",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::select()\n        // as sqlite does not support `distinct on` yet, we have to use `distinct` here\n        .distinct()\n        .expr_as(\n            Expr::col((Actor::Table, Actor::FragmentId)),\n            FragmentRelation::SourceFragmentId,\n        ).expr_as",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::select()\n        // as sqlite does not support `distinct on` yet, we have to use `distinct` here\n        .distinct().expr_as",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::select().distinct",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::select",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Expr::col",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Expr::col",
+          "lineNumber": 92
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Expr::col((Actor::Table, Actor::ActorId)).equals",
+          "lineNumber": 104
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Expr::col",
+          "lineNumber": 104
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "database_backend.get_query_builder",
+          "lineNumber": 108
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "connection.query_all",
+          "lineNumber": 110
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Statement::from_sql_and_values",
+          "lineNumber": 111
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "FragmentRelationEntity::from_query_result",
+          "lineNumber": 125
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 127
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::insert()\n                    .into_table(FragmentRelation::Table)\n                    .columns([\n                        FragmentRelation::SourceFragmentId,\n                        FragmentRelation::TargetFragmentId,\n                        FragmentRelation::DispatcherType,\n                        FragmentRelation::DistKeyIndices,\n                        FragmentRelation::OutputIndices,\n                    ])\n                    .values_panic([\n                        source_fragment_id.into(),\n                        target_fragment_id.into(),\n                        dispatcher_type.into(),\n                        dist_key_indices.into(),\n                        output_indices.into(),\n                    ]).to_owned",
+          "lineNumber": 129
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::insert()\n                    .into_table(FragmentRelation::Table)\n                    .columns([\n                        FragmentRelation::SourceFragmentId,\n                        FragmentRelation::TargetFragmentId,\n                        FragmentRelation::DispatcherType,\n                        FragmentRelation::DistKeyIndices,\n                        FragmentRelation::OutputIndices,\n                    ]).values_panic",
+          "lineNumber": 129
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::insert()\n                    .into_table(FragmentRelation::Table).columns",
+          "lineNumber": 129
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::insert().into_table",
+          "lineNumber": 129
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Query::insert",
+          "lineNumber": 129
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "source_fragment_id.into",
+          "lineNumber": 139
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "target_fragment_id.into",
+          "lineNumber": 140
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "dispatcher_type.into",
+          "lineNumber": 141
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "dist_key_indices.into",
+          "lineNumber": 142
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "output_indices.into",
+          "lineNumber": 143
+        },
+        {
+          "caller": "fulfill_fragment_relation",
+          "callee": "Ok",
+          "lineNumber": 150
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 7
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250121_085800_change_wasm_udf_identifier.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 24,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 26,
+          "endLine": 30,
+          "params": [
+            "_manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Function",
+          "startLine": 34,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "Table",
+            "Name",
+            "Identifier",
+            "NameInRuntime",
+            "Language"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Function::Table)\n                    .rename_column(Function::Identifier, Function::NameInRuntime).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Function::Table).rename_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n            .table(Function::Table)\n            .value(Function::NameInRuntime, Expr::col(Function::Name))\n            .and_where(Expr::col(Function::Language).is_in(vec![\"wasm\", \"rust\"])).to_owned",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n            .table(Function::Table)\n            .value(Function::NameInRuntime, Expr::col(Function::Name)).and_where",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n            .table(Function::Table).value",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update().table",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(Function::Language).is_in",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "Err",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "DbErr::Migration",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "\"cannot rollback wasm udf identifier migration\".to_owned",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250210_170743_function_options.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 35,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 21,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 23,
+          "endLine": 36,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Function",
+          "startLine": 40,
+          "endLine": 43,
+          "methods": [],
+          "properties": [
+            "Table",
+            "Options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Function::Table)\n                    .add_column(ColumnDef::new(Function::Options).json_binary()).to_owned",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Function::Table).add_column",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Function::Options).json_binary",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 20
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Function::Table)\n                    .drop_column(Alias::new(Function::Options.to_string())).to_owned",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Function::Table).drop_column",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Alias::new",
+          "lineNumber": 30
+        },
+        {
+          "caller": "down",
+          "callee": "Function::Options.to_string",
+          "lineNumber": 30
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250319_062702_mysql_utf8mb4.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 22,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 9,
+          "endLine": 19,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 21,
+          "endLine": 24,
+          "params": [
+            "_manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 5,
+          "endLine": 5,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.get_database_backend",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "manager\n                .get_connection()\n                .execute_unprepared(\"ALTER DATABASE CHARACTER SET utf8mb4 COLLATE utf8mb4_bin\")\n                .await.expect",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "manager\n                .get_connection().execute_unprepared",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "manager.get_connection",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 18
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250325_061743_exactly_once_iceberg_sink_metadata.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 9,
+          "endLine": 55,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 57,
+          "endLine": 60,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ExactlyOnceIcebergSinkMetadata",
+          "startLine": 64,
+          "endLine": 72,
+          "methods": [],
+          "properties": [
+            "Table",
+            "SinkId",
+            "EndEpoch",
+            "StartEpoch",
+            "Metadata",
+            "SnapshotId",
+            "Committed"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.create_table",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(ExactlyOnceIcebergSinkMetadata::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SinkId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::EndEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::StartEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::Metadata)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SnapshotId)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::Committed)\n                            .boolean()\n                            .not_null(),\n                    )\n                    .primary_key(\n                        Index::create()\n                            .col(ExactlyOnceIcebergSinkMetadata::SinkId)\n                            .col(ExactlyOnceIcebergSinkMetadata::EndEpoch),\n                    ).to_owned",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(ExactlyOnceIcebergSinkMetadata::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SinkId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::EndEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::StartEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::Metadata)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SnapshotId)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::Committed)\n                            .boolean()\n                            .not_null(),\n                    ).primary_key",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(ExactlyOnceIcebergSinkMetadata::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SinkId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::EndEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::StartEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::Metadata)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SnapshotId)\n                            .big_integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(ExactlyOnceIcebergSinkMetadata::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SinkId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::EndEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::StartEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::Metadata)\n                            .rw_binary(manager)\n                            .not_null(),\n                    ).col",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(ExactlyOnceIcebergSinkMetadata::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SinkId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::EndEpoch)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::StartEpoch)\n                            .big_integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(ExactlyOnceIcebergSinkMetadata::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SinkId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::EndEpoch)\n                            .big_integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(ExactlyOnceIcebergSinkMetadata::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SinkId)\n                            .integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(ExactlyOnceIcebergSinkMetadata::Table)\n                    .if_not_exists().col",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(ExactlyOnceIcebergSinkMetadata::Table).if_not_exists",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create().table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SinkId)\n                            .integer().not_null",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SinkId).integer",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 16
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::EndEpoch)\n                            .big_integer().not_null",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::EndEpoch).big_integer",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::StartEpoch)\n                            .big_integer().not_null",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::StartEpoch).big_integer",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::Metadata)\n                            .rw_binary(manager).not_null",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::Metadata).rw_binary",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 31
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SnapshotId)\n                            .big_integer().not_null",
+          "lineNumber": 36
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::SnapshotId).big_integer",
+          "lineNumber": 36
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 36
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::Committed)\n                            .boolean().not_null",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(ExactlyOnceIcebergSinkMetadata::Committed).boolean",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 41
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .col(ExactlyOnceIcebergSinkMetadata::SinkId).col",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create().col",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 54
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250509_102041_remove_dispatcher.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 11,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 13,
+          "endLine": 15,
+          "params": [
+            "_manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ActorDispatcher",
+          "startLine": 19,
+          "endLine": 21,
+          "methods": [],
+          "properties": [
+            "Table"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 10
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250514_114514_dispatcher_type_mapping.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 10,
+          "endLine": 23,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 25,
+          "endLine": 35,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FragmentRelation",
+          "startLine": 39,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "Table",
+            "OutputTypeMapping"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(FragmentRelation::Table)\n                    .add_column(\n                        // MySQL does not support default value for binary column\n                        ColumnDef::new(FragmentRelation::OutputTypeMapping).rw_binary(manager),\n                    ).to_owned",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(FragmentRelation::Table).add_column",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(FragmentRelation::OutputTypeMapping).rw_binary",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 26
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(FragmentRelation::Table)\n                    .drop_column(FragmentRelation::OutputTypeMapping).to_owned",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(FragmentRelation::Table).drop_column",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 28
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250522_074525_iceberg_tables.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 61,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 48,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 50,
+          "endLine": 54,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "IcebergTables",
+          "startLine": 58,
+          "endLine": 65,
+          "methods": [],
+          "properties": [
+            "Table",
+            "CatalogName",
+            "TableNamespace",
+            "TableName",
+            "MetadataLocation",
+            "PreviousMetadataLocation"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.create_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergTables::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergTables::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::TableNamespace)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::TableName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::MetadataLocation)\n                            .string_len(1000)\n                            .null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::PreviousMetadataLocation)\n                            .string_len(1000)\n                            .null(),\n                    )\n                    .primary_key(\n                        Index::create()\n                            .col(IcebergTables::CatalogName)\n                            .col(IcebergTables::TableNamespace)\n                            .col(IcebergTables::TableName),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergTables::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergTables::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::TableNamespace)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::TableName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::MetadataLocation)\n                            .string_len(1000)\n                            .null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::PreviousMetadataLocation)\n                            .string_len(1000)\n                            .null(),\n                    ).primary_key",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergTables::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergTables::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::TableNamespace)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::TableName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::MetadataLocation)\n                            .string_len(1000)\n                            .null(),\n                    ).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergTables::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergTables::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::TableNamespace)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::TableName)\n                            .string_len(255)\n                            .not_null(),\n                    ).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergTables::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergTables::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergTables::TableNamespace)\n                            .string_len(255)\n                            .not_null(),\n                    ).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergTables::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergTables::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    ).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergTables::Table)\n                    .if_not_exists().col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergTables::Table).if_not_exists",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergTables::CatalogName)\n                            .string_len(255).not_null",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergTables::CatalogName).string_len",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergTables::TableNamespace)\n                            .string_len(255).not_null",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergTables::TableNamespace).string_len",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergTables::TableName)\n                            .string_len(255).not_null",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergTables::TableName).string_len",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergTables::MetadataLocation)\n                            .string_len(1000).null",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergTables::MetadataLocation).string_len",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergTables::PreviousMetadataLocation)\n                            .string_len(1000).null",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergTables::PreviousMetadataLocation).string_len",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .col(IcebergTables::CatalogName)\n                            .col(IcebergTables::TableNamespace).col",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .col(IcebergTables::CatalogName).col",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create().col",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create",
+          "lineNumber": 40
+        },
+        {
+          "caller": "down",
+          "callee": "manager.drop_table",
+          "lineNumber": 51
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop().table(IcebergTables::Table).to_owned",
+          "lineNumber": 52
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop().table",
+          "lineNumber": 52
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250522_074947_iceberg_namespace_properties.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 43,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 45,
+          "endLine": 53,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "IcebergNamespaceProperties",
+          "startLine": 57,
+          "endLine": 63,
+          "methods": [],
+          "properties": [
+            "Table",
+            "CatalogName",
+            "Namespace",
+            "PropertyKey",
+            "PropertyValue"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.create_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergNamespaceProperties::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::Namespace)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::PropertyKey)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::PropertyValue)\n                            .string_len(1000)\n                            .null(),\n                    )\n                    .primary_key(\n                        Index::create()\n                            .col(IcebergNamespaceProperties::CatalogName)\n                            .col(IcebergNamespaceProperties::Namespace)\n                            .col(IcebergNamespaceProperties::PropertyKey),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergNamespaceProperties::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::Namespace)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::PropertyKey)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::PropertyValue)\n                            .string_len(1000)\n                            .null(),\n                    ).primary_key",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergNamespaceProperties::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::Namespace)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::PropertyKey)\n                            .string_len(255)\n                            .not_null(),\n                    ).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergNamespaceProperties::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::Namespace)\n                            .string_len(255)\n                            .not_null(),\n                    ).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergNamespaceProperties::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(IcebergNamespaceProperties::CatalogName)\n                            .string_len(255)\n                            .not_null(),\n                    ).col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergNamespaceProperties::Table)\n                    .if_not_exists().col",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(IcebergNamespaceProperties::Table).if_not_exists",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergNamespaceProperties::CatalogName)\n                            .string_len(255).not_null",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergNamespaceProperties::CatalogName).string_len",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergNamespaceProperties::Namespace)\n                            .string_len(255).not_null",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergNamespaceProperties::Namespace).string_len",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergNamespaceProperties::PropertyKey)\n                            .string_len(255).not_null",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergNamespaceProperties::PropertyKey).string_len",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergNamespaceProperties::PropertyValue)\n                            .string_len(1000).null",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(IcebergNamespaceProperties::PropertyValue).string_len",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .col(IcebergNamespaceProperties::CatalogName)\n                            .col(IcebergNamespaceProperties::Namespace).col",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .col(IcebergNamespaceProperties::CatalogName).col",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create().col",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create",
+          "lineNumber": 35
+        },
+        {
+          "caller": "down",
+          "callee": "manager.drop_table",
+          "lineNumber": 46
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop()\n                    .table(IcebergNamespaceProperties::Table).to_owned",
+          "lineNumber": 48
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop().table",
+          "lineNumber": 48
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250528_064717_barrier_interval_per_database.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 30,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 32,
+          "endLine": 50,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Database",
+          "startLine": 54,
+          "endLine": 58,
+          "methods": [],
+          "properties": [
+            "Table",
+            "BarrierIntervalMs",
+            "CheckpointFrequency"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Database::Table)\n                    .add_column(ColumnDef::new(Database::BarrierIntervalMs).integer().null()).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Database::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Database::BarrierIntervalMs).integer().null",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Database::BarrierIntervalMs).integer",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Database::Table)\n                    .add_column(\n                        ColumnDef::new(Database::CheckpointFrequency)\n                            .big_integer()\n                            .null(),\n                    ).to_owned",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Database::Table).add_column",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Database::CheckpointFrequency)\n                            .big_integer().null",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Database::CheckpointFrequency).big_integer",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 23
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 33
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Database::Table)\n                    .drop_column(Database::BarrierIntervalMs).to_owned",
+          "lineNumber": 35
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Database::Table).drop_column",
+          "lineNumber": 35
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 35
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 35
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 42
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Database::Table)\n                    .drop_column(Database::CheckpointFrequency).to_owned",
+          "lineNumber": 44
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(Database::Table).drop_column",
+          "lineNumber": 44
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 44
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250603_084830_default_privilege.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 121,
+      "nonEmptyLines": 112,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 11,
+          "endLine": 82,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 84,
+          "endLine": 87,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 7,
+          "endLine": 7,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "UserDefaultPrivilege",
+          "startLine": 91,
+          "endLine": 103,
+          "methods": [],
+          "properties": [
+            "Table",
+            "Id",
+            "DatabaseId",
+            "SchemaId",
+            "ObjectType",
+            "ForMaterializedView",
+            "UserId",
+            "Grantee",
+            "GrantedBy",
+            "Action",
+            "WithGrantOption"
+          ]
+        },
+        {
+          "name": "Database",
+          "startLine": 106,
+          "endLine": 109,
+          "methods": [],
+          "properties": [
+            "Table",
+            "DatabaseId"
+          ]
+        },
+        {
+          "name": "Schema",
+          "startLine": 112,
+          "endLine": 115,
+          "methods": [],
+          "properties": [
+            "Table",
+            "SchemaId"
+          ]
+        },
+        {
+          "name": "User",
+          "startLine": 118,
+          "endLine": 121,
+          "methods": [],
+          "properties": [
+            "Table",
+            "UserId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.create_table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId))\n                    .col(integer(UserDefaultPrivilege::Grantee))\n                    .col(integer(UserDefaultPrivilege::GrantedBy))\n                    .col(string(UserDefaultPrivilege::Action))\n                    .col(boolean(UserDefaultPrivilege::WithGrantOption))\n                    .index(\n                        Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType)\n                            .col(UserDefaultPrivilege::ForMaterializedView)\n                            .col(UserDefaultPrivilege::UserId)\n                            .col(UserDefaultPrivilege::Grantee)\n                            .col(UserDefaultPrivilege::Action)\n                            .unique(),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_database_id\")\n                            .from(\n                                UserDefaultPrivilege::Table,\n                                UserDefaultPrivilege::DatabaseId,\n                            )\n                            .to(Database::Table, Database::DatabaseId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_schema_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::SchemaId)\n                            .to(Schema::Table, Schema::SchemaId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::UserId)\n                            .to(User::Table, User::UserId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_grantee_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::Grantee)\n                            .to(User::Table, User::UserId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_granted_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::GrantedBy)\n                            .to(User::Table, User::UserId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    ).to_owned",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId))\n                    .col(integer(UserDefaultPrivilege::Grantee))\n                    .col(integer(UserDefaultPrivilege::GrantedBy))\n                    .col(string(UserDefaultPrivilege::Action))\n                    .col(boolean(UserDefaultPrivilege::WithGrantOption))\n                    .index(\n                        Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType)\n                            .col(UserDefaultPrivilege::ForMaterializedView)\n                            .col(UserDefaultPrivilege::UserId)\n                            .col(UserDefaultPrivilege::Grantee)\n                            .col(UserDefaultPrivilege::Action)\n                            .unique(),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_database_id\")\n                            .from(\n                                UserDefaultPrivilege::Table,\n                                UserDefaultPrivilege::DatabaseId,\n                            )\n                            .to(Database::Table, Database::DatabaseId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_schema_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::SchemaId)\n                            .to(Schema::Table, Schema::SchemaId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::UserId)\n                            .to(User::Table, User::UserId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_grantee_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::Grantee)\n                            .to(User::Table, User::UserId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    ).foreign_key",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId))\n                    .col(integer(UserDefaultPrivilege::Grantee))\n                    .col(integer(UserDefaultPrivilege::GrantedBy))\n                    .col(string(UserDefaultPrivilege::Action))\n                    .col(boolean(UserDefaultPrivilege::WithGrantOption))\n                    .index(\n                        Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType)\n                            .col(UserDefaultPrivilege::ForMaterializedView)\n                            .col(UserDefaultPrivilege::UserId)\n                            .col(UserDefaultPrivilege::Grantee)\n                            .col(UserDefaultPrivilege::Action)\n                            .unique(),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_database_id\")\n                            .from(\n                                UserDefaultPrivilege::Table,\n                                UserDefaultPrivilege::DatabaseId,\n                            )\n                            .to(Database::Table, Database::DatabaseId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_schema_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::SchemaId)\n                            .to(Schema::Table, Schema::SchemaId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::UserId)\n                            .to(User::Table, User::UserId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    ).foreign_key",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId))\n                    .col(integer(UserDefaultPrivilege::Grantee))\n                    .col(integer(UserDefaultPrivilege::GrantedBy))\n                    .col(string(UserDefaultPrivilege::Action))\n                    .col(boolean(UserDefaultPrivilege::WithGrantOption))\n                    .index(\n                        Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType)\n                            .col(UserDefaultPrivilege::ForMaterializedView)\n                            .col(UserDefaultPrivilege::UserId)\n                            .col(UserDefaultPrivilege::Grantee)\n                            .col(UserDefaultPrivilege::Action)\n                            .unique(),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_database_id\")\n                            .from(\n                                UserDefaultPrivilege::Table,\n                                UserDefaultPrivilege::DatabaseId,\n                            )\n                            .to(Database::Table, Database::DatabaseId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_schema_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::SchemaId)\n                            .to(Schema::Table, Schema::SchemaId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    ).foreign_key",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId))\n                    .col(integer(UserDefaultPrivilege::Grantee))\n                    .col(integer(UserDefaultPrivilege::GrantedBy))\n                    .col(string(UserDefaultPrivilege::Action))\n                    .col(boolean(UserDefaultPrivilege::WithGrantOption))\n                    .index(\n                        Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType)\n                            .col(UserDefaultPrivilege::ForMaterializedView)\n                            .col(UserDefaultPrivilege::UserId)\n                            .col(UserDefaultPrivilege::Grantee)\n                            .col(UserDefaultPrivilege::Action)\n                            .unique(),\n                    )\n                    .foreign_key(\n                        ForeignKey::create()\n                            .name(\"fk_user_default_privilege_database_id\")\n                            .from(\n                                UserDefaultPrivilege::Table,\n                                UserDefaultPrivilege::DatabaseId,\n                            )\n                            .to(Database::Table, Database::DatabaseId)\n                            .on_delete(ForeignKeyAction::Cascade),\n                    ).foreign_key",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId))\n                    .col(integer(UserDefaultPrivilege::Grantee))\n                    .col(integer(UserDefaultPrivilege::GrantedBy))\n                    .col(string(UserDefaultPrivilege::Action))\n                    .col(boolean(UserDefaultPrivilege::WithGrantOption))\n                    .index(\n                        Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType)\n                            .col(UserDefaultPrivilege::ForMaterializedView)\n                            .col(UserDefaultPrivilege::UserId)\n                            .col(UserDefaultPrivilege::Grantee)\n                            .col(UserDefaultPrivilege::Action)\n                            .unique(),\n                    ).foreign_key",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId))\n                    .col(integer(UserDefaultPrivilege::Grantee))\n                    .col(integer(UserDefaultPrivilege::GrantedBy))\n                    .col(string(UserDefaultPrivilege::Action))\n                    .col(boolean(UserDefaultPrivilege::WithGrantOption)).index",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId))\n                    .col(integer(UserDefaultPrivilege::Grantee))\n                    .col(integer(UserDefaultPrivilege::GrantedBy))\n                    .col(string(UserDefaultPrivilege::Action)).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId))\n                    .col(integer(UserDefaultPrivilege::Grantee))\n                    .col(integer(UserDefaultPrivilege::GrantedBy)).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId))\n                    .col(integer(UserDefaultPrivilege::Grantee)).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView))\n                    .col(integer(UserDefaultPrivilege::UserId)).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType))\n                    .col(boolean(UserDefaultPrivilege::ForMaterializedView)).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId))\n                    .col(string(UserDefaultPrivilege::ObjectType)).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId))\n                    .col(integer_null(UserDefaultPrivilege::SchemaId)).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id))\n                    .col(integer(UserDefaultPrivilege::DatabaseId)).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table)\n                    .col(pk_auto(UserDefaultPrivilege::Id)).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(UserDefaultPrivilege::Table).col",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create().table",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "pk_auto",
+          "lineNumber": 17
+        },
+        {
+          "caller": "up",
+          "callee": "integer",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "integer_null",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "string",
+          "lineNumber": 20
+        },
+        {
+          "caller": "up",
+          "callee": "boolean",
+          "lineNumber": 21
+        },
+        {
+          "caller": "up",
+          "callee": "integer",
+          "lineNumber": 22
+        },
+        {
+          "caller": "up",
+          "callee": "integer",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "integer",
+          "lineNumber": 24
+        },
+        {
+          "caller": "up",
+          "callee": "string",
+          "lineNumber": 25
+        },
+        {
+          "caller": "up",
+          "callee": "boolean",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType)\n                            .col(UserDefaultPrivilege::ForMaterializedView)\n                            .col(UserDefaultPrivilege::UserId)\n                            .col(UserDefaultPrivilege::Grantee)\n                            .col(UserDefaultPrivilege::Action).unique",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType)\n                            .col(UserDefaultPrivilege::ForMaterializedView)\n                            .col(UserDefaultPrivilege::UserId)\n                            .col(UserDefaultPrivilege::Grantee).col",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType)\n                            .col(UserDefaultPrivilege::ForMaterializedView)\n                            .col(UserDefaultPrivilege::UserId).col",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType)\n                            .col(UserDefaultPrivilege::ForMaterializedView).col",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId)\n                            .col(UserDefaultPrivilege::ObjectType).col",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId)\n                            .col(UserDefaultPrivilege::SchemaId).col",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .name(\"pk_user_default_privilege\")\n                            .col(UserDefaultPrivilege::DatabaseId).col",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .name(\"pk_user_default_privilege\").col",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create().name",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_database_id\")\n                            .from(\n                                UserDefaultPrivilege::Table,\n                                UserDefaultPrivilege::DatabaseId,\n                            )\n                            .to(Database::Table, Database::DatabaseId).on_delete",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_database_id\")\n                            .from(\n                                UserDefaultPrivilege::Table,\n                                UserDefaultPrivilege::DatabaseId,\n                            ).to",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_database_id\").from",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create().name",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create",
+          "lineNumber": 40
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_schema_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::SchemaId)\n                            .to(Schema::Table, Schema::SchemaId).on_delete",
+          "lineNumber": 50
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_schema_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::SchemaId).to",
+          "lineNumber": 50
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_schema_id\").from",
+          "lineNumber": 50
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create().name",
+          "lineNumber": 50
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create",
+          "lineNumber": 50
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::UserId)\n                            .to(User::Table, User::UserId).on_delete",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::UserId).to",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_user_id\").from",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create().name",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_grantee_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::Grantee)\n                            .to(User::Table, User::UserId).on_delete",
+          "lineNumber": 64
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_grantee_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::Grantee).to",
+          "lineNumber": 64
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_grantee_user_id\").from",
+          "lineNumber": 64
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create().name",
+          "lineNumber": 64
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create",
+          "lineNumber": 64
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_granted_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::GrantedBy)\n                            .to(User::Table, User::UserId).on_delete",
+          "lineNumber": 71
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_granted_user_id\")\n                            .from(UserDefaultPrivilege::Table, UserDefaultPrivilege::GrantedBy).to",
+          "lineNumber": 71
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"fk_user_default_privilege_granted_user_id\").from",
+          "lineNumber": 71
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create().name",
+          "lineNumber": 71
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create",
+          "lineNumber": 71
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 81
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250702_062029_cdc_table_snapshot_splits.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 76,
+      "nonEmptyLines": 71,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 11,
+          "endLine": 56,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 58,
+          "endLine": 66,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 7,
+          "endLine": 7,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CdcTableSnapshotSplits",
+          "startLine": 70,
+          "endLine": 76,
+          "methods": [],
+          "properties": [
+            "Table",
+            "TableId",
+            "SplitId",
+            "Left",
+            "Right"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.create_table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(CdcTableSnapshotSplits::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::TableId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::SplitId)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::Left)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::Right)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .primary_key(\n                        Index::create()\n                            .col(CdcTableSnapshotSplits::TableId)\n                            .col(CdcTableSnapshotSplits::SplitId),\n                    )\n                    .foreign_key(\n                        &mut ForeignKey::create()\n                            .name(\"FK_cdc_table_snapshot_splits_table_id\")\n                            .from(\n                                CdcTableSnapshotSplits::Table,\n                                CdcTableSnapshotSplits::TableId,\n                            )\n                            .to(Object::Table, Object::Oid)\n                            .on_delete(ForeignKeyAction::Cascade)\n                            .to_owned(),\n                    ).to_owned",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(CdcTableSnapshotSplits::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::TableId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::SplitId)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::Left)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::Right)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .primary_key(\n                        Index::create()\n                            .col(CdcTableSnapshotSplits::TableId)\n                            .col(CdcTableSnapshotSplits::SplitId),\n                    ).foreign_key",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(CdcTableSnapshotSplits::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::TableId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::SplitId)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::Left)\n                            .rw_binary(manager)\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::Right)\n                            .rw_binary(manager)\n                            .not_null(),\n                    ).primary_key",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(CdcTableSnapshotSplits::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::TableId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::SplitId)\n                            .big_integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::Left)\n                            .rw_binary(manager)\n                            .not_null(),\n                    ).col",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(CdcTableSnapshotSplits::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::TableId)\n                            .integer()\n                            .not_null(),\n                    )\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::SplitId)\n                            .big_integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(CdcTableSnapshotSplits::Table)\n                    .if_not_exists()\n                    .col(\n                        ColumnDef::new(CdcTableSnapshotSplits::TableId)\n                            .integer()\n                            .not_null(),\n                    ).col",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(CdcTableSnapshotSplits::Table)\n                    .if_not_exists().col",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create()\n                    .table(CdcTableSnapshotSplits::Table).if_not_exists",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create().table",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Table::create",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::TableId)\n                            .integer().not_null",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::TableId).integer",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 18
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::SplitId)\n                            .big_integer().not_null",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::SplitId).big_integer",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 23
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::Left)\n                            .rw_binary(manager).not_null",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::Left).rw_binary",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 28
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::Right)\n                            .rw_binary(manager).not_null",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(CdcTableSnapshotSplits::Right).rw_binary",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create()\n                            .col(CdcTableSnapshotSplits::TableId).col",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create().col",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "Index::create",
+          "lineNumber": 38
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_cdc_table_snapshot_splits_table_id\")\n                            .from(\n                                CdcTableSnapshotSplits::Table,\n                                CdcTableSnapshotSplits::TableId,\n                            )\n                            .to(Object::Table, Object::Oid)\n                            .on_delete(ForeignKeyAction::Cascade).to_owned",
+          "lineNumber": 43
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_cdc_table_snapshot_splits_table_id\")\n                            .from(\n                                CdcTableSnapshotSplits::Table,\n                                CdcTableSnapshotSplits::TableId,\n                            )\n                            .to(Object::Table, Object::Oid).on_delete",
+          "lineNumber": 43
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_cdc_table_snapshot_splits_table_id\")\n                            .from(\n                                CdcTableSnapshotSplits::Table,\n                                CdcTableSnapshotSplits::TableId,\n                            ).to",
+          "lineNumber": 43
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create()\n                            .name(\"FK_cdc_table_snapshot_splits_table_id\").from",
+          "lineNumber": 43
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create().name",
+          "lineNumber": 43
+        },
+        {
+          "caller": "up",
+          "callee": "ForeignKey::create",
+          "lineNumber": 43
+        },
+        {
+          "caller": "down",
+          "callee": "manager.drop_table",
+          "lineNumber": 59
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop()\n                    .table(CdcTableSnapshotSplits::Table).to_owned",
+          "lineNumber": 61
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop().table",
+          "lineNumber": 61
+        },
+        {
+          "caller": "down",
+          "callee": "Table::drop",
+          "lineNumber": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250710_065220_sink_auto_refresh_schema.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 29,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 23,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 25,
+          "endLine": 27,
+          "params": [
+            "_manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Sink",
+          "startLine": 31,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "Table",
+            "AutoRefreshSchemaFromTable"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Sink::Table)\n                    .add_column(\n                        ColumnDef::new(Sink::AutoRefreshSchemaFromTable)\n                            .null()\n                            .integer(),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(Sink::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Sink::AutoRefreshSchemaFromTable)\n                            .null().integer",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Sink::AutoRefreshSchemaFromTable).null",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250722_155040_table_refreshable.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 22,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 24,
+          "endLine": 33,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TableEnum",
+          "startLine": 37,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "Table",
+            "Refreshable"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 9
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table)\n                    .add_column(\n                        ColumnDef::new(TableEnum::Refreshable)\n                            .boolean()\n                            .not_null()\n                            .default(false),\n                    ).to_owned",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table).add_column",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(TableEnum::Refreshable)\n                            .boolean()\n                            .not_null().default",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(TableEnum::Refreshable)\n                            .boolean().not_null",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(TableEnum::Refreshable).boolean",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 14
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 25
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table)\n                    .drop_column(TableEnum::Refreshable).to_owned",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(TableEnum::Table).drop_column",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 27
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250729_174630_add_vector_index_info.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 10,
+          "endLine": 19,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 21,
+          "endLine": 30,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Table",
+          "startLine": 34,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "Table",
+            "VectorIndexInfo"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 11
+        },
+        {
+          "caller": "up",
+          "callee": "sea_query::Table::alter()\n                    .table(Table::Table)\n                    .add_column(ColumnDef::new(Table::VectorIndexInfo).rw_binary(manager)).to_owned",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "sea_query::Table::alter()\n                    .table(Table::Table).add_column",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "sea_query::Table::alter().table",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "sea_query::Table::alter",
+          "lineNumber": 13
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Table::VectorIndexInfo).rw_binary",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 15
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 22
+        },
+        {
+          "caller": "down",
+          "callee": "sea_query::Table::alter()\n                    .table(Table::Table)\n                    .drop_column(Table::VectorIndexInfo).to_owned",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "sea_query::Table::alter()\n                    .table(Table::Table).drop_column",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "sea_query::Table::alter().table",
+          "lineNumber": 24
+        },
+        {
+          "caller": "down",
+          "callee": "sea_query::Table::alter",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250810_000000_add_user_admin_field.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 8,
+          "endLine": 38,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 40,
+          "endLine": 50,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 4,
+          "endLine": 4,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "UserEnum",
+          "startLine": 54,
+          "endLine": 60,
+          "methods": [],
+          "properties": [
+            "User",
+            "Name",
+            "IsAdmin",
+            "IsSuper"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 10
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(UserEnum::User)\n                    .add_column(\n                        ColumnDef::new(UserEnum::IsAdmin)\n                            .boolean()\n                            .not_null()\n                            .default(false),\n                    ).to_owned",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter()\n                    .table(UserEnum::User).add_column",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter().table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "Table::alter",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(UserEnum::IsAdmin)\n                            .boolean()\n                            .not_null().default",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(UserEnum::IsAdmin)\n                            .boolean().not_null",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(UserEnum::IsAdmin).boolean",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 15
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n            .table(UserEnum::User)\n            .values([\n                (UserEnum::IsAdmin, true.into()),\n                (UserEnum::IsSuper, true.into()),\n            ])\n            .and_where(Expr::col(UserEnum::Name).eq(\"rwadmin\")).to_owned",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n            .table(UserEnum::User)\n            .values([\n                (UserEnum::IsAdmin, true.into()),\n                (UserEnum::IsSuper, true.into()),\n            ]).and_where",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n            .table(UserEnum::User).values",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update().table",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "true.into",
+          "lineNumber": 29
+        },
+        {
+          "caller": "up",
+          "callee": "true.into",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(UserEnum::Name).eq",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 32
+        },
+        {
+          "caller": "up",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 35
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 37
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 41
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(UserEnum::User)\n                    .drop_column(UserEnum::IsAdmin).to_owned",
+          "lineNumber": 43
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter()\n                    .table(UserEnum::User).drop_column",
+          "lineNumber": 43
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter().table",
+          "lineNumber": 43
+        },
+        {
+          "caller": "down",
+          "callee": "Table::alter",
+          "lineNumber": 43
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "src/meta/model/migration/src/m20250819_014448_add_version_column_indices_to_table.rs",
+      "language": "rust",
+      "fileCategory": "code",
+      "totalLines": 124,
+      "nonEmptyLines": 108,
+      "functions": [
+        {
+          "name": "up",
+          "startLine": 10,
+          "endLine": 81,
+          "params": [
+            "manager"
+          ]
+        },
+        {
+          "name": "down",
+          "startLine": 83,
+          "endLine": 105,
+          "params": [
+            "manager"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Migration",
+          "startLine": 6,
+          "endLine": 6,
+          "methods": [
+            "up",
+            "down"
+          ],
+          "properties": []
+        },
+        {
+          "name": "I32Array",
+          "startLine": 109,
+          "endLine": 109,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "TableEntity",
+          "startLine": 113,
+          "endLine": 116,
+          "methods": [],
+          "properties": [
+            "table_id",
+            "version_column_index"
+          ]
+        },
+        {
+          "name": "Table",
+          "startLine": 119,
+          "endLine": 124,
+          "methods": [],
+          "properties": [
+            "Table",
+            "TableId",
+            "VersionColumnIndex",
+            "VersionColumnIndices"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Migration",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "I32Array",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "TableEntity",
+          "line": 113,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "up",
+          "callee": "manager.alter_table",
+          "lineNumber": 12
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table)\n                    .add_column(\n                        // We allow null here because a added non null column must have default value,\n                        // but MySQL does not allow default value for JSON columns.\n                        ColumnDef::new(Table::VersionColumnIndices).json_binary(),\n                    ).to_owned",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table).add_column",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 14
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new(Table::VersionColumnIndices).json_binary",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "ColumnDef::new",
+          "lineNumber": 19
+        },
+        {
+          "caller": "up",
+          "callee": "manager.get_connection",
+          "lineNumber": 26
+        },
+        {
+          "caller": "up",
+          "callee": "connection.get_database_backend",
+          "lineNumber": 27
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select()\n            .columns([Table::TableId, Table::VersionColumnIndex])\n            .from(Table::Table)\n            .and_where(Expr::col(Table::VersionColumnIndex).is_not_null()).build_any",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select()\n            .columns([Table::TableId, Table::VersionColumnIndex])\n            .from(Table::Table).and_where",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select()\n            .columns([Table::TableId, Table::VersionColumnIndex]).from",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select().columns",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Query::select",
+          "lineNumber": 30
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(Table::VersionColumnIndex).is_not_null",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 33
+        },
+        {
+          "caller": "up",
+          "callee": "database_backend.get_query_builder",
+          "lineNumber": 34
+        },
+        {
+          "caller": "up",
+          "callee": "connection.query_all",
+          "lineNumber": 36
+        },
+        {
+          "caller": "up",
+          "callee": "Statement::from_sql_and_values",
+          "lineNumber": 37
+        },
+        {
+          "caller": "up",
+          "callee": "TableEntity::from_query_result",
+          "lineNumber": 46
+        },
+        {
+          "caller": "up",
+          "callee": "table_entity\n                .version_column_index\n                .map(|index| I32Array(vec![index])).unwrap_or_else",
+          "lineNumber": 49
+        },
+        {
+          "caller": "up",
+          "callee": "table_entity\n                .version_column_index.map",
+          "lineNumber": 49
+        },
+        {
+          "caller": "up",
+          "callee": "I32Array",
+          "lineNumber": 51
+        },
+        {
+          "caller": "up",
+          "callee": "I32Array",
+          "lineNumber": 52
+        },
+        {
+          "caller": "up",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 55
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                        .table(Table::Table)\n                        .value(Table::VersionColumnIndices, i32_array)\n                        .and_where(Expr::col(Table::TableId).eq(table_entity.table_id)).to_owned",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                        .table(Table::Table)\n                        .value(Table::VersionColumnIndices, i32_array).and_where",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                        .table(Table::Table).value",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update().table",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update",
+          "lineNumber": 57
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(Table::TableId).eq",
+          "lineNumber": 60
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 60
+        },
+        {
+          "caller": "up",
+          "callee": "I32Array",
+          "lineNumber": 67
+        },
+        {
+          "caller": "up",
+          "callee": "manager.exec_stmt",
+          "lineNumber": 68
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                    .table(Table::Table)\n                    .value(Table::VersionColumnIndices, empty_array)\n                    .and_where(Expr::col(Table::VersionColumnIndex).is_null()).to_owned",
+          "lineNumber": 70
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                    .table(Table::Table)\n                    .value(Table::VersionColumnIndices, empty_array).and_where",
+          "lineNumber": 70
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update()\n                    .table(Table::Table).value",
+          "lineNumber": 70
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update().table",
+          "lineNumber": 70
+        },
+        {
+          "caller": "up",
+          "callee": "Query::update",
+          "lineNumber": 70
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col(Table::VersionColumnIndex).is_null",
+          "lineNumber": 73
+        },
+        {
+          "caller": "up",
+          "callee": "Expr::col",
+          "lineNumber": 73
+        },
+        {
+          "caller": "up",
+          "callee": "Ok",
+          "lineNumber": 80
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 85
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table)\n                    .drop_column(Table::VersionColumnIndices).to_owned",
+          "lineNumber": 87
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table).drop_column",
+          "lineNumber": 87
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 87
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 87
+        },
+        {
+          "caller": "down",
+          "callee": "manager.alter_table",
+          "lineNumber": 95
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table)\n                    .add_column_if_not_exists(ColumnDef::new(Table::VersionColumnIndex).integer()).to_owned",
+          "lineNumber": 97
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter()\n                    .table(Table::Table).add_column_if_not_exists",
+          "lineNumber": 97
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter().table",
+          "lineNumber": 97
+        },
+        {
+          "caller": "down",
+          "callee": "MigrationTable::alter",
+          "lineNumber": 97
+        },
+        {
+          "caller": "down",
+          "callee": "ColumnDef::new(Table::VersionColumnIndex).integer",
+          "lineNumber": 99
+        },
+        {
+          "caller": "down",
+          "callee": "ColumnDef::new",
+          "lineNumber": 99
+        },
+        {
+          "caller": "down",
+          "callee": "Ok",
+          "lineNumber": 104
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 4
+      }
+    }
+  ]
+}

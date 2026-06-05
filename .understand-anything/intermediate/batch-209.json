@@ -1,0 +1,155 @@
+{
+  "nodes": [
+    {
+      "id": "file:integration_tests/mysql-cdc/compatibility-mysql.sql",
+      "type": "file",
+      "name": "compatibility-mysql.sql",
+      "filePath": "integration_tests/mysql-cdc/compatibility-mysql.sql",
+      "summary": "Creates the MySQL-side `mysql_all_types` table covering boolean, integer, decimal, float, char, binary, date, time, and datetime types for CDC type compatibility testing.",
+      "tags": ["database", "schema-definition", "integration-test", "cdc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/mysql-cdc/compatibility-mysql.sql:mysql_all_types",
+      "type": "table",
+      "name": "mysql_all_types",
+      "filePath": "integration_tests/mysql-cdc/compatibility-mysql.sql",
+      "lineRange": [2, 22],
+      "summary": "MySQL source table with comprehensive type coverage including boolean, bit, tinyint, smallint, mediumint, bigint, decimal, float, double, char, varchar, binary, varbinary, date, time, datetime, and timestamp.",
+      "tags": ["database", "integration-test", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mysql-cdc/compatibility-rw.sql",
+      "type": "file",
+      "name": "compatibility-rw.sql",
+      "filePath": "integration_tests/mysql-cdc/compatibility-rw.sql",
+      "summary": "Defines the RisingWave-side `mysql_all_types` CDC source table mirroring MySQL data types plus connection metadata for type compatibility verification.",
+      "tags": ["database", "schema-definition", "integration-test", "cdc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/mysql-cdc/compatibility-rw.sql:mysql_all_types",
+      "type": "table",
+      "name": "mysql_all_types",
+      "filePath": "integration_tests/mysql-cdc/compatibility-rw.sql",
+      "lineRange": [1, 30],
+      "summary": "RisingWave CDC source table mirroring MySQL all-types schema including connection credentials for end-to-end CDC compatibility testing.",
+      "tags": ["database", "integration-test", "cdc", "compatibility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mysql-cdc/create_mv.sql",
+      "type": "file",
+      "name": "create_mv.sql",
+      "filePath": "integration_tests/mysql-cdc/create_mv.sql",
+      "summary": "Creates a materialized view over the MySQL CDC source for the mysql-cdc integration test.",
+      "tags": ["database", "materialized-view", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:integration_tests/mysql-cdc/create_source.sql",
+      "type": "file",
+      "name": "create_source.sql",
+      "filePath": "integration_tests/mysql-cdc/create_source.sql",
+      "summary": "Defines the RisingWave `lineitem_rw` CDC source table backed by MySQL for the mysql-cdc integration test.",
+      "tags": ["database", "schema-definition", "integration-test", "cdc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:integration_tests/mysql-cdc/create_source.sql:lineitem_rw",
+      "type": "table",
+      "name": "lineitem_rw",
+      "filePath": "integration_tests/mysql-cdc/create_source.sql",
+      "lineRange": [13, 18],
+      "summary": "RisingWave CDC source table tracking TPC-H lineitem data from MySQL for streaming CDC ingestion tests.",
+      "tags": ["database", "integration-test", "cdc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:integration_tests/mysql-cdc/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "integration_tests/mysql-cdc/docker-compose.yml",
+      "summary": "Docker Compose orchestration for the mysql-cdc integration test, running MySQL, Debezium Kafka Connect, Kafka, Zookeeper, and RisingWave services.",
+      "tags": ["orchestration", "infrastructure", "integration-test", "cdc"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:integration_tests/mysql-cdc/mysql-datatypes.yml",
+      "type": "config",
+      "name": "mysql-datatypes.yml",
+      "filePath": "integration_tests/mysql-cdc/mysql-datatypes.yml",
+      "summary": "YAML configuration enumerating MySQL primary key types and data types tested in the mysql-cdc CDC compatibility test suite.",
+      "tags": ["configuration", "integration-test", "compatibility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:integration_tests/mysql-cdc/query.sql",
+      "type": "file",
+      "name": "query.sql",
+      "filePath": "integration_tests/mysql-cdc/query.sql",
+      "summary": "Verification queries for the mysql-cdc integration test that confirm CDC data has been correctly ingested into RisingWave materialized views.",
+      "tags": ["database", "query", "integration-test"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:integration_tests/mysql-cdc/compatibility-mysql.sql",
+      "target": "table:integration_tests/mysql-cdc/compatibility-mysql.sql:mysql_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/mysql-cdc/compatibility-rw.sql",
+      "target": "table:integration_tests/mysql-cdc/compatibility-rw.sql:mysql_all_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/mysql-cdc/create_source.sql",
+      "target": "table:integration_tests/mysql-cdc/create_source.sql:lineitem_rw",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:integration_tests/mysql-cdc/compatibility-mysql.sql",
+      "target": "file:integration_tests/mysql-cdc/compatibility-rw.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/mysql-cdc/create_source.sql",
+      "target": "file:integration_tests/mysql-cdc/create_mv.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:integration_tests/mysql-cdc/create_mv.sql",
+      "target": "file:integration_tests/mysql-cdc/query.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:integration_tests/mysql-cdc/mysql-datatypes.yml",
+      "target": "file:integration_tests/mysql-cdc/compatibility-mysql.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "service:integration_tests/mysql-cdc/docker-compose.yml",
+      "target": "file:integration_tests/mysql-cdc/create_source.sql",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}
