@@ -1,0 +1,45 @@
+[single-variant-union]
+  playerCreatedEvent.|1.playerProfile.gender: [com.gearsofleo.platform.core.player.api.avro.GenderAvro]
+
+[logical-type]
+  (no matches)
+
+[union-of-named-types]
+  (no matches)
+
+[aliases]
+  (no matches)
+
+[field-default]
+  playerCreatedEvent.|1.player: lockReasons: array; activeSuspensions: array
+  playerCreatedEvent.|1.playerProfile: gender: com.gearsofleo.platform.core.player.event.avro.GenderAvro (enum); genderEnum: com.gearsofleo.platform.core.player.event.avro.GenderAvro
+  playerLockedEvent.|1: lockReasons: array
+  playerUnlockedEvent.|1: lockReasons: array
+  <root>: type: PlayerEventType (enum)
+
+[reference-use]
+  playerCreatedEvent.|1.playerProfile.genderEnum: com.gearsofleo.platform.core.player.api.avro.GenderAvro (enum)
+  playerStateChangedEvent.|1.stateBefore: com.gearsofleo.platform.core.player.api.avro.PlayerStateAvro (enum)
+  playerStateChangedEvent.|1.stateAfter: com.gearsofleo.platform.core.player.api.avro.PlayerStateAvro (enum)
+  playerStateChangedEvent.|1.player: com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro (record)
+  playerLockedEvent.|1.player: com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro (record)
+  playerUnlockedEvent.|1.player: com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro (record)
+  playerVerifiedUntilEvent.|1.player: com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro (record)
+  playerFutureStateNotificationEvent.|1.currentState.|1: com.gearsofleo.platform.core.player.api.avro.PlayerStateAvro (enum)
+  playerFutureStateNotificationEvent.|1.futureState.|1: com.gearsofleo.platform.core.player.api.avro.PlayerStateAvro (enum)
+  playerUpdatedEvent.|1.changeSet.|1.deprecated.|1: com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro (record)
+  playerUpdatedEvent.|1.changeSet.|1.playerProfile.|1: com.gearsofleo.platform.core.player.api.avro.PlayerProfileDTOAvro (record)
+  playerUpdatedEvent.|1.player: com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro (record)
+  playerSuspendedEvent.|1.player: com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro (record)
+  playerSuspendedEvent.|1.suspension: com.gearsofleo.platform.core.player.api.avro.PlayerSuspensionDTOAvro (record)
+  playerUnsuspendedEvent.|1.player: com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro (record)
+  playerUnsuspendedEvent.|1.suspension: com.gearsofleo.platform.core.player.api.avro.PlayerSuspensionDTOAvro (record)
+
+[namespace-significant]
+  (no matches)
+
+Error: failed to convert Avro union to struct
+
+Caused by:
+    Feature is not yet implemented: Avro named type used in Union type: Enum(EnumSchema { name: Name { name: "GenderAvro", namespace: Some("com.gearsofleo.platform.core.player.api.avro") }, aliases: None, doc: None, symbols: ["FEMALE", "MALE", "UNSPECIFIED"], default: Some("UNSPECIFIED"), attributes: {"default": String("UNSPECIFIED")} })
+    Tracking issue: https://github.com/risingwavelabs/risingwave/issues/17632

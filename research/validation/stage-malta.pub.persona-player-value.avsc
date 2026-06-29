@@ -1,0 +1,1542 @@
+{
+  "fields": [
+    {
+      "default": "Unknown",
+      "name": "type",
+      "type": {
+        "default": "Unknown",
+        "name": "PlayerEventType",
+        "symbols": [
+          "Unknown",
+          "PlayerCreated",
+          "PlayerStateChanged",
+          "PlayerLocked",
+          "PlayerUnlocked",
+          "PlayerVerifiedUntil",
+          "PlayerFutureStateNotification",
+          "PlayerUpdated",
+          "PlayerUpdateRequired",
+          "PlayerSuspended",
+          "PlayerUnsuspended",
+          "PlayerContactDetailsUpdated",
+          "PlayerUnlockedForReason",
+          "PlayerAffiliateFieldsUpdated"
+        ],
+        "type": "enum"
+      }
+    },
+    {
+      "default": null,
+      "name": "playerCreatedEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "player",
+              "type": {
+                "fields": [
+                  {
+                    "name": "operatorUid",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "playerUid",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "username",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "currency",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "createdTimestamp",
+                    "type": "long"
+                  },
+                  {
+                    "name": "state",
+                    "type": {
+                      "name": "PlayerStateAvro",
+                      "symbols": [
+                        "PENDING_VALIDATION",
+                        "VALIDATED",
+                        "CLOSED",
+                        "PENDING_VALIDATION_EXPIRED",
+                        "VALIDATION_EXPIRED",
+                        "DELETED",
+                        "ANONYMIZED"
+                      ],
+                      "type": "enum"
+                    }
+                  },
+                  {
+                    "default": null,
+                    "name": "verified",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "locked",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "lockedUntilTimestamp",
+                    "type": ["null", "long"]
+                  },
+                  {
+                    "default": null,
+                    "name": "registrationIP",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "registrationChannelUid",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "vip",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "affiliateId",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "advertId",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "marketingSourceId",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "clickId",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "tag",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "updatedTimestamp",
+                    "type": ["null", "long"]
+                  },
+                  {
+                    "default": null,
+                    "name": "verifiedUntil",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "ssn",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": [],
+                    "name": "lockReasons",
+                    "type": {
+                      "items": {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "default": null,
+                    "name": "license",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "bonusAbuser",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": [],
+                    "name": "activeSuspensions",
+                    "type": {
+                      "items": {
+                        "fields": [
+                          {
+                            "default": null,
+                            "name": "playerUid",
+                            "type": [
+                              "null",
+                              {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "createdTimestamp",
+                            "type": ["null", "long"]
+                          },
+                          {
+                            "default": null,
+                            "name": "inactivatedTimestamp",
+                            "type": ["null", "long"]
+                          },
+                          {
+                            "default": null,
+                            "name": "reason",
+                            "type": [
+                              "null",
+                              {
+                                "fields": [
+                                  {
+                                    "default": null,
+                                    "name": "name",
+                                    "type": [
+                                      "null",
+                                      {
+                                        "avro.java.string": "String",
+                                        "type": "string"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "default": null,
+                                    "name": "description",
+                                    "type": [
+                                      "null",
+                                      {
+                                        "avro.java.string": "String",
+                                        "type": "string"
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "name": "PlayerSuspensionReasonDTOAvro",
+                                "type": "record"
+                              }
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "userId",
+                            "type": [
+                              "null",
+                              {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "originalPlayerUid",
+                            "type": [
+                              "null",
+                              {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            ]
+                          }
+                        ],
+                        "name": "PlayerSuspensionDTOAvro",
+                        "type": "record"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "default": null,
+                    "name": "selfUnlockable",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "lockRetryable",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "migratedFrom",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                ],
+                "name": "PlayerDTOAvro",
+                "namespace": "com.gearsofleo.platform.core.player.api.avro",
+                "type": "record"
+              }
+            },
+            {
+              "name": "playerProfile",
+              "type": {
+                "fields": [
+                  {
+                    "default": null,
+                    "name": "email",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "nickname",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "firstname",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "lastname",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "address1",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "address2",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "region",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "zip",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "city",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "country",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "language",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "dateOfBirth",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "mobilePhone",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "mobilePhonePrefix",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": "UNSPECIFIED",
+                    "name": "gender",
+                    "type": [
+                      {
+                        "default": "UNSPECIFIED",
+                        "name": "GenderAvro",
+                        "symbols": ["FEMALE", "MALE", "UNSPECIFIED"],
+                        "type": "enum"
+                      }
+                    ]
+                  },
+                  {
+                    "default": "UNSPECIFIED",
+                    "name": "genderEnum",
+                    "type": "GenderAvro"
+                  },
+                  {
+                    "default": null,
+                    "name": "acceptsSms",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "acceptsEmail",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "mobileValidated",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "emailValidated",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "realityCheck",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "ukAddress",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "acceptsBonus",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "acceptedTnC",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "realityCheckTime",
+                    "type": ["null", "int"]
+                  },
+                  {
+                    "default": null,
+                    "name": "welcomeOffer",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "acceptsCall",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "acceptsMail",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "acceptsSocialMedia",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "vipAcceptsSms",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "vipAcceptsEmail",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "vipAcceptsCall",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "vipAcceptsMail",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "vipAcceptsSocialMedia",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "maidenName",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "cityOfBirth",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "houseNumber",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "avatarId",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "acceptsAppPush",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "adReference",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "nicknameBlockState",
+                    "type": [
+                      "null",
+                      {
+                        "name": "NicknameBlockStateAvro",
+                        "symbols": ["UNKNOWN", "NOT_BLOCKED", "BLOCKED"],
+                        "type": "enum"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "nationality",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "countryOfBirth",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "firstNameAtBirth",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "fundsProtectionConsentDate",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "placeOfBirth",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "acceptedPrivacyPolicy",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "acceptsCrossBrandMarketing",
+                    "type": ["null", "boolean"]
+                  },
+                  {
+                    "default": null,
+                    "name": "sourceOfInformation",
+                    "type": [
+                      "null",
+                      {
+                        "name": "SourceOfInformationDTOAvro",
+                        "symbols": [
+                          "DOCUMENTS",
+                          "CUSTOMER_DECLARED",
+                          "ANALYST"
+                        ],
+                        "type": "enum"
+                      }
+                    ]
+                  }
+                ],
+                "name": "PlayerProfileDTOAvro",
+                "namespace": "com.gearsofleo.platform.core.player.api.avro",
+                "type": "record"
+              }
+            },
+            {
+              "default": null,
+              "name": "affiliateMeta",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "map",
+                  "values": {
+                    "avro.java.string": "String",
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "metadata",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "map",
+                  "values": {
+                    "avro.java.string": "String",
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          ],
+          "name": "PlayerCreatedEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerStateChangedEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "stateBefore",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerStateAvro"
+            },
+            {
+              "name": "stateAfter",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerStateAvro"
+            },
+            {
+              "name": "player",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro"
+            }
+          ],
+          "name": "PlayerStateChangedEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerLockedEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "player",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro"
+            },
+            {
+              "default": null,
+              "name": "lockedUntilTimestamp",
+              "type": ["null", "long"]
+            },
+            {
+              "default": [],
+              "name": "lockReasons",
+              "type": {
+                "items": {
+                  "avro.java.string": "String",
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            }
+          ],
+          "name": "PlayerLockedEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerUnlockedEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "player",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro"
+            },
+            {
+              "default": [],
+              "name": "lockReasons",
+              "type": {
+                "items": {
+                  "avro.java.string": "String",
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            }
+          ],
+          "name": "PlayerUnlockedEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerVerifiedUntilEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "player",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro"
+            },
+            {
+              "default": null,
+              "name": "verifiedUntil",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "notifyPlayer",
+              "type": ["null", "boolean"]
+            },
+            {
+              "default": null,
+              "name": "metadata",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "map",
+                  "values": {
+                    "avro.java.string": "String",
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          ],
+          "name": "PlayerVerifiedUntilEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerFutureStateNotificationEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "default": null,
+              "name": "currentState",
+              "type": [
+                "null",
+                "com.gearsofleo.platform.core.player.api.avro.PlayerStateAvro"
+              ]
+            },
+            {
+              "default": null,
+              "name": "futureState",
+              "type": [
+                "null",
+                "com.gearsofleo.platform.core.player.api.avro.PlayerStateAvro"
+              ]
+            },
+            {
+              "default": null,
+              "name": "futureStateTimestamp",
+              "type": ["null", "long"]
+            }
+          ],
+          "name": "PlayerFutureStateNotificationEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerUpdatedEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "default": null,
+              "name": "changeSet",
+              "type": [
+                "null",
+                {
+                  "fields": [
+                    {
+                      "default": null,
+                      "name": "deprecated",
+                      "type": ["null", "PlayerDTOAvro"]
+                    },
+                    {
+                      "default": null,
+                      "name": "playerProfile",
+                      "type": ["null", "PlayerProfileDTOAvro"]
+                    },
+                    {
+                      "default": null,
+                      "name": "metadata",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "map",
+                          "values": {
+                            "avro.java.string": "String",
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "player",
+                      "type": [
+                        "null",
+                        {
+                          "fields": [
+                            {
+                              "default": null,
+                              "name": "ssn",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          ],
+                          "name": "UpdatePlayerDTOAvro",
+                          "type": "record"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "changedBy",
+                      "type": [
+                        "null",
+                        {
+                          "default": "UNKNOWN",
+                          "name": "PlayerProfileChangedByAvro",
+                          "symbols": ["PLAYER", "CS", "SYSTEM", "UNKNOWN"],
+                          "type": "enum"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "PlayerChangeSetDTOAvro",
+                  "namespace": "com.gearsofleo.platform.core.player.api.avro",
+                  "type": "record"
+                }
+              ]
+            },
+            {
+              "name": "player",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro"
+            },
+            {
+              "default": null,
+              "name": "metadata",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "map",
+                  "values": {
+                    "avro.java.string": "String",
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "playerProfileChangeLogId",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            }
+          ],
+          "name": "PlayerUpdatedEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerSuspendedEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "player",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro"
+            },
+            {
+              "name": "suspension",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerSuspensionDTOAvro"
+            }
+          ],
+          "name": "PlayerSuspendedEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerUnsuspendedEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "player",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerDTOAvro"
+            },
+            {
+              "name": "suspension",
+              "type": "com.gearsofleo.platform.core.player.api.avro.PlayerSuspensionDTOAvro"
+            }
+          ],
+          "name": "PlayerUnsuspendedEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerContactDetailsUpdatedEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "default": null,
+              "name": "uid",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "timestamp",
+              "type": ["null", "long"]
+            },
+            {
+              "default": null,
+              "name": "playerUid",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "changeSet",
+              "type": [
+                "null",
+                {
+                  "fields": [
+                    {
+                      "default": null,
+                      "name": "email",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "mobilePhone",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "mobilePhonePrefix",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "PlayerContactDetailsDTOAvro",
+                  "namespace": "com.gearsofleo.platform.core.player.api.avro",
+                  "type": "record"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "playerProfileChangeLogId",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            }
+          ],
+          "name": "PlayerContactDetailsUpdatedEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerUnlockedForReasonEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "revokedLockReasons",
+              "type": {
+                "items": {
+                  "avro.java.string": "String",
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "name": "remainingLockReasons",
+              "type": {
+                "items": {
+                  "avro.java.string": "String",
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            }
+          ],
+          "name": "PlayerUnlockedForReasonEvent",
+          "type": "record"
+        }
+      ]
+    },
+    {
+      "default": null,
+      "name": "playerAffiliateFieldsUpdatedEvent",
+      "type": [
+        "null",
+        {
+          "fields": [
+            {
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "default": null,
+              "name": "changeSet",
+              "type": [
+                "null",
+                {
+                  "fields": [
+                    {
+                      "default": null,
+                      "name": "affiliateId",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "advertId",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "marketingSourceId",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "tag",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "PlayerAffiliateFieldsDTOAvro",
+                  "namespace": "com.gearsofleo.platform.core.player.api.avro",
+                  "type": "record"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "changeLogId",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            }
+          ],
+          "name": "PlayerAffiliateFieldsUpdatedEvent",
+          "type": "record"
+        }
+      ]
+    }
+  ],
+  "name": "PlayerEvent",
+  "namespace": "com.gearsofleo.platform.core.player.event.avro",
+  "type": "record"
+}

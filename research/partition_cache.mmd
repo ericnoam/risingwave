@@ -1,0 +1,40 @@
+sequenceDiagram
+    participant Input as StreamChunk
+    participant Exec as OverWindowExecutor
+    participant MLC as ManagedLruCache<OwnedRow, PartitionCache>
+    participant PC as PartitionCache (per partition)
+    participant ST as StateTable (Hummock/Storage)
+
+    Input->>Exec: Provide Chunk of Records
+
+    loop For each Partition in Chunk
+        Exec->>Exec: Extract Partition Key
+        Exec->>MLC: contains(partition_key)?
+
+        alt Cache Miss
+            MLC-->>Exec: False
+            Exec->>MLC: put(partition_key, new PartitionCache())
+        else Cache Hit
+            MLC-->>Exec: True
+        end
+
+        Exec->>MLC: get_mut(partition_key)
+        MLC-->>Exec: Return PartitionCache reference
+
+        Exec->>PC: build_changes(delta)
+
+        alt Row in PartitionCache
+            PC-->>Exec: Return Cached Row
+        else Row not in PartitionCache
+            PC->>ST: Get row from state table
+            ST-->>PC: Return row
+            PC->>PC: Update internal range cache
+        end
+
+        Exec->>Exec: Compute Window Function Results
+        Exec->>ST: write_record(updated_row)
+        Exec->>PC: update_cache(updated_row)
+    end
+
+    Note over Exec,MLC: On Barrier/Commit
+    Exec->>MLC: evict() -> removes epochs < watermark
