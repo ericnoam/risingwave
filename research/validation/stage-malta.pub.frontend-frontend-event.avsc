@@ -1,0 +1,3428 @@
+{
+  "fields": [
+    {
+      "doc": "Logical channel identifier for the event. Pattern is <event type>.<id>",
+      "name": "channel",
+      "type": {
+        "avro.java.string": "String",
+        "type": "string"
+      }
+    },
+    {
+      "doc": "Event type name, e.g.'SessionEnded'",
+      "name": "eventType",
+      "type": {
+        "avro.java.string": "String",
+        "type": "string"
+      }
+    },
+    {
+      "doc": "Event specific payload. Determined by the event type",
+      "name": "event",
+      "type": [
+        {
+          "doc": "Published after a players login session is ended. Either through expiry or explicit logout",
+          "fields": [
+            {
+              "doc": "Session details",
+              "name": "session",
+              "type": {
+                "fields": [
+                  {
+                    "doc": "Unique player identifier",
+                    "name": "playerUid",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "doc": "Unique session identifier",
+                    "name": "sessionUid",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "doc": "Session channel. One of 'IPAD', 'BACKOFFICE', 'ANDROID', 'DESKTOP', 'IPHONE', 'WINDOWS_PHONE'",
+                    "name": "channelUid",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "doc": "Session start time in epoch millis UTC",
+                    "name": "startedTimestamp",
+                    "type": {
+                      "logicalType": "timestamp-millis",
+                      "type": "long"
+                    }
+                  },
+                  {
+                    "doc": "Session end time in epoch millis UTC",
+                    "name": "endedTimestamp",
+                    "type": [
+                      "null",
+                      {
+                        "logicalType": "timestamp-millis",
+                        "type": "long"
+                      }
+                    ]
+                  }
+                ],
+                "name": "Session",
+                "type": "record"
+              }
+            },
+            {
+              "doc": "Reason for session end. One of 'Logout', 'Limit', 'Expired'",
+              "name": "endReason",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            }
+          ],
+          "name": "SessionEnded",
+          "type": "record"
+        },
+        {
+          "doc": "Published when a player deposit have been approved",
+          "fields": [
+            {
+              "doc": "Payment details",
+              "name": "payment",
+              "type": {
+                "fields": [
+                  {
+                    "doc": "Unique internal player identifier",
+                    "name": "playerUid",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "doc": "Unique internal payment identifier",
+                    "name": "paymentUid",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "doc": "Init payment method details",
+                    "name": "initMethod",
+                    "type": {
+                      "fields": [
+                        {
+                          "doc": "Unique internal method identifier",
+                          "name": "methodUid",
+                          "type": {
+                            "avro.java.string": "String",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "doc": "External method identifier (unique per provider)",
+                          "name": "externalId",
+                          "type": {
+                            "avro.java.string": "String",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "name": "provider",
+                          "type": {
+                            "fields": [
+                              {
+                                "doc": "Unique internal PSP provider identifier",
+                                "name": "providerUid",
+                                "type": {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              },
+                              {
+                                "doc": "External method identifier (unique per provider)",
+                                "name": "externalId",
+                                "type": {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              }
+                            ],
+                            "name": "PaymentProvider",
+                            "type": "record"
+                          }
+                        }
+                      ],
+                      "name": "PaymentMethod",
+                      "type": "record"
+                    }
+                  },
+                  {
+                    "doc": "Payment method details",
+                    "name": "method",
+                    "type": "PaymentMethod"
+                  },
+                  {
+                    "doc": "Internally generated external payment reference",
+                    "name": "externalReference",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "doc": "PSP unique payment reference",
+                    "name": "pspReference",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "doc": "Payment creation time in epoch millis UTC",
+                    "name": "createdTimestamp",
+                    "type": {
+                      "logicalType": "timestamp-millis",
+                      "type": "long"
+                    }
+                  },
+                  {
+                    "doc": "Decimal payment amount, e.g. 200.00",
+                    "name": "amount",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "doc": "ISO 4217 currency code",
+                    "name": "currencyUid",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  }
+                ],
+                "name": "Payment",
+                "type": "record"
+              }
+            }
+          ],
+          "name": "DepositApproved",
+          "type": "record"
+        },
+        {
+          "doc": "Published when a player deposit have been denied",
+          "fields": [
+            {
+              "doc": "Payment details",
+              "name": "payment",
+              "type": "Payment"
+            }
+          ],
+          "name": "DepositDenied",
+          "type": "record"
+        },
+        {
+          "doc": "Published when a player withdrawal have been approved",
+          "fields": [
+            {
+              "doc": "Payment details",
+              "name": "payment",
+              "type": "Payment"
+            }
+          ],
+          "name": "WithdrawalApproved",
+          "type": "record"
+        },
+        {
+          "doc": "Published when a player withdrawal have been denied",
+          "fields": [
+            {
+              "doc": "Payment details",
+              "name": "payment",
+              "type": "Payment"
+            }
+          ],
+          "name": "WithdrawalDenied",
+          "type": "record"
+        },
+        {
+          "doc": "Published when a player's permissions has changed",
+          "fields": [
+            {
+              "doc": "Updated list of current permissions for the player",
+              "name": "permissions",
+              "type": {
+                "items": {
+                  "fields": [
+                    {
+                      "doc": "Unique permission name",
+                      "name": "permission",
+                      "type": {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "doc": "Current permission grant status",
+                      "name": "granted",
+                      "type": "boolean"
+                    }
+                  ],
+                  "name": "Permission",
+                  "type": "record"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "doc": "List of permissions affected by this change (may be empty)",
+              "name": "updatedPermissions",
+              "type": {
+                "items": "Permission",
+                "type": "array"
+              }
+            }
+          ],
+          "name": "PermissionsChanged",
+          "type": "record"
+        },
+        {
+          "doc": "Published when there is a change in a BlueRibbon jackpot",
+          "fields": [
+            {
+              "doc": "Jackpot game identifier",
+              "name": "jackpotGameId",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Last change time in epoch millis UTC",
+              "name": "lastWinnersChangeTimestamp",
+              "type": {
+                "logicalType": "timestamp-millis",
+                "type": "long"
+              }
+            },
+            {
+              "doc": "List of jackpot pots",
+              "name": "pots",
+              "type": {
+                "items": {
+                  "fields": [
+                    {
+                      "doc": "Jackpot pot id",
+                      "name": "potId",
+                      "type": {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "doc": "Pot name",
+                      "name": "name",
+                      "type": {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "doc": "Pot status, one of 'COLD', 'CHILLY', 'WARM', 'HOT'",
+                      "name": "status",
+                      "type": {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "doc": "Last change time in epoch millis UTC",
+                      "name": "lastChangeTimestamp",
+                      "type": {
+                        "logicalType": "timestamp-millis",
+                        "type": "long"
+                      }
+                    },
+                    {
+                      "name": "amounts",
+                      "type": {
+                        "items": {
+                          "fields": [
+                            {
+                              "doc": "Decimal amount (variable point), e.g. 200.00 or 200.1234",
+                              "name": "amount",
+                              "type": {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "doc": "ISO 4217 currency code",
+                              "name": "currencyUid",
+                              "type": {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            }
+                          ],
+                          "name": "BlueRibbonJackpotPotAmount",
+                          "type": "record"
+                        },
+                        "type": "array"
+                      }
+                    }
+                  ],
+                  "name": "LeoJackpotPot",
+                  "type": "record"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "default": null,
+              "doc": "Jackpot variant identifier",
+              "name": "jackpotVariant",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "Jackpot information related to time limited jackpots",
+              "name": "dropInformation",
+              "type": [
+                "null",
+                {
+                  "fields": [
+                    {
+                      "default": null,
+                      "doc": "Jackpot will drop before this timestamp",
+                      "name": "willDropBeforeTimestamp",
+                      "type": [
+                        "null",
+                        "long"
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "doc": "Last timestamp this jackpot dropped",
+                      "name": "previousDropTimestamp",
+                      "type": [
+                        "null",
+                        "long"
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "doc": "Percentage from last drop to next drop, can be > 100.00",
+                      "name": "timeToDropPercentage",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "DropInformation",
+                  "type": "record"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "All games in the same jackpot",
+              "name": "gamesInJackpot",
+              "type": [
+                "null",
+                {
+                  "items": {
+                    "avro.java.string": "String",
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              ]
+            }
+          ],
+          "name": "BlueRibbonJackpotUpdated",
+          "type": "record"
+        },
+        {
+          "doc": "Published when there is a BlueRibbon jackpot win",
+          "fields": [
+            {
+              "doc": "Jackpot game identifier",
+              "name": "jackpotGameId",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Unique internal player identifier",
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Jackpot event identifier",
+              "name": "eventId",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Jackpot game identifier",
+              "name": "gameId",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Jackpot brand identifier",
+              "name": "brand",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Jackpot type, one of 'PUBLIC', 'PRIVATE'",
+              "name": "jackpotType",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Jackpot seed",
+              "name": "seed",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Jackpot name",
+              "name": "name",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Jackpot win time in epoch millis UTC",
+              "name": "winTimestamp",
+              "type": {
+                "logicalType": "timestamp-millis",
+                "type": "long"
+              }
+            },
+            {
+              "name": "amounts",
+              "type": {
+                "items": "BlueRibbonJackpotPotAmount",
+                "type": "array"
+              }
+            },
+            {
+              "default": null,
+              "doc": "Jackpot variant identifier",
+              "name": "jackpotVariant",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "All games in the same jackpot",
+              "name": "gamesInJackpot",
+              "type": [
+                "null",
+                {
+                  "items": {
+                    "avro.java.string": "String",
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              ]
+            }
+          ],
+          "name": "BlueRibbonJackpotWin",
+          "type": "record"
+        },
+        {
+          "doc": "User messages Published when there is a BlueRibbon jackpot win",
+          "fields": [
+            {
+              "doc": "unique identifier of the event",
+              "name": "uid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "time in epoch millis UTC",
+              "name": "timestamp",
+              "type": {
+                "logicalType": "timestamp-millis",
+                "type": "long"
+              }
+            },
+            {
+              "doc": "player identifier by playerUid",
+              "name": "context",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": " one of UserMessageType",
+              "name": "type",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "avro.java.string": "String",
+                "type": "map",
+                "values": {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "name": "UserMessage",
+          "type": "record"
+        },
+        {
+          "fields": [
+            {
+              "doc": "Promotion Uid that was payed out to the player.",
+              "name": "promotionUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "default": null,
+              "doc": "Player identifier by playerUid.",
+              "name": "playerUid",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "doc": "Level that player reached.",
+              "name": "newLevel",
+              "type": "int"
+            },
+            {
+              "doc": "Stack tier from previous level.",
+              "name": "stackTier",
+              "type": "int"
+            },
+            {
+              "default": null,
+              "doc": "List of offer Uids that were created for the player.",
+              "name": "offerUids",
+              "type": [
+                "null",
+                {
+                  "items": [
+                    {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    },
+                    "null"
+                  ],
+                  "type": "array"
+                }
+              ]
+            }
+          ],
+          "name": "LoyaltyPromotionPayout",
+          "type": "record"
+        },
+        {
+          "fields": [
+            {
+              "doc": "Player's UID.",
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Uid of player's WITHDRAWAL_REAL account.",
+              "name": "accountUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Balance of the player's WITHDRAWAL_REAL account.",
+              "name": "balance",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Amount transferred to the WITHDRAWAL_REAL account.",
+              "name": "amount",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            }
+          ],
+          "name": "WithdrawalRealBalance",
+          "type": "record"
+        },
+        {
+          "fields": [
+            {
+              "doc": "Player account balance details",
+              "name": "balance",
+              "type": {
+                "fields": [
+                  {
+                    "doc": "Player's UID.",
+                    "name": "playerUid",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "totalAmount",
+                    "type": {
+                      "avro.java.string": "String",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "realAmount",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "depositedRealAmount",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "casinoBonusAmount",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "sportsBonusAmount",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "name": "convertedBonusAmount",
+                    "type": [
+                      "null",
+                      {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                ],
+                "name": "Balance",
+                "type": "record"
+              }
+            }
+          ],
+          "name": "PlayerBalance",
+          "type": "record"
+        },
+        {
+          "doc": "LiveCasino dynamic data coming from providers",
+          "fields": [
+            {
+              "doc": "Live casino table id",
+              "name": "id",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Live casino table name",
+              "name": "name",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Time stamp of live casino table update",
+              "name": "latestUpdateTS",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "default": null,
+              "doc": "Total seated players of live casino table update",
+              "name": "totalSeatedPlayers",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "Slots for the live casino table",
+              "name": "slots",
+              "type": [
+                "null",
+                {
+                  "doc": "Slots for the live casino table",
+                  "fields": [
+                    {
+                      "default": null,
+                      "name": "available",
+                      "type": [
+                        "null",
+                        "int"
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "total",
+                      "type": [
+                        "null",
+                        "int"
+                      ]
+                    },
+                    {
+                      "default": false,
+                      "name": "unlimited",
+                      "type": "boolean"
+                    }
+                  ],
+                  "name": "Slots",
+                  "type": "record"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "isOpen",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "default": [],
+              "name": "latestRouletteNumbers",
+              "type": {
+                "items": {
+                  "doc": "Roulette number for the live casino table",
+                  "fields": [
+                    {
+                      "default": null,
+                      "name": "number",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "color",
+                      "type": {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "name": "RouletteNumber",
+                  "type": "record"
+                },
+                "type": "array"
+              }
+            }
+          ],
+          "name": "LiveCasinoDynamicData",
+          "type": "record"
+        },
+        {
+          "doc": "Event fot updated badges for player",
+          "fields": [
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "default": [],
+              "name": "badges",
+              "type": {
+                "items": {
+                  "fields": [
+                    {
+                      "name": "playerUid",
+                      "type": {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "default": null,
+                      "name": "count",
+                      "type": [
+                        "null",
+                        "long"
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "type",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "Badge",
+                  "type": "record"
+                },
+                "type": "array"
+              }
+            }
+          ],
+          "name": "BadgesUpdated",
+          "type": "record"
+        },
+        {
+          "doc": "Event showing the progress for loyalty promotion's spin count",
+          "fields": [
+            {
+              "doc": "Player Uid.",
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Current number of spins/bets.",
+              "name": "currentBetCount",
+              "type": "int"
+            },
+            {
+              "doc": "Number of spins/bets required to get a promotion.",
+              "name": "levelBetCount",
+              "type": "int"
+            },
+            {
+              "doc": "Current player's level.",
+              "name": "currentLevel",
+              "type": "int"
+            }
+          ],
+          "name": "LoyaltyPromotionBetIncrement",
+          "type": "record"
+        },
+        {
+          "doc": "Event showing the opt out event for a player's spin count loyalty promotion and his current bet count",
+          "fields": [
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "spinCount",
+              "type": "int"
+            },
+            {
+              "name": "optInStatus",
+              "type": "boolean"
+            }
+          ],
+          "name": "LoyaltyOptInBetCounter",
+          "type": "record"
+        },
+        {
+          "doc": "BankId event",
+          "fields": [
+            {
+              "doc": "Operation type",
+              "name": "operationType",
+              "type": [
+                "null",
+                {
+                  "name": "BankIdOperationType",
+                  "symbols": [
+                    "UNDEFINED",
+                    "AUTH",
+                    "SIGN"
+                  ],
+                  "type": "enum"
+                }
+              ]
+            },
+            {
+              "doc": "BankId event type",
+              "name": "type",
+              "type": [
+                "null",
+                {
+                  "name": "BankIdEventType",
+                  "symbols": [
+                    "UNKNOWN",
+                    "SUCCESS",
+                    "FAILED"
+                  ],
+                  "type": "enum"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "BankId token",
+              "name": "token",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "doc": "Order created",
+              "name": "orderCreated",
+              "type": [
+                "null",
+                {
+                  "logicalType": "timestamp-millis",
+                  "type": "long"
+                }
+              ]
+            },
+            {
+              "doc": "Order updated",
+              "name": "orderUpdated",
+              "type": [
+                "null",
+                {
+                  "logicalType": "timestamp-millis",
+                  "type": "long"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "BankIdCompleted event content",
+              "name": "bankIdCompleted",
+              "type": [
+                "null",
+                {
+                  "doc": "BankIdCompleted event",
+                  "fields": [
+                    {
+                      "doc": "Player's session",
+                      "name": "session",
+                      "type": [
+                        "null",
+                        {
+                          "fields": [
+                            {
+                              "doc": "Session start time in epoch millis UTC",
+                              "name": "startedTimestamp",
+                              "type": {
+                                "logicalType": "timestamp-millis",
+                                "type": "long"
+                              }
+                            },
+                            {
+                              "doc": "Unique session identifier",
+                              "name": "sessionUid",
+                              "type": {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "doc": "Unique player identifier",
+                              "name": "playerUid",
+                              "type": {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "doc": "Player's username",
+                              "name": "username",
+                              "type": {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "doc": "Player's currency",
+                              "name": "currency",
+                              "type": {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "doc": "Player's country",
+                              "name": "country",
+                              "type": {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "doc": "Player's language",
+                              "name": "language",
+                              "type": {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "doc": "Password expired",
+                              "name": "isPasswordExpired",
+                              "type": [
+                                "null",
+                                "boolean"
+                              ]
+                            }
+                          ],
+                          "name": "BankIdSession",
+                          "type": "record"
+                        }
+                      ]
+                    },
+                    {
+                      "doc": "Player was created or not",
+                      "name": "playerCreated",
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "doc": "Player's first name",
+                      "name": "firstName",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "doc": "Player's last name",
+                      "name": "lastName",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "doc": "Player's session expiry",
+                      "name": "expiry",
+                      "type": [
+                        "null",
+                        {
+                          "logicalType": "timestamp-millis",
+                          "type": "long"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "BankIdCompletedEvent",
+                  "type": "record"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "BankIdFailed event content",
+              "name": "bankIdFailed",
+              "type": [
+                "null",
+                {
+                  "doc": "BankIdFailed event",
+                  "fields": [
+                    {
+                      "doc": "Hint code",
+                      "name": "hintCode",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "doc": "Message code",
+                      "name": "messageCode",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "doc": "Description",
+                      "name": "description",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "BankIdFailedEvent",
+                  "type": "record"
+                }
+              ]
+            }
+          ],
+          "name": "BankId",
+          "type": "record"
+        },
+        {
+          "fields": [
+            {
+              "doc": "PlayerMetadata event type",
+              "name": "type",
+              "type": {
+                "name": "PlayerMetadataEventType",
+                "symbols": [
+                  "ADDED",
+                  "REMOVED",
+                  "EXPIRED",
+                  "STARTED"
+                ],
+                "type": "enum"
+              }
+            },
+            {
+              "doc": "Player's UID.",
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Player's tag.",
+              "name": "tag",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "created",
+              "type": {
+                "logicalType": "timestamp-millis",
+                "type": "long"
+              }
+            },
+            {
+              "default": null,
+              "name": "starts",
+              "type": [
+                "null",
+                {
+                  "logicalType": "timestamp-millis",
+                  "type": "long"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "expires",
+              "type": [
+                "null",
+                {
+                  "logicalType": "timestamp-millis",
+                  "type": "long"
+                }
+              ]
+            }
+          ],
+          "name": "PlayerMetadata",
+          "type": "record"
+        },
+        {
+          "fields": [
+            {
+              "doc": "The id of promotion's configuration.",
+              "name": "configurationId",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "The brand that configuration applies for.",
+              "name": "operatorUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "The vertical that configuration applies for.",
+              "name": "vertical",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "The license that configuration applies for.",
+              "name": "license",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "The country that configuration applies for.",
+              "name": "country",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "The status of the promotion.",
+              "name": "active",
+              "type": "boolean"
+            }
+          ],
+          "name": "LoyaltyPromotionConfiguration",
+          "type": "record"
+        },
+        {
+          "doc": "Event showing change in requirement progress of Player's offer",
+          "fields": [
+            {
+              "default": null,
+              "name": "promotionUid",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "externalUid",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "offerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "requirement",
+              "type": {
+                "fields": [
+                  {
+                    "default": null,
+                    "doc": "Update in wager of the offer's requirement",
+                    "name": "wager",
+                    "type": [
+                      "null",
+                      {
+                        "fields": [
+                          {
+                            "default": null,
+                            "name": "amount",
+                            "type": [
+                              "null",
+                              {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "currentAmount",
+                            "type": [
+                              "null",
+                              {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "met",
+                            "type": [
+                              "null",
+                              "boolean"
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "metAt",
+                            "type": [
+                              "null",
+                              "long"
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "isActive",
+                            "type": [
+                              "null",
+                              "boolean"
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "depositMatchingFactor",
+                            "type": [
+                              "null",
+                              {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "requirementExpiry",
+                            "type": [
+                              "null",
+                              {
+                                "fields": [
+                                  {
+                                    "default": null,
+                                    "name": "minutesToLive",
+                                    "type": [
+                                      "null",
+                                      "long"
+                                    ]
+                                  }
+                                ],
+                                "name": "RequirementExpiry",
+                                "type": "record"
+                              }
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "sportWagerContribution",
+                            "type": [
+                              "null",
+                              {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            ]
+                          }
+                        ],
+                        "name": "Wager",
+                        "type": "record"
+                      }
+                    ]
+                  },
+                  {
+                    "default": null,
+                    "doc": "Update in wager-count of the offer's requirement",
+                    "name": "wagerCount",
+                    "type": [
+                      "null",
+                      {
+                        "fields": [
+                          {
+                            "default": null,
+                            "name": "wagerAmountSum",
+                            "type": [
+                              "null",
+                              {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "minimumWager",
+                            "type": [
+                              "null",
+                              {
+                                "avro.java.string": "String",
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "wagerCount",
+                            "type": [
+                              "null",
+                              "int"
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "currentWagerCount",
+                            "type": [
+                              "null",
+                              "int"
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "met",
+                            "type": [
+                              "null",
+                              "boolean"
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "metAt",
+                            "type": [
+                              "null",
+                              "long"
+                            ]
+                          },
+                          {
+                            "default": null,
+                            "name": "requirementExpiry",
+                            "type": [
+                              "null",
+                              "RequirementExpiry"
+                            ]
+                          }
+                        ],
+                        "name": "WagerCount",
+                        "type": "record"
+                      }
+                    ]
+                  }
+                ],
+                "name": "Requirement",
+                "type": "record"
+              }
+            },
+            {
+              "doc": "Type of requirement, one of: DEPOSIT, WAGER, SURVEY, SEGMENT, WAGER_COUNT, CLAIM",
+              "name": "requirementType",
+              "type": {
+                "default": "UNKNOWN",
+                "name": "RequirementType",
+                "symbols": [
+                  "DEPOSIT",
+                  "WAGER",
+                  "SURVEY",
+                  "SEGMENT",
+                  "WAGER_COUNT",
+                  "CLAIM",
+                  "UNKNOWN"
+                ],
+                "type": "enum"
+              }
+            },
+            {
+              "doc": "Type of event updating requirement",
+              "name": "updateType",
+              "type": {
+                "default": "UNKNOWN",
+                "name": "RequirementUpdateType",
+                "symbols": [
+                  "REQUIREMENT_MET",
+                  "REQUIREMENT_UPDATED",
+                  "UNKNOWN"
+                ],
+                "type": "enum"
+              }
+            }
+          ],
+          "name": "OfferUpdateRequirement",
+          "type": "record"
+        },
+        {
+          "doc": "Event showing the change of opt-in status for given type of opt-in and the promotion for a player",
+          "fields": [
+            {
+              "default": null,
+              "name": "optInName",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "playerUid",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "promotionUid",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "optInStatus",
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          ],
+          "name": "LoyaltyOptInUpdate",
+          "type": "record"
+        },
+        {
+          "fields": [
+            {
+              "default": [],
+              "name": "bingoRooms",
+              "type": {
+                "items": {
+                  "fields": [
+                    {
+                      "name": "roomId",
+                      "type": {
+                        "avro.java.string": "String",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "default": null,
+                      "name": "bingoType",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "roomName",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": [],
+                      "name": "cardCosts",
+                      "type": {
+                        "items": {
+                          "fields": [
+                            {
+                              "default": null,
+                              "name": "amount",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "currency",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          ],
+                          "name": "AmountWithCurrency",
+                          "type": "record"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "default": [],
+                      "name": "gamePrizes",
+                      "type": {
+                        "items": "AmountWithCurrency",
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "default": [],
+                      "name": "jackpotAmounts",
+                      "type": {
+                        "items": "AmountWithCurrency",
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "default": null,
+                      "name": "nextGameStart",
+                      "type": [
+                        "null",
+                        "long"
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "playersInRoom",
+                      "type": [
+                        "null",
+                        "int"
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "upcoming",
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "uniqueId",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "BingoRoomData",
+                  "type": "record"
+                },
+                "type": "array"
+              }
+            }
+          ],
+          "name": "BingoRoomUpdate",
+          "type": "record"
+        },
+        {
+          "doc": "Event showing Player's bonus conversion",
+          "fields": [
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "bonusUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "default": null,
+              "doc": "The total amount that was converted",
+              "name": "convertedAmount",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "The turnover factor multiplied by amount, max conversion amount",
+              "name": "limit",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "The max conversion amount",
+              "name": "payoutMaxAmount",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "The vertical for which the turnover requirements applied",
+              "name": "vertical",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "The source of the bonus",
+              "name": "source",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            }
+          ],
+          "name": "BonusConverted",
+          "type": "record"
+        },
+        {
+          "doc": "Event that notifies about newly created player onsite message",
+          "fields": [
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "category",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "default": null,
+              "name": "messageId",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "type",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            }
+          ],
+          "name": "PlayerMessageAvailable",
+          "type": "record"
+        },
+        {
+          "doc": "Published when a player's interaction has created",
+          "fields": [
+            {
+              "default": null,
+              "doc": "Id of created player interaction",
+              "name": "playerInteractionId",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "doc": "one of PlayerInteractionTypeDTO",
+              "name": "type",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            }
+          ],
+          "name": "PlayerInteractionCreated",
+          "type": "record"
+        },
+        {
+          "doc": "Notify about actions related to player actions (created, taken, completed, failed)",
+          "fields": [
+            {
+              "default": null,
+              "name": "actionName",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "playerUid",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "eventType",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "sagaId",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "eventTimestamp",
+              "type": [
+                "null",
+                {
+                  "logicalType": "timestamp-millis",
+                  "type": "long"
+                }
+              ]
+            }
+          ],
+          "name": "PlayerActionUpdated",
+          "type": "record"
+        },
+        {
+          "fields": [
+            {
+              "name": "ticketUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "referenceType",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "referenceUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            }
+          ],
+          "name": "MfaTicketCreatedEvent",
+          "type": "record"
+        },
+        {
+          "fields": [
+            {
+              "name": "ticketUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "mfaTicketJWT",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            }
+          ],
+          "name": "MfaTicketCompletedEvent",
+          "type": "record"
+        },
+        {
+          "doc": "PlayerDocument event",
+          "fields": [
+            {
+              "doc": "Document event type",
+              "name": "eventType",
+              "type": [
+                "null",
+                {
+                  "default": "Unknown",
+                  "name": "PlayerDocumentEventType",
+                  "symbols": [
+                    "Unknown",
+                    "DocumentRequested",
+                    "DocumentPending",
+                    "DocumentApproved",
+                    "DocumentInvalidated",
+                    "DocumentRejected",
+                    "DocumentFailed",
+                    "DocumentExpired",
+                    "DocumentSoonToExpire"
+                  ],
+                  "type": "enum"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "playerId",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "documentDetails",
+              "type": [
+                "null",
+                {
+                  "fields": [
+                    {
+                      "default": null,
+                      "doc": "Type of the document submitted for verification",
+                      "name": "documentType",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "doc": "State of the document after verification is complete",
+                      "name": "documentState",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "reference",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "declinedReasons",
+                      "type": [
+                        "null",
+                        {
+                          "items": {
+                            "avro.java.string": "String",
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "DocumentDetails",
+                  "type": "record"
+                }
+              ]
+            }
+          ],
+          "name": "PlayerDocumentEvent",
+          "type": "record"
+        },
+        {
+          "doc": "Published when a bet fails due to regulatory restrictions in germany.",
+          "fields": [
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "errorCode",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            }
+          ],
+          "name": "BetErrorEvent",
+          "type": "record"
+        },
+        {
+          "doc": "LiveCasino static data coming from providers",
+          "fields": [
+            {
+              "doc": "Live casino id",
+              "name": "id",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "doc": "Live casino table name",
+              "name": "name",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "default": [],
+              "doc": "Stakes for the live casino table",
+              "name": "stakes",
+              "type": {
+                "items": {
+                  "doc": "Stakes for the live casino table",
+                  "fields": [
+                    {
+                      "default": null,
+                      "name": "min",
+                      "type": [
+                        "null",
+                        "double"
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "max",
+                      "type": [
+                        "null",
+                        "double"
+                      ]
+                    },
+                    {
+                      "name": "currency",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "Stake",
+                  "type": "record"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "default": null,
+              "doc": "Opening hours for the live casino table",
+              "name": "openingHours",
+              "type": [
+                "null",
+                {
+                  "doc": "Opening hours for the live casino table",
+                  "fields": [
+                    {
+                      "name": "opening",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "closing",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "timeZone",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "fullTime",
+                      "type": "boolean"
+                    }
+                  ],
+                  "name": "OpeningHours",
+                  "type": "record"
+                }
+              ]
+            }
+          ],
+          "name": "LiveCasinoStaticData",
+          "type": "record"
+        },
+        {
+          "fields": [
+            {
+              "default": null,
+              "name": "walletId",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "tokenSetId",
+              "type": [
+                "null",
+                "long"
+              ]
+            },
+            {
+              "default": null,
+              "name": "playerUid",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "externalTxId",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "balance",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "amount",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "operationType",
+              "type": [
+                "null",
+                {
+                  "avro.java.string": "String",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "subSystemMeta",
+              "type": [
+                "null",
+                {
+                  "fields": [
+                    {
+                      "default": null,
+                      "name": "subSystemType",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "subSystemTxUid",
+                      "type": [
+                        "null",
+                        {
+                          "avro.java.string": "String",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "SubSystemMeta",
+                  "type": "record"
+                }
+              ]
+            }
+          ],
+          "name": "TokenWalletUpdate",
+          "type": "record"
+        },
+        {
+          "doc": "Published when a player's journey progresses: journey assigned/completed/dismissed, wager/wager-count node progress, or a payout completion",
+          "fields": [
+            {
+              "name": "eventId",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "playerUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "name": "playerJourneyUid",
+              "type": {
+                "avro.java.string": "String",
+                "type": "string"
+              }
+            },
+            {
+              "default": "UNKNOWN",
+              "name": "type",
+              "type": {
+                "default": "UNKNOWN",
+                "name": "PlayerJourneyEventType",
+                "symbols": [
+                  "UNKNOWN",
+                  "JOURNEY_EVENT",
+                  "NODE_EVENT",
+                  "PAYOUT_EVENT"
+                ],
+                "type": "enum"
+              }
+            },
+            {
+              "default": null,
+              "name": "journeyEvent",
+              "type": [
+                "null",
+                {
+                  "fields": [
+                    {
+                      "default": "UNKNOWN",
+                      "name": "journeyEventType",
+                      "type": {
+                        "default": "UNKNOWN",
+                        "name": "JourneyEventType",
+                        "symbols": [
+                          "UNKNOWN",
+                          "JOURNEY_ASSIGNED",
+                          "JOURNEY_COMPLETED",
+                          "JOURNEY_DISMISSED"
+                        ],
+                        "type": "enum"
+                      }
+                    },
+                    {
+                      "default": null,
+                      "name": "playerJourney",
+                      "type": [
+                        "null",
+                        {
+                          "fields": [
+                            {
+                              "default": null,
+                              "name": "uid",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "journeyUid",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "playerUid",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "state",
+                              "type": [
+                                "null",
+                                {
+                                  "default": "UNKNOWN",
+                                  "name": "PlayerJourneyState",
+                                  "symbols": [
+                                    "UNKNOWN",
+                                    "ACTIVE",
+                                    "EXPIRED",
+                                    "FINISHED",
+                                    "DISMISSED"
+                                  ],
+                                  "type": "enum"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "trigger",
+                              "type": [
+                                "null",
+                                {
+                                  "default": "UNKNOWN",
+                                  "name": "JourneyTrigger",
+                                  "symbols": [
+                                    "UNKNOWN",
+                                    "OPTIMOVE",
+                                    "HANDOUT",
+                                    "BONUS",
+                                    "SIGNUP",
+                                    "LOGIN",
+                                    "SYMPLIFY",
+                                    "PAYOUT_REWARDS",
+                                    "DEPOSIT",
+                                    "LOYALTY",
+                                    "EXTERNAL_REWARD_WIN",
+                                    "MARKETPLACE",
+                                    "REFER_A_FRIEND",
+                                    "TIGER_MISSION"
+                                  ],
+                                  "type": "enum"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "externalUid",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            {
+                              "default": {},
+                              "name": "triggerMetadataMap",
+                              "type": {
+                                "avro.java.string": "String",
+                                "type": "map",
+                                "values": {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            {
+                              "default": null,
+                              "name": "subsystem",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "journeyVersion",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          ],
+                          "name": "Journey",
+                          "type": "record"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "JourneyEvent",
+                  "type": "record"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "nodeEvent",
+              "type": [
+                "null",
+                {
+                  "fields": [
+                    {
+                      "default": "UNKNOWN",
+                      "name": "nodeEventType",
+                      "type": {
+                        "default": "UNKNOWN",
+                        "name": "NodeEventType",
+                        "symbols": [
+                          "UNKNOWN",
+                          "NODE_STARTED",
+                          "NODE_UPDATED",
+                          "NODE_COMPLETED",
+                          "NODE_EXPIRED"
+                        ],
+                        "type": "enum"
+                      }
+                    },
+                    {
+                      "default": null,
+                      "name": "node",
+                      "type": [
+                        "null",
+                        {
+                          "doc": "Shared minimal node payload, reused by both NodeEvent (all node types) and PayoutEvent (payout node types). Only the field matching nodeType is ever populated",
+                          "fields": [
+                            {
+                              "default": null,
+                              "name": "uid",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "journeyConfigNodeUid",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            {
+                              "default": "UNKNOWN",
+                              "name": "nodeType",
+                              "type": {
+                                "default": "UNKNOWN",
+                                "name": "PlayerJourneyNodeType",
+                                "symbols": [
+                                  "UNKNOWN",
+                                  "CLAIM",
+                                  "DEPOSIT",
+                                  "WAGER",
+                                  "WAGER_COUNT",
+                                  "DEPOSIT_SWITCH",
+                                  "PROBABILITY_SWITCH",
+                                  "PLAYER_SELECTED_SWITCH",
+                                  "EXTERNAL_REWARD_PAYOUT",
+                                  "FIXED_PAYOUT",
+                                  "MATCH_BONUS_PAYOUT",
+                                  "TIGER_REWARD_PAYOUT",
+                                  "TOKEN_PAYOUT",
+                                  "CUSTOM_AMOUNT_PAYOUT",
+                                  "EMPTY_PAYOUT"
+                                ],
+                                "type": "enum"
+                              }
+                            },
+                            {
+                              "default": null,
+                              "name": "claimNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [],
+                                  "name": "ClaimNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "depositNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": null,
+                                      "name": "amount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "minAmount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "name": "DepositNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "wagerNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": null,
+                                      "name": "targetAmount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "currentAmount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": [],
+                                      "name": "verticals",
+                                      "type": {
+                                        "items": {
+                                          "default": "UNKNOWN",
+                                          "name": "Vertical",
+                                          "symbols": [
+                                            "UNKNOWN",
+                                            "CASINO",
+                                            "SPORTS",
+                                            "LIVECASINO",
+                                            "BINGO"
+                                          ],
+                                          "type": "enum"
+                                        },
+                                        "type": "array"
+                                      }
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "sportsContribution",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "name": "WagerNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "wagerCountNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": null,
+                                      "name": "targetAmount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "currentAmount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "targetCount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "currentCount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": [],
+                                      "name": "verticals",
+                                      "type": {
+                                        "items": "Vertical",
+                                        "type": "array"
+                                      }
+                                    }
+                                  ],
+                                  "name": "WagerCountNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "depositSwitchNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": [],
+                                      "name": "nodeRanges",
+                                      "type": {
+                                        "items": {
+                                          "fields": [
+                                            {
+                                              "default": null,
+                                              "name": "nodeUid",
+                                              "type": [
+                                                "null",
+                                                {
+                                                  "avro.java.string": "String",
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "default": null,
+                                              "name": "min",
+                                              "type": [
+                                                "null",
+                                                {
+                                                  "avro.java.string": "String",
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "default": null,
+                                              "name": "minInclusive",
+                                              "type": [
+                                                "null",
+                                                "boolean"
+                                              ]
+                                            },
+                                            {
+                                              "default": null,
+                                              "name": "max",
+                                              "type": [
+                                                "null",
+                                                {
+                                                  "avro.java.string": "String",
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "default": null,
+                                              "name": "maxInclusive",
+                                              "type": [
+                                                "null",
+                                                "boolean"
+                                              ]
+                                            }
+                                          ],
+                                          "name": "NodeRange",
+                                          "type": "record"
+                                        },
+                                        "type": "array"
+                                      }
+                                    }
+                                  ],
+                                  "name": "DepositSwitchNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "probabilitySwitchNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": [],
+                                      "name": "nodeProbabilityRanges",
+                                      "type": {
+                                        "items": {
+                                          "fields": [
+                                            {
+                                              "default": null,
+                                              "name": "percentage",
+                                              "type": [
+                                                "null",
+                                                {
+                                                  "avro.java.string": "String",
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "default": null,
+                                              "name": "nodeUid",
+                                              "type": [
+                                                "null",
+                                                {
+                                                  "avro.java.string": "String",
+                                                  "type": "string"
+                                                }
+                                              ]
+                                            }
+                                          ],
+                                          "name": "NodeProbabilityRange",
+                                          "type": "record"
+                                        },
+                                        "type": "array"
+                                      }
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "hasMustDropNode",
+                                      "type": [
+                                        "null",
+                                        "boolean"
+                                      ]
+                                    }
+                                  ],
+                                  "name": "ProbabilitySwitchNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "playerSelectedSwitchNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": [],
+                                      "name": "nodeUids",
+                                      "type": {
+                                        "items": {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        },
+                                        "type": "array"
+                                      }
+                                    }
+                                  ],
+                                  "name": "PlayerSelectedSwitchNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "externalRewardPayoutNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": null,
+                                      "name": "externalRewardUid",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "name": "ExternalRewardPayoutNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "fixedPayoutNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": null,
+                                      "name": "currencyAmount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "vertical",
+                                      "type": [
+                                        "null",
+                                        "Vertical"
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "turnoverRequirement",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "name": "FixedPayoutNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "matchBonusPayoutNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": null,
+                                      "name": "bonusAmount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "vertical",
+                                      "type": [
+                                        "null",
+                                        "Vertical"
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "turnoverRequirement",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "name": "MatchBonusPayoutNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "tigerRewardPayoutNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": null,
+                                      "name": "externalRewardUid",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "name": "TigerRewardPayoutNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "tokenPayoutNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": null,
+                                      "name": "tokenSetId",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "tokensAmount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "name": "TokenPayoutNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "customAmountPayoutNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [
+                                    {
+                                      "default": null,
+                                      "name": "amount",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "vertical",
+                                      "type": [
+                                        "null",
+                                        "Vertical"
+                                      ]
+                                    },
+                                    {
+                                      "default": null,
+                                      "name": "turnoverRequirement",
+                                      "type": [
+                                        "null",
+                                        {
+                                          "avro.java.string": "String",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "name": "CustomAmountPayoutNode",
+                                  "type": "record"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "emptyPayoutNode",
+                              "type": [
+                                "null",
+                                {
+                                  "fields": [],
+                                  "name": "EmptyPayoutNode",
+                                  "type": "record"
+                                }
+                              ]
+                            }
+                          ],
+                          "name": "PlayerJourneyNode",
+                          "type": "record"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "NodeEvent",
+                  "type": "record"
+                }
+              ]
+            },
+            {
+              "default": null,
+              "name": "payoutEvent",
+              "type": [
+                "null",
+                {
+                  "fields": [
+                    {
+                      "default": "UNKNOWN",
+                      "name": "payoutEventType",
+                      "type": {
+                        "default": "UNKNOWN",
+                        "name": "PayoutEventType",
+                        "symbols": [
+                          "UNKNOWN",
+                          "PAYOUT_COMPLETED"
+                        ],
+                        "type": "enum"
+                      }
+                    },
+                    {
+                      "default": null,
+                      "name": "node",
+                      "type": [
+                        "null",
+                        "PlayerJourneyNode"
+                      ]
+                    },
+                    {
+                      "default": null,
+                      "name": "payout",
+                      "type": [
+                        "null",
+                        {
+                          "fields": [
+                            {
+                              "default": null,
+                              "name": "state",
+                              "type": [
+                                "null",
+                                {
+                                  "default": "UNKNOWN",
+                                  "name": "PayoutState",
+                                  "symbols": [
+                                    "UNKNOWN",
+                                    "NOT_STARTED",
+                                    "STARTED",
+                                    "PENDING",
+                                    "WAITING_FOR_RESPONSE",
+                                    "FAILED",
+                                    "COMPLETED"
+                                  ],
+                                  "type": "enum"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "message",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "externalPayoutUid",
+                              "type": [
+                                "null",
+                                {
+                                  "avro.java.string": "String",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "payoutDate",
+                              "type": [
+                                "null",
+                                "long"
+                              ]
+                            },
+                            {
+                              "default": null,
+                              "name": "updatedDateTime",
+                              "type": [
+                                "null",
+                                "long"
+                              ]
+                            }
+                          ],
+                          "name": "Payout",
+                          "type": "record"
+                        }
+                      ]
+                    }
+                  ],
+                  "name": "PayoutEvent",
+                  "type": "record"
+                }
+              ]
+            }
+          ],
+          "name": "PlayerJourney",
+          "type": "record"
+        }
+      ]
+    }
+  ],
+  "name": "FrontendEvent",
+  "namespace": "com.gearsofleo.platform.integration.frontend.event.api",
+  "type": "record"
+}

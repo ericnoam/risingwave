@@ -1,0 +1,29 @@
+graph TD
+    %% Events and Triggers
+    Watermark[Watermark Event Received] -->|Trigger| Scan[Check Partition Workload]
+
+    %% The Legacy/Inefficient Path (Before)
+    Scan --> Legacy{Full Sweep?}
+    Legacy -->|Yes| All[Scan ALL live partitions]
+    All -->|Costly| Process1[Process/Update Idle Partitions]
+    Process1 -->|Slow for high cardinality| Finish1[Done]
+
+    %% The Optimized/Frontier State Path (After)
+    Scan --> Optimized{Use Frontier State?}
+    Optimized -->|Yes| QueryIndex[Query frontier_index_by_time]
+
+    subgraph FrontierState [Frontier State Tables]
+        Meta[frontier_meta_by_partition]
+        Index[frontier_index_by_time]
+    end
+
+    QueryIndex -->|Get Active Partitions| Target[Only process active partitions]
+    Target --> Process2[Process/Update relevant partition]
+    Process2 --> UpdateMeta[Update frontier_meta_by_partition]
+    UpdateMeta --> UpdateIndex[Update frontier_index_by_time]
+    UpdateIndex --> Finish2[Done - Efficient]
+
+    %% Styling
+    style Optimized fill:#d4edda,stroke:#28a745,stroke-width:2px
+    style FrontierState fill:#f8f9fa,stroke:#343a40,stroke-width:1px
+    style All fill:#f8d7da,stroke:#dc3545,stroke-width:2px

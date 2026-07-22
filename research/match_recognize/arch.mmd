@@ -1,0 +1,36 @@
+graph TD
+    subgraph "Control Plane"
+        Meta[Meta Node]
+    end
+
+    subgraph "Persistence Layer"
+        S3[(Object Storage / Hummock)]
+        Compactor[Compactor Node]
+    end
+
+    subgraph "Compute Plane (Physical Nodes)"
+        direction LR
+        subgraph CN1 [Compute Node 1]
+            V1[Vnode 1]
+            V2[Vnode 2]
+            Actor1[Streaming Actor]
+        end
+        subgraph CN2 [Compute Node 2]
+            V3[Vnode 3]
+            V4[Vnode 4]
+            Actor2[Streaming Actor]
+        end
+    end
+
+    %% Data Flow
+    DataIn((Incoming Stream)) -->|"Hash(Key)"| V1
+    DataIn -->|"Hash(Key)"| V2
+    DataIn -->|"Hash(Key)"| V3
+    DataIn -->|"Hash(Key)"| V4
+
+    %% Relationships
+    Meta <-->|Coordination & Schedule| CN1
+    Meta <-->|Coordination & Schedule| CN2
+    CN1 <-->|State Read/Write| S3
+    CN2 <-->|State Read/Write| S3
+    S3 <--> Compactor
